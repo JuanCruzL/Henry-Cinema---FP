@@ -1,3 +1,8 @@
+body{
+  margin:0;
+  padding:0;
+}
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -13,6 +18,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  margin: 0;
+  padding: 0;
 }
 
 a {

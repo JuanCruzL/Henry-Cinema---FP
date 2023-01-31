@@ -1,0 +1,80 @@
+@import url(../Utils/Pallette.css);
+
+.light-mode {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.light-mode {
+    color: var(--dark-color);
+}
+
+.light-mode button {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.light-mode li{
+    color: var(--dark-color);
+}
+
+.light-mode ul {
+    background-color: var(--light-color);
+}
+
+.light-mode .container {
+    border: 10px solid var(--light-color);
+}
+
+
+.dark-mode {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.dark-mode {
+    color: var(--dark-color);
+}
+
+.dark-mode button {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.dark-mode li {
+    color: var(--light-color);
+}
+
+.dark-mode ul {
+    background-color: var(--dark-color);
+}
+
+.dark-mode .container {
+    border: 10px solid var(--dark-color);
+}
+
+
+
+
+.navHome ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navHome li {
+    float: left;
+}
+
+.navHome li {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navHome li:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
