@@ -1,1 +1,1 @@
-console.log("bug arreglado ");
+console.log("bug arreglado 1");
