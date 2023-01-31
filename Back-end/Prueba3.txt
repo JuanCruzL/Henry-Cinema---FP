@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-Prueba 4 ---> prueba 4
-=======
-Prueba 4 ---> prueba 4
-Prueba 4
->>>>>>> c3550019c488d562e23b95a4fa4ebc7477fb79b0
