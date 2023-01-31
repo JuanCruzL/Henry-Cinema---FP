@@ -1,13 +1,14 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, UUIDV4 } = require('sequelize');
 
 module.exports = (sequelize) => {
   // define the model
   sequelize.define('Seat', {
     
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       primaryKey: true,
       autoIncrement: true,
+      defaultValue: UUIDV4,
       allowNull: false,
       
     },
