@@ -12,10 +12,6 @@ module.exports = (sequelize) => {
             type: DataTypes.BOOLEAN,
             allowNull: false,
         },
-        paid: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-        },
         reservation_contact: {
             type: DataTypes.STRING
         },
