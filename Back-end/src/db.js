@@ -1,11 +1,11 @@
 require("dotenv").config();
-const { Sequelize } = require("sequelize");
+const { Sequelize, DataTypes } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/food`,
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/henryCinema`,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
@@ -37,13 +37,38 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { all the models } = sequelize.models; // cambiar 'all the models' por cada modelo de la carpeta models
+const { User, Ticket, Seat, Screening, Review, Reservation, Movie, Genres, Combo, Auditorium, Drink, Food } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-Recipe.belongsToMany(Type, { through: "Recipe_Type" }); // cambiar 'recipe' y 'type' por cada uno de los modelos y sus relaciones.
-Type.belongsToMany(Recipe, { through: "Recipe_Type" });
+User.hasMany(Review, { foreignKey: { type: DataTypes.UUID } });
+Review.belongsTo(User);
+User.belongsToMany(Combo, { through: "User_Combo" });
+Combo.belongsToMany(User, { through: "User_Combo" });
+User.belongsToMany(Food, { through: "User_Food" });
+Food.belongsToMany(User, { through: "User_Food" });
+User.belongsToMany(Drink, { through: "User_Drink" });
+Drink.belongsToMany(User, { through: "User_Drink" });
+User.hasMany(Reservation, { foreignKey: { type: DataTypes.UUID } });
+Reservation.belongsTo(User);
+Screening.hasMany(Reservation, { foreignKey: { type: DataTypes.UUID } });
+Reservation.belongsTo(Screening);
+Auditorium.hasMany(Screening, { foreignKey: { type: DataTypes.UUID } });
+Screening.belongsTo(Auditorium);
+Auditorium.hasMany(Seat, { foreignKey: { type: DataTypes.UUID } });
+Seat.belongsTo(Auditorium);
+Reservation.belongsToMany(Seat, { through: "Reservation_Seat" });
+Seat.belongsToMany(Reservation, { through: "Reservation_Seat" });
+Ticket.hasOne(Reservation, { foreignKey: { type: DataTypes.UUID } });
+Reservation.belongsTo(Ticket);
+User.hasMany(Ticket, { foreignKey: { type: DataTypes.UUID } });
+Ticket.belongsTo(User);
+Movie.belongsToMany(Genres, { through: "Movie_Genres" });
+Genres.belongsToMany(Movie, { through: "Movie_Genres" });
+Movie.hasMany(Screening, { foreignKey: { type: DataTypes.UUID } });
+Screening.belongsTo(Movie);
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
