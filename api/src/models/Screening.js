@@ -1,14 +1,14 @@
 const { DataTypes, UUIDV4 } = require('sequelize');
+//const { v4: uuidv4 } = require('uuid');
 
 module.exports = (sequelize) => {
   // define the model
   sequelize.define('Screening', {
     
     id: {
-      type: DataTypes.UUID,
-      primaryKey: true,
+      type: DataTypes.INTEGER,
       autoIncrement: true,
-      defaultValue: UUIDV4,
+      primaryKey: true,
       allowNull: false,
       
     },
