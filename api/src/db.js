@@ -64,10 +64,10 @@ Ticket.hasOne(Reservation, { foreignKey: { type: DataTypes.UUID } });
 Reservation.belongsTo(Ticket);
 User.hasMany(Ticket, { foreignKey: { type: DataTypes.UUID } });
 Ticket.belongsTo(User);
-Movie.belongsToMany(Genres, { through: "Movie_Genres" });
-Genres.belongsToMany(Movie, { through: "Movie_Genres" });
-Movie.hasMany(Screening, { foreignKey: { type: DataTypes.UUID } });
-Screening.belongsTo(Movie);
+//Movie.belongsToMany(Genres, { through: "Movie_Genres" });
+//Genres.belongsToMany(Movie, { through: "Movie_Genres" });
+//Movie.hasMany(Screening, { foreignKey: { type: DataTypes.UUID } });
+//Screening.belongsTo(Movie);
 
 
 module.exports = {
