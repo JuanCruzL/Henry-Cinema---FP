@@ -6,8 +6,9 @@ module.exports = (sequelize) => {
   sequelize.define('Screening', {
     
     id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
+      type: DataTypes.UUID,
+      //autoIncrement: true,
+      defaultValue: UUIDV4,
       primaryKey: true,
       allowNull: false,
       

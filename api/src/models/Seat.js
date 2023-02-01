@@ -6,8 +6,9 @@ module.exports = (sequelize) => {
   sequelize.define('Seat', {
     
     id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
+      type: DataTypes.UUID,
+      //autoIncrement: true,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
       allowNull: false,
       
