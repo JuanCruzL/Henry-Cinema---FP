@@ -1,4 +1,5 @@
-const { DataTypes, UUIDV4 } = require('sequelize');
+const { DataTypes } = require('sequelize');
+//const { v4: uuidv4 } = require('uuid');
 
 module.exports = (sequelize) => {
   // define the model
@@ -6,9 +7,9 @@ module.exports = (sequelize) => {
     
     id: {
       type: DataTypes.UUID,
-      primaryKey: true,
-      autoIncrement: true,
+      //autoIncrement: true,
       defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
       allowNull: false,
       
     },
