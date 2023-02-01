@@ -37,12 +37,12 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { User, Ticket, Seat, Screening, Review, Reservation, Movie, Genres, Combo, Auditorium, Drink, Food } = sequelize.models;
+const { User, Ticket, Seat, Screening, Review, Reservation, Combo, Auditorium, Drink, Food } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-User.hasMany(Review, { foreignKey: { type: DataTypes.UUID } });
+User.hasMany(Review, { foreignKey: { type: DataTypes.INTEGER } });
 Review.belongsTo(User);
 User.belongsToMany(Combo, { through: "User_Combo" });
 Combo.belongsToMany(User, { through: "User_Combo" });
@@ -50,24 +50,24 @@ User.belongsToMany(Food, { through: "User_Food" });
 Food.belongsToMany(User, { through: "User_Food" });
 User.belongsToMany(Drink, { through: "User_Drink" });
 Drink.belongsToMany(User, { through: "User_Drink" });
-User.hasMany(Reservation, { foreignKey: { type: DataTypes.UUID } });
+User.hasMany(Reservation, { foreignKey: { type: DataTypes.INTEGER } });
 Reservation.belongsTo(User);
-Screening.hasMany(Reservation, { foreignKey: { type: DataTypes.UUID } });
+Screening.hasMany(Reservation, { foreignKey: { type: DataTypes.INTEGER } });
 Reservation.belongsTo(Screening);
-Auditorium.hasMany(Screening, { foreignKey: { type: DataTypes.UUID } });
+Auditorium.hasMany(Screening, { foreignKey: { type: DataTypes.INTEGER } });
 Screening.belongsTo(Auditorium);
-Auditorium.hasMany(Seat, { foreignKey: { type: DataTypes.UUID } });
+Auditorium.hasMany(Seat, { foreignKey: { type: DataTypes.INTEGER } });
 Seat.belongsTo(Auditorium);
 Reservation.belongsToMany(Seat, { through: "Reservation_Seat" });
 Seat.belongsToMany(Reservation, { through: "Reservation_Seat" });
-Ticket.hasOne(Reservation, { foreignKey: { type: DataTypes.UUID } });
+Ticket.hasOne(Reservation, { foreignKey: { type: DataTypes.INTEGER } });
 Reservation.belongsTo(Ticket);
-User.hasMany(Ticket, { foreignKey: { type: DataTypes.UUID } });
+User.hasMany(Ticket, { foreignKey: { type: DataTypes.INTEGER } });
 Ticket.belongsTo(User);
-Movie.belongsToMany(Genres, { through: "Movie_Genres" });
-Genres.belongsToMany(Movie, { through: "Movie_Genres" });
-Movie.hasMany(Screening, { foreignKey: { type: DataTypes.UUID } });
-Screening.belongsTo(Movie);
+//Movie.belongsToMany(Genres, { through: "Movie_Genres" });
+//Genres.belongsToMany(Movie, { through: "Movie_Genres" });
+//Movie.hasMany(Screening, { foreignKey: { type: DataTypes.UUID } });
+//Screening.belongsTo(Movie);
 
 
 module.exports = {

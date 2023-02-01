@@ -1,11 +1,12 @@
 const { DataTypes } = require('sequelize');
+//const { v4: uuidv4 } = require('uuid');
 
 module.exports = (sequelize) => {
-    sequelize.define('reservation', {
+    sequelize.define('Reservation', {
         id: {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull: false,
-            defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
         reserved: {

@@ -1,11 +1,12 @@
 const { DataTypes } = require('sequelize');
+//const { v4: uuidv4 } = require('uuid');
 
 module.exports= (sequelize) =>{
-    sequelize.define('review',{
+    sequelize.define('Review',{
         id : {
-            type: DataTypes.UUID,
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
             primaryKey: true,
-            defaultValue: DataTypes.UUIDV4,
             allowNull:false
         },
         score:{
