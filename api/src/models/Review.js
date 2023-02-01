@@ -4,8 +4,9 @@ const { DataTypes } = require('sequelize');
 module.exports= (sequelize) =>{
     sequelize.define('Review',{
         id : {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
+            type: DataTypes.UUID,
+            //autoIncrement: true,
+            defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
             allowNull:false
         },
