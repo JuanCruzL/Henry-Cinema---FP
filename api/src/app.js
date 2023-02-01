@@ -2,8 +2,8 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const recipeRoute = require('./routes/recipeRoutes');
-const typeRoute = require('./routes/typeRoutes');
+const moviesRoutes = require('./routes/moviesRoutes');
+
 
 require('./db.js');
 
@@ -34,6 +34,6 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 server.use('/movies', moviesRoutes);
-server.use('/foodAndDrinks', foodAndDrinksRoutes);
+//server.use('/foodAndDrinks', foodAndDrinksRoutes); // falta importar el archivo de rutas!!!!
 
 module.exports = server;
