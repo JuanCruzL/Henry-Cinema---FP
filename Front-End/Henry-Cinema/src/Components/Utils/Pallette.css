@@ -1,4 +1,17 @@
 :root {
-    --dark-color: #111;
-    --light-color: #eee;
+    --Base: #ffff00;
+    
+    /* LIGHT */
+    --LBase-1: #000000;
+    --LBase-2: #ffffff;
+    --LFondo-1: #ffffff;
+    --LText-1: #000000;
+    --LText-2: #ffffff;
+    
+    /* NIGHT */
+    --NBase-1: #ffffff;
+    --NBase-2: #000000;
+    --NFondo-1: #000000;
+    --NText-1: #ffffff;
+    --NText-2: #000000;
 }
