@@ -24,7 +24,7 @@
     color: var(--LText-2);
 }
 
-.light-mode .CardProvicional button {
+.light-mode .HomeCarrusel button {
     color: var(--LText-1);
     background-color: var(--Base);
 }
@@ -74,7 +74,7 @@
     color: var(--NText-2);
 }
 
-.dark-mode .CardProvicional button {
+.dark-mode .HomeCarrusel button {
     color: var(--NText-2);
     background-color: var(--Base);
 }
@@ -182,103 +182,7 @@ a {
 }
 
 /*CARRUSEL*/
-.CardProvicional {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
 
-.CardProvicional button {
-    position: absolute;
-    border: none;
-    font-size: 20px;
-    font-weight: 600;
-    height: 15%;
-    top: calc(50% - 10%);
-    line-height: 40px;
-    width: 10px;
-    cursor: pointer;
-    z-index: 500;
-
-    transition: .2s ease all;
-}
-
-.CardProvicional button:hover {
-    opacity: 0.9;
-}
-
-.CardProvicional .Prev {
-    opacity: 0.3;
-    left: 0;
-}
-
-.CardProvicional .Next {
-    opacity: 0.3;
-    right: 0;
-}
-
-.CardProvicional .BuyT {
-    padding: 0;
-    
-    font-size: 10px;
-    width: 120px;
-    height: 9%;
-    top: auto;
-    bottom: 8%;
-    margin-left: 20px;
-}
-
-.CardProvicional .Trail {
-    padding: 0;
-
-    font-size: 10px;
-    width: 120px;
-    height: 9%;
-    top: auto;
-    bottom: 8%;
-    margin-left: 200px;
-}
-
-
-.contenedorCarrusel {
-    padding: 20px 0;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    scroll-behavior: smooth;
-}
-
-.Carrusel {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.Carrusel .card {
-    padding: 0;
-    margin: 0;
-    min-width: 100%;
-    /* cantidad */
-    height: 372px;
-    transition: .3s ease all;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
-    text-align: center;
-
-}
-
-.Carrusel img {
-    width: 100%;
-    height: 100%;
-    vertical-align: top;
-    transition: .5s ease all;
-}
-
-.Carrusel img:hover {
-    transition: .5s;
-    transform: scale(1.05);
-    transform-origin: center;
-}
 
 
 .Contenedor-Peliculas {
