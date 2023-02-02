@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        movie_: {
+        movie_title: {
             type: DataTypes.INTEGER,
         }
     })
