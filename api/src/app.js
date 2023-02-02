@@ -2,8 +2,16 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+/* routes */
 const moviesRoutes = require('./routes/moviesRoutes');
-
+const foodRoutes= require('./routes/foodRoutes');
+const drinkRoutes = require('./routes/drinkRoutes');
+const comboRoutes = require('./routes/comboRoutes');
+const genreRoutes = require('./routes/genreRoutes');
+const auditoriumRoutes = require('./routes/auditoriumRoutes');
+const reviewRoutes = require('./routes/reviewRoutes');
+const screeningRoutes = require('./routes/screeningRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 require('./db.js');
 
@@ -34,6 +42,14 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 server.use('/movies', moviesRoutes);
-//server.use('/foodAndDrinks', foodAndDrinksRoutes); // falta importar el archivo de rutas!!!!
+server.use('/combo', comboRoutes);
+server.use('/food',foodRoutes);
+server.use('/drink', drinkRoutes); 
+server.use('/genre',genreRoutes);
+server.use('/auditorium', auditoriumRoutes);
+server.use('/review', reviewRoutes);
+server.use('/screening', screeningRoutes);
+server.use('/user', userRoutes);
+
 
 module.exports = server;

@@ -1,5 +1,11 @@
+import{
+  AGE_CLASSIFICATION,
+
+} from "../actions"
+
 const initialState = {
   movies: [],
+  allMovies: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -8,8 +14,16 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         movies: [...action, payload],
+        allMovies:[...action, payload]
       };
     }
+    case AGE_CLASSIFICATION:
+      const allM= state.allMovies;
+      const age_classification =allM.filter(data =>data.classification===payload)
+     return{
+        ...state,
+        movies:age_classification
+     }
     default:
       return state;
   }
