@@ -44,7 +44,7 @@ const getMovies = async () => {
 const getMovieById = async (id) => {
   const config = { headers: { "Accept-Encoding": null } };
   let movieApiById = {};
-  const { data } = await axios.get(
+  const  data  = await axios.get(
     `https://api.themoviedb.org/3/movie/${id}?api_key=12bc260a161636d41e2bc6dc6af19c99`,
     config
   );
@@ -52,8 +52,15 @@ const getMovieById = async (id) => {
     `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=12bc260a161636d41e2bc6dc6af19c99&language=en-US&page=1`,
     config
   );
+  const videos = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=12bc260a161636d41e2bc6dc6af19c99&language=en-US`,
+    config
+  );
   const imageFromApi = data.poster_path;
   const reviewApiResults = reviewApi.data.results;
+  const videosApiResults = videos.data.results;
+  const trailerKey = videosApiResults[0].key;
+  console.log(trailerKey);
   const classificationAdapted = () => {
     if(data.adult === true) {
       movieApiById.classification = 'Restricted';
@@ -72,8 +79,10 @@ const getMovieById = async (id) => {
     productionCompanies: data.production_companies.map((pc) => pc.name),
     voteAverage: data.vote_average,
     runtime: data.runtime,
+    video: `https://www.youtube.com/watch?v=${trailerKey}`,
   };
   classificationAdapted();
+  console.log(movieApiById);
   return movieApiById;
 };
 

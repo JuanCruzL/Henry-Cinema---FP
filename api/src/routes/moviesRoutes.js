@@ -21,11 +21,14 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    res.status(200).json(await getMovieById(id));
+    let movieFound = await getMovieById(id);
+    res.status(200).send(movieFound);
   } catch (error) {
     res.status(500).send(error);
   }
 })
+
+
 
 
 module.exports = router;
