@@ -7,7 +7,6 @@ module.exports = (sequelize) => {
     
     id: {
       type: DataTypes.UUID,
-      //autoIncrement: true,
       defaultValue: UUIDV4,
       primaryKey: true,
       allowNull: false,
@@ -21,8 +20,8 @@ module.exports = (sequelize) => {
         type: DataTypes.TIME,
         allowNull: false
     },
-    classification: {
-        type: DataTypes.STRING,
+    date: {
+        type: DataTypes.DATE,
         allowNull: false
     }
   });
