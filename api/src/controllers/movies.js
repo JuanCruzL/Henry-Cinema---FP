@@ -44,7 +44,7 @@ const getMovies = async () => {
 const getMovieById = async (id) => {
   const config = { headers: { "Accept-Encoding": null } };
   let movieApiById = {};
-  const  data  = await axios.get(
+  const { data } = await axios.get(
     `https://api.themoviedb.org/3/movie/${id}?api_key=12bc260a161636d41e2bc6dc6af19c99`,
     config
   );
