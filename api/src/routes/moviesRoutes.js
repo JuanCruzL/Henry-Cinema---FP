@@ -1,8 +1,6 @@
 const { Router } = require("express");
 const axios = require("axios");
-const { getMovies } = require("../controllers/movies");
-const { getMovieById } = require("../controllers/getMovieById");
-//const { API_KEY } = process.env;
+const { getMovies, getMovieById } = require("../controllers/movies");
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -29,5 +27,5 @@ router.get("/:id", async (req, res) => {
   }
 })
 
-//
+
 module.exports = router;

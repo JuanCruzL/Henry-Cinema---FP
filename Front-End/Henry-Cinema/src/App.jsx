@@ -1,12 +1,12 @@
 //import { Route, Switch } from "react-router-dom";
-import Details from "./Components/Details/Details";
+import Home from "./Components/Home/Home";
 //import Movies from "./Components/Movies";
-import "./App.css"
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Details/>
+      <Home />
       {/* <Switch>
         <Route extact path="/" component={Home} />
         <Route path="/Movies" component={Movies} />
