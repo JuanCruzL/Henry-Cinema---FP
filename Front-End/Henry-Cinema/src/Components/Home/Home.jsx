@@ -47,7 +47,7 @@ export default function Home() {
                         <input type="text" placeholder="SearchMovie" className="pagi" />
                         <button type="submit" className="pagiBo">Search</button>
                     </div>
-                    <button type="button" name="Switch" onClick={e => toggleDarkLight(e)} title="Toggle dark/light mode">ðŸŒ›</button>
+                    <button type="button" className="Switch" onClick={e => toggleDarkLight(e)} title="Toggle dark/light mode">🌆</button>
                     <a>
                         <img src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png" width={30} height={30}></img>
                     </a>
@@ -151,7 +151,31 @@ export default function Home() {
                 </div>
                 <br></br>
                 <footer>
-                    CONTACT US
+                    <h1>CONTACT US</h1>
+                    <br></br>
+                    <div className="Contact">
+                        <div>
+                            <p>Contacto 1</p>
+                        </div>
+                        <div>
+                            <p>Contacto 2</p>
+                        </div>
+                        <div>
+                            <p>Contacto 3</p>
+                        </div>
+                        <div>
+                            <p>Contacto 4</p>
+                        </div>
+                        <div>
+                            <p>Contacto 5</p>
+                        </div>
+                        <div>
+                            <p>Contacto 6</p>
+                        </div>
+                        <div>
+                            <p>Contacto 7</p>
+                        </div>
+                    </div>
                 </footer>
             </div>
 
