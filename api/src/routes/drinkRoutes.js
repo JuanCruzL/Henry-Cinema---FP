@@ -4,7 +4,7 @@ const { Drink } = require("../db");
 const router = Router();
 
 /* Controllers */
-const { getDrinkDb } = require("../controllers/drink.js");
+const { getDrinkDb } = require("../controllers/drinks.js");
 
 /* routes */
 
