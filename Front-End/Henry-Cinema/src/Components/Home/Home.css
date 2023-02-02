@@ -1,51 +1,50 @@
 @import url(../Utils/Pallette.css);
 
-
 /* Aqui Color Modo Dia */
 .light-mode {
-    background-color: var(--light-color);
-    color: var(--dark-color);
+    background-color: var(--LFondo-1);
+    color: var(--LText-1);
 }
 
 .light-mode button {
-    background-color: var(--light-color);
-    color: var(--dark-color);
+    background-color: var(--LBase-1);
+    color: var(--LText-2);
 }
 
 .light-mode .grid-container {
-    background-color: var(--dark-color);
+    background-color: var(--Base);
 }
 
 .light-mode .grid-container a {
-    color: var(--light-color);
+    color: var(--LText-1);
 }
 
 .light-mode .grid-container input {
-    background-color: var(--light-color);
-    color: var(--dark-color);
+    background-color: var(--LBase-1);
+    color: var(--LText-2);
 }
 
 .light-mode .CardProvicional button {
-    color: var(--light-color);
-    background-color: var(--dark-color);
+    color: var(--LText-1);
+    background-color: var(--Base);
 }
 
 .light-mode .Contenedor-Peliculas button {
-    color: var(--light-color);
-    background-color: var(--dark-color);
+    color: var(--LText-1);
+    background-color: var(--Base);
 }
 
 .light-mode .Contenedor-Peliculas button:hover {
-    color: var(--dark-color);
+    color: var(--LText-2);
 }
 
 .light-mode .Contenedor-Peliculas button::after {
-    background-color: var(--light-color);
+    background-color: var(--LBase-1);
 }
 
 .light-mode footer {
-    background-color: var(--dark-color);
-    color: var(--light-color);
+    background-color: var(--Base);
+    color: var(--LText-1);
 }
 
 
@@ -53,49 +52,49 @@
 
 /* Aqui Color Modo Noche */
 .dark-mode {
-    background-color: var(--dark-color);
-    color: var(--light-color);
+    background-color: var(--NFondo-1);
+    color: var(--NText-1);
 }
 
 .dark-mode button {
-    background-color: var(--dark-color);
-    color: var(--light-color);
+    background-color: var(--NBase-1);
+    color: var(--NText-2);
 }
 
 .dark-mode .grid-container {
-    background-color: var(--light-color);
+    background-color: var(--Base);
 }
 
 .dark-mode .grid-container a {
-    color: var(--dark-color);
+    color: var(--NText-2);
 }
 
 .dark-mode .grid-container input {
-    background-color: var(--dark-color);
-    color: var(--light-color);
+    background-color: var(--NBase-1);
+    color: var(--NText-2);
 }
 
 .dark-mode .CardProvicional button {
-    color: var(--dark-color);
-    background-color: var(--light-color);
+    color: var(--NText-2);
+    background-color: var(--Base);
 }
 
 .dark-mode .Contenedor-Peliculas button {
-    color: var(--dark-color);
-    background-color: var(--light-color);
+    color: var(--NText-2);
+    background-color: var(--Base);
 }
 
 .dark-mode .Contenedor-Peliculas button:hover {
-    color: var(--light-color);
+    color: var(--NText-1);
 }
 
 .dark-mode .Contenedor-Peliculas button::after {
-    background-color: var(--dark-color);
+    background-color: var(--NBase-2);
 }
 
 .dark-mode footer {
-    background-color: var(--light-color);
-    color: var(--dark-color);
+    background-color: var(--Base);
+    color: var(--NText-2);
 }
 
 
@@ -118,7 +117,7 @@ button {
 }
 
 a {
-    font-weight: 500;
+    font-weight: 600;
     height: 20px;
 }
 
@@ -166,11 +165,13 @@ a {
 }
 
 .grid-container .SearchBar button {
-    font-size: 10px;
+    font-size: 12px;
     border: 1px rgb(66, 60, 60) solid;
-    height: 18px;
+    height: 19px;
     padding: 0;
     padding-top: 3.5px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 .Switch {
@@ -193,6 +194,7 @@ a {
     position: absolute;
     border: none;
     font-size: 20px;
+    font-weight: 600;
     height: 15%;
     top: calc(50% - 10%);
     line-height: 40px;
@@ -219,7 +221,7 @@ a {
 
 .CardProvicional .BuyT {
     padding: 0;
-    border: 2px red solid;
+    
     font-size: 10px;
     width: 120px;
     height: 9%;
@@ -230,7 +232,7 @@ a {
 
 .CardProvicional .Trail {
     padding: 0;
-    border: 2px red solid;
+
     font-size: 10px;
     width: 120px;
     height: 9%;
