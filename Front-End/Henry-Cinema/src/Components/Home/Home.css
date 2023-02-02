@@ -12,32 +12,38 @@
     color: var(--dark-color);
 }
 
-.light-mode .grid-container{
+.light-mode .grid-container {
     background-color: var(--dark-color);
 }
 
-.light-mode .grid-container a{
+.light-mode .grid-container a {
     color: var(--light-color);
 }
-.light-mode .nav3 h2{
-    color: var(--light-color);
-    background-color: var(--dark-color);
+
+.light-mode .grid-container input {
+    background-color: var(--light-color);
+    color: var(--dark-color);
 }
-.light-mode .CardProvicional button{
-    color: var(--light-color);
-    background-color: var(--dark-color);
-}
-.light-mode .Contenedor-Peliculas button{
+
+.light-mode .CardProvicional button {
     color: var(--light-color);
     background-color: var(--dark-color);
 }
+
+.light-mode .Contenedor-Peliculas button {
+    color: var(--light-color);
+    background-color: var(--dark-color);
+}
+
 .light-mode .Contenedor-Peliculas button:hover {
     color: var(--dark-color);
-  }
-.light-mode .Contenedor-Peliculas button::after{
+}
+
+.light-mode .Contenedor-Peliculas button::after {
     background-color: var(--light-color);
 }
-.light-mode footer{
+
+.light-mode footer {
     background-color: var(--dark-color);
     color: var(--light-color);
 }
@@ -56,188 +62,260 @@
     color: var(--light-color);
 }
 
-.dark-mode .grid-container{
+.dark-mode .grid-container {
     background-color: var(--light-color);
 }
 
-.dark-mode .grid-container a{
+.dark-mode .grid-container a {
     color: var(--dark-color);
 }
-.dark-mode .nav3 h2{
-    color: var(--dark-color);
-    background-color: var(--light-color);
+
+.dark-mode .grid-container input {
+    background-color: var(--dark-color);
+    color: var(--light-color);
 }
-.dark-mode .CardProvicional button{
-    color: var(--dark-color);
-    background-color: var(--light-color);
-}
-.dark-mode .Contenedor-Peliculas button{
+
+.dark-mode .CardProvicional button {
     color: var(--dark-color);
     background-color: var(--light-color);
 }
+
+.dark-mode .Contenedor-Peliculas button {
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
 .dark-mode .Contenedor-Peliculas button:hover {
     color: var(--light-color);
-  }
-.dark-mode .Contenedor-Peliculas button::after{
+}
+
+.dark-mode .Contenedor-Peliculas button::after {
     background-color: var(--dark-color);
 }
-.dark-mode footer{
+
+.dark-mode footer {
     background-color: var(--light-color);
     color: var(--dark-color);
 }
 
+
+
+
+
+
+
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+a {
+    font-weight: 500;
+    height: 20px;
+}
 
 /* Aqui les damos forma*/
 
 /*NAVBAR*/
-.navHome{
+.navHome {
     width: 100%;
 }
 
 
-.grid-container{
-    padding-top: 10px;
+.grid-container {
+    padding-top: 15px;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto;
     padding-bottom: 10px;
+    padding-left: 20px;
 }
-.grid-container a{
+
+.grid-container a {
     text-decoration: none;
 }
+
 .grid-container a:hover {
     cursor: pointer;
     opacity: 0.5;
 }
-.grid-container button{
+
+.grid-container .pagiBo {
     padding: 2px;
     font-size: 13px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+
 }
 
+.grid-container .SearchBar {
+    align-items: center;
+}
+
+.grid-container .SearchBar input {
+    border: 1px rgb(66, 60, 60) solid;
+
+    height: 22px;
+}
+
+.grid-container .SearchBar button {
+    font-size: 10px;
+    border: 1px rgb(66, 60, 60) solid;
+    height: 18px;
+    padding: 0;
+    padding-top: 3.5px;
+}
+
+.Switch {
+    text-align: center;
+    width: 20px;
+    padding: 1px 2px 1px 1px;
+    border-radius: 50%;
+}
 
 /*CARRUSEL*/
-.CardProvicional{
+.CardProvicional {
     width: 90%;
     margin: auto;
     display: flex;
     align-items: center;
     position: relative;
 }
-.CardProvicional button{
+
+.CardProvicional button {
     position: absolute;
     border: none;
     font-size: 20px;
     height: 15%;
     top: calc(50% - 10%);
     line-height: 40px;
-    width: 50px;
+    width: 10px;
     cursor: pointer;
     z-index: 500;
-    
+
     transition: .2s ease all;
 }
-.CardProvicional button:hover{
+
+.CardProvicional button:hover {
     opacity: 0.9;
 }
 
-.CardProvicional .Prev{
+.CardProvicional .Prev {
     opacity: 0.3;
     left: 0;
 }
-.CardProvicional .Next{
+
+.CardProvicional .Next {
     opacity: 0.3;
     right: 0;
 }
-.CardProvicional .BuyT{
+
+.CardProvicional .BuyT {
     padding: 0;
     border: 2px red solid;
     font-size: 10px;
     width: 120px;
     height: 9%;
     top: auto;
-    bottom:8%;
+    bottom: 8%;
     margin-left: 20px;
 }
-.CardProvicional .Trail{
+
+.CardProvicional .Trail {
     padding: 0;
     border: 2px red solid;
     font-size: 10px;
     width: 120px;
     height: 9%;
     top: auto;
-    bottom:8%;
+    bottom: 8%;
     margin-left: 200px;
 }
 
 
-.contenedorCarrusel{
+.contenedorCarrusel {
     padding: 20px 0;
     align-items: center;
     position: relative;
     overflow: hidden;
     scroll-behavior: smooth;
 }
-.Carrusel{
+
+.Carrusel {
     display: flex;
     flex-wrap: nowrap;
 }
-.Carrusel .card{
+
+.Carrusel .card {
     padding: 0;
     margin: 0;
-    min-width: 100%;/* cantidad */
+    min-width: 100%;
+    /* cantidad */
     height: 372px;
     transition: .3s ease all;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+    text-align: center;
+
 }
-.Carrusel img{
+
+.Carrusel img {
     width: 100%;
     height: 100%;
     vertical-align: top;
-} 
-.Carrusel img:hover{
+    transition: .5s ease all;
+}
+
+.Carrusel img:hover {
     transition: .5s;
     transform: scale(1.05);
     transform-origin: center;
-} 
+}
 
 
-.Contenedor-Peliculas{
+.Contenedor-Peliculas {
     width: 90%;
     margin: auto;
     padding-top: 30px;
     display: grid;
     grid-template-columns: auto auto auto auto;
-    
+
 }
-.Contenedor-Peliculas .Peliculas{
+
+.Contenedor-Peliculas .Peliculas {
     padding-top: 20px;
     width: 230px;
     height: 320px;
     position: relative;
+    text-align: center;
 }
-.Contenedor-Peliculas .Peliculas:hover{
+
+.Contenedor-Peliculas .Peliculas:hover {
     transform: scale(1.02);
     transition: .3s ease all;
 }
-.Contenedor-Peliculas img{
+
+.Contenedor-Peliculas img {
     width: 100%;
     height: 100%;
 }
-.Contenedor-Peliculas button{
+
+.Contenedor-Peliculas button {
     width: 100%;
     border-radius: 0;
     position: absolute;
     bottom: 0;
     transition: .2s ease all;
-}
-
-
-.Contenedor-Peliculas button {
-    padding: 16px 20px;
+    padding: 16px 0px;
     z-index: 1;
     overflow: hidden;
-  }
+}
 
 .Contenedor-Peliculas button::after {
     content: "";
@@ -250,7 +328,7 @@
     right: 100%;
     -webkit-transition: all 0.35s;
     transition: all 0.35s;
-  }
+}
 
 .Contenedor-Peliculas button:hover::after {
     left: 0;
@@ -259,4 +337,16 @@
     bottom: 0;
     -webkit-transition: all 0.35s;
     transition: all 0.35s;
-  }
+}
+
+footer{
+    padding-top: 20px;
+    text-align: center;
+}
+footer .Contact{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+footer .Contact div{
+    margin:20px 0px;
+}
