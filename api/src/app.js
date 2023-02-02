@@ -4,8 +4,9 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 /* routes */
 const moviesRoutes = require('./routes/moviesRoutes');
-const foodRoute= require('./routes/foodRoute');
-const drinkRoute = require('./routes/drinkRoute');
+const foodRoutes= require('./routes/foodRoutes');
+const drinkRoutes = require('./routes/drinkRoutes');
+const comboRoutes = require('./routes/comboRoutes');
 
 require('./db.js');
 
@@ -36,10 +37,10 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 server.use('/movies', moviesRoutes);
+server.use('/combo', comboRoutes);
 
-
-/* server.use('/food',foodRoute);
-server.use('/drink',foodRoute); */
+server.use('/food',foodRoutes);
+server.use('/drink', drinkRoutes); 
 
 
 module.exports = server;
