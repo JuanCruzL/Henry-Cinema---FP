@@ -5,7 +5,6 @@ module.exports = (sequelize) => {
     sequelize.define('Ticket', {
         id: {
             type: DataTypes.UUID,
-            //autoIncrement: true,
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
             primaryKey: true,
