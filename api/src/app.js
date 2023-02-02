@@ -7,6 +7,7 @@ const moviesRoutes = require('./routes/moviesRoutes');
 const foodRoutes= require('./routes/foodRoutes');
 const drinkRoutes = require('./routes/drinkRoutes');
 const comboRoutes = require('./routes/comboRoutes');
+const genreRoutes = require('./routes/genreRoutes');
 
 require('./db.js');
 
@@ -41,6 +42,8 @@ server.use('/combo', comboRoutes);
 
 server.use('/food',foodRoutes);
 server.use('/drink', drinkRoutes); 
+
+server.use('/genre',genreRoutes);
 
 
 module.exports = server;
