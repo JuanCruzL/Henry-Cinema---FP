@@ -33,7 +33,7 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   res.status(status).send(message);
 });
 
-server.use('/movies', moviesRoutes);
-//server.use('/foodAndDrinks', foodAndDrinksRoutes); // falta importar el archivo de rutas!!!!
+server.use('/moviesRoutes', moviesRoutes);
+
 
 module.exports = server;
