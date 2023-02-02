@@ -1,5 +1,6 @@
 const axios = require("axios");
 require("dotenv").config();
+const { getGenresDb } = require('./genres');
 
 const getMovies = async () => {
   const config = { headers: { "Accept-Encoding": null } };
@@ -9,20 +10,16 @@ const getMovies = async () => {
     config
   );
   const results = result.data.results;
-  const genresApi = await axios.get(
-    "https://api.themoviedb.org/3/genre/movie/list?api_key=12bc260a161636d41e2bc6dc6af19c99&language=en-US",
-    config
-  );
-  const genresApiData = genresApi.data.genres;
+  const genresDb = await getGenresDb();
   for (let i = 0; i < results.length; i++) {
     const movie = {};
     const imageFromApi = results[i].backdrop_path;
     const genresMovieIds = results[i].genre_ids;
     const genresString = [];
     for (let i = 0; i < genresMovieIds.length; i++) {
-      for (let j = 0; j < genresApiData.length; j++) {
-        if (genresMovieIds[i] === genresApiData[j].id) {
-          let genre = genresApiData[j].name;
+      for (let j = 0; j < genresDb.length; j++) {
+        if (genresMovieIds[i] === genresDb[j].id) {
+          let genre = genresDb[j].name;
           genresString.push(genre);
         }
       }
@@ -57,6 +54,13 @@ const getMovieById = async (id) => {
   );
   const imageFromApi = data.poster_path;
   const reviewApiResults = reviewApi.data.results;
+  const classificationAdapted = () => {
+    if(data.adult === true) {
+      movieApiById.classification = 'Restricted';
+    } else {
+      movieApiById.classification = "General Audiences";
+    }
+  };
   movieApiById = {
     title: data.title,
     origin: data.production_countries[0]?.name,
@@ -66,11 +70,10 @@ const getMovieById = async (id) => {
     overview: data.overview,
     status: data.status,
     productionCompanies: data.production_companies.map((pc) => pc.name),
-    adult: data.adult,
     voteAverage: data.vote_average,
     runtime: data.runtime,
   };
-
+  classificationAdapted();
   return movieApiById;
 };
 
