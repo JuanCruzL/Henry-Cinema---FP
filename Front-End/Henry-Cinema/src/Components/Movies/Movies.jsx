@@ -74,7 +74,7 @@ const Movies = () => {
                     <div className='movies-rigth-1-2'>
                       <button>2D</button>
                       <p>Sub</p>
-                      <p>Dub</p>
+                      <p>Dub </p>
                     </div>
                   </div>
                 </div>
