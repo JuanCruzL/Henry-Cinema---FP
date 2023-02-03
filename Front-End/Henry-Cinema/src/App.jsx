@@ -1,5 +1,6 @@
 //import { Route, Switch } from "react-router-dom";
 import Home from "./Components/Home/Home";
+import Details from "./Components/Details/Details";
 //import Movies from "./Components/Movies";
 import "./App.css";
 
