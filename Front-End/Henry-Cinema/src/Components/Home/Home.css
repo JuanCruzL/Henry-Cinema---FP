@@ -12,7 +12,7 @@
 }
 
 .light-mode .grid-container {
-    background-color: var(--Base);
+    background-color: var(--BaseL);
 }
 
 .light-mode .grid-container a {
@@ -25,13 +25,25 @@
 }
 
 .light-mode .HomeCarrusel button {
+    background-color: var(--BaseL);
     color: var(--LText-1);
-    background-color: var(--Base);
 }
-
-.light-mode .HomeMovie button {
+.light-mode .container-paginated .buttonPage{
+    background-color: var(--LBase-1);
+    color: var(--LText-2);
+}
+.light-mode .container-paginated .buttonPage:hover{
+    background-color: var(--BaseL);
     color: var(--LText-1);
-    background-color: var(--Base);
+}
+.light-mode .HomeMovie .Peliculas{
+    box-shadow: 1px 1px 10px 2px var(--LDegradado);
+-webkit-box-shadow: 1px 1px 10px 2px var(--LDegradado);
+-moz-box-shadow: 1px 1px 10px 2px var(--LDegradado);
+}
+.light-mode .HomeMovie button {
+    background-color: var(--BaseL);
+    color: var(--LText-1);
 }
 
 .light-mode .HomeMovie button:hover {
@@ -43,7 +55,7 @@
 }
 
 .light-mode footer {
-    background-color: var(--Base);
+    background-color: var(--BaseL);
     color: var(--LText-1);
 }
 
@@ -62,7 +74,7 @@
 }
 
 .dark-mode .grid-container {
-    background-color: var(--Base);
+    background-color: var(--BaseN);
 }
 
 .dark-mode .grid-container a {
@@ -76,12 +88,24 @@
 
 .dark-mode .HomeCarrusel button {
     color: var(--NText-2);
-    background-color: var(--Base);
+    background-color: var(--BaseN);
 }
-
+.dark-mode .container-paginated .buttonPage{
+    background-color: var(--NBase-1);
+    color: var(--NText-2);
+}
+.dark-mode .container-paginated .buttonPage:hover{
+    background-color: var(--BaseN);
+    color: var(--NText-2);
+}
+.dark-mode .HomeMovie .Peliculas{
+    box-shadow: 1px 1px 10px 2px var(--NDegradado);
+-webkit-box-shadow: 1px 1px 10px 2px var(--NDegradado);
+-moz-box-shadow: 1px 1px 10px 2px var(--NDegradado);
+}
 .dark-mode .HomeMovie button {
     color: var(--NText-2);
-    background-color: var(--Base);
+    background-color: var(--BaseN);
 }
 
 .dark-mode .HomeMovie button:hover {
@@ -93,7 +117,7 @@
 }
 
 .dark-mode footer {
-    background-color: var(--Base);
+    background-color: var(--BaseN);
     color: var(--NText-2);
 }
 
