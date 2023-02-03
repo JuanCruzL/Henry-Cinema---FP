@@ -12,7 +12,7 @@
 }
 
 .light-mode .grid-container {
-    background-color: var(--Base);
+    background-color: var(--BaseL);
 }
 
 .light-mode .grid-container a {
@@ -24,26 +24,38 @@
     color: var(--LText-2);
 }
 
-.light-mode .CardProvicional button {
+.light-mode .HomeCarrusel button {
+    background-color: var(--BaseL);
     color: var(--LText-1);
-    background-color: var(--Base);
+}
+.light-mode .container-paginated .buttonPage{
+    background-color: var(--LBase-1);
+    color: var(--LText-2);
+}
+.light-mode .container-paginated .buttonPage:hover{
+    background-color: var(--BaseL);
+    color: var(--LText-1);
+}
+.light-mode .HomeMovie .Peliculas{
+    box-shadow: 1px 1px 10px 2px var(--LDegradado);
+-webkit-box-shadow: 1px 1px 10px 2px var(--LDegradado);
+-moz-box-shadow: 1px 1px 10px 2px var(--LDegradado);
+}
+.light-mode .HomeMovie button {
+    background-color: var(--BaseL);
+    color: var(--LText-1);
 }
 
-.light-mode .Contenedor-Peliculas button {
-    color: var(--LText-1);
-    background-color: var(--Base);
-}
-
-.light-mode .Contenedor-Peliculas button:hover {
+.light-mode .HomeMovie button:hover {
     color: var(--LText-2);
 }
 
-.light-mode .Contenedor-Peliculas button::after {
+.light-mode .HomeMovie button::after {
     background-color: var(--LBase-1);
 }
 
 .light-mode footer {
-    background-color: var(--Base);
+    background-color: var(--BaseL);
     color: var(--LText-1);
 }
 
@@ -62,7 +74,7 @@
 }
 
 .dark-mode .grid-container {
-    background-color: var(--Base);
+    background-color: var(--BaseN);
 }
 
 .dark-mode .grid-container a {
@@ -74,26 +86,38 @@
     color: var(--NText-2);
 }
 
-.dark-mode .CardProvicional button {
+.dark-mode .HomeCarrusel button {
     color: var(--NText-2);
-    background-color: var(--Base);
+    background-color: var(--BaseN);
+}
+.dark-mode .container-paginated .buttonPage{
+    background-color: var(--NBase-1);
+    color: var(--NText-2);
+}
+.dark-mode .container-paginated .buttonPage:hover{
+    background-color: var(--BaseN);
+    color: var(--NText-2);
+}
+.dark-mode .HomeMovie .Peliculas{
+    box-shadow: 1px 1px 10px 2px var(--NDegradado);
+-webkit-box-shadow: 1px 1px 10px 2px var(--NDegradado);
+-moz-box-shadow: 1px 1px 10px 2px var(--NDegradado);
+}
+.dark-mode .HomeMovie button {
+    color: var(--NText-2);
+    background-color: var(--BaseN);
 }
 
-.dark-mode .Contenedor-Peliculas button {
-    color: var(--NText-2);
-    background-color: var(--Base);
-}
-
-.dark-mode .Contenedor-Peliculas button:hover {
+.dark-mode .HomeMovie button:hover {
     color: var(--NText-1);
 }
 
-.dark-mode .Contenedor-Peliculas button::after {
+.dark-mode .HomeMovie button::after {
     background-color: var(--NBase-2);
 }
 
 .dark-mode footer {
-    background-color: var(--Base);
+    background-color: var(--BaseN);
     color: var(--NText-2);
 }
 
@@ -182,164 +206,10 @@ a {
 }
 
 /*CARRUSEL*/
-.CardProvicional {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.CardProvicional button {
-    position: absolute;
-    border: none;
-    font-size: 20px;
-    font-weight: 600;
-    height: 15%;
-    top: calc(50% - 10%);
-    line-height: 40px;
-    width: 10px;
-    cursor: pointer;
-    z-index: 500;
-
-    transition: .2s ease all;
-}
-
-.CardProvicional button:hover {
-    opacity: 0.9;
-}
-
-.CardProvicional .Prev {
-    opacity: 0.3;
-    left: 0;
-}
-
-.CardProvicional .Next {
-    opacity: 0.3;
-    right: 0;
-}
-
-.CardProvicional .BuyT {
-    padding: 0;
-    
-    font-size: 10px;
-    width: 120px;
-    height: 9%;
-    top: auto;
-    bottom: 8%;
-    margin-left: 20px;
-}
-
-.CardProvicional .Trail {
-    padding: 0;
-
-    font-size: 10px;
-    width: 120px;
-    height: 9%;
-    top: auto;
-    bottom: 8%;
-    margin-left: 200px;
-}
 
 
-.contenedorCarrusel {
-    padding: 20px 0;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    scroll-behavior: smooth;
-}
-
-.Carrusel {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.Carrusel .card {
-    padding: 0;
-    margin: 0;
-    min-width: 100%;
-    /* cantidad */
-    height: 372px;
-    transition: .3s ease all;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
-    text-align: center;
-
-}
-
-.Carrusel img {
-    width: 100%;
-    height: 100%;
-    vertical-align: top;
-    transition: .5s ease all;
-}
-
-.Carrusel img:hover {
-    transition: .5s;
-    transform: scale(1.05);
-    transform-origin: center;
-}
 
 
-.Contenedor-Peliculas {
-    width: 90%;
-    margin: auto;
-    padding-top: 30px;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-
-}
-
-.Contenedor-Peliculas .Peliculas {
-    padding-top: 20px;
-    width: 230px;
-    height: 320px;
-    position: relative;
-    text-align: center;
-}
-
-.Contenedor-Peliculas .Peliculas:hover {
-    transform: scale(1.02);
-    transition: .3s ease all;
-}
-
-.Contenedor-Peliculas img {
-    width: 100%;
-    height: 100%;
-}
-
-.Contenedor-Peliculas button {
-    width: 100%;
-    border-radius: 0;
-    position: absolute;
-    bottom: 0;
-    transition: .2s ease all;
-    padding: 16px 0px;
-    z-index: 1;
-    overflow: hidden;
-}
-
-.Contenedor-Peliculas button::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    padding: 16px 20px;
-    top: 0;
-    bottom: 0;
-    left: -100%;
-    right: 100%;
-    -webkit-transition: all 0.35s;
-    transition: all 0.35s;
-}
-
-.Contenedor-Peliculas button:hover::after {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    -webkit-transition: all 0.35s;
-    transition: all 0.35s;
-}
 
 footer{
     padding-top: 20px;
