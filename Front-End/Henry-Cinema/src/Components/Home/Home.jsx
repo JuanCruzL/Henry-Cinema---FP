@@ -44,6 +44,29 @@ export default function Home() {
     });
   }
 
+
+            </div>
+            <button
+              type="button"
+              className="Switch"
+              onClick={(e) => toggleDarkLight(e)}
+              title="Toggle dark/light mode"
+            >
+              🌑
+            </button>
+            <a>
+              <img
+                src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png"
+                width={30}
+                height={30}
+              ></img>
+            </a>
+          </div>
+          <HomeCarrusel
+                        Prev={Prev}
+                        Next={Next}
+                        cartelera={cartelera}
+                    />
   return (
     <div id="Switch" className="light-mode">
       <Nav />
