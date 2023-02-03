@@ -7,8 +7,7 @@ import App from "./App";
 import store from "./store/index";
 import Details from "./Components/Details/Details";
 import "./index.css";
-import Movies from "./Components/Movies/Movies"
-
+import Movies from "./Components/Movies/Movies";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -18,16 +17,14 @@ const router = createBrowserRouter([
     element: <Home></Home>,
   },
   {
-    path:"movie/:id",
-    element: <Details/>
+    path: "movie/:id",
+    element: <Details />,
   },
   {
-    path:"/movies",
-    element: <Movies/>
-  }
-
+    path: "/movies",
+    element: <Movies />,
+  },
 ]);
-
 
 root.render(
   <React.StrictMode>
