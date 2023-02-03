@@ -34,7 +34,7 @@ export const getMovies = () => {
         });
       })
       .catch((error) => {
-        console.log(error);
+        console.log("error");
       });
   };
 };
