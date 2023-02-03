@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../img/menu.png";
 import perfil from "../../img/usuario.png";
+import logoh from "../../img/logo.png";
 import "./Nav.css";
 
 const Nav = () => {
@@ -31,7 +32,11 @@ const Nav = () => {
               </li>
             </ul>
           </li>
-          <div className="logo"></div>
+          <li className="menu-item">
+            <a href="#" className="menu-link">
+              <img src={logoh} className="logoh"></img>
+            </a>
+          </li>
           <li className="menu-item">
             <a href="#" className="menu-link">
               Cinemas

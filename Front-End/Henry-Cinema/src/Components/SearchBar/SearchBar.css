@@ -1,7 +1,7 @@
 .search-container {
   display: flex;
   justify-content: space-around;
-  margin-left: 10vw;
+  margin-left: 8vw;
   padding: 8px;
 }
 .input-icons {
@@ -22,7 +22,7 @@ input[type="text"] {
   outline: none;
   width: 15vw;
   text-align: left;
-  margin-left: -11vw;
+  margin-left: -15vw;
 }
 
 input[type="text"]:focus {
