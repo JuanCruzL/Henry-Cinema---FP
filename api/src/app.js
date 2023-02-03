@@ -2,6 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+
 /* routes */
 const moviesRoutes = require('./routes/moviesRoutes');
 const foodRoutes= require('./routes/foodRoutes');
@@ -44,6 +45,7 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 server.use('/movies', moviesRoutes);
+server.use('/nextReleases', moviesRoutes);
 server.use('/combos', comboRoutes);
 server.use('/foods',foodRoutes);
 server.use('/drinks', drinkRoutes); 

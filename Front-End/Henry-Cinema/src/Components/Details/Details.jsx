@@ -1,5 +1,5 @@
 import React from "react";
-import "./Details.css";
+//import "./Details.css";
 //trabajando (Juan Cruz)
 
 export default function Details() {
