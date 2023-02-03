@@ -1,0 +1,201 @@
+.Big-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0px;
+  width: 100%;
+}
+
+.detailsContainer {
+  position: relative;
+  /* margin-left: 3%; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.detailsContainerRight {
+  padding: 30px 50px 0px 50px;
+  box-sizing: border-box;
+  background: rgba(217, 217, 217, 0.132);
+  border: 1px solid rgba(0, 0, 0, 0.29);
+}
+
+.MovieInfo {
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+}
+
+.coverImage {
+  margin-bottom: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.allDetailsP {
+  margin-bottom: 5px;
+}
+
+.infoBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #ffff00;
+  max-width: fit-content;
+  margin-bottom: 15px;
+  padding: 2px 4px;
+}
+
+.info {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.info-mid {
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.Genre {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.movieTitle {
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.ytFrame {
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.ticketsButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: black;
+  color: #ffff00;
+  border-radius: 8px;
+  width: 155px;
+  height: 51px;
+  box-sizing: border-box;
+}
+
+.fancy {
+  background-color: #ffff00;
+  border: 2px solid #000;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  /* float: right; */
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 15px 0px;
+  padding: 1em;
+  outline: none;
+  overflow: visible;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: all 0.3s;
+  user-select: none;
+  font-size: 13px;
+  width: 170px;
+}
+
+.fancy::before {
+  left: 0.8em;
+  content: " ";
+  width: 1rem;
+  height: 2px;
+  background: black;
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  transform-origin: center;
+  transition: background 0.2s linear, width 0.2s linear;
+}
+
+.fancy .text {
+  font-size: 1.125em;
+  line-height: 1.33333em;
+  display: block;
+  text-align: left;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  padding: 0em 1.2em;
+}
+
+.fancy .top-key {
+  height: 2px;
+  width: 1.5625rem;
+  top: -2px;
+  left: 0.625rem;
+  position: absolute;
+  background: #ffff00;
+  transition: width 0.2s, left 0.2s;
+}
+
+.fancy .bottom-key-1 {
+  height: 2px;
+  width: 1.5625rem;
+  right: 1.875rem;
+  bottom: -2px;
+  position: absolute;
+  background: #ffff00;
+  transition: width 0.2s ease-out, right 0.2s ease-out;
+}
+
+.fancy .bottom-key-2 {
+  height: 2px;
+  width: 0.625rem;
+  right: 0.625rem;
+  bottom: -2px;
+  position: absolute;
+  background: #ffff00;
+  transition: width 0.2s, right 0.2s;
+}
+
+.fancy:hover {
+  color: rgb(255, 255, 255);
+  background: black;
+}
+
+.fancy:hover::before {
+  width: 0.7rem;
+  background: #ffff00;
+}
+
+.fancy:hover .text {
+  color: #ffff00;
+}
+
+.fancy:hover .top-key {
+  left: -2px;
+  width: 0px;
+}
+
+.fancy:hover .bottom-key-1,
+.fancy:hover .bottom-key-2 {
+  right: 0;
+  width: 0;
+}
