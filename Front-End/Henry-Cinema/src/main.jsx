@@ -7,6 +7,7 @@ import App from "./App";
 import store from "./store/index";
 import Details from "./Components/Details/Details";
 import "./index.css";
+import Movies from "./Components/Movies/Movies"
 
 
 const container = document.getElementById("root");
@@ -19,7 +20,12 @@ const router = createBrowserRouter([
   {
     path:"movie/:id",
     element: <Details/>
+  },
+  {
+    path:"/movies",
+    element: <Movies/>
   }
+
 ]);
 
 

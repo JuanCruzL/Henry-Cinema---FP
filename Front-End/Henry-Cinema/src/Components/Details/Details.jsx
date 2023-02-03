@@ -76,7 +76,7 @@ export default function Details() {
               />
               <p className="allDetailsP"><b>Original Title: </b>{movie.title}</p>
               <p className="allDetailsP"><b>Genres: </b>{genres2}</p>
-              <p className="allDetailsP"><b>Runtime: </b>{movie.runtime}</p>
+              <p className="allDetailsP"><b>Runtime: </b>{movie.runtime} minutes</p>
               <p className="allDetailsP"><b>Production Companies: </b>{productionCompanies}</p>
               <p className="allDetailsP"><b>Rating: </b>{movie.voteAverage}</p>
               <p className="allDetailsP"><b>Status: </b>{movie.status}</p>
