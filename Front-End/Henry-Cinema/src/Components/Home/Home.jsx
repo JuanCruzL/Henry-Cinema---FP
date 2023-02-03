@@ -43,21 +43,7 @@ export default function Home() {
     });
   }
 
-  return (
-    <div id="Switch" className="light-mode">
-      <div className="Homehome">
-        <div className="navHome">
-          <div className="grid-container">
-            <a>Henry CINEMA</a>
-            <a>CINEMAS</a>
-            <a>MOVIES</a>
-            <a>FOOD & DRINKS</a>
-            <a>About</a>
-            <div className="SearchBar">
-              <input type="text" placeholder="SearchMovie" className="pagi" />
-              <button type="submit" className="pagiBo">
-                Search
-              </button>
+
             </div>
             <button
               type="button"
@@ -75,7 +61,11 @@ export default function Home() {
               ></img>
             </a>
           </div>
-          <HomeCarrusel Prev={Prev} Next={Next} cartelera={cartelera} />
+          <HomeCarrusel
+                        Prev={Prev}
+                        Next={Next}
+                        cartelera={cartelera}
+                    />
           <HomePaginated
             peliculas={peliculas.length}
             moviesPerPage={moviesPerPage}
