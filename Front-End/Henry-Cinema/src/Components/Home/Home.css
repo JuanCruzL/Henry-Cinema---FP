@@ -6,7 +6,7 @@
     color: var(--LText-1);
 }
 
-.light-mode button {
+.light-mode .pagiBo {
     background-color: var(--LBase-2);
     color: var(--LText-1);
 }
@@ -15,15 +15,15 @@
     background-color: var(--LBase-1);
 }
 
-.light-mode .grid-container {
+.light-mode .grid-container-n {
     background-color: var(--BaseL);
 }
 
-.light-mode .grid-container a {
+.light-mode .grid-container-n a {
     color: var(--LText-1);
 }
 
-.light-mode .grid-container input {
+.light-mode .grid-container-n input {
     background-color: var(--LBase-2);
     color: var(--LText-1);
 }
@@ -62,7 +62,7 @@
     background-color: var(--LBase-1);
 }
 
-.light-mode footer {
+.light-mode .abajo {
     background-color: var(--BaseL);
     color: var(--LText-1);
 }
@@ -76,7 +76,7 @@
     color: var(--NText-1);
 }
 
-.dark-mode button {
+.dark-mode .pagiBo {
     background-color: var(--NBase-1);
     color: var(--NText-2);
 }
@@ -85,15 +85,15 @@
     background-color: var(--NBase-1);
 }
 
-.dark-mode .grid-container {
+.dark-mode .grid-container-n {
     background-color: var(--BaseN);
 }
 
-.dark-mode .grid-container a {
+.dark-mode .grid-container-n a {
     color: var(--NText-2);
 }
 
-.dark-mode .grid-container input {
+.dark-mode .grid-container-n input {
     background-color: var(--NBase-1);
     color: var(--NText-2);
 }
@@ -142,7 +142,7 @@
     background-color: var(--NBase-2);
 }
 
-.dark-mode footer {
+.dark-mode .abajo {
     background-color: var(--BaseN);
     color: var(--NText-2);
 }
@@ -184,7 +184,7 @@
 }
 
 
-.grid-container {
+.grid-container-n {
     padding-top: 15px;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto;
@@ -192,16 +192,16 @@
     padding-left: 20px;
 }
 
-.grid-container a {
+.grid-container-n a {
     text-decoration: none;
 }
 
-.grid-container a:hover {
+.grid-container-n a:hover {
     cursor: pointer;
     opacity: 0.5;
 }
 
-.grid-container .pagiBo {
+.grid-container-n .pagiBo {
     padding: 2px;
     font-size: 13px;
     border-top-left-radius: 0;
@@ -209,17 +209,17 @@
 
 }
 
-.grid-container .SearchBar {
+.grid-container-n .SearchBar {
     align-items: center;
 }
 
-.grid-container .SearchBar input {
+.grid-container-n .SearchBar input {
     border: 1px rgb(66, 60, 60) solid;
 
     height: 22px;
 }
 
-.grid-container .SearchBar button {
+.grid-container-n .SearchBar button {
     font-size: 12px;
     border: 1px rgb(66, 60, 60) solid;
     height: 19px;
@@ -236,12 +236,12 @@
 
 
 
-footer {
+.abajo {
     padding-top: 20px;
     text-align: center;
 }
 
-footer .Contact {
+.abajo .Contact {
     display: grid;
     grid-template-columns: auto auto auto auto;
 }

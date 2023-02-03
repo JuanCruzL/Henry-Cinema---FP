@@ -50,7 +50,7 @@ export default function Home() {
         <div id="Switch" className="light-mode">
             <div className="Homehome">
                 <div className="navHome">
-                    <div className="grid-container">
+                    <div className="grid-container-n">
                         <a>Henry CINEMA</a>
                         <a>CINEMAS</a>
                         <a>MOVIES</a>
@@ -79,7 +79,7 @@ export default function Home() {
                         peliculas={currentMovie}
                     />
                     <br></br>
-                    <footer>
+                    <footer className="abajo">
                         <h1>CONTACT US</h1>
                         <br></br>
                         <div className="Contact">
