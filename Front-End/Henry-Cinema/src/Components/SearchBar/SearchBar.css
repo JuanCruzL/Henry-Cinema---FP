@@ -1,0 +1,39 @@
+.search-container {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 10vw;
+  padding: 8px;
+}
+.input-icons {
+  margin-top: 8px;
+  position: relative;
+  margin-left: 130px;
+}
+
+.input-field {
+  padding: 8px;
+  text-align: center;
+}
+
+input[type="text"] {
+  border: 2px solid black;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  width: 15vw;
+  text-align: left;
+  margin-left: -11vw;
+}
+
+input[type="text"]:focus {
+  border: 2px solid black;
+}
+
+.input-icons i {
+  position: relative;
+}
+
+.light-mode button {
+  background-color: #ffff00;
+  color: var(--LText-1);
+}
