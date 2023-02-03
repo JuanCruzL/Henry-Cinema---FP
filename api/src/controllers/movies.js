@@ -1,6 +1,7 @@
+require("dotenv").config();
+const { API_KEY } = process.env;
 const axios = require("axios");
 const { Movie } = require("../db");
-require("dotenv").config();
 const { getGenresDb } = require('./genres');
 
 
@@ -8,7 +9,7 @@ const getMovies = async () => {
   const config = { headers: { "Accept-Encoding": null } };
   const finalMovies = [];
   const result = await axios.get(
-    "https://api.themoviedb.org/3/movie/now_playing?api_key=12bc260a161636d41e2bc6dc6af19c99&language=en-US&page=1&region=US",
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1&region=US`,
     config
   );
   const results = result.data.results;
@@ -61,21 +62,37 @@ const getMovies = async () => {
   return moviesDb;
 };
 
+const getNextReleases = async () => {
+    const config = { headers: { "Accept-Encoding": null } };
+    const finalNextReleases = [];
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`,
+      config
+    );
+    const releasesArray = data.results;
+    for (let i = 0; i < releasesArray.length; i++) {
+      let nextRelease = {};
+      const imageFromApi = releasesArray[i].backdrop_path;
+      nextRelease.id = releasesArray[i].id;
+      nextRelease.image = `https://image.tmdb.org/t/p/w500/${imageFromApi}`;
+      finalNextReleases.push(nextRelease);
+    }
+}
 
 const getMovieById = async (id) => {
 
   const config = { headers: { "Accept-Encoding": null } };
   let movieApiById = {};
   const { data } = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=12bc260a161636d41e2bc6dc6af19c99`,
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`,
     config
   );
   const reviewApi = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=12bc260a161636d41e2bc6dc6af19c99&language=en-US&page=1`,
+    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
     config
   );
   const videos = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=12bc260a161636d41e2bc6dc6af19c99&language=en-US`,
+    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`,
     config
   );
   const imageFromApi = data.poster_path;
@@ -108,4 +125,6 @@ const getMovieById = async (id) => {
   return movieApiById;
 };
 
-module.exports = { getMovies, getMovieById };
+
+
+module.exports = { getMovies, getMovieById, getNextReleases };
