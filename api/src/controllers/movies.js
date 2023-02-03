@@ -81,7 +81,7 @@ const getMovieById = async (id) => {
   const imageFromApi = data.poster_path;
   const reviewApiResults = reviewApi.data.results;
   const videosApiResults = videos.data.results;
-  const trailerKey = videosApiResults[0].key;
+  const trailerKey = videosApiResults[0]?.key;
   console.log(trailerKey);
   const classificationAdapted = () => {
     if(data.adult === true) {
@@ -101,7 +101,7 @@ const getMovieById = async (id) => {
     productionCompanies: data.production_companies.map((pc) => pc.name),
     voteAverage: data.vote_average,
     runtime: data.runtime,
-    video: `https://www.youtube.com/watch?v=${trailerKey}`,
+    video: `https://www.youtube.com/embed/${trailerKey}`,
   };
   classificationAdapted();
   console.log(movieApiById);
