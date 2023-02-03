@@ -59,7 +59,7 @@ export default function Home() {
                         <input type="text" placeholder="SearchMovie" className="pagi" />
                         <button type="submit" className="pagiBo">Search</button>
                     </div>
-                    <button type="button" className="Switch" onClick={e => toggleDarkLight(e)} title="Toggle dark/light mode">🌆</button>
+                    <button type="button" className="Switch" onClick={e => toggleDarkLight(e)} title="Toggle dark/light mode">🌑</button>
                     <a>
                         <img src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png" width={30} height={30}></img>
                     </a>
