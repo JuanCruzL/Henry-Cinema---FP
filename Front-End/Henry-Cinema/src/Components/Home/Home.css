@@ -5,66 +5,32 @@
     background-color: var(--LFondo-1);
     color: var(--LText-1);
 }
-
-.light-mode .pagiBo {
-    background-color: var(--LBase-2);
-    color: var(--LText-1);
-}
-
-.light-mode .Switch {
-    background-color: var(--LBase-1);
-}
-
-.light-mode .grid-container-n {
-    background-color: var(--BaseL);
-}
-
-.light-mode .grid-container-n a {
-    color: var(--LText-1);
-}
-
-.light-mode .grid-container-n input {
-    background-color: var(--LBase-2);
-    color: var(--LText-1);
-}
-
 .light-mode .HomeCarrusel button {
     background-color: var(--BaseL);
     color: var(--LText-1);
 }
-
 .light-mode .container-paginated .buttonPage {
     background-color: var(--BaseL);
     color: var(--LText-1);
 }
-
 .light-mode .container-paginated .buttonPage:hover {
     background-color: var(--LBase-1);
     color: var(--LText-2);
 }
-
 .light-mode .HomeMovie .Peliculas {
     box-shadow: 1px 1px 10px 2px var(--LDegradado);
     -webkit-box-shadow: 1px 1px 10px 2px var(--LDegradado);
     -moz-box-shadow: 1px 1px 10px 2px var(--LDegradado);
 }
-
 .light-mode .HomeMovie button {
     background-color: var(--BaseL);
     color: var(--LText-1);
 }
-
 .light-mode .HomeMovie button:hover {
     color: var(--LText-2);
 }
-
 .light-mode .HomeMovie button::after {
     background-color: var(--LBase-1);
-}
-
-.light-mode .abajo {
-    background-color: var(--BaseL);
-    color: var(--LText-1);
 }
 
 
@@ -75,77 +41,42 @@
     background-color: var(--NFondo-1);
     color: var(--NText-1);
 }
-
-.dark-mode .pagiBo {
-    background-color: var(--NBase-1);
-    color: var(--NText-2);
-}
-
-.dark-mode .Switch {
-    background-color: var(--NBase-1);
-}
-
-.dark-mode .grid-container-n {
-    background-color: var(--BaseN);
-}
-
-.dark-mode .grid-container-n a {
-    color: var(--NText-2);
-}
-
-.dark-mode .grid-container-n input {
-    background-color: var(--NBase-1);
-    color: var(--NText-2);
-}
-
 .dark-mode .HomeCarrusel button {
     color: var(--NText-2);
     background-color: var(--BaseN);
 }
-
 .dark-mode .container-paginated .buttonPage {
     background-color: var(--NBase-1);
     color: var(--NText-2);
 }
-
 .dark-mode .container-paginated .buttonPage:hover {
     background-color: var(--BaseN);
     color: var(--NText-2);
 }
-
 .dark-mode .container-paginated .buttonPage {
     background-color: var(--BaseN);
     color: var(--NText-2);
 }
-
 .dark-mode .container-paginated .buttonPage:hover {
     background-color: var(--NBase-1);
     color: var(--NText-2);
 }
-
 .dark-mode .HomeMovie .Peliculas {
     box-shadow: 1px 1px 10px 2px var(--NDegradado);
     -webkit-box-shadow: 1px 1px 10px 2px var(--NDegradado);
     -moz-box-shadow: 1px 1px 10px 2px var(--NDegradado);
 }
-
 .dark-mode .HomeMovie button {
     color: var(--NText-2);
     background-color: var(--BaseN);
 }
-
 .dark-mode .HomeMovie button:hover {
     color: var(--NText-1);
 }
-
 .dark-mode .HomeMovie button::after {
     background-color: var(--NBase-2);
 }
 
-.dark-mode .abajo {
-    background-color: var(--BaseN);
-    color: var(--NText-2);
-}
 
 
 
@@ -153,8 +84,7 @@
 
 
 
-
-.Homehome button {
+.BodyHome button {
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
@@ -165,12 +95,12 @@
     transition: border-color 0.25s;
 }
 
-.Homehome a {
+.BodyHome a {
     font-weight: 600;
     height: 20px;
 }
 
-.Homehome .Switch {
+.BodyHome .Switch {
     text-align: center;
     width: 20px;
     padding: 1px 2px 1px 1px;
@@ -178,74 +108,3 @@
 }
 /* Aqui les damos forma*/
 
-/*NAVBAR*/
-.navHome {
-    width: 100%;
-}
-
-
-.grid-container-n {
-    padding-top: 15px;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto;
-    padding-bottom: 10px;
-    padding-left: 20px;
-}
-
-.grid-container-n a {
-    text-decoration: none;
-}
-
-.grid-container-n a:hover {
-    cursor: pointer;
-    opacity: 0.5;
-}
-
-.grid-container-n .pagiBo {
-    padding: 2px;
-    font-size: 13px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-
-}
-
-.grid-container-n .SearchBar {
-    align-items: center;
-}
-
-.grid-container-n .SearchBar input {
-    border: 1px rgb(66, 60, 60) solid;
-
-    height: 22px;
-}
-
-.grid-container-n .SearchBar button {
-    font-size: 12px;
-    border: 1px rgb(66, 60, 60) solid;
-    height: 19px;
-    padding: 0;
-    padding-top: 3.5px;
-    padding-right: 5px;
-    padding-left: 5px;
-}
-
-
-/*CARRUSEL*/
-
-
-
-
-
-.abajo {
-    padding-top: 20px;
-    text-align: center;
-}
-
-.abajo .Contact {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-}
-
-footer .Contact div {
-    margin: 20px 0px;
-}
