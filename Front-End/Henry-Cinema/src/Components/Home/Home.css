@@ -6,7 +6,7 @@
     color: var(--LText-1);
 }
 
-.light-mode button {
+.light-mode .pagiBo {
     background-color: var(--LBase-2);
     color: var(--LText-1);
 }
@@ -15,15 +15,15 @@
     background-color: var(--LBase-1);
 }
 
-.light-mode .grid-container {
+.light-mode .grid-container-n {
     background-color: var(--BaseL);
 }
 
-.light-mode .grid-container a {
+.light-mode .grid-container-n a {
     color: var(--LText-1);
 }
 
-.light-mode .grid-container input {
+.light-mode .grid-container-n input {
     background-color: var(--LBase-2);
     color: var(--LText-1);
 }
@@ -62,7 +62,7 @@
     background-color: var(--LBase-1);
 }
 
-.light-mode footer {
+.light-mode .abajo {
     background-color: var(--BaseL);
     color: var(--LText-1);
 }
@@ -76,7 +76,7 @@
     color: var(--NText-1);
 }
 
-.dark-mode button {
+.dark-mode .pagiBo {
     background-color: var(--NBase-1);
     color: var(--NText-2);
 }
@@ -85,15 +85,15 @@
     background-color: var(--NBase-1);
 }
 
-.dark-mode .grid-container {
+.dark-mode .grid-container-n {
     background-color: var(--BaseN);
 }
 
-.dark-mode .grid-container a {
+.dark-mode .grid-container-n a {
     color: var(--NText-2);
 }
 
-.dark-mode .grid-container input {
+.dark-mode .grid-container-n input {
     background-color: var(--NBase-1);
     color: var(--NText-2);
 }
@@ -142,7 +142,7 @@
     background-color: var(--NBase-2);
 }
 
-.dark-mode footer {
+.dark-mode .abajo {
     background-color: var(--BaseN);
     color: var(--NText-2);
 }
@@ -154,23 +154,28 @@
 
 
 
-button {
+.Homehome button {
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
 }
 
-a {
+.Homehome a {
     font-weight: 600;
     height: 20px;
 }
 
+.Homehome .Switch {
+    text-align: center;
+    width: 20px;
+    padding: 1px 2px 1px 1px;
+    border-radius: 50%;
+}
 /* Aqui les damos forma*/
 
 /*NAVBAR*/
@@ -179,7 +184,7 @@ a {
 }
 
 
-.grid-container {
+.grid-container-n {
     padding-top: 15px;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto;
@@ -187,16 +192,16 @@ a {
     padding-left: 20px;
 }
 
-.grid-container a {
+.grid-container-n a {
     text-decoration: none;
 }
 
-.grid-container a:hover {
+.grid-container-n a:hover {
     cursor: pointer;
     opacity: 0.5;
 }
 
-.grid-container .pagiBo {
+.grid-container-n .pagiBo {
     padding: 2px;
     font-size: 13px;
     border-top-left-radius: 0;
@@ -204,17 +209,17 @@ a {
 
 }
 
-.grid-container .SearchBar {
+.grid-container-n .SearchBar {
     align-items: center;
 }
 
-.grid-container .SearchBar input {
+.grid-container-n .SearchBar input {
     border: 1px rgb(66, 60, 60) solid;
 
     height: 22px;
 }
 
-.grid-container .SearchBar button {
+.grid-container-n .SearchBar button {
     font-size: 12px;
     border: 1px rgb(66, 60, 60) solid;
     height: 19px;
@@ -224,12 +229,6 @@ a {
     padding-left: 5px;
 }
 
-.Switch {
-    text-align: center;
-    width: 20px;
-    padding: 1px 2px 1px 1px;
-    border-radius: 50%;
-}
 
 /*CARRUSEL*/
 
@@ -237,12 +236,12 @@ a {
 
 
 
-footer {
+.abajo {
     padding-top: 20px;
     text-align: center;
 }
 
-footer .Contact {
+.abajo .Contact {
     display: grid;
     grid-template-columns: auto auto auto auto;
 }
