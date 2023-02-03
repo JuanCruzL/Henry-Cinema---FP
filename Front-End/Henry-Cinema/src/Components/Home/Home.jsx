@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import '../Home/Home.css';
 import { toggleDarkLight } from '../Utils/Switch'
+import { cartelera, peliculas } from "./Data";
 import HomeCarrusel from "./HomeCarrusel/HomeCarrusel";
-import { cartelera } from "./Data";
+import HomeMovie from "./HomeMovie/HomeMovie";
 
 export default function Home() {
 
@@ -55,40 +56,9 @@ export default function Home() {
                     Next={Next}
                     cartelera={cartelera}
                 />
-                <div className="Contenedor-Peliculas">
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://i.pinimg.com/originals/33/86/ee/3386ee5aad24d2bfa7c2c2dadb58f2b7.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://mfiles.alphacoders.com/930/930636.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://pbs.twimg.com/media/FVMN7XjWIAEiJQ_.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://mfiles.alphacoders.com/930/930636.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://i.pinimg.com/originals/33/86/ee/3386ee5aad24d2bfa7c2c2dadb58f2b7.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://mfiles.alphacoders.com/930/930636.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://pbs.twimg.com/media/FVMN7XjWIAEiJQ_.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://mfiles.alphacoders.com/930/930636.jpg"></img>
-                    </div>
-                </div>
+                <HomeMovie
+                    peliculas={peliculas}
+                />
                 <br></br>
                 <footer>
                     <h1>CONTACT US</h1>

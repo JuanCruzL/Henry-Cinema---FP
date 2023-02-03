@@ -40,3 +40,14 @@ export const cartelera = [
         , id: 10
     },
 ];
+
+export const peliculas=[
+    {img:"https://i.pinimg.com/originals/33/86/ee/3386ee5aad24d2bfa7c2c2dadb58f2b7.jpg"},
+    {img:"https://mfiles.alphacoders.com/930/930636.jpg"},
+    {img:"https://pbs.twimg.com/media/FVMN7XjWIAEiJQ_.jpg"},
+    {img:"https://pbs.twimg.com/media/FVMN7XjWIAEiJQ_.jpg"},
+    {img:"https://i.pinimg.com/originals/33/86/ee/3386ee5aad24d2bfa7c2c2dadb58f2b7.jpg"},
+    {img:"https://mfiles.alphacoders.com/930/930636.jpg"},
+    {img:"https://pbs.twimg.com/media/FVMN7XjWIAEiJQ_.jpg"},
+    {img:"https://pbs.twimg.com/media/FVMN7XjWIAEiJQ_.jpg"},
+]
