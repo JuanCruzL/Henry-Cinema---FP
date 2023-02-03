@@ -1,10 +1,27 @@
-
-const { Auditorium } = require('../db');
+const { Auditorium } = require("../db");
 
 const getAuditoriumsDb = async () => {
+  const allAuditoriums = await Auditorium.findAll();
+  if (!allAuditoriums) {
+    Auditorium.bulkCreate([
+      {
+        name: "A",
+      },
+      {
+        name: "B",
+      },
+      {
+        name: "C",
+      },
+      {
+        name: "D",
+      },
+      {
+        name: "E",
+      },
+    ]);
+  }
+  return allAuditoriums;
+};
 
-    const allAuditoriumsDb = await Auditorium.findAll()
-    return allAuditoriumsDb;
-}
-
-module.exports = {getAuditoriumsDb};
+module.exports = { getAuditoriumsDb };

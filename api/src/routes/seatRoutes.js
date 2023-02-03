@@ -40,7 +40,7 @@ router.delete("/:id", async (req, res) => {
       },
     });
     res.sendStatus(204);
-    console.log("ELIMINATED");
+    console.log("SEAT ELIMINATED");
   } catch (error) {
     res.status(500).send(error);
   }

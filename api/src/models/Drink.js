@@ -6,7 +6,6 @@ module.exports=(sequelize) =>{
     sequelize.define('Drink',{
         id:{
             type: DataTypes.UUID,
-           // autoIncrement: true,
             defaultValue: DataTypes.UUIDV4,
             primaryKey:true,
             allowNull:false
@@ -16,7 +15,7 @@ module.exports=(sequelize) =>{
             allowNull:false
         },
         price:{
-            type:DataTypes.INTEGER,
+            type:DataTypes.DECIMAL,
             allowNull:false
         },
         image: {
