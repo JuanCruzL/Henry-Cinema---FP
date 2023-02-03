@@ -8,7 +8,6 @@ import { cartelera, peliculas } from "./Data";
 import HomeCarrusel from "./HomeCarrusel/HomeCarrusel";
 import HomeMovie from "./HomeMovie/HomeMovie";
 import HomePaginated from "./HomePaginated/HomePaginated";
-import Nav from "../Nav/Nav";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -46,7 +45,6 @@ export default function Home() {
 
   return (
     <div id="Switch" className="light-mode">
-      <Nav />
       <div className="Homehome">
         <div className="navHome">
           <div className="grid-container">
