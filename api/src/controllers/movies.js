@@ -1,6 +1,8 @@
 const axios = require("axios");
+const { Movie } = require("../db");
 require("dotenv").config();
 const { getGenresDb } = require('./genres');
+
 
 const getMovies = async () => {
   const config = { headers: { "Accept-Encoding": null } };
@@ -24,24 +26,44 @@ const getMovies = async () => {
         }
       }
     }
-    movie.id = results[i].id;
+    movie.apiId = results[i].id;
     movie.title = results[i].title;
     movie.image = `https://image.tmdb.org/t/p/w500/${imageFromApi}`;
-    movie.score = results[i].vote_average;
+    movie.voteAverage = results[i].vote_average;
     movie.overview = results[i].overview;
-    movie.genre = genresString;
+    movie.genres = genresString;
     if (results[i].adult === true) {
       movie.classification = "Restricted";
     } else {
       movie.classification = "General Audiences";
     }
     finalMovies.push(movie);
-    console.log(finalMovies);
-  }
-  return finalMovies;
+  };
+
+  finalMovies.forEach((m) => {
+    Movie.findOrCreate({
+      where: {
+        title: m.title,
+      },
+      defaults: {
+        title: m.title,
+        image: m.image,
+        voteAverage: m.voteAverage,
+        overview: m.overview,
+        genres: m.genres,
+        classification: m.classification,
+        apiId: m.apiId,
+      }
+    });
+  });
+
+  const moviesDb = await Movie.findAll();
+  return moviesDb;
 };
 
+
 const getMovieById = async (id) => {
+
   const config = { headers: { "Accept-Encoding": null } };
   let movieApiById = {};
   const { data } = await axios.get(
