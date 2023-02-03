@@ -1,8 +1,8 @@
 const axios = require('axios');
 const { Genre } = require('../db');
 
-const getGenreDb = async() =>{
-    let apiGenre = 'https://api.themoviedb.org/3/genre/movie/list?api_key=12bc260a161636d41e2bc6dc6af19c99&language=en-US'
+const getGenresDb = async() =>{
+    let apiGenre = 'https://api.themoviedb.org/3/genre/movie/list?api_key=12bc260a161636d41e2bc6dc6af19c99&language=en-US';
 
     let apiInfo = ((await axios.get(apiGenre)).data).genres;
 
@@ -17,8 +17,8 @@ const getGenreDb = async() =>{
         })
     });
 
-    const genreCreateDb = await Genre.findAll();
-    return genreCreateDb;
+    const genresDb = await Genre.findAll();
+    return genresDb;
 }
 
-module.exports = { getGenreDb };
+module.exports = { getGenresDb };

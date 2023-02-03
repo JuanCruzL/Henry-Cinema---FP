@@ -4,14 +4,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import '../Home/Home.css';
 import { toggleDarkLight } from '../Utils/Switch'
+import { cartelera, peliculas } from "./Data";
+import HomeCarrusel from "./HomeCarrusel/HomeCarrusel";
+import HomeMovie from "./HomeMovie/HomeMovie";
+import HomePaginated from "./HomePaginated/HomePaginated";
 
 export default function Home() {
 
     const dispatch = useDispatch()
 
 
-    const Pelicual = document.querySelector('.card');
+    const [currentPage,setCurrentPage]=useState(1);//* Creamos una constante ponde guardar/setear la pagina actual(1) 
+    const [moviesPerPage, setMoviesPerPage]=useState(8);//* Creamos una constante para escoger el limite de peliculas por pagina(8)
+    const indexOfLastMovie=currentPage * moviesPerPage;//* Obtenemos el indice del ultimo elemento de la pagina actual
+    const indexOfFirstMovie=indexOfLastMovie - moviesPerPage;//* Obtenemos el indice del primer elemento de la pagina actual
+    const currentMovie=peliculas.slice(indexOfFirstMovie,indexOfLastMovie);//* Obtenemos los datos entre los 2 indices anteriores
 
+
+    const paginated=(pageNumber)=>{
+        setCurrentPage(pageNumber)
+    }
 
     useEffect(() => {
         Prev();
@@ -47,111 +59,51 @@ export default function Home() {
                         <input type="text" placeholder="SearchMovie" className="pagi" />
                         <button type="submit" className="pagiBo">Search</button>
                     </div>
-                    <button type="button" name="Switch" onClick={e => toggleDarkLight(e)} title="Toggle dark/light mode">ðŸŒ›</button>
+                    <button type="button" className="Switch" onClick={e => toggleDarkLight(e)} title="Toggle dark/light mode">🌑</button>
                     <a>
                         <img src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png" width={30} height={30}></img>
                     </a>
                 </div>
-                <div className="CardProvicional">
-                    <a><button role="button" id="Prev" className="Prev" onClick={e => Prev(e)}> &#10094; </button></a>
-                    <div className="contenedorCarrusel">
-                        <div className="Carrusel">
-                            <div className="card">
-                                <button id="BuyT" className="BuyT">BUY TICKETS</button>
-                                <button id="Trail" className="Trail">PLAY TRAILER</button>
-                                <img src="https://images.hdqwalls.com/wallpapers/warhammer-40000-hc.jpg"></img>
-                            </div>
-                            <div className="card">
-                                <button id="BuyT" className="BuyT">BUY TICKETS</button>
-                                <button id="Trail" className="Trail">PLAY TRAILER</button>
-                                <img src="https://preview.redd.it/ugxqxhphbxh51.jpg?width=5118&format=pjpg&auto=webp&s=74f65624d4b5a5267a69a134c0ba3b7c1a147cf5"></img>
-                            </div>
-                            <div className="card">
-                                <button id="BuyT" className="BuyT">BUY TICKETS</button>
-                                <button id="Trail" className="Trail">PLAY TRAILER</button>
-                                <img src="https://wallpapers.com/images/featured/e1dpbba47ubbh6o0.jpg"></img>
-                            </div>
-                            <div className="card">
-                                <button id="BuyT" className="BuyT">BUY TICKETS</button>
-                                <button id="Trail" className="Trail">PLAY TRAILER</button>
-                                <img src="https://coolwallpapers.me/picsup/1386527-warhammer-40k.jpg"></img>
-                            </div>
-                            <div className="card">
-                                <button id="BuyT" className="BuyT">BUY TICKETS</button>
-                                <button id="Trail" className="Trail">PLAY TRAILER</button>
-                                <img src="https://wallpapers.com/images/hd/tempest-guards-warhammer-40k-hd-4gi03hnxyzkqlrza.jpg"></img>
-                            </div>
-                            <div className="card">
-                                <button id="BuyT" className="BuyT">BUY TICKETS</button>
-                                <button id="Trail" className="Trail">PLAY TRAILER</button>
-                                <img src="https://images.hdqwalls.com/wallpapers/warhammer-40000-hc.jpg"></img>
-                            </div>
-                            <div className="card">
-                                <button id="BuyT" className="BuyT">BUY TICKETS</button>
-                                <button id="Trail" className="Trail">PLAY TRAILER</button>
-                                <img src="https://wallpapers.com/images/featured/e1dpbba47ubbh6o0.jpg"></img>
-                            </div>
-                            <div className="card">
-                                <button id="BuyT" className="BuyT">BUY TICKETS</button>
-                                <button id="Trail" className="Trail">PLAY TRAILER</button>
-                                <img src="https://images.hdqwalls.com/wallpapers/warhammer-40000-hc.jpg"></img>
-                            </div>
-                            <div className="card">
-                                <button id="BuyT" className="BuyT">BUY TICKETS</button>
-                                <button id="Trail" className="Trail">PLAY TRAILER</button>
-                                <img src="https://preview.redd.it/ugxqxhphbxh51.jpg?width=5118&format=pjpg&auto=webp&s=74f65624d4b5a5267a69a134c0ba3b7c1a147cf5"></img>
-                            </div>
-                            <div className="card">
-                                <button id="BuyT" className="BuyT">BUY TICKETS</button>
-                                <button id="Trail" className="Trail">PLAY TRAILER</button>
-                                <img src="https://coolwallpapers.me/picsup/1386527-warhammer-40k.jpg"></img>
-                            </div>
-                            <div className="card">
-                                <button id="BuyT" className="BuyT">BUY TICKETS</button>
-                                <button id="Trail" className="Trail">PLAY TRAILER</button>
-                                <img src="https://wallpapers.com/images/hd/tempest-guards-warhammer-40k-hd-4gi03hnxyzkqlrza.jpg"></img>
-                            </div>
-                        </div>
-                    </div>
-                    <button role="button" id="Next" className="Next" onClick={e => Next(e)}> &#10095; </button>
-                </div>
-                <div className="Contenedor-Peliculas">
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://i.pinimg.com/originals/33/86/ee/3386ee5aad24d2bfa7c2c2dadb58f2b7.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://mfiles.alphacoders.com/930/930636.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://pbs.twimg.com/media/FVMN7XjWIAEiJQ_.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://mfiles.alphacoders.com/930/930636.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://i.pinimg.com/originals/33/86/ee/3386ee5aad24d2bfa7c2c2dadb58f2b7.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://mfiles.alphacoders.com/930/930636.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://pbs.twimg.com/media/FVMN7XjWIAEiJQ_.jpg"></img>
-                    </div>
-                    <div className="Peliculas">
-                        <button>PREMIERE</button>
-                        <img src="https://mfiles.alphacoders.com/930/930636.jpg"></img>
-                    </div>
-                </div>
+                <HomeCarrusel
+                    Prev={Prev}
+                    Next={Next}
+                    cartelera={cartelera}
+                />
+                <HomePaginated
+                peliculas={peliculas.length}
+                moviesPerPage={moviesPerPage}
+                paginated={paginated}
+                /> 
+                <HomeMovie
+                    peliculas={currentMovie}
+                />
                 <br></br>
                 <footer>
-                    CONTACT US
+                    <h1>CONTACT US</h1>
+                    <br></br>
+                    <div className="Contact">
+                        <div>
+                            <p>Contacto 1</p>
+                        </div>
+                        <div>
+                            <p>Contacto 2</p>
+                        </div>
+                        <div>
+                            <p>Contacto 3</p>
+                        </div>
+                        <div>
+                            <p>Contacto 4</p>
+                        </div>
+                        <div>
+                            <p>Contacto 5</p>
+                        </div>
+                        <div>
+                            <p>Contacto 6</p>
+                        </div>
+                        <div>
+                            <p>Contacto 7</p>
+                        </div>
+                    </div>
                 </footer>
             </div>
 

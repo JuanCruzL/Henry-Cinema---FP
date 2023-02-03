@@ -1,45 +1,70 @@
 @import url(../Utils/Pallette.css);
 
-
 /* Aqui Color Modo Dia */
 .light-mode {
-    background-color: var(--light-color);
-    color: var(--dark-color);
+    background-color: var(--LFondo-1);
+    color: var(--LText-1);
 }
 
 .light-mode button {
-    background-color: var(--light-color);
-    color: var(--dark-color);
+    background-color: var(--LBase-2);
+    color: var(--LText-1);
 }
 
-.light-mode .grid-container{
-    background-color: var(--dark-color);
+.light-mode .Switch {
+    background-color: var(--LBase-1);
 }
 
-.light-mode .grid-container a{
-    color: var(--light-color);
+.light-mode .grid-container {
+    background-color: var(--BaseL);
 }
-.light-mode .nav3 h2{
-    color: var(--light-color);
-    background-color: var(--dark-color);
+
+.light-mode .grid-container a {
+    color: var(--LText-1);
 }
-.light-mode .CardProvicional button{
-    color: var(--light-color);
-    background-color: var(--dark-color);
+
+.light-mode .grid-container input {
+    background-color: var(--LBase-2);
+    color: var(--LText-1);
 }
-.light-mode .Contenedor-Peliculas button{
-    color: var(--light-color);
-    background-color: var(--dark-color);
+
+.light-mode .HomeCarrusel button {
+    background-color: var(--BaseL);
+    color: var(--LText-1);
 }
-.light-mode .Contenedor-Peliculas button:hover {
-    color: var(--dark-color);
-  }
-.light-mode .Contenedor-Peliculas button::after{
-    background-color: var(--light-color);
+
+.light-mode .container-paginated .buttonPage {
+    background-color: var(--BaseL);
+    color: var(--LText-1);
 }
-.light-mode footer{
-    background-color: var(--dark-color);
-    color: var(--light-color);
+
+.light-mode .container-paginated .buttonPage:hover {
+    background-color: var(--LBase-1);
+    color: var(--LText-2);
+}
+
+.light-mode .HomeMovie .Peliculas {
+    box-shadow: 1px 1px 10px 2px var(--LDegradado);
+    -webkit-box-shadow: 1px 1px 10px 2px var(--LDegradado);
+    -moz-box-shadow: 1px 1px 10px 2px var(--LDegradado);
+}
+
+.light-mode .HomeMovie button {
+    background-color: var(--BaseL);
+    color: var(--LText-1);
+}
+
+.light-mode .HomeMovie button:hover {
+    color: var(--LText-2);
+}
+
+.light-mode .HomeMovie button::after {
+    background-color: var(--LBase-1);
+}
+
+.light-mode footer {
+    background-color: var(--BaseL);
+    color: var(--LText-1);
 }
 
 
@@ -47,216 +72,181 @@
 
 /* Aqui Color Modo Noche */
 .dark-mode {
-    background-color: var(--dark-color);
-    color: var(--light-color);
+    background-color: var(--NFondo-1);
+    color: var(--NText-1);
 }
 
 .dark-mode button {
-    background-color: var(--dark-color);
-    color: var(--light-color);
+    background-color: var(--NBase-1);
+    color: var(--NText-2);
 }
 
-.dark-mode .grid-container{
-    background-color: var(--light-color);
+.dark-mode .Switch {
+    background-color: var(--NBase-1);
 }
 
-.dark-mode .grid-container a{
-    color: var(--dark-color);
-}
-.dark-mode .nav3 h2{
-    color: var(--dark-color);
-    background-color: var(--light-color);
-}
-.dark-mode .CardProvicional button{
-    color: var(--dark-color);
-    background-color: var(--light-color);
-}
-.dark-mode .Contenedor-Peliculas button{
-    color: var(--dark-color);
-    background-color: var(--light-color);
-}
-.dark-mode .Contenedor-Peliculas button:hover {
-    color: var(--light-color);
-  }
-.dark-mode .Contenedor-Peliculas button::after{
-    background-color: var(--dark-color);
-}
-.dark-mode footer{
-    background-color: var(--light-color);
-    color: var(--dark-color);
+.dark-mode .grid-container {
+    background-color: var(--BaseN);
 }
 
+.dark-mode .grid-container a {
+    color: var(--NText-2);
+}
+
+.dark-mode .grid-container input {
+    background-color: var(--NBase-1);
+    color: var(--NText-2);
+}
+
+.dark-mode .HomeCarrusel button {
+    color: var(--NText-2);
+    background-color: var(--BaseN);
+}
+
+.dark-mode .container-paginated .buttonPage {
+    background-color: var(--NBase-1);
+    color: var(--NText-2);
+}
+
+.dark-mode .container-paginated .buttonPage:hover {
+    background-color: var(--BaseN);
+    color: var(--NText-2);
+}
+
+.dark-mode .container-paginated .buttonPage {
+    background-color: var(--BaseN);
+    color: var(--NText-2);
+}
+
+.dark-mode .container-paginated .buttonPage:hover {
+    background-color: var(--NBase-1);
+    color: var(--NText-2);
+}
+
+.dark-mode .HomeMovie .Peliculas {
+    box-shadow: 1px 1px 10px 2px var(--NDegradado);
+    -webkit-box-shadow: 1px 1px 10px 2px var(--NDegradado);
+    -moz-box-shadow: 1px 1px 10px 2px var(--NDegradado);
+}
+
+.dark-mode .HomeMovie button {
+    color: var(--NText-2);
+    background-color: var(--BaseN);
+}
+
+.dark-mode .HomeMovie button:hover {
+    color: var(--NText-1);
+}
+
+.dark-mode .HomeMovie button::after {
+    background-color: var(--NBase-2);
+}
+
+.dark-mode footer {
+    background-color: var(--BaseN);
+    color: var(--NText-2);
+}
+
+
+
+
+
+
+
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+a {
+    font-weight: 600;
+    height: 20px;
+}
 
 /* Aqui les damos forma*/
 
 /*NAVBAR*/
-.navHome{
+.navHome {
     width: 100%;
 }
 
 
-.grid-container{
-    padding-top: 10px;
+.grid-container {
+    padding-top: 15px;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto;
     padding-bottom: 10px;
+    padding-left: 20px;
 }
-.grid-container a{
+
+.grid-container a {
     text-decoration: none;
 }
+
 .grid-container a:hover {
     cursor: pointer;
     opacity: 0.5;
 }
-.grid-container button{
+
+.grid-container .pagiBo {
     padding: 2px;
     font-size: 13px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+
 }
 
+.grid-container .SearchBar {
+    align-items: center;
+}
+
+.grid-container .SearchBar input {
+    border: 1px rgb(66, 60, 60) solid;
+
+    height: 22px;
+}
+
+.grid-container .SearchBar button {
+    font-size: 12px;
+    border: 1px rgb(66, 60, 60) solid;
+    height: 19px;
+    padding: 0;
+    padding-top: 3.5px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.Switch {
+    text-align: center;
+    width: 20px;
+    padding: 1px 2px 1px 1px;
+    border-radius: 50%;
+}
 
 /*CARRUSEL*/
-.CardProvicional{
-    width: 90%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-.CardProvicional button{
-    position: absolute;
-    border: none;
-    font-size: 20px;
-    height: 15%;
-    top: calc(50% - 10%);
-    line-height: 40px;
-    width: 50px;
-    cursor: pointer;
-    z-index: 500;
-    
-    transition: .2s ease all;
-}
-.CardProvicional button:hover{
-    opacity: 0.9;
-}
-
-.CardProvicional .Prev{
-    opacity: 0.3;
-    left: 0;
-}
-.CardProvicional .Next{
-    opacity: 0.3;
-    right: 0;
-}
-.CardProvicional .BuyT{
-    padding: 0;
-    border: 2px red solid;
-    font-size: 10px;
-    width: 120px;
-    height: 9%;
-    top: auto;
-    bottom:8%;
-    margin-left: 20px;
-}
-.CardProvicional .Trail{
-    padding: 0;
-    border: 2px red solid;
-    font-size: 10px;
-    width: 120px;
-    height: 9%;
-    top: auto;
-    bottom:8%;
-    margin-left: 200px;
-}
 
 
-.contenedorCarrusel{
-    padding: 20px 0;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    scroll-behavior: smooth;
-}
-.Carrusel{
-    display: flex;
-    flex-wrap: nowrap;
-}
-.Carrusel .card{
-    padding: 0;
-    margin: 0;
-    min-width: 100%;/* cantidad */
-    height: 372px;
-    transition: .3s ease all;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
-}
-.Carrusel img{
-    width: 100%;
-    height: 100%;
-    vertical-align: top;
-} 
-.Carrusel img:hover{
-    transition: .5s;
-    transform: scale(1.05);
-    transform-origin: center;
-} 
 
 
-.Contenedor-Peliculas{
-    width: 90%;
-    margin: auto;
-    padding-top: 30px;
+
+footer {
+    padding-top: 20px;
+    text-align: center;
+}
+
+footer .Contact {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    
-}
-.Contenedor-Peliculas .Peliculas{
-    padding-top: 20px;
-    width: 230px;
-    height: 320px;
-    position: relative;
-}
-.Contenedor-Peliculas .Peliculas:hover{
-    transform: scale(1.02);
-    transition: .3s ease all;
-}
-.Contenedor-Peliculas img{
-    width: 100%;
-    height: 100%;
-}
-.Contenedor-Peliculas button{
-    width: 100%;
-    border-radius: 0;
-    position: absolute;
-    bottom: 0;
-    transition: .2s ease all;
 }
 
-
-.Contenedor-Peliculas button {
-    padding: 16px 20px;
-    z-index: 1;
-    overflow: hidden;
-  }
-
-.Contenedor-Peliculas button::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    padding: 16px 20px;
-    top: 0;
-    bottom: 0;
-    left: -100%;
-    right: 100%;
-    -webkit-transition: all 0.35s;
-    transition: all 0.35s;
-  }
-
-.Contenedor-Peliculas button:hover::after {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    -webkit-transition: all 0.35s;
-    transition: all 0.35s;
-  }
+footer .Contact div {
+    margin: 20px 0px;
+}

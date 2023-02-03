@@ -12,6 +12,8 @@ const auditoriumRoutes = require('./routes/auditoriumRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 const screeningRoutes = require('./routes/screeningRoutes');
 const userRoutes = require('./routes/userRoutes');
+const ticketRoutes = require('./routes/ticketRoutes');
+const seatRoutes = require('./routes/seatRoutes');
 
 require('./db.js');
 
@@ -42,14 +44,16 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 server.use('/movies', moviesRoutes);
-server.use('/combo', comboRoutes);
-server.use('/food',foodRoutes);
-server.use('/drink', drinkRoutes); 
-server.use('/genre',genreRoutes);
-server.use('/auditorium', auditoriumRoutes);
-server.use('/review', reviewRoutes);
-server.use('/screening', screeningRoutes);
-server.use('/user', userRoutes);
+server.use('/combos', comboRoutes);
+server.use('/foods',foodRoutes);
+server.use('/drinks', drinkRoutes); 
+server.use('/genres',genreRoutes);
+server.use('/auditoriums', auditoriumRoutes);
+server.use('/reviews', reviewRoutes);
+server.use('/screenings', screeningRoutes);
+server.use('/users', userRoutes);
+server.use('/seats', seatRoutes);
+server.use('/tickets', ticketRoutes);
 
 
 module.exports = server;

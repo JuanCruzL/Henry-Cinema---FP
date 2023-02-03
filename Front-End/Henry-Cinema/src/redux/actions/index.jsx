@@ -1,4 +1,6 @@
-import axios from "axios"
+import axios from 'axios';
+const AGE_CLASSIFICATION = 'AGE_CLASSIFICATION';
+
 
 export const getMovieById = (id) => {
     try {
@@ -15,3 +17,10 @@ export const getMovieById = (id) => {
     }
 }
 
+
+export function AgeClassification(){
+    return{
+        type: AGE_CLASSIFICATION,
+        payload
+    }
+}

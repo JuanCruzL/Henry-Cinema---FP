@@ -1,4 +1,5 @@
 import Home from "./Components/Home/Home";
+import Details from "./Components/Details/Details";
 //import Movies from "./Components/Movies";
 //import Details from "./Components/Details/Details.jsx"
 import "./App.css";

@@ -1,22 +1,29 @@
+/* developer */
+
 const { Router } = require("express");
+const { Seat } = require("../db");
 const router = Router();
-const { Genre } =  require('../models/Genre')
 
-const { getGenresDb } = require("../controllers/genres.js");
+/* Controllers */
 
-router.get("/", async (_req, res) => {
+const { getSeatsDb } = require("../controllers/seats");
+
+/* routes */
+
+router.get("/", async (req, res) => {
+  let allSeatsDb = await getSeatsDb();
   try {
-    let allGenreDb = await getGenresDb();
-    res.status(200).send(allGenreDb);
+    res.status(200).send(allSeatsDb);
   } catch (error) {
-    res.status(404).send(error);
+    console.log(error);
+    res.status(500).send(error);
   }
 });
 
 router.post("/", async (req, res) => {
   try {
-    let { id, name } = req.body;
-    await Genre.create({ id, name });
+    let { row, number } = req.body;
+    await Seat.create({ row, number });
     res.status(200).send("CREATED");
   } catch (error) {
     console.log(error);
@@ -27,13 +34,13 @@ router.post("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     let { id } = req.params;
-    await Genre.destroy({
+    await Seat.destroy({
       where: {
         id,
       },
     });
     res.sendStatus(204);
-    console.log("Genre eliminated");
+    console.log("ELIMINATED");
   } catch (error) {
     res.status(500).send(error);
   }
