@@ -1,4 +1,5 @@
 const initialState = {
+  movieId: [],
   movies: [],
   allMovies: [],
 };
@@ -8,8 +9,8 @@ const rootReducer = (state = initialState, action) => {
     case "GET_MOVIES": {
       return {
         ...state,
-        movies: [...action, payload],
-        allMovies:[...action, payload]
+        movies: action.payload,
+        allMovies: action.payload
       };
     }
     case "AGE_CLASSIFICATION":
@@ -17,11 +18,22 @@ const rootReducer = (state = initialState, action) => {
       const age_classification =allM.filter(data =>data.classification===payload)
      return{
         ...state,
-        movies:age_classification
+        movies: age_classification
      }
+     case "GET_MOVIE_ID":
+       return {
+         ...state,
+         movieId: action.payload
+       }
     default:
       return state;
   }
 };
 
 export default rootReducer;
+
+
+
+
+
+
