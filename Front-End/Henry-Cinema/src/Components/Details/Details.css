@@ -20,6 +20,8 @@
   box-sizing: border-box;
   background: rgba(217, 217, 217, 0.132);
   border: 1px solid rgba(0, 0, 0, 0.29);
+  height: 787px;
+  width: 382px;
 }
 
 .MovieInfo {
@@ -29,12 +31,14 @@
 }
 
 .coverImage {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  height: 386px;
+  width: 280px;
 }
 
 .allDetailsP {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .infoBar {

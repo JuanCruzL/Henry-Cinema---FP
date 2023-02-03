@@ -15,34 +15,38 @@ export default function Details() {
   },[])
 
   const movie = useSelector((state) => state.movieId)
-  
-  let genres = []  
-  useEffect(() => {
-      if (movie) {
-        genres = movie?.genres?.map((e) => (e)).join(", ")
-      }
-  },[movie])
 
-    if(!movie.hasOwnProperty("title")) {
-      return(
-        <div>Cargando...</div>
+   let genres = []
+   let genres2 = []
+   let productionCompanies = [];
+
+  if (movie) {
+    genres = movie?.genres?.map((e) => e).join(" ")
+    genres2 = movie?.genres?.map((e) => e).join(", ")
+    productionCompanies = movie?.productionCompanies?.map((e) => e).join(", ")
+  }
+
+  
+  
+  if(!movie.hasOwnProperty("title")) {
+    return(
+      <div>Cargando...</div>
       )
     }else {
-
       return (
         <div className="Big-container">
           <div className="detailsContainer">
             <div className="MovieInfo">
               <div className="Genre">
-              {genres.map((e,index)=> {<p key={index}>{e}</p>})}
+              <h1>{genres}</h1>
               </div>
               <div className="movieTitle">
                 <h2>{movie.title}</h2>
               </div>
               <div className="infoBar">
                 <p className="info">{movie.runtime} minutes</p>
-                {movie.adult === false ? <p className="info-mid">ATP</p> : <p className="info-mid">+18</p>}
-                <p className="info">{movie.title}</p>
+                <p className="info-mid">{movie.classification}</p>
+                <p className="info">{genres2}</p>
               </div>
               <a className="fancy" href="#">
                 <span className="top-key"></span>
@@ -53,7 +57,7 @@ export default function Details() {
               <iframe
                 width="800"
                 height="450"
-                src="https://www.youtube.com/embed/hkhTHJJoD9k"
+                src={movie.video}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -61,25 +65,22 @@ export default function Details() {
                 className="ytFrame"
               ></iframe>
               <p className="p">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-                possimus odio, reprehenderit consequatur incidunt inventore maxime
-                id mollitia blanditiis eius optio obcaecati iure tempora cumque
-                veritatis, excepturi soluta eum perspiciatis!
+                {movie.overview}
               </p>
             </div>
             <div className="detailsContainerRight">
               <img
-                src="https://static.voyalcine.net/Uploads/i1826.jpg"
-                alt="image"
+                src={movie.image}
+                alt={movie.title}
                 className="coverImage"
               />
-              <p className="allDetailsP">Original Title: </p>
-              <p className="allDetailsP">Original Title: ``</p>
-              <p className="allDetailsP">Original Title: `</p>
-              <p className="allDetailsP">Original Title: ``</p>
-              <p className="allDetailsP">Original Title: ``</p>
-              <p className="allDetailsP">Original Title: ``</p>
-              <p className="allDetailsP">Original Title: ``</p>
+              <p className="allDetailsP"><b>Original Title: </b>{movie.title}</p>
+              <p className="allDetailsP"><b>Genres: </b>{genres2}</p>
+              <p className="allDetailsP"><b>Runtime: </b>{movie.runtime}</p>
+              <p className="allDetailsP"><b>Production Companies: </b>{productionCompanies}</p>
+              <p className="allDetailsP"><b>Rating: </b>{movie.voteAverage}</p>
+              <p className="allDetailsP"><b>Status: </b>{movie.status}</p>
+              <p className="allDetailsP"><b>Origin: </b>{movie.origin}</p>
             </div>
           </div>
         </div>
