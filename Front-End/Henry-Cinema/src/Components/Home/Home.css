@@ -161,7 +161,6 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
 }
@@ -171,6 +170,12 @@
     height: 20px;
 }
 
+.Homehome .Switch {
+    text-align: center;
+    width: 20px;
+    padding: 1px 2px 1px 1px;
+    border-radius: 50%;
+}
 /* Aqui les damos forma*/
 
 /*NAVBAR*/
@@ -224,12 +229,6 @@
     padding-left: 5px;
 }
 
-.Switch {
-    text-align: center;
-    width: 20px;
-    padding: 1px 2px 1px 1px;
-    border-radius: 50%;
-}
 
 /*CARRUSEL*/
 
