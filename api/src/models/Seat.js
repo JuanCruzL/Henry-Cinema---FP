@@ -7,7 +7,6 @@ module.exports = (sequelize) => {
     
     id: {
       type: DataTypes.UUID,
-      //autoIncrement: true,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
       allowNull: false,
@@ -21,6 +20,14 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false
     },
+    reserved: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    payed: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    }
   });
 };
 

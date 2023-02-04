@@ -1,16 +1,15 @@
-//import { Route, Switch } from "react-router-dom";
 import Home from "./Components/Home/Home";
+
 //import Movies from "./Components/Movies";
+//import Details from "./Components/Details/Details.jsx"
 import "./App.css";
+
+import { Route, Routes } from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      {/* <Switch>
-        <Route extact path="/" component={Home} />
-        <Route path="/Movies" component={Movies} />
-      </Switch> */}
+    <div className="App">    
     </div>
   );
 }
