@@ -72,61 +72,78 @@ const getMovies = async () => {
 };
 
 const getMovieById = async (id) => {
-  const config = { headers: { "Accept-Encoding": null } };
-  let movieApiById = {};
-  const { data } = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`,
-    config
-  );
-  const reviewApi = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
-    config
-  );
-  const videos = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`,
-    config
-  );
-  const imageFromApi = data.poster_path;
-  const imageFromApi2 = data.backdrop_path;
-  const reviewApiResults = reviewApi.data.results;
-  const videosApiResults = videos.data.results;
-  let trailerKey = null;
-  for (i = 0; i < videosApiResults.length; i++) {
-    if (
-      videosApiResults[i].name === "Official Trailer" ||
-      videosApiResults[i].name === "official trailer"
-    ) {
-      trailerKey = videosApiResults[i].key;
+
+  // verify if id its a real number.
+  // ie: id: 12665.
+  if(!isNaN(id)) {
+
+    const config = { headers: { "Accept-Encoding": null } };
+    let movieApiById = {};
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`,
+      config
+    );
+    const reviewApi = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
+      config
+    );
+    const videos = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`,
+      config
+    );
+    const imageFromApi = data.poster_path;
+    const imageFromApi2 = data.backdrop_path;
+    const reviewApiResults = reviewApi.data.results;
+    const videosApiResults = videos.data.results;
+    let trailerKey = null;
+    for (i = 0; i < videosApiResults.length; i++) {
+      if (
+        videosApiResults[i].name === "Official Trailer" ||
+        videosApiResults[i].name === "official trailer"
+      ) {
+        trailerKey = videosApiResults[i].key;
+      }
     }
+  
+    if (trailerKey === null) {
+      trailerKey = videosApiResults[0]?.key;
+    }
+  
+    const classificationAdapted = () => {
+      if (data.adult === true) {
+        movieApiById.classification = "Restricted";
+      } else {
+        movieApiById.classification = "General Audiences";
+      }
+    };
+    movieApiById = {
+      title: data.title,
+      origin: data.production_countries[0]?.name,
+      review: reviewApiResults.map((r) => r.content),
+      imageVertical: `https://image.tmdb.org/t/p/original${imageFromApi}`,
+      imageHorizontal: `https://image.tmdb.org/t/p/original${imageFromApi2}`,
+      genres: data.genres.map((g) => g.name),
+      overview: data.overview,
+      status: data.status,
+      productionCompanies: data.production_companies.map((pc) => pc.name),
+      voteAverage: data.vote_average,
+      runtime: data.runtime,
+      video: `https://www.youtube.com/embed/${trailerKey}`,
+    };
+    classificationAdapted();
+    return movieApiById;
   }
 
-  if (trailerKey === null) {
-    trailerKey = videosApiResults[0].key;
-  }
+  // if it's not a real number, then search on the DB
+  // i.e: id: 78b8496d-357a-4b15-8fda-e99563df8c61 ( UUIDV4 )
+  // to search for movies posted by admin in db
+  const recipeDbById = await Movie.findOne({
+    where: {
+      id: id,
+    },
+  })
 
-  const classificationAdapted = () => {
-    if (data.adult === true) {
-      movieApiById.classification = "Restricted";
-    } else {
-      movieApiById.classification = "General Audiences";
-    }
-  };
-  movieApiById = {
-    title: data.title,
-    origin: data.production_countries[0]?.name,
-    review: reviewApiResults.map((r) => r.content),
-    imageVertical: `https://image.tmdb.org/t/p/original${imageFromApi}`,
-    imageHorizontal: `https://image.tmdb.org/t/p/original${imageFromApi2}`,
-    genres: data.genres.map((g) => g.name),
-    overview: data.overview,
-    status: data.status,
-    productionCompanies: data.production_companies.map((pc) => pc.name),
-    voteAverage: data.vote_average,
-    runtime: data.runtime,
-    video: `https://www.youtube.com/embed/${trailerKey}`,
-  };
-  classificationAdapted();
-  return movieApiById;
+  return recipeDbById;
 };
 
 module.exports = { getMovies, getMovieById };
