@@ -13,10 +13,12 @@ const getNextReleases = async () => {
   const releasesArray = data.results;
   for (let i = 0; i < releasesArray.length; i++) {
     let nextRelease = {};
-    const imageFromApi = releasesArray[i].backdrop_path;
-    nextRelease.id = releasesArray[i].id;
-    nextRelease.image = `https://image.tmdb.org/t/p/w500/${imageFromApi}`;
-    finalNextReleases.push(nextRelease);
+    if (releasesArray[i].poster_path != null) {
+      const imageFromApi = releasesArray[i].poster_path;
+      nextRelease.id = releasesArray[i].id;
+      nextRelease.image = `https://image.tmdb.org/t/p/original/${imageFromApi}`;
+      finalNextReleases.push(nextRelease);
+    }
   }
   return finalNextReleases;
 };
