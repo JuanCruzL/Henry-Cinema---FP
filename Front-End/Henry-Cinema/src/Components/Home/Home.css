@@ -1,7 +1,7 @@
 @import url(../Utils/Pallette.css);
 
 /* Aqui Color Modo Dia */
-.light-mode {
+.light-mode .Homehome{
     background-color: var(--LFondo-1);
     color: var(--LText-1);
 }
@@ -37,7 +37,7 @@
 
 
 /* Aqui Color Modo Noche */
-.dark-mode {
+.dark-mode .Homehome{
     background-color: var(--NFondo-1);
     color: var(--NText-1);
 }

@@ -4,9 +4,10 @@ import logo from "../../img/menu.png";
 import perfil from "../../img/usuario.png";
 import logoh from "../../img/logo.png";
 import { toggleDarkLight } from "../Utils/Switch";
+import { Link } from "react-router-dom";
 import "./Nav.css";
 
-const Nav = ({setCurrentPage}) => {
+const Nav = ({ setCurrentPage }) => {
   return (
     <nav className="menu">
       <section className="menu-container">
@@ -22,9 +23,11 @@ const Nav = ({setCurrentPage}) => {
                 </a>
               </li>
               <li className="menu-inside">
-                <a href="#" className="menu-link menu-link--inside">
-                  Movies
-                </a>
+                <Link to='/movies'>
+                  <a href="#" className="menu-link menu-link--inside">
+                    Movies
+                  </a>
+                </Link>
               </li>
               <li className="menu-inside">
                 <a href="#" className="menu-link menu-link--inside">
@@ -34,7 +37,9 @@ const Nav = ({setCurrentPage}) => {
             </ul>
           </li>
           <li className="menu-item">
-              <img src={logoh} className="logoh"></img>
+            <Link to='/'>
+            <img src={logoh} className="logoh"></img>
+            </Link>
           </li>
           <li className="menu-item">
             <a href="#" className="menu-link">
@@ -42,9 +47,12 @@ const Nav = ({setCurrentPage}) => {
             </a>
           </li>
           <li className="menu-item">
+          <Link to='/movies'>
+
             <a href="#" className="menu-link">
               Movies
             </a>
+          </Link>
           </li>
           <li className="menu-item">
             <a href="#" className="menu-link">
@@ -52,7 +60,7 @@ const Nav = ({setCurrentPage}) => {
             </a>
           </li>
           <li className="menu-itemSearchBar">
-            <SearchBar setCurrentPage= {setCurrentPage} />
+            <SearchBar setCurrentPage={setCurrentPage} />
           </li>
           <li className="menu-item">
             <a href="#" className="menu-link" onClick={e => toggleDarkLight(e)}>
