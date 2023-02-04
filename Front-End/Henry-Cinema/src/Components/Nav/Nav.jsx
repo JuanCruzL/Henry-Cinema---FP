@@ -34,9 +34,7 @@ const Nav = ({setCurrentPage}) => {
             </ul>
           </li>
           <li className="menu-item">
-            <a href="#" className="menu-link">
               <img src={logoh} className="logoh"></img>
-            </a>
           </li>
           <li className="menu-item">
             <a href="#" className="menu-link">
@@ -62,7 +60,7 @@ const Nav = ({setCurrentPage}) => {
             </a>
           </li>
           <li className="menu-item">
-            <a href="#" className="menu-link">
+            <a href="#" className="menu-link-user">
               <img src={perfil} className="perfil"></img>
             </a>
           </li>
