@@ -7,17 +7,24 @@ const { getGenresDb } = require("./genres");
 const getMovies = async () => {
   const config = { headers: { "Accept-Encoding": null } };
   const finalMovies = [];
-  const result = await axios.get(
+  const resultP1 = await axios.get(
     `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1&region=US`,
     config
   );
-  const results = result.data.results;
+  const resultsP1 = resultP1.data.results;
+  const resultP2 = await axios.get(
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=2&region=US`,
+    config
+  );
+  const resultsP2 = resultP2.data.results;
+  const allResults = [...resultsP1, ...resultsP2];
+
   const genresDb = await getGenresDb();
-  for (let i = 0; i < results.length; i++) {
+  for (let i = 0; i < allResults.length; i++) {
     const movie = {};
-    const imageFromApi2 = results[i].backdrop_path;
-    const imageFromApi = results[i].poster_path;
-    const genresMovieIds = results[i].genre_ids;
+    const imageFromApi2 = allResults[i].backdrop_path;
+    const imageFromApi = allResults[i].poster_path;
+    const genresMovieIds = allResults[i].genre_ids;
     const genresString = [];
     for (let i = 0; i < genresMovieIds.length; i++) {
       for (let j = 0; j < genresDb.length; j++) {
@@ -27,14 +34,14 @@ const getMovies = async () => {
         }
       }
     }
-    movie.apiId = results[i].id;
-    movie.title = results[i].title;
+    movie.apiId = allResults[i].id;
+    movie.title = allResults[i].title;
     movie.imageVertical = `https://image.tmdb.org/t/p/original${imageFromApi}`;
     movie.imageHorizontal = `https://image.tmdb.org/t/p/original${imageFromApi2}`;
-    movie.voteAverage = results[i].vote_average;
-    movie.overview = results[i].overview;
+    movie.voteAverage = allResults[i].vote_average;
+    movie.overview = allResults[i].overview;
     movie.genres = genresString;
-    if (results[i].adult === true) {
+    if (allResults[i].adult === true) {
       movie.classification = "Restricted";
     } else {
       movie.classification = "General Audiences";
@@ -91,7 +98,7 @@ const getMovieById = async (id) => {
     ) {
       trailerKey = videosApiResults[i].key;
     }
-  };
+  }
 
   if (trailerKey === null) {
     trailerKey = videosApiResults[0].key;
