@@ -1,121 +1,110 @@
 .loaderRectangle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0 3px;
-    height: 100vh;
-    position: relative;
-   }
-.textLoading{
-   /*  border: 2px solid red; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    padding-top: 80px;
-    padding-left: 5px;
-
-}
-   
-   .loaderRectangle div {
-    width: 16px;
-    height: 50px;
-    animation: .9s ease-in-out infinite;
-    background: rgb(0, 0, 0);;
-    box-shadow: 0 0 20px rgb(255, 242, 0);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 0 3px;
+   height: 100vh;
+   position: relative;
    }
    
-   .loaderRectangle div:nth-child(1) {
-    animation-name: rectangleOneAnim;
-    animation-delay: 1s;
+   .textLoading {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   padding-top: 80px;
+   padding-left: 5px;
+   }
+   
+   .loaderDivRectangle {
+   width: 5px;
+   height: 50px;
+   animation: .9s ease-in-out infinite;
+   background: rgb(0, 0, 0);
+   box-shadow: 0 0 20px rgb(255, 242, 0);
+   }
+   
+   .loaderDivRectangle:nth-child(1) {
+   animation-name: rectangleOneAnim;
+   animation-delay: 1s;
    }
    
    @keyframes rectangleOneAnim {
-    0% {
-     height: 15px;
-    }
-   
-    40% {
-     height: 30px;
-    }
-   
-    100% {
-     height: 15px;
-    }
+   0% {
+   height: 15px;
+   }
+   40% {
+   height: 30px;
+   }
+   100% {
+   height: 15px;
+   }
    }
    
-   .loaderRectangle div:nth-child(2) {
-    animation-name: rectangleTwoAnim;
-    animation-delay: 1.1s;
+   .loaderDivRectangle:nth-child(2) {
+   animation-name: rectangleTwoAnim;
+   animation-delay: 1.1s;
    }
    
    @keyframes rectangleTwoAnim {
-    0% {
-     height: 15px;
-    }
-   
-    40% {
-     height: 40px;
-    }
-   
-    100% {
-     height: 15px;
-    }
+   0% {
+   height: 15px;
+   }
+   40% {
+   height: 40px;
+   }
+   100% {
+   height: 15px;
+   }
    }
    
-   .loaderRectangle div:nth-child(3) {
-    animation-name: rectangleThreeAnim;
-    animation-delay: 1.2s;
-   }                
+   .loaderDivRectangle:nth-child(3) {
+   animation-name: rectangleThreeAnim;
+   animation-delay: 1.2s;
+   }
    
    @keyframes rectangleThreeAnim {
-    0% {
-     height: 15px;
-    }
-   
-    40% {
-     height: 50px;
-    }
-   
-    100% {
-     height: 15px;
-    }
+   0% {
+   height: 15px;
+   }
+   40% {
+   height: 50px;
+   }
+   100% {
+   height: 15px;
+   }
    }
    
-   .loaderRectangle div:nth-child(4) {
-    animation-name: rectangleFourAnim;
-    animation-delay: 1.3s;
+   .loaderDivRectangle:nth-child(4) {
+   animation-name: rectangleFourAnim;
+   animation-delay: 1.3s;
    }
    
    @keyframes rectangleFourAnim {
-    0% {
-     height: 15px;
-    }
-   
-    40% {
-     height: 40px;
-    }
-   
-    100% {
-     height: 15px;
-    }
+   0% {
+   height: 15px;
+   }
+   40% {
+   height: 40px;
+   }
+   100% {
+   height: 15px;
+   }
    }
    
-   .loaderRectangle div:nth-child(5) {
-    animation-name: rectangleFiveAnim;
-    animation-delay: 1.4s;
+   .loaderDivRectangle:nth-child(5) {
+   animation-name: rectangleFiveAnim;
+   animation-delay: 1.4s;
    }
    
    @keyframes rectangleFiveAnim {
-    0% {
-     height: 15px;
-    }
-   
-    40% {
-     height: 30px;
-    }
-   
-    100% {
-     height: 15px;
-    }
+   0% {
+   height: 15px;
+   }
+   40% {
+   height: 30px;
+   }
+   100% {
+   height: 15px;
+   }
    }
