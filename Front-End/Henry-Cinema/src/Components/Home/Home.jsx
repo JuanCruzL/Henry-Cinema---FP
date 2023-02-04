@@ -11,54 +11,50 @@ import HomePaginated from "./HomePaginated/HomePaginated";
 import Footer from "../footer/footer";
 
 export default function Home() {
-  const dispatch = useDispatch();
 
-  const [currentPage, setCurrentPage] = useState(1); //* Creamos una constante ponde guardar/setear la pagina actual(1)
-  const [moviesPerPage, setMoviesPerPage] = useState(8); //* Creamos una constante para escoger el limite de peliculas por pagina(8)
-  const indexOfLastMovie = currentPage * moviesPerPage; //* Obtenemos el indice del ultimo elemento de la pagina actual
-  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage; //* Obtenemos el indice del primer elemento de la pagina actual
-  const currentMovie = peliculas.slice(indexOfFirstMovie, indexOfLastMovie); //* Obtenemos los datos entre los 2 indices anteriores
+    const dispatch = useDispatch();
 
-  const paginated = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
+    const [currentPage, setCurrentPage] = useState(1); //* Creamos una constante ponde guardar/setear la pagina actual(1)
+    const [moviesPerPage, setMoviesPerPage] = useState(8); //* Creamos una constante para escoger el limite de peliculas por pagina(8)
+    const indexOfLastMovie = currentPage * moviesPerPage; //* Obtenemos el indice del ultimo elemento de la pagina actual
+    const indexOfFirstMovie = indexOfLastMovie - moviesPerPage; //* Obtenemos el indice del primer elemento de la pagina actual
+    const currentMovie = peliculas.slice(indexOfFirstMovie, indexOfLastMovie); //* Obtenemos los datos entre los 2 indices anteriores
 
-  useEffect(() => {
-    Prev();
-    Next();
-  }, []);
+    const paginated = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
 
-  function Prev() {
-    var fila = document.querySelector(".contenedorCarrusel");
-    var flechaIz = document.getElementById("Prev");
-    flechaIz.addEventListener("click", () => {
-      fila.scrollLeft -= fila.offsetWidth;
-    });
-  }
+    useEffect(() => {
+        Prev();
+        Next();
+    }, []);
 
-  function Next() {
-    var fila = document.querySelector(".contenedorCarrusel");
-    var flechaDe = document.getElementById("Next");
-    flechaDe.addEventListener("click", () => {
-      fila.scrollLeft += fila.offsetWidth;
-    });
-  }
+    function Prev() {
+        var fila = document.querySelector(".contenedorCarrusel");
+        var flechaIz = document.getElementById("Prev");
+        flechaIz.addEventListener("click", () => {
+            fila.scrollLeft -= fila.offsetWidth;
+        });
+    }
 
-  return (
-    <div id="Switch" className="light-mode">
-      <div className="Homehome">
-        <Nav />
-        <div className="BodyHome">
-          <HomeCarrusel Prev={Prev} Next={Next} cartelera={cartelera} />
-          <HomePaginated
-            peliculas={peliculas.length}
-            moviesPerPage={moviesPerPage}
-            paginated={paginated}
-          />
-          <HomeMovie peliculas={currentMovie} />
-          <br></br>
+    function Next() {
+        var fila = document.querySelector(".contenedorCarrusel");
+        var flechaDe = document.getElementById("Next");
+        flechaDe.addEventListener("click", () => {
+            fila.scrollLeft += fila.offsetWidth;
+        });
+    }
+
+    return (
+
+        <div className="Homehome">
+            <Nav />
+            <div className="BodyHome">
+                <HomeCarrusel Prev={Prev} Next={Next} cartelera={cartelera} />
+                <HomePaginated peliculas={peliculas.length} moviesPerPage={moviesPerPage} paginated={paginated} />
+                <HomeMovie peliculas={currentMovie} />
+                <br></br>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    )
 }

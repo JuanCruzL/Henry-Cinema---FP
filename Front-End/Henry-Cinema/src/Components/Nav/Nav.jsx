@@ -3,6 +3,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../img/menu.png";
 import perfil from "../../img/usuario.png";
 import logoh from "../../img/logo.png";
+import { toggleDarkLight } from "../Utils/Switch";
 import "./Nav.css";
 
 const Nav = () => {
@@ -52,12 +53,17 @@ const Nav = () => {
               Food & Drinks
             </a>
           </li>
-          <div>
+          <li className="menu-itemSearchBar">
             <SearchBar />
-          </div>
+          </li>
+          <li className="menu-item">
+            <a href="#" className="menu-link" onClick={e => toggleDarkLight(e)}>
+              <button type="button" className="Switch" title="Toggle dark/light mode">🌑</button>
+            </a>
+          </li>
           <li className="menu-item">
             <a href="#" className="menu-link">
-              <img src={perfil}></img>
+              <img src={perfil} className="perfil"></img>
             </a>
           </li>
         </ul>
