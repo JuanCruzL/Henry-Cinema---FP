@@ -8,8 +8,8 @@ export default function HomeMovie({ peliculas }) {
                 peliculas.map(data => {
                     return (
                         <div className="Peliculas">
-                            <button>PREMIERE</button>
-                            <img src={data.img}></img>
+                            <button className="GO" >PREMIERE</button>
+                            <img src={data.image}></img>
                         </div>
                     )
                 })
