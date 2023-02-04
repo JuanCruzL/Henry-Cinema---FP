@@ -6,7 +6,7 @@ const router = Router();
 
 /* Controllers */
 
-const { getTicketsDb } = require("../controllers/tickets");
+const { getTicketsDb } = require("../controllers/ticket");
 
 /* routes */
 
