@@ -2,6 +2,8 @@ import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../img/menu.png";
 import perfil from "../../img/usuario.png";
+import logoh from "../../img/logo.png";
+import { toggleDarkLight } from "../Utils/Switch";
 import "./Nav.css";
 
 const Nav = () => {
@@ -31,7 +33,11 @@ const Nav = () => {
               </li>
             </ul>
           </li>
-          <div className="logo"></div>
+          <li className="menu-item">
+            <a href="#" className="menu-link">
+              <img src={logoh} className="logoh"></img>
+            </a>
+          </li>
           <li className="menu-item">
             <a href="#" className="menu-link">
               Cinemas
@@ -47,12 +53,17 @@ const Nav = () => {
               Food & Drinks
             </a>
           </li>
-          <div>
+          <li className="menu-itemSearchBar">
             <SearchBar />
-          </div>
+          </li>
+          <li className="menu-item">
+            <a href="#" className="menu-link" onClick={e => toggleDarkLight(e)}>
+              <button type="button" className="Switch" title="Toggle dark/light mode">🌑</button>
+            </a>
+          </li>
           <li className="menu-item">
             <a href="#" className="menu-link">
-              <img src={perfil}></img>
+              <img src={perfil} className="perfil"></img>
             </a>
           </li>
         </ul>
