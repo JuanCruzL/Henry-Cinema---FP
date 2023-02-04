@@ -6,7 +6,6 @@ module.exports = (sequelize) =>{
     sequelize.define('User',{
         id : {
             type: DataTypes.UUID,
-            //autoIncrement: true,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
             allowNull:false
@@ -23,5 +22,5 @@ module.exports = (sequelize) =>{
             type: DataTypes.STRING, 
             allowNull: false
         }
-    })
+    },{timestamps:false})
 }
