@@ -1,27 +1,38 @@
 import React from "react";
 import Carousel from "./Carousel";
+import Loader from "../Loader/Loader"
 import "./Movies.css";
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getMovies} from '../../redux/actions/index';
 
 const Movies = () => {
-  const images = [
-    "https://www.universalpictures-latam.com/tl_files/content/movies/puss_in_boots_2/posters/02.jpg",
-    "https://pics.filmaffinity.com/Avatar_El_sentido_del_agua-722646748-large.jpg",
-    "https://m.cinesargentinos.com.ar/poster/9292-el-aro-4.jpg?1671824848",
-    "https://www.procinal.com/uploads/PELICULAS/Img_movies/Img_360x500/LA%20NOVIA%20MALDITA1.jpg",
-    "https://dx35vtwkllhj9.cloudfront.net/trafalgarreleasing/bts-yet-to-come-in-cinemas/images/regions/intl/onesheet.jpg",
-    "https://mx.web.img3.acsta.net/pictures/21/04/14/17/28/5059871.jpg",
-    "https://pics.filmaffinity.com/Argentina_1985-599655212-large.jpg",
-  ];
+
+
+const dispatch = useDispatch();
+  const allMovies = useSelector((state) => state.movies);
+  console.log(allMovies)
+  //const [movies, setMovies] = useState(allMovies);
+
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!allMovies.length) {
+      dispatch(getMovies());
+    }
+    setLoading(false);
+    setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.image })));
+  }, [allMovies, dispatch, setImages]);
+
+  if (loading) {
+    return <Loader />
+  }
+
+  
+  
   return (
     <div className="Container">
-      <section className="Cinemas">
-        <h1>Cinemas</h1>
-        <select>
-          <option value="1">California</option>
-          <option value="2">Buenos Aires</option>
-          <option value="3">Lima</option>
-        </select>
-      </section>
 
       <section>
         <div className="Available">
@@ -51,7 +62,7 @@ const Movies = () => {
 
           <div className="movies-rigth">
             <div className="movies-rigth-1">
-              <img src={images[0]} alt="" />
+              {/* <img src={allMovies[2].image} alt="" /> */}
 
               <div className="movies-rigth-1-1">
                 <h6>Gato Con Botas: El ultimo deseo</h6>
@@ -68,7 +79,7 @@ const Movies = () => {
               </div>
             </div>
             <div className="movies-rigth-1">
-              <img src={images[1]} alt="" />
+              {/* <img src={allMovies[1].image} alt="" /> */}
               <div className="movies-rigth-1-1">
                 <h6>AVATAR 2</h6>
                 <div className="movies-rigth-1-2">
@@ -88,11 +99,11 @@ const Movies = () => {
       </section>
       <div className="movies-prox">
         <h1>Proximos Estrenos</h1>
-        <img src={images[2]} alt="" />
-        <img src={images[3]} alt="" />
-        <img src={images[2]} alt="" />
-        <img src={images[4]} alt="" />
-        <img src={images[5]} alt="" />
+        <img src={images[10]} alt="" />
+        <img src={images[11]} alt="" />
+        <img src={images[12]} alt="" />
+        <img src={images[13]} alt="" />
+        
       </div>
     </div>
   );
