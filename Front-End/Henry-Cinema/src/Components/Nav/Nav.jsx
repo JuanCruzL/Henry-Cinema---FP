@@ -6,7 +6,7 @@ import logoh from "../../img/logo.png";
 import { toggleDarkLight } from "../Utils/Switch";
 import "./Nav.css";
 
-const Nav = () => {
+const Nav = ({setCurrentPage}) => {
   return (
     <nav className="menu">
       <section className="menu-container">
@@ -54,7 +54,7 @@ const Nav = () => {
             </a>
           </li>
           <li className="menu-itemSearchBar">
-            <SearchBar />
+            <SearchBar setCurrentPage= {setCurrentPage} />
           </li>
           <li className="menu-item">
             <a href="#" className="menu-link" onClick={e => toggleDarkLight(e)}>
