@@ -27,7 +27,7 @@
     height: 100%;
 }
 
-.HomeMovie button {
+.HomeMovie .GO {
     width: 100%;
     border-radius: 0;
     position: absolute;
@@ -38,7 +38,7 @@
     overflow: hidden;
 }
 
-.HomeMovie button::after {
+.HomeMovie .GO::after {
     content: "";
     position: absolute;
     z-index: -1;
@@ -51,7 +51,7 @@
     transition: all 0.35s;
 }
 
-.HomeMovie button:hover::after {
+.HomeMovie .GO:hover::after {
     left: 0;
     right: 0;
     top: 0;
