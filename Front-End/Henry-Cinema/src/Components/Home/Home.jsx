@@ -9,6 +9,7 @@ import HomeCarrusel from "./HomeCarrusel/HomeCarrusel";
 import HomeMovie from "./HomeMovie/HomeMovie";
 import HomePaginated from "./HomePaginated/HomePaginated";
 import Nav from "../Nav/Nav";
+import Footer from "../footer/footer";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -44,71 +45,65 @@ export default function Home() {
     });
   }
 
-
-            </div>
-            <button
-              type="button"
-              className="Switch"
-              onClick={(e) => toggleDarkLight(e)}
-              title="Toggle dark/light mode"
-            >
-              🌑
-            </button>
-            <a>
-              <img
-                src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png"
-                width={30}
-                height={30}
-              ></img>
-            </a>
-          </div>
-          <HomeCarrusel
-                        Prev={Prev}
-                        Next={Next}
-                        cartelera={cartelera}
-                    />
   return (
     <div id="Switch" className="light-mode">
       <Nav />
       <div className="Homehome">
         <div className="navHome">
           <HomeCarrusel Prev={Prev} Next={Next} cartelera={cartelera} />
-          <HomePaginated
-            peliculas={peliculas.length}
-            moviesPerPage={moviesPerPage}
-            paginated={paginated}
-          />
-          <HomeMovie peliculas={currentMovie} />
-          <br></br>
-          <footer>
-            <h1>CONTACT US</h1>
-            <br></br>
-            <div className="Contact">
-              <div>
-                <p>Contacto 1</p>
-              </div>
-              <div>
-                <p>Contacto 2</p>
-              </div>
-              <div>
-                <p>Contacto 3</p>
-              </div>
-              <div>
-                <p>Contacto 4</p>
-              </div>
-              <div>
-                <p>Contacto 5</p>
-              </div>
-              <div>
-                <p>Contacto 6</p>
-              </div>
-              <div>
-                <p>Contacto 7</p>
-              </div>
-            </div>
-          </footer>
         </div>
+        <button
+          type="button"
+          className="Switch"
+          onClick={(e) => toggleDarkLight(e)}
+          title="Toggle dark/light mode"
+        >
+          🌑
+        </button>
+        <a>
+          <img
+            src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png"
+            width={30}
+            height={30}
+          ></img>
+        </a>
       </div>
+      <HomeCarrusel Prev={Prev} Next={Next} cartelera={cartelera} />
+      <HomePaginated
+        peliculas={peliculas.length}
+        moviesPerPage={moviesPerPage}
+        paginated={paginated}
+      />
+      <HomeMovie peliculas={currentMovie} />
+      <br></br>
+      <footer>
+        <h1>CONTACT US</h1>
+        <br></br>
+        <div className="Contact">
+          <div>
+            <p>Contacto 1</p>
+          </div>
+          <div>
+            <p>Contacto 2</p>
+          </div>
+          <div>
+            <p>Contacto 3</p>
+          </div>
+          <div>
+            <p>Contacto 4</p>
+          </div>
+          <div>
+            <p>Contacto 5</p>
+          </div>
+          <div>
+            <p>Contacto 6</p>
+          </div>
+          <div>
+            <p>Contacto 7</p>
+          </div>
+        </div>
+        <Footer />
+      </footer>
     </div>
   );
 }
