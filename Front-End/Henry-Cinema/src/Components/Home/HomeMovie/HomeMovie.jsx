@@ -9,7 +9,7 @@ export default function HomeMovie({ peliculas }) {
                     return (
                         <div className="Peliculas">
                             <button className="GO" >PREMIERE</button>
-                            <img src={data.image}></img>
+                            <img src={data.imageVertical}></img>
                         </div>
                     )
                 })
