@@ -4,12 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../Home/Home.css";
 import { cartelera, peliculas } from "./Data";
-import Nav from "../Nav/Nav"
+import Nav from "../Nav/Nav";
 import HomeCarrusel from "./HomeCarrusel/HomeCarrusel";
 import HomeMovie from "./HomeMovie/HomeMovie";
 import HomePaginated from "./HomePaginated/HomePaginated";
+import Footer from "../footer/footer";
 
 export default function Home() {
+
     const dispatch = useDispatch();
 
     const [currentPage, setCurrentPage] = useState(1); //* Creamos una constante ponde guardar/setear la pagina actual(1)
