@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
   try {
     let { username, email, password } = req.body;
     await User.create({ username, email, password });
-    res.status(200).send("CREATED");
+    res.status(200).send("USER CREATED");
   } catch (error) {
     console.log(error);
     res.status(400).send(error);
@@ -40,7 +40,7 @@ router.delete("/:id", async (req, res) => {
       },
     });
     res.sendStatus(204);
-    console.log("ELIMINATED");
+    console.log("USER ELIMINATED");
   } catch (error) {
     res.status(500).send(error);
   }
