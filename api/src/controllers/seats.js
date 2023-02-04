@@ -2,30 +2,30 @@ const { Seat } = require("../db");
 
 const getSeatsDb = async () => {
   const allSeatsDb = await Seat.findAll();
-
-  if (!allSeatsDb) {
+  if (!allSeatsDb.length) {
+    let num = 7;
     for (i = 6; i < 25; i++) {
-      const num = 7;
-      Seat.Create({
+      await Seat.create({
         row: "A",
         number: num,
         reserved: false,
         payed: false,
       });
       num++;
-    }
+    };
+    let num1 = 1;
     for (i = 0; i < 31; i++) {
-      const num = 1;
-      Seat.Create({
+      await Seat.create({
         row: "B",
-        number: num,
+        number: num1,
         reserved: false,
         payed: false,        
       });
-      num++;
-    }
+      num1++;
+    };
+    const num2 = 1;
     for (i = 0; i < 31; i++) {
-      const num = 1;
+
       Seat.Create({
         row: "C",
         number: num,
@@ -174,7 +174,8 @@ const getSeatsDb = async () => {
       });
       num++;
     }
-    return allSeatsDb;
+    const newAllSeatsDb = await Seat.findAll();
+    return newAllSeatsDb;
   }
 };
 
