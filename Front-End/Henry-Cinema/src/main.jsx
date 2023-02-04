@@ -8,6 +8,7 @@ import store from "./store/index";
 import Details from "./Components/Details/Details";
 import "./index.css";
 import Movies from "./Components/Movies/Movies"
+import Login from "./Components/Login/login"
 
 
 const container = document.getElementById("root");
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path:"/movies",
     element: <Movies/>
+  },
+  {
+    path:"/login",
+    element: <Login/>
   }
 
 ]);

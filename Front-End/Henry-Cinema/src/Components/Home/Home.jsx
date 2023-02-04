@@ -83,25 +83,25 @@ export default function Home() {
                         <h1>CONTACT US</h1>
                         <br></br>
                         <div className="Contact">
-                            <div>
+                            <div className="contactDiv">
                                 <p>Contacto 1</p>
                             </div>
-                            <div>
+                            <div className="contactDiv">
                                 <p>Contacto 2</p>
                             </div>
-                            <div>
+                            <div className="contactDiv">
                                 <p>Contacto 3</p>
                             </div>
-                            <div>
+                            <div className="contactDiv">
                                 <p>Contacto 4</p>
                             </div>
-                            <div>
+                            <div className="contactDiv">
                                 <p>Contacto 5</p>
                             </div>
-                            <div>
+                            <div className="contactDiv">
                                 <p>Contacto 6</p>
                             </div>
-                            <div>
+                            <div className="contactDiv">
                                 <p>Contacto 7</p>
                             </div>
                         </div>

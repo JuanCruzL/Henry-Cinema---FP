@@ -246,6 +246,6 @@
     grid-template-columns: auto auto auto auto;
 }
 
-footer .Contact div {
+footer .Contact .contactDiv {
     margin: 20px 0px;
 }
