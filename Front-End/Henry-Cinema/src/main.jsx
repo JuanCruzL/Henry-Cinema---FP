@@ -10,6 +10,7 @@ import "./index.css";
 import Movies from "./Components/Movies/Movies"
 import Login from "./Components/Login/login"
 
+import Movies from "./Components/Movies/Movies";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -19,27 +20,24 @@ const router = createBrowserRouter([
     element: <Home></Home>,
   },
   {
-    path:"movie/:id",
-    element: <Details/>
+    path: "movie/:id",
+    element: <Details />,
   },
   {
-    path:"/movies",
-    element: <Movies/>
+    path: "/movies",
+    element: <Movies />,
   },
-  {
-    path:"/login",
-    element: <Login/>
-  }
-
 ]);
 
-
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router}>
-        <App />
-      </RouterProvider>
-    </Provider>
-  </React.StrictMode>
+  <div id="Switch" className="light-mode">
+    <React.StrictMode>
+      <Provider store={store}>
+        <RouterProvider router={router}>
+
+          <App />
+        </RouterProvider>
+      </Provider>
+    </React.StrictMode>
+  </div>
 );

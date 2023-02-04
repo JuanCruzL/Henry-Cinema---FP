@@ -20,9 +20,13 @@ module.exports = (sequelize) => {
       allowNull: false
     },
 
-    image: {
+    imageVertical: {
         type: DataTypes.STRING,
-        allowNull: false 
+        allowNull: false, 
+    },
+    imageHorizontal: {
+        type: DataTypes.STRING,
+        allowNull: false,
     },
 
     voteAverage: {
@@ -85,7 +89,7 @@ module.exports = (sequelize) => {
         allowNull: true,
     },
 
-    Distributor: {
+    distributor: {
         type: DataTypes.STRING,
         allowNull: true,
     }

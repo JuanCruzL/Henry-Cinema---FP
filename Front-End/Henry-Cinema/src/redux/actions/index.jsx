@@ -1,26 +1,48 @@
-import axios from 'axios';
-const AGE_CLASSIFICATION = 'AGE_CLASSIFICATION';
-
+import axios from "axios";
+const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
+export const GET_MOVIES = "GET_MOVIES";
 
 export const getMovieById = (id) => {
-    try {
-        return async (dispatch) => {
-            let movieInfo = await axios.get(`http://localhost:3001/movies/${id}`)
-            return dispatch ({
-                type: "GET_MOVIE_ID",
-                payload: movieInfo.data
-            })
+  try {
+    return async (dispatch) => {
+      let movieInfo = await axios.get(`http://localhost:3001/movies/${id}`);
+      return dispatch({
+        type: "GET_MOVIE_ID",
+        payload: movieInfo.data,
+      });
+    };
+  } catch (e) {
+    console.log(e);
+  }
+};
 
-        }
-    }catch (e) {
-        console.log(e)
-    }
+export function AgeClassification() {
+  return {
+    type: AGE_CLASSIFICATION,
+    payload,
+  };
 }
 
+export const getMovies = () => {
+  return (dispatch) => {
+    axios
+      .get(`http://localhost:3001/movies`)
+      .then((response) => {
+        dispatch({
+          type: GET_MOVIES,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("error");
+      });
+  };
+};
 
-export function AgeClassification(){
-    return{
-        type: AGE_CLASSIFICATION,
-        payload
-    }
-}
+// Para el componente SearchBar
+export const searchMovie = (payload) =>{
+  return{
+    type:"SEARCH_MOVIE",
+    payload
+  };
+};

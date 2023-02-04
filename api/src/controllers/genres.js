@@ -1,8 +1,9 @@
 const axios = require('axios');
 const { Genre } = require('../db');
+const { API_KEY } = process.env;
 
 const getGenresDb = async() =>{
-    let apiGenre = 'https://api.themoviedb.org/3/genre/movie/list?api_key=12bc260a161636d41e2bc6dc6af19c99&language=en-US';
+    let apiGenre = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
 
     let apiInfo = ((await axios.get(apiGenre)).data).genres;
 
