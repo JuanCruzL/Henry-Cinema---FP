@@ -55,6 +55,7 @@ export default function Home() {
                 <HomeMovie peliculas={currentMovie} />
                 <br></br>
             </div>
+            <Footer/>
         </div>
     )
 }
