@@ -85,7 +85,7 @@ module.exports = (sequelize) => {
         allowNull: true,
     },
 
-    Distributor: {
+    distributor: {
         type: DataTypes.STRING,
         allowNull: true,
     }
