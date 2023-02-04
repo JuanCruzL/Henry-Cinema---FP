@@ -16,7 +16,7 @@ const getMovies = async () => {
   const genresDb = await getGenresDb();
   for (let i = 0; i < results.length; i++) {
     const movie = {};
-    const imageFromApi = results[i].backdrop_path;
+    const imageFromApi = results[i].poster_path;
     const genresMovieIds = results[i].genre_ids;
     const genresString = [];
     for (let i = 0; i < genresMovieIds.length; i++) {
@@ -29,7 +29,7 @@ const getMovies = async () => {
     }
     movie.apiId = results[i].id;
     movie.title = results[i].title;
-    movie.image = `https://image.tmdb.org/t/p/w500/${imageFromApi}`;
+    movie.image = `https://image.tmdb.org/t/p/w500${imageFromApi}`;
     movie.voteAverage = results[i].vote_average;
     movie.overview = results[i].overview;
     movie.genres = genresString;
@@ -61,23 +61,6 @@ const getMovies = async () => {
   const moviesDb = await Movie.findAll();
   return moviesDb;
 };
-
-const getNextReleases = async () => {
-    const config = { headers: { "Accept-Encoding": null } };
-    const finalNextReleases = [];
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`,
-      config
-    );
-    const releasesArray = data.results;
-    for (let i = 0; i < releasesArray.length; i++) {
-      let nextRelease = {};
-      const imageFromApi = releasesArray[i].backdrop_path;
-      nextRelease.id = releasesArray[i].id;
-      nextRelease.image = `https://image.tmdb.org/t/p/w500/${imageFromApi}`;
-      finalNextReleases.push(nextRelease);
-    }
-}
 
 const getMovieById = async (id) => {
 
@@ -127,4 +110,4 @@ const getMovieById = async (id) => {
 
 
 
-module.exports = { getMovies, getMovieById, getNextReleases };
+module.exports = { getMovies, getMovieById };
