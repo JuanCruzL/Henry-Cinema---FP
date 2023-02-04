@@ -25,7 +25,7 @@ router.get("/:id", async (req, res) => {
     res.status(200).send(movieFound);
   } catch (error) {
     res.status(500).send(error);
-  }
+  } 
 });
 
 
