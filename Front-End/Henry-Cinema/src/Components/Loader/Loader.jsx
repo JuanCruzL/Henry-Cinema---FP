@@ -5,11 +5,11 @@ function Loader() {
   return (
     
       <div class="loaderRectangle">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div className="loaderDivRectangle"></div>
+        <div className="loaderDivRectangle"></div>
+        <div className="loaderDivRectangle"></div>
+        <div className="loaderDivRectangle"></div>
+        <div className="loaderDivRectangle"></div>
         <h2 className="textLoading">Loading</h2>
       </div>
   
