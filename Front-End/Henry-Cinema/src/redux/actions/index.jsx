@@ -53,3 +53,11 @@ export const getMovies = () => {
       });
   };
 };
+
+// Para el componente SearchBar
+export const searchMovie = (payload) =>{
+  return{
+    type:"SEARCH_MOVIE",
+    payload
+  };
+};

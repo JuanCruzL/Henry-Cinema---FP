@@ -5,6 +5,7 @@ const initialState = {
   movies: [],
   allMovies: [],
   releases: [],
+  searchMovies: [],// No Modificar esto sirve para el componente search
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -14,6 +15,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         movies: action.payload,
         allMovies: action.payload,
+        searchMovies: action.payload
       };
     }
     case "AGE_CLASSIFICATION":
@@ -35,6 +37,15 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         releases : action.payload,
       };
+    case "SEARCH_MOVIE":
+      const searchMoviesBar= state.searchMovies
+      const searchMoviesFound=  searchMoviesBar.filter(m =>{
+        return m.title.toLowerCase().includes(action.payload.toLowerCase())
+      })  
+      return{
+        ...state,
+        movies: searchMoviesFound
+      }  
     default:
       return state;
   }

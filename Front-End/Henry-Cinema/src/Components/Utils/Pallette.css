@@ -1,8 +1,9 @@
 :root {
-    --BaseL: #ffff00;
-    --BaseN: #dbd307;
+    
     
     /* LIGHT */
+    --BaseL: #ffff00;
+    --BaseLD: rgba(255, 255, 255, 0.8);
     --LBase-1: #000000;
     --LBase-2: #ffffff;
     --LFondo-1: #ffffff;
@@ -11,6 +12,8 @@
     --LDegradado: rgba(0, 0, 0, 0.39);
     
     /* NIGHT */
+    --BaseN: #dbd307;
+    --BaseND: rgba(230, 230, 230, 0.8);
     --NBase-1: #ffffff;
     --NBase-2: #000000;
     --NFondo-1: #0e0e0e;
