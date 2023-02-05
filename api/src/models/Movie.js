@@ -59,7 +59,7 @@ module.exports = (sequelize) => {
         allowNull: true,
     },
 
-    origin: {
+    originalLanguage: {
         type: DataTypes.STRING,
         allowNull: true,
     },

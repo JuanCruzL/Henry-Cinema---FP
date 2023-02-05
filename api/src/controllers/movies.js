@@ -17,7 +17,15 @@ const getMovies = async () => {
     config
   );
   const resultsP2 = resultP2.data.results;
-  const allResults = [...resultsP1, ...resultsP2];
+  const resultP3 = await axios.get(
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1&region=AR`,
+    config
+  );
+  const resultsP3 = resultP3.data.results;
+  const resultsP3Filtered = resultsP3.filter(
+    (m) => m.original_language === "es" && m.overview.length != 0
+  );
+  const allResults = [...resultsP1, ...resultsP2, ...resultsP3Filtered];
 
   const genresDb = await getGenresDb();
   for (let i = 0; i < allResults.length; i++) {
@@ -46,6 +54,9 @@ const getMovies = async () => {
     } else {
       movie.classification = "General Audiences";
     }
+    if (allResults[i].original_language === 'es') {
+      movie.originalLanguage = 'es';
+    }
     finalMovies.push(movie);
   }
 
@@ -72,11 +83,9 @@ const getMovies = async () => {
 };
 
 const getMovieById = async (id) => {
-
   // verify if id its a real number.
   // ie: id: 12665.
-  if(!isNaN(id)) {
-
+  if (!isNaN(id)) {
     const config = { headers: { "Accept-Encoding": null } };
     let movieApiById = {};
     const { data } = await axios.get(
@@ -104,11 +113,11 @@ const getMovieById = async (id) => {
         trailerKey = videosApiResults[i].key;
       }
     }
-  
+
     if (trailerKey === null) {
       trailerKey = videosApiResults[0]?.key;
     }
-  
+
     const classificationAdapted = () => {
       if (data.adult === true) {
         movieApiById.classification = "Restricted";
@@ -141,7 +150,7 @@ const getMovieById = async (id) => {
     where: {
       id: id,
     },
-  })
+  });
 
   return recipeDbById;
 };
