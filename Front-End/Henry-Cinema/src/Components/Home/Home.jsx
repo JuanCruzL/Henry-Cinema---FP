@@ -14,7 +14,7 @@ import "../Home/Home.css";
 export default function Home() {
   const dispatch = useDispatch();
 
-  const allMovies = useSelector((state) => state.movies);
+  const allMovies = useSelector((state) => state.searchMovies);
   const cartelera = useSelector((state)=> state.allMovies)
   console.log(allMovies);
 
