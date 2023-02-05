@@ -4,6 +4,7 @@ const initialState = {
   movieId: [],
   movies: [],
   allMovies: [],
+  releases: [],
   searchMovies: [],// No Modificar esto sirve para el componente search
 };
 
@@ -31,7 +32,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         movieId: action.payload,
       };
-
+      case "GET_RELEASES":
+      return {
+        ...state,
+        releases : action.payload,
+      };
     case "SEARCH_MOVIE":
       const searchMoviesBar= state.searchMovies
       const searchMoviesFound=  searchMoviesBar.filter(m =>{
