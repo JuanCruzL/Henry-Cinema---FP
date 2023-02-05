@@ -14,7 +14,8 @@ import "../Home/Home.css";
 export default function Home() {
   const dispatch = useDispatch();
 
-  const allMovies = useSelector((state) => state.movies);
+  const allMovies = useSelector((state) => state.searchMovies);
+  const cartelera = useSelector((state)=> state.allMovies)
   console.log(allMovies);
 
   const [currentPage, setCurrentPage] = useState(1); //* Creamos una constante ponde guardar/setear la pagina actual(1)
@@ -54,7 +55,7 @@ export default function Home() {
     <div className="Homehome">
       <Nav setCurrentPage={setCurrentPage} />
       <div className="BodyHome">
-        <HomeCarrusel Prev={Prev} Next={Next} cartelera={allMovies} />
+        <HomeCarrusel Prev={Prev} Next={Next} cartelera={cartelera} />
         <HomePaginated
           peliculas={allMovies.length}
           moviesPerPage={moviesPerPage}
