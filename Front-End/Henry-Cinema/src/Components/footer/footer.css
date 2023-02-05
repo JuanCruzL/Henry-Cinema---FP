@@ -1,5 +1,5 @@
 .footer {
-  height: 270px;
+  height: 180px;
   position: absolute;
   width: 100%;
   display: flex;
@@ -7,10 +7,11 @@
   font-size: 14px;
   background-color: #ffff00;
   box-shadow: black;
+  padding-bottom: 20px;
 }
 
 .footer-brand {
-  max-height: 82px;
+  max-height: 60px;
   width: 229px;
   margin: auto;
   justify-self: start;
@@ -39,9 +40,7 @@
   justify-content: space-around;
 
   height: 33%;
-
-  padding-top: 2%;
-  padding-bottom: 2%;
+  width: 100%;
 }
 .footer-profile {
   display: flex;
@@ -49,7 +48,7 @@
   height: fit-content;
   padding: 0.5em;
   background-color: #ffff00;
-  box-shadow: 6px 6px 2px black;
+  box-shadow: 6px 6px 10px 1px black;
   transition: all ease-in-out 0.3s;
 }
 .footer-profile:hover {
