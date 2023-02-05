@@ -18,6 +18,7 @@ const ticketRoutes = require('./routes/ticketRoutes');
 const seatRoutes = require('./routes/seatRoutes');
 const nextReleases = require('./routes/nextReleaseRoutes');
 
+
 require('./db.js');
 
 const server = express();
