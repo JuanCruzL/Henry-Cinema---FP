@@ -102,13 +102,14 @@ const dispatch = useDispatch();
         </div>
       </section>
       <div className="movies-prox">
-        <h1>Proximos Estrenos</h1>
-        <img src={images[10]} alt="" />
-        <img src={images[11]} alt="" />
-        <img src={images[12]} alt="" />
-        <img src={images[13]} alt="" />
+        <h1>Next Releases</h1>
         
       </div>
+      <div className="carousel-movies-b">
+        <Carousel 
+        images= {movies}
+        />
+        </div>
     </div>
   );
 };
