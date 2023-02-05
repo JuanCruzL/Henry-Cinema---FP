@@ -19,14 +19,14 @@ export default function HomeCarrusel({ Prev, Next, cartelera }) {
         <div className="Carrusel">
           {cartelera.map((data) => {
             return (
-              <div key={data.id} className="card">
-                <button id={data.id} className="BuyT">
+              <div key={data.apiId} className="card">
+                <button id={data.apiId} className="BuyT">
                   BUY TICKETS
                 </button>
                 <button id={data.id} className="Trail">
                   PLAY TRAILER
                 </button>
-                <img src={data.img}></img>
+                <img src={data.imageHorizontal}></img>
               </div>
             );
           })}

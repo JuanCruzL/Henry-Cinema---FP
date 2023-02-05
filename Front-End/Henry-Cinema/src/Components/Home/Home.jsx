@@ -53,7 +53,7 @@ export default function Home() {
     <div className="Homehome">
       <Nav setCurrentPage={setCurrentPage} />
       <div className="BodyHome">
-        <HomeCarrusel Prev={Prev} Next={Next} cartelera={cartelera} />
+        <HomeCarrusel Prev={Prev} Next={Next} cartelera={allMovies} />
         <HomePaginated
           peliculas={allMovies.length}
           moviesPerPage={moviesPerPage}
