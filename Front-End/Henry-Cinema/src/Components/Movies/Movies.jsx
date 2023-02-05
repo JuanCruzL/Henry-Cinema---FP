@@ -3,13 +3,15 @@ import Carousel from "./Carousel";
 import Loader from "../Loader/Loader"
 import "./Movies.css";
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getMovies, getRelease} from '../../redux/actions/index';
+import { useSelector } from 'react-redux';
+import Nav from "../../Components/Nav/Nav"
+import Footer from "../../Components/Footer/footer";
+
 
 const Movies = () => {
 
 
-const dispatch = useDispatch();
+
   const allMovies = useSelector((state) => state.movies);
   const allReleases = useSelector((state) => state.releases);
   console.log(allMovies)
@@ -19,13 +21,13 @@ const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!allMovies.length && !allReleases.length) {
-      dispatch(getRelease())
+    if (allMovies.length && allReleases.length) {
+      setLoading(false);
     }
-    setLoading(false);
+    
     setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.imageVertical })));
     setMovies(allReleases.map(movie => ({ apiID: movie.id, image: movie.image })));
-  }, [allMovies, dispatch, setImages,allReleases]);
+  }, [allMovies, setImages,allReleases]);
 
   if (loading) {
     return <Loader />
@@ -36,7 +38,7 @@ const dispatch = useDispatch();
   
   return (
     <div className="Container">
-
+<Nav/>
       <section>
         <div className="Available">
           <h3>AVAILABLE FILMS</h3>
@@ -108,8 +110,11 @@ const dispatch = useDispatch();
         <Carousel 
         images= {movies}
         />
+        <Footer/>
         </div>
+        
     </div>
+    
   );
 };
 

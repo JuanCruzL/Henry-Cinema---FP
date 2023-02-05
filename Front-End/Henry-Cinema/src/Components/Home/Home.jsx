@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getMovies } from "../../redux/actions";
+import { getMovies, getRelease } from "../../redux/actions";
 import { cartelera, peliculas } from "./Data";
 import Nav from "../Nav/Nav";
 import HomeCarrusel from "./HomeCarrusel/HomeCarrusel";
@@ -29,6 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getMovies());
+    dispatch(getRelease());
     Prev();
     Next();
   }, [dispatch]);
