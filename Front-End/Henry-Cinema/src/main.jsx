@@ -10,7 +10,6 @@ import "./index.css";
 import Movies from "./Components/Movies/Movies"
 import Login from "./Components/Login/login"
 
-import Movies from "./Components/Movies/Movies";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -27,6 +26,10 @@ const router = createBrowserRouter([
     path: "/movies",
     element: <Movies />,
   },
+  {
+    path: "/login",
+    element: <Login/>
+  }
 ]);
 
 root.render(

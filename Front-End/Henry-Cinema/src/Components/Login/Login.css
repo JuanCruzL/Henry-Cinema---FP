@@ -1,11 +1,10 @@
 .loginContainer {
-    position: relative;
+    position: absolute;
     background-color: aquamarine;
     width: 100%;
-    display:flex; 
+    display: flex; 
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 .form-imageContainer {
