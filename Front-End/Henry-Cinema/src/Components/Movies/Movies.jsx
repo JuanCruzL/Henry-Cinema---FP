@@ -20,11 +20,10 @@ const dispatch = useDispatch();
 
   useEffect(() => {
     if (!allMovies.length && !allReleases.length) {
-      dispatch(getMovies());
       dispatch(getRelease())
     }
     setLoading(false);
-    setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.image })));
+    setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.imageVertical })));
     setMovies(allReleases.map(movie => ({ apiID: movie.id, image: movie.image })));
   }, [allMovies, dispatch, setImages,allReleases]);
 
