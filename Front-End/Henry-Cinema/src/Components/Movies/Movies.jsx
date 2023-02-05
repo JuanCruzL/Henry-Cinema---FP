@@ -4,30 +4,34 @@ import Loader from "../Loader/Loader"
 import "./Movies.css";
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getMovies} from '../../redux/actions/index';
+import { getMovies, getRelease} from '../../redux/actions/index';
 
 const Movies = () => {
 
 
 const dispatch = useDispatch();
   const allMovies = useSelector((state) => state.movies);
+  const allReleases = useSelector((state) => state.releases);
   console.log(allMovies)
-  //const [movies, setMovies] = useState(allMovies);
+ const [movies, setMovies] = useState([]);
 
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!allMovies.length) {
+    if (!allMovies.length && !allReleases.length) {
       dispatch(getMovies());
+      dispatch(getRelease())
     }
     setLoading(false);
     setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.image })));
-  }, [allMovies, dispatch, setImages]);
+    setMovies(allReleases.map(movie => ({ apiID: movie.id, image: movie.image })));
+  }, [allMovies, dispatch, setImages,allReleases]);
 
   if (loading) {
     return <Loader />
   }
+  console.log(movies)
 
   
   
@@ -98,13 +102,14 @@ const dispatch = useDispatch();
         </div>
       </section>
       <div className="movies-prox">
-        <h1>Proximos Estrenos</h1>
-        <img src={images[10]} alt="" />
-        <img src={images[11]} alt="" />
-        <img src={images[12]} alt="" />
-        <img src={images[13]} alt="" />
+        <h1>Next Releases</h1>
         
       </div>
+      <div className="carousel-movies-b">
+        <Carousel 
+        images= {movies}
+        />
+        </div>
     </div>
   );
 };
