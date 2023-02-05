@@ -4,6 +4,7 @@ const initialState = {
   movieId: [],
   movies: [],
   allMovies: [],
+  releases: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -28,6 +29,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         movieId: action.payload,
+      };
+      case "GET_RELEASES":
+      return {
+        ...state,
+        releases : action.payload,
       };
     default:
       return state;
