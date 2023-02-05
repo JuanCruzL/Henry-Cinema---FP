@@ -3,37 +3,42 @@ import Carousel from "./Carousel";
 import Loader from "../Loader/Loader"
 import "./Movies.css";
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getMovies} from '../../redux/actions/index';
+import { useSelector } from 'react-redux';
+import Nav from "../../Components/Nav/Nav"
+import Footer from "../../Components/Footer/footer";
+
 
 const Movies = () => {
 
 
-const dispatch = useDispatch();
+
   const allMovies = useSelector((state) => state.movies);
+  const allReleases = useSelector((state) => state.releases);
   console.log(allMovies)
-  //const [movies, setMovies] = useState(allMovies);
+ const [movies, setMovies] = useState([]);
 
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!allMovies.length) {
-      dispatch(getMovies());
+    if (allMovies.length && allReleases.length) {
+      setLoading(false);
     }
-    setLoading(false);
-    setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.image })));
-  }, [allMovies, dispatch, setImages]);
+    
+    setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.imageVertical })));
+    setMovies(allReleases.map(movie => ({ apiID: movie.id, image: movie.image })));
+  }, [allMovies, setImages,allReleases]);
 
   if (loading) {
     return <Loader />
   }
+  console.log(movies)
 
   
   
   return (
     <div className="Container">
-
+<Nav/>
       <section>
         <div className="Available">
           <h3>AVAILABLE FILMS</h3>
@@ -98,14 +103,18 @@ const dispatch = useDispatch();
         </div>
       </section>
       <div className="movies-prox">
-        <h1>Proximos Estrenos</h1>
-        <img src={images[10]} alt="" />
-        <img src={images[11]} alt="" />
-        <img src={images[12]} alt="" />
-        <img src={images[13]} alt="" />
+        <h1>Next Releases</h1>
         
       </div>
+      <div className="carousel-movies-b">
+        <Carousel 
+        images= {movies}
+        />
+        <Footer/>
+        </div>
+        
     </div>
+    
   );
 };
 
