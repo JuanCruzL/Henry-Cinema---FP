@@ -49,6 +49,7 @@ export default function Home() {
             fila.scrollLeft += fila.offsetWidth;
         });
     }
+    
 
     return (
 
