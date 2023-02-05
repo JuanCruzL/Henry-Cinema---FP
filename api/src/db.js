@@ -66,6 +66,8 @@ User.hasMany(Ticket, { foreignKey: "User_Ticket" });
 Ticket.belongsTo(User, { foreignKey: "User_Ticket" }); 
 Movie.hasMany(Screening, { foreignKey: "Movie_Screening" });
 Screening.belongsTo(Movie, { foreignKey: "Movie_Screening" });
+Movie.hasMany(Review, { foreignKey: "Movie_Review" });
+Review.belongsTo(Movie, { foreignKey: "Movie_Review" });
 
 
 module.exports = {

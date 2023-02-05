@@ -12,7 +12,7 @@
 
 
 .dark-mode input[type="text"] {
-  border: 2px solid var(--NBase-1);
+  border: 2px solid var(--NBase-2);
   color: var(--NText-2);
 }
 .dark-mode input[type="text"]:focus {

@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Movie } = require("../models/Movie");
+const { Movie } = require("../db");
 const { getMovies, getMovieById } = require("../controllers/movies");
 const router = Router();
 
@@ -30,31 +30,35 @@ router.get("/:id", async (req, res) => {
 
 
 router.post("/", async (req, res) => {
+  let {
+    title,
+    imageVertical,
+    imageHorizontal,
+    voteAverage,
+    overview,
+    status,
+    productionCompanies,
+    review,
+    runtime,
+    origin,
+    genres,
+    directors,
+    actors,
+    video,
+    classification,
+    distributor,
+  } = req.body;
+
   try {
-    
-    let {
-      title,
-      image,
-      voteAvergae,
-      overview,
-      status,
-      productionCompanies,
-      runtime,
-      origin,
-      genres,
-      directors,
-      actors,
-      video,
-      classification,
-      distributor,
-    } = req.body;
 
     await Movie.create({
       title,
-      image,
-      voteAvergae,
+      imageVertical,
+      imageHorizontal,
+      voteAverage,
       overview,
       status,
+      review,
       productionCompanies,
       runtime,
       origin,
@@ -66,7 +70,7 @@ router.post("/", async (req, res) => {
       distributor,
     });
     
-    res.status(200).send("MOVIE CREATED");
+    res.status(200).send('MOVIE CREATED');
   } catch (error) {
     console.log(error);
     res.status(400).send(error);
