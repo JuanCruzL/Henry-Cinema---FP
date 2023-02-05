@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="footer-brand">
         <img src={logo} alt="henry logo" className="brand-logo" />
       </div>
-      <div className="footer-info">
+      {/* <div className="footer-info">
         <div className="explore">
           <div className="options">
             <div className="footer-options">
@@ -57,7 +57,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="footer-contact">
         <span className="made-by">Made by</span>
         <div className="footer-profile">
