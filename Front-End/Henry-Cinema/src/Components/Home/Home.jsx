@@ -14,8 +14,8 @@ import "../Home/Home.css";
 export default function Home() {
   const dispatch = useDispatch();
 
-  const allMovies = useSelector((state) => state.searchMovies);
-  const cartelera = useSelector((state)=> state.allMovies) 
+  const allMovies = useSelector((state) => state.movies);
+  const cartelera = useSelector((state)=> state.allMovies)
   console.log(allMovies);
 
   const [currentPage, setCurrentPage] = useState(1); //* Creamos una constante ponde guardar/setear la pagina actual(1)
