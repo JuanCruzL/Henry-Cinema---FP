@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getMovies, getRelease,requestGenders,requestTopMovies } from "../../redux/actions";
+import { getMovies, getRelease, requestGenders, requestTopMovies } from "../../redux/actions";
 import { cartelera, peliculas } from "./Data";
 import Nav from "../Nav/Nav";
 import HomeCarrusel from "./HomeCarrusel/HomeCarrusel";
@@ -10,12 +10,13 @@ import HomeMovie from "./HomeMovie/HomeMovie";
 import HomePaginated from "./HomePaginated/HomePaginated";
 import Footer from "../footer/footer";
 import "../Home/Home.css";
+import Loader from "../Loader/Loader"
 
 export default function Home() {
   const dispatch = useDispatch();
 
   const allMovies = useSelector((state) => state.movies);
-  const cartelera = useSelector((state)=> state.allMovies)
+  const cartelera = useSelector((state) => state.allMovies)
   console.log(allMovies);
 
   const [currentPage, setCurrentPage] = useState(1); //* Creamos una constante ponde guardar/setear la pagina actual(1)
@@ -24,6 +25,8 @@ export default function Home() {
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage; //* Obtenemos el indice del primer elemento de la pagina actual
   const currentMovie = allMovies.slice(indexOfFirstMovie, indexOfLastMovie); //* Obtenemos los datos entre los 2 indices anteriores
 
+  const [loading, setLoading] = useState(true);
+
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -31,11 +34,14 @@ export default function Home() {
   useEffect(() => {
     dispatch(getMovies());
     dispatch(getRelease());
-    Prev();
-    Next();
+    if (allMovies.length) {
+      Prev();
+      Next();
+    }
     dispatch(requestGenders());
     dispatch(requestTopMovies());
-  }, [dispatch]);
+    setLoading(false);
+  }, [currentMovie]);
 
   function Prev() {
     var fila = document.querySelector(".contenedorCarrusel");
@@ -52,11 +58,15 @@ export default function Home() {
       fila.scrollLeft += fila.offsetWidth;
     });
   }
-  console.log(currentMovie);
+  
+  if (!allMovies.length) {
+    return <Loader />
+  }
   return (
+
     <div className="Homehome">
       <Nav setCurrentPage={setCurrentPage} />
-      <div className="BodyHome">
+      <div className="BodyHome" >
         <HomeCarrusel Prev={Prev} Next={Next} cartelera={cartelera} />
         <HomePaginated
           peliculas={allMovies.length}
@@ -67,6 +77,7 @@ export default function Home() {
         <br></br>
       </div>
       <Footer />
+
     </div>
   );
 }

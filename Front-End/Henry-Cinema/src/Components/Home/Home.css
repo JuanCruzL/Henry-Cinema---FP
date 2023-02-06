@@ -82,7 +82,9 @@
 
 
 
-
+.BodyHome{
+    height: 100%;
+}
 
 .BodyHome button {
     border-radius: 8px;
