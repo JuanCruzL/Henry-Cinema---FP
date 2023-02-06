@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getMovies, getRelease, requestGenders, requestTopMovies } from "../../redux/actions";
-import { cartelera, peliculas } from "./Data";
 import Nav from "../Nav/Nav";
 import HomeCarrusel from "./HomeCarrusel/HomeCarrusel";
 import HomeMovie from "./HomeMovie/HomeMovie";
