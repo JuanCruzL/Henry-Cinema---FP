@@ -13,6 +13,25 @@ import NewUsers from "./Components/Dashboard Admin/users/NewUsers";
 import LoginDash from "./Components/Dashboard Admin/login/Login";
 import UserId from "./Components/Dashboard Admin/users/Userid";
 import Users from "./Components/Dashboard Admin/users/Users";
+import Movies from "./Components/Dashboard Admin/movies/Movies";
+import MovieId from "./Components/Dashboard Admin/movies/MovieId";
+import NewMovie from "./Components/Dashboard Admin/movies/NewMovie";
+import Genres from "./Components/Dashboard Admin/genres/Genres";
+import NewGenre from "./Components/Dashboard Admin/genres/NewGenre";
+import Reviews from "./Components/Dashboard Admin/reviews/Reviews";
+import ReviewId from "./Components/Dashboard Admin/reviews/ReviewId";
+import Screenings from "./Components/Dashboard Admin/screenings/Screenings";
+import NewScreening from "./Components/Dashboard Admin/screenings/NewScreening";
+import ScreeningId from "./Components/Dashboard Admin/screenings/ScreeningId";
+import Combos from "./Components/Dashboard Admin/foodanddrinks/Combos";
+import NewCombo from "./Components/Dashboard Admin/foodanddrinks/NewCombo";
+import ComboId from "./Components/Dashboard Admin/foodanddrinks/ComboId";
+import Foods from "./Components/Dashboard Admin/foodanddrinks/Foods";
+import NewFood from "./Components/Dashboard Admin/foodanddrinks/NewFood";
+import FoodId from "./Components/Dashboard Admin/foodanddrinks/FoodId";
+import Drinks from "./Components/Dashboard Admin/foodanddrinks/Drinks";
+import NewDrink from "./Components/Dashboard Admin/foodanddrinks/NewDrink";
+import DrinkId from "./Components/Dashboard Admin/foodanddrinks/DrinkId";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -47,31 +66,91 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard/userlist/new",
-    element: <NewUsers />,
+    element: <NewUsers />, // pendiente ver si creamos nuevos usuarios desde el dash.
+  },
+  {
+    path: "/dashboard/movies",
+    element: <Movies />,
+  },
+  {
+    path: "/dashboard/movies/:id",
+    element: <MovieId />,
+  },
+  {
+    path: "dashboard/movies/new",
+    element: <NewMovie />,
+  },
+  {
+    path: "dashboard/movies/genres",
+    element: <Genres />,
+  },
+  {
+    path: "dashboard/movies/newgenre",
+    element: <NewGenre />,
   },
   {
     path: "/dashboard/reviews",
-    element: <Reviews />, // falta crear componente.
+    element: <Reviews />,
   },
   {
     path: "/dashboard/reviews/:id",
-    element: <ReviewId />, // falta crear el componente.
+    element: <ReviewId />,
   },
   {
-    path: "/dashboard/reviews/new",
-    element: <NewReviews />,
+    path: "/dashboard/screenings",
+    element: <Screenings />,
   },
   {
-    path: "/dashboard/tickets",
-    element: <Tickets />,
+    path: "/dashboard/screenings/:id",
+    element: <ScreeningId />,
   },
   {
-    path: "/dashboard/tickets/:id",
-    element: <TicketId />,
+    path: "/dashboard/screenings/new",
+    element: <NewScreening />,
   },
   {
-    path: "/dashboard/tickets/new",
-    element: <NewTickets />,
+    path: "/dashboard/combos",
+    element: <Combos />,
+  },
+  {
+    path: "./dashboard/combos/:id",
+    element: <ComboId />,
+  },
+  {
+    path: "dashboard/combos/new",
+    element: <NewCombo />,
+  },
+  {
+    path: "/dashboard/foods",
+    element: <Foods />,
+  },
+  {
+    path: "./dashboard/foods/:id",
+    element: <FoodId />,
+  },
+  {
+    path: "/dashboard/foods/new",
+    element: <NewFood />,
+  },
+  {
+    path: "/dashboard/drinks",
+    element: <Drinks />,
+  },
+  {
+    path: "/dashboard/drinks/:id",
+    element: <DrinkId />,
+  },
+  {
+    path: "/dashboard/drinks/new",
+    element: <NewDrink />,
+  },
+  {
+    path: "/dashboard/sales",
+    element: <Sales />,
+  },
+  {
+    path: "/dashboard/sales/:id",
+    element: <SaleId />,
   },
 ]);
 
