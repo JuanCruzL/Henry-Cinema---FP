@@ -1,0 +1,41 @@
+.movie {
+    width: 45%;
+    height: 330px;
+    display: flex;
+    flex-direction: row;
+    margin: 1.5%;
+    background-color: rgba(0, 0, 0, 0.673);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+}
+
+.movie img {
+    width: 230px;
+    height: 330px;
+    border-radius: 5px;
+}
+
+.movie-data {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    margin-top: 2%;
+    color: aliceblue;
+    
+}
+
+.movie-data p {
+    margin-top: 3%;
+    font-size: 15px;
+    font-weight: 400;
+    
+}
+
+.movie-data h2 {
+    text-align: left;
+    font-size: 25px;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    font-weight: 600;
+}
+
