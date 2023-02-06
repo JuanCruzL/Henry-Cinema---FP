@@ -4,7 +4,7 @@ import "../Loader/Loader.css";
 function Loader() {
   return (
     
-      <div class="loaderRectangle">
+      <div className="loaderRectangle">
         <div className="loaderDivRectangle"></div>
         <div className="loaderDivRectangle"></div>
         <div className="loaderDivRectangle"></div>

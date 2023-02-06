@@ -7,6 +7,7 @@
 }
 
 .HomeCarrusel button {
+    width: 100%;
     position: absolute;
     border: none;
     font-size: 20px;
@@ -92,6 +93,5 @@
 
 .Carrusel img:hover {
     transition: .5s;
-    transform: scale(1.05);
     transform-origin: center;
 }
