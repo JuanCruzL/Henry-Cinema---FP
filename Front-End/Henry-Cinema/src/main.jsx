@@ -8,13 +8,14 @@ import store from "./store/index";
 import Details from "./Components/Details/Details";
 import "./index.css";
 import Movies from "./Components/Movies/Movies";
+import Foods from "./Components/Foods/Foods";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: <Foods></Foods>,
   },
   {
     path: "movie/:id",
