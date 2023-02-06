@@ -40,7 +40,7 @@ export default function Home() {
     dispatch(requestGenders());
     dispatch(requestTopMovies());
     setLoading(false);
-  }, [currentMovie]);
+  }, [dispatch]);
 
   function Prev() {
     var fila = document.querySelector(".contenedorCarrusel");
