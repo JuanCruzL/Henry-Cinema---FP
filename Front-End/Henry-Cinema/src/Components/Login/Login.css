@@ -7,6 +7,11 @@
     align-items: center;
 }
 
+.buttonSubmit {
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+
 .form-imageContainer {
     height: 600px;
     width: 900px;
