@@ -4,8 +4,10 @@ const initialState = {
   movieId: [],
   movies: [],
   allMovies: [],
-  releases: [],
+  releases: [],// proximos estrenos
   searchMovies: [],// No Modificar esto sirve para el componente search
+  uniqueGenres: [],
+  topMovies: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -45,7 +47,22 @@ const rootReducer = (state = initialState, action) => {
       return{
         ...state,
         movies: searchMoviesFound
-      }  
+      };
+      case "REQUEST_GENDERS":
+      return {
+        ...state,
+        uniqueGenres: Array.from(new Set(
+          state.allMovies.flatMap(movie => movie.genres)
+        )),
+      };
+      case "REQUEST_TOP_MOVIES":
+      return {
+        ...state,
+        topMovies: state.allMovies
+          .sort((a, b) => b.voteAverage - a.voteAverage)
+          .slice(0, 4),
+      };
+        
     default:
       return state;
   }
