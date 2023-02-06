@@ -5,14 +5,8 @@ export default function HomeCarrusel({ Prev, Next, cartelera }) {
   return (
     <div className="HomeCarrusel">
       <a>
-        <button
-          role="button"
-          id="Prev"
-          className="Prev"
-          onClick={(e) => Prev(e)}
-        >
-          {" "}
-          &#10094;{" "}
+        <button role="button"id="Prev"className="Prev"onClick={() => Prev()}>
+          {" "}&#10094;{" "}
         </button>
       </a>
       <div className="contenedorCarrusel">
@@ -32,9 +26,8 @@ export default function HomeCarrusel({ Prev, Next, cartelera }) {
           })}
         </div>
       </div>
-      <button role="button" id="Next" className="Next" onClick={(e) => Next(e)}>
-        {" "}
-        &#10095;{" "}
+      <button role="button" id="Next" className="Next" onClick={() => Next()}>
+        {" "}&#10095;{" "}
       </button>
     </div>
   );
