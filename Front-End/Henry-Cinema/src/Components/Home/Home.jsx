@@ -14,9 +14,8 @@ import Loader from "../Loader/Loader"
 export default function Home() {
   const dispatch = useDispatch();
 
-  const allMovies = useSelector((state) => state.movies);
-  const cartelera = useSelector((state) => state.allMovies)
-  console.log(allMovies);
+  const allMovies = useSelector((state) => state.searchMovies);
+  const cartelera = useSelector((state) => state.allMovies);
 
   const [currentPage, setCurrentPage] = useState(1); //* Creamos una constante ponde guardar/setear la pagina actual(1)
   const [moviesPerPage, setMoviesPerPage] = useState(8); //* Creamos una constante para escoger el limite de peliculas por pagina(8)
@@ -33,15 +32,15 @@ export default function Home() {
   useEffect(() => {
     dispatch(getMovies());
     dispatch(getRelease());
-    if (allMovies.length) {
+    setTimeout(()=>{
       Prev();
       Next();
-    }
+    },2000)
     dispatch(requestGenders());
     dispatch(requestTopMovies());
     setLoading(false);
   }, [dispatch]);
-
+  
   function Prev() {
     var fila = document.querySelector(".contenedorCarrusel");
     var flechaIz = document.getElementById("Prev");
