@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieById } from "../../redux/actions/index";
 import "./Details.css";
+import Loader from "../Loader/Loader";
 
 
 export default function Details() {
@@ -28,7 +29,7 @@ export default function Details() {
   }
 
   if (!movie.hasOwnProperty("title")) {
-    return <div>Cargando...</div>;
+    return <Loader/>;
   } else {
     return (
       <div className="Big-container">
@@ -64,7 +65,7 @@ export default function Details() {
             <p className="p">{movie.overview}</p>
           </div>
           <div className="detailsContainerRight">
-            <img src={movie.image} alt={movie.title} className="coverImage" />
+            <img src={movie.imageVertical} alt={movie.title} className="coverImage" />
             <p className="allDetailsP">
               <b>Original Title: </b>
               {movie.title}
