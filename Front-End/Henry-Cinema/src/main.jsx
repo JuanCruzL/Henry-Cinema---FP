@@ -16,7 +16,7 @@ const root = createRoot(container);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Foods></Foods>,
+    element: <Home></Home>,
   },
   {
     path: "movie/:id",
