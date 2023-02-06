@@ -45,13 +45,22 @@ const rootReducer = (state = initialState, action) => {
         releases: action.payload,
       };
     case "SEARCH_MOVIE":
-      const searchMoviesBar = state.searchMovies;
+      const searchMoviesBar = state.allMovies;
       const searchMoviesFound = searchMoviesBar.filter((m) => {
         return m.title.toLowerCase().includes(action.payload.toLowerCase());
       });
+
+      
+      
       return {
         ...state,
-        movies: searchMoviesFound,
+        searchMovies: searchMoviesFound.length>0? 
+          searchMoviesFound:
+          [{
+            imageVertical: "https://img.freepik.com/vector-premium/pagina-inicio-error-404-archivo-diseno-plano_249405-162.jpg?w=2000",
+            apiId:"Error"
+          }]
+        ,
       };
     case "GET_FOODS":
       return {
@@ -68,22 +77,22 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         combos: action.payload,
       };
-        
-      case "REQUEST_GENDERS":
+
+    case "REQUEST_GENDERS":
       return {
         ...state,
         uniqueGenres: Array.from(new Set(
           state.allMovies.flatMap(movie => movie.genres)
         )),
       };
-      case "REQUEST_TOP_MOVIES":
+    case "REQUEST_TOP_MOVIES":
       return {
         ...state,
         topMovies: state.allMovies
           .sort((a, b) => b.voteAverage - a.voteAverage)
           .slice(0, 4),
       };
-        
+
     default:
       return state;
   }
