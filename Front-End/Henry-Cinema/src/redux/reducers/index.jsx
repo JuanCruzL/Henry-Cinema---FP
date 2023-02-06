@@ -4,6 +4,8 @@ const initialState = {
   movieId: [],
   movies: [],
   allMovies: [],
+  releases: [],
+  searchMovies: [], // No Modificar esto sirve para el componente search
   foods: [],
   drinks: [],
   combos: [],
@@ -11,7 +13,6 @@ const initialState = {
   searchMovies: [],// No Modificar esto sirve para el componente search
   uniqueGenres: [],
   topMovies: [],
-  
 };
 
 const rootReducer = (state = initialState, action) => {
