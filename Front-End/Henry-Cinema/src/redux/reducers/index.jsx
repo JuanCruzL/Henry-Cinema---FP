@@ -4,6 +4,11 @@ const initialState = {
   movieId: [],
   movies: [],
   allMovies: [],
+  releases: [],
+  searchMovies: [], // No Modificar esto sirve para el componente search
+  foods: [],
+  drinks: [],
+  combos: [],
   releases: [],// proximos estrenos
   searchMovies: [],// No Modificar esto sirve para el componente search
   uniqueGenres: [],
@@ -17,7 +22,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         movies: action.payload,
         allMovies: action.payload,
-        searchMovies: action.payload
+        searchMovies: action.payload,
       };
     }
     case "AGE_CLASSIFICATION":
@@ -34,20 +39,36 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         movieId: action.payload,
       };
-      case "GET_RELEASES":
+    case "GET_RELEASES":
       return {
         ...state,
-        releases : action.payload,
+        releases: action.payload,
       };
     case "SEARCH_MOVIE":
-      const searchMoviesBar= state.searchMovies
-      const searchMoviesFound=  searchMoviesBar.filter(m =>{
-        return m.title.toLowerCase().includes(action.payload.toLowerCase())
-      })  
-      return{
+      const searchMoviesBar = state.searchMovies;
+      const searchMoviesFound = searchMoviesBar.filter((m) => {
+        return m.title.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return {
         ...state,
-        movies: searchMoviesFound
+        movies: searchMoviesFound,
       };
+    case "GET_FOODS":
+      return {
+        ...state,
+        foods: action.payload,
+      };
+    case "GET_DRINKS":
+      return {
+        ...state,
+        drinks: action.payload,
+      };
+    case "GET_COMBOS":
+      return {
+        ...state,
+        combos: action.payload,
+      };
+        
       case "REQUEST_GENDERS":
       return {
         ...state,
