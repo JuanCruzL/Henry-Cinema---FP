@@ -18,9 +18,12 @@ const Nav = ({ setCurrentPage }) => {
             </a>
             <ul className="menu-nesting">
               <li className="menu-inside">
+                <Link to ='/about'>
                 <a href="#" className="menu-link menu-link--inside">
-                  Cinemas
+                  About Us
                 </a>
+                </Link>
+                
               </li>
               <li className="menu-inside">
                 <Link to='/movies'>
@@ -44,9 +47,11 @@ const Nav = ({ setCurrentPage }) => {
             </Link>
           </li>
           <li className="menu-item">
+            <Link to='/about'>
             <a href="#" className="menu-link">
-              Cinemas
+              About Us
             </a>
+            </Link>
           </li>
           <li className="menu-item">
           <Link to='/movies'>
