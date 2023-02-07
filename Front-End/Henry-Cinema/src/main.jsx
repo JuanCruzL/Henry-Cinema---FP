@@ -13,7 +13,7 @@ import NewUsers from "./Components/Dashboard Admin/users/NewUsers";
 import LoginDash from "./Components/Dashboard Admin/login/Login";
 import UserId from "./Components/Dashboard Admin/users/Userid";
 import Users from "./Components/Dashboard Admin/users/Users";
-import Movies from "./Components/Dashboard Admin/movies/Movies";
+import MoviesDash from "./Components/Dashboard Admin/movies/MoviesDash";
 import MovieId from "./Components/Dashboard Admin/movies/MovieId";
 import NewMovie from "./Components/Dashboard Admin/movies/NewMovie";
 import Genres from "./Components/Dashboard Admin/genres/Genres";
@@ -32,6 +32,8 @@ import FoodId from "./Components/Dashboard Admin/foodanddrinks/FoodId";
 import Drinks from "./Components/Dashboard Admin/foodanddrinks/Drinks";
 import NewDrink from "./Components/Dashboard Admin/foodanddrinks/NewDrink";
 import DrinkId from "./Components/Dashboard Admin/foodanddrinks/DrinkId";
+import Sales from "./Components/Dashboard Admin/sales/Sales";
+import SaleId from "./Components/Dashboard Admin/sales/SaleId";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -70,7 +72,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard/movies",
-    element: <Movies />,
+    element: <MoviesDash />,
   },
   {
     path: "/dashboard/movies/:id",
