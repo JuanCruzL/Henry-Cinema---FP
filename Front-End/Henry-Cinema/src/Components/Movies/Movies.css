@@ -69,6 +69,7 @@
     position: absolute;
     top: 550px;
     width: 80%;
+    height: 730px;
     margin-left: 10%;
     margin-right: 10%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -77,8 +78,9 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: #ffff00;
+    background-color: #ffff00ad;
     border: 1px solid rgba(0, 0, 0, 0.321);
     border-radius: 3px;
+    overflow-y: scroll;
 }
 
