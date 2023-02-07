@@ -1,6 +1,8 @@
 .HomeCarrusel {
     width: 85%;
-    margin: auto;
+    padding: 1% 0px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
     position: relative;
@@ -60,7 +62,6 @@
 
 
 .contenedorCarrusel {
-    padding: 20px 0;
     align-items: center;
     position: relative;
     overflow: hidden;

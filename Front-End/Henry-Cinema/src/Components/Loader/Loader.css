@@ -1,3 +1,24 @@
+.light-mode .loaderRectangle{
+   background-color:  var(--LFondo-1);
+   color: var(--LText-1);
+}
+.light-mode .loaderDivRectangle {
+   background: var(--LBase-1);
+   box-shadow: 0 0 20px var(--BaseL);
+}
+
+
+
+.dark-mode .loaderRectangle{
+   background-color:  var(--NFondo-1);
+   color: var(--NText-1);
+}
+.dark-mode .loaderDivRectangle {
+   background: var(--NBase-1);
+   box-shadow: 0 0 20px var(--BaseN);
+}
+
+
 .loaderRectangle {
    display: flex;
    justify-content: center;
@@ -20,8 +41,6 @@
    width: 5px;
    height: 50px;
    animation: .9s ease-in-out infinite;
-   background: rgb(0, 0, 0);
-   box-shadow: 0 0 20px rgb(255, 242, 0);
    }
    
    .loaderDivRectangle:nth-child(1) {
