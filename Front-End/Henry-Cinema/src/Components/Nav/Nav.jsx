@@ -30,9 +30,11 @@ const Nav = ({ setCurrentPage }) => {
                 </Link>
               </li>
               <li className="menu-inside">
-                <a href="#" className="menu-link menu-link--inside">
+                <Link to='/foods'>
+                <a href="/foods" className="menu-link menu-link--inside">
                   Food & Drinks
                 </a>
+                </Link>
               </li>
             </ul>
           </li>
@@ -55,9 +57,11 @@ const Nav = ({ setCurrentPage }) => {
           </Link>
           </li>
           <li className="menu-item">
-            <a href="#" className="menu-link">
+            
+            <Link to ='/foods'>
+              <a href="#" className="menu-link">
               Food & Drinks
-            </a>
+            </a></Link>
           </li>
           <li className="menu-itemSearchBar">
             <SearchBar setCurrentPage={setCurrentPage} />
