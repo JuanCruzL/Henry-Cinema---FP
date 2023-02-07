@@ -63,19 +63,13 @@ export default function Home() {
   return (
 
     <div className="Homehome">
-      <Nav setCurrentPage={setCurrentPage} />
-      <div className="BodyHome" >
-        <HomeCarrusel Prev={Prev} Next={Next} cartelera={cartelera} />
-        <HomePaginated
-          peliculas={allMovies.length}
-          moviesPerPage={moviesPerPage}
-          paginated={paginated}
-        />
-        <HomeMovie peliculas={currentMovie} />
-        <br></br>
+      <Nav setCurrentPage={setCurrentPage}/>
+      <div className="BodyHome">
+        <HomeCarrusel Prev={Prev} Next={Next} cartelera={cartelera}/>
+        <HomePaginated peliculas={allMovies.length} moviesPerPage={moviesPerPage} paginated={paginated}/>
+        <HomeMovie peliculas={currentMovie}/>
       </div>
-      <Footer />
-
+      <Footer/>
     </div>
   );
 }
