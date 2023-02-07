@@ -1,20 +1,23 @@
 .HomeMovie {
-    width: 90%;
-    margin: auto;
-    padding-top: 10px;
+    width: 85%;
+    margin: 0px auto;
+    margin-bottom: 5%;
+    padding-top: 1%;
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    /* grid-template-columns: 25% 25% 25% 25%; */
+    grid-template-columns: repeat(auto-fit, minmax(22%, 10px));
+    gap: 30px 4%; 
     align-items: center;
+    text-align: center;
+    align-self: center;
 }
 
 .HomeMovie .Peliculas {
-    margin: 20px 0;
-    width: 80%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     position: relative;
     text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
+    align-self: top;
 }
 
 .HomeMovie .Peliculas:hover {
@@ -43,7 +46,6 @@
     content: "";
     position: absolute;
     z-index: -1;
-    padding: 16px 20px;
     top: 0;
     bottom: 0;
     left: -100%;
