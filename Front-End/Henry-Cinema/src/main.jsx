@@ -31,10 +31,6 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login/>
   }
-  ,{
-    path:"/Loader",
-    element: <Loader/>
-  }
 ]);
 
 root.render(
