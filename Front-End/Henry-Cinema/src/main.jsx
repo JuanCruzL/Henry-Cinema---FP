@@ -9,7 +9,6 @@ import Details from "./Components/Details/Details";
 import "./index.css";
 import Movies from "./Components/Movies/Movies"
 import Login from "./Components/Login/login"
-import Loader from "./Components/Loader/Loader";
 
 
 const container = document.getElementById("root");
