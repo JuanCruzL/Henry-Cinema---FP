@@ -1,3 +1,35 @@
+.container-about-all{
+    display: flex;
+    align-items: center;
+}
 .container-about-us{
-    height:100vh
+    height:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* border:2px solid blue  */
+    align-items: center;
+    text-align: center;
+}
+.title-team{
+    text-align: center;
+    margin-top: 40px;
+    /* border: 2px solid red; */
+    font-size: 30px;
+}
+.container-border{
+    border-bottom: 2px solid black;
+}
+.container-text-app{
+    display :block;
+    text-align: center;
+    padding: 20px;
+    font-size: 15px;
+    text-indent: 50px;
+    width: 70%;
+    margin: auto;
+}
+.logo-henry{
+    width:12%;
+   
 }
