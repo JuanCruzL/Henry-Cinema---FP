@@ -3,7 +3,6 @@ const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
 export const GET_MOVIES = "GET_MOVIES";
 export const GET_RELEASES = "GET_RELEASES";
 export const REQUEST_GENDERS = 'REQUEST_GENDERS';
-export const REQUEST_TOP_MOVIES = 'REQUEST_TOP_MOVIES';
 
 export const getMovieById = (id) => {
   try {
@@ -123,11 +122,7 @@ export const requestGenders = () => {
 // actions.js
 
 
-export const requestTopMovies = () => {
-  return {
-    type: REQUEST_TOP_MOVIES,
-  };
-};
+
 
 
 
