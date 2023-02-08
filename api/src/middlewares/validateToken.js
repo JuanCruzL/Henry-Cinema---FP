@@ -11,7 +11,7 @@ function validateToken(req, res, next) {
     const token = accessToken.split(" ")[1];// "Bearer ${accessToken}"" =>  "${accessToken}"
     jwt.verify(token, SECRET, (err, user) => { // verify the access token with the SECRET key
         if(err) {
-            res.send('Access denied, token expired or incorrect');
+            res.status(404).send('Access denied, token expired or incorrect');
         } else {
             req.user = user;
             next();
