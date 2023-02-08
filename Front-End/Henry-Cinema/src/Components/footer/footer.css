@@ -1,14 +1,3 @@
-@import url(../Utils/Pallette.css);
-
-/*  --BaseL: #ffff00;
-    --BaseLD: rgba(255, 255, 255, 0.8);
-    --LBase-1: #000000;
-    --LBase-2: #ffffff;
-    --LFondo-1: #ffffff;
-    --LText-1: #000000;
-    --LText-2: #ffffff;
-    --LDegradado: rgba(0, 0, 0, 0.39); 
-    */
 
 .light-mode .footer{
   background-color: var(--BaseL);
@@ -31,7 +20,6 @@
 .light-mode .made-by {
   color: var(--LText-1);
 }
-
 
 
 .dark-mode .footer{
