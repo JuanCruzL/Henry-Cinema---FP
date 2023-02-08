@@ -190,8 +190,6 @@ export default function Login() {
                   name="email"
                   onChange={e => handleChangeUp(e)}
                 />
-                <button className="buttonSubmitup" type="submit">Sign Up</button>
-              </form>
                 <label className="container">
                   <input
                     type="checkbox"
@@ -204,6 +202,8 @@ export default function Login() {
                     I want to recieve e-mail notifications
                   </div>
                 </label>
+                <button className="buttonSubmitup" type="submit">Sign Up</button>
+              </form>
             </div>
           </div>
         </div>
