@@ -7,6 +7,15 @@
     align-items: center;
 }
 
+/* .buttonSubmit {
+  position: absolute;
+  bottom: -170px;
+  right: 50px;
+  height: 40px;
+  width: 80px;
+  background-color: #2196F3;
+} */
+
 .form-imageContainer {
     height: 600px;
     width: 900px;
@@ -40,6 +49,7 @@
     /* width: 100%; */
     position: relative;
     /* margin-left: 40px; */
+    padding-bottom: 60px;
 }
 
 .prueba {
@@ -73,13 +83,33 @@
     box-sizing: border-box;
 }
 
+
+.sign-inPselect {
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+}
+
 .sign-upP {
     margin-right: 10px;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     box-sizing: border-box;
+    
 }
+.sign-upPselect {
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+}
+
 
 .check {
     width: 10px;
@@ -95,16 +125,34 @@
     border-bottom: 1px solid black;
 }
 
-
+.formsignin{
+    position: relative;
+}
 
 .formInput{
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid rgb(0, 255, 0);
     margin-bottom: 30px;
     height: 30px;
     width: 300px;
 }
 
+.badinput{
+    border-bottom: 2px solid rgb(255, 0, 0);
+    margin-bottom: 30px;
+    height: 30px;
+    width: 300px;
+}
+
+
 .desc-p {
+    color:#03d217;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.baddesc-p {
+    color:rgb(255, 0, 0);
     font-size: 11px;
     font-weight: bold;
     margin-bottom: 4px;
@@ -173,4 +221,82 @@
      border: solid white;
      border-width: 0 3px 3px 0;
      transform: rotate(45deg);
+   }
+
+   .buttonSubmit {
+    padding: 5px 10px;
+    border: unset;
+    color: #212121;
+    z-index: 1;
+    bottom: -40px;
+    right: 226px;
+    background: #e8e8e8;
+    position: absolute;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+   }
+   
+   .buttonSubmit::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: #ffff00;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+   }
+   
+   .buttonSubmit:hover {
+    color: #000000;
+   }
+   
+   .buttonSubmit:hover::before {
+    width: 100%;
+   }
+
+   .buttonSubmitup {
+    padding: 5px 10px;
+    border: unset;
+    color: #212121;
+    z-index: 1;
+    bottom: 100px;
+    right: 226px;
+    background: #e8e8e8;
+    position: absolute;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+   }
+   
+   .buttonSubmitup::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: #ffff00;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+   }
+   
+   .buttonSubmitup:hover {
+    color: #000000;
+   }
+   
+   .buttonSubmitup:hover::before {
+    width: 100%;
    }

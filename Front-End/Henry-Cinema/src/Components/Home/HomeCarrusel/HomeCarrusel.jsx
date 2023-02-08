@@ -108,7 +108,7 @@ export default function HomeCarrusel({ cartelera }) {
 
 {/* <div className="HomeCarrusel">
       <a>
-        <button role="button"id="Prev"className="Prev"onClick={() => Prev()}>
+        <button role="button" id="Prev" className="Prev" onClick={() => Prev()}>
           {" "}&#10094;{" "}
         </button>
       </a>
