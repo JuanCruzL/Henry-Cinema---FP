@@ -4,8 +4,13 @@ const initialState = {
   movieId: [],
   movies: [],
   allMovies: [],
-  releases: [],
+  foods: [],
+  drinks: [],
+  combos: [],
+  releases: [],// proximos estrenos
   searchMovies: [],// No Modificar esto sirve para el componente search
+  uniqueGenres: [],
+  topMovies: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -15,7 +20,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         movies: action.payload,
         allMovies: action.payload,
-        searchMovies: action.payload
+        searchMovies: action.payload,
       };
     }
     case "AGE_CLASSIFICATION":
@@ -32,20 +37,60 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         movieId: action.payload,
       };
-      case "GET_RELEASES":
+    case "GET_RELEASES":
       return {
         ...state,
-        releases : action.payload,
+        releases: action.payload,
       };
     case "SEARCH_MOVIE":
-      const searchMoviesBar= state.searchMovies
-      const searchMoviesFound=  searchMoviesBar.filter(m =>{
-        return m.title.toLowerCase().includes(action.payload.toLowerCase())
-      })  
-      return{
+      const searchMoviesBar = state.allMovies;
+      const searchMoviesFound = searchMoviesBar.filter((m) => {
+        return m.title.toLowerCase().includes(action.payload.toLowerCase());
+      });
+
+      
+      
+      return {
         ...state,
-        movies: searchMoviesFound
-      }  
+        searchMovies: searchMoviesFound.length>0? 
+          searchMoviesFound:
+          [{
+            imageVertical: "https://img.freepik.com/vector-premium/pagina-inicio-error-404-archivo-diseno-plano_249405-162.jpg?w=2000",
+            apiId:"Error"
+          }]
+        ,
+      };
+    case "GET_FOODS":
+      return {
+        ...state,
+        foods: action.payload,
+      };
+    case "GET_DRINKS":
+      return {
+        ...state,
+        drinks: action.payload,
+      };
+    case "GET_COMBOS":
+      return {
+        ...state,
+        combos: action.payload,
+      };
+
+    case "REQUEST_GENDERS":
+      return {
+        ...state,
+        uniqueGenres: Array.from(new Set(
+          state.allMovies.flatMap(movie => movie.genres)
+        )),
+      };
+    case "REQUEST_TOP_MOVIES":
+      return {
+        ...state,
+        topMovies: state.allMovies
+          .sort((a, b) => b.voteAverage - a.voteAverage)
+          .slice(0, 4),
+      };
+
     default:
       return state;
   }

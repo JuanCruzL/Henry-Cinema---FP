@@ -3,7 +3,7 @@ import Carousel from "./Carousel";
 import Loader from "../Loader/Loader"
 import "./Movies.css";
 import { useState, useEffect } from 'react';
-import { getMovies, getRelease } from "../../redux/actions";
+import { getMovies, getRelease,requestGenders,requestTopMovies } from "../../redux/actions";
 import { useSelector,useDispatch } from 'react-redux';
 import Nav from "../../Components/Nav/Nav"
 import Footer from "../../Components/Footer/footer";
@@ -12,13 +12,16 @@ import Movie from "./Movie"
 
 const Movies = () => {
 const dispatch = useDispatch();
-
-
-  const allMovies = useSelector((state) => state.movies);
-  const allReleases = useSelector((state) => state.releases);
-  const [movies, setMovies] = useState([]);
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+const topMovies = useSelector(state => state.topMovies);
+const uniqueGenres = useSelector(state => state.uniqueGenres);//trae los generos disponibles en la cartelera
+  const allMovies = useSelector((state) => state.movies);// trae todas las peliculas de redux que estan en la cartelera
+  const allReleases = useSelector((state) => state.releases);// trae las proximas 
+  const [movies, setMovies] = useState([]);// guarda las peliculas del corrousel del footer
+  const [images, setImages] = useState([]);// renderiza las imagenes para el carrousel 
+  const [loading, setLoading] = useState(true);// setea el loading
+  const [selectedGenre, setSelectedGenre] = useState(null);
+  const [Filtered, setFiltered] = useState([]);
+  const [FourTopMovies, setFourTopMovies] = useState([]);
  
 
   useEffect(() => {
@@ -29,32 +32,45 @@ const dispatch = useDispatch();
     setLoading(false);
     setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.imageVertical })));
     setMovies(allReleases.map(movie => ({ apiID: movie.id, image: movie.image })));
-  }, [allMovies, setImages,allReleases]);
+  }, [allMovies, setImages]);
+
+  useEffect( () =>{
+    if (!uniqueGenres.length && !topMovies.length) {
+      dispatch(requestGenders());
+    dispatch(requestTopMovies());
+    }
+    setFourTopMovies(topMovies)
+    
+  },[dispatch]);
 
   if (loading) {
     return <Loader />
   }
-  console.log(movies)
 
-  const genres = Array.from(new Set(allMovies.reduce((acc, movie) => [...acc, ...movie.genres], [])));
+  console.log(uniqueGenres);
+  console.log(topMovies);
 
-  console.log(genres);
-  const sortedMovies = [...allMovies].sort((a, b) => b.voteAverage - a.voteAverage);
   
-  const bestMovies = sortedMovies.slice(0, 4);
+  const handleSelect = (event) => {
+    setSelectedGenre(event.target.value);
+    const filteredMovies = allMovies.filter(
+      (movie) => movie.genres.includes(event.target.value)
+    );
+    setFiltered(filteredMovies);
+    console.log(Filtered)
+  };
   
-  console.log(bestMovies);
+ 
 
   
   
   return (
     <div className="Container">
-<Nav/>
+      <Nav/>
       <section>
         <div className="Available">
           <h3>AVAILABLE FILMS</h3>
         </div>
-
         <div className="carousel-movies">
           <Carousel images={images} />
         </div>
@@ -62,13 +78,23 @@ const dispatch = useDispatch();
 
       <section className="movies-filter">
       <div>
-          <fieldset>
+          {/* <fieldset>
           <select >
             <option value="todos">Genre</option>
             <option value="db">DB</option>
             <option value="Api">API</option>
           </select>
-        </fieldset>
+        </fieldset> */}
+        <select onChange={handleSelect} value={selectedGenre || ''}>
+        <option value="">Select a genre</option>
+        {uniqueGenres.map((genre) => (
+          <option key={genre} value={genre}>
+            {genre}
+          </option>
+        ))}
+      </select>
+        
+
       </div> 
       <div>
           <fieldset>
@@ -99,19 +125,22 @@ const dispatch = useDispatch();
       </div>
       </section>
       <section>
+         
         <div className="Filter-results">
-          <Movie
-          movie = {bestMovies[0]}
-          />
-          <Movie
-          movie = {bestMovies[1]}
-          />
-          <Movie
-          movie = {bestMovies[2]}
-          />
-          <Movie
-          movie = {bestMovies[3]}
-          />
+        {/* {Filtered.map(movie => (
+        <Movie movie={movie} />
+      ))} */}
+         
+         {selectedGenre === null ? (
+        topMovies.map(movie => (
+          <Movie  movie={movie} />
+        ))
+      ) : (
+        Filtered.map(movie => (
+          <Movie movie={movie} />
+        ))
+      )}
+
         </div>
       </section>
 
