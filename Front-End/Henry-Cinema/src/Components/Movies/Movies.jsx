@@ -18,7 +18,7 @@ const genres = useSelector(state => state.uniqueGenres);//trae los generos dispo
   const [movies, setMovies] = useState([]);// guarda las peliculas del corrousel del footer
   const [images, setImages] = useState([]);// renderiza las imagenes para el carrousel 
   const [loading, setLoading] = useState(true);// setea el loading
-  const [selectedGenre, setSelectedGenre] = useState(null);
+  const [selectedGenre, setSelectedGenre] = useState();
   const [Filtered, setFiltered] = useState([]);
   const [genresCurrent, setGenresCurrent] = useState([])
   const [classifications, setClassifications] = useState([]);
@@ -28,6 +28,12 @@ const getClassifications = () => {
   const classificationsArray = Array.from(new Set(allMovies.map(movie => movie.classification)));
   setClassifications(classificationsArray);
 };
+useEffect(() => {
+  if (!selectedGenre) {
+    setFiltered(availableMovies);
+  }
+}, [selectedGenre, availableMovies]);
+
 
 useEffect(() => {
   getClassifications();
@@ -84,37 +90,61 @@ useEffect(() => {
     }
     setFiltered(filteredMovies);
   };
-
+console.log(selectedGenre)
 
 //------------------- funcion que ordena por popularidad-------------------------------
 
+
+// const handleCalificationSort = (event) => {
+//   if (event.target.value === "Calification") {
+//     return;
+//   }
+//   let sortedMovies = [...availableMovies];
+//   if (Filtered.length === 0) {
+//     sortedMovies.sort((a, b) => {
+//       if (event.target.value === "More Popular") {
+//         return b.voteAverage - a.voteAverage;
+//       }
+//       return a.voteAverage - b.voteAverage;
+//     });
+//   } else {
+//     sortedMovies = [...Filtered].sort((a, b) => {
+//       if (event.target.value === "More Popular") {
+//         return b.voteAverage - a.voteAverage;
+//       }
+//       return a.voteAverage - b.voteAverage;
+//     });
+//   }
+//   setAvailableMovies(sortedMovies);
+//   setFiltered(sortedMovies);
+// };
 
 const handleCalificationSort = (event) => {
   if (event.target.value === "Calification") {
     return;
   }
-  let sortedMovies = [...availableMovies];
-  if (Filtered.length === 0) {
-    sortedMovies.sort((a, b) => {
-      if (event.target.value === "More Popular") {
-        return b.voteAverage - a.voteAverage;
-      }
-      return a.voteAverage - b.voteAverage;
-    });
+  let sortedMovies;
+  if (!selectedGenre) {
+    sortedMovies = [...availableMovies];
   } else {
-    sortedMovies = [...Filtered].sort((a, b) => {
-      if (event.target.value === "More Popular") {
-        return b.voteAverage - a.voteAverage;
-      }
-      return a.voteAverage - b.voteAverage;
-    });
+    sortedMovies = [...Filtered];
   }
+  sortedMovies.sort((a, b) => {
+    if (event.target.value === "More Popular") {
+      return b.voteAverage - a.voteAverage;
+    }
+    return a.voteAverage - b.voteAverage;
+  });
   setAvailableMovies(sortedMovies);
   setFiltered(sortedMovies);
 };
 
 
+
+
+
   console.log(classifications)
+  console.log(Filtered)
 
   
   return (
@@ -132,7 +162,7 @@ const handleCalificationSort = (event) => {
       <section className="movies-filter">
       <div>
         <select onChange={handleSelect} value={selectedGenre}>
-        <option value="">Select a genres</option>
+         <option value="" style={{color: 'red'}}>{selectedGenre ? "All" : "Select a Genre"}</option>
         {genresCurrent.map((genre) => (
           <option key={genre} value={genre} disabled={selectedGenre}>
             {genre}
@@ -157,7 +187,7 @@ const handleCalificationSort = (event) => {
       <div>
         <fieldset>
           <select >
-            <option value="todos">Language </option>
+            <option value="todos">Lang </option>
             <option value="sub">Sub</option>
             <option value="dub">Dub</option>
           </select>
@@ -166,7 +196,6 @@ const handleCalificationSort = (event) => {
       <div>
         <fieldset>
         <select onChange={handleCalificationSort}>
-  <option>Calification</option>
   <option value="More Popular">More Popular</option>
   <option value="Less Popular">Less Popular</option>
 </select>
@@ -176,11 +205,11 @@ const handleCalificationSort = (event) => {
       <section>
          
         <div className="Filter-results">
-        {/* {Filtered.map(movie => (
+        {Filtered.map(movie => (
         <Movie movie={movie} />
-      ))} */}
+      ))}
          
-         {selectedGenre === null ? (
+         {/* {selectedGenre === null || !selectedGenre ? (
         availableMovies.map(movie => (
           <Movie  movie={movie} />
         ))
@@ -188,7 +217,7 @@ const handleCalificationSort = (event) => {
         Filtered.map(movie => (
           <Movie movie={movie} />
         ))
-      )}
+      )} */}
 
         </div>
       </section>
