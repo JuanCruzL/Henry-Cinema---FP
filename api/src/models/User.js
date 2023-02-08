@@ -14,13 +14,17 @@ module.exports = (sequelize) =>{
             type: DataTypes.STRING,
             allowNull: false
         },
-        username: {
+        userName: {
             type: DataTypes.STRING,
             allowNull:false,
         },
         password:{
             type: DataTypes.STRING, 
             allowNull: false
+        },
+        notifications:{
+            type:DataTypes.BOOLEAN,
+            allowNull:false,
         }
     },{timestamps:false})
 }

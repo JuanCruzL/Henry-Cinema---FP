@@ -1,12 +1,15 @@
 .HomeCarrusel {
-    width: 90%;
-    margin: auto;
+    width: 85%;
+    padding: 1% 0px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
     position: relative;
 }
 
 .HomeCarrusel button {
+    width: 100%;
     position: absolute;
     border: none;
     font-size: 20px;
@@ -59,7 +62,6 @@
 
 
 .contenedorCarrusel {
-    padding: 20px 0;
     align-items: center;
     position: relative;
     overflow: hidden;
@@ -92,6 +94,5 @@
 
 .Carrusel img:hover {
     transition: .5s;
-    transform: scale(1.05);
     transform-origin: center;
 }

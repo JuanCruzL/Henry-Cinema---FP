@@ -7,7 +7,11 @@ import App from "./App";
 import store from "./store/index";
 import Details from "./Components/Details/Details";
 import "./index.css";
-import Movies from "./Components/Movies/Movies";
+import Movies from "./Components/Movies/Movies"
+import Login from "./Components/Login/login"
+import Foods from "./Components/Foods/Foods"
+import AboutUs from './Components/AboutUs/AboutUs'
+
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -24,6 +28,18 @@ const router = createBrowserRouter([
     path: "/movies",
     element: <Movies />,
   },
+  {
+    path: "/login",
+    element: <Login/>
+  },
+  {
+    path: "/foods",
+    element: <Foods/>
+  },
+  {
+    path: "/about",
+    element: <AboutUs/>
+  }
 ]);
 
 root.render(
