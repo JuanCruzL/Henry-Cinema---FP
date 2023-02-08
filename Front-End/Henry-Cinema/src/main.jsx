@@ -159,7 +159,7 @@ const router = createBrowserRouter([
     path: "/dashboard/sales/:id",
     element: <SaleId />,
   },
-
+  {
     path: "/login",
     element: <Login/>
   },
