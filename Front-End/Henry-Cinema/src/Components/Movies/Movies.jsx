@@ -211,7 +211,9 @@ const Movies = () => {
 
 
         <div className="carousel-movies-b">
-        <h1>Next Releases</h1>
+          <div className="Available">
+            <h3>Next Releases</h3>
+          </div>
           <Carousel
             images={movies}
           />
