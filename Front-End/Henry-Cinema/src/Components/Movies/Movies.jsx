@@ -156,51 +156,39 @@ const Movies = () => {
           <div className="Available">
             <h3>AVAILABLE FILMS</h3>
           </div>
-            <Carousel images={images} />
+          <Carousel images={images} />
         </section>
 
         <section className="movies-filter">
-          <div>
-            <select onChange={handleSelect} value={selectedGenre}>
-              <option value="" style={{ color: 'red' }}>{selectedGenre ? "All" : "Select a Genre"}</option>
-              {genresCurrent.map((genre) => (
-                <option key={genre} value={genre} disabled={selectedGenre}>
-                  {genre}
-                </option>
-              ))}
-            </select>
+
+          <select onChange={handleSelect} value={selectedGenre}>
+            <option value="" style={{ color: 'red' }}>{selectedGenre ? "All" : "Select a Genre"}</option>
+            {genresCurrent.map((genre) => (
+              <option key={genre} value={genre} disabled={selectedGenre}>
+                {genre}
+              </option>
+            ))}
+          </select>
 
 
-          </div>
-          <div>
-            <fieldset>
-              <select >
-                <option value="todos">Clasification</option>
-                {classifications.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-            </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <select >
-                <option value="todos">Lang </option>
-                <option value="sub">Sub</option>
-                <option value="dub">Dub</option>
-              </select>
-            </fieldset>
-          </div>
-          <div>
-            <fieldset>
-              <select onChange={handleCalificationSort}>
-                <option value="More Popular">More Popular</option>
-                <option value="Less Popular">Less Popular</option>
-              </select>
-            </fieldset>
-          </div>
+          <select >
+            <option value="todos">Clasification</option>
+            {classifications.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+
+          <select >
+            <option value="todos">Lang </option>
+            <option value="sub">Sub</option>
+            <option value="dub">Dub</option>
+          </select>
+          <select onChange={handleCalificationSort}>
+            <option value="More Popular">More Popular</option>
+            <option value="Less Popular">Less Popular</option>
+          </select>
         </section>
         <section className="movies-Result">
 

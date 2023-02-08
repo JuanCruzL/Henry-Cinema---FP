@@ -36,7 +36,7 @@
      border-radius: 3px;
  }
 
- 
+
  .movies-filter {
      grid-area: movies-filter;
  }
@@ -88,19 +88,20 @@
 }
 */
  .movies-filter {
-     position: absolute;
      display: flex;
      align-items: center;
      background-color: #ffff00;
      justify-content: space-around;
-     padding: .5%;
-     top: 500px;
-     width: 40%;
-     margin-left: 30%;
-     margin-right: 30%;
+     padding: .6%;
+     width: 80%;
+     margin: auto;
+     margin-bottom: 0;
      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
      border: 1px solid rgba(0, 0, 0, 0.321);
      border-radius: 3px;
+     display: grid;
+     grid-template-columns: 24% 24% 24% 24%;
+     gap:0px 1%
  }
 
  .Filter-results {
