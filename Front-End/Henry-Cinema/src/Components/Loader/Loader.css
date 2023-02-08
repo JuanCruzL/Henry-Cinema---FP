@@ -1,31 +1,57 @@
-body{
-   padding:0;
-   margin:0;
-   width:100%;
-   height:100vh;
-   background:#f8f8f8;
+
+.light-mode .container-loader{
+   background-color: var(--LFondo-1);
 }
+.light-mode .circle{
+   background-color: var(--LBase-1);
+}
+.light-mode .wrapper-loader .text-loader{
+   color: var(--LBase-1);
+}
+.light-mode .shadow{
+   background-color: var(--LDegradado2);
+}
+
+
+.dark-mode .container-loader{
+   background-color: var(--NFondo-1);
+}
+.dark-mode .circle{
+   background-color: var(--NBase-1);
+}
+.dark-mode .wrapper-loader .text-loader{
+   color: var(--NBase-1);
+}
+.dark-mode .shadow{
+   background-color: var(--NDegradado2);
+}
+
+
+
 .container-loader{
    display: flex;
-   flex-direction: column;;
+   position: relative;
+   flex-direction: column;
+   height: 100vh;
+   width: 100%;
+   justify-content: center;
 }
 
 .wrapper-loader{
+   margin: auto;
    display: flex;
+   justify-content: center;
    width:150px;
    height:40px;
-   position: absolute;
-   left:50%;
-   margin-top: 25rem;
-   top:70%;
-   transform: translate(-50%, -50%);
+   align-items: center;
+   margin-top: 20%; 
+   transform: translate(-0%, -100%);
 }
 .circle{
    width:20px;
    height:20px;
    position: absolute;
    border-radius: 50%;
-   background-color: black;
    left:15%;
    transform-origin: 50%;
    animation: circle .5s alternate infinite ease;
@@ -60,7 +86,6 @@ body{
    width:20px;
    height:4px;
    border-radius: 50%;
-   background-color: rgba(0,0,0,.5);
    position: absolute;
    top:62px;
    transform-origin: 50%;
@@ -98,7 +123,6 @@ body{
    font-family: 'Lato';
    font-size: 15px;
    letter-spacing: 10px;
-   color: black;
    left:14%;
 }
 
