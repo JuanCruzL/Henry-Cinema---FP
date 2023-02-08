@@ -20,11 +20,12 @@
     /* border-bottom: 1px solid black; */
   }
   
-  .container-profile:hover:before {
-    border-bottom: 1px solid black;
-  }
+ 
   .image-profile:hover + .text-profile{
     color:gold;
+  }
+  .container-profile:hover .buttons-profile{
+    border-top: 1px solid black;
   }
 
   .text-profile{

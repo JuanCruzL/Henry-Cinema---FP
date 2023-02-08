@@ -17,6 +17,8 @@ function Foods() {
   const combos = useSelector((state) => state.combos);
   const [seeFood, setSeeFoods] = useState("");
   const [loading, setLoading] = useState(true);
+  const [selected, setSelected] = useState('combos');
+ 
   /* console.log(allFoods);
   console.log(allDrinks);
   console.log(combos); */
@@ -28,8 +30,14 @@ function Foods() {
     setTimeout(()=>{
       setLoading(false);
     },1000)
+    setSeeFoods('combos')
   }, [dispatch]);
   
+  let handleClickFood= (e) =>{
+      setSeeFoods(e);
+      setSelected(e)
+
+  }
   
   if (loading) {
     return <Loader />
@@ -40,9 +48,9 @@ function Foods() {
       <Nav></Nav>
       <div className="container-foods">
         <div className="buttons-foods">
-          <div className="button-combos" onClick={() => setSeeFoods("combos")}>Combos</div>
-          <div className="button-foods" onClick={() => setSeeFoods("foods")}>Pop-Corn and Food</div>
-          <div className="button-drinks" onClick={() => setSeeFoods("drinks")}>Drinks</div>
+        <div className={`button-combos ${selected === "combos" && "selected"}`} onClick={() => handleClickFood("combos")}>Combos</div>
+          <div className={`button-foods ${selected === "foods" && "selected"}`} onClick={() => handleClickFood("foods")}>Pop-Corn and Food</div>
+          <div className={`button-drinks ${selected === "drinks" && "selected"}`} onClick={() => handleClickFood("drinks")}>Drinks</div>
         </div>
 
         {seeFood === "combos" && (<div className="containerForCards">

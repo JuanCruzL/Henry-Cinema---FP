@@ -5,18 +5,23 @@
     padding-bottom: 2%;
     height: 100%;
 }
+.selected {
+    background-color: black;
+    color: yellow;
+   
+}
 .buttons-foods{
     max-height: 87%;
     min-height:87%;
     width:15%;
-    border:2px solid blue;
+    border-right:2px solid black;
     padding-top: 15%;
     padding-bottom: 25%;
     padding-left: 1.5%;
     padding-right: 1.5%;
 }
 .containerForCards{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -29,31 +34,34 @@
 }
 .button-combos{
     display: flex;
-    border:2px solid red;
+    border-right:2px solid black;
     margin-bottom: 20px;
     height: 1.5cm;
     font-size: 20px;
     justify-content: center;
     text-align: center;
     align-items: center;
+    cursor: pointer;
 }
 .button-foods{
     display: flex;
-    border:2px solid red;
+    border-right:2px solid black;
     margin-bottom: 20px;
     height: 1.5cm;
     font-size: 19px;
     justify-content: center;
     text-align: center;
     align-items: center;
+    cursor: pointer;
 }
 .button-drinks{
     display: flex;
-    border:2px solid red;
+    border-right:2px solid black;
     margin-bottom: 20px;
     height: 1.5cm;
     font-size: 20px;
     justify-content: center;
     text-align: center;
     align-items: center;
+    cursor: pointer;
 }
