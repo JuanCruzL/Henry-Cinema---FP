@@ -11,11 +11,15 @@ import Loader from "../Loader/Loader";
 
 export default function Details() {
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMovieById(id));
-  }, []);
+    setTimeout(()=>{
+      setLoading(false);
+    },1500)
+  }, [dispatch]);
 
   const movie = useSelector((state) => state.movieId);
 
@@ -29,8 +33,8 @@ export default function Details() {
     productionCompanies = movie?.productionCompanies?.map((e) => e).join(", ");
   }
 
-  if (!movie.hasOwnProperty("title")) {
-    return <Loader />;
+  if (loading) {
+    return <Loader />
   } else {
     return (
       <div>
