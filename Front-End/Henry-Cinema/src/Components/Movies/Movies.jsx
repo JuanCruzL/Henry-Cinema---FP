@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { getMovies, getRelease,requestGenders,requestTopMovies } from "../../redux/actions";
 import { useSelector,useDispatch } from 'react-redux';
 import Nav from "../../Components/Nav/Nav"
-import Footer from "../../Components/Footer/footer";
+import Footer from "../footer/footer";
 import Movie from "./Movie"
 
 

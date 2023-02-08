@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import "./Login.css";
 import logo from "../Utils/logo-henry-cinema.png";
+import { logInUser } from "../../redux/actions";
+import  { useDispatch, useSelector } from "react-redux";
 
 export default function Login() {
+
+  const dispatch = useDispatch();
   
+  const loggedUser = useSelector(state => state?.currentUser)
   const [sign, setSign] = useState("sign-in");
   const [checked2, setChecked2] = useState(false);
   const [errors, setErrors] = useState({
@@ -62,10 +67,12 @@ export default function Login() {
   const handleSubmitIn = (e) => {
     console.log(formIn)
     e.preventDefault();
-    setFormIn({
-      email: "",
-      password: "",
-    })
+    try {
+      dispatch(logInUser(formIn.email, formIn.password));
+      console.log(loggedUser);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleSubmitUp=(e) => {

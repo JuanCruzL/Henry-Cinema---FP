@@ -133,10 +133,65 @@ export const requestTopMovies = () => {
 
 // actions.js
 
-
 // actions.js
 
 
+
+
+
+
+
+
+// action.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const logInUser = (email, password) => {
+  if (!email && !password) {
+    return message.warn("Completa los campos para ingresar");
+  }
+  if (!email) {
+    return message.warn("Ingresa correo electronico");
+  }
+
+  if (!password) {
+    return message.warn("Ingresa tu contraseña");
+  }
+
+  try {
+    return async (dispatch) => {
+      const loginCredentials = await axios.post("http://localhost:3001/login",
+        {email, password},
+      );
+      console.log(loginCredentials.data);
+      return dispatch({
+        type: "GET_CURRENT_USER",
+        payload: loginCredentials.data,
+      });
+    }  
+  } catch (error) {
+    console.log(error);
+  }
+} 
 
 
 

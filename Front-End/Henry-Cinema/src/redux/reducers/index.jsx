@@ -11,6 +11,9 @@ const initialState = {
   searchMovies: [],// No Modificar esto sirve para el componente search
   uniqueGenres: [],
   topMovies: [],
+
+
+  currentUser: {},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -90,6 +93,32 @@ const rootReducer = (state = initialState, action) => {
           .sort((a, b) => b.voteAverage - a.voteAverage)
           .slice(0, 4),
       };
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    case "GET_CURRENT_USER":
+      return {
+        ...state,
+        currentUser: action.payload,
+      }
 
     default:
       return state;
