@@ -1,19 +1,21 @@
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 import "../HomeCarrusel/HomeCarrusel.css";
 
 export default function HomeCarrusel({ cartelera }) {
 
+  var tiempo;
+  let actual = 0;
+  
   useEffect(() => {
-    playpause();
-    mostrar(0)
+    tiempo = null;
+    mostrar(actual);
+    playpause();;
   },[cartelera])
-
-  var actual = 0;
+  
   const velocidad = 10000;
-  var tiempo = null;
+  let cantidad = document.getElementsByClassName("carteleraHome").length;
 
-  var cantidad = document.getElementsByClassName("carteleraHome").length;
 
   function puntos(n) {
     var ptn = document.getElementsByClassName("punto");
@@ -27,16 +29,23 @@ export default function HomeCarrusel({ cartelera }) {
   }
   function mostrar(n) {
     actual = n;
-    if (cantidad > 0) {
-      var imagenes = document.getElementsByClassName("carteleraHome");
-      for (let i = 0; i < imagenes.length; i++) {
-        if (imagenes[i].className.includes("actual")) {
-          imagenes[i].className = imagenes[i].className.replace("actual", "");
-          break;
+    if(document.getElementsByClassName("carteleraHome").length==0){
+      actual=0;
+      clearInterval(tiempo);
+      tiempo = null;
+    }else{
+      if (cantidad > 0) {
+        console.log(actual)
+        var imagenes = document.getElementsByClassName("carteleraHome");
+        for (let i = 0; i < imagenes.length; i++) {
+          if (imagenes[i].className.includes("actual")) {
+            imagenes[i].className = imagenes[i].className.replace("actual", "");
+            break;
+          }
         }
+          imagenes[n].className = "carteleraHome actual";
+          puntos(n);
       }
-      imagenes[n].className = "carteleraHome actual";
-      puntos(n);
     }
   }
 
@@ -53,15 +62,15 @@ export default function HomeCarrusel({ cartelera }) {
 
   function playpause() {
     if (document.getElementById("btnPauseHome")) {
-      var boton = document.getElementById("btnPauseHome");
-      if (tiempo == null) {
-        boton.src = "https://www.pngmart.com/files/3/Pause-Button-Transparent-Background.png";
-        tiempo = setInterval(() => { Next(); }, velocidad);
-      } else {
-        clearInterval(tiempo);
-        tiempo = null;
-        boton.src = "https://assets.stickpng.com/images/580b57fcd9996e24bc43c4f9.png";
-      }
+        var boton = document.getElementById("btnPauseHome");
+        if (tiempo == null) {
+          boton.src = "https://www.pngmart.com/files/3/Pause-Button-Transparent-Background.png";
+          tiempo = setInterval(() => { Next(); }, velocidad);
+        } else {
+          clearInterval(tiempo);
+          tiempo = null;
+          boton.src = "https://assets.stickpng.com/images/580b57fcd9996e24bc43c4f9.png";
+        }
     }
   }
   return (
@@ -93,11 +102,10 @@ export default function HomeCarrusel({ cartelera }) {
               )
             })
             }
-
           </div>
 
           <div className="botonPause">
-            <img src="https://www.pngmart.com/files/3/Pause-Button-Transparent-Background.png" id="btnPauseHome" onClick={() => playpause()} />
+            <img src="https://www.pngmart.com/files/3/Pause-Button-Transparent-Background.png" id="btnPauseHome" onClick={() => playpause(false)} />
           </div>
 
         </div>
@@ -106,25 +114,3 @@ export default function HomeCarrusel({ cartelera }) {
   );
 }
 
-{/* <div className="HomeCarrusel">
-      <a>
-        <button role="button" id="Prev" className="Prev" onClick={() => Prev()}>
-          {" "}&#10094;{" "}
-        </button>
-      </a>
-      <div className="contenedorCarrusel">
-        <div className="Carrusel">
-          {cartelera.map((data) => {
-            return (
-              <div key={data.apiId} className="card">
-                
-                <img src={data.imageHorizontal}></img>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <button role="button" id="Next" className="Next" onClick={() => Next()}>
-        {" "}&#10095;{" "}
-      </button>
-    </div> */}
