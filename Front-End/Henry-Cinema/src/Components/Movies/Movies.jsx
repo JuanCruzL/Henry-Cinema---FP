@@ -210,16 +210,14 @@ const Movies = () => {
         </section>
 
 
-        {/* <div className="movies-prox">
-          <h1>Next Releases</h1>
-        </div> */}
         <div className="carousel-movies-b">
+        <h1>Next Releases</h1>
           <Carousel
             images={movies}
           />
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
 
     </div>
 

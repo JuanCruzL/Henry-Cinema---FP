@@ -1,3 +1,12 @@
+.light-mode .carousel-container-img img{
+    box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+
+.dark-mode .carousel-container-img img{
+    box-shadow: var(--NDegradado) 0px 5px 15px;
+}
+
+
 .carousel-container {
     position: relative;
     display: flex;
@@ -15,8 +24,6 @@
     height: 100%;
     width: 19%;
     margin: 0 .5%;
-    
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 
