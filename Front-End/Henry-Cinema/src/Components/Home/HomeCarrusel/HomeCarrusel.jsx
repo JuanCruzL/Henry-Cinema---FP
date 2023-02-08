@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../HomeCarrusel/HomeCarrusel.css";
 
 export default function HomeCarrusel({ cartelera }) {
@@ -9,7 +10,7 @@ export default function HomeCarrusel({ cartelera }) {
   },[cartelera])
 
   var actual = 0;
-  const velocidad = 5000;
+  const velocidad = 10000;
   var tiempo = null;
 
   var cantidad = document.getElementsByClassName("carteleraHome").length;
@@ -70,6 +71,10 @@ export default function HomeCarrusel({ cartelera }) {
           {cartelera.map((data) => {
             return (
               <div key={data.apiId} className="carteleraHome">
+                <button id={data.apiId} className="BuyT">BUY TICKETS</button>
+                <Link to={`/movie/${data.apiId}`}>
+                  <button id={data.apiId} className="Trail">PLAY TRAILER</button>
+                </Link>
                 <img src={data.imageHorizontal}></img>
               </div>
             );
@@ -112,12 +117,7 @@ export default function HomeCarrusel({ cartelera }) {
           {cartelera.map((data) => {
             return (
               <div key={data.apiId} className="card">
-                <button id={data.apiId} className="BuyT">
-                  BUY TICKETS
-                </button>
-                <button id={data.id} className="Trail">
-                  PLAY TRAILER
-                </button>
+                
                 <img src={data.imageHorizontal}></img>
               </div>
             );
