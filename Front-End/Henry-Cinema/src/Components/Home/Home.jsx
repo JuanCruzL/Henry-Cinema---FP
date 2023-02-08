@@ -38,8 +38,6 @@ export default function Home() {
       setLoading(false);
     },1500)
 
-    setLoading(false);
-
   }, [dispatch]);
   
   if (loading) {
