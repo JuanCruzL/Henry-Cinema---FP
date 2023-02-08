@@ -33,10 +33,16 @@ export default function Home() {
     dispatch(getMovies());
     dispatch(getRelease());
     dispatch(requestGenders());
+
+    setTimeout(()=>{
+      setLoading(false);
+    },1500)
+
     setLoading(false);
+
   }, [dispatch]);
   
-  if (!allMovies.length) {
+  if (loading) {
     return <Loader />
   }
   return (

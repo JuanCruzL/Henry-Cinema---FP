@@ -1,129 +1,104 @@
-.light-mode .loaderRectangle{
-   background-color:  var(--LFondo-1);
-   color: var(--LText-1);
+body{
+   padding:0;
+   margin:0;
+   width:100%;
+   height:100vh;
+   background:#f8f8f8;
 }
-.light-mode .loaderDivRectangle {
-   background: var(--LBase-1);
-   box-shadow: 0 0 20px var(--BaseL);
-}
-
-
-
-.dark-mode .loaderRectangle{
-   background-color:  var(--NFondo-1);
-   color: var(--NText-1);
-}
-.dark-mode .loaderDivRectangle {
-   background: var(--NBase-1);
-   box-shadow: 0 0 20px var(--BaseN);
-}
-
-
-.loaderRectangle {
+.container-loader{
    display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 0 3px;
-   height: 100vh;
-   position: relative;
-   }
-   
-   .textLoading {
+   flex-direction: column;;
+}
+
+.wrapper-loader{
    display: flex;
-   justify-content: center;
-   align-items: center;
+   width:150px;
+   height:40px;
    position: absolute;
-   padding-top: 80px;
-   padding-left: 5px;
+   left:50%;
+   margin-top: 25rem;
+   top:70%;
+   transform: translate(-50%, -50%);
+}
+.circle{
+   width:20px;
+   height:20px;
+   position: absolute;
+   border-radius: 50%;
+   background-color: black;
+   left:15%;
+   transform-origin: 50%;
+   animation: circle .5s alternate infinite ease;
+}
+
+@keyframes circle{
+   0%{
+       top:60px;
+       height:5px;
+       border-radius: 50px 50px 25px 25px;
+       transform: scaleX(1.7);
    }
-   
-   .loaderDivRectangle {
-   width: 5px;
-   height: 50px;
-   animation: .9s ease-in-out infinite;
+   40%{
+       height:20px;
+       border-radius: 50%;
+       transform: scaleX(1);
    }
-   
-   .loaderDivRectangle:nth-child(1) {
-   animation-name: rectangleOneAnim;
-   animation-delay: 1s;
+   100%{
+       top:0%;
    }
-   
-   @keyframes rectangleOneAnim {
-   0% {
-   height: 15px;
+}
+.circle:nth-child(2){
+   left:45%;
+   animation-delay: .2s;
+}
+.circle:nth-child(3){
+   left:auto;
+   right:15%;
+   animation-delay: .3s;
+}
+.shadow{
+   width:20px;
+   height:4px;
+   border-radius: 50%;
+   background-color: rgba(0,0,0,.5);
+   position: absolute;
+   top:62px;
+   transform-origin: 50%;
+   z-index: -1;
+   left:15%;
+   filter: blur(1px);
+   animation: shadow .5s alternate infinite ease;
+}
+
+@keyframes shadow{
+   0%{
+       transform: scaleX(1.5);
    }
-   40% {
-   height: 30px;
+   40%{
+       transform: scaleX(1);
+       opacity: .7;
    }
-   100% {
-   height: 15px;
+   100%{
+       transform: scaleX(.2);
+       opacity: .4;
    }
-   }
-   
-   .loaderDivRectangle:nth-child(2) {
-   animation-name: rectangleTwoAnim;
-   animation-delay: 1.1s;
-   }
-   
-   @keyframes rectangleTwoAnim {
-   0% {
-   height: 15px;
-   }
-   40% {
-   height: 40px;
-   }
-   100% {
-   height: 15px;
-   }
-   }
-   
-   .loaderDivRectangle:nth-child(3) {
-   animation-name: rectangleThreeAnim;
-   animation-delay: 1.2s;
-   }
-   
-   @keyframes rectangleThreeAnim {
-   0% {
-   height: 15px;
-   }
-   40% {
-   height: 50px;
-   }
-   100% {
-   height: 15px;
-   }
-   }
-   
-   .loaderDivRectangle:nth-child(4) {
-   animation-name: rectangleFourAnim;
-   animation-delay: 1.3s;
-   }
-   
-   @keyframes rectangleFourAnim {
-   0% {
-   height: 15px;
-   }
-   40% {
-   height: 40px;
-   }
-   100% {
-   height: 15px;
-   }
-   }
-   
-   .loaderDivRectangle:nth-child(5) {
-   animation-name: rectangleFiveAnim;
-   animation-delay: 1.4s;
-   }
-   
-   @keyframes rectangleFiveAnim {
-   0% {
-   height: 15px;
-   }
-   40% {
-   height: 30px;
-   }
-   100% {
-   height: 15px;
-   }
-   }
+}
+.shadow:nth-child(4){
+   left: 45%;
+   animation-delay: .2s
+}
+.shadow:nth-child(5){
+   left:auto;
+   right:15%;
+   animation-delay: .3s;
+}
+.wrapper-loader .text-loader{
+   position: absolute;
+   top:85px;
+   font-family: 'Lato';
+   font-size: 15px;
+   letter-spacing: 10px;
+   color: black;
+   left:14%;
+}
+
