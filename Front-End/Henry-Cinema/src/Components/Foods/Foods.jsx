@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Nav from "../Nav/Nav";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import Loader from "../Loader/Loader";
 import { getFoods, getDrinks, getCombos } from "../../redux/actions/index";
 import Footer from "../footer/footer"
 
@@ -16,7 +16,9 @@ function Foods() {
   const allDrinks = useSelector((state) => state.drinks);
   const combos = useSelector((state) => state.combos);
   const [seeFood, setSeeFoods] = useState("");
-
+  const [loading, setLoading] = useState(true);
+  const [selected, setSelected] = useState('combos');
+ 
   /* console.log(allFoods);
   console.log(allDrinks);
   console.log(combos); */
@@ -25,16 +27,30 @@ function Foods() {
     dispatch(getFoods());
     dispatch(getDrinks());
     dispatch(getCombos());
+    setTimeout(()=>{
+      setLoading(false);
+    },1000)
+    setSeeFoods('combos')
   }, [dispatch]);
+  
+  let handleClickFood= (e) =>{
+      setSeeFoods(e);
+      setSelected(e)
+
+  }
+  
+  if (loading) {
+    return <Loader />
+  }
 
   return (
     <div className="containerComponent">
       <Nav></Nav>
       <div className="container-foods">
         <div className="buttons-foods">
-          <div className="button-combos" onClick={() => setSeeFoods("combos")}>Combos</div>
-          <div className="button-foods" onClick={() => setSeeFoods("foods")}>Pop-Corn and Food</div>
-          <div className="button-drinks" onClick={() => setSeeFoods("drinks")}>Drinks</div>
+        <div className={`button-combos ${selected === "combos" && "selected"}`} onClick={() => handleClickFood("combos")}>Combos</div>
+          <div className={`button-foods ${selected === "foods" && "selected"}`} onClick={() => handleClickFood("foods")}>Pop-Corn and Food</div>
+          <div className={`button-drinks ${selected === "drinks" && "selected"}`} onClick={() => handleClickFood("drinks")}>Drinks</div>
         </div>
 
         {seeFood === "combos" && (<div className="containerForCards">

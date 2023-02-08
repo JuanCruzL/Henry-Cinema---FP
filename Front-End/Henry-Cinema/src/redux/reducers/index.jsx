@@ -83,13 +83,6 @@ const rootReducer = (state = initialState, action) => {
           state.allMovies.flatMap(movie => movie.genres)
         )),
       };
-    case "REQUEST_TOP_MOVIES":
-      return {
-        ...state,
-        topMovies: state.allMovies
-          .sort((a, b) => b.voteAverage - a.voteAverage)
-          .slice(0, 4),
-      };
 
     default:
       return state;
