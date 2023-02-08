@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 function generateAccessToken(user) {
-    return jwt.sign(user, SECRET, {expiresIn: '5m'});
+    return jwt.sign(user, SECRET, {expiresIn: '1m'});
 }
 
 const verifyLogin = async (formData) => {
@@ -22,6 +22,7 @@ const verifyLogin = async (formData) => {
     }
 
     const user =  await User.findOne({
+        raw: true,
         where: {
             email,
         }
@@ -30,12 +31,14 @@ const verifyLogin = async (formData) => {
     if(user) {
         // const confirmed = bcrypt.compareSync(password, user.password);
         // console.log(confirmed);
+        // console.log(user);
         if(bcrypt.compareSync(password, user.password)) {
-            const accessToken = generateAccessToken(user.dataValues);
+            const accessToken = generateAccessToken(user);
             // res.header('authorization', accessToken).json({
             //     message: 'Authenticated user',
             //     token: accessToken,
             // })
+            console.log(accessToken);
             const { id } = user;
             return  { id, accessToken };
         } else {
