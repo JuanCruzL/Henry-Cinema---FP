@@ -1,0 +1,83 @@
+.navbardash {
+    height: 50px;
+    border-bottom: 0.5px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: black;
+    background-color: #ffff00;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    .wrapper {
+        
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+       
+
+        .searchbar {
+            display: flex;
+            align-items: center;
+            border: 0.5px black;
+            background-color: transparent;
+            object-fit:fill;
+
+            input {
+                border: 1px black;
+                border: black;
+                background-color: white;
+                color: black;
+                box-shadow: rgba(67, 66, 66, 0.3) 0px 18px 36px -18px inset;
+
+
+                &::placeholder {
+                    font-size: 12px;
+                }
+                
+            }
+        }
+
+
+        .items {
+            display: flex;
+            align-items: center;
+
+            .item {
+                display: flex;
+                align-items: center;
+                margin-right: 20px;
+                font-weight: bold;
+                position: relative;
+
+
+                .icon {
+                    font-size: 20px;
+                }
+
+                .logo {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                }
+
+                .counter {
+                    width: 15px;
+                    height: 15px;
+                    background-color: red;
+                    border-radius: 50%;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 10px;
+                    font-weight: bold;
+                    position: absolute;
+                    top: -5px;
+                    right: -5px;
+                }
+            }
+        }
+    }
+}

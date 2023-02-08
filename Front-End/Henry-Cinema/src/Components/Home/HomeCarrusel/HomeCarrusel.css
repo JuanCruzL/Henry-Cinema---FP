@@ -1,9 +1,140 @@
+.light-mode .HomeCarrusel button {
+    background-color: var(--BaseL);
+    color: var(--LText-1);
+}
+.light-mode .contenedorCarrusel .Carrusel {
+    background-color: var(--LBase-1);
+}
+.light-mode .contenedorCarrusel .Carrusel {
+    box-shadow: 5px 5px 10px var(--LDegradado);
+}
+.light-mode .punto {
+    background-color: var(--BaseL);
+}
+.light-mode .punto:hover ,
+.light-mode .activo{
+    background-color: var(--LBase-1);
+    border: 2px solid var(--BaseL);
+}
+
+
+
+.dark-mode .HomeCarrusel button {
+    color: var(--NText-2);
+    background-color: var(--BaseN);
+}
+.dark-mode .contenedorCarrusel .Carrusel {
+    background-color: var(--NBase-2);
+}
+.dark-mode .contenedorCarrusel .Carrusel {
+    box-shadow: 5px 5px 10px var(--NDegradado);
+}
+.dark-mode .punto {
+    background-color: var(--BaseN);
+}
+.dark-mode .punto:hover ,
+.dark-mode .activo{
+    background-color: var(--NBase-2);
+    border: 2px solid var(--BaseN);
+}
+
+
+/* ================================= */
+
 .HomeCarrusel {
     width: 85%;
-    margin: auto;
+    height: 100%;
+    min-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
     position: relative;
+}
+
+.HomeCarrusel .Prev {
+    opacity: 0.3;
+    left: 0;
+}
+.HomeCarrusel .Next {
+    opacity: 0.3;
+    right: 0;
+}
+
+.contenedorCarrusel{
+    height: 90%;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+}
+.contenedorCarrusel .Carrusel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    align-items: center;
+}
+
+.carteleraHome {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    transition: .2s ease all;
+    text-align: center;
+}
+
+.carteleraHome img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.Carrusel .botonPause {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    height: 5%;
+    width: height;
+}
+#btnPauseHome{
+    height: 100%;
+    width: 100%;
+}
+
+.puntos {
+    position: absolute;
+    top: 93%;
+    width: 100%;
+    text-align: center;
+}
+.punto {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.punto:hover {
+    cursor: pointer;
+}
+.actual {
+    height: 100%;
+    width: 100%;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .5s, opacity 1s;
+    align-items: center;
+}
+.actual img{
+    margin: auto;
+    height: 100%;
+    width: 100%;
 }
 
 .HomeCarrusel button {
@@ -11,87 +142,41 @@
     border: none;
     font-size: 20px;
     font-weight: 600;
-    height: 15%;
-    top: calc(50% - 10%);
-    line-height: 40px;
+    height: 25%;
     width: 10px;
+    top: calc(50% - 10%);
+    line-height: 30px;
     cursor: pointer;
     z-index: 500;
-
     transition: .2s ease all;
 }
 
 .HomeCarrusel button:hover {
     opacity: 0.9;
+    transition: .2s ease all;
 }
 
-.HomeCarrusel .Prev {
-    opacity: 0.3;
-    left: 0;
-}
-
-.HomeCarrusel .Next {
-    opacity: 0.3;
-    right: 0;
-}
 
 .HomeCarrusel .BuyT {
     padding: 0;
-    
+    font-weight: 900;
     font-size: 10px;
     width: 120px;
     height: 9%;
     top: auto;
-    bottom: 8%;
+    bottom: 10%;
     margin-left: 20px;
 }
 
 .HomeCarrusel .Trail {
     padding: 0;
-
+    font-weight: 900;
     font-size: 10px;
     width: 120px;
     height: 9%;
     top: auto;
-    bottom: 8%;
+    bottom: 10%;
     margin-left: 200px;
 }
 
 
-.contenedorCarrusel {
-    padding: 20px 0;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    scroll-behavior: smooth;
-}
-
-.Carrusel {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.Carrusel .card {
-    padding: 0;
-    margin: 0;
-    min-width: 100%;
-    /* cantidad */
-    height: 372px;
-    transition: .3s ease all;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
-    text-align: center;
-
-}
-
-.Carrusel img {
-    width: 100%;
-    height: 100%;
-    vertical-align: top;
-    transition: .5s ease all;
-}
-
-.Carrusel img:hover {
-    transition: .5s;
-    transform: scale(1.05);
-    transform-origin: center;
-}

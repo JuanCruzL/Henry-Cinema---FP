@@ -1,0 +1,59 @@
+.carddrinks{
+    display :flex;
+    border : 2px solid red;
+    width:13cm;
+    height: 4cm;
+    margin: 10px;
+    padding: 10px;
+    align-items: flex-end;
+}
+.cardcombos{
+    display :flex;
+    border : 2px solid red;
+    width:22cm;
+    height: 4cm;
+    margin: 10px;
+    padding: 10px;
+    margin-left: 10%;
+}
+.cardfoods{
+    display :flex;
+    border : 2px solid red;
+    width:10.5cm;
+    height: 4cm;
+    margin: 10px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.name-cardFood{
+    border:2px solid red;
+    max-height: 50%;
+    min-height: 40%;
+}
+.price-cardFood{
+    border:2px solid blue;
+}
+.image-cardFood{
+    border: 2px solid black;
+    max-width: 40%;
+    max-height: 2.5cm;
+    margin-top: 2%;
+    margin-bottom: 2.5%;
+}
+.information-food{
+    border:2px solid purple;
+    width:80%;
+    height:80%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+.button-cardFood{
+    display: flex;
+    border:2px solid green;
+    margin:4px;
+    float: right;
+    padding: 5px;
+    cursor: pointer;
+}
