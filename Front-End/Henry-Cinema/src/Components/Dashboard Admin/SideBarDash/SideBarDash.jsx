@@ -28,10 +28,12 @@ export const SideBarDash = () => {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
-          <li>
-            <DashboardIcon className="icon" />
-            <span className="span">Dashboard</span>
-          </li>
+          <Link to="/dashboard">
+            <li>
+              <DashboardIcon className="icon" />
+              <span className="span">Dashboard</span>
+            </li>
+          </Link>
           <p className="title">LISTS</p>
           <Link to="/dashboard/users">
             <li>

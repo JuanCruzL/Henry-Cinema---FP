@@ -1,0 +1,14 @@
+.table {
+   
+    .cellWrapper {
+        display: flex;
+        align-items: center;
+
+        .movieImage {
+            width: 70px;
+            height: 100px;
+            margin-right: 10px;
+            border-radius: 0;
+        }
+    }
+}
