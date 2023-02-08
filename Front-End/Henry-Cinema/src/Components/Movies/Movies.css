@@ -39,10 +39,28 @@
 
  .movies-filter {
      grid-area: movies-filter;
+     display: flex;
+     align-items: center;
+     background-color: #ffff00;
+     justify-content: space-around;
+     padding: .6%;
+     width: 80%;
+     margin: auto;
+     margin-bottom: 0; 
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     border: 1px solid rgba(0, 0, 0, 0.321);
+     border-radius: 3px;
+     display: grid;
+     grid-template-columns: 24% 24% 24% 24%;
+     gap:0px 1%
  }
 
  .movies-Result {
      grid-area: movies-Result;
+     height: 100%;
+     width: 80%;
+     align-items: center;
+     margin: auto;
  }
 
  .carousel-movies-b {
@@ -50,22 +68,10 @@
  }
 
 
- /* .Container-movies {
-    display:flex;
-    align-items: center;
-    width: 95%;
-    position:relative;
-    margin: auto;
-}
+ /* 
 
 
 
-.carousel-movies{
-    position: absolute;
-    width: 100%;
-    height: 300px;
-    top: 170px;
-}
 
 .movies-prox {
     font-size: 18px;
@@ -83,34 +89,12 @@
     top: 1350px;
    
 }
-.carousel-movies-b Footer{
-    margin-top: 25px;
-}
 */
- .movies-filter {
-     display: flex;
-     align-items: center;
-     background-color: #ffff00;
-     justify-content: space-around;
-     padding: .6%;
-     width: 80%;
-     margin: auto;
-     margin-bottom: 0;
-     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-     border: 1px solid rgba(0, 0, 0, 0.321);
-     border-radius: 3px;
-     display: grid;
-     grid-template-columns: 24% 24% 24% 24%;
-     gap:0px 1%
- }
 
  .Filter-results {
      position: absolute;
-     top: 550px;
      width: 80%;
-     height: 730px;
-     margin-left: 10%;
-     margin-right: 10%;
+     height:600px;
      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
      display: flex;
      flex-direction: row;

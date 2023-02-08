@@ -146,7 +146,6 @@ const Movies = () => {
   console.log(classifications)
   console.log(Filtered)
 
-
   return (
     <div className="Container">
       <Nav />
