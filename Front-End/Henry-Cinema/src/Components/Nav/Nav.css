@@ -74,6 +74,7 @@
 .menu {
   height: 70px;
   font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
 }
 
 .menu-container {
