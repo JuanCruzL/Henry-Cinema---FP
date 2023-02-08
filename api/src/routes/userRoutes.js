@@ -3,10 +3,11 @@
 const { Router } = require("express");
 const { User } = require("../db");
 const router = Router();
+const validateToken = require('../middlewares/validateToken');
 
 /* Controllers */
 
-const { getUsersDb } = require("../controllers/users");
+const { getUsersDb, postUsersDb } = require("../controllers/users");
 
 /* routes */
 
@@ -21,12 +22,11 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  const formPostUsers = req.body;
+
   try {
-    let { username, email, password } = req.body;
-    await User.create({ username, email, password });
-    res.status(200).send("USER CREATED");
+    res.status(201).send(await postUsersDb(formPostUsers));
   } catch (error) {
-    console.log(error);
     res.status(400).send(error);
   }
 });
@@ -46,6 +46,5 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-// falta ruta PUT
 
 module.exports = router;
