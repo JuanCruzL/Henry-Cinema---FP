@@ -1,10 +1,10 @@
 import React from "react";
 import "./widget.scss";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
-import BoyOutlinedIcon from "@mui/icons-material/BoyOutlined";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import GroupWorkRoundedIcon from "@mui/icons-material/GroupWorkRounded";
 import PointOfSaleRoundedIcon from "@mui/icons-material/PointOfSaleRounded";
+import PersonIcon from "@mui/icons-material/Person";
 
 export const Widget = ({ type }) => {
   let data = {};
@@ -20,7 +20,7 @@ export const Widget = ({ type }) => {
         title: "USERS",
         isMoney: false,
         link: "See all users",
-        icon: <BoyOutlinedIcon className="icon" />,
+        icon: <PersonIcon className="icon" />,
       };
       break;
     case "reviews":

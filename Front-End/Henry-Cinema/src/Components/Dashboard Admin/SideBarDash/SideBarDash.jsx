@@ -1,7 +1,7 @@
 import React from "react";
 import "./sidebardash.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import PersonIcon from "@mui/icons-material/Person";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import MovieFilterRoundedIcon from "@mui/icons-material/MovieFilterRounded";
 import GMobiledataRoundedIcon from "@mui/icons-material/GMobiledataRounded";
@@ -15,12 +15,13 @@ import VpnKeyRoundedIcon from "@mui/icons-material/VpnKeyRounded";
 import SettingsSuggestRoundedIcon from "@mui/icons-material/SettingsSuggestRounded";
 import ThreePRoundedIcon from "@mui/icons-material/ThreePRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
+import Logo from "../NavbarDash/images/logo-henry-cinema-mini.png";
 
 export const SideBarDash = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <span className="logo">HC</span>
+        <img className="logo" alt="" src={Logo} />
       </div>
       <hr />
       <div className="center">
@@ -32,7 +33,7 @@ export const SideBarDash = () => {
           </li>
           <p className="title">LISTS</p>
           <li>
-            <PersonOutlineIcon className="icon" />
+            <PersonIcon className="icon" />
             <span className="span">Users</span>
           </li>
           <li>

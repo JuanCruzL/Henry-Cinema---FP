@@ -5,14 +5,15 @@
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     height: 100px;
+    background-color: whitesmoke;
 
     .left, .right {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        
 
         .title {
-            font-weight: bold;
             font-size: 14px;
             color: black;
         }
