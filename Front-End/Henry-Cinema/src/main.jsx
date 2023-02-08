@@ -35,7 +35,6 @@ import NewDrink from "./Components/Dashboard Admin/foodanddrinks/NewDrink";
 import DrinkId from "./Components/Dashboard Admin/foodanddrinks/DrinkId";
 import Sales from "./Components/Dashboard Admin/sales/Sales";
 import SaleId from "./Components/Dashboard Admin/sales/SaleId";
-import Movies from "./Components/Movies/Movies"
 import Login from "./Components/Login/login"
 import Foods from "./Components/Foods/Foods"
 import AboutUs from './Components/AboutUs/AboutUs'
