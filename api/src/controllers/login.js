@@ -36,7 +36,8 @@ const verifyLogin = async (formData) => {
             //     message: 'Authenticated user',
             //     token: accessToken,
             // })
-            return { accessToken };
+            const { id } = user;
+            return  { id, accessToken };
         } else {
             throw {
                 status: false,

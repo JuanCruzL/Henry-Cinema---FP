@@ -8,7 +8,7 @@ const salt = bcrypt.genSaltSync(saltRound);
 const getProfileById = async (id) => {
 
     const user = await User.findByPk(id);
-    return user.dataValues;
+    return user;
 }
 
 const putProfileById = async (id, formData) => {

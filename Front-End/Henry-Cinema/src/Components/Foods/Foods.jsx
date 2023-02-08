@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Nav from "../Nav/Nav";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import Loader from "../Loader/Loader";
 import { getFoods, getDrinks, getCombos } from "../../redux/actions/index";
 import Footer from "../footer/footer"
 
@@ -16,7 +16,7 @@ function Foods() {
   const allDrinks = useSelector((state) => state.drinks);
   const combos = useSelector((state) => state.combos);
   const [seeFood, setSeeFoods] = useState("");
-
+  const [loading, setLoading] = useState(true);
   /* console.log(allFoods);
   console.log(allDrinks);
   console.log(combos); */
@@ -25,7 +25,15 @@ function Foods() {
     dispatch(getFoods());
     dispatch(getDrinks());
     dispatch(getCombos());
+    setTimeout(()=>{
+      setLoading(false);
+    },1000)
   }, [dispatch]);
+  
+  
+  if (loading) {
+    return <Loader />
+  }
 
   return (
     <div className="containerComponent">

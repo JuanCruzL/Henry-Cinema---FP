@@ -3,7 +3,7 @@ import Carousel from "./Carousel";
 import Loader from "../Loader/Loader"
 import "./Movies.css";
 import { useState, useEffect } from 'react';
-import { getMovies, getRelease,requestGenders,requestTopMovies } from "../../redux/actions";
+import { getMovies, getRelease,requestGenders } from "../../redux/actions";
 import { useSelector,useDispatch } from 'react-redux';
 import Nav from "../../Components/Nav/Nav"
 import Footer from "../../Components/Footer/footer";
@@ -12,8 +12,7 @@ import Movie from "./Movie"
 
 const Movies = () => {
 const dispatch = useDispatch();
-const topMovies = useSelector(state => state.topMovies);
-const uniqueGenres = useSelector(state => state.uniqueGenres);//trae los generos disponibles en la cartelera
+const genres = useSelector(state => state.uniqueGenres);//trae los generos disponibles en la cartelera
   const allMovies = useSelector((state) => state.movies);// trae todas las peliculas de redux que estan en la cartelera
   const allReleases = useSelector((state) => state.releases);// trae las proximas 
   const [movies, setMovies] = useState([]);// guarda las peliculas del corrousel del footer
@@ -21,48 +20,102 @@ const uniqueGenres = useSelector(state => state.uniqueGenres);//trae los generos
   const [loading, setLoading] = useState(true);// setea el loading
   const [selectedGenre, setSelectedGenre] = useState(null);
   const [Filtered, setFiltered] = useState([]);
-  const [FourTopMovies, setFourTopMovies] = useState([]);
+  const [genresCurrent, setGenresCurrent] = useState([])
+  const [classifications, setClassifications] = useState([]);
+  const[availableMovies, setAvailableMovies] = useState([]);
+
+const getClassifications = () => {
+  const classificationsArray = Array.from(new Set(allMovies.map(movie => movie.classification)));
+  setClassifications(classificationsArray);
+};
+
+useEffect(() => {
+  getClassifications();
+}, [allMovies]);
+
  
 
   useEffect(() => {
     if (!allMovies.length && !allReleases.length) {
       dispatch(getMovies());
       dispatch(getRelease());
+      getClassifications();
     }
-    setLoading(false);
+    setTimeout(()=>{
+      setLoading(false);
+    },1500)
     setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.imageVertical })));
     setMovies(allReleases.map(movie => ({ apiID: movie.id, image: movie.image })));
+    setAvailableMovies(allMovies)
   }, [allMovies, setImages]);
 
   useEffect( () =>{
-    if (!uniqueGenres.length && !topMovies.length) {
+    if (!genres.length) {
       dispatch(requestGenders());
-    dispatch(requestTopMovies());
     }
-    setFourTopMovies(topMovies)
+    setGenresCurrent(genres)
     
-  },[dispatch]);
+  },[genresCurrent,dispatch]);
 
   if (loading) {
     return <Loader />
   }
-
-  console.log(uniqueGenres);
-  console.log(topMovies);
-
   
+
+  //------------------filtro de generos-------------------------------
+
   const handleSelect = (event) => {
+    if (event.target.value === "") {
+        setSelectedGenre(null);
+        setFiltered([]);
+        return;
+    }
     setSelectedGenre(event.target.value);
-    const filteredMovies = allMovies.filter(
-      (movie) => movie.genres.includes(event.target.value)
-    );
+    let filteredMovies = [];
+    if (Filtered.length > 0) {
+        filteredMovies = Filtered.filter(
+            (movie) => movie.genres.includes(event.target.value)
+        );
+    } 
+    if (filteredMovies.length === 0) {
+        filteredMovies = allMovies.filter(
+            (movie) => movie.genres.includes(event.target.value)
+        );
+    }
     setFiltered(filteredMovies);
-    console.log(Filtered)
   };
-  
- 
 
-  
+
+//------------------- funcion que ordena por popularidad-------------------------------
+
+
+const handleCalificationSort = (event) => {
+  if (event.target.value === "Calification") {
+    return;
+  }
+  let sortedMovies = [...availableMovies];
+  if (Filtered.length === 0) {
+    sortedMovies.sort((a, b) => {
+      if (event.target.value === "More Popular") {
+        return b.voteAverage - a.voteAverage;
+      }
+      return a.voteAverage - b.voteAverage;
+    });
+  } else {
+    sortedMovies = [...Filtered].sort((a, b) => {
+      if (event.target.value === "More Popular") {
+        return b.voteAverage - a.voteAverage;
+      }
+      return a.voteAverage - b.voteAverage;
+    });
+  }
+  setAvailableMovies(sortedMovies);
+  setFiltered(sortedMovies);
+};
+
+
+  console.log(classifications)
+
   
   return (
     <div className="Container">
@@ -75,20 +128,13 @@ const uniqueGenres = useSelector(state => state.uniqueGenres);//trae los generos
           <Carousel images={images} />
         </div>
       </section>
-
+   
       <section className="movies-filter">
       <div>
-          {/* <fieldset>
-          <select >
-            <option value="todos">Genre</option>
-            <option value="db">DB</option>
-            <option value="Api">API</option>
-          </select>
-        </fieldset> */}
-        <select onChange={handleSelect} value={selectedGenre || ''}>
-        <option value="">Select a genre</option>
-        {uniqueGenres.map((genre) => (
-          <option key={genre} value={genre}>
+        <select onChange={handleSelect} value={selectedGenre}>
+        <option value="">Select a genres</option>
+        {genresCurrent.map((genre) => (
+          <option key={genre} value={genre} disabled={selectedGenre}>
             {genre}
           </option>
         ))}
@@ -100,8 +146,11 @@ const uniqueGenres = useSelector(state => state.uniqueGenres);//trae los generos
           <fieldset>
           <select >
             <option value="todos">Clasification</option>
-            <option value="db">DB</option>
-            <option value="Api">API</option>
+            {classifications.map((c) => (
+          <option key={c} value={c}>
+            {c}
+          </option>
+        ))}
           </select>
           </fieldset>
       </div>
@@ -116,11 +165,11 @@ const uniqueGenres = useSelector(state => state.uniqueGenres);//trae los generos
       </div>
       <div>
         <fieldset>
-          <select >
-            <option value="todos">Calification</option>
-            <option value="More Popular">More Popular</option>
-            <option value="Less Popular">Less Popular</option>
-          </select>
+        <select onChange={handleCalificationSort}>
+  <option>Calification</option>
+  <option value="More Popular">More Popular</option>
+  <option value="Less Popular">Less Popular</option>
+</select>
         </fieldset>
       </div>
       </section>
@@ -132,7 +181,7 @@ const uniqueGenres = useSelector(state => state.uniqueGenres);//trae los generos
       ))} */}
          
          {selectedGenre === null ? (
-        topMovies.map(movie => (
+        availableMovies.map(movie => (
           <Movie  movie={movie} />
         ))
       ) : (

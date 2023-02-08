@@ -1,0 +1,73 @@
+.container-profile {
+    position: relative;
+    width: calc(15rem - 20px);
+    margin: 80px;
+    margin-top: 50px;
+    float: left;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.1s ease-in-out;
+    font-family: Helvetica, sans-serif;
+    
+  }
+  
+  .container-profile:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* border-bottom: 1px solid black; */
+  }
+  
+  .container-profile:hover:before {
+    border-bottom: 1px solid black;
+  }
+  .image-profile:hover + .text-profile{
+    color:gold;
+  }
+
+  .text-profile{
+    /* border:2px solid red; */
+    padding: 20px;
+    transition: all 0.4s ease-in-out;
+    cursor:default ;
+    font-size:20px
+  }
+  
+  .image-profile {
+    /* border: 2px solid black; */
+    width: 100%;
+    border-radius:50% ;
+    transition: all 0.4s ease-in-out;
+    padding: 10px;
+  }
+  .image-profile:hover{
+    transform:translateY(-10px);
+    transition: all 0.4s ease-in-out;
+    
+    }
+  
+  .buttons-profile{
+    /* border:2px solid green; */
+    padding: 10px;
+  }
+  .git-link{
+    width: 15%;
+    margin-right: 20px;
+    transition: all 0.4s ease-in-out;
+  }
+  .git-link:hover{
+    transform: scale(1.2);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+  }
+  .linkedin-link {
+    width: 15%;
+    transition: all 0.4s ease-in-out;
+  }
+  .linkedin-link:hover{
+    transform: scale(1.2);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+  }

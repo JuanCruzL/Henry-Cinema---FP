@@ -27,7 +27,7 @@ import ScreeningId from "./Components/Dashboard Admin/screenings/ScreeningId";
 import Combos from "./Components/Dashboard Admin/foodanddrinks/Combos";
 import NewCombo from "./Components/Dashboard Admin/foodanddrinks/NewCombo";
 import ComboId from "./Components/Dashboard Admin/foodanddrinks/ComboId";
-import Foods from "./Components/Dashboard Admin/foodanddrinks/Foods";
+import FoodsAdmin from "./Components/Dashboard Admin/foodanddrinks/Foods";
 import NewFood from "./Components/Dashboard Admin/foodanddrinks/NewFood";
 import FoodId from "./Components/Dashboard Admin/foodanddrinks/FoodId";
 import Drinks from "./Components/Dashboard Admin/foodanddrinks/Drinks";
@@ -35,7 +35,6 @@ import NewDrink from "./Components/Dashboard Admin/foodanddrinks/NewDrink";
 import DrinkId from "./Components/Dashboard Admin/foodanddrinks/DrinkId";
 import Sales from "./Components/Dashboard Admin/sales/Sales";
 import SaleId from "./Components/Dashboard Admin/sales/SaleId";
-import Movies from "./Components/Movies/Movies"
 import Login from "./Components/Login/login"
 import Foods from "./Components/Foods/Foods"
 import AboutUs from './Components/AboutUs/AboutUs'
@@ -130,7 +129,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard/foods",
-    element: <Foods />,
+    element: <FoodsAdmin />,
   },
   {
     path: "./dashboard/foods/:id",
@@ -160,7 +159,7 @@ const router = createBrowserRouter([
     path: "/dashboard/sales/:id",
     element: <SaleId />,
   },
-
+  {
     path: "/login",
     element: <Login/>
   },
