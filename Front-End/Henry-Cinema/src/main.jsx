@@ -38,6 +38,7 @@ import SaleId from "./Components/Dashboard Admin/sales/SaleId";
 import Login from "./Components/Login/login"
 import Foods from "./Components/Foods/Foods"
 import AboutUs from './Components/AboutUs/AboutUs'
+import Seating from "./Components/seating/Seating";
 
 
 
@@ -172,6 +173,10 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <AboutUs/>
+  },
+  {
+    path: "/seating",
+    element: <Seating/>
   }
 ]);
 
