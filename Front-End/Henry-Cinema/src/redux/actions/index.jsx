@@ -125,11 +125,19 @@ export const requestGenders = () => {
 
 
 
+const signUp = (payload) => {
+  return async (dispatch) => {
+    try {
+      console.log(payload)
+      const json = await axios.post("http://localhost:3001/", payload);
+    }catch(e) {
+      console.log(e)
+    }
+  }
+}
 
-// actions.js
 
 
-// actions.js
 
 
 

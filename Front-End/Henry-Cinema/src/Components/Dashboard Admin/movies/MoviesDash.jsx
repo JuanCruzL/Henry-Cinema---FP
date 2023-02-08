@@ -1,9 +1,15 @@
 import React from "react";
+import "./moviesdash.scss";
+import { SideBarDash } from "../SideBarDash/SideBarDash";
+import { NavBarDash } from "../NavbarDash/NavBarDash";
 
 export const MoviesDash = () => {
   return (
-    <div className="movies">
-      <h1 className="title">MoviesDash</h1>
+    <div className="list">
+      <SideBarDash />
+      <div className="listContainer">
+        <NavBarDash />
+      </div>
     </div>
   );
 };
