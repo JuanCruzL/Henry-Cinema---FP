@@ -29,7 +29,9 @@ const uniqueGenres = useSelector(state => state.uniqueGenres);//trae los generos
       dispatch(getMovies());
       dispatch(getRelease());
     }
-    setLoading(false);
+    setTimeout(()=>{
+      setLoading(false);
+    },1500)
     setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.imageVertical })));
     setMovies(allReleases.map(movie => ({ apiID: movie.id, image: movie.image })));
   }, [allMovies, setImages]);

@@ -34,10 +34,12 @@ export default function Home() {
     dispatch(getRelease());
     dispatch(requestGenders());
     dispatch(requestTopMovies());
-    setLoading(false);
+    setTimeout(()=>{
+      setLoading(false);
+    },1500)
   }, [dispatch]);
   
-  if (!allMovies.length) {
+  if (loading) {
     return <Loader />
   }
   return (
