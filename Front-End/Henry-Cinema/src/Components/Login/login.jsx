@@ -31,13 +31,14 @@ export default function Login() {
     formupFullname: false,
     formupPassword: false,
     formupEmail: false,
-  });
+
+  })
 
   const [formUp, setFormUp] = useState({
     userName: "",
     email: "",
     password: "",
-    // notifications: false, // me saltaba error luego lo corrijo, o si quieres modifica el controller users
+    notifications: false, 
   });
 
   const [formIn, setFormIn] = useState({
@@ -201,7 +202,6 @@ export default function Login() {
                 <p className="sign-upPselect" onClick={() => handleSign("sign-up")}>
                   Sign up
                 </p>
-                <p>{String(formUp.notifications)}</p>
               </div>
               <form onSubmit={(e) => handleSubmitUp(e)}>
                 <p className={errors.formupFullname ? "baddesc-p": "desc-p"}>FULL NAME</p>
