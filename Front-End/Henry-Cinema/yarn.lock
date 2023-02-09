@@ -1467,6 +1467,11 @@
   dependencies:
     "is-arrayish" "^0.2.1"
 
+"es6-object-assign@^1.1.0":
+  "integrity" "sha512-MEl9uirslVwqQU369iHNWZXsI8yaZYGg/D65aOgZkeyFJwHYSxilf7rQzXKI7DdDuBPrBXbfk3sl9hJhmd5AUw=="
+  "resolved" "https://registry.npmjs.org/es6-object-assign/-/es6-object-assign-1.1.0.tgz"
+  "version" "1.1.0"
+
 "esbuild@^0.16.14":
   "integrity" "sha512-G8LEkV0XzDMNwXKgM0Jwu3nY3lSTwSGY6XbxM9cr9+s0T/qSV1q1JVPBGzm3dcjhCic9+emZDmMffkwgPeOeLg=="
   "resolved" "https://registry.npmjs.org/esbuild/-/esbuild-0.16.17.tgz"
@@ -1594,6 +1599,11 @@
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
   "resolved" "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz"
   "version" "1.1.1"
+
+"gapi-script@^1.2.0":
+  "integrity" "sha512-NKTVKiIwFdkO1j1EzcrWu/Pz7gsl1GmBmgh+qhuV2Ytls04W/Eg5aiBL91SCiBM9lU0PMu7p1hTVxhh1rPT5Lw=="
+  "resolved" "https://registry.npmjs.org/gapi-script/-/gapi-script-1.2.0.tgz"
+  "version" "1.2.0"
 
 "gauge@^4.0.3":
   "integrity" "sha512-f9m+BEN5jkg6a0fZjleidjN51VE1X+mPFQ2DJ0uv1V39oCLCbsGe6yjbBnp7eK7z/+GAon99a3nHuqbuuthyPg=="
@@ -2643,6 +2653,11 @@
   "resolved" "https://registry.npmjs.org/promise-inflight/-/promise-inflight-1.0.1.tgz"
   "version" "1.0.1"
 
+"promise-polyfill@^6.0.2":
+  "integrity" "sha512-g0LWaH0gFsxovsU7R5LrrhHhWAWiHRnh1GPrhXnPgYsDkIqjRYUYSZEsej/wtleDrz5xVSIDbeKfidztp2XHFQ=="
+  "resolved" "https://registry.npmjs.org/promise-polyfill/-/promise-polyfill-6.1.0.tgz"
+  "version" "6.1.0"
+
 "promise-retry@^2.0.1":
   "integrity" "sha512-y+WKFlBR8BGXnsNlIHFGPZmyDf3DFMoLhaflAnyZgV6rG6xu+JwesTo2Q9R6XwYmtmwAFCkAk3e35jEdoeh/3g=="
   "resolved" "https://registry.npmjs.org/promise-retry/-/promise-retry-2.0.1.tgz"
@@ -3118,6 +3133,19 @@
   "integrity" "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w=="
   "resolved" "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   "version" "1.0.0"
+
+"sweetalert@^2.1.2":
+  "integrity" "sha512-iWx7X4anRBNDa/a+AdTmvAzQtkN1+s4j/JJRWlHpYE8Qimkohs8/XnFcWeYHH2lMA8LRCa5tj2d244If3S/hzA=="
+  "resolved" "https://registry.npmjs.org/sweetalert/-/sweetalert-2.1.2.tgz"
+  "version" "2.1.2"
+  dependencies:
+    "es6-object-assign" "^1.1.0"
+    "promise-polyfill" "^6.0.2"
+
+"sweetalert2@^11.7.1":
+  "integrity" "sha512-+1bnkbqBl64FnZmi3g4SzAi4F3pL3S2jF1YQvrysv4GbgizfeFqGkJopxR3FnV/eJm6w2SQ2oAmCxSIBjgP/ag=="
+  "resolved" "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.7.1.tgz"
+  "version" "11.7.1"
 
 "tar@^6.1.11", "tar@^6.1.13", "tar@^6.1.2":
   "integrity" "sha512-jdIBIN6LTIe2jqzay/2vtYLlBHa3JF42ot3h1dW8Q0PaAG4v8rm0cvpVePtau5C6OKXGGcgO9q2AMNSWxiLqKw=="

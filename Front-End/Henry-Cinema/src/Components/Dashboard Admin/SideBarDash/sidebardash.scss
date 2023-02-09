@@ -39,7 +39,7 @@
       padding: 0;
 
       .title {
-        font-size: 11px;
+        font-size: 12px;
         font-weight: bold;
         color: rgb(47, 47, 47);
         margin-top: 15px;
@@ -53,17 +53,17 @@
         cursor: pointer;
 
         &:hover {
-          background-color: rgba(242, 242, 100, 0.816);
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         }
 
         .span {
-          font-weight: 600;
+
           font-size: 15px;
           margin-left: 10px;
         }
 
         .icon {
-          font-size: 18px;
+          font-size: 20px;
           color: black;
         }
       }
