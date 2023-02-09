@@ -1,8 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import logo from "../Utils/logo-henry-cinema.png";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
+
+
+  function handleCallbackResponse () {
+    console.log(response)
+  }
+
+  useEffect( () => {
+    google.accounts.id.initialize({
+      client_id: "622101926557-q9hgiriljbiups3aanog7ijg97ksnomq.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    })
+  }, [])
+
+  google.accounts.id.renderButton(
+    document.getElementById("googleButton"),
+    {theme: "outline", size: "large"}
+  )
+
+  const dispatch = useDispatch()
   
   const [sign, setSign] = useState("sign-in");
   const [checked2, setChecked2] = useState(false);
@@ -70,7 +90,7 @@ export default function Login() {
 
   const handleSubmitUp=(e) => {
     e.preventDefault()
-    alert("notificaciones en " + formUp.notifications)
+    dispatch(formUp)
     setFormUp({
       fullName:"",
       email: "",
@@ -135,6 +155,7 @@ export default function Login() {
                 />
                 <button className="buttonSubmit" type="submit">Sign in</button>
               </form>
+              <div id="googleButton"></div>
             </div>
           </div>
         </div>
@@ -204,6 +225,7 @@ export default function Login() {
                 </label>
                 <button className="buttonSubmitup" type="submit">Sign Up</button>
               </form>
+              <div id="googleButton"></div>
             </div>
           </div>
         </div>
