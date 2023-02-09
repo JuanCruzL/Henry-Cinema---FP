@@ -1,7 +1,7 @@
 import React from "react";
 import "./moviestable.scss";
 import { useState, useEffect } from "react";
-import { getMovies } from "../../../redux/actions/index";
+import { getMovies } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -15,6 +15,13 @@ import { Link } from "react-router-dom";
 import swal from "sweetalert";
 
 export const MoviesTable = () => {
+  const dispatch = useDispatch();
+  const allMovies = useSelector((state) => state.movies);
+
+  useEffect(() => {
+    dispatch(getMovies());
+  }, [allMovies]);
+
   const deleteAlert = (id, title) => {
     swal({
       title: "Are you sure?",
@@ -31,23 +38,6 @@ export const MoviesTable = () => {
       }
     });
   };
-
-  //   .then((willDelete) => {
-  //   if (willDelete) {
-  //     swal("Poof! Your imaginary file has been deleted!", {
-  //       icon: "success",
-  //     });
-  //   } else {
-  //     swal("Your imaginary file is safe!");
-  //   }
-  // });
-
-  const dispatch = useDispatch();
-  const allMovies = useSelector((state) => state.movies);
-
-  useEffect(() => {
-    dispatch(getMovies());
-  }, [allMovies]);
 
   return (
     <TableContainer component={Paper} className="moviesTable">
