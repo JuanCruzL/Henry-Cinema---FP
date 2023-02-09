@@ -31,10 +31,9 @@ import Drinks from "./Components/Dashboard Admin/foodanddrinks/Drinks";
 import NewDrink from "./Components/Dashboard Admin/foodanddrinks/NewDrink";
 import Sales from "./Components/Dashboard Admin/sales/Sales";
 import Login from "./Components/Login/login";
-import Foods from "./Components/Foods/Foods";
-import AboutUs from "./Components/AboutUs/AboutUs";
+import Foods from "./Components/Foods/Foods"
+import AboutUs from './Components/AboutUs/AboutUs'
 import Seating from "./Components/seating/Seating";
-
 const container = document.getElementById("root");
 const root = createRoot(container);
 const router = createBrowserRouter([

@@ -19,10 +19,7 @@
 .light-mode .menu-des > .menu-link:hover {
   background-color: var(--BaseLD);
 }
-.light-mode .logoh:hover,
-.light-mode .menu-link-user:hover{
-  background-color: var(--BaseLD);
-}
+
 
 
 
@@ -46,11 +43,6 @@
 .dark-mode .menu-des > .menu-link:hover {
   background-color: var(--BaseND);
 }
-.dark-mode .logoh:hover,
-.dark-mode .menu-link-user:hover{
-  background-color: var(--BaseND);
-}
-
 
 
 
@@ -73,7 +65,7 @@
 
 .menu {
   width: 100%;
-  height: 70px;
+  height: 66px;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
   position: fixed;
@@ -87,6 +79,7 @@
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  
 }
 
 .menu-links {
@@ -94,24 +87,81 @@
   height: 100%;
   transition: transform 0.5s;
   display: flex;
+  list-style: none;
 }
 
-.menu-item {
+.menu-item-logo {
   list-style: none;
-  height: 100%;
-  width: 11%;
+  height: 73%;
+  width: 6%;
+  padding-top: 0.8%;
+  margin-left:55px;
+  transition: 0.5s;
 }
-.menu-item a{
-  text-decoration: none;
+.menu-item-logo:hover{
+  transform: scale(0.9);
+  transition: 0.5s;
 }
+
+
 .menu-itemSearchBar{
   list-style: none;
-  height: 100%;
+  height: 70%;
   width: 33%;
+  margin-top: 19px;
+  /* border:2px solid red; */
+  margin-left: 100px;
+  padding-top: 1px;
+  font-weight: normal;
+  transition: 0.5s;
+}
+.menu-itemSearchBar:hover{
+  transform: scale(1.02);
+  transition: 0.5s;
+}
+
+.link-foods,
+.link-movies,
+.link-about{
+  text-decoration: none;
+  list-style: none;
+  /* border: 2px solid red; */
+  display : flex;
+  margin-top: 14px;
+  margin-left: 15px;
+  margin-right: 20px;
 }
 
 
-.menu-link {
+.menu-item-about{
+  text-decoration: none;
+  list-style: none;
+  height: 100%;
+  margin-left: 70px;
+
+  color:black;
+  /* border:2px solid red; */
+}
+.menu-item-about:hover,
+.menu-item-food:hover,
+.menu-item-movies:hover {
+  background-color: black;
+}
+
+.menu-item-food:hover .menu-link-food,
+.menu-item-about:hover .menu-link-about,
+.menu-item-movies:hover .menu-link-movies {
+  color: yellow;
+  transform: scale(0.9);
+}
+
+.menu-link-logo,
+.menu-link-about,
+.menu-link-movies,
+.menu-link-food,
+.menu-link-mode,
+.menu-link-user{
+  list-style: none;
   text-decoration: none;
   padding: 10px 30px;
   display: grid;
@@ -119,10 +169,28 @@
   width: 100%;
   align-items: center;
   text-align: center;
+  color: black;
+  transition: 0.5s;
+  font-size: 18px;
+  
+}
+
+.menu-link-about:hover,
+.menu-link-movies:hover,
+.menu-link-food:hover{
+  transform: scale(0.9);
+  transition: 0.5s;
+
+}
+.menu-link-logo:hover,
+.menu-link-user:hover,
+.menu-link-mode:hover{
+  transform: scale(0.9);
+  transition: 0.5s;
 }
 .menu-link-user{
   text-decoration: none;
-  padding: 10px 30px;
+  padding-left: 120px;
   display: grid;
   height: 100%;
   width: 100%;
@@ -133,7 +201,9 @@
   display: block;
   margin: auto;
 }
-
+.perfil{
+  height: 35px;
+}
 .menu-des {
   list-style: none;
   position: relative;
@@ -174,6 +244,12 @@
   width: 30px;
   height: 30px;
   cursor: pointer;
+  transition: 5s;
+}
+.logo:hover{
+  transform: scale(0.8);
+  transition: 0.5s;
+ 
 }
 
 .logoh {
