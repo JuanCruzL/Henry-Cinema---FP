@@ -1,15 +1,4 @@
 
-.light-mode input[type="text"] {
-  border: 2px solid var(--LBase-1);
-  color: var(--LText-1);
-}
-.light-mode input[type="text"]:focus {
-  border: 2px solid var(--LBase-2);
-  background-color: var(--LBase-1);
-  color: var(--LText-2);
-}
-
-
 .dark-mode input[type="text"] {
   border: 2px solid var(--NBase-2);
   color: var(--NText-2);

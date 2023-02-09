@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
 import { getFoods, getDrinks, getCombos } from "../../redux/actions/index";
 import Footer from "../footer/footer"
+import SearchBarFood from "./SearchBarFood/SearchBarFood";
 
 import CardsFoods from "../Foods/CardsFoods/CardsFoods";
 import "./Foods.css";
@@ -18,10 +19,6 @@ function Foods() {
   const [seeFood, setSeeFoods] = useState("");
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState('combos');
- 
-  /* console.log(allFoods);
-  console.log(allDrinks);
-  console.log(combos); */
 
   useEffect(() => {
     dispatch(getFoods());
@@ -46,13 +43,15 @@ function Foods() {
   return (
     <div className="containerComponent">
       <Nav></Nav>
+      
       <div className="container-foods">
         <div className="buttons-foods">
         <div className={`button-combos ${selected === "combos" && "selected"}`} onClick={() => handleClickFood("combos")}>Combos</div>
           <div className={`button-foods ${selected === "foods" && "selected"}`} onClick={() => handleClickFood("foods")}>Pop-Corn and Food</div>
           <div className={`button-drinks ${selected === "drinks" && "selected"}`} onClick={() => handleClickFood("drinks")}>Drinks</div>
         </div>
-
+        <div className="container-all">
+        <SearchBarFood className="search-bar-food"/>
         {seeFood === "combos" && (<div className="containerForCards">
           {seeFood === "combos" &&
             combos.map((e) => (
@@ -94,6 +93,8 @@ function Foods() {
               ></CardsFoods>
             ))}
         </div>)}
+        </div>
+        
       </div>
         <Footer/>
     </div>
