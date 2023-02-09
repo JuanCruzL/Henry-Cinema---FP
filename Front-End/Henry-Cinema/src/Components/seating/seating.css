@@ -1,0 +1,62 @@
+.seating{
+  text-align: center;
+  background-color: grey;
+  height: 100vh;
+  position: relative;
+}
+
+.screen {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-left: 17.5%;
+  border: 1px solid black;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5px;
+  top:150px;
+  padding-bottom:15px;
+  
+}
+
+.pantalla{
+  background-color:aqua;
+  width: 70%;
+  margin-left: 15%;
+  margin-bottom: 5%;
+}
+
+
+.seats{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.asiento {
+  height: 20px;
+  width: 20px;
+  margin-top: .5em;
+  margin-right: 0.2em;
+  border-radius:5px;
+  
+}
+
+.asiento img {
+  width: 100%;
+  height: 100%;
+  rotate: 180deg;
+  
+}
+
+.Filaizquierda {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.Filaderecha {
+  display: flex;
+  box-sizing: border-box;
+}
