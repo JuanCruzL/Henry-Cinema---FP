@@ -1,11 +1,12 @@
 import React from 'react'
 import './seating.css'
 import { useState } from 'react';
-import Chair from '../../assets.svg'
+import Chair from "../../img/asiento.svg/"
 
 function Seating() {
 
   const [asientosSeleccionados, setAsientosSeleccionados] = useState([]);
+  const [isSelected, setIsSelected] = useState(false);
   
   const handleClick = (event) => {
     const asiento = event.target.getAttribute("data-value");
@@ -39,7 +40,7 @@ function Seating() {
 <div className='Filaderecha'>  
 {[...Array(20)].map((_, i) => (
         <div key={`A${i + 10}`} className="asiento" data-value={`A${i + 11}`} onClick={handleClick}>
-          <img key={`A${i + 10}`} data-value={`A${i + 11}`} onClick={handleClick} src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`A${i + 10}`} data-value={`A${i + 11}`} onClick={handleClick} src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
@@ -51,14 +52,14 @@ function Seating() {
 <div className="Filaizquierda">    
 {[...Array(20)].map((_, i) => (
         <div key={`B${i + 1}`} className="asiento" data-value={`B${i + 1}`} onClick={handleClick}>
-          <img key={`B${i + 1}`} data-value={`B${i + 1}`} onClick={handleClick} src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`B${i + 1}`} data-value={`B${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
 <div className='Filaderecha'>  
 {[...Array(20)].map((_, i) => (
         <div key={`B${i + 10}`} className="asiento" data-value={`B${i + 11}`} onClick={handleClick}>
-          <img key={`B${i + 10}`}  data-value={`B${i + 11}`} onClick={handleClick}  src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`B${i + 10}`}  data-value={`B${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
@@ -70,14 +71,14 @@ function Seating() {
 <div className="Filaizquierda">    
 {[...Array(20)].map((_, i) => (
         <div key={`C${i + 1}`} className="asiento" data-value={`C${i + 1}`} onClick={handleClick}>
-          <img key={`C${i + 1}`} data-value={`C${i + 1}`}  onClick={handleClick} src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`C${i + 1}`} data-value={`C${i + 1}`}  onClick={handleClick} src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
 <div className='Filaderecha'>  
 {[...Array(20)].map((_, i) => (
         <div key={`C${i + 10}`} className="asiento" data-value={`C${i + 11}`} onClick={handleClick}>
-          <img key={`C${i + 10}`} data-value={`C${i + 11}`}  onClick={handleClick}  src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`C${i + 10}`} data-value={`C${i + 11}`}  onClick={handleClick}  src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
@@ -90,14 +91,14 @@ function Seating() {
 <div className="Filaizquierda">    
 {[...Array(20)].map((_, i) => (
         <div key={`D${i + 1}`} className="asiento" data-value={`D${i + 1}`} onClick={handleClick}>
-          <img key={`D${i + 1}`} data-value={`D${i + 1}`} onClick={handleClick}  src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`D${i + 1}`} data-value={`D${i + 1}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
 <div className='Filaderecha'>  
 {[...Array(20)].map((_, i) => (
         <div key={`D${i + 10}`} className="asiento" data-value={`D${i + 11}`} onClick={handleClick}>
-          <img key={`D${i + 10}`} data-value={`D${i + 11}`} onClick={handleClick}  src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`D${i + 10}`} data-value={`D${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
@@ -110,14 +111,18 @@ function Seating() {
 <div className="Filaizquierda">    
 {[...Array(20)].map((_, i) => (
         <div key={`E${i + 1}`} className="asiento" data-value={`E${i + 1}`} onClick={handleClick}>
-          <img key={`E${i + 1}`} data-value={`E${i + 1}`} onClick={handleClick} src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`E${i + 1}`} data-value={`E${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"  style={{ 
+        filter: isSelected ? "hue-rotate(90deg)" : "none" 
+      }} />
         </div>
       ))}
 </div>
 <div className='Filaderecha'>  
 {[...Array(20)].map((_, i) => (
         <div key={`E${i + 10}`} className="asiento" data-value={`E${i + 11}`} onClick={handleClick}>
-          <img key={`E${i + 10}`} data-value={`E${i + 11}`} onClick={handleClick}  src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`E${i + 10}`} data-value={`E${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"  style={{ 
+        filter: isSelected ? "hue-rotate(90deg)" : "none" 
+      }} />
         </div>
       ))}
 </div>
@@ -129,14 +134,14 @@ function Seating() {
 <div className="Filaizquierda">    
 {[...Array(20)].map((_, i) => (
         <div key={`F${i + 1}`} className="asiento" data-value={`F${i + 1}`} onClick={handleClick}>
-          <img key={`F${i + 1}`} data-value={`F${i + 1}`} onClick={handleClick} src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`F${i + 1}`} data-value={`F${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
 <div className='Filaderecha'>  
 {[...Array(20)].map((_, i) => (
         <div key={`F${i + 10}`} className="asiento" data-value={`F${i + 11}`} onClick={handleClick}>
-          <img key={`F${i + 10}`} data-value={`F${i + 11}`} onClick={handleClick}  src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`F${i + 10}`} data-value={`F${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
@@ -146,14 +151,14 @@ function Seating() {
 <div className="Filaizquierda">    
 {[...Array(20)].map((_, i) => (
         <div key={`G${i + 1}`} className="asiento" data-value={`G${i + 1}`} onClick={handleClick}>
-          <img key={`G${i + 1}`} data-value={`G${i + 1}`} onClick={handleClick} src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`G${i + 1}`} data-value={`G${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
 <div className='Filaderecha'>  
 {[...Array(20)].map((_, i) => (
         <div key={`G${i + 10}`} className="asiento" data-value={`G${i + 11}`} onClick={handleClick}>
-          <img key={`G${i + 10}`} data-value={`G${i + 11}`} onClick={handleClick}  src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`G${i + 10}`} data-value={`G${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
@@ -165,14 +170,14 @@ function Seating() {
 <div className="Filaizquierda">    
 {[...Array(20)].map((_, i) => (
         <div key={`H${i + 1}`} className="asiento" data-value={`H${i + 1}`} onClick={handleClick}>
-          <img key={`H${i + 1}`} data-value={`H${i + 1}`} onClick={handleClick} src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`H${i + 1}`} data-value={`H${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
 <div className='Filaderecha'>  
 {[...Array(20)].map((_, i) => (
         <div key={`H${i + 10}`} className="asiento" data-value={`H${i + 11}`} onClick={handleClick}>
-          <img key={`H${i + 10}`} data-value={`H${i + 11}`} onClick={handleClick}  src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`H${i + 10}`} data-value={`H${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
@@ -185,14 +190,14 @@ function Seating() {
 <div className="Filaizquierda">    
 {[...Array(20)].map((_, i) => (
         <div key={`I${i + 1}`} className="asiento" data-value={`I${i + 1}`} onClick={handleClick}>
-          <img key={`I${i + 1}`} data-value={`I${i + 1}`} onClick={handleClick} src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`I${i + 1}`} data-value={`I${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
 <div className='Filaderecha'>  
 {[...Array(20)].map((_, i) => (
         <div key={`I${i + 10}`} className="asiento" data-value={`I${i + 11}`} onClick={handleClick}>
-          <img key={`I${i + 10}`} data-value={`I${i + 11}`} onClick={handleClick}  src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`I${i + 10}`} data-value={`I${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
@@ -204,14 +209,14 @@ function Seating() {
 <div className="Filaizquierda">    
 {[...Array(20)].map((_, i) => (
         <div key={`J${i + 1}`} className="asiento" data-value={`J${i + 1}`} onClick={handleClick}>
-          <img key={`J${i + 1}`} data-value={`J${i + 1}`}  onClick={handleClick} src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`J${i + 1}`} data-value={`J${i + 1}`}  onClick={handleClick} src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
 <div className='Filaderecha'>  
 {[...Array(20)].map((_, i) => (
         <div key={`J${i + 10}`} className="asiento" data-value={`J${i + 11}`} onClick={handleClick}>
-          <img key={`J${i + 10}`} data-value={`J${i + 11}`} onClick={handleClick}  src="https://picsum.photos/50" alt="Asiento"/>
+          <img key={`J${i + 10}`} data-value={`J${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
         </div>
       ))}
 </div>
