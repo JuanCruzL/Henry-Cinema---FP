@@ -4,6 +4,7 @@ const { User } = require('../db');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+
 function generateAccessToken(user) {
     return jwt.sign(user, SECRET, {expiresIn: '1m'});
 }
@@ -56,4 +57,46 @@ const verifyLogin = async (formData) => {
     
 }
 
-module.exports = { verifyLogin };
+const verifyGoogleLogin = async (googleData) => {
+        const { 
+            email, 
+            userName 
+        } = googleData;
+
+        if (!email || !userName) {
+          throw {
+            status:false,
+            message: "Missing obligatory information",
+          }
+        }
+    
+        // this returns a unnecessary boolean
+        const user = await User.findOrCreate({
+            where: {
+                email
+            },
+            defaults: {
+                email,
+                userName
+            }
+        });
+        if (user) {
+            const finalUser = await User.findOne({
+                raw:true,
+                where: {
+                    email,
+                }
+            })
+            return finalUser;
+        } else {
+            throw {
+                status:false,
+                message: "Error in login with Google",
+            }
+        }
+      
+}
+
+module.exports = { 
+    verifyLogin,
+    verifyGoogleLogin };

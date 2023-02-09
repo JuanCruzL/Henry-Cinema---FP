@@ -128,12 +128,13 @@ export const requestGenders = () => {
 
 
 
-
-const signUp = (payload) => {
+// crea el usuario y lo guarda en la base de datos
+export const signUp = (payload) => {
   return async (dispatch) => {
     try {
       console.log(payload)
-      const json = await axios.post("http://localhost:3001/", payload);
+      const userCreated = await axios.post("http://localhost:3001/users", payload);
+      console.log(userCreated);
     }catch(e) {
       console.log(e)
     }
@@ -152,6 +153,26 @@ const signUp = (payload) => {
 
 // action.js
 
+// busca o crear al usuario en la base de datos con sus datos de google
+export const logInUserWithGoogle = (response) => {
+  return async (dispatch) => {
+    try {
+      const { email, givenName } = response.profileObj;
+      const userCreated = await axios.post(
+        `http://localhost:3001/login/google`,
+        { email, userName: givenName }
+      );
+      console.log(userCreated.data);
+      return dispatch({
+        type: "POST_USER_WITH_GOOGLE",
+        payload: userCreated.data,
+      });
+
+    } catch (error) {
+      console.log("el error de logInUserWithGoogle es:", error.message);
+    }
+  }
+}
 
 
 
@@ -170,7 +191,7 @@ const signUp = (payload) => {
 
 
 
-
+// busca en la base de datos al usuario y lo logea con su token faltaria navigates en el componente
 
 export const logInUser = (email, password) => {
   if (!email && !password) {
