@@ -56,9 +56,9 @@
 }
 
 .dark-mode .HomeMovie .Peliculas {
-    box-shadow: 1px 1px 10px 2px var(--NDegradado);
-    -webkit-box-shadow: 1px 1px 10px 2px var(--NDegradado);
-    -moz-box-shadow: 1px 1px 10px 2px var(--NDegradado);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .dark-mode .HomeMovie button {
