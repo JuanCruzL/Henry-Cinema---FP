@@ -17,6 +17,7 @@ const initialState = {
   copyDrinks:[],
   combos: [],
   copyCombos:[],
+  currentUser: {},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -112,6 +113,19 @@ const rootReducer = (state = initialState, action) => {
           state.allMovies.flatMap(movie => movie.genres)
         )),
       };
+    
+    case "POST_USER_WITH_GOOGLE":
+      return {
+        ...state,
+        currentUser: action.payload,
+      }
+
+
+    case "GET_CURRENT_USER":
+      return {
+        ...state,
+        currentUser: action.payload,
+      }
 
     default:
       return state;

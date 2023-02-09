@@ -1,7 +1,6 @@
 require('dotenv').config();
 const { User } = require('../db');
 const bcrypt = require("bcrypt");
-const { doesNotMatch } = require('assert');
 const saltRound = 10;
 const salt = bcrypt.genSaltSync(saltRound);
 
