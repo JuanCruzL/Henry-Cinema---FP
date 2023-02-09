@@ -92,10 +92,10 @@
 
 .menu-item-logo {
   list-style: none;
-  height: 80%;
+  height: 73%;
   width: 6%;
-  padding-top: 12px;
-  margin-left:45px;
+  padding-top: 0.8%;
+  margin-left:55px;
   transition: 0.5s;
 }
 .menu-item-logo:hover{
@@ -128,7 +128,7 @@
   /* border: 2px solid red; */
   display : flex;
   margin-top: 14px;
-  margin-left: 60px;
+  margin-left: 15px;
   margin-right: 20px;
 }
 
@@ -136,10 +136,24 @@
 .menu-item-about{
   text-decoration: none;
   list-style: none;
+  height: 100%;
+  margin-left: 70px;
+
   color:black;
   /* border:2px solid red; */
 }
+.menu-item-about:hover,
+.menu-item-food:hover,
+.menu-item-movies:hover {
+  background-color: black;
+}
 
+.menu-item-food:hover .menu-link-food,
+.menu-item-about:hover .menu-link-about,
+.menu-item-movies:hover .menu-link-movies {
+  color: yellow;
+  transform: scale(0.9);
+}
 
 .menu-link-logo,
 .menu-link-about,
@@ -166,7 +180,7 @@
 .menu-link-food:hover{
   transform: scale(0.9);
   transition: 0.5s;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.432);
+
 }
 .menu-link-logo:hover,
 .menu-link-user:hover,
@@ -176,7 +190,7 @@
 }
 .menu-link-user{
   text-decoration: none;
-  padding-left: 60px;
+  padding-left: 120px;
   display: grid;
   height: 100%;
   width: 100%;
