@@ -153,15 +153,6 @@ export const requestGenders = () => {
 export const signUp = (payload) => {
   return async (dispatch) => {
     try {
-<<<<<<< HEAD:Front-End/Henry-Cinema/src/redux/actions.js
-      console.log(payload);
-      const json = await axios.post("http://localhost:3001/", payload);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-};
-=======
       console.log(payload)
       const userCreated = await axios.post("http://localhost:3001/users", payload);
       console.log(userCreated);
@@ -256,4 +247,3 @@ export const logInUser = (email, password) => {
 
 
 
->>>>>>> 85a3020683a1416b57c81615662c484d7c3ea1bb:Front-End/Henry-Cinema/src/redux/actions/index.jsx
