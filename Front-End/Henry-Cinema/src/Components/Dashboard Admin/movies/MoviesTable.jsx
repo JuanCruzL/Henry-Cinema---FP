@@ -12,17 +12,35 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
 export const MoviesTable = () => {
-  function alert(id, title) {
-    var respuesta = confirm({ title });
-    if (respuesta === true) {
-      console.log("movie deleted");
-      // hacer el dispatch para eliminar con el id.
-    } else {
-      console.log(id);
-    }
-  }
+  const deleteAlert = (id, title) => {
+    swal({
+      title: "Are you sure?",
+      text: `this will remove ${title} from the database.`,
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((r) => {
+      if (r === "Yes") {
+        swal({
+          text: "The movie has been successfully removed.",
+          icon: "success",
+        });
+      }
+    });
+  };
+
+  //   .then((willDelete) => {
+  //   if (willDelete) {
+  //     swal("Poof! Your imaginary file has been deleted!", {
+  //       icon: "success",
+  //     });
+  //   } else {
+  //     swal("Your imaginary file is safe!");
+  //   }
+  // });
 
   const dispatch = useDispatch();
   const allMovies = useSelector((state) => state.movies);
@@ -71,7 +89,7 @@ export const MoviesTable = () => {
                 </div>
               </TableCell>
               <TableCell className="tableCellMovies">
-                <button onClick={() => alert(m.id, m.title)}>
+                <button onClick={() => deleteAlert(m.id, m.title)}>
                   <div>
                     <DeleteForeverRoundedIcon className="bin" />
                   </div>
