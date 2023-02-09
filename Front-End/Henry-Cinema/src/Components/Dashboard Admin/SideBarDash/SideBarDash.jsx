@@ -16,6 +16,7 @@ import SettingsSuggestRoundedIcon from "@mui/icons-material/SettingsSuggestRound
 import ThreePRoundedIcon from "@mui/icons-material/ThreePRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import Logo from "../NavbarDash/images/logo-henry-cinema-mini.png";
+import { Link } from "react-router-dom";
 
 export const SideBarDash = () => {
   return (
@@ -32,42 +33,60 @@ export const SideBarDash = () => {
             <span className="span">Dashboard</span>
           </li>
           <p className="title">LISTS</p>
-          <li>
-            <PersonIcon className="icon" />
-            <span className="span">Users</span>
-          </li>
-          <li>
-            <ReviewsIcon className="icon" />
-            <span className="span">Reviews</span>
-          </li>
-          <li>
-            <MovieFilterRoundedIcon className="icon" />
-            <span className="span">Movies</span>
-          </li>
-          <li>
-            <GMobiledataRoundedIcon className="icon" />
-            <span className="span">Genres</span>
-          </li>
-          <li>
-            <GroupWorkRoundedIcon className="icon" />
-            <span className="span">Screenings</span>
-          </li>
-          <li>
-            <FastfoodRoundedIcon className="icon" />
-            <span className="span">Combos</span>
-          </li>
-          <li>
-            <LocalPizzaRoundedIcon className="icon" />
-            <span className="span">Foods</span>
-          </li>
-          <li>
-            <LiquorRoundedIcon className="icon" />
-            <span className="span">Drinks</span>
-          </li>
-          <li>
-            <PointOfSaleRoundedIcon className="icon" />
-            <span className="span">Sales</span>
-          </li>
+          <Link to="/dashboard/users">
+            <li>
+              <PersonIcon className="icon" />
+              <span className="span">Users</span>
+            </li>
+          </Link>
+          <Link to="/dashboard/reviews">
+            <li>
+              <ReviewsIcon className="icon" />
+              <span className="span">Reviews</span>
+            </li>
+          </Link>
+          <Link to="/dashboard/movies">
+            <li>
+              <MovieFilterRoundedIcon className="icon" />
+              <span className="span">Movies</span>
+            </li>
+          </Link>
+          <Link to="/dashboard/movies/genres">
+            <li>
+              <GMobiledataRoundedIcon className="icon" />
+              <span className="span">Genres</span>
+            </li>
+          </Link>
+          <Link to="/dashboard/screenings">
+            <li>
+              <GroupWorkRoundedIcon className="icon" />
+              <span className="span">Screenings</span>
+            </li>
+          </Link>
+          <Link to="/dashboard/combos">
+            <li>
+              <FastfoodRoundedIcon className="icon" />
+              <span className="span">Combos</span>
+            </li>
+          </Link>
+          <Link to="/dashboard/foods">
+            <li>
+              <LocalPizzaRoundedIcon className="icon" />
+              <span className="span">Foods</span>
+            </li>
+          </Link>
+          <Link to="/dashboard/drinks">
+            <li>
+              <LiquorRoundedIcon className="icon" />
+              <span className="span">Drinks</span>
+            </li>
+          </Link>
+          <Link to="/dashboard/sales">
+            <li>
+              <PointOfSaleRoundedIcon className="icon" />
+              <span className="span">Sales</span>
+            </li>
+          </Link>
           <p className="title">USEFUL</p>
           <li>
             <QueryStatsRoundedIcon className="icon" />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import logo from "../Utils/logo-henry-cinema.png";
 import { logInUser } from "../../redux/actions";
@@ -6,7 +6,24 @@ import  { useDispatch, useSelector } from "react-redux";
 
 export default function Login() {
 
-  const dispatch = useDispatch();
+
+  function handleCallbackResponse () {
+    console.log(response)
+  }
+
+  useEffect( () => {
+    google.accounts.id.initialize({
+      client_id: "622101926557-q9hgiriljbiups3aanog7ijg97ksnomq.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    })
+  }, [])
+
+  google.accounts.id.renderButton(
+    document.getElementById("googleButton"),
+    {theme: "outline", size: "large"}
+  )
+
+  const dispatch = useDispatch()
   
   const loggedUser = useSelector(state => state?.currentUser)
   const [sign, setSign] = useState("sign-in");
@@ -77,7 +94,7 @@ export default function Login() {
 
   const handleSubmitUp=(e) => {
     e.preventDefault()
-    alert("notificaciones en " + formUp.notifications)
+    dispatch(formUp)
     setFormUp({
       fullName:"",
       email: "",
@@ -142,6 +159,7 @@ export default function Login() {
                 />
                 <button className="buttonSubmit" type="submit">Sign in</button>
               </form>
+              <div id="googleButton"></div>
             </div>
           </div>
         </div>
@@ -211,6 +229,7 @@ export default function Login() {
                 </label>
                 <button className="buttonSubmitup" type="submit">Sign Up</button>
               </form>
+              <div id="googleButton"></div>
             </div>
           </div>
         </div>

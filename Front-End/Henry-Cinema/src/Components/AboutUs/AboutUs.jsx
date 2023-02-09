@@ -1,6 +1,8 @@
 import React from "react";
 import Nav from "../Nav/Nav";
 import Footer from "../footer/footer";
+import Loader from "../Loader/Loader";
+import { useEffect, useState } from "react";
 import {textDescriptionApp} from "./Description/textDescription"
 import logoHenry from "../../img/logoHenry.jpg"
 import profilesTeam from './ProfilesData/members'
@@ -8,6 +10,17 @@ import ProfileComponent from './ProfileComponent/ProfileComponent'
 import "./AboutUs.css";
 
 function AboutUs() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    
+    setTimeout(()=>{
+      setLoading(false);
+    },800)
+   
+  }, [setTimeout]);
+  if (loading) {
+    return <Loader />
+  }
   return (
     <div className="container-all-about">
       <Nav></Nav>

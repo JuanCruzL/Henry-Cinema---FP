@@ -2,7 +2,7 @@
     position: relative;
     width: calc(15rem - 20px);
     margin: 80px;
-    margin-top: 50px;
+    margin-top: 70px;
     float: left;
     justify-content: center;
     text-align: center;
@@ -20,11 +20,12 @@
     /* border-bottom: 1px solid black; */
   }
   
-  .container-profile:hover:before {
-    border-bottom: 1px solid black;
-  }
+ 
   .image-profile:hover + .text-profile{
     color:gold;
+  }
+  .container-profile:hover .buttons-profile{
+    border-top: 1px solid black;
   }
 
   .text-profile{

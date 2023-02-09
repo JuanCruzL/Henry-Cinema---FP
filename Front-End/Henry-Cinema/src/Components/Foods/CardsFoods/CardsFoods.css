@@ -1,59 +1,118 @@
 .carddrinks{
     display :flex;
-    border : 2px solid red;
-    width:13cm;
+    border-right : 2px solid black;
+    border-bottom: 2px solid black;
+    box-shadow: 12px 10px 15px rgb(90, 90, 90);
+    width:15cm;
     height: 4cm;
     margin: 10px;
     padding: 10px;
+    margin-bottom: 40px;
     align-items: flex-end;
+    transition: 0.5s;
 }
+.carddrinks:hover {
+    background-color: yellow;
+    transition: 1s;
+}
+.carddrinks:hover .button-cardFood{
+    background-color: black;
+    color: yellow;
+}
+.carddrinks:hover .image-cardFood{
+    transform: scale(1.15);
+    transition: 1s;
+}
+
 .cardcombos{
     display :flex;
-    border : 2px solid red;
-    width:22cm;
-    height: 4cm;
+    border-right : 2px solid black;
+    border-bottom: 2px solid black;
+    box-shadow: 12px 10px 15px rgb(90, 90, 90);
+    width:25cm;
+    height: 5cm;
     margin: 10px;
     padding: 10px;
+    margin-bottom: 50px;
     margin-left: 10%;
+}
+.cardcombos:hover {
+    background-color: yellow;
+    transition: 1s;
+}
+.cardcombos:hover .button-cardFood{
+    background-color: black;
+    color: yellow;
+}
+.cardcombos:hover .image-cardFood{
+    transform: scale(1.15);
+    transition: 1s;
 }
 .cardfoods{
     display :flex;
-    border : 2px solid red;
-    width:10.5cm;
+    border-right : 2px solid black;
+    border-bottom: 2px solid black;
+    box-shadow: 12px 10px 15px rgb(90, 90, 90);
+    width:14.5cm;
     height: 4cm;
-    margin: 10px;
+    margin: 30px;
     padding: 10px;
     align-items: center;
     justify-content: center;
 }
+.cardfoods:hover {
+    background-color: yellow;
+    transition: 1s;
+}
+.cardfoods:hover .button-cardFood{
+    background-color: black;
+    color: yellow;
+}
+.cardfoods:hover .image-cardFood{
+    transform: scale(1.15);
+    transition: 1s;
+}
 .name-cardFood{
-    border:2px solid red;
+    /* border:2px solid red; */
     max-height: 50%;
     min-height: 40%;
 }
-.price-cardFood{
-    border:2px solid blue;
-}
+
 .image-cardFood{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     max-width: 40%;
     max-height: 2.5cm;
     margin-top: 2%;
     margin-bottom: 2.5%;
+    transition: 1s;
 }
 .information-food{
-    border:2px solid purple;
+    /* border:2px solid purple; */
     width:80%;
     height:80%;
-    margin-top: 1%;
+    margin-top: 3%;
     margin-bottom: 2%;
+    padding-left: 20px;
+}
+.description-cardFood{
+    margin-bottom: 5px;
 }
 
 .button-cardFood{
     display: flex;
-    border:2px solid green;
+    border-radius: 25px;
     margin:4px;
+    min-width: 80px;
+    min-height: 25px;
+    justify-content: center;
+    padding-top: 40px;
     float: right;
-    padding: 5px;
+    padding-top: 4px;
+    font-size: 15px;
     cursor: pointer;
+    transition: 0.5s;
+}
+.button-cardFood:hover{
+    transform: scale(1.15);
+    transition: 0.5s;
 }
