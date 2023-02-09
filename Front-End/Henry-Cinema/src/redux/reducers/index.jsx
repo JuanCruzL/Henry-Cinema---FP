@@ -4,15 +4,19 @@ const initialState = {
   movieId: [],
   movies: [],
   allMovies: [],
-  foods: [],
-  drinks: [],
-  combos: [],
-  releases: [],// proximos estrenos
-  searchMovies: [],// No Modificar esto sirve para el componente search
   uniqueGenres: [],
   topMovies: [],
-
-
+  // Proximos estrenos
+  releases: [],
+  // Componente search
+  searchMovies: [],
+  //Para el componente Foods
+  foods: [],
+  copyFoods:[],
+  drinks: [],
+  copyDrinks:[],
+  combos: [],
+  copyCombos:[],
   currentUser: {},
 };
 
@@ -63,20 +67,43 @@ const rootReducer = (state = initialState, action) => {
           }]
         ,
       };
+      //Componente Foods
     case "GET_FOODS":
       return {
         ...state,
         foods: action.payload,
+        copyFoods: action.payload,
       };
     case "GET_DRINKS":
       return {
         ...state,
         drinks: action.payload,
+        copyDrinks: action.payload,
       };
     case "GET_COMBOS":
       return {
         ...state,
         combos: action.payload,
+        copyCombos: action.payload,
+      };
+    case "SEARCH_FOOD":
+      const searchCombos = state.copyCombos;
+      const searchDrinks= state.copyDrinks;
+      const searchFoods= state.copyFoods;
+      const combosFound = searchCombos.filter((c) => {
+        return c.name.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      const drinksFound = searchDrinks.filter((d) => {
+        return d.name.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      const foodsFound= searchFoods.filter((f) => {
+        return f.name.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return{
+        ...state,
+        combos:combosFound,
+        drinks:drinksFound,
+        foods:foodsFound
       };
 
     case "REQUEST_GENDERS":
@@ -86,23 +113,6 @@ const rootReducer = (state = initialState, action) => {
           state.allMovies.flatMap(movie => movie.genres)
         )),
       };
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
     case "POST_USER_WITH_GOOGLE":
       return {

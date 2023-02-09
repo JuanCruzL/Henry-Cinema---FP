@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useSelector , useDispatch } from "react-redux";
 import {searchMovie} from "../../redux/actions/index";
 import "./SearchBar.css";
+import logoSearch from "../../img/busqueda.png"
 
 export const SearchBar = ({setCurrentPage}) => {
   const dispatch = useDispatch();
@@ -24,9 +25,7 @@ export const SearchBar = ({setCurrentPage}) => {
           maxLength={20}
         />
 
-        <button className="button-search" type="submit">
-          Search
-        </button>
+        <img src={logoSearch}className="button-search" />
       </div>
     </div>
   );

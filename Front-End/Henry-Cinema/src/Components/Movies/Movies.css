@@ -22,6 +22,11 @@
 .light-mode .carousel-movies-b h1 {
     color: var(--LText-1);
 }
+.light-mode .movies-filter select{
+    background-color: var(--LBase-1);
+    color: var(--LText-2);
+}
+
 
 
 
@@ -49,6 +54,10 @@
 .dark-mode .carousel-movies-b h1 {
     color: var(--NText-1);
 }
+.dark-mode .movies-filter select{
+    background-color: var(--NBase-1);
+    color: var(--NText-2);
+}
 
 
 
@@ -58,7 +67,7 @@
 .ContainerMovies {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1.2fr 0.2fr 1.9fr 1fr;
+    grid-template-rows: 1.1fr 0.2fr 1.9fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -66,6 +75,7 @@
         "movies-filter"
         "movies-Result"
         "carousel-movies-b";
+    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
 }
 
 .films {
@@ -106,6 +116,11 @@
     grid-template-columns: 24% 24% 24% 24%;
     gap: 0px 1%
 }
+.movies-filter select{
+    border-radius: 30px;
+    text-align: center;
+    font-weight: 800;
+}
 
 .movies-Result {
     grid-area: movies-Result;
@@ -120,8 +135,8 @@
     margin-bottom: 40px;
 }
 
-.carousel-movies-b h1 {
-    width: 80%;
+.carousel-movies-b h3 {
+    width: 100%;
     margin: 10px auto;
 }
 
