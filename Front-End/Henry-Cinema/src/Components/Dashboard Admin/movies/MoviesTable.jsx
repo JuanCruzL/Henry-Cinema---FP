@@ -23,7 +23,7 @@ export const MoviesTable = () => {
       buttons: true,
       dangerMode: true,
     }).then((r) => {
-      if (r === "Yes") {
+      if (r === "OK") {
         swal({
           text: "The movie has been successfully removed.",
           icon: "success",
