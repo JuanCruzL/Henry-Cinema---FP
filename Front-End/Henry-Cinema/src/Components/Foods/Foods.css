@@ -17,6 +17,9 @@
     min-height:87%;
     min-width: 15%;
     max-width: 15%;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    /* border:2px solid red; */
     border-right:2px solid black;
     padding-top: 15%;
     padding-bottom: 25%;
