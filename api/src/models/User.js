@@ -20,11 +20,11 @@ module.exports = (sequelize) =>{
         },
         password:{
             type: DataTypes.STRING, 
-            allowNull: false
+            allowNull: true,
         },
         notifications:{
             type:DataTypes.BOOLEAN,
-            allowNull:false,
+            allowNull:true,
         }
     },{timestamps:false})
 }
