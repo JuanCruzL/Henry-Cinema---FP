@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { Router } = require('express');
-const { verifyLogin }  = require("../controllers/login");
+const { verifyLogin, verifyGoogleLogin }  = require("../controllers/login");
 const router = Router();
 
 router.post("/", async (req, res) => {
