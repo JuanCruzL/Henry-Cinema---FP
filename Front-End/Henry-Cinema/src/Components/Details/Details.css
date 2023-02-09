@@ -103,7 +103,7 @@
   align-items: center;
   padding: 80px 0px;
   width: 100%;
-  padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
+  padding-top: 80px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
 }
 
 .detailsContainer {
