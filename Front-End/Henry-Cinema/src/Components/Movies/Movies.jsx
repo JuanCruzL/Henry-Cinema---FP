@@ -49,7 +49,7 @@ const Movies = () => {
     }
     setTimeout(() => {
       setLoading(false);
-    }, 1500)
+    }, 2000)
     setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.imageVertical })));
     setMovies(allReleases.map(movie => ({ apiID: movie.id, image: movie.image })));
     setAvailableMovies(allMovies)
