@@ -6,6 +6,11 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding-top: 19px;
 
+  .link {
+    text-decoration: none;
+    color: black;
+  }
+
   .top {
     height: 50px;
     display: flex;
