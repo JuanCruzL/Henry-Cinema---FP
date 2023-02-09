@@ -1,6 +1,7 @@
 .food-bar{
    /*  border:2px solid blue; */
     display: flex;
+    margin-top: 70px;
 }
 .container-input-bar{
     display: flex;
@@ -11,21 +12,21 @@
     padding-left: 27%;
 }
 .search-image{
-    /* border:2px solid  green; */
+   /*  border:2px solid  green; */
     max-width: 30px;
     min-width: 30px;
     min-height: 30px;
     max-height: 30px;
-    margin-top: 22px;
-    margin-left: 15px;    
+    margin-top: 1px;
+    margin-left: 25px;    
 }
 .input-food{
     border:2px solid black;
     padding-left: 40px;
     border-radius: 15px;
     max-width: 40%;
-    min-height: 50%;
-    max-height: 50%;
+    min-height: 90%;
+    max-height: 90%;
     
 }
 .input-food:hover{
