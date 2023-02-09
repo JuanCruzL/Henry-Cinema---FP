@@ -15,7 +15,6 @@ import LoginDash from "./Components/Dashboard Admin/login/Login";
 import UserId from "./Components/Dashboard Admin/users/Userid";
 import Users from "./Components/Dashboard Admin/users/Users";
 import MoviesDash from "./Components/Dashboard Admin/movies/MoviesDash";
-import MovieId from "./Components/Dashboard Admin/movies/MovieId";
 import NewMovie from "./Components/Dashboard Admin/movies/NewMovie";
 import Genres from "./Components/Dashboard Admin/genres/Genres";
 import NewGenre from "./Components/Dashboard Admin/genres/NewGenre";
@@ -26,14 +25,16 @@ import NewScreening from "./Components/Dashboard Admin/screenings/NewScreening";
 import ScreeningId from "./Components/Dashboard Admin/screenings/ScreeningId";
 import Combos from "./Components/Dashboard Admin/foodanddrinks/Combos";
 import NewCombo from "./Components/Dashboard Admin/foodanddrinks/NewCombo";
-import ComboId from "./Components/Dashboard Admin/foodanddrinks/ComboId";
 import FoodsAdmin from "./Components/Dashboard Admin/foodanddrinks/Foods";
 import NewFood from "./Components/Dashboard Admin/foodanddrinks/NewFood";
-import FoodId from "./Components/Dashboard Admin/foodanddrinks/FoodId";
 import Drinks from "./Components/Dashboard Admin/foodanddrinks/Drinks";
 import NewDrink from "./Components/Dashboard Admin/foodanddrinks/NewDrink";
-import DrinkId from "./Components/Dashboard Admin/foodanddrinks/DrinkId";
 import Sales from "./Components/Dashboard Admin/sales/Sales";
+<<<<<<< HEAD
+import Login from "./Components/Login/login";
+import Foods from "./Components/Foods/Foods";
+import AboutUs from "./Components/AboutUs/AboutUs";
+=======
 import SaleId from "./Components/Dashboard Admin/sales/SaleId";
 import Login from "./Components/Login/login"
 import Foods from "./Components/Foods/Foods"
@@ -41,6 +42,7 @@ import AboutUs from './Components/AboutUs/AboutUs'
 import Seating from "./Components/seating/Seating";
 
 
+>>>>>>> a0e8bc81cb70fc15a3c1049f7232e2d7b3f52da7
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -58,7 +60,6 @@ const router = createBrowserRouter([
     element: <Movies />,
   },
   {
-
     path: "/dashboard",
     element: <HomeDash />,
   },
@@ -81,10 +82,6 @@ const router = createBrowserRouter([
   {
     path: "/dashboard/movies",
     element: <MoviesDash />,
-  },
-  {
-    path: "/dashboard/movies/:id",
-    element: <MovieId />,
   },
   {
     path: "dashboard/movies/new",
@@ -123,20 +120,12 @@ const router = createBrowserRouter([
     element: <Combos />,
   },
   {
-    path: "./dashboard/combos/:id",
-    element: <ComboId />,
-  },
-  {
     path: "dashboard/combos/new",
     element: <NewCombo />,
   },
   {
     path: "/dashboard/foods",
     element: <FoodsAdmin />,
-  },
-  {
-    path: "./dashboard/foods/:id",
-    element: <FoodId />,
   },
   {
     path: "/dashboard/foods/new",
@@ -147,10 +136,6 @@ const router = createBrowserRouter([
     element: <Drinks />,
   },
   {
-    path: "/dashboard/drinks/:id",
-    element: <DrinkId />,
-  },
-  {
     path: "/dashboard/drinks/new",
     element: <NewDrink />,
   },
@@ -159,25 +144,26 @@ const router = createBrowserRouter([
     element: <Sales />,
   },
   {
-    path: "/dashboard/sales/:id",
-    element: <SaleId />,
-  },
-  {
     path: "/login",
-    element: <Login/>
+    element: <Login />,
   },
   {
     path: "/foods",
-    element: <Foods/>
+    element: <Foods />,
   },
   {
     path: "/about",
+<<<<<<< HEAD
+    element: <AboutUs />,
+  },
+=======
     element: <AboutUs/>
   },
   {
     path: "/seating",
     element: <Seating/>
   }
+>>>>>>> a0e8bc81cb70fc15a3c1049f7232e2d7b3f52da7
 ]);
 
 root.render(
