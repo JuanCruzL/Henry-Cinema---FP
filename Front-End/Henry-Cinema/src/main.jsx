@@ -30,12 +30,10 @@ import NewFood from "./Components/Dashboard Admin/foodanddrinks/NewFood";
 import Drinks from "./Components/Dashboard Admin/foodanddrinks/Drinks";
 import NewDrink from "./Components/Dashboard Admin/foodanddrinks/NewDrink";
 import Sales from "./Components/Dashboard Admin/sales/Sales";
-import SaleId from "./Components/Dashboard Admin/sales/SaleId";
-import Login from "./Components/Login/login"
+import Login from "./Components/Login/login";
 import Foods from "./Components/Foods/Foods"
 import AboutUs from './Components/AboutUs/AboutUs'
 import Seating from "./Components/seating/Seating";
-
 const container = document.getElementById("root");
 const root = createRoot(container);
 const router = createBrowserRouter([
@@ -145,12 +143,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/about",
-    element: <AboutUs/>
+    element: <AboutUs />,
   },
   {
     path: "/seating",
-    element: <Seating/>
-  }
+    element: <Seating />,
+  },
 ]);
 
 root.render(
