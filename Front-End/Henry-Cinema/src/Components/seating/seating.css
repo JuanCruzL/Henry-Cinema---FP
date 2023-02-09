@@ -1,6 +1,6 @@
 .seating{
   text-align: center;
-  background-color: grey;
+  background-color: #bbb847;
   height: 100vh;
   position: relative;
 }
@@ -11,20 +11,31 @@
   flex-direction: column;
   width: 70%;
   margin-left: 17.5%;
-  border: 1px solid black;
+  border: 3px solid #00000034;
   box-sizing: border-box;
-  text-align: center;
   padding: 5px;
   top:150px;
   padding-bottom:15px;
+  box-shadow: var(--LDegradado) 0px 5px 15px;
   
+}
+.screen .selected {
+  text-align: left;
+  padding-left: 30px;
+  background-color: transparent;
+  padding-top: 15px;
+  font-weight:600;
+  color: white;
+  text-shadow: 4px 4px 7px rgba(0,0,0,0.6);
 }
 
 .pantalla{
-  background-color:aqua;
+  background-color:#0000008e;
   width: 70%;
   margin-left: 15%;
   margin-bottom: 5%;
+  color: white;
+  box-shadow: var(--LDegradado) 0px 5px 15px;
 }
 
 
@@ -40,7 +51,9 @@
   width: 20px;
   margin-top: .5em;
   margin-right: 0.2em;
-  border-radius:5px;
+  background-color: rgb(64, 255, 0);
+  border: 1px solid black;
+  box-shadow: var(--LDegradado) 0px 5px 15px;
   
 }
 

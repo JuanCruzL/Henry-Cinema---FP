@@ -6,7 +6,6 @@ import Chair from "../../img/asiento.svg/"
 function Seating() {
 
   const [asientosSeleccionados, setAsientosSeleccionados] = useState([]);
-  const [isSelected, setIsSelected] = useState(false);
   
   const handleClick = (event) => {
     const asiento = event.target.getAttribute("data-value");
@@ -24,7 +23,7 @@ function Seating() {
       
       <div className="screen">
         <div className="pantalla">
-      <h1> Pantalla</h1>
+      <h1> Screen</h1>
       </div>
 {/* //-----------fila A---------------------//         */}
       
@@ -111,18 +110,14 @@ function Seating() {
 <div className="Filaizquierda">    
 {[...Array(20)].map((_, i) => (
         <div key={`E${i + 1}`} className="asiento" data-value={`E${i + 1}`} onClick={handleClick}>
-          <img key={`E${i + 1}`} data-value={`E${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"  style={{ 
-        filter: isSelected ? "hue-rotate(90deg)" : "none" 
-      }} />
+          <img key={`E${i + 1}`} data-value={`E${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"   />
         </div>
       ))}
 </div>
 <div className='Filaderecha'>  
 {[...Array(20)].map((_, i) => (
         <div key={`E${i + 10}`} className="asiento" data-value={`E${i + 11}`} onClick={handleClick}>
-          <img key={`E${i + 10}`} data-value={`E${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"  style={{ 
-        filter: isSelected ? "hue-rotate(90deg)" : "none" 
-      }} />
+          <img key={`E${i + 10}`} data-value={`E${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"   />
         </div>
       ))}
 </div>
@@ -220,13 +215,17 @@ function Seating() {
         </div>
       ))}
 </div>
-</div>
-
-
 
 
 </div>
-Asientos seleccionados: {asientosSeleccionados.join(" ,")} 
+<div className="selected"><h5>Asientos seleccionados: {asientosSeleccionados.join(" ,")}</h5></div>
+
+
+
+
+
+</div>
+ 
     </div>
   )
 }
