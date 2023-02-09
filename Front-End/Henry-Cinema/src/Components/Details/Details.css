@@ -60,7 +60,7 @@
 .dark-mode .fancy .top-key ,
 .dark-mode .fancy .bottom-key-1,
 .dark-mode .fancy .bottom-key-2{
- background-color: var(--NFondo-1);
+ background-color: var(--LBase-1);
 }
 .dark-mode .fancy::before {
   background-color: var(--NText-1);
@@ -103,7 +103,9 @@
   align-items: center;
   padding: 80px 0px;
   width: 100%;
+  padding-top: 80px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
 }
+
 
 .detailsContainer {
   position: relative;

@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "branch": "^0.0.0",
-    "git": "^0.1.5"
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.7.1"
   }
 }

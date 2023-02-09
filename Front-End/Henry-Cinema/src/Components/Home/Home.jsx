@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getMovies, getRelease, requestGenders, requestTopMovies } from "../../redux/actions";
+import { getMovies, getRelease, requestGenders } from "../../redux/actions";
 import Nav from "../Nav/Nav";
 import HomeCarrusel from "./HomeCarrusel/HomeCarrusel";
 import HomeMovie from "./HomeMovie/HomeMovie";
@@ -32,32 +32,15 @@ export default function Home() {
   useEffect(() => {
     dispatch(getMovies());
     dispatch(getRelease());
-    setTimeout(()=>{
-      Prev();
-      Next();
-    },2000)
     dispatch(requestGenders());
-    dispatch(requestTopMovies());
-    setLoading(false);
+
+    setTimeout(()=>{
+      setLoading(false);
+    },1500)
+
   }, [dispatch]);
   
-  function Prev() {
-    var fila = document.querySelector(".contenedorCarrusel");
-    var flechaIz = document.getElementById("Prev");
-    flechaIz.addEventListener("click", () => {
-      fila.scrollLeft -= fila.offsetWidth;
-    });
-  }
-
-  function Next() {
-    var fila = document.querySelector(".contenedorCarrusel");
-    var flechaDe = document.getElementById("Next");
-    flechaDe.addEventListener("click", () => {
-      fila.scrollLeft += fila.offsetWidth;
-    });
-  }
-  
-  if (!allMovies.length) {
+  if (loading) {
     return <Loader />
   }
   return (
@@ -65,7 +48,7 @@ export default function Home() {
     <div className="Homehome">
       <Nav setCurrentPage={setCurrentPage}/>
       <div className="BodyHome">
-        <HomeCarrusel Prev={Prev} Next={Next} cartelera={cartelera}/>
+        <HomeCarrusel cartelera={cartelera}/>
         <HomePaginated peliculas={allMovies.length} moviesPerPage={moviesPerPage} paginated={paginated}/>
         <HomeMovie peliculas={currentMovie}/>
       </div>

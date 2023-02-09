@@ -1,0 +1,11 @@
+export const GET_MOVIES = "GET_MOVIES";
+export const GET_MOVIE_ID = "GET_MOVIE_ID";
+export const GET_RELEASES = "GET_RELEASES";
+export const SEARCH_MOVIE = "SEARCH_MOVIE";
+export const DELETE_MOVIE = "DELETE_MOVIE";
+export const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
+export const GET_FOODS = "GET_FOODS";
+export const GET_DRINKS = "GET_DRINKS";
+export const GET_COMBOS = "GET_COMBOS";
+export const REQUEST_GENRES = "REQUEST_GENRES";
+export const SEARCH_FOOD = "SEARCH_FOOD";

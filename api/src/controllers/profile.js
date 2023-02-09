@@ -1,14 +1,13 @@
 require('dotenv').config();
 const { User } = require('../db');
 const bcrypt = require("bcrypt");
-const { doesNotMatch } = require('assert');
 const saltRound = 10;
 const salt = bcrypt.genSaltSync(saltRound);
 
 const getProfileById = async (id) => {
 
     const user = await User.findByPk(id);
-    return user.dataValues;
+    return user;
 }
 
 const putProfileById = async (id, formData) => {

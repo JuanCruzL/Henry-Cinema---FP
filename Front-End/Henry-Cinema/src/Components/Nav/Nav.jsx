@@ -1,8 +1,8 @@
 import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
-import logo from "../../img/menu.png";
-import perfil from "../../img/usuario.png";
-import logoh from "../../img/logo.png";
+import logo from "../../img/menus.png";
+import perfil from "../../img/editar.png";
+import logoCinema from "../../img/logoHenryNav.png";
 import { toggleDarkLight } from "../Utils/Switch";
 import { Link } from "react-router-dom";
 import "./Nav.css";
@@ -12,74 +12,78 @@ const Nav = ({ setCurrentPage }) => {
     <nav className="menu">
       <section className="menu-container">
         <ul className="menu-links">
+          {/* Menú desplegable */}
           <li className="menu-des">
-            <a href="#" className="menu-link">
-              <img src={logo} className="logo"></img>
-            </a>
+            <div  className="menu-link-logo">
+              <img src={logo}className="logo"></img>
+            </div>
             <ul className="menu-nesting">
               <li className="menu-inside">
                 <Link to ='/about'>
-                <a href="#" className="menu-link menu-link--inside">
+                <div className="menu-link menu-link--inside">
                   About Us
-                </a>
+                </div>
                 </Link>
                 
               </li>
               <li className="menu-inside">
                 <Link to='/movies'>
-                  <a href="#" className="menu-link menu-link--inside">
+                  <div className="menu-link menu-link--inside">
                     Movies
-                  </a>
+                  </div>
                 </Link>
               </li>
               <li className="menu-inside">
                 <Link to='/foods'>
-                <a href="/foods" className="menu-link menu-link--inside">
+                <div className="menu-link menu-link--inside">
                   Food & Drinks
-                </a>
+                </div>
                 </Link>
               </li>
             </ul>
           </li>
-          <li className="menu-item">
+          {/* Menú Nav */}
+          <li className="menu-item-logo">
             <Link to='/'>
-            <img src={logoh} className="logoh"></img>
+            <img src={logoCinema} className="logoh"></img>
             </Link>
           </li>
-          <li className="menu-item">
-            <Link to='/about'>
-            <a href="#" className="menu-link">
-              About Us
-            </a>
-            </Link>
-          </li>
-          <li className="menu-item">
-          <Link to='/movies'>
 
-            <a href="#" className="menu-link">
+          <li className="menu-item-about">
+            <Link to='/about' className="link-about">
+            <div  className="menu-link-about">
+              About Us
+            </div>
+            </Link>
+          </li>
+
+          <li className="menu-item-movies">
+          <Link to='/movies' className="link-movies">
+
+            <div className="menu-link-movies">
               Movies
-            </a>
+            </div>
           </Link>
           </li>
-          <li className="menu-item">
+          <li className="menu-item-food">
             
-            <Link to ='/foods'>
-              <a href="#" className="menu-link">
+            <Link to ='/foods' className="link-foods">
+              <div className="menu-link-food">
               Food & Drinks
-            </a></Link>
+            </div></Link>
           </li>
           <li className="menu-itemSearchBar">
             <SearchBar setCurrentPage={setCurrentPage} />
           </li>
-          <li className="menu-item">
-            <a href="#" className="menu-link" onClick={e => toggleDarkLight(e)}>
+          <li className="menu-item-mode">
+            <div className="menu-link-mode" onClick={e => toggleDarkLight(e)}>
               <button type="button" className="Switch" title="Toggle dark/light mode">🌑</button>
-            </a>
+            </div>
           </li>
-          <li className="menu-item">
-            <a href="#" className="menu-link-user">
+          <li className="menu-item-perfil">
+            <div className="menu-link-user">
               <img src={perfil} className="perfil"></img>
-            </a>
+            </div>
           </li>
         </ul>
       </section>

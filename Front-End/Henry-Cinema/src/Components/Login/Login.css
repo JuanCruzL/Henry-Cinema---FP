@@ -192,7 +192,12 @@
    }
    .textdiv {
     font-size: 15px;
+   }
 
+   .googleButton{
+    width: 200px;
+    position: absolute;
+    bottom: 100px;
    }
    
    /* When the checkbox is checked, add a blue background */
@@ -268,7 +273,7 @@
     color: #212121;
     z-index: 1;
     bottom: 100px;
-    right: 226px;
+    /* right: 225px; */
     background: #e8e8e8;
     position: absolute;
     font-weight: 1000;

@@ -4,56 +4,71 @@
     padding-top: 2%;
     padding-bottom: 2%;
     height: 100%;
+    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
 }
+.selected {
+    background-color: black;
+    color: yellow;
+   
+}
+
 .buttons-foods{
     max-height: 87%;
     min-height:87%;
-    width:15%;
-    border:2px solid blue;
+    min-width: 15%;
+    max-width: 15%;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    /* border:2px solid red; */
+    border-right:2px solid black;
     padding-top: 15%;
     padding-bottom: 25%;
     padding-left: 1.5%;
     padding-right: 1.5%;
 }
 .containerForCards{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display:flex;
+    width: 100cqmax;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding-top: 5%;
+    padding-top: 2%;
     padding-bottom: 5%;
     padding-right: 7%;
     padding-left: 7%;
-    max-width: 85%;
-    min-width: 85%;
+    max-width: 80%;
+    min-width: 80%;
 }
 .button-combos{
     display: flex;
-    border:2px solid red;
+    border-right:2px solid black;
     margin-bottom: 20px;
     height: 1.5cm;
     font-size: 20px;
     justify-content: center;
     text-align: center;
     align-items: center;
+    cursor: pointer;
 }
 .button-foods{
     display: flex;
-    border:2px solid red;
+    border-right:2px solid black;
     margin-bottom: 20px;
     height: 1.5cm;
     font-size: 19px;
     justify-content: center;
     text-align: center;
     align-items: center;
+    cursor: pointer;
 }
 .button-drinks{
     display: flex;
-    border:2px solid red;
+    border-right:2px solid black;
     margin-bottom: 20px;
     height: 1.5cm;
     font-size: 20px;
     justify-content: center;
     text-align: center;
     align-items: center;
+    cursor: pointer;
 }

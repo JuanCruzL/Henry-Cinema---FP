@@ -3,37 +3,26 @@
     background-color: var(--LFondo-1);
     color: var(--LText-1);
 }
-
-.light-mode .HomeCarrusel button {
-    background-color: var(--BaseL);
-    color: var(--LText-1);
-}
-
 .light-mode .container-paginated .buttonPage {
     background-color: var(--BaseL);
     color: var(--LText-1);
 }
-
 .light-mode .container-paginated .buttonPage:hover {
     background-color: var(--LBase-1);
     color: var(--LText-2);
 }
-
 .light-mode .HomeMovie .Peliculas {
     box-shadow: 1px 1px 10px 2px var(--LDegradado);
     -webkit-box-shadow: 1px 1px 10px 2px var(--LDegradado);
     -moz-box-shadow: 1px 1px 10px 2px var(--LDegradado);
 }
-
 .light-mode .HomeMovie button {
     background-color: var(--BaseL);
     color: var(--LText-1);
 }
-
 .light-mode .HomeMovie button:hover {
     color: var(--LText-2);
 }
-
 .light-mode .HomeMovie button::after {
     background-color: var(--LBase-1);
 }
@@ -46,12 +35,6 @@
     background-color: var(--NFondo-1);
     color: var(--NText-1);
 }
-
-.dark-mode .HomeCarrusel button {
-    color: var(--NText-2);
-    background-color: var(--BaseN);
-}
-
 .dark-mode .container-paginated .buttonPage {
     background-color: var(--NBase-1);
     color: var(--NText-2);
@@ -73,9 +56,9 @@
 }
 
 .dark-mode .HomeMovie .Peliculas {
-    box-shadow: 1px 1px 10px 2px var(--NDegradado);
-    -webkit-box-shadow: 1px 1px 10px 2px var(--NDegradado);
-    -moz-box-shadow: 1px 1px 10px 2px var(--NDegradado);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .dark-mode .HomeMovie button {
@@ -97,10 +80,6 @@
 
 
 .BodyHome {
-    height: 100%;
-}
-
-.BodyHome {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.4fr 2% 1fr;
@@ -109,7 +88,9 @@
         "HomeCarrusel"
         "HomePaginated"
         "HomeMovie";
+    height: 100%;
     margin: 0;
+    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
 }
 
 .HomeCarrusel {

@@ -1,0 +1,34 @@
+.food-bar{
+   /*  border:2px solid blue; */
+    display: flex;
+    margin-top: 70px;
+}
+.container-input-bar{
+    display: flex;
+    max-width:80%;
+    min-width: 80%;
+    border-radius: 10px;
+    /* border:4px solid purple; */
+    padding-left: 27%;
+}
+.search-image{
+   /*  border:2px solid  green; */
+    max-width: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    margin-top: 1px;
+    margin-left: 25px;    
+}
+.input-food{
+    border:2px solid black;
+    padding-left: 40px;
+    border-radius: 15px;
+    max-width: 40%;
+    min-height: 90%;
+    max-height: 90%;
+    
+}
+.input-food:hover{
+    transform: scale(1.02);
+}
