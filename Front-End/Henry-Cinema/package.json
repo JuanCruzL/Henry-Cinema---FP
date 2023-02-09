@@ -17,8 +17,12 @@
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
     "@mui/x-data-grid": "^5.17.22",
     "axios": "^1.2.6",
+
     "install": "^0.13.0",
     "npm": "^9.4.2",
+
+    "gapi-script": "^1.2.0",
+
     "react": "^18.2.0",
     "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",

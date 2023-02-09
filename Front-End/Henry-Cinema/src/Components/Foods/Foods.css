@@ -4,16 +4,19 @@
     padding-top: 2%;
     padding-bottom: 2%;
     height: 100%;
+    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
 }
 .selected {
     background-color: black;
     color: yellow;
    
 }
+
 .buttons-foods{
     max-height: 87%;
     min-height:87%;
-    width:15%;
+    min-width: 15%;
+    max-width: 15%;
     border-right:2px solid black;
     padding-top: 15%;
     padding-bottom: 25%;
@@ -23,14 +26,15 @@
 .containerForCards{
     /* border: 2px solid red; */
     display:flex;
+    width: 100cqmax;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding-top: 5%;
+    padding-top: 2%;
     padding-bottom: 5%;
     padding-right: 7%;
     padding-left: 7%;
-    max-width: 85%;
-    min-width: 85%;
+    max-width: 80%;
+    min-width: 80%;
 }
 .button-combos{
     display: flex;

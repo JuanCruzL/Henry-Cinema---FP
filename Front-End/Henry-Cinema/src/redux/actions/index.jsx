@@ -62,6 +62,13 @@ export const searchMovie = (payload) => {
     payload,
   };
 };
+// Para buscar comidas 
+export const searchFood = (payload) => {
+  return {
+    type: "SEARCH_FOOD",
+    payload,
+  };
+};
 
 //Traer Foods and DrINKS
 
@@ -125,11 +132,19 @@ export const requestGenders = () => {
 
 
 
+const signUp = (payload) => {
+  return async (dispatch) => {
+    try {
+      console.log(payload)
+      const json = await axios.post("http://localhost:3001/", payload);
+    }catch(e) {
+      console.log(e)
+    }
+  }
+}
 
-// actions.js
 
 
-// actions.js
 
 
 
