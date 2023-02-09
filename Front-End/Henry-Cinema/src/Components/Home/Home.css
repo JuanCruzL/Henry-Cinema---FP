@@ -80,10 +80,6 @@
 
 
 .BodyHome {
-    height: 100%;
-}
-
-.BodyHome {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.4fr 2% 1fr;
@@ -92,7 +88,9 @@
         "HomeCarrusel"
         "HomePaginated"
         "HomeMovie";
+    height: 100%;
     margin: 0;
+    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
 }
 
 .HomeCarrusel {

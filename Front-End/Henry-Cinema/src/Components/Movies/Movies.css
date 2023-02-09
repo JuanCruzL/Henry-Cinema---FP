@@ -75,6 +75,7 @@
         "movies-filter"
         "movies-Result"
         "carousel-movies-b";
+    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
 }
 
 .films {
