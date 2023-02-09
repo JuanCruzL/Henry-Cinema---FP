@@ -6,6 +6,7 @@ import logoh from "../../img/logo.png";
 import { toggleDarkLight } from "../Utils/Switch";
 import { Link } from "react-router-dom";
 import "./Nav.css";
+import logoCine from "../Utils/logo-henry-cinema.png";
 
 const Nav = ({ setCurrentPage }) => {
   return (
@@ -18,64 +19,69 @@ const Nav = ({ setCurrentPage }) => {
             </a>
             <ul className="menu-nesting">
               <li className="menu-inside">
-                <Link to ='/about'>
-                <a href="#" className="menu-link menu-link--inside">
-                  About Us
+                <a
+                  href="#"
+                  className="menu-link menu-link--inside"
+                  onClick={(e) => toggleDarkLight(e)}
+                >
+                  🌑
                 </a>
-                </Link>
-                
               </li>
+
               <li className="menu-inside">
-                <Link to='/movies'>
+                <Link to="/movies">
                   <a href="#" className="menu-link menu-link--inside">
                     Movies
                   </a>
                 </Link>
               </li>
               <li className="menu-inside">
-                <Link to='/foods'>
-                <a href="/foods" className="menu-link menu-link--inside">
-                  Food & Drinks
-                </a>
+                <Link to="/foods">
+                  <a href="/foods" className="menu-link menu-link--inside">
+                    Food & Drinks
+                  </a>
+                </Link>
+              </li>
+              <li className="menu-inside">
+                <Link to="/about">
+                  <a href="#" className="menu-link menu-link--inside">
+                    About Us
+                  </a>
                 </Link>
               </li>
             </ul>
           </li>
           <li className="menu-item">
-            <Link to='/'>
-            <img src={logoh} className="logoh"></img>
+            <Link to="/">
+              <img src={logoCine} className=" logo-cine"></img>
             </Link>
           </li>
-          <li className="menu-item">
-            <Link to='/about'>
-            <a href="#" className="menu-link">
-              About Us
-            </a>
-            </Link>
-          </li>
-          <li className="menu-item">
-          <Link to='/movies'>
 
-            <a href="#" className="menu-link">
-              Movies
-            </a>
-          </Link>
+          <li className="menu-item">
+            <Link to="/movies">
+              <a href="#" className="menu-link">
+                Movies
+              </a>
+            </Link>
           </li>
           <li className="menu-item">
-            
-            <Link to ='/foods'>
+            <Link to="/foods">
               <a href="#" className="menu-link">
-              Food & Drinks
-            </a></Link>
+                Food & Drinks
+              </a>
+            </Link>
+          </li>
+          <li className="menu-item">
+            <Link to="/about">
+              <a href="#" className="menu-link">
+                About Us
+              </a>
+            </Link>
           </li>
           <li className="menu-itemSearchBar">
             <SearchBar setCurrentPage={setCurrentPage} />
           </li>
-          <li className="menu-item">
-            <a href="#" className="menu-link" onClick={e => toggleDarkLight(e)}>
-              <button type="button" className="Switch" title="Toggle dark/light mode">🌑</button>
-            </a>
-          </li>
+
           <li className="menu-item">
             <a href="#" className="menu-link-user">
               <img src={perfil} className="perfil"></img>

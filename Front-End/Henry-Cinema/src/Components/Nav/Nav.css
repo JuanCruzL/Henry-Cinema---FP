@@ -1,5 +1,4 @@
-
-.light-mode .menu{
+.light-mode .menu {
   background-color: var(--BaseL);
   color: var(--LText-1);
 }
@@ -7,26 +6,24 @@
   background-color: var(--LBase-1);
   color: var(--BaseL);
 }
-.light-mode .menu-nesting{
+.light-mode .menu-nesting {
   background-color: var(--BaseLD);
 }
 .light-mode .menu-link {
   color: var(--LText-1);
 }
-.light-mode .menu-inside{
+.light-mode .menu-inside {
   border-top: 2px var(--LBase-1) solid;
 }
 .light-mode .menu-des > .menu-link:hover {
   background-color: var(--BaseLD);
 }
 .light-mode .logoh:hover,
-.light-mode .menu-link-user:hover{
+.light-mode .menu-link-user:hover {
   background-color: var(--BaseLD);
 }
 
-
-
-.dark-mode .menu{
+.dark-mode .menu {
   background-color: var(--BaseN);
   color: var(--NText-2);
 }
@@ -34,36 +31,29 @@
   background-color: var(--NBase-2);
   color: var(--BaseN);
 }
-.dark-mode .menu-nesting{
+.dark-mode .menu-nesting {
   background-color: var(--BaseND);
 }
 .dark-mode .menu-link {
   color: var(--NText-2);
 }
-.dark-mode .menu-inside{
+.dark-mode .menu-inside {
   border-top: 2px var(--NBase-2) solid;
 }
 .dark-mode .menu-des > .menu-link:hover {
   background-color: var(--BaseND);
 }
 .dark-mode .logoh:hover,
-.dark-mode .menu-link-user:hover{
+.dark-mode .menu-link-user:hover {
   background-color: var(--BaseND);
 }
 
-
-
-
-
-
-
-
-
-
-
+.logo-cine {
+  height: 70px;
+  width: 120px;
+}
 
 /*======================================================================*/
-
 
 * {
   margin: 0;
@@ -90,6 +80,7 @@
   height: 100%;
   transition: transform 0.5s;
   display: flex;
+  justify-content: space-around;
 }
 
 .menu-item {
@@ -97,15 +88,14 @@
   height: 100%;
   width: 11%;
 }
-.menu-item a{
+.menu-item a {
   text-decoration: none;
 }
-.menu-itemSearchBar{
+.menu-itemSearchBar {
   list-style: none;
   height: 100%;
   width: 33%;
 }
-
 
 .menu-link {
   text-decoration: none;
@@ -116,7 +106,7 @@
   align-items: center;
   text-align: center;
 }
-.menu-link-user{
+.menu-link-user {
   text-decoration: none;
   padding: 10px 30px;
   display: grid;
@@ -125,7 +115,7 @@
   align-items: center;
   text-align: center;
 }
-.menu-link-user .perfil{
+.menu-link-user .perfil {
   display: block;
   margin: auto;
 }
@@ -149,14 +139,14 @@
   position: absolute;
   z-index: 1000;
 }
-.menu-inside{
+.menu-inside {
   width: 250px;
   text-align: left;
   padding: 0;
   margin: 0;
 }
 
-.menu-inside a{
+.menu-inside a {
   width: 100%;
   height: 100%;
   text-align: left;
@@ -178,11 +168,10 @@
   width: 100%;
   height: 100%;
 }
-.logoh:hover{
+.logoh:hover {
   cursor: pointer;
 }
 
-
-.Switch{
+.Switch {
   font-size: 25px;
-} 
+}
