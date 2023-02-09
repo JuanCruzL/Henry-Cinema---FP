@@ -23,10 +23,10 @@
 
 
 .dark-mode .footer{
-  background-color: var(--BaseN);
+  background-color: var(--BaseL);
 }
 .dark-mode .footer-profile {
-  background-color: var(--BaseN);
+  background-color: var(--BaseL);
   /* box-shadow: 6px 6px 10px 1px var(--LBase-1); */
 }
 .dark-mode .a-href .user {
@@ -37,7 +37,7 @@
   /* color: var(--main-color-font-light); */
 }
 .dark-mode .footer-options {
-  background-color: var(--BaseN);
+  background-color: var(--BaseL);
   color: var(--NText-2);
 }
 .dark-mode .made-by {

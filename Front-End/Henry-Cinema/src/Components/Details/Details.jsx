@@ -6,6 +6,7 @@ import { getMovieById } from "../../redux/actions";
 import Nav from "../Nav/Nav";
 import "./Details.css";
 import Loader from "../Loader/Loader";
+import Footer from "../footer/footer"
 
 export default function Details() {
   const { id } = useParams();
