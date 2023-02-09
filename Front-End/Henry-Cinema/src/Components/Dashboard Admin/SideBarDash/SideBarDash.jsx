@@ -22,7 +22,7 @@ export const SideBarDash = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <Link to="/">
+        <Link to="/" className="link">
           <img className="logo" alt="" src={Logo} />
         </Link>
       </div>
@@ -30,62 +30,62 @@ export const SideBarDash = () => {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
-          <Link to="/dashboard">
+          <Link to="/dashboard" className="link">
             <li>
               <DashboardIcon className="icon" />
               <span className="span">Dashboard</span>
             </li>
           </Link>
           <p className="title">LISTS</p>
-          <Link to="/dashboard/users">
+          <Link to="/dashboard/users" className="link">
             <li>
               <PersonIcon className="icon" />
               <span className="span">Users</span>
             </li>
           </Link>
-          <Link to="/dashboard/reviews">
+          <Link to="/dashboard/reviews" className="link">
             <li>
               <ReviewsIcon className="icon" />
               <span className="span">Reviews</span>
             </li>
           </Link>
-          <Link to="/dashboard/movies">
+          <Link to="/dashboard/movies" className="link">
             <li>
               <MovieFilterRoundedIcon className="icon" />
               <span className="span">Movies</span>
             </li>
           </Link>
-          <Link to="/dashboard/movies/genres">
+          <Link to="/dashboard/movies/genres" className="link">
             <li>
               <GMobiledataRoundedIcon className="icon" />
               <span className="span">Genres</span>
             </li>
           </Link>
-          <Link to="/dashboard/screenings">
+          <Link to="/dashboard/screenings" className="link">
             <li>
               <GroupWorkRoundedIcon className="icon" />
               <span className="span">Screenings</span>
             </li>
           </Link>
-          <Link to="/dashboard/combos">
+          <Link to="/dashboard/combos" className="link">
             <li>
               <FastfoodRoundedIcon className="icon" />
               <span className="span">Combos</span>
             </li>
           </Link>
-          <Link to="/dashboard/foods">
+          <Link to="/dashboard/foods" className="link">
             <li>
               <LocalPizzaRoundedIcon className="icon" />
               <span className="span">Foods</span>
             </li>
           </Link>
-          <Link to="/dashboard/drinks">
+          <Link to="/dashboard/drinks" className="link">
             <li>
               <LiquorRoundedIcon className="icon" />
               <span className="span">Drinks</span>
             </li>
           </Link>
-          <Link to="/dashboard/sales">
+          <Link to="/dashboard/sales" className="link">
             <li>
               <PointOfSaleRoundedIcon className="icon" />
               <span className="span">Sales</span>

@@ -11,6 +11,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
+import { Link } from "react-router-dom";
 
 export const MoviesTable = () => {
   function alert(id, title) {
@@ -47,7 +48,9 @@ export const MoviesTable = () => {
         <TableBody className="list">
           {allMovies.map((m) => (
             <TableRow key={m.id}>
-              <TableCell className="tableCellMovies">{m.title}</TableCell>
+              <TableCell className="tableCellMovies">
+                {m.title.slice(0, 20)}
+              </TableCell>
               <TableCell className="tableCellMovies">{m.genres[0]}</TableCell>
               <TableCell className="tableCellMovies">
                 {m.classification}
@@ -58,11 +61,13 @@ export const MoviesTable = () => {
               </TableCell>
               <TableCell className="tableCellMovies">
                 <div className="cellWrapper">
-                  <img
-                    alt={m.title}
-                    className="movieImage"
-                    src={m.imageVertical}
-                  />
+                  <Link to={`/movie/${m.apiId}`}>
+                    <img
+                      alt={m.title}
+                      className="movieImage"
+                      src={m.imageVertical}
+                    />
+                  </Link>
                 </div>
               </TableCell>
               <TableCell className="tableCellMovies">
