@@ -9,19 +9,15 @@ function SearchBarFood() {
   
     const handleInpuChange = (e) => {
       e.preventDefault();
-      if (e.key === "Enter") {
-        e.target.value = "";
-      } else {
+      
         dispatch(searchFood(e.target.value));
-        
-      }
+
     };
   
     return (
       <div className="food-bar">
         <div className="container-input-bar">
           <input
-            onKeyUp={e => handleInpuChange(e)}
             onChange={e => handleInpuChange(e)}
             className="input-food"
             type="text"
