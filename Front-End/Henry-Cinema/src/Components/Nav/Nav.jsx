@@ -2,7 +2,7 @@ import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../img/menus.png";
 import perfil from "../../img/editar.png";
-import logoCinema from "../../img/henryCinema.png";
+import logoCinema from "../../img/logoHenryNav.png";
 import { toggleDarkLight } from "../Utils/Switch";
 import { Link } from "react-router-dom";
 import "./Nav.css";
