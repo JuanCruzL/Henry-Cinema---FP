@@ -146,40 +146,21 @@ export const requestGenders = () => {
   };
 };
 
-
-
-
 // crea el usuario y lo guarda en la base de datos
 export const signUp = (payload) => {
   return async (dispatch) => {
     try {
-<<<<<<< HEAD:Front-End/Henry-Cinema/src/redux/actions.js
       console.log(payload);
-      const json = await axios.post("http://localhost:3001/", payload);
+      const userCreated = await axios.post(
+        "http://localhost:3001/users",
+        payload
+      );
+      console.log(userCreated);
     } catch (e) {
       console.log(e);
     }
   };
 };
-=======
-      console.log(payload)
-      const userCreated = await axios.post("http://localhost:3001/users", payload);
-      console.log(userCreated);
-    }catch(e) {
-      console.log(e)
-    }
-  }
-}
-
-
-
-
-
-
-
-
-
-
 
 // action.js
 
@@ -197,29 +178,13 @@ export const logInUserWithGoogle = (response) => {
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
       });
-
     } catch (error) {
       console.log("el error de logInUserWithGoogle es:", error.message);
     }
-  }
-}
-
-
-
-
-
-
-
-
-
+  };
+};
 
 // actions.js
-
-
-
-
-
-
 
 // busca en la base de datos al usuario y lo logea con su token faltaria navigates en el componente
 
@@ -237,23 +202,17 @@ export const logInUser = (email, password) => {
 
   try {
     return async (dispatch) => {
-      const loginCredentials = await axios.post("http://localhost:3001/login",
-        {email, password},
-      );
+      const loginCredentials = await axios.post("http://localhost:3001/login", {
+        email,
+        password,
+      });
       console.log(loginCredentials.data);
       return dispatch({
         type: "GET_CURRENT_USER",
         payload: loginCredentials.data,
       });
-    }  
+    };
   } catch (error) {
     console.log(error);
   }
-} 
-
-
-
-
-
-
->>>>>>> 85a3020683a1416b57c81615662c484d7c3ea1bb:Front-End/Henry-Cinema/src/redux/actions/index.jsx
+};
