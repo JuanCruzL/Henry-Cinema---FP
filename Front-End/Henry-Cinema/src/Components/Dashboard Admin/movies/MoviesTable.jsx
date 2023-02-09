@@ -31,30 +31,32 @@ export const MoviesTable = () => {
   }, [allMovies]);
 
   return (
-    <TableContainer component={Paper} className="table">
+    <TableContainer component={Paper} className="moviesTable">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell className="tableCell">Title</TableCell>
-            <TableCell className="tableCell">Genre</TableCell>
-            <TableCell className="tableCell">Classification</TableCell>
-            <TableCell className="tableCell">Score</TableCell>
-            <TableCell className="tableCell">Created At</TableCell>
-            <TableCell className="tableCell">Image</TableCell>
-            <TableCell className="tableCell">Delete</TableCell>
+          <TableRow className="tableRow">
+            <TableCell className="title">TITLE</TableCell>
+            <TableCell className="title">GENRE</TableCell>
+            <TableCell className="title">CLASSIFICATION</TableCell>
+            <TableCell className="title">SCORE</TableCell>
+            <TableCell className="title">CREATED AT</TableCell>
+            <TableCell className="title">IMAGE</TableCell>
+            <TableCell className="title">DELETE</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody className="list">
           {allMovies.map((m) => (
             <TableRow key={m.id}>
-              <TableCell className="tableCell">{m.title}</TableCell>
-              <TableCell className="tableCell">{m.genres[0]}</TableCell>
-              <TableCell className="tableCell">{m.classification}</TableCell>
-              <TableCell className="tableCell">{m.voteAverage}</TableCell>
-              <TableCell className="tableCell">
+              <TableCell className="tableCellMovies">{m.title}</TableCell>
+              <TableCell className="tableCellMovies">{m.genres[0]}</TableCell>
+              <TableCell className="tableCellMovies">
+                {m.classification}
+              </TableCell>
+              <TableCell className="tableCellMovies">{m.voteAverage}</TableCell>
+              <TableCell className="tableCellMovies">
                 {m.createdAt.slice(0, 10)}
               </TableCell>
-              <TableCell className="tableCell">
+              <TableCell className="tableCellMovies">
                 <div className="cellWrapper">
                   <img
                     alt={m.title}
@@ -63,13 +65,10 @@ export const MoviesTable = () => {
                   />
                 </div>
               </TableCell>
-              <TableCell className="tableCell">
-                <button
-                  className="bintrash"
-                  onClick={() => alert(m.id, m.title)}
-                >
-                  <div className="bin">
-                    <DeleteForeverRoundedIcon />
+              <TableCell className="tableCellMovies">
+                <button onClick={() => alert(m.id, m.title)}>
+                  <div>
+                    <DeleteForeverRoundedIcon className="bin" />
                   </div>
                 </button>
               </TableCell>

@@ -1,14 +1,41 @@
-.table {
-   
-    .cellWrapper {
-        display: flex;
+.moviesTable {
+    align-items: center;
+    justify-content: space-between;
+    .tableRow {
+        background-color: rgb(225, 224, 224);
         align-items: center;
+        
+        .title {
+            font-size: 15px;
+            font-weight: 550;
+            color: rgb(80, 78, 78)
+        }
 
-        .movieImage {
-            width: 70px;
-            height: 100px;
-            margin-right: 10px;
-            border-radius: 0;
+        .list {
+            background-color: whitesmoke;
         }
     }
+
+
+
+  .tableCellMovies {
+    justify-content: center;
+
+    .bin {
+        font-size: 39px;
+        font-weight:bold;
+    }
+
+    .cellWrapper {
+      display: flex;
+      align-items: center;
+
+      .movieImage {
+        width: 70px;
+        height: 100px;
+        margin-right: 10px;
+        border-radius: 0;
+      }
+    }
+  }
 }
