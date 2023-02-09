@@ -22,16 +22,20 @@ export const SideBarDash = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <img className="logo" alt="" src={Logo} />
+        <Link to="/">
+          <img className="logo" alt="" src={Logo} />
+        </Link>
       </div>
       <hr />
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
-          <li>
-            <DashboardIcon className="icon" />
-            <span className="span">Dashboard</span>
-          </li>
+          <Link to="/dashboard">
+            <li>
+              <DashboardIcon className="icon" />
+              <span className="span">Dashboard</span>
+            </li>
+          </Link>
           <p className="title">LISTS</p>
           <Link to="/dashboard/users">
             <li>

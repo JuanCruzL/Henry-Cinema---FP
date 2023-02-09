@@ -49,7 +49,7 @@ const Movies = () => {
     }
     setTimeout(() => {
       setLoading(false);
-    }, 1500)
+    }, 2000)
     setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.imageVertical })));
     setMovies(allReleases.map(movie => ({ apiID: movie.id, image: movie.image })));
     setAvailableMovies(allMovies)
@@ -71,9 +71,9 @@ const Movies = () => {
   //------------------filtro de generos-------------------------------
 
   const handleSelect = (event) => {
-    if (event.target.value === "") {
+    if (event.target.value === null) {
       setSelectedGenre(null);
-      setFiltered([]);
+      setFiltered(availableMovies);
       return;
     }
     setSelectedGenre(event.target.value);
@@ -118,9 +118,9 @@ const Movies = () => {
   //   setAvailableMovies(sortedMovies);
   //   setFiltered(sortedMovies);
   // };
-
   const handleCalificationSort = (event) => {
     if (event.target.value === "Calification") {
+      // setFiltered(availableMovies);
       return;
     }
     let sortedMovies;
@@ -135,9 +135,10 @@ const Movies = () => {
       }
       return a.voteAverage - b.voteAverage;
     });
-    setAvailableMovies(sortedMovies);
+   // setAvailableMovies(sortedMovies);
     setFiltered(sortedMovies);
   };
+  
 
 
 
@@ -184,11 +185,22 @@ const Movies = () => {
             <option value="sub">Sub</option>
             <option value="dub">Dub</option>
           </select>
-          <select onChange={handleCalificationSort}>
+          {/* <select onChange={handleCalificationSort}>
+            <option value="Calification">Calification</option>
             <option value="More Popular">More Popular</option>
             <option value="Less Popular">Less Popular</option>
-          </select>
+          </select> */}
+
+<select onClick={handleCalificationSort}>
+  <option value="Calification">Calification</option>
+  <option value="More Popular">More Popular</option>
+  <option value="Less Popular">Less Popular</option>
+</select>
+
         </section>
+        
+      
+
         <section className="movies-Result">
 
           <div className="Filter-results">
