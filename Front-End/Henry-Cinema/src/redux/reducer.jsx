@@ -14,12 +14,8 @@ const initialState = {
   drinks: [],
   copyDrinks: [],
   combos: [],
-<<<<<<< HEAD:Front-End/Henry-Cinema/src/redux/reducer.js
   copyCombos: [],
-=======
-  copyCombos:[],
   currentUser: {},
->>>>>>> 85a3020683a1416b57c81615662c484d7c3ea1bb:Front-End/Henry-Cinema/src/redux/reducers/index.jsx
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -125,19 +121,18 @@ const rootReducer = (state = initialState, action) => {
           new Set(state.allMovies.flatMap((movie) => movie.genres))
         ),
       };
-    
+
     case "POST_USER_WITH_GOOGLE":
       return {
         ...state,
         currentUser: action.payload,
-      }
-
+      };
 
     case "GET_CURRENT_USER":
       return {
         ...state,
         currentUser: action.payload,
-      }
+      };
 
     default:
       return state;
