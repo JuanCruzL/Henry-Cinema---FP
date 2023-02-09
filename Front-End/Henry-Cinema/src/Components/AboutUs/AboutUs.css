@@ -1,3 +1,7 @@
+.About-container{
+    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
+}
+
 .container-about-all{
     display: flex;
     align-items: center;

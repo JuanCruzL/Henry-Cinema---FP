@@ -34,7 +34,6 @@
    flex-direction: column;
    height: 100vh;
    width: 100%;
-   justify-content: center;
 }
 
 .wrapper-loader{
@@ -44,8 +43,9 @@
    width:150px;
    height:40px;
    align-items: center;
-   margin-top: 20%; 
+   margin-top: 30%; 
    transform: translate(-0%, -100%);
+   padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
 }
 .circle{
    width:20px;
