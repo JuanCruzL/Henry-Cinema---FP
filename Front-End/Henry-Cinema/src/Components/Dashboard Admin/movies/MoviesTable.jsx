@@ -1,7 +1,7 @@
 import React from "react";
 import "./moviestable.scss";
 import { useState, useEffect } from "react";
-import { getMovies } from "../../../redux/actions/index";
+import { getMovies } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -12,24 +12,32 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
 export const MoviesTable = () => {
-  function alert(id, title) {
-    var respuesta = confirm({ title });
-    if (respuesta === true) {
-      console.log("movie deleted");
-      // hacer el dispatch para eliminar con el id.
-    } else {
-      console.log(id);
-    }
-  }
-
   const dispatch = useDispatch();
   const allMovies = useSelector((state) => state.movies);
 
   useEffect(() => {
     dispatch(getMovies());
   }, [allMovies]);
+
+  const deleteAlert = (id, title) => {
+    swal({
+      title: "Are you sure?",
+      text: `this will remove ${title} from the database.`,
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((r) => {
+      if (r === "OK") {
+        swal({
+          text: "The movie has been successfully removed.",
+          icon: "success",
+        });
+      }
+    });
+  };
 
   return (
     <TableContainer component={Paper} className="moviesTable">
@@ -71,7 +79,7 @@ export const MoviesTable = () => {
                 </div>
               </TableCell>
               <TableCell className="tableCellMovies">
-                <button onClick={() => alert(m.id, m.title)}>
+                <button onClick={() => deleteAlert(m.id, m.title)}>
                   <div>
                     <DeleteForeverRoundedIcon className="bin" />
                   </div>

@@ -1,43 +1,19 @@
 import axios from "axios";
-const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
-export const GET_MOVIES = "GET_MOVIES";
-export const GET_RELEASES = "GET_RELEASES";
-export const REQUEST_GENDERS = 'REQUEST_GENDERS';
+import {
+  GET_MOVIES,
+  GET_MOVIE_ID,
+  GET_RELEASES,
+  SEARCH_MOVIE,
+  DELETE_MOVIE,
+  AGE_CLASSIFICATION,
+  GET_FOODS,
+  GET_DRINKS,
+  GET_COMBOS,
+  REQUEST_GENRES,
+  SEARCH_FOOD,
+} from "./actionTypes";
 
-export const getMovieById = (id) => {
-  try {
-    return async (dispatch) => {
-      let movieInfo = await axios.get(`http://localhost:3001/movies/${id}`);
-      return dispatch({
-        type: "GET_MOVIE_ID",
-        payload: movieInfo.data,
-      });
-    };
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-export const getRelease = (id) => {
-  try {
-    return async (dispatch) => {
-      let movieInfo = await axios.get(`http://localhost:3001/nextReleases`);
-      return dispatch({
-        type: "GET_RELEASES",
-        payload: movieInfo.data,
-      });
-    };
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-export function AgeClassification() {
-  return {
-    type: AGE_CLASSIFICATION,
-    payload,
-  };
-}
+//MOVIES
 
 export const getMovies = () => {
   return (dispatch) => {
@@ -55,29 +31,70 @@ export const getMovies = () => {
   };
 };
 
-// Para el componente SearchBar
-export const searchMovie = (payload) => {
-  return {
-    type: "SEARCH_MOVIE",
-    payload,
+export const getMovieById = (id) => {
+  try {
+    return async (dispatch) => {
+      let movieInfo = await axios.get(`http://localhost:3001/movies/${id}`);
+      return dispatch({
+        type: GET_MOVIE_ID,
+        payload: movieInfo.data,
+      });
+    };
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const getRelease = (id) => {
+  try {
+    return async (dispatch) => {
+      let movieInfo = await axios.get(`http://localhost:3001/nextReleases`);
+      return dispatch({
+        type: GET_RELEASES,
+        payload: movieInfo.data,
+      });
+    };
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const deleteMovie = (id) => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.delete(`http://localhost:3001/movies/${id}`);
+      if (response.data === "The movie has been removed") {
+        const allMovies = await axios.get(`http://localhost:3001/movies`);
+        return dispatch({ type: DELETE_MOVIE, payload: allMovies.data });
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 };
-// Para buscar comidas 
-export const searchFood = (payload) => {
+
+export function AgeClassification() {
   return {
-    type: "SEARCH_FOOD",
+    type: AGE_CLASSIFICATION,
+    payload,
+  };
+}
+
+export const searchMovie = (payload) => {
+  return {
+    type: SEARCH_MOVIE,
     payload,
   };
 };
 
-//Traer Foods and DrINKS
+//FOOD & DRINKS
 
 export const getFoods = () => {
   try {
     return async (dispatch) => {
       let allFoodsData = await axios.get("http://localhost:3001/foods");
       return dispatch({
-        type: "GET_FOODS",
+        type: GET_FOODS,
         payload: allFoodsData.data,
       });
     };
@@ -91,7 +108,7 @@ export const getDrinks = () => {
     return async (dispatch) => {
       let allDrinksData = await axios.get("http://localhost:3001/drinks");
       return dispatch({
-        type: "GET_DRINKS",
+        type: GET_DRINKS,
         payload: allDrinksData.data,
       });
     };
@@ -105,7 +122,7 @@ export const getCombos = () => {
     return async (dispatch) => {
       let allCombosData = await axios.get("http://localhost:3001/combos");
       return dispatch({
-        type: "GET_COMBOS",
+        type: GET_COMBOS,
         payload: allCombosData.data,
       });
     };
@@ -113,24 +130,21 @@ export const getCombos = () => {
     console.error(error);
   }
 };
-//  para filtrar los generos disponibles
 
-
-export const requestGenders = () => {
+export const searchFood = (payload) => {
   return {
-    type: REQUEST_GENDERS,
+    type: SEARCH_FOOD,
+    payload,
   };
 };
 
-// actions.js
+//GENRES
 
-//filtra las 4 mejor rankeadas
-
-// actions.js
-
-
-
-
+export const requestGenders = () => {
+  return {
+    type: REQUEST_GENRES,
+  };
+};
 
 
 
