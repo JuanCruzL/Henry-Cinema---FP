@@ -3,15 +3,6 @@
 }
 
 .light-mode .Available h3 {
-<<<<<<< HEAD
-  background-color: var(--BaseL);
-  box-shadow: var(--LDegradado) 0px 5px 15px;
-  border: 1px solid var(--LDegradado);
-}
-
-.light-mode .movies-filter {
-  background-color: var(--BaseL);
-=======
   background-color: var(--LBase-1);
   box-shadow: var(--LDegradado) 0px 5px 15px;
   color: var(--LText-3);
@@ -19,7 +10,6 @@
 
 .light-mode .movies-filter {
   background-color: var(--LBase-1);
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
   box-shadow: var(--LDegradado) 0px 5px 15px;
   border: 1px solid var(--LDegradado);
 }
@@ -27,22 +17,13 @@
 .light-mode .Filter-results {
   box-shadow: var(--LDegradado) 0px 5px 15px;
   background-color: var(--BaseL);
-<<<<<<< HEAD
-  border: 1px solid var(--LDegradado);
-=======
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
 }
 .light-mode .carousel-movies-b h1 {
   color: var(--LText-1);
 }
 .light-mode .movies-filter select {
-<<<<<<< HEAD
-  background-color: var(--LBase-1);
-  color: var(--LText-2);
-=======
   background-color: var(--BaseL);
   color: var(--LText-1);
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
 }
 
 .dark-mode .ContainerMovies {
@@ -50,23 +31,6 @@
 }
 
 .dark-mode .Available h3 {
-<<<<<<< HEAD
-  background-color: var(--BaseN);
-  box-shadow: var(--NDegradado) 0px 5px 15px;
-  border: 1px solid var(--NDegradado);
-}
-
-.dark-mode .movies-filter {
-  background-color: var(--BaseN);
-  box-shadow: var(--NDegradado) 0px 5px 15px;
-  border: 1px solid var(--NDegradado);
-}
-
-.dark-mode .Filter-results {
-  box-shadow: var(--NDegradado) 0px 5px 15px;
-  background-color: var(--BaseN);
-  border: 1px solid var(--NDegradado);
-=======
   background-color: var(--BaseL);
   box-shadow: var(--LDegradado) 0px 5px 15px;
   color: var(--LText-1);
@@ -80,17 +44,12 @@
 .dark-mode .Filter-results {
   box-shadow: var(--LDegradado) 0px 5px 15px;
   background-color: var(--NDegradado3);
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
 }
 .dark-mode .carousel-movies-b h1 {
   color: var(--NText-1);
 }
 .dark-mode .movies-filter select {
-<<<<<<< HEAD
-  background-color: var(--NBase-1);
-=======
   background-color: var(--BaseN);
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
   color: var(--NText-2);
 }
 
@@ -105,19 +64,6 @@
     "movies-filter"
     "movies-Result"
     "carousel-movies-b";
-<<<<<<< HEAD
-  padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
-}
-
-.films {
-  margin-top: 20px;
-  grid-area: films;
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-rows: 12% 88%;
-  align-items: center;
-=======
   padding-top: 30px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
 }
 
@@ -125,7 +71,6 @@
   height: 100%;
   width: 100%;
   display: grid;
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
 }
 
 .Available {
@@ -135,23 +80,6 @@
 }
 
 .Available h3 {
-<<<<<<< HEAD
-  font-size: 18px;
-  box-sizing: border-box;
-  border-radius: 3px;
-}
-
-.movies-filter {
-  grid-area: movies-filter;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 0.6%;
-  width: 80%;
-  margin: auto;
-  margin-bottom: 0;
-  border-radius: 3px;
-=======
   padding: 10px;
   font-size: 25px;
   box-sizing: border-box;
@@ -166,23 +94,16 @@
   width: 80%;
   margin: auto;
   margin-bottom: 0;
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
   display: grid;
   grid-template-columns: 24% 24% 24% 24%;
   gap: 0px 1%;
 }
 .movies-filter select {
-<<<<<<< HEAD
-  border-radius: 30px;
-  text-align: center;
-  font-weight: 800;
-=======
   text-align: center;
   font-weight: 800;
   padding: 5px;
   border: none;
   cursor: pointer;
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
 }
 
 .movies-Result {
@@ -200,20 +121,12 @@
 
 .carousel-movies-b h3 {
   width: 100%;
-<<<<<<< HEAD
-  margin: 10px auto;
-}
-
-.Filter-results {
-  margin-top: 1%;
-=======
   margin: 5px auto;
   padding: 10px;
 }
 
 .Filter-results {
   padding: 10px;
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
   position: absolute;
   width: 80%;
   height: 100vh;
@@ -222,9 +135,5 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-<<<<<<< HEAD
-  border-radius: 3px;
-=======
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
   overflow-y: scroll;
 }

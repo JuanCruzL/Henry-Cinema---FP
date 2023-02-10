@@ -7,7 +7,7 @@ const initialState = {
   // Proximos estrenos
   releases: [],
   //componente dia/noche
-  modo:"dia",
+  modo: "dia",
   // Componente search
   searchMovies: [],
   //Para el componente Foods
@@ -123,7 +123,7 @@ const rootReducer = (state = initialState, action) => {
           new Set(state.allMovies.flatMap((movie) => movie.genres))
         ),
       };
-    
+
     case "LOGIN_OR_REGISTER_USER_WITH_GOOGLE":
       return {
         ...state,
@@ -137,12 +137,12 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case "MODO":
-      let M= state.modo;
-      M=="dia"?M="noche":M="dia";
-      return{
+      let M = state.modo;
+      M == "dia" ? (M = "noche") : (M = "dia");
+      return {
         ...state,
-        modo:M
-      }
+        modo: M,
+      };
 
     default:
       return state;

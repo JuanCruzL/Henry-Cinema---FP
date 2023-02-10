@@ -161,32 +161,15 @@ export const signUp = (payload) => {
     } catch (e) {
       console.log(e);
     }
-<<<<<<< HEAD
   };
 };
-=======
-  }
-}
 
-
-
-//.............. 
-export function iconNav(){
+//..............
+export function iconNav() {
   return {
     type: "MODO",
   };
 }
-
-
-
-
-
-
-
-
-
-
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
 
 // action.js
 
@@ -228,18 +211,11 @@ export const logInUser = (email, password) => {
 
   try {
     return async (dispatch) => {
-<<<<<<< HEAD
       const loginCredentials = await axios.post("http://localhost:3001/login", {
         email,
         password,
       });
-      console.log(loginCredentials.data);
-=======
-      const loginCredentials = await axios.post("http://localhost:3001/login",
-        {email, password},
-      );
       // console.log(loginCredentials.data);
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
       return dispatch({
         type: GET_CURRENT_USER,
         payload: loginCredentials.data,
