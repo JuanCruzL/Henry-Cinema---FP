@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 export default function Login() {
-  const clientID = "477306609599-5o0edff2tn0sleie9sgbd2crv3ftt1gh.apps.googleusercontent.com";
   const currentUser = useSelector(state => state.currentUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
