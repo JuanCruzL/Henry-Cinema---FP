@@ -25,16 +25,14 @@ function AboutUs() {
     <div className="container-all-about">
       <Nav></Nav>
       <div className="About-container">
-        <div className="container-border">
           <div className="container-text-app">
             <img src={logoHenry} alt={'Logo Henry'} className="logo-henry" />
-            <div>
+            <div className="About-text">
               <h3>
                 {textDescriptionApp}
               </h3>
             </div>
           </div>
-        </div>
         <div className="title-team">
           <h1>Our team</h1>
         </div>
