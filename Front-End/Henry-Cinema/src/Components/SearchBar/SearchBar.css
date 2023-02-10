@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 
 
 
 .light-mode .input-field {
+=======
+.dark-mode input[type="text"] {
+>>>>>>> 14c32ce88de7a459116c5f34b187e1becb2068d4
   border: 2px solid var(--NBase-2);
   color: var(--NText-2);
 }
@@ -11,6 +15,7 @@
   color: var(--NText-2);
 }
 
+<<<<<<< HEAD
 
 .dark-mode .input-field {
   border: 2px solid var(--NBase-2);
@@ -21,6 +26,17 @@
   border: 2px solid var(--NBase-2);
   background-color: var(--NBase-1);
   color: var(--NText-2);
+=======
+/*------------------------------------------------------------------------------*/
+
+.input-icons {
+  width: 100%;
+  min-height: 90%;
+  max-height: 90%;
+  display: flex;
+  grid-template-columns: 80% 20%;
+  /* border:2px solid blue; */
+>>>>>>> 14c32ce88de7a459116c5f34b187e1becb2068d4
 }
 
 
@@ -39,12 +55,22 @@
 
 
 .input-field {
+<<<<<<< HEAD
   padding: 2px;
   max-width: 70%;
   min-height: 28px;
   background-color: whitesmoke;
   border: 2px solid var(--NBase-2);
 
+=======
+  padding-left: 30px;
+  text-align: center;
+
+  max-width: 70%;
+  min-height: 28px;
+  border: 1px solid black;
+  background-color: whitesmoke;
+>>>>>>> 14c32ce88de7a459116c5f34b187e1becb2068d4
 }
 
 input[type="text"] {
@@ -54,10 +80,19 @@ input[type="text"] {
   width: 80%;
 }
 
+<<<<<<< HEAD
 
 .button-search{
   width: 100%;
   height: 100%;
 
+=======
+.input-icons i {
+  position: relative;
+}
+
+.button-search {
+  width: 4%;
+>>>>>>> 14c32ce88de7a459116c5f34b187e1becb2068d4
   /* border:2px solid red; */
 }
