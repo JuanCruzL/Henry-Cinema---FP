@@ -64,8 +64,8 @@ export const deleteMovie = (id) => {
     try {
       const response = await axios.delete(`http://localhost:3001/movies/${id}`);
       if (response.data === "The movie has been removed") {
-        const allMovies = await axios.get(`http://localhost:3001/movies`);
-        return dispatch({ type: DELETE_MOVIE, payload: allMovies.data });
+        // const allMovies = await axios.get(`http://localhost:3001/movies`);
+        return dispatch({ type: DELETE_MOVIE });
       }
     } catch (error) {
       console.log(error.message);
