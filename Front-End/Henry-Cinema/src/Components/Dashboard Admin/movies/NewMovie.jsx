@@ -11,18 +11,19 @@ export const NewMovie = () => {
       <div className="newContainer">
         <NavBarDash />
         <div className="top">
-          <h1 className="title">Add New Movie</h1>
+          <h1>Add New Movie</h1>
         </div>
         <div className="bottom">
           <div className="left">
             <img
+              className="imageNM"
               src="https://st4.depositphotos.com/3788621/24041/i/450/depositphotos_240418652-stock-photo-movie-time-concept-creative-template.jpg"
               alt=""
             />
           </div>
           <div className="right">
             <form>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Title</label>
                 <input
                   className="inputNM"
@@ -30,21 +31,21 @@ export const NewMovie = () => {
                   placeholder="Titanic..."
                 />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Poster</label>
                 <label htmlFor="file">
                   <CreateNewFolderOutlinedIcon className="icon" />
                 </label>
                 <input type="file" id="file" style={{ display: "none" }} />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Banner</label>
                 <label htmlFor="file">
                   <CreateNewFolderOutlinedIcon className="icon" />
                 </label>
                 <input type="file" id="file" style={{ display: "none" }} />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Score</label>
                 <input
                   className="inputNM"
@@ -52,7 +53,7 @@ export const NewMovie = () => {
                   placeholder="img url"
                 />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Overview</label>
                 <input
                   className="inputNM"
@@ -60,7 +61,7 @@ export const NewMovie = () => {
                   placeholder="this movie is about..."
                 />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Review</label>
                 <input
                   className="inputNM"
@@ -68,7 +69,7 @@ export const NewMovie = () => {
                   placeholder="what you think about this movie"
                 />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Status</label>
                 <input
                   className="inputNM"
@@ -76,7 +77,7 @@ export const NewMovie = () => {
                   placeholder="already released or release soon?"
                 />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Production Companies</label>
                 <input
                   className="inputNM"
@@ -84,7 +85,7 @@ export const NewMovie = () => {
                   placeholder="Warner Brothers..."
                 />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Runtime</label>
                 <input
                   className="inputNM"
@@ -92,7 +93,7 @@ export const NewMovie = () => {
                   placeholder="total length of the film"
                 />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Original Language</label>
                 <input
                   className="inputNM"
@@ -100,11 +101,11 @@ export const NewMovie = () => {
                   placeholder="english..."
                 />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Genres</label>
                 <input className="inputNM" type="text" placeholder="action" />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Directors</label>
                 <input
                   className="inputNM"
@@ -112,7 +113,7 @@ export const NewMovie = () => {
                   placeholder="Martin Scorcece..."
                 />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Actors</label>
                 <input
                   className="inputNM"
@@ -120,7 +121,7 @@ export const NewMovie = () => {
                   placeholder="Leonardo Dicaprio..."
                 />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Video</label>
                 <input
                   className="inputNM"
@@ -128,11 +129,11 @@ export const NewMovie = () => {
                   placeholder="link of the vieo"
                 />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Classification</label>
                 <input className="inputNM" type="text" placeholder="R or G ?" />
               </div>
-              <div className="formInput">
+              <div className="formNM">
                 <label>Distributor</label>
                 <input className="inputNM" type="text" placeholder="..." />
               </div>

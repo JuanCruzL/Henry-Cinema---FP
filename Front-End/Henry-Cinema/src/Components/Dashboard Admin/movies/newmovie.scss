@@ -5,12 +5,6 @@
     .newContainer {
         flex: 6;
 
-        .top {
-            background-color: rgb(225, 224, 224);
-            .title{
-                font-size: 20px;
-            }
-        }
 
         .top,
         .bottom {
@@ -18,24 +12,14 @@
             padding: 10px;
             margin: 20px;
             display: flex;
-            
-            .bottom {
-                background-color: whitesmoke;
-            }
-
-        
+            background-color: rgb(227, 183, 73);
+            display: flex;
 
             h1{
-                color: black;
-
+                color: pink;
+                font-size: 21px;
             }
-
-            img{
-                width: 100px;
-                height: 100px;
-                object-fit: cover;
-            }
-
+            
             .left {
                 flex: 1;
                 text-align: center;
@@ -48,31 +32,28 @@
                 form {
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 30px;
+                    gap: 20px;
                     justify-content: space-around;
 
-                    .formInput {
+                    .formNM {
                         width: 40%;
-
-                        .inputNM {
-                                width: 100%;
-                                padding: 5px;
-                                border: none;
-                                border-bottom: 1px solid grey;
-                        
-                            }
 
                         label{
                             display: flex;
                             align-items: center;
                             gap: 10px;
-
-                            .icon {
-                                cursor: pointer;
-                            }
                         }
 
+                        .icon {
+                            cursor: pointer;
+                        }
+                    }
 
+                    input{
+                        width: 100%;
+                        padding: 5px;
+                        border: none;
+                        border-bottom: 1px solid grey;
                     }
 
                     button{
@@ -94,5 +75,6 @@
 
     
 }
+
 
 
