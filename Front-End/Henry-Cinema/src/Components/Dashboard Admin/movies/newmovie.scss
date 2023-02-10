@@ -1,7 +1,7 @@
 .newMovie {
     width: 100%;
     display: flex;
-    background-color: rgb(245, 215, 140);
+    background-color: whitesmoke;
 
     .newContainer {
         flex: 6;
@@ -13,7 +13,7 @@
             padding: 10px;
             margin: 20px;
             display: flex;
-            background-color: rgb(236, 198, 101);
+            background-color: rgb(238, 210, 139);
             display: flex;
 
             h1{
@@ -48,6 +48,7 @@
 
                         .icon {
                             cursor: pointer;
+                            font-size: 30px;
                         }
                     }
 
@@ -60,7 +61,8 @@
                         font-style: italic;
                     }
 
-                    button{
+                    .buttonNM{
+
                         width: 50px;
                         padding: 10px;
                         border: none;

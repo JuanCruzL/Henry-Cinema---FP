@@ -3,6 +3,7 @@ import "./newmovie.scss";
 import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
+import PublishIcon from "@mui/icons-material/Publish";
 
 export const NewMovie = () => {
   return (
@@ -137,7 +138,9 @@ export const NewMovie = () => {
                 <label>Distributor</label>
                 <input className="inputNM" type="text" placeholder="..." />
               </div>
-              <button>SEND</button>
+              <button className="buttonNM">
+                <PublishIcon />
+              </button>
             </form>
           </div>
         </div>
