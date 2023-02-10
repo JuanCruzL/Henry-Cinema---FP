@@ -65,16 +65,16 @@
 
 .menu {
   width: 100%;
-  height: 66px;
+  height: 70px;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
   position: fixed;
   z-index: 100;
+  opacity: 0.9;
 }
 
 .menu-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -86,132 +86,22 @@
   width: 100%;
   height: 100%;
   transition: transform 0.5s;
-  display: flex;
-  list-style: none;
-}
-
-.menu-item-logo {
-  list-style: none;
-  height: 73%;
-  width: 6%;
-  padding-top: 0.8%;
-  margin-left:55px;
-  transition: 0.5s;
-}
-.menu-item-logo:hover{
-  transform: scale(0.9);
-  transition: 0.5s;
-}
-
-
-.menu-itemSearchBar{
-  list-style: none;
-  height: 70%;
-  width: 33%;
-  margin-top: 19px;
-  /* border:2px solid red; */
-  margin-left: 100px;
-  padding-top: 1px;
-  font-weight: normal;
-  transition: 0.5s;
-}
-.menu-itemSearchBar:hover{
-  transform: scale(1.02);
-  transition: 0.5s;
-}
-
-.link-foods,
-.link-movies,
-.link-about{
-  text-decoration: none;
-  list-style: none;
-  /* border: 2px solid red; */
-  display : flex;
-  margin-top: 14px;
-  margin-left: 15px;
-  margin-right: 20px;
-}
-
-
-.menu-item-about{
-  text-decoration: none;
-  list-style: none;
-  height: 100%;
-  margin-left: 70px;
-
-  color:black;
-  /* border:2px solid red; */
-}
-.menu-item-about:hover,
-.menu-item-food:hover,
-.menu-item-movies:hover {
-  background-color: black;
-}
-
-.menu-item-food:hover .menu-link-food,
-.menu-item-about:hover .menu-link-about,
-.menu-item-movies:hover .menu-link-movies {
-  color: yellow;
-  transform: scale(0.9);
-}
-
-.menu-link-logo,
-.menu-link-about,
-.menu-link-movies,
-.menu-link-food,
-.menu-link-mode,
-.menu-link-user{
-  list-style: none;
-  text-decoration: none;
-  padding: 10px 30px;
   display: grid;
-  height: 100%;
-  width: 100%;
+  grid-template-columns: 10% 20% 10% 10% 10% 30% 5% 5%;
   align-items: center;
-  text-align: center;
-  color: black;
-  transition: 0.5s;
-  font-size: 18px;
-  
+  align-content: center;
+  list-style: none;
 }
 
-.menu-link-about:hover,
-.menu-link-movies:hover,
-.menu-link-food:hover{
-  transform: scale(0.9);
-  transition: 0.5s;
-
-}
-.menu-link-logo:hover,
-.menu-link-user:hover,
-.menu-link-mode:hover{
-  transform: scale(0.9);
-  transition: 0.5s;
-}
-.menu-link-user{
-  text-decoration: none;
-  padding-left: 120px;
-  display: grid;
-  height: 100%;
+.menu-des{
   width: 100%;
-  align-items: center;
-  text-align: center;
-}
-.menu-link-user .perfil{
-  display: block;
-  margin: auto;
-}
-.perfil{
-  height: 35px;
+  height: 100%;
 }
 .menu-des {
   list-style: none;
-  position: relative;
-  height: 100%;
   /*  --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
   --clip: polygon(0 0, 100% 0, 100% 0, 100% 0, 0 0);
 }
-
 .menu-des:hover {
   --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
@@ -240,29 +130,117 @@
   padding: 10px 100px 10px 30px;
 }
 
-.logo {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  transition: 5s;
-}
-.logo:hover{
-  transform: scale(0.8);
-  transition: 0.5s;
- 
+
+.menu-link-logo,
+.menu-item-logo,
+.menu-item-about,
+.menu-item-movies,
+.menu-item-food,
+.menu-itemSearchBar,
+.menu-item-mode,
+.menu-item-perfil{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  transition: 2s;
+}
+
+.menu-item-logo {
+  transition: 0.5s;
+  margin: auto;
+}
+.menu-item-logo:hover{
+  transform: scale(0.9);
+  transition: 0.5s;
+}
 .logoh {
-  align-items: center;
-  justify-content: space-between;
+  width: 80%;
+  height: 80%;
+  
+}
+
+
+.menu-itemSearchBar{
+  list-style: none;
+  /* border:2px solid red; */
+  font-weight: normal;
+  transition: 0.5s;
+}
+
+.link-food,
+.link-movies,
+.link-about{
+  text-decoration: none;
+  list-style: none;
+}
+
+.link-about,
+.link-movies,
+.link-food,
+.menu-link-mode,
+.menu-link-user{
   width: 100%;
   height: 100%;
-}
-.logoh:hover{
-  cursor: pointer;
-}
-
-
-.Switch{
-  font-size: 25px;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  transition: 0.4s;
+  font-size: 18px;
+  margin: auto;
 } 
+
+
+
+.link-about:hover,
+.link-food:hover,
+.link-movies:hover {
+  background-color: black;
+  color: yellow;
+}
+.link-about:hover .menu-link-about,
+.link-movies:hover .menu-link-movies,
+.link-food:hover .menu-link-food{
+  transform: scale(0.95);
+  transition: 0.1s;
+}
+
+
+.menu-link-mode,
+.menu-item-perfil,
+.menu-link-user{
+display: flex;
+align-items: center;
+text-align: center;
+}
+.perfil{
+  height: 35px;
+}
+
+
+
+
+.menu-item-perfil:hover,
+.menu-item-mode:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 0.3s;
+} 
+
+.iconD{
+  color: blue;
+}
+.iconN{
+color: crimson;
+}
