@@ -26,6 +26,14 @@ const Nav = ({ setCurrentPage }) => {
                 >
                   🌑
                 </div> */}
+                <label className="switch">
+                  <input
+                    className="menu-link menu-link--inside"
+                    onClick={(e) => toggleDarkLight(e)}
+                    type="checkbox"
+                  />
+                  <span className="slider"></span>
+                </label>
               </li>
 
               <li className="menu-inside">
