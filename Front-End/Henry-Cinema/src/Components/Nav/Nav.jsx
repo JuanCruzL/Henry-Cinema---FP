@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { iconNav } from "../../redux/actions";
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../img/menus.png";
 import perfil from "../../img/editar.png";
@@ -8,7 +10,19 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 import "./darkmode.css";
 
+import Brightness7SharpIcon from '@mui/icons-material/Brightness7Sharp';
+import Brightness5SharpIcon from '@mui/icons-material/Brightness5Sharp';
+
 const Nav = ({ setCurrentPage }) => {
+
+  const dispatch=useDispatch();
+  var modo = useSelector((state) => state.modo)
+
+
+  function Cmodo(e) {
+    dispatch(iconNav());
+    toggleDarkLight(e);
+  }
   return (
     <nav className="menu">
       <section className="menu-container">
@@ -20,6 +34,7 @@ const Nav = ({ setCurrentPage }) => {
             </div>
             <ul className="menu-nesting">
               <li className="menu-inside">
+
                 {/* <div
                   className="menu-link menu-link--inside"
                   onClick={(e) => toggleDarkLight(e)}
@@ -34,15 +49,18 @@ const Nav = ({ setCurrentPage }) => {
                   />
                   <span className="slider"></span>
                 </label>
+
               </li>
 
               <li className="menu-inside">
-                <Link to="/movies">
-                  <div className="menu-link menu-link--inside">Movies</div>
+                <Link to='/movies'>
+                  <div className="menu-link menu-link--inside">
+                    Movies
+                  </div>
                 </Link>
               </li>
               <li className="menu-inside">
-                <Link to="/foods">
+                <Link to='/foods'>
                   <div className="menu-link menu-link--inside">
                     Food & Drinks
                   </div>
@@ -56,11 +74,11 @@ const Nav = ({ setCurrentPage }) => {
             </ul>
           </li>
           {/* Menú Nav */}
-          <li className="menu-item-logo">
-            <Link to="/">
+          <Link to='/'>
+            <li className="menu-item-logo">
               <img src={logoCinema} className="logoh"></img>
-            </Link>
-          </li>
+            </li>
+          </Link>
 
           <li className="items">
             <Link to="/movies" className="link-movies">
@@ -88,10 +106,9 @@ const Nav = ({ setCurrentPage }) => {
           </label>
 
           <li className="menu-item">
+
             <div className="menu-link-user">
-              <Link to="/login">
-                <img src={perfil} className="perfil"></img>
-              </Link>
+              <img src={perfil} className="perfil"></img>
             </div>
           </li>
         </ul>
