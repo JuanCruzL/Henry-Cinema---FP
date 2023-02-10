@@ -11,8 +11,6 @@ import {
   GET_COMBOS,
   REQUEST_GENRES,
   SEARCH_FOOD,
-  GET_CURRENT_USER,
-  LOGIN_OR_REGISTER_USER_WITH_GOOGLE,
 } from "./actionTypes";
 
 //MOVIES
@@ -152,19 +150,6 @@ export const requestGenders = () => {
 export const signUp = (payload) => {
   return async (dispatch) => {
     try {
-<<<<<<< HEAD
-      console.log(payload);
-      const userCreated = await axios.post(
-        "http://localhost:3001/users",
-        payload
-      );
-      console.log(userCreated);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-};
-=======
       console.log(payload)
       const userCreated = await axios.post("http://localhost:3001/users", payload);
       console.log(userCreated);
@@ -176,12 +161,6 @@ export const signUp = (payload) => {
 
 
 
-//.............. 
-export function iconNav(){
-  return {
-    type: "MODO",
-  };
-}
 
 
 
@@ -189,10 +168,6 @@ export function iconNav(){
 
 
 
-
-
-
->>>>>>> develop
 
 // action.js
 
@@ -200,14 +175,14 @@ export function iconNav(){
 export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
-      const { email, given_name } = response;
-      console.log(email, given_name);
+      const { email, givenName } = response.profileObj;
       const userCreated = await axios.post(
         `http://localhost:3001/login/google`,
-        { email, userName: given_name }
+        { email, userName: givenName }
       );
+      console.log(userCreated.data);
       return dispatch({
-        type: LOGIN_OR_REGISTER_USER_WITH_GOOGLE,
+        type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
       });
     } catch (error) {
@@ -222,41 +197,31 @@ export const logInUserWithGoogle = (response) => {
 
 export const logInUser = (email, password) => {
   if (!email && !password) {
-    return console.log("Completa los campos para ingresar");
+    return message.warn("Completa los campos para ingresar");
   }
   if (!email) {
-    return console.log("Ingresa correo electronico");
+    return message.warn("Ingresa correo electronico");
   }
 
   if (!password) {
-    return console.log("Ingresa tu contraseña");
+    return message.warn("Ingresa tu contraseña");
   }
 
   try {
     return async (dispatch) => {
-<<<<<<< HEAD
       const loginCredentials = await axios.post("http://localhost:3001/login", {
         email,
         password,
       });
       console.log(loginCredentials.data);
-=======
-      const loginCredentials = await axios.post("http://localhost:3001/login",
-        {email, password},
-      );
-      // console.log(loginCredentials.data);
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
       return dispatch({
-        type: GET_CURRENT_USER,
+        type: "GET_CURRENT_USER",
         payload: loginCredentials.data,
       });
     };
   } catch (error) {
     console.log(error);
   }
-<<<<<<< HEAD
-};
-=======
 } 
 
 
@@ -264,4 +229,3 @@ export const logInUser = (email, password) => {
 
 
 
->>>>>>> develop
