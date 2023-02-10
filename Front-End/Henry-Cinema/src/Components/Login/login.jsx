@@ -4,23 +4,10 @@ import "./Login.css";
 import logo from "../Utils/logo-henry-cinema.png";
 import { logInUser, logInUserWithGoogle, signUp } from "../../redux/actions";
 import  { useDispatch, useSelector } from "react-redux";
-import  { gapi } from "gapi-script";
-import GoogleLogin from "react-google-login";
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 export default function Login() {
-  const clientID = "477306609599-5o0edff2tn0sleie9sgbd2crv3ftt1gh.apps.googleusercontent.com";
-
-  useEffect( () => {
-    const start = () => {
-        gapi.auth2.init({
-          clientId: clientID,
-        })
-    }
-
-    gapi.load("client:auth2", start)
-  }, []);
-
   const currentUser = useSelector(state => state.currentUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -47,13 +34,18 @@ export default function Login() {
     password: "",
   });
 
-  /* Si el usuario esta ya conectado redireccionarlo a home*/
-  // useEffect( () => {
-  //   console.log(currentUser);
-  //   if(currentUser.accessToken) {
-  //     navigate("/");
-  //   }
-  // }, [currentUser]);
+  useEffect(() => {
+    google.accounts.id.initialize({
+      client_id: import.meta.env.VITE_FRONTEND_CLIENT_ID,
+      callback: onSuccess,
+    })
+
+    google.accounts.id.renderButton(
+      document.getElementById('googleButton'),
+      { theme: "outline", size: "large" }
+    );
+
+  }, []);
 
 //-------------------------------------------HANDLERS-----------------------------------------------------
 
@@ -91,7 +83,7 @@ export default function Login() {
     // console.log(formIn)
     e.preventDefault();
     dispatch(logInUser(formIn.email, formIn.password));
-    // console.log(currentUser);
+    console.log(currentUser);
     if(currentUser.accessToken) navigate("/");
   };
 
@@ -123,22 +115,15 @@ export default function Login() {
   };
 
   function onSuccess (response) {
-    // setFormIn({
-    //   email: response.profileObj.email,
-    //   userName: response.profileObj.givenName
-    // })
-    // console.log(response);
     try {
-      dispatch(logInUserWithGoogle(response));
+      const userObject = jwt_decode(response.credential);
+      console.log(userObject);
+      dispatch(logInUserWithGoogle(userObject));
       console.log(currentUser);
       navigate("/");
     } catch (error) {
       console.log(error);
     }
-  }
-
-  const onFailure = () => {
-    console.log("Something went wrong");
   }
 
   //-------------------------------------------SIGN IN FORM-----------------------------------
@@ -181,13 +166,8 @@ export default function Login() {
                 />
                 <button className="buttonSubmit" type="submit">Sign in</button>
               </form>
-              <div className="googleButton">
-                <GoogleLogin
-                  clientId={clientID}
-                  onSuccess={onSuccess}
-                  onFailure={onFailure}
-                  cookiePolicy={"single_host_policy"}
-                />
+              <div id="googleButton">
+                
               </div>
             </div>
           </div>
@@ -257,7 +237,7 @@ export default function Login() {
                 </label>
                 <button className="buttonSubmitup" type="submit">Sign Up</button>
               </form>
-              <div id="googleButton"></div>
+              {/* <div id="googleButton"></div> */}
             </div>
           </div>
         </div>
