@@ -152,33 +152,24 @@ export const requestGenders = () => {
 export const signUp = (payload) => {
   return async (dispatch) => {
     try {
-      console.log(payload)
-      const userCreated = await axios.post("http://localhost:3001/users", payload);
+      console.log(payload);
+      const userCreated = await axios.post(
+        "http://localhost:3001/users",
+        payload
+      );
       console.log(userCreated);
-    }catch(e) {
-      console.log(e)
+    } catch (e) {
+      console.log(e);
     }
-  }
-}
+  };
+};
 
-
-
-//.............. 
-export function iconNav(){
+//..............
+export function iconNav() {
   return {
     type: "MODO",
   };
 }
-
-
-
-
-
-
-
-
-
-
 
 // action.js
 
@@ -196,29 +187,13 @@ export const logInUserWithGoogle = (response) => {
         type: LOGIN_OR_REGISTER_USER_WITH_GOOGLE,
         payload: userCreated.data,
       });
-
     } catch (error) {
       console.log("el error de logInUserWithGoogle es:", error.message);
     }
-  }
-}
-
-
-
-
-
-
-
-
-
+  };
+};
 
 // actions.js
-
-
-
-
-
-
 
 // busca en la base de datos al usuario y lo logea con su token faltaria navigates en el componente
 
@@ -236,22 +211,17 @@ export const logInUser = (email, password) => {
 
   try {
     return async (dispatch) => {
-      const loginCredentials = await axios.post("http://localhost:3001/login",
-        {email, password},
-      );
+      const loginCredentials = await axios.post("http://localhost:3001/login", {
+        email,
+        password,
+      });
       // console.log(loginCredentials.data);
       return dispatch({
         type: GET_CURRENT_USER,
         payload: loginCredentials.data,
       });
-    }  
+    };
   } catch (error) {
     console.log(error);
   }
-} 
-
-
-
-
-
-
+};
