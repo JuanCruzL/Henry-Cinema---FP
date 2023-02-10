@@ -18,6 +18,7 @@ const initialState = {
   combos: [],
   copyCombos: [],
   currentUser: {},
+  seats:[]
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -29,6 +30,22 @@ const rootReducer = (state = initialState, action) => {
         movies: action.payload,
         allMovies: action.payload,
         searchMovies: action.payload,
+      };
+    }
+    case "GET_SEATS": {
+      return {
+        ...state,
+        seats: action.payload,
+      };
+    }
+    case "AGE_CLASSIFICATION": {
+      const allM = state.allMovies;
+      const age_classification = allM.filter(
+        (data) => data.classification === payload
+      );
+      return {
+        ...state,
+        movies: age_classification,
       };
     }
     case "GET_MOVIE_ID":
@@ -124,7 +141,11 @@ const rootReducer = (state = initialState, action) => {
         ),
       };
 
+<<<<<<< HEAD
     case "LOGIN_OR_REGISTER_USER_WITH_GOOGLE":
+=======
+    case "POST_USER_WITH_GOOGLE":
+>>>>>>> 3af6e1bb08dcda406cda05afc6e02c92f11f1186
       return {
         ...state,
         currentUser: action.payload,
