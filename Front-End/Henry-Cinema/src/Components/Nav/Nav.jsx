@@ -8,6 +8,7 @@ import logoCinema from "../../img/logoHenryNav.png";
 import { toggleDarkLight } from "../Utils/Switch";
 import { Link } from "react-router-dom";
 import "./Nav.css";
+import "./darkmode.css";
 
 import Brightness7SharpIcon from '@mui/icons-material/Brightness7Sharp';
 import Brightness5SharpIcon from '@mui/icons-material/Brightness5Sharp';
@@ -33,13 +34,24 @@ const Nav = ({ setCurrentPage }) => {
             </div>
             <ul className="menu-nesting">
               <li className="menu-inside">
-                <Link to='/about'>
-                  <div className="menu-link menu-link--inside">
-                    About Us
-                  </div>
-                </Link>
+
+                {/* <div
+                  className="menu-link menu-link--inside"
+                  onClick={(e) => toggleDarkLight(e)}
+                >
+                  🌑
+                </div> */}
+                <label className="switch">
+                  <input
+                    className="menu-link menu-link--inside"
+                    onClick={(e) => toggleDarkLight(e)}
+                    type="checkbox"
+                  />
+                  <span className="slider"></span>
+                </label>
 
               </li>
+
               <li className="menu-inside">
                 <Link to='/movies'>
                   <div className="menu-link menu-link--inside">
@@ -54,6 +66,11 @@ const Nav = ({ setCurrentPage }) => {
                   </div>
                 </Link>
               </li>
+              <li className="menu-inside">
+                <Link to="/about">
+                  <div className="menu-link menu-link--inside">About Us</div>
+                </Link>
+              </li>
             </ul>
           </li>
           {/* Menú Nav */}
@@ -63,44 +80,33 @@ const Nav = ({ setCurrentPage }) => {
             </li>
           </Link>
 
-          <Link to='/about' className="link-about">
-            <li className="menu-item-about">
-              <div className="menu-link-about">
-                About Us
-              </div>
-            </li>
-          </Link>
+          <li className="items">
+            <Link to="/movies" className="link-movies">
+              <div className="menu-link">Movies</div>
+            </Link>
+          </li>
+          <li className="items">
+            <Link to="/foods" className="link-foods">
+              <div className="menu-link">Food & Drinks</div>
+            </Link>
+          </li>
+          <li className="items">
+            <Link to="/about" className="link-about">
+              <div className="menu-link">About Us</div>
+            </Link>
+          </li>
 
-          <Link to='/movies' className="link-movies">
-            <li className="menu-item-movies">
-              <div className="menu-link-movies">
-                Movies
-              </div>
-            </li>
-          </Link>
-          <Link to='/foods' className="link-food">
-            <li className="menu-item-food">
-
-              <div className="menu-link-food">
-                Food & Drinks
-              </div>
-            </li>
-          </Link>
           <li className="menu-itemSearchBar">
             <SearchBar setCurrentPage={setCurrentPage} />
           </li>
-          <li className="menu-item-mode">
-            <div className="menu-link-mode" onClick={(e) => Cmodo(e)}>
-              {
-                modo === "dia"? (
-                  <Brightness7SharpIcon className="iconD" fontSize="large" />)
-              :modo === "noche" && (
-                <Brightness5SharpIcon className="iconN" fontSize="large" />
-              )
-              }
-            </div>
-          </li>
-          <li className="menu-item-perfil">
+
+          <label className="switch">
+            <input onClick={(e) => toggleDarkLight(e)} type="checkbox" />
+            <span className="slider"></span>
+          </label>
+
+          <li className="menu-item">
+
             <div className="menu-link-user">
               <img src={perfil} className="perfil"></img>
             </div>

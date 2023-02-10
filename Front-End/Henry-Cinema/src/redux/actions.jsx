@@ -11,6 +11,8 @@ import {
   GET_COMBOS,
   REQUEST_GENRES,
   SEARCH_FOOD,
+  GET_CURRENT_USER,
+  LOGIN_OR_REGISTER_USER_WITH_GOOGLE,
 } from "./actionTypes";
 axios.defaults.baseURL = "http://localhost:3001"
 //axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/"
@@ -188,13 +190,14 @@ export function iconNav(){
 export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
-      const { email, givenName } = response.profileObj;
+      const { email, given_name } = response;
+      console.log(email, given_name);
       const userCreated = await axios.post(
         `/login/google`,
-        { email, userName: givenName }
+        { email, userName: given_name }
       );
       return dispatch({
-        type: "POST_USER_WITH_GOOGLE",
+        type: LOGIN_OR_REGISTER_USER_WITH_GOOGLE,
         payload: userCreated.data,
       });
 
@@ -242,7 +245,7 @@ export const logInUser = (email, password) => {
       );
       // console.log(loginCredentials.data);
       return dispatch({
-        type: "GET_CURRENT_USER",
+        type: GET_CURRENT_USER,
         payload: loginCredentials.data,
       });
     }  

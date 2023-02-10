@@ -22,31 +22,20 @@
 
 /*------------------------------------------------------------------------------*/
 
-.search-container {
-  width: 90%;
-}
-.input-icons {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 90% 10%;
-  margin: auto;
-  /* border:2px solid blue; */
-  
+.input-field {
+  padding: 2px;
+  max-width: 70%;
+  min-height: 28px;
+  background-color: whitesmoke;
+  border: 2px solid var(--NBase-2);
 }
 
-.input-field {
-  padding-left: 2%;
-  text-align: center;
-  width: 95%;
-  height: 100%;
-  border:1px solid black;
-  background-color: whitesmoke;
+input[type="text"] {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
-  text-align: left;
-} 
-
+  width: 80%;
+}
 
 
  
