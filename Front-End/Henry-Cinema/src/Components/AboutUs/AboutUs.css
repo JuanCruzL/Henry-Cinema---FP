@@ -62,7 +62,7 @@
     margin: auto;
     /*DIVIDIMOS EL CONTENEDOR EN 3 FILAS*/
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     justify-content: center;
     align-items: center;
     text-align: center;
