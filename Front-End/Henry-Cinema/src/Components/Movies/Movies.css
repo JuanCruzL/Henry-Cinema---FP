@@ -9,21 +9,21 @@
 }
 
 .light-mode .movies-filter {
-  background-color: var(--BaseL);
+  background-color: var(--LBase-1);
   box-shadow: var(--LDegradado) 0px 5px 15px;
   border: 1px solid var(--LDegradado);
 }
 
 .light-mode .Filter-results {
   box-shadow: var(--LDegradado) 0px 5px 15px;
-  background-color: #ffff92;
+  background-color: var(--BaseL);
 }
 .light-mode .carousel-movies-b h1 {
   color: var(--LText-1);
 }
 .light-mode .movies-filter select {
-  background-color: var(--LBase-1);
-  color: var(--LText-2);
+  background-color: var(--BaseL);
+  color: var(--LText-1);
 }
 
 .dark-mode .ContainerMovies {
@@ -37,13 +37,13 @@
 }
 
 .dark-mode .movies-filter {
-  background-color: var(--LBase-1);
+  background-color: var(--NDegradado3);
   box-shadow: var(--LDegradado) rgba(0, 0, 0, 0.39);
 }
 
 .dark-mode .Filter-results {
   box-shadow: var(--LDegradado) 0px 5px 15px;
-  background-color: var(--LDegradado);
+  background-color: var(--NDegradado3);
 }
 .dark-mode .carousel-movies-b h1 {
   color: var(--NText-1);
@@ -87,7 +87,6 @@
 }
 
 .movies-filter {
-  grid-area: movies-filter;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -106,11 +105,7 @@
   border: none;
   cursor: pointer;
 }
-.selects {
-  text-align: center;
-  color: var(--LText-3);
-  border-radius: 0%;
-}
+
 .movies-Result {
   grid-area: movies-Result;
   height: 100%;
