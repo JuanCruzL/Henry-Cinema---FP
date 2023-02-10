@@ -1,3 +1,6 @@
+
+
+
 .light-mode .input-field {
   border: 2px solid var(--NBase-2);
   color: var(--NText-2);
@@ -14,13 +17,26 @@
   color: var(--NText-2);
 }
 .dark-mode .input-field:focus {
+
   border: 2px solid var(--NBase-2);
   background-color: var(--NBase-1);
   color: var(--NText-2);
 }
 
 
+.dark-mode .input-field {
+  border: 2px solid var(--NBase-2);
+  color: var(--NText-2);
+}
+.dark-mode .input-field:focus {
+  border: 2px solid var(--NBase-2);
+  background-color: var(--NBase-1);
+  color: var(--NText-2);
+}
+
 /*------------------------------------------------------------------------------*/
+
+
 
 .input-field {
   padding: 2px;
@@ -28,6 +44,7 @@
   min-height: 28px;
   background-color: whitesmoke;
   border: 2px solid var(--NBase-2);
+
 }
 
 input[type="text"] {
@@ -38,10 +55,9 @@ input[type="text"] {
 }
 
 
- 
-
 .button-search{
   width: 100%;
   height: 100%;
+
   /* border:2px solid red; */
 }
