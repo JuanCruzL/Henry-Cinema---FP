@@ -1,4 +1,5 @@
 :root {
+  --Gold:gold;
   --Degradado: rgba(217, 217, 217, 0.132);
   /* LIGHT */
   --BaseL: #ffff00;
@@ -6,6 +7,7 @@
   --LBase-1: #000000;
   --LBase-2: #ffffff;
   --LFondo-1: #ffffff;
+  --LFondo-2:whitesmoke;
   --LText-1: #000000;
   --LText-2: #ffffff;
   --LText-3: #ffff00;
@@ -18,6 +20,7 @@
   --NBase-1: #ffffff;
   --NBase-2: #000000;
   --NFondo-1: #111111;
+  --NFondo-2:rgb(10, 10, 10);
   --NText-1: #ffffff;
   --NText-2: #000000;
   --NDegradado: rgba(232, 225, 7, 0.39);

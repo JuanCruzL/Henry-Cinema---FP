@@ -1,45 +1,70 @@
-.About-container{
-    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
+
+.light-mode .About-container{
+    background-color: var(--LFondo-2);
+}
+.light-mode .title-team,
+.light-mode .container-text-app .About-text{
+    color:var(--LText-1);
 }
 
-.container-about-all{
-    display: flex;
+
+
+
+.dark-mode .About-container{
+    background-color: var(--NFondo-2);
+}
+.dark-mode .title-team,
+.dark-mode .container-text-app .About-text{
+    color:var(--NText-1);
+}
+
+
+.container-all-about{
     align-items: center;
 }
-.container-about-us{
-    height:100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* border:2px solid blue  */
-    align-items: center;
+
+.About-container{
+    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
+
+    /*DIVIDIMOS EL CONTENEDOR EN 3 COLUMNAS*/
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+/*Primer contenedor*/
+.container-text-app{
     text-align: center;
+    font-size: 19px;
+    width: 80%;
+    margin: auto;
+    padding: 30px;
 }
+.container-text-app .About-text{
+    text-align: justify;
+}
+.container-text-app .logo-henry{
+    width:25%;
+    height: 120px;
+    padding: 10px;
+}
+
+/*Segundo contenedor*/
 .title-team{
     text-align: center;
-    margin-top: 60px;
-    /* border: 2px solid red; */
-    font-size: 30px;
-}
-.container-border{
-    /* border-bottom: 2px solid black; */
-    /* background-color:#111111; */
-    background-color:whitesmoke;
-    height: 55vh;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-.container-text-app{
-    display :block;
-    text-align: center;
-    padding: 25px;
-    font-size: 19px;
-    text-indent: 50px;
-    width: 70%;
     margin: auto;
-    color:black;
-    
+    font-size: 40px;
 }
-.logo-henry{
-    width:15%;
-   
+
+/*Tercer Contenedor*/
+.container-about-us{
+    width: 90%;
+    height:100%;
+    margin: auto;
+    /*DIVIDIMOS EL CONTENEDOR EN 3 FILAS*/
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+
