@@ -73,8 +73,8 @@ export const deleteMovie = (id) => {
     try {
       const response = await axios.delete(`http://localhost:3001/movies/${id}`);
       if (response.data === "The movie has been removed") {
-        const allMovies = await axios.get(`http://localhost:3001/movies`);
-        return dispatch({ type: DELETE_MOVIE, payload: allMovies.data });
+        //const allMovies = await axios.get(`http://localhost:3001/movies`);
+        return dispatch({ type: DELETE_MOVIE });
       }
     } catch (error) {
       console.log(error.message);
@@ -184,6 +184,7 @@ export const requestGenders = () => {
 export const signUp = (payload) => {
   return async (dispatch) => {
     try {
+<<<<<<< HEAD
       console.log(payload)
       const userCreated = await axios.post("http://localhost:3001/users", payload);
       console.log(userCreated);
@@ -211,6 +212,19 @@ export function iconNav(){
 
 
 
+=======
+      console.log(payload);
+      const userCreated = await axios.post(
+        "http://localhost:3001/users",
+        payload
+      );
+      console.log(userCreated);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+>>>>>>> 14c32ce88de7a459116c5f34b187e1becb2068d4
 
 // action.js
 
@@ -218,6 +232,7 @@ export function iconNav(){
 export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
+<<<<<<< HEAD
       const { email, given_name } = response;
       console.log(email, given_name);
       const userCreated = await axios.post(
@@ -243,6 +258,23 @@ export const logInUserWithGoogle = (response) => {
 
 
 
+=======
+      const { email, givenName } = response.profileObj;
+      const userCreated = await axios.post(
+        `http://localhost:3001/login/google`,
+        { email, userName: givenName }
+      );
+      console.log(userCreated.data);
+      return dispatch({
+        type: "POST_USER_WITH_GOOGLE",
+        payload: userCreated.data,
+      });
+    } catch (error) {
+      console.log("el error de logInUserWithGoogle es:", error.message);
+    }
+  };
+};
+>>>>>>> 14c32ce88de7a459116c5f34b187e1becb2068d4
 
 // actions.js
 
@@ -280,6 +312,7 @@ export const logInUser = (email, password) => {
   } catch (error) {
     console.log(error);
   }
+<<<<<<< HEAD
 } 
 
 
@@ -287,3 +320,6 @@ export const logInUser = (email, password) => {
 
 
 
+=======
+};
+>>>>>>> 14c32ce88de7a459116c5f34b187e1becb2068d4
