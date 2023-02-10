@@ -15,12 +15,9 @@ import {
   SEARCH_FOOD,
 } from "./actionTypes";
 
-<<<<<<< HEAD
-=======
-axios.defaults.baseURL = "http://localhost:3001"
+axios.defaults.baseURL = "http://localhost:3001";
 //axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/"
 
->>>>>>> edc5883d7d46c9b93f7d359b3a7ed1d51d4351f2
 //MOVIES
 
 export const getMovies = () => {
@@ -177,16 +174,8 @@ export const requestGenders = () => {
 export const signUp = (payload) => {
   return async (dispatch) => {
     try {
-<<<<<<< HEAD
       console.log(payload);
-      const userCreated = await axios.post(
-        "http://localhost:3001/users",
-        payload
-      );
-=======
-      console.log(payload)
       const userCreated = await axios.post("/users", payload);
->>>>>>> edc5883d7d46c9b93f7d359b3a7ed1d51d4351f2
       console.log(userCreated);
     } catch (e) {
       console.log(e);
@@ -201,10 +190,10 @@ export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
       const { email, givenName } = response.profileObj;
-      const userCreated = await axios.post(
-        `/login/google`,
-        { email, userName: givenName }
-      );
+      const userCreated = await axios.post(`/login/google`, {
+        email,
+        userName: givenName,
+      });
       console.log(userCreated.data);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
@@ -234,16 +223,7 @@ export const logInUser = (email, password) => {
 
   try {
     return async (dispatch) => {
-<<<<<<< HEAD
-      const loginCredentials = await axios.post("http://localhost:3001/login", {
-        email,
-        password,
-      });
-=======
-      const loginCredentials = await axios.post("/login",
-        {email, password},
-      );
->>>>>>> edc5883d7d46c9b93f7d359b3a7ed1d51d4351f2
+      const loginCredentials = await axios.post("/login", { email, password });
       console.log(loginCredentials.data);
       return dispatch({
         type: "GET_CURRENT_USER",
