@@ -14,75 +14,69 @@ const Nav = ({ setCurrentPage }) => {
         <ul className="menu-links">
           {/* Menú desplegable */}
           <li className="menu-des">
-            <div  className="menu-link-logo">
-              <img src={logo}className="logo"></img>
+            <div className="menu-link-logo">
+              <img src={logo} className="logo"></img>
             </div>
             <ul className="menu-nesting">
               <li className="menu-inside">
-                <Link to ='/about'>
-                <div className="menu-link menu-link--inside">
-                  About Us
+                <div
+                  className="menu-link menu-link--inside"
+                  onClick={(e) => toggleDarkLight(e)}
+                >
+                  🌑
                 </div>
-                </Link>
-                
               </li>
               <li className="menu-inside">
-                <Link to='/movies'>
+                <Link to="/about">
+                  <div className="menu-link menu-link--inside">About Us</div>
+                </Link>
+              </li>
+              <li className="menu-inside">
+                <Link to="/movies">
+                  <div className="menu-link menu-link--inside">Movies</div>
+                </Link>
+              </li>
+              <li className="menu-inside">
+                <Link to="/foods">
                   <div className="menu-link menu-link--inside">
-                    Movies
+                    Food & Drinks
                   </div>
-                </Link>
-              </li>
-              <li className="menu-inside">
-                <Link to='/foods'>
-                <div className="menu-link menu-link--inside">
-                  Food & Drinks
-                </div>
                 </Link>
               </li>
             </ul>
           </li>
           {/* Menú Nav */}
           <li className="menu-item-logo">
-            <Link to='/'>
-            <img src={logoCinema} className="logoh"></img>
+            <Link to="/">
+              <img src={logoCinema} className="logoh"></img>
             </Link>
           </li>
 
-          <li className="menu-item-about">
-            <Link to='/about' className="link-about">
-            <div  className="menu-link-about">
-              About Us
-            </div>
+          <li className="items">
+            <Link to="/about" className="link-about">
+              <div className="menu-link">About Us</div>
             </Link>
           </li>
 
-          <li className="menu-item-movies">
-          <Link to='/movies' className="link-movies">
-
-            <div className="menu-link-movies">
-              Movies
-            </div>
-          </Link>
+          <li className="items">
+            <Link to="/movies" className="link-movies">
+              <div className="menu-link">Movies</div>
+            </Link>
           </li>
-          <li className="menu-item-food">
-            
-            <Link to ='/foods' className="link-foods">
-              <div className="menu-link-food">
-              Food & Drinks
-            </div></Link>
+          <li className="items">
+            <Link to="/foods" className="link-foods">
+              <div className="menu-link">Food & Drinks</div>
+            </Link>
           </li>
           <li className="menu-itemSearchBar">
             <SearchBar setCurrentPage={setCurrentPage} />
           </li>
-          <li className="menu-item-mode">
-            <div className="menu-link-mode" onClick={e => toggleDarkLight(e)}>
-              <button type="button" className="Switch" title="Toggle dark/light mode">🌑</button>
-            </div>
-          </li>
-          <li className="menu-item-perfil">
+
+          <li className="menu-item">
             <div className="menu-link-user">
-              <img src={perfil} className="perfil"></img>
+              <Link to="/login">
+                <img src={perfil} className="perfil"></img>
+              </Link>
             </div>
           </li>
         </ul>
