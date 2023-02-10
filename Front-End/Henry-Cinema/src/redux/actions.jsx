@@ -2,7 +2,7 @@ import axios from "axios";
 const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
 export const GET_MOVIES = "GET_MOVIES";
 export const GET_RELEASES = "GET_RELEASES";
-export const REQUEST_GENDERS = 'REQUEST_GENDERS';
+export const REQUEST_GENDERS = "REQUEST_GENDERS";
 export const GET_SEATS = "GET_SEATS";
 import {
   GET_MOVIE_ID,
@@ -14,7 +14,6 @@ import {
   REQUEST_GENRES,
   SEARCH_FOOD,
 } from "./actionTypes";
-
 
 //MOVIES
 
@@ -158,10 +157,7 @@ export const getasientos = () => {
   };
 };
 
-
 // actions.js
-
-
 
 //GENRES
 
@@ -186,23 +182,6 @@ export const signUp = (payload) => {
     }
   };
 };
-
-<<<<<<< HEAD
-//..............
-export function iconNav() {
-  return {
-    type: "MODO",
-  };
-}
-=======
-
-
-
-
-
-
-
->>>>>>> 3af6e1bb08dcda406cda05afc6e02c92f11f1186
 
 // action.js
 
@@ -244,18 +223,11 @@ export const logInUser = (email, password) => {
 
   try {
     return async (dispatch) => {
-<<<<<<< HEAD
       const loginCredentials = await axios.post("http://localhost:3001/login", {
         email,
         password,
       });
-      // console.log(loginCredentials.data);
-=======
-      const loginCredentials = await axios.post("http://localhost:3001/login",
-        {email, password},
-      );
       console.log(loginCredentials.data);
->>>>>>> 3af6e1bb08dcda406cda05afc6e02c92f11f1186
       return dispatch({
         type: "GET_CURRENT_USER",
         payload: loginCredentials.data,
