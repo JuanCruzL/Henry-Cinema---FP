@@ -1,7 +1,98 @@
-.newmovie {
-    background-color: rebeccapurple;
+.newMovie {
+    width: 100%;
+    display: flex;
 
-    .title {
-        color: white;
+    .newContainer {
+        flex: 6;
+
+        .top {
+            background-color: rgb(225, 224, 224);
+            .title{
+                font-size: 20px;
+            }
+        }
+
+        .top,
+        .bottom {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 10px;
+            margin: 20px;
+            display: flex;
+            
+            .bottom {
+                background-color: whitesmoke;
+            }
+
+        
+
+            h1{
+                color: black;
+
+            }
+
+            img{
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+            }
+
+            .left {
+                flex: 1;
+                text-align: center;
+
+            }
+
+            .right {
+                flex: 2;
+
+                form {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 30px;
+                    justify-content: space-around;
+
+                    .formInput {
+                        width: 40%;
+
+                        .inputNM {
+                                width: 100%;
+                                padding: 5px;
+                                border: none;
+                                border-bottom: 1px solid grey;
+                        
+                            }
+
+                        label{
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+
+                            .icon {
+                                cursor: pointer;
+                            }
+                        }
+
+
+                    }
+
+                    button{
+                        width: 150px;
+                        padding: 10px;
+                        border: none;
+                        background-color: yellow;
+                        color: black;
+                        font-weight: bold;
+                        justify-content: center;
+                        cursor: pointer;
+                        margin-top: 10px;
+
+                    }
+                }
+            }
+        }
     }
+
+    
 }
+
+
