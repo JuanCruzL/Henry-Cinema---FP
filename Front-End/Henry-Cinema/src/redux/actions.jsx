@@ -150,6 +150,7 @@ export const requestGenders = () => {
 export const signUp = (payload) => {
   return async (dispatch) => {
     try {
+<<<<<<< HEAD
       console.log(payload);
       const userCreated = await axios.post(
         "http://localhost:3001/users",
@@ -161,6 +162,26 @@ export const signUp = (payload) => {
     }
   };
 };
+=======
+      console.log(payload)
+      const userCreated = await axios.post("http://localhost:3001/users", payload);
+      console.log(userCreated);
+    }catch(e) {
+      console.log(e)
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+>>>>>>> develop
 
 // action.js
 
@@ -215,4 +236,14 @@ export const logInUser = (email, password) => {
   } catch (error) {
     console.log(error);
   }
+<<<<<<< HEAD
 };
+=======
+} 
+
+
+
+
+
+
+>>>>>>> develop
