@@ -4,25 +4,13 @@ import "./Login.css";
 import logo from "../Utils/logo-henry-cinema.png";
 import { logInUser, logInUserWithGoogle, signUp } from "../../redux/actions";
 import  { useDispatch, useSelector } from "react-redux";
-import  { gapi } from "gapi-script";
-import GoogleLogin from "react-google-login";
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 export default function Login() {
-
-  const clientID = "477306609599-5o0edff2tn0sleie9sgbd2crv3ftt1gh.apps.googleusercontent.com";
-
-  useEffect( () => {
-    const start = () => {
-        gapi.auth2.init({
-          clientId: clientID,
-        })
-    }
-
-    gapi.load("client:auth2", start)
-  }, [])
-
-  const dispatch = useDispatch()
-  
+  const currentUser = useSelector(state => state.currentUser);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [sign, setSign] = useState("sign-in");
   const [checked2, setChecked2] = useState(false);
   const [errors, setErrors] = useState({
@@ -31,13 +19,14 @@ export default function Login() {
     formupFullname: false,
     formupPassword: false,
     formupEmail: false,
+
   });
 
   const [formUp, setFormUp] = useState({
     userName: "",
     email: "",
     password: "",
-    // notifications: false, // me saltaba error luego lo corrijo, o si quieres modifica el controller users
+    notifications: "false", //no deja postear si el valor booleano false no esta entre comillas
   });
 
   const [formIn, setFormIn] = useState({
@@ -45,6 +34,18 @@ export default function Login() {
     password: "",
   });
 
+  useEffect(() => {
+    google.accounts.id.initialize({
+      client_id: import.meta.env.VITE_FRONTEND_CLIENT_ID,
+      callback: onSuccess,
+    })
+
+    google.accounts.id.renderButton(
+      document.getElementById('googleButton'),
+      { theme: "outline", size: "large" }
+    );
+
+  }, []);
 
 //-------------------------------------------HANDLERS-----------------------------------------------------
 
@@ -79,11 +80,11 @@ export default function Login() {
 
 
   const handleSubmitIn = (e) => {
-    console.log(formIn)
+    // console.log(formIn)
     e.preventDefault();
     dispatch(logInUser(formIn.email, formIn.password));
-
-
+    console.log(currentUser);
+    if(currentUser.accessToken) navigate("/");
   };
 
   const handleSubmitUp=(e) => {
@@ -93,9 +94,9 @@ export default function Login() {
       userName:"",
       email: "",
       password: "",
-      // notifications: checked2,
+      notifications: checked2,
     })
-  }
+  };
 
   const handleChangeIn = (e) => {
     setFormIn({
@@ -114,16 +115,15 @@ export default function Login() {
   };
 
   function onSuccess (response) {
-    // setFormIn({
-    //   email: response.profileObj.email,
-    //   userName: response.profileObj.givenName
-    // })
-    
-    dispatch(logInUserWithGoogle(response));
-  }
-
-  const onFailure = () => {
-    console.log("Something went wrong");
+    try {
+      const userObject = jwt_decode(response.credential);
+      console.log(userObject);
+      dispatch(logInUserWithGoogle(userObject));
+      console.log(currentUser);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   //-------------------------------------------SIGN IN FORM-----------------------------------
@@ -166,13 +166,8 @@ export default function Login() {
                 />
                 <button className="buttonSubmit" type="submit">Sign in</button>
               </form>
-              <div className="googleButton">
-                <GoogleLogin
-                  clientId={clientID}
-                  onSuccess={onSuccess}
-                  onFailure={onFailure}
-                  cookiePolicy={"single_host_policy"}
-                />
+              <div id="googleButton">
+                
               </div>
             </div>
           </div>
@@ -201,7 +196,6 @@ export default function Login() {
                 <p className="sign-upPselect" onClick={() => handleSign("sign-up")}>
                   Sign up
                 </p>
-                <p>{String(formUp.notifications)}</p>
               </div>
               <form onSubmit={(e) => handleSubmitUp(e)}>
                 <p className={errors.formupFullname ? "baddesc-p": "desc-p"}>FULL NAME</p>
@@ -243,7 +237,7 @@ export default function Login() {
                 </label>
                 <button className="buttonSubmitup" type="submit">Sign Up</button>
               </form>
-              <div id="googleButton"></div>
+              {/* <div id="googleButton"></div> */}
             </div>
           </div>
         </div>

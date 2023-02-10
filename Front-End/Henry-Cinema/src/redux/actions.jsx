@@ -11,6 +11,8 @@ import {
   GET_COMBOS,
   REQUEST_GENRES,
   SEARCH_FOOD,
+  GET_CURRENT_USER,
+  LOGIN_OR_REGISTER_USER_WITH_GOOGLE,
 } from "./actionTypes";
 
 //MOVIES
@@ -150,6 +152,7 @@ export const requestGenders = () => {
 export const signUp = (payload) => {
   return async (dispatch) => {
     try {
+<<<<<<< HEAD
       console.log(payload);
       const json = await axios.post("http://localhost:3001/", payload);
     } catch (e) {
@@ -157,3 +160,108 @@ export const signUp = (payload) => {
     }
   };
 };
+=======
+      console.log(payload)
+      const userCreated = await axios.post("http://localhost:3001/users", payload);
+      console.log(userCreated);
+    }catch(e) {
+      console.log(e)
+    }
+  }
+}
+
+
+
+//.............. 
+export function iconNav(){
+  return {
+    type: "MODO",
+  };
+}
+
+
+
+
+
+
+
+
+
+
+
+// action.js
+
+// busca o crear al usuario en la base de datos con sus datos de google
+export const logInUserWithGoogle = (response) => {
+  return async (dispatch) => {
+    try {
+      const { email, given_name } = response;
+      console.log(email, given_name);
+      const userCreated = await axios.post(
+        `http://localhost:3001/login/google`,
+        { email, userName: given_name }
+      );
+      return dispatch({
+        type: LOGIN_OR_REGISTER_USER_WITH_GOOGLE,
+        payload: userCreated.data,
+      });
+
+    } catch (error) {
+      console.log("el error de logInUserWithGoogle es:", error.message);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+// actions.js
+
+
+
+
+
+
+
+// busca en la base de datos al usuario y lo logea con su token faltaria navigates en el componente
+
+export const logInUser = (email, password) => {
+  if (!email && !password) {
+    return console.log("Completa los campos para ingresar");
+  }
+  if (!email) {
+    return console.log("Ingresa correo electronico");
+  }
+
+  if (!password) {
+    return console.log("Ingresa tu contraseña");
+  }
+
+  try {
+    return async (dispatch) => {
+      const loginCredentials = await axios.post("http://localhost:3001/login",
+        {email, password},
+      );
+      // console.log(loginCredentials.data);
+      return dispatch({
+        type: GET_CURRENT_USER,
+        payload: loginCredentials.data,
+      });
+    }  
+  } catch (error) {
+    console.log(error);
+  }
+} 
+
+
+
+
+
+
+>>>>>>> 181a25c7aba7f2d973cce6dc085e0fcfef121f06
