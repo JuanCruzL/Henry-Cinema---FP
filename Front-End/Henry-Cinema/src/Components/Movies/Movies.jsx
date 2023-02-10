@@ -156,7 +156,11 @@ const Movies = () => {
         </section>
 
         <section className="movies-filter">
-          <select onChange={handleSelect} value={selectedGenre}>
+          <select
+            className="selects"
+            onChange={handleSelect}
+            value={selectedGenre}
+          >
             <option value="" style={{ color: "red" }}>
               {selectedGenre ? "All" : "Select a Genre"}
             </option>
@@ -168,7 +172,9 @@ const Movies = () => {
           </select>
 
           <select>
-            <option value="todos">Clasification</option>
+            <option className="selects" value="todos">
+              Clasification
+            </option>
             {classifications.map((c) => (
               <option key={c} value={c}>
                 {c}
@@ -176,7 +182,7 @@ const Movies = () => {
             ))}
           </select>
 
-          <select>
+          <select className="selects">
             <option value="todos">Lang </option>
             <option value="sub">Sub</option>
             <option value="dub">Dub</option>
@@ -187,7 +193,7 @@ const Movies = () => {
             <option value="Less Popular">Less Popular</option>
           </select> */}
 
-          <select onClick={handleCalificationSort}>
+          <select className="selects" onClick={handleCalificationSort}>
             <option value="Calification">Calification</option>
             <option value="More Popular">More Popular</option>
             <option value="Less Popular">Less Popular</option>

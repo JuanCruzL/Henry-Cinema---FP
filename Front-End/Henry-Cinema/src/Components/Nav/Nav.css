@@ -74,9 +74,8 @@
 .menu-item-logo {
   list-style: none;
   height: 83%;
-  width: 8%;
-  padding: 15px;
-  margin-left: 30px;
+  width: 10%;
+  padding: 10px;
   transition: 0.5s;
 }
 
@@ -97,8 +96,9 @@
   /* border: 2px solid red; */
   display: flex;
   align-items: center;
-  margin-left: 10px;
-  margin-right: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  font-size: 17px;
 }
 
 .menu-item {
