@@ -1,4 +1,4 @@
-import { GET_MOVIES } from "../actions";
+import { GET_MOVIES, GET_SEATS } from "../actions";
 
 const initialState = {
   movieId: [],
@@ -18,6 +18,7 @@ const initialState = {
   combos: [],
   copyCombos:[],
   currentUser: {},
+  seats:[]
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -28,6 +29,12 @@ const rootReducer = (state = initialState, action) => {
         movies: action.payload,
         allMovies: action.payload,
         searchMovies: action.payload,
+      };
+    }
+    case GET_SEATS: {
+      return {
+        ...state,
+        seats: action.payload,
       };
     }
     case "AGE_CLASSIFICATION":

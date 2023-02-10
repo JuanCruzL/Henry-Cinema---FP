@@ -40,7 +40,6 @@ const Movies = () => {
   }, [allMovies]);
 
 
-
   useEffect(() => {
     if (!allMovies.length && !allReleases.length) {
       dispatch(getMovies());

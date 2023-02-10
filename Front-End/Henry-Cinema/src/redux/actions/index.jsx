@@ -3,6 +3,7 @@ const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
 export const GET_MOVIES = "GET_MOVIES";
 export const GET_RELEASES = "GET_RELEASES";
 export const REQUEST_GENDERS = 'REQUEST_GENDERS';
+export const GET_SEATS = "GET_SEATS";
 
 export const getMovieById = (id) => {
   try {
@@ -123,8 +124,22 @@ export const requestGenders = () => {
 };
 
 // actions.js
+export const getasientos = () => {
+  return (dispatch) => {
+    axios
+      .get(`http://localhost:3001/seats`)
+      .then((response) => {
+        dispatch({
+          type: GET_SEATS,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("error");
+      });
+  };
+};
 
-//filtra las 4 mejor rankeadas
 
 // actions.js
 
