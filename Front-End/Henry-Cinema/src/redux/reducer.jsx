@@ -123,13 +123,8 @@ const rootReducer = (state = initialState, action) => {
           new Set(state.allMovies.flatMap((movie) => movie.genres))
         ),
       };
-<<<<<<< HEAD
-
-    case "POST_USER_WITH_GOOGLE":
-=======
     
     case "LOGIN_OR_REGISTER_USER_WITH_GOOGLE":
->>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
       return {
         ...state,
         currentUser: action.payload,
