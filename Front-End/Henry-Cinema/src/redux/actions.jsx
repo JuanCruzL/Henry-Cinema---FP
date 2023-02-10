@@ -1,4 +1,9 @@
 import axios from "axios";
+const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
+export const GET_MOVIES = "GET_MOVIES";
+export const GET_RELEASES = "GET_RELEASES";
+export const REQUEST_GENDERS = 'REQUEST_GENDERS';
+export const GET_SEATS = "GET_SEATS";
 import {
   GET_MOVIES,
   GET_MOVIE_ID,
@@ -14,6 +19,8 @@ import {
   GET_CURRENT_USER,
   LOGIN_OR_REGISTER_USER_WITH_GOOGLE,
 } from "./actionTypes";
+
+//axios.defaults.baseURL = ""
 
 //MOVIES
 
@@ -139,6 +146,28 @@ export const searchFood = (payload) => {
     payload,
   };
 };
+
+// actions.js
+export const getasientos = () => {
+  return (dispatch) => {
+    axios
+      .get(`http://localhost:3001/seats`)
+      .then((response) => {
+        dispatch({
+          type: GET_SEATS,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("error");
+      });
+  };
+};
+
+
+// actions.js
+
+
 
 //GENRES
 
