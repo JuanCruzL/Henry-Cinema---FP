@@ -26,10 +26,6 @@ const Nav = ({ setCurrentPage }) => {
                 >
                   🌑
                 </div> */}
-                <label className="switch">
-                  <input onClick={(e) => toggleDarkLight(e)} type="checkbox" />
-                  <span className="slider"></span>
-                </label>
               </li>
 
               <li className="menu-inside">
@@ -77,6 +73,11 @@ const Nav = ({ setCurrentPage }) => {
           <li className="menu-itemSearchBar">
             <SearchBar setCurrentPage={setCurrentPage} />
           </li>
+
+          <label className="switch">
+            <input onClick={(e) => toggleDarkLight(e)} type="checkbox" />
+            <span className="slider"></span>
+          </label>
 
           <li className="menu-item">
             <div className="menu-link-user">

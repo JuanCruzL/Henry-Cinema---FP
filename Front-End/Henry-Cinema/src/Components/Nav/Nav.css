@@ -50,7 +50,6 @@
 .menu-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -63,12 +62,6 @@
   display: flex;
   list-style: none;
   align-items: center;
-}
-.menu-link {
-  text-decoration: none;
-  list-style: none;
-  /* border: 2px solid red; */
-  display: flex;
 }
 
 .menu-item-logo {
@@ -83,7 +76,7 @@
   list-style: none;
   height: 70%;
   width: 33%;
-  margin-left: 100px;
+  margin-left: 40px;
   padding: 8px;
   cursor: pointer;
 }
@@ -96,15 +89,12 @@
   /* border: 2px solid red; */
   display: flex;
   align-items: center;
-  margin-left: 20px;
-  margin-right: 10px;
+  margin-left: 25px;
+  margin-right: 5px;
   font-size: 17px;
 }
 
 .menu-item {
-  text-decoration: none;
-  list-style: none;
-
   justify-content: space-between;
 
   /* border:2px solid red; */
