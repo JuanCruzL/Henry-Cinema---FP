@@ -6,6 +6,8 @@ const initialState = {
   topMovies: [],
   // Proximos estrenos
   releases: [],
+  //componente dia/noche
+  modo:"dia",
   // Componente search
   searchMovies: [],
   //Para el componente Foods
@@ -139,7 +141,7 @@ const rootReducer = (state = initialState, action) => {
         ),
       };
     
-    case "POST_USER_WITH_GOOGLE":
+    case "LOGIN_OR_REGISTER_USER_WITH_GOOGLE":
       return {
         ...state,
         currentUser: action.payload,
@@ -150,6 +152,14 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         currentUser: action.payload,
+      }
+
+    case "MODO":
+      let M= state.modo;
+      M=="dia"?M="noche":M="dia";
+      return{
+        ...state,
+        modo:M
       }
 
     default:

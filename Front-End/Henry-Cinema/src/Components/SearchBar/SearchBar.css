@@ -1,8 +1,23 @@
-.dark-mode input[type="text"] {
+
+
+
+.light-mode .input-field {
   border: 2px solid var(--NBase-2);
   color: var(--NText-2);
 }
 .light-mode .input-field:focus {
+  border: 2px solid var(--NBase-2);
+  background-color: var(--NBase-1);
+  color: var(--NText-2);
+}
+
+
+.dark-mode .input-field {
+  border: 2px solid var(--NBase-2);
+  color: var(--NText-2);
+}
+.dark-mode .input-field:focus {
+
   border: 2px solid var(--NBase-2);
   background-color: var(--NBase-1);
   color: var(--NText-2);
@@ -21,23 +36,15 @@
 
 /*------------------------------------------------------------------------------*/
 
-.input-icons {
-  width: 100%;
-  min-height: 90%;
-  max-height: 90%;
-  display: flex;
-  grid-template-columns: 80% 20%;
-  /* border:2px solid blue; */
-}
+
 
 .input-field {
-  padding-left: 30px;
-  text-align: center;
-
+  padding: 2px;
   max-width: 70%;
   min-height: 28px;
-  border: 1px solid black;
   background-color: whitesmoke;
+  border: 2px solid var(--NBase-2);
+
 }
 
 input[type="text"] {
@@ -47,11 +54,10 @@ input[type="text"] {
   width: 80%;
 }
 
-.input-icons i {
-  position: relative;
-}
 
-.button-search {
-  width: 4%;
+.button-search{
+  width: 100%;
+  height: 100%;
+
   /* border:2px solid red; */
 }
