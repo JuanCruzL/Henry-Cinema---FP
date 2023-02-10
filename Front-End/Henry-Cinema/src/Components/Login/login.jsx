@@ -83,7 +83,7 @@ export default function Login() {
     // console.log(formIn)
     e.preventDefault();
     dispatch(logInUser(formIn.email, formIn.password));
-    // console.log(currentUser);
+    console.log(currentUser);
     if(currentUser.accessToken) navigate("/");
   };
 
@@ -120,6 +120,7 @@ export default function Login() {
       console.log(userObject);
       dispatch(logInUserWithGoogle(userObject));
       console.log(currentUser);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

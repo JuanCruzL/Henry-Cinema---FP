@@ -124,7 +124,7 @@ const rootReducer = (state = initialState, action) => {
         ),
       };
     
-    case "POST_USER_WITH_GOOGLE":
+    case "LOGIN_OR_REGISTER_USER_WITH_GOOGLE":
       return {
         ...state,
         currentUser: action.payload,

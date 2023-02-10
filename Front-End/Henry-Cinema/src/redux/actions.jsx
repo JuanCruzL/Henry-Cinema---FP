@@ -11,6 +11,8 @@ import {
   GET_COMBOS,
   REQUEST_GENRES,
   SEARCH_FOOD,
+  GET_CURRENT_USER,
+  LOGIN_OR_REGISTER_USER_WITH_GOOGLE,
 } from "./actionTypes";
 
 //MOVIES
@@ -194,7 +196,7 @@ export const logInUserWithGoogle = (response) => {
         { email, userName: given_name }
       );
       return dispatch({
-        type: "POST_USER_WITH_GOOGLE",
+        type: LOGIN_OR_REGISTER_USER_WITH_GOOGLE,
         payload: userCreated.data,
       });
 
@@ -242,7 +244,7 @@ export const logInUser = (email, password) => {
       );
       // console.log(loginCredentials.data);
       return dispatch({
-        type: "GET_CURRENT_USER",
+        type: GET_CURRENT_USER,
         payload: loginCredentials.data,
       });
     }  
