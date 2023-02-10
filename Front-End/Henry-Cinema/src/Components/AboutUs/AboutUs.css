@@ -62,7 +62,11 @@
     margin: auto;
     /*DIVIDIMOS EL CONTENEDOR EN 3 FILAS*/
     display: grid;
+<<<<<<< HEAD
     grid-template-columns: auto auto auto;
+=======
+    grid-template-columns: auto auto auto auto;
+>>>>>>> edc5883d7d46c9b93f7d359b3a7ed1d51d4351f2
     justify-content: center;
     align-items: center;
     text-align: center;

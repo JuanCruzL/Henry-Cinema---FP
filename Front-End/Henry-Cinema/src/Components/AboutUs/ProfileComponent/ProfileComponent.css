@@ -23,9 +23,16 @@
 .dark-mode .container-profile:hover .buttons-profile {
   border-top: 1px solid var(--NBase-1);
 }
+<<<<<<< HEAD
 
 .dark-mode .buttons-profile {
   background-color: var(--NBase-1);
+=======
+.dark-mode .linkedin-link,
+.dark-mode .git-link{
+  border-radius: 50%;
+  background-color: antiquewhite;
+>>>>>>> edc5883d7d46c9b93f7d359b3a7ed1d51d4351f2
 }
 
 
@@ -53,13 +60,21 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
+<<<<<<< HEAD
   transition: all 0.4s ease-in-out;
+=======
+  transition: all 0.2s ease-in-out;
+>>>>>>> edc5883d7d46c9b93f7d359b3a7ed1d51d4351f2
   padding: 10px;
 }
 
 .image-profile:hover {
   transform: translateY(-10px);
+<<<<<<< HEAD
   transition: all 0.4s ease-in-out;
+=======
+  transition: all 0.2s ease-in-out;
+>>>>>>> edc5883d7d46c9b93f7d359b3a7ed1d51d4351f2
 
 }
 
@@ -67,7 +82,11 @@
 
 
 .text-profile {
+<<<<<<< HEAD
   transition: all 0.4s ease-in-out;
+=======
+  transition: all 0.2s ease-in-out;
+>>>>>>> edc5883d7d46c9b93f7d359b3a7ed1d51d4351f2
   cursor: default;
   font-size: 20px
 }
@@ -84,22 +103,38 @@
 .git-link {
   width: 15%;
   margin-right: 20px;
+<<<<<<< HEAD
   transition: all 0.4s ease-in-out;
+=======
+  transition: all 0.2s ease-in-out;
+>>>>>>> edc5883d7d46c9b93f7d359b3a7ed1d51d4351f2
 }
 
 .git-link:hover {
   transform: scale(1.2);
+<<<<<<< HEAD
   transition: all 0.4s ease-in-out;
+=======
+  transition: all 0.2s ease-in-out;
+>>>>>>> edc5883d7d46c9b93f7d359b3a7ed1d51d4351f2
   cursor: pointer;
 }
 
 .linkedin-link {
   width: 15%;
+<<<<<<< HEAD
   transition: all 0.4s ease-in-out;
+=======
+  transition: all 0.2s ease-in-out;
+>>>>>>> edc5883d7d46c9b93f7d359b3a7ed1d51d4351f2
 }
 
 .linkedin-link:hover {
   transform: scale(1.2);
   transition: all 0.4s ease-in-out;
   cursor: pointer;
+<<<<<<< HEAD
+=======
+  
+>>>>>>> edc5883d7d46c9b93f7d359b3a7ed1d51d4351f2
 }
