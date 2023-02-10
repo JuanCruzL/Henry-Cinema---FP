@@ -21,7 +21,7 @@ export const SearchBar = ({ setCurrentPage }) => {
           onChange={(e) => handleInpuChange(e)}
           className="input-field"
           type="text"
-          placeholder="Search..."
+          placeholder="Search Movies..."
           maxLength={20}
         />
 

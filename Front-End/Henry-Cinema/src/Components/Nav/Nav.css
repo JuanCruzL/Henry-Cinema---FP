@@ -1,5 +1,4 @@
-
-.light-mode .menu{
+.light-mode .menu {
   background-color: var(--BaseL);
   color: var(--LText-1);
 }
@@ -7,55 +6,34 @@
   background-color: var(--LBase-1);
   color: var(--BaseL);
 }
-.light-mode .menu-nesting{
+.light-mode .menu-nesting {
   background-color: var(--BaseLD);
 }
 .light-mode .menu-link {
   color: var(--LText-1);
 }
-.light-mode .menu-inside{
-  border-top: 2px var(--LBase-1) solid;
+.light-mode .menu-inside {
+  background-color: var(--BaseL);
 }
-.light-mode .menu-des > .menu-link:hover {
-  background-color: var(--BaseLD);
+.dark-mode .menu-inside {
+  background-color: var(--BaseL);
 }
-
-
-
-
-.dark-mode .menu{
-  background-color: var(--BaseN);
+.dark-mode .menu {
+  background-color: var(--BaseL);
   color: var(--NText-2);
 }
 .dark-mode .menu-link:hover {
   background-color: var(--NBase-2);
   color: var(--BaseN);
 }
-.dark-mode .menu-nesting{
+.dark-mode .menu-nesting {
   background-color: var(--BaseND);
 }
 .dark-mode .menu-link {
   color: var(--NText-2);
 }
-.dark-mode .menu-inside{
-  border-top: 2px var(--NBase-2) solid;
-}
-.dark-mode .menu-des > .menu-link:hover {
-  background-color: var(--BaseND);
-}
-
-
-
-
-
-
-
-
-
-
 
 /*======================================================================*/
-
 
 * {
   margin: 0;
@@ -67,9 +45,6 @@
   width: 100%;
   height: 66px;
   font-weight: bold;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
-  position: fixed;
-  z-index: 100;
 }
 
 .menu-container {
@@ -79,7 +54,6 @@
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  
 }
 
 .menu-links {
@@ -88,71 +62,66 @@
   transition: transform 0.5s;
   display: flex;
   list-style: none;
+  align-items: center;
+}
+.menu-link {
+  text-decoration: none;
+  list-style: none;
+  /* border: 2px solid red; */
+  display: flex;
 }
 
 .menu-item-logo {
   list-style: none;
-  height: 73%;
-  width: 6%;
-  padding-top: 0.8%;
-  margin-left:55px;
-  transition: 0.5s;
-}
-.menu-item-logo:hover{
-  transform: scale(0.9);
+  height: 83%;
+  width: 8%;
+  padding: 15px;
+  margin-left: 30px;
   transition: 0.5s;
 }
 
-
-.menu-itemSearchBar{
+.menu-itemSearchBar {
   list-style: none;
   height: 70%;
   width: 33%;
-  margin-top: 19px;
-  /* border:2px solid red; */
   margin-left: 100px;
-  padding-top: 1px;
-  font-weight: normal;
-  transition: 0.5s;
-}
-.menu-itemSearchBar:hover{
-  transform: scale(1.02);
-  transition: 0.5s;
+  padding: 8px;
+  cursor: pointer;
 }
 
 .link-foods,
 .link-movies,
-.link-about{
+.link-about {
   text-decoration: none;
   list-style: none;
   /* border: 2px solid red; */
-  display : flex;
-  margin-top: 14px;
-  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
   margin-right: 20px;
 }
 
-
-.menu-item-about{
+.menu-item {
   text-decoration: none;
   list-style: none;
-  height: 100%;
-  margin-left: 70px;
 
-  color:black;
+  justify-content: space-between;
+
   /* border:2px solid red; */
 }
-.menu-item-about:hover,
-.menu-item-food:hover,
-.menu-item-movies:hover {
+
+.items {
+  text-decoration: none;
+  list-style: none;
+  padding: 25px;
+  justify-content: space-between;
+}
+.items:hover {
   background-color: black;
 }
 
-.menu-item-food:hover .menu-link-food,
-.menu-item-about:hover .menu-link-about,
-.menu-item-movies:hover .menu-link-movies {
+.items:hover .menu-link {
   color: yellow;
-  transform: scale(0.9);
 }
 
 .menu-link-logo,
@@ -160,7 +129,7 @@
 .menu-link-movies,
 .menu-link-food,
 .menu-link-mode,
-.menu-link-user{
+.menu-link-user {
   list-style: none;
   text-decoration: none;
   padding: 10px 30px;
@@ -172,23 +141,17 @@
   color: black;
   transition: 0.5s;
   font-size: 18px;
-  
 }
 
 .menu-link-about:hover,
 .menu-link-movies:hover,
-.menu-link-food:hover{
+.menu-link-food:hover {
   transform: scale(0.9);
   transition: 0.5s;
+  cursor: pointer;
+}
 
-}
-.menu-link-logo:hover,
-.menu-link-user:hover,
-.menu-link-mode:hover{
-  transform: scale(0.9);
-  transition: 0.5s;
-}
-.menu-link-user{
+.menu-link-user {
   text-decoration: none;
   padding-left: 120px;
   display: grid;
@@ -196,12 +159,13 @@
   width: 100%;
   align-items: center;
   text-align: center;
+  cursor: pointer;
 }
-.menu-link-user .perfil{
+.menu-link-user .perfil {
   display: block;
   margin: auto;
 }
-.perfil{
+.perfil {
   height: 35px;
 }
 .menu-des {
@@ -223,14 +187,14 @@
   position: absolute;
   z-index: 1000;
 }
-.menu-inside{
+.menu-inside {
   width: 250px;
   text-align: left;
   padding: 0;
   margin: 0;
 }
 
-.menu-inside a{
+.menu-inside a {
   width: 100%;
   height: 100%;
   text-align: left;
@@ -244,12 +208,6 @@
   width: 30px;
   height: 30px;
   cursor: pointer;
-  transition: 5s;
-}
-.logo:hover{
-  transform: scale(0.8);
-  transition: 0.5s;
- 
 }
 
 .logoh {
@@ -258,11 +216,10 @@
   width: 100%;
   height: 100%;
 }
-.logoh:hover{
+.logoh:hover {
   cursor: pointer;
 }
 
-
-.Switch{
+.Switch {
   font-size: 25px;
-} 
+}
