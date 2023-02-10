@@ -1,13 +1,12 @@
-
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovieById } from "../../redux/actions/index";
+import { getMovieById } from "../../redux/actions";
 import Nav from "../Nav/Nav";
 import "./Details.css";
 import Loader from "../Loader/Loader";
-
+import Footer from "../footer/footer"
 
 export default function Details() {
   const { id } = useParams();
@@ -16,9 +15,9 @@ export default function Details() {
 
   useEffect(() => {
     dispatch(getMovieById(id));
-    setTimeout(()=>{
+    setTimeout(() => {
       setLoading(false);
-    },1500)
+    }, 1500);
   }, [dispatch]);
 
   const movie = useSelector((state) => state.movieId);
@@ -34,7 +33,7 @@ export default function Details() {
   }
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   } else {
     return (
       <div>
@@ -72,7 +71,11 @@ export default function Details() {
               <p className="p">{movie.overview}</p>
             </div>
             <div className="detailsContainerRight">
-              <img src={movie.imageVertical} alt={movie.title} className="coverImage" />
+              <img
+                src={movie.imageVertical}
+                alt={movie.title}
+                className="coverImage"
+              />
               <p className="allDetailsP">
                 <b>Original Title: </b>
                 {movie.title}

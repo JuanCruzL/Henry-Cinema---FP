@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import Home from "./Components/Home/Home";
 import App from "./App";
-import store from "./store/index";
+import store from "../src/redux/store";
 import Details from "./Components/Details/Details";
 import "./index.css";
 
@@ -31,8 +31,8 @@ import Drinks from "./Components/Dashboard Admin/foodanddrinks/Drinks";
 import NewDrink from "./Components/Dashboard Admin/foodanddrinks/NewDrink";
 import Sales from "./Components/Dashboard Admin/sales/Sales";
 import Login from "./Components/Login/login";
-import Foods from "./Components/Foods/Foods"
-import AboutUs from './Components/AboutUs/AboutUs'
+import Foods from "./Components/Foods/Foods";
+import AboutUs from "./Components/AboutUs/AboutUs";
 import Seating from "./Components/seating/Seating";
 const container = document.getElementById("root");
 const root = createRoot(container);

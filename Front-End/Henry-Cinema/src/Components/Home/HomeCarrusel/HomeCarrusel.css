@@ -6,7 +6,7 @@
     background-color: var(--LBase-1);
 }
 .light-mode .contenedorCarrusel .Carrusel {
-    box-shadow: 5px 5px 10px var(--LDegradado);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .light-mode .punto {
     background-color: var(--BaseL);
@@ -27,7 +27,7 @@
     background-color: var(--NBase-2);
 }
 .dark-mode .contenedorCarrusel .Carrusel {
-    box-shadow: 5px 5px 10px var(--NDegradado);
+    box-shadow: 5px 5px 10px var(--LDegradado);
 }
 .dark-mode .punto {
     background-color: var(--BaseN);
