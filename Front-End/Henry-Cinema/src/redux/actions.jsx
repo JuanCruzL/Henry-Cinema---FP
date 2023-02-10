@@ -178,10 +178,11 @@ export const signUp = (payload) => {
 export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
-      const { email, givenName } = response.profileObj;
+      const { email, given_name } = response;
+      console.log(email, given_name);
       const userCreated = await axios.post(
         `http://localhost:3001/login/google`,
-        { email, userName: givenName }
+        { email, userName: given_name }
       );
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
