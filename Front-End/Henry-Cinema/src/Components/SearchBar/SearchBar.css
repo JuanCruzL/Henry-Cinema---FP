@@ -1,8 +1,23 @@
+<<<<<<< HEAD
 .dark-mode input[type="text"] {
+=======
+.light-mode .input-field {
   border: 2px solid var(--NBase-2);
   color: var(--NText-2);
 }
-.dark-mode input[type="text"]:focus {
+.light-mode .input-field:focus {
+  border: 2px solid var(--NBase-2);
+  background-color: var(--NBase-1);
+  color: var(--NText-2);
+}
+
+
+.dark-mode .input-field {
+>>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
+  border: 2px solid var(--NBase-2);
+  color: var(--NText-2);
+}
+.dark-mode .input-field:focus {
   border: 2px solid var(--NBase-2);
   background-color: var(--NBase-1);
   color: var(--NText-2);
@@ -10,6 +25,7 @@
 
 /*------------------------------------------------------------------------------*/
 
+<<<<<<< HEAD
 .input-icons {
   width: 100%;
   min-height: 90%;
@@ -27,24 +43,37 @@
   min-height: 28px;
   border: 1px solid black;
   background-color: whitesmoke;
+=======
+.input-field {
+  padding: 2px;
+  max-width: 70%;
+  min-height: 28px;
+  background-color: whitesmoke;
+  border: 2px solid var(--NBase-2);
+>>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
 }
 
 input[type="text"] {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
-  width: 90%;
-  text-align: left;
+  width: 80%;
 }
 
+<<<<<<< HEAD
 .input-icons i {
   position: relative;
 }
 
 .button-search {
   width: 4%;
+=======
+
+ 
+
+.button-search{
+  width: 100%;
+  height: 100%;
+>>>>>>> 2b46619ccabc218bc214009f2a7fd0d3fa2667de
   /* border:2px solid red; */
-  height: 5%;
-  margin-left: 15px;
-  padding-top: 3px;
 }
