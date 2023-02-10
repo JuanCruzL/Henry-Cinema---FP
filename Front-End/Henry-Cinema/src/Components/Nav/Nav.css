@@ -75,7 +75,7 @@
 
 .menu-container {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -86,11 +86,47 @@
   width: 100%;
   height: 100%;
   transition: transform 0.5s;
-  display: grid;
-  grid-template-columns: 10% 20% 10% 10% 10% 30% 5% 5%;
-  align-items: center;
-  align-content: center;
+
+  display: flex;
   list-style: none;
+  align-items: center;
+}
+
+.menu-item-logo {
+  list-style: none;
+  height: 83%;
+  width: 10%;
+  padding: 10px;
+  transition: 0.5s;
+}
+
+.menu-itemSearchBar {
+  list-style: none;
+  height: 70%;
+  width: 33%;
+  margin-left: 40px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.link-foods,
+.link-movies,
+.link-about {
+  text-decoration: none;
+  list-style: none;
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  margin-right: 5px;
+  font-size: 17px;
+}
+
+.menu-item {
+  justify-content: space-between;
+
+  /* border:2px solid red; */
+
 }
 
 .menu-des{
