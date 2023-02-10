@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { iconNav } from "../../redux/actions";
+import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../img/menus.png";
 import perfil from "../../img/editar.png";
@@ -10,19 +8,7 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 import "./darkmode.css";
 
-import Brightness7SharpIcon from '@mui/icons-material/Brightness7Sharp';
-import Brightness5SharpIcon from '@mui/icons-material/Brightness5Sharp';
-
 const Nav = ({ setCurrentPage }) => {
-
-  const dispatch=useDispatch();
-  var modo = useSelector((state) => state.modo)
-
-
-  function Cmodo(e) {
-    dispatch(iconNav());
-    toggleDarkLight(e);
-  }
   return (
     <nav className="menu">
       <section className="menu-container">
@@ -34,17 +20,11 @@ const Nav = ({ setCurrentPage }) => {
             </div>
             <ul className="menu-nesting">
               <li className="menu-inside">
-<<<<<<< HEAD
-
                 {/* <div
-=======
-                <div
->>>>>>> 14c32ce88de7a459116c5f34b187e1becb2068d4
                   className="menu-link menu-link--inside"
                   onClick={(e) => toggleDarkLight(e)}
                 >
                   🌑
-<<<<<<< HEAD
                 </div> */}
                 <label className="switch">
                   <input
@@ -54,17 +34,8 @@ const Nav = ({ setCurrentPage }) => {
                   />
                   <span className="slider"></span>
                 </label>
-
-=======
-                </div>
->>>>>>> 14c32ce88de7a459116c5f34b187e1becb2068d4
               </li>
 
-              <li className="menu-inside">
-                <Link to="/about">
-                  <div className="menu-link menu-link--inside">About Us</div>
-                </Link>
-              </li>
               <li className="menu-inside">
                 <Link to="/movies">
                   <div className="menu-link menu-link--inside">Movies</div>
@@ -77,14 +48,6 @@ const Nav = ({ setCurrentPage }) => {
                   </div>
                 </Link>
               </li>
-<<<<<<< HEAD
-              <li className="menu-inside">
-                <Link to='/foods'>
-                  <div className="menu-link menu-link--inside">
-                    Food & Drinks
-                  </div>
-                </Link>
-              </li>
               <li className="menu-inside">
                 <Link to="/about">
                   <div className="menu-link menu-link--inside">About Us</div>
@@ -93,27 +56,11 @@ const Nav = ({ setCurrentPage }) => {
             </ul>
           </li>
           {/* Menú Nav */}
-          <Link to='/'>
-            <li className="menu-item-logo">
-              <img src={logoCinema} className="logoh"></img>
-            </li>
-          </Link>
-=======
-            </ul>
-          </li>
-          {/* Menú Nav */}
           <li className="menu-item-logo">
             <Link to="/">
               <img src={logoCinema} className="logoh"></img>
             </Link>
           </li>
-
-          <li className="items">
-            <Link to="/about" className="link-about">
-              <div className="menu-link">About Us</div>
-            </Link>
-          </li>
->>>>>>> 14c32ce88de7a459116c5f34b187e1becb2068d4
 
           <li className="items">
             <Link to="/movies" className="link-movies">
@@ -135,17 +82,12 @@ const Nav = ({ setCurrentPage }) => {
             <SearchBar setCurrentPage={setCurrentPage} />
           </li>
 
-<<<<<<< HEAD
           <label className="switch">
             <input onClick={(e) => toggleDarkLight(e)} type="checkbox" />
             <span className="slider"></span>
           </label>
 
           <li className="menu-item">
-
-=======
-          <li className="menu-item">
->>>>>>> 14c32ce88de7a459116c5f34b187e1becb2068d4
             <div className="menu-link-user">
               <Link to="/login">
                 <img src={perfil} className="perfil"></img>
