@@ -1,7 +1,7 @@
 import React from "react";
 import "./moviestable.scss";
 import { useState, useEffect } from "react";
-import { getMovies } from "../../../redux/actions";
+import { getMovies, deleteMovie } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -30,11 +30,14 @@ export const MoviesTable = () => {
       buttons: true,
       dangerMode: true,
     }).then((r) => {
-      if (r === "OK") {
+      if (r) {
+        dispatch(deleteMovie(id));
         swal({
           text: "The movie has been successfully removed.",
           icon: "success",
         });
+      } else {
+        swal("Remove cancelled");
       }
     });
   };

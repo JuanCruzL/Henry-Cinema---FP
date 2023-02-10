@@ -1,19 +1,20 @@
 import axios from "axios";
+const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
+export const GET_MOVIES = "GET_MOVIES";
+export const GET_RELEASES = "GET_RELEASES";
+export const REQUEST_GENDERS = 'REQUEST_GENDERS';
+export const GET_SEATS = "GET_SEATS";
 import {
-  GET_MOVIES,
   GET_MOVIE_ID,
-  GET_RELEASES,
   SEARCH_MOVIE,
   DELETE_MOVIE,
-  AGE_CLASSIFICATION,
   GET_FOODS,
   GET_DRINKS,
   GET_COMBOS,
   REQUEST_GENRES,
   SEARCH_FOOD,
-  GET_CURRENT_USER,
-  LOGIN_OR_REGISTER_USER_WITH_GOOGLE,
 } from "./actionTypes";
+
 
 //MOVIES
 
@@ -140,6 +141,28 @@ export const searchFood = (payload) => {
   };
 };
 
+// actions.js
+export const getasientos = () => {
+  return (dispatch) => {
+    axios
+      .get(`http://localhost:3001/seats`)
+      .then((response) => {
+        dispatch({
+          type: GET_SEATS,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("error");
+      });
+  };
+};
+
+
+// actions.js
+
+
+
 //GENRES
 
 export const requestGenders = () => {
@@ -166,15 +189,6 @@ export const signUp = (payload) => {
 
 
 
-//.............. 
-export function iconNav(){
-  return {
-    type: "MODO",
-  };
-}
-
-
-
 
 
 
@@ -189,14 +203,14 @@ export function iconNav(){
 export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
-      const { email, given_name } = response;
-      console.log(email, given_name);
+      const { email, givenName } = response.profileObj;
       const userCreated = await axios.post(
         `http://localhost:3001/login/google`,
-        { email, userName: given_name }
+        { email, userName: givenName }
       );
+      console.log(userCreated.data);
       return dispatch({
-        type: LOGIN_OR_REGISTER_USER_WITH_GOOGLE,
+        type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
       });
 
@@ -227,14 +241,14 @@ export const logInUserWithGoogle = (response) => {
 
 export const logInUser = (email, password) => {
   if (!email && !password) {
-    return console.log("Completa los campos para ingresar");
+    return message.warn("Completa los campos para ingresar");
   }
   if (!email) {
-    return console.log("Ingresa correo electronico");
+    return message.warn("Ingresa correo electronico");
   }
 
   if (!password) {
-    return console.log("Ingresa tu contraseña");
+    return message.warn("Ingresa tu contraseña");
   }
 
   try {
@@ -242,9 +256,9 @@ export const logInUser = (email, password) => {
       const loginCredentials = await axios.post("http://localhost:3001/login",
         {email, password},
       );
-      // console.log(loginCredentials.data);
+      console.log(loginCredentials.data);
       return dispatch({
-        type: GET_CURRENT_USER,
+        type: "GET_CURRENT_USER",
         payload: loginCredentials.data,
       });
     }  
