@@ -1,6 +1,7 @@
 .newMovie {
     width: 100%;
     display: flex;
+    background-color: rgb(245, 215, 140);
 
     .newContainer {
         flex: 6;
@@ -12,11 +13,11 @@
             padding: 10px;
             margin: 20px;
             display: flex;
-            background-color: rgb(227, 183, 73);
+            background-color: rgb(236, 198, 101);
             display: flex;
 
             h1{
-                color: pink;
+                color: rgb(98, 36, 36);
                 font-size: 21px;
             }
             
@@ -42,6 +43,7 @@
                             display: flex;
                             align-items: center;
                             gap: 10px;
+                            color: rgb(98, 36, 36);
                         }
 
                         .icon {
@@ -53,17 +55,20 @@
                         width: 100%;
                         padding: 5px;
                         border: none;
-                        border-bottom: 1px solid grey;
+                        border-bottom: 1px solid rgb(92, 92, 92);
+                        font-size: 13px;
+                        font-style: italic;
                     }
 
                     button{
-                        width: 150px;
+                        width: 50px;
                         padding: 10px;
                         border: none;
-                        background-color: yellow;
+                        background-color: rgb(98, 36, 36);
                         color: black;
                         font-weight: bold;
                         justify-content: center;
+                        align-items: center;
                         cursor: pointer;
                         margin-top: 10px;
 

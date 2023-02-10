@@ -39,19 +39,19 @@ export const NewMovie = () => {
                 <input type="file" id="file" style={{ display: "none" }} />
               </div>
               <div className="formNM">
-                <label>Banner</label>
-                <label htmlFor="file">
-                  <CreateNewFolderOutlinedIcon className="icon" />
-                </label>
-                <input type="file" id="file" style={{ display: "none" }} />
-              </div>
-              <div className="formNM">
                 <label>Score</label>
                 <input
                   className="inputNM"
                   type="number"
                   placeholder="img url"
                 />
+              </div>
+              <div className="formNM">
+                <label>Banner</label>
+                <label htmlFor="file">
+                  <CreateNewFolderOutlinedIcon className="icon" />
+                </label>
+                <input type="file" id="file" style={{ display: "none" }} />
               </div>
               <div className="formNM">
                 <label>Overview</label>
