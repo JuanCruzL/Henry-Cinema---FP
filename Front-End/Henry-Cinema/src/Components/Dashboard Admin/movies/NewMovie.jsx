@@ -2,7 +2,7 @@ import React from "react";
 import "./newmovie.scss";
 import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
-import CreateNewFolderOutlinedIcon from "@mui/icons-material/CreateNewFolderOutlined";
+import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 
 export const NewMovie = () => {
   return (
@@ -34,7 +34,7 @@ export const NewMovie = () => {
               <div className="formNM">
                 <label>Poster</label>
                 <label htmlFor="file">
-                  <CreateNewFolderOutlinedIcon className="icon" />
+                  <CreateNewFolderIcon className="icon" />
                 </label>
                 <input type="file" id="file" style={{ display: "none" }} />
               </div>
@@ -49,7 +49,7 @@ export const NewMovie = () => {
               <div className="formNM">
                 <label>Banner</label>
                 <label htmlFor="file">
-                  <CreateNewFolderOutlinedIcon className="icon" />
+                  <CreateNewFolderIcon className="icon" />
                 </label>
                 <input type="file" id="file" style={{ display: "none" }} />
               </div>
