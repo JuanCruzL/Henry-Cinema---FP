@@ -164,6 +164,15 @@ export const signUp = (payload) => {
 
 
 
+//.............. 
+export function iconNav(){
+  return {
+    type: "MODO",
+  };
+}
+
+
+
 
 
 
