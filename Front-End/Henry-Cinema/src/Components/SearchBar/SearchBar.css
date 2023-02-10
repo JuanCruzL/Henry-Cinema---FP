@@ -1,0 +1,50 @@
+.dark-mode input[type="text"] {
+  border: 2px solid var(--NBase-2);
+  color: var(--NText-2);
+}
+.dark-mode input[type="text"]:focus {
+  border: 2px solid var(--NBase-2);
+  background-color: var(--NBase-1);
+  color: var(--NText-2);
+}
+
+/*------------------------------------------------------------------------------*/
+
+.input-icons {
+  width: 100%;
+  min-height: 90%;
+  max-height: 90%;
+  display: flex;
+  grid-template-columns: 80% 20%;
+  /* border:2px solid blue; */
+}
+
+.input-field {
+  padding-left: 30px;
+  text-align: center;
+
+  max-width: 70%;
+  min-height: 28px;
+  border: 1px solid black;
+  background-color: whitesmoke;
+}
+
+input[type="text"] {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  width: 90%;
+  text-align: left;
+}
+
+.input-icons i {
+  position: relative;
+}
+
+.button-search {
+  width: 4%;
+  /* border:2px solid red; */
+  height: 5%;
+  margin-left: 15px;
+  padding-top: 3px;
+}

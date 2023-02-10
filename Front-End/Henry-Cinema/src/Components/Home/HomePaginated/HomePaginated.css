@@ -1,0 +1,29 @@
+.container-paginated{
+    text-align: left;
+    width: 85%;
+    margin: auto;
+}
+.container-paginated .paginated{
+    width: 100%;
+    display: inline-block;
+}
+
+.container-paginated .number{
+    display: inline;
+}
+
+
+.container-paginated .buttonPage{
+    border-radius: 0;
+    padding: 0.5em 0.5em 0.2em 0.5em;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    margin: 0px 2px;
+}
+
+.container-paginated .buttonPage:hover {
+    scale: 1.1;
+}

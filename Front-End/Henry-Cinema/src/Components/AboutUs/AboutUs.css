@@ -1,0 +1,45 @@
+.About-container{
+    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
+}
+
+.container-about-all{
+    display: flex;
+    align-items: center;
+}
+.container-about-us{
+    height:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* border:2px solid blue  */
+    align-items: center;
+    text-align: center;
+}
+.title-team{
+    text-align: center;
+    margin-top: 60px;
+    /* border: 2px solid red; */
+    font-size: 30px;
+}
+.container-border{
+    /* border-bottom: 2px solid black; */
+    /* background-color:#111111; */
+    background-color:whitesmoke;
+    height: 55vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.container-text-app{
+    display :block;
+    text-align: center;
+    padding: 25px;
+    font-size: 19px;
+    text-indent: 50px;
+    width: 70%;
+    margin: auto;
+    color:black;
+    
+}
+.logo-henry{
+    width:15%;
+   
+}

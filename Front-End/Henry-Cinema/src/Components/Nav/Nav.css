@@ -1,0 +1,225 @@
+.light-mode .menu {
+  background-color: var(--BaseL);
+  color: var(--LText-1);
+}
+.light-mode .menu-link:hover {
+  background-color: var(--LBase-1);
+  color: var(--BaseL);
+}
+.light-mode .menu-nesting {
+  background-color: var(--BaseLD);
+}
+.light-mode .menu-link {
+  color: var(--LText-1);
+}
+.light-mode .menu-inside {
+  background-color: var(--BaseL);
+}
+.dark-mode .menu-inside {
+  background-color: var(--BaseL);
+}
+.dark-mode .menu {
+  background-color: var(--BaseL);
+  color: var(--NText-2);
+}
+.dark-mode .menu-link:hover {
+  background-color: var(--NBase-2);
+  color: var(--BaseN);
+}
+.dark-mode .menu-nesting {
+  background-color: var(--BaseND);
+}
+.dark-mode .menu-link {
+  color: var(--NText-2);
+}
+
+/*======================================================================*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.menu {
+  width: 100%;
+  height: 66px;
+  font-weight: bold;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.menu-links {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+.menu-link {
+  text-decoration: none;
+  list-style: none;
+  /* border: 2px solid red; */
+  display: flex;
+}
+
+.menu-item-logo {
+  list-style: none;
+  height: 83%;
+  width: 8%;
+  padding: 15px;
+  margin-left: 30px;
+  transition: 0.5s;
+}
+
+.menu-itemSearchBar {
+  list-style: none;
+  height: 70%;
+  width: 33%;
+  margin-left: 100px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.link-foods,
+.link-movies,
+.link-about {
+  text-decoration: none;
+  list-style: none;
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.menu-item {
+  text-decoration: none;
+  list-style: none;
+
+  justify-content: space-between;
+
+  /* border:2px solid red; */
+}
+
+.items {
+  text-decoration: none;
+  list-style: none;
+  padding: 25px;
+  justify-content: space-between;
+}
+.items:hover {
+  background-color: black;
+}
+
+.items:hover .menu-link {
+  color: yellow;
+}
+
+.menu-link-logo,
+.menu-link-about,
+.menu-link-movies,
+.menu-link-food,
+.menu-link-mode,
+.menu-link-user {
+  list-style: none;
+  text-decoration: none;
+  padding: 10px 30px;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  color: black;
+  transition: 0.5s;
+  font-size: 18px;
+}
+
+.menu-link-about:hover,
+.menu-link-movies:hover,
+.menu-link-food:hover {
+  transform: scale(0.9);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.menu-link-user {
+  text-decoration: none;
+  padding-left: 120px;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+.menu-link-user .perfil {
+  display: block;
+  margin: auto;
+}
+.perfil {
+  height: 35px;
+}
+.menu-des {
+  list-style: none;
+  position: relative;
+  height: 100%;
+  /*  --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
+  --clip: polygon(0 0, 100% 0, 100% 0, 100% 0, 0 0);
+}
+
+.menu-des:hover {
+  --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.menu-nesting {
+  clip-path: var(--clip);
+  list-style: none;
+  transition: clip-path 0.3s;
+  position: absolute;
+  z-index: 1000;
+}
+.menu-inside {
+  width: 250px;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-inside a {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  text-decoration: none;
+}
+.menu-link--inside {
+  padding: 10px 100px 10px 30px;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.logoh {
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+.logoh:hover {
+  cursor: pointer;
+}
+
+.Switch {
+  font-size: 25px;
+}
