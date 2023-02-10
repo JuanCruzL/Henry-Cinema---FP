@@ -16,11 +16,7 @@ const initialState = {
   drinks: [],
   copyDrinks: [],
   combos: [],
-<<<<<<< HEAD
   copyCombos: [],
-=======
-  copyCombos:[],
->>>>>>> 181a25c7aba7f2d973cce6dc085e0fcfef121f06
   currentUser: {},
 };
 

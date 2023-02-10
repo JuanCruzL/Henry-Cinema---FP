@@ -152,15 +152,6 @@ export const requestGenders = () => {
 export const signUp = (payload) => {
   return async (dispatch) => {
     try {
-<<<<<<< HEAD
-      console.log(payload);
-      const json = await axios.post("http://localhost:3001/", payload);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-};
-=======
       console.log(payload)
       const userCreated = await axios.post("http://localhost:3001/users", payload);
       console.log(userCreated);
@@ -264,4 +255,3 @@ export const logInUser = (email, password) => {
 
 
 
->>>>>>> 181a25c7aba7f2d973cce6dc085e0fcfef121f06
