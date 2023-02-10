@@ -6,9 +6,9 @@ import { logInUser, logInUserWithGoogle, signUp } from "../../redux/actions";
 import  { useDispatch, useSelector } from "react-redux";
 import  { gapi } from "gapi-script";
 import GoogleLogin from "react-google-login";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-
   const clientID = "477306609599-5o0edff2tn0sleie9sgbd2crv3ftt1gh.apps.googleusercontent.com";
 
   useEffect( () => {
@@ -19,10 +19,11 @@ export default function Login() {
     }
 
     gapi.load("client:auth2", start)
-  }, [])
+  }, []);
 
-  const dispatch = useDispatch()
-  
+  const currentUser = useSelector(state => state.currentUser);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [sign, setSign] = useState("sign-in");
   const [checked2, setChecked2] = useState(false);
   const [errors, setErrors] = useState({
@@ -32,13 +33,13 @@ export default function Login() {
     formupPassword: false,
     formupEmail: false,
 
-  })
+  });
 
   const [formUp, setFormUp] = useState({
     userName: "",
     email: "",
     password: "",
-    notifications: false, 
+    notifications: "false", //no deja postear si el valor booleano false no esta entre comillas
   });
 
   const [formIn, setFormIn] = useState({
@@ -46,6 +47,13 @@ export default function Login() {
     password: "",
   });
 
+  /* Si el usuario esta ya conectado redireccionarlo a home*/
+  // useEffect( () => {
+  //   console.log(currentUser);
+  //   if(currentUser.accessToken) {
+  //     navigate("/");
+  //   }
+  // }, [currentUser]);
 
 //-------------------------------------------HANDLERS-----------------------------------------------------
 
@@ -80,11 +88,11 @@ export default function Login() {
 
 
   const handleSubmitIn = (e) => {
-    console.log(formIn)
+    // console.log(formIn)
     e.preventDefault();
     dispatch(logInUser(formIn.email, formIn.password));
-
-
+    // console.log(currentUser);
+    if(currentUser.accessToken) navigate("/");
   };
 
   const handleSubmitUp=(e) => {
@@ -94,9 +102,9 @@ export default function Login() {
       userName:"",
       email: "",
       password: "",
-      // notifications: checked2,
+      notifications: checked2,
     })
-  }
+  };
 
   const handleChangeIn = (e) => {
     setFormIn({
@@ -119,8 +127,14 @@ export default function Login() {
     //   email: response.profileObj.email,
     //   userName: response.profileObj.givenName
     // })
-    
-    dispatch(logInUserWithGoogle(response));
+    // console.log(response);
+    try {
+      dispatch(logInUserWithGoogle(response));
+      console.log(currentUser);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const onFailure = () => {

@@ -40,8 +40,8 @@ const verifyLogin = async (formData) => {
             //     token: accessToken,
             // })
             console.log(accessToken);
-            const { id } = user;
-            return  { id, accessToken };
+            
+            return { accessToken };
         } else {
             throw {
                 status: false,
@@ -87,7 +87,8 @@ const verifyGoogleLogin = async (googleData) => {
                     email,
                 }
             })
-            return finalUser;
+            const accessToken = generateAccessToken(finalUser);
+            return { accessToken };
         } else {
             throw {
                 status:false,
