@@ -194,8 +194,7 @@
     font-size: 15px;
    }
 
-   .googleButton{
-    width: 200px;
+ .googlecontainer {
     position: absolute;
     bottom: 100px;
    }

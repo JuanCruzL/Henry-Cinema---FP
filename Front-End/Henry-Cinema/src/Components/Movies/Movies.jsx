@@ -3,7 +3,7 @@ import Carousel from "./Carousel";
 import Loader from "../Loader/Loader";
 import "./Movies.css";
 import { useState, useEffect } from "react";
-import { getMovies, getRelease, requestGenders } from "../../redux/actions";
+import { getMovies, getRelease, requestGenres } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import Nav from "../../Components/Nav/Nav";
 import Footer from "../footer/footer";
@@ -62,7 +62,7 @@ const Movies = () => {
 
   useEffect(() => {
     if (!genres.length) {
-      dispatch(requestGenders());
+      dispatch(requestGenres());
     }
     setGenresCurrent(genres);
   }, [genresCurrent, dispatch]);
@@ -156,11 +156,7 @@ const Movies = () => {
         </section>
 
         <section className="movies-filter">
-          <select
-            className="selects"
-            onChange={handleSelect}
-            value={selectedGenre}
-          >
+          <select onChange={handleSelect} value={selectedGenre}>
             <option value="" style={{ color: "red" }}>
               {selectedGenre ? "All" : "Select a Genre"}
             </option>
@@ -172,9 +168,7 @@ const Movies = () => {
           </select>
 
           <select>
-            <option className="selects" value="todos">
-              Clasification
-            </option>
+            <option value="todos">Clasification</option>
             {classifications.map((c) => (
               <option key={c} value={c}>
                 {c}
@@ -182,7 +176,7 @@ const Movies = () => {
             ))}
           </select>
 
-          <select className="selects">
+          <select>
             <option value="todos">Lang </option>
             <option value="sub">Sub</option>
             <option value="dub">Dub</option>
@@ -193,7 +187,7 @@ const Movies = () => {
             <option value="Less Popular">Less Popular</option>
           </select> */}
 
-          <select className="selects" onClick={handleCalificationSort}>
+          <select onClick={handleCalificationSort}>
             <option value="Calification">Calification</option>
             <option value="More Popular">More Popular</option>
             <option value="Less Popular">Less Popular</option>

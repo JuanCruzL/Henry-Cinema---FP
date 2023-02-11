@@ -1,69 +1,66 @@
-.container-foods{
-    display:flex;
-    flex-direction: row;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    height: 100%;
-    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
+.light-mode .container-foods{
+    background-color: var(--LFondo-1);
 }
-.selected {
-    background-color: black;
-    color: yellow;
-   
+.light-mode .buttons-foods{
+    border-right:2px solid var(--LBase-1);
+    color: var(--LText-1);
+}
+.light-mode .selected {
+    background-color: var(--LBase-1);
+    color: var(--LText-3);
+}
+.light-mode .button-combos,
+.light-mode .button-foods,
+.light-mode .button-drinks{
+    border-right:2px solid var(--LBase-1);
+}
+
+/*=========================================================*/
+
+.dark-mode .container-foods{
+    background-color: var(--NFondo-1);
+}
+.dark-mode .buttons-foods{
+    border-right:2px solid var(--BaseN);
+    color: var(--NText-1);
+}
+.dark-mode .selected {
+    background-color: var(--BaseN);
+    color: var(--NText-2);
+}
+.dark-mode .button-combos,
+.dark-mode .button-foods,
+.dark-mode .button-drinks{
+    border-right:2px solid var(--BaseN);
+}
+
+
+/*=========================================================*/
+
+.container-foods{
+    height: 100%;
+    width: 100%;
+    /*DIVIDIMOS EL CONTENEDOR EN 2 COLUMNAS*/
+    display:grid;
+    grid-template-columns: 25% 75%;
+    /*padding-top: 70px;  ESTO PARA EL ESPACIO ENTRE EL NAV */
 }
 
 .buttons-foods{
-    max-height: 87%;
-    min-height:87%;
-    min-width: 15%;
-    max-width: 15%;
-    margin-top: 100px;
+    margin-top: 95px;
     margin-bottom: 50px;
-    /* border:2px solid red; */
-    border-right:2px solid black;
     padding-top: 15%;
     padding-bottom: 25%;
     padding-left: 1.5%;
     padding-right: 1.5%;
 }
-.containerForCards{
-    /* border: 2px solid red; */
-    display:flex;
-    width: 100cqmax;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-top: 2%;
-    padding-bottom: 5%;
-    padding-right: 7%;
-    padding-left: 7%;
-    max-width: 80%;
-    min-width: 80%;
-}
-.button-combos{
-    display: flex;
-    border-right:2px solid black;
-    margin-bottom: 20px;
-    height: 1.5cm;
-    font-size: 20px;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    cursor: pointer;
-}
-.button-foods{
-    display: flex;
-    border-right:2px solid black;
-    margin-bottom: 20px;
-    height: 1.5cm;
-    font-size: 19px;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    cursor: pointer;
-}
+
+
+
+.button-combos,
+.button-foods,
 .button-drinks{
     display: flex;
-    border-right:2px solid black;
     margin-bottom: 20px;
     height: 1.5cm;
     font-size: 20px;
@@ -71,4 +68,17 @@
     text-align: center;
     align-items: center;
     cursor: pointer;
+}
+
+.container-all{
+    display: grid;
+    grid-template-rows: 50px auto;
+    margin-top: 70px;
+}
+
+.containerForCards{
+    display:grid;
+    grid-template-columns: auto;
+    max-width: 100%;
+    min-width: 100%;
 }
