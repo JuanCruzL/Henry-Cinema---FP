@@ -13,12 +13,8 @@ const sequelize = new Sequelize(
 );
 
 
-<<<<<<< HEAD
 //deploy instance of sequelize------------------------------------------
 
-=======
-//-----------------------------------deploy instance of sequelize------------------------------------------
->>>>>>> 7928852cef6ae24b846ff3fe3509ec6e31b020b6
 // const sequelize = new Sequelize(DB_DEPLOY,
 //   {
 //     logging: false, // set to console.log to see the raw SQL queries
