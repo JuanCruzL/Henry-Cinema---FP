@@ -2,7 +2,7 @@ import axios from "axios";
 const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
 export const GET_MOVIES = "GET_MOVIES";
 export const GET_RELEASES = "GET_RELEASES";
-export const REQUEST_GENRES = 'REQUEST_GENRES';
+export const REQUEST_GENRES2 = "REQUEST_GENRES2";
 export const GET_SEATS = "GET_SEATS";
 import {
   GET_MOVIE_ID,
@@ -168,7 +168,7 @@ export const getasientos = () => {
 
 export const requestGenres = () => {
   return {
-    type: REQUEST_GENRES,
+    type: REQUEST_GENRES2,
   };
 };
 
