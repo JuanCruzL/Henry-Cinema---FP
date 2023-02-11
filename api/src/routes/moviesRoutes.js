@@ -79,14 +79,15 @@ router.post("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
+    
     let { id } = req.params;
     await Movie.destroy({
       where: {
         id,
       },
     });
-    res.sendStatus(204);
-    console.log("MOVIE ELIMINATED");
+    res.status(204).send("The movie has been removed");
+    console.log("MOVIE REMOVED");
   } catch (error) {
     res.status(500).send(error);
   }

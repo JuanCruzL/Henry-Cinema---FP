@@ -1,155 +1,140 @@
 .light-mode .ContainerMovies {
-    background-color: var(--LFondo-1);
+  background-color: var(--LFondo-1);
 }
 
 .light-mode .Available h3 {
-    background-color: var(--BaseL);
-    box-shadow: var(--LDegradado) 0px 5px 15px;
-    border: 1px solid var(--LDegradado);
+  background-color: var(--LBase-1);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+  color: var(--LText-3);
 }
 
 .light-mode .movies-filter {
-    background-color: var(--BaseL);
-    box-shadow: var(--LDegradado) 0px 5px 15px;
-    border: 1px solid var(--LDegradado);
+  background-color: var(--LBase-1);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+  border: 1px solid var(--LDegradado);
 }
 
 .light-mode .Filter-results {
-    box-shadow: var(--LDegradado) 0px 5px 15px;
-    background-color: var(--BaseL);
-    border: 1px solid var(--LDegradado);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+  background-color: var(--LBase-1);
 }
 .light-mode .carousel-movies-b h1 {
-    color: var(--LText-1);
+  color: var(--LText-1);
 }
-.light-mode .movies-filter select{
-    background-color: var(--LBase-1);
-    color: var(--LText-2);
+.light-mode .movies-filter select {
+  background-color: var(--BaseL);
+  color: var(--LText-1);
 }
-
-
-
 
 .dark-mode .ContainerMovies {
-    background-color: var(--NFondo-1);
+  background-color: var(--NFondo-1);
 }
 
 .dark-mode .Available h3 {
-    background-color: var(--BaseN);
-    box-shadow: var(--NDegradado) 0px 5px 15px;
-    border: 1px solid var(--NDegradado);
+  background-color: var(--BaseL);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+  color: var(--LText-1);
 }
 
 .dark-mode .movies-filter {
-    background-color: var(--BaseN);
-    box-shadow: var(--NDegradado) 0px 5px 15px;
-    border: 1px solid var(--NDegradado);
+  background-color: var(--NDegradado3);
+  box-shadow: var(--LDegradado) rgba(0, 0, 0, 0.39);
 }
 
 .dark-mode .Filter-results {
-    box-shadow: var(--NDegradado) 0px 5px 15px;
-    background-color: var(--BaseN);
-    border: 1px solid var(--NDegradado);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+  background-color: var(--NDegradado3);
 }
 .dark-mode .carousel-movies-b h1 {
-    color: var(--NText-1);
+  color: var(--NText-1);
 }
-.dark-mode .movies-filter select{
-    background-color: var(--NBase-1);
-    color: var(--NText-2);
+.dark-mode .movies-filter select {
+  background-color: var(--BaseN);
+  color: var(--NText-2);
 }
-
-
-
-
-
 
 .ContainerMovies {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1.1fr 0.2fr 1.9fr 1fr;
-    gap: 10px 10px;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "films"
-        "movies-filter"
-        "movies-Result"
-        "carousel-movies-b";
-    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.1fr 0.2fr 1.9fr 1fr;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "films"
+    "movies-filter"
+    "movies-Result"
+    "carousel-movies-b";
+  padding-top: 30px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
 }
 
 .films {
-    margin-top: 20px;
-    grid-area: films;
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-rows: 12% 88%;
-    align-items: center;
+  height: 100%;
+  width: 100%;
+  display: grid;
 }
 
 .Available {
-
-    width: 80%;
-    text-align: center;
-    margin: auto auto 0 auto;
+  width: 80%;
+  text-align: center;
+  margin: auto auto 0 auto;
 }
 
 .Available h3 {
-    font-size: 18px;
-    box-sizing: border-box;
-    border-radius: 3px;
+  padding: 10px;
+  font-size: 25px;
+  box-sizing: border-box;
+  margin: auto auto 0 auto;
 }
-
 
 .movies-filter {
-    grid-area: movies-filter;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: .6%;
-    width: 80%;
-    margin: auto;
-    margin-bottom: 0;
-    border-radius: 3px;
-    display: grid;
-    grid-template-columns: 24% 24% 24% 24%;
-    gap: 0px 1%
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  gap: 0px 1%;
 }
-.movies-filter select{
-    border-radius: 30px;
-    text-align: center;
-    font-weight: 800;
+.movies-filter select {
+  text-align: center;
+  font-weight: 800;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
 }
 
 .movies-Result {
-    grid-area: movies-Result;
-    height: 100%;
-    width: 80%;
-    align-items: center;
-    margin: auto;
+  grid-area: movies-Result;
+  height: 100%;
+  width: 80%;
+  align-items: center;
+  margin: auto;
+  padding: 10px;
 }
 
 .carousel-movies-b {
-    grid-area: carousel-movies-b;
-    margin-bottom: 40px;
+  grid-area: carousel-movies-b;
+  margin-bottom: 10px;
 }
 
 .carousel-movies-b h3 {
-    width: 100%;
-    margin: 10px auto;
+  width: 100%;
+  margin: 5px auto;
+  padding: 10px;
 }
 
 .Filter-results {
-    margin-top: 1%;
-    position: absolute;
-    width: 80%;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    border-radius: 3px;
-    overflow-y: scroll;
+  padding: 10px;
+  position: absolute;
+  width: 80%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
 }

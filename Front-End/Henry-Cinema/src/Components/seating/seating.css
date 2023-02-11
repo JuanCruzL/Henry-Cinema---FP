@@ -1,0 +1,126 @@
+.seating{
+  text-align: center;
+  background-color: #4d4d42;
+  height: 100vh;
+  position: relative;
+}
+
+.screen {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-left: 17%;
+  margin-right: 17.%;
+  border: 3px solid #00000034;
+  box-sizing: border-box;
+  padding: 5px;
+  top:30px;
+  padding-bottom:15px;
+  background-color: rgb(108, 106, 103);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+.screen .selected {
+  width: 95%;
+  margin-top: 20px;
+  margin-left: 2.5%;
+  text-align: left;
+  padding-left: 30px;
+  background-color: transparent;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight:600;
+  color: rgb(100, 96, 96);
+  text-shadow: 4px 4px 7px rgba(0,0,0,0.6);
+  border: 5px solid rgba(0, 0, 0, 0.182);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+
+/* .selected :hover {
+ 
+} */
+
+.pantalla{
+  background-color:#0000008e;
+  width: 70%;
+  margin-left: 15%;
+  margin-bottom: 5%;
+  color: white;
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+
+
+.seats{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.asiento {
+  height: 20px;
+  width: 20px;
+  margin-top: .5em;
+  margin-right: 0.2em;
+  background-color: #40ff00;
+  border: 1px solid black;
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+  
+}
+
+.asiento :hover {
+  background-color: yellow;
+  transform: scale(1.2);
+}
+
+.asiento img {
+  width: 100%;
+  height: 100%;
+  rotate: 180deg;
+  
+}
+
+.Filaizquierda {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.Filaderecha {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.TiketDetail {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 25%;
+  padding: 1%;
+  right:0px;
+  background-color: aliceblue;
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+
+.TiketDetail h1 {
+padding-left: 38%;
+padding-bottom: 2px;
+font-weight: bold;
+color: white;
+background-color: grey;
+}
+
+.TiketDetail button {
+  margin-top: 4px;
+  margin-left: 70%;
+  padding: 3px;
+  color: white;
+  background-color: rgba(0, 0, 255, 0.659);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+
+.TiketDetail p {
+margin-bottom: 2px;
+}
+.TiketDetail button:hover {
+  background-color: rgb(255, 47, 47);
+  transform: scale(1.1);
+}

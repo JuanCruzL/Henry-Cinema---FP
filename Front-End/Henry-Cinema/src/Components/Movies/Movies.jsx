@@ -1,31 +1,32 @@
 import React from "react";
 import Carousel from "./Carousel";
-import Loader from "../Loader/Loader"
+import Loader from "../Loader/Loader";
 import "./Movies.css";
-import { useState, useEffect } from 'react';
-import { getMovies, getRelease, requestGenders } from "../../redux/actions";
-import { useSelector, useDispatch } from 'react-redux';
-import Nav from "../../Components/Nav/Nav"
-import Footer from "../../Components/Footer/footer";
-import Movie from "./Movie"
-
+import { useState, useEffect } from "react";
+import { getMovies, getRelease, requestGenres } from "../../redux/actions";
+import { useSelector, useDispatch } from "react-redux";
+import Nav from "../../Components/Nav/Nav";
+import Footer from "../footer/footer";
+import Movie from "./Movie";
 
 const Movies = () => {
   const dispatch = useDispatch();
-  const genres = useSelector(state => state.uniqueGenres);//trae los generos disponibles en la cartelera
-  const allMovies = useSelector((state) => state.movies);// trae todas las peliculas de redux que estan en la cartelera
-  const allReleases = useSelector((state) => state.releases);// trae las proximas 
-  const [movies, setMovies] = useState([]);// guarda las peliculas del corrousel del footer
-  const [images, setImages] = useState([]);// renderiza las imagenes para el carrousel 
-  const [loading, setLoading] = useState(true);// setea el loading
+  const genres = useSelector((state) => state.uniqueGenres); //trae los generos disponibles en la cartelera
+  const allMovies = useSelector((state) => state.movies); // trae todas las peliculas de redux que estan en la cartelera
+  const allReleases = useSelector((state) => state.releases); // trae las proximas
+  const [movies, setMovies] = useState([]); // guarda las peliculas del corrousel del footer
+  const [images, setImages] = useState([]); // renderiza las imagenes para el carrousel
+  const [loading, setLoading] = useState(true); // setea el loading
   const [selectedGenre, setSelectedGenre] = useState();
   const [Filtered, setFiltered] = useState([]);
-  const [genresCurrent, setGenresCurrent] = useState([])
+  const [genresCurrent, setGenresCurrent] = useState([]);
   const [classifications, setClassifications] = useState([]);
   const [availableMovies, setAvailableMovies] = useState([]);
 
   const getClassifications = () => {
-    const classificationsArray = Array.from(new Set(allMovies.map(movie => movie.classification)));
+    const classificationsArray = Array.from(
+      new Set(allMovies.map((movie) => movie.classification))
+    );
     setClassifications(classificationsArray);
   };
   useEffect(() => {
@@ -34,12 +35,9 @@ const Movies = () => {
     }
   }, [selectedGenre, availableMovies]);
 
-
   useEffect(() => {
     getClassifications();
   }, [allMovies]);
-
-
 
   useEffect(() => {
     if (!allMovies.length && !allReleases.length) {
@@ -49,24 +47,29 @@ const Movies = () => {
     }
     setTimeout(() => {
       setLoading(false);
-    }, 2000)
-    setImages(allMovies.map(movie => ({ apiID: movie.apiId, image: movie.imageVertical })));
-    setMovies(allReleases.map(movie => ({ apiID: movie.id, image: movie.image })));
-    setAvailableMovies(allMovies)
+    }, 2000);
+    setImages(
+      allMovies.map((movie) => ({
+        apiID: movie.apiId,
+        image: movie.imageVertical,
+      }))
+    );
+    setMovies(
+      allReleases.map((movie) => ({ apiID: movie.id, image: movie.image }))
+    );
+    setAvailableMovies(allMovies);
   }, [allMovies, setImages]);
 
   useEffect(() => {
     if (!genres.length) {
-      dispatch(requestGenders());
+      dispatch(requestGenres());
     }
-    setGenresCurrent(genres)
-
+    setGenresCurrent(genres);
   }, [genresCurrent, dispatch]);
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
-
 
   //------------------filtro de generos-------------------------------
 
@@ -79,21 +82,20 @@ const Movies = () => {
     setSelectedGenre(event.target.value);
     let filteredMovies = [];
     if (Filtered.length > 0) {
-      filteredMovies = Filtered.filter(
-        (movie) => movie.genres.includes(event.target.value)
+      filteredMovies = Filtered.filter((movie) =>
+        movie.genres.includes(event.target.value)
       );
     }
     if (filteredMovies.length === 0) {
-      filteredMovies = allMovies.filter(
-        (movie) => movie.genres.includes(event.target.value)
+      filteredMovies = allMovies.filter((movie) =>
+        movie.genres.includes(event.target.value)
       );
     }
     setFiltered(filteredMovies);
   };
-  console.log(selectedGenre)
+  console.log(selectedGenre);
 
   //------------------- funcion que ordena por popularidad-------------------------------
-
 
   // const handleCalificationSort = (event) => {
   //   if (event.target.value === "Calification") {
@@ -135,23 +137,17 @@ const Movies = () => {
       }
       return a.voteAverage - b.voteAverage;
     });
-   // setAvailableMovies(sortedMovies);
+    // setAvailableMovies(sortedMovies);
     setFiltered(sortedMovies);
   };
-  
 
-
-
-
-
-  console.log(classifications)
-  console.log(Filtered)
+  console.log(classifications);
+  console.log(Filtered);
 
   return (
     <div className="Container">
       <Nav />
       <div className="ContainerMovies">
-
         <section className="films">
           <div className="Available">
             <h3>AVAILABLE FILMS</h3>
@@ -160,9 +156,10 @@ const Movies = () => {
         </section>
 
         <section className="movies-filter">
-
           <select onChange={handleSelect} value={selectedGenre}>
-            <option value="" style={{ color: 'red' }}>{selectedGenre ? "All" : "Select a Genre"}</option>
+            <option value="" style={{ color: "red" }}>
+              {selectedGenre ? "All" : "Select a Genre"}
+            </option>
             {genresCurrent.map((genre) => (
               <option key={genre} value={genre} disabled={selectedGenre}>
                 {genre}
@@ -170,8 +167,7 @@ const Movies = () => {
             ))}
           </select>
 
-
-          <select >
+          <select>
             <option value="todos">Clasification</option>
             {classifications.map((c) => (
               <option key={c} value={c}>
@@ -180,7 +176,7 @@ const Movies = () => {
             ))}
           </select>
 
-          <select >
+          <select>
             <option value="todos">Lang </option>
             <option value="sub">Sub</option>
             <option value="dub">Dub</option>
@@ -191,20 +187,16 @@ const Movies = () => {
             <option value="Less Popular">Less Popular</option>
           </select> */}
 
-<select onClick={handleCalificationSort}>
-  <option value="Calification">Calification</option>
-  <option value="More Popular">More Popular</option>
-  <option value="Less Popular">Less Popular</option>
-</select>
-
+          <select onClick={handleCalificationSort}>
+            <option value="Calification">Calification</option>
+            <option value="More Popular">More Popular</option>
+            <option value="Less Popular">Less Popular</option>
+          </select>
         </section>
-        
-      
 
         <section className="movies-Result">
-
           <div className="Filter-results">
-            {Filtered.map(movie => (
+            {Filtered.map((movie) => (
               <Movie movie={movie} />
             ))}
 
@@ -217,24 +209,18 @@ const Movies = () => {
                 <Movie movie={movie} />
               ))
             )} */}
-
           </div>
         </section>
-
 
         <div className="carousel-movies-b">
           <div className="Available">
             <h3>Next Releases</h3>
           </div>
-          <Carousel
-            images={movies}
-          />
+          <Carousel images={movies} />
         </div>
       </div>
       <Footer />
-
     </div>
-
   );
 };
 

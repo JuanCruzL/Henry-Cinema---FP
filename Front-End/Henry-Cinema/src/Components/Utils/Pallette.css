@@ -1,31 +1,38 @@
 :root {
+  --Gold:gold;
+  --Degradado: rgba(217, 217, 217, 0.132);
+  --DegradadoG: rgb(255, 255, 0,0.5);
+  /* LIGHT */
+  --BaseL: #ffff00;
+  --BaseLD: rgba(255, 255, 255, 0.8);
+  --LBase-1: #000000;
+  --LBase-2: #ffffff;
+  --LFondo-1: #ffffff;
+  --LFondo-2:whitesmoke;
+  --LText-1: #000000;
+  --LText-2: #ffffff;
+  --LText-3: #ffff00;
+  --LDegradado: rgba(0, 0, 0, 0.39);
+  --LDegradado2: rgba(0, 0, 0, 0.5);
+  --LDegradado3: rgba(0, 0, 0, 0.15);
 
-    --Degradado: rgba(217, 217, 217, 0.132);
-    /* LIGHT */
-    --BaseL: #ffff00;
-    --BaseLD: rgba(255, 255, 255, 0.8);
-    --LBase-1: #000000;
-    --LBase-2: #ffffff;
-    --LFondo-1: #ffffff;
-    --LText-1: #000000;
-    --LText-2: #ffffff;
-    --LDegradado: rgba(0, 0, 0, 0.39);
-    --LDegradado2: rgba(0, 0, 0, .5);
-
-    /* NIGHT */
-    --BaseN: #e7e703;
-    --BaseND: rgba(230, 230, 230, 0.8);
-    --NBase-1: #ffffff;
-    --NBase-2: #000000;
-    --NFondo-1: #111111;
-    --NText-1: #ffffff;
-    --NText-2: #000000;
-    --NDegradado: rgba(232, 225, 7, 0.39);
-    --NDegradado: rgba(255, 255, 255, 0.39);
-    --NDegradado2: rgba(255, 255, 255, 0.5);
+  /* NIGHT */
+  --BaseN: #ffff00;
+  --BaseND: rgba(230, 230, 230, 0.8);
+  --NBase-1: #ffffff;
+  --NBase-2: #000000;
+  --NFondo-1: #111111;
+  --NFondo-2:rgb(10, 10, 10);
+  --NText-1: #ffffff;
+  --NText-2: #000000;
+  --NDegradado: rgba(232, 225, 7, 0.39);
+  --NDegradado: rgba(255, 255, 255, 0.39);
+  --NDegradado2: rgba(255, 255, 255, 0.5);
+  --NDegradado3: rgba(255, 255, 255, 0.116);
+  --NDegradado4: rgba(255, 255, 0, 0.15);
 }
 
 #Switch {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }

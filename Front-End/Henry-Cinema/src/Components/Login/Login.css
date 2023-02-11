@@ -192,9 +192,13 @@
    }
    .textdiv {
     font-size: 15px;
-
    }
-   
+
+ .googlecontainer {
+    position: absolute;
+    bottom: 100px;
+   }
+
    /* When the checkbox is checked, add a blue background */
    .container .checkinput:checked ~ .checkmark {
      background-color: #2196F3;
@@ -268,7 +272,7 @@
     color: #212121;
     z-index: 1;
     bottom: 100px;
-    right: 226px;
+    /* right: 225px; */
     background: #e8e8e8;
     position: absolute;
     font-weight: 1000;

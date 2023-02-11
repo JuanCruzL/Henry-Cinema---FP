@@ -1,31 +1,32 @@
-import React, {useState} from "react";
-import { useSelector , useDispatch } from "react-redux";
-import {searchMovie} from "../../redux/actions/index";
-import "./SearchBar.css";
-import logoSearch from "../../img/busqueda.png"
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-export const SearchBar = ({setCurrentPage}) => {
+import { searchMovie } from "../../redux/actions";
+import "./SearchBar.css";
+import logoSearch from "../../img/busqueda.png";
+
+export const SearchBar = ({ setCurrentPage }) => {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
 
   const handleInpuChange = (e) => {
     e.preventDefault();
-    dispatch(searchMovie(e.target.value))
-    setCurrentPage(1)
-  }
-  
+    dispatch(searchMovie(e.target.value));
+    setCurrentPage(1);
+  };
+
   return (
     <div className="search-container">
       <div className="input-icons">
         <input
-        onChange={e => handleInpuChange(e)}
+          onChange={(e) => handleInpuChange(e)}
           className="input-field"
           type="text"
-          placeholder="Search..."
+          placeholder="Search Movies..."
           maxLength={20}
         />
 
-        <img src={logoSearch}className="button-search" />
+        <img src={logoSearch} className="button-search" />
       </div>
     </div>
   );

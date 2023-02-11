@@ -1,58 +1,49 @@
-.light-mode .movie{
-    background-color: var(--LDegradado2);
-    box-shadow: var(--LDegradado) 0px 5px 15px;
+.light-mode .movie {
+  background-color: #ffff00;
+  box-shadow: var(--LDegradado) 0px 5px 15px;
 }
 .light-mode .movie-data {
-    color: var(--LText-2);
+  color: var(--LText-1);
 }
 
-
-.dark-mode .movie{
-    background-color: var(--NDegradado2);
-    box-shadow: var(--NDegradado) 0px 5px 15px;
+.dark-mode .movie {
+  background-color: #ffff00;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px;
 }
 .dark-mode .movie-data {
-    color: var(--NText-2);
+  color: var(--NText-2);
 }
 
-
-
-
-
 .movie {
-    width: 45%;
-    height: 330px;
-    display: flex;
-    flex-direction: row;
-    margin: 1.5%;
-    border-radius: 5px;
+  width: 45%;
+  height: 330px;
+  display: flex;
+  flex-direction: row;
+  margin: 1.5%;
 }
 
 .movie img {
-    width: 230px;
-    height: 330px;
-    border-radius: 5px;
+  width: 230px;
+  height: 330px;
 }
 
 .movie-data {
-    display: flex;
-    flex-direction: column;
-    margin-left: 2%;
-    margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2%;
+  margin-top: 2%;
 }
 
 .movie-data p {
-    margin-top: 3%;
-    font-size: 15px;
-    font-weight: 400;
-    
+  margin-top: 3%;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .movie-data h2 {
-    text-align: left;
-    font-size: 25px;
-    margin-top: 5%;
-    margin-bottom: 3%;
-    font-weight: 600;
+  display: flex;
+  font-size: 25px;
+  margin: 10px;
+  padding: 100px 0px 10px 0px;
+  font-weight: 600;
 }
-
