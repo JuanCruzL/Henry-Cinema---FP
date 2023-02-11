@@ -11,7 +11,6 @@ import {
   GET_FOODS,
   GET_DRINKS,
   GET_COMBOS,
-  REQUEST_GENRES,
   SEARCH_FOOD,
 } from "./actionTypes";
 
