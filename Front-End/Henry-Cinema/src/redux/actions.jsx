@@ -15,9 +15,14 @@ import {
   SEARCH_FOOD,
 } from "./actionTypes";
 
+<<<<<<< HEAD
 axios.defaults.baseURL = "http://localhost:3001";
 //axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/"
+=======
+>>>>>>> 0b93e902aab96168d9cf67e9d99160d70e82b4ab
 
+//axios.defaults.baseURL = "http://localhost:3001"
+axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/"
 //MOVIES
 
 export const getMovies = () => {
