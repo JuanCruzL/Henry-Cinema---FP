@@ -82,19 +82,18 @@ export const NewMovie = () => {
       isValid = false;
     }
 
-    if ((title && title.length < 1) || title.length > 25) {
+    if ((title && title.length < 1) || title.length > 40) {
       validations.title = "The title must contain between 1 and 25 characters";
       isValid = false;
     }
 
-    if (imageVertical.length == 0 || !/\.(jpg|png)$/i.test(imageVertical)) {
-      validations.imageVertical =
-        "At leat one jpg or png image for movie is required";
+    if (!imageVertical) {
+      validations.imageVertical = "A Poster of the movie is required";
       isValid = false;
     }
 
-    if (!/\.(jpg|png)$/i.test(imageHorizontal)) {
-      validations.imageHorizontal = "The file must be a jpg or png image";
+    if (!imageHorizontal) {
+      validations.imageHorizontal = "A banner of the movie is required";
       isValid = false;
     }
 
@@ -227,7 +226,13 @@ export const NewMovie = () => {
             />
           </div>
           <div className="right">
-            <form onSubmit={handleSubmit}>
+            <form
+              name="newMovie"
+              onSubmit={handleSubmit}
+              enctype="multipart/form-data"
+              action="uploader.php"
+              method="POST"
+            >
               <div className="formNM">
                 <label>Title</label>
                 <input
@@ -243,16 +248,14 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Poster</label>
-                <label htmlFor="file">
-                  <CreateNewFolderIcon className="icon" />
-                </label>
                 <input
-                  type="file"
-                  id="file"
-                  style={{ display: "none" }}
+                  className="inputNM"
+                  type="text"
+                  placeholder="image url..."
                   name="imageVertical"
                   value={imageVertical}
-                  accept="image/png,image/jpeg"
+                  onChange={handleChange}
+                  onBlur={validateOne}
                 />
                 <div className="vals">{imageVerticalVal}</div>
               </div>
@@ -271,16 +274,14 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Banner</label>
-                <label htmlFor="file">
-                  <CreateNewFolderIcon className="icon" />
-                </label>
                 <input
-                  type="file"
-                  id="file"
-                  style={{ display: "none" }}
+                  className="inputNM"
+                  type="text"
+                  placeholder="image url..."
                   name="imageHorizontal"
                   value={imageHorizontal}
-                  accept="image/png,image/jpeg,image/jpg"
+                  onChange={handleChange}
+                  onBlur={validateOne}
                 />
                 <div className="vals">{imageHorizontalVal}</div>
               </div>

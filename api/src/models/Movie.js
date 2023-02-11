@@ -22,11 +22,11 @@ module.exports = (sequelize) => {
     },
 
     imageVertical: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false, 
     },
     imageHorizontal: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: true,
     },
 
