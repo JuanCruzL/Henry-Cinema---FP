@@ -41,6 +41,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         releases: action.payload,
       };
+    case "CREATE_MOVIE":
+      return {
+        ...state,
+        allMovies: action.payload,
+      };
     case "DELETE_MOVIE":
       return {
         ...state,

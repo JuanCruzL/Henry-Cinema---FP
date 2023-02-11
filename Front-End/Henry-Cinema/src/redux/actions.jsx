@@ -13,6 +13,7 @@ import {
   GET_COMBOS,
   REQUEST_GENRES,
   SEARCH_FOOD,
+  CREATE_MOVIE,
 } from "./actionTypes";
 
 //axios.defaults.baseURL = "http://localhost:3001"
@@ -67,8 +68,11 @@ export function createMovie(movie) {
   console.log("MOVIE: ", movie);
   return async function () {
     try {
-      const newMovie = await axios.post("http://localhost:3001/movies", movie);
-      console.log(newMovie);
+      const response = await axios.post("http://localhost:3001/movies", movie);
+      if (response.data === "MOVIE CREATED") {
+        const allMovies = await axios.get("/movies");
+        return dispatch({ type: CREATE_MOVIE, payload: allMovies.data });
+      }
     } catch (error) {
       console.log(error);
     }
