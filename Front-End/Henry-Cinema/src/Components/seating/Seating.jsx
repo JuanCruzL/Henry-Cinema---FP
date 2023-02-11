@@ -1,10 +1,14 @@
 import React from 'react'
 import './seating.css'
-import { useState } from 'react';
-import Chair from "../../img/asiento.svg/"
+import { useState,useEffect } from 'react';
+import {useSelector, useDispatch } from 'react-redux'
+import { getasientos} from "../../redux/actions";
+import Seats from './Seats';
 
 function Seating() {
-
+  const dispatch = useDispatch();
+  const asientos = useSelector(state => state.seats);
+  const [asientosArray,setAsientosArray] = useState([])
   const [asientosSeleccionados, setAsientosSeleccionados] = useState([]);
   
   const handleClick = (event) => {
@@ -15,8 +19,12 @@ function Seating() {
       setAsientosSeleccionados([...asientosSeleccionados, asiento]);
     }
   };
+  useEffect(() => {
+    dispatch(getasientos());
+    setAsientosArray(asientos)
+    
+  }, []);
 
-  
 
   return (
     <div className="seating">
@@ -25,209 +33,59 @@ function Seating() {
         <div className="pantalla">
       <h1> Screen</h1>
       </div>
-{/* //-----------fila A---------------------//         */}
-      
-<div className="seats">
-<div className="Filaizquierda">   
-{[...Array(20)].map((_, i) => (
-        <div key={`A${i + 1}`} className="asiento" data-value={`A${i + 1}`} onClick={handleClick}>
-          <img key={`A${i + 1}`} data-value={`A${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"/>
-        </div>
-      ))}
 
-</div>
-<div className='Filaderecha'>  
-{[...Array(20)].map((_, i) => (
-        <div key={`A${i + 10}`} className="asiento" data-value={`A${i + 11}`} onClick={handleClick}>
-          <img key={`A${i + 10}`} data-value={`A${i + 11}`} onClick={handleClick} src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-</div>
+{/* //-----------fila A--------------------- */}
+      
+<Seats seatsData={asientos} handleClick={handleClick} letra= "A" asientosSeleccionados = {asientosSeleccionados}/>
 
 {/* **************** fila B************ */}
 
-<div className="seats">
-<div className="Filaizquierda">    
-{[...Array(20)].map((_, i) => (
-        <div key={`B${i + 1}`} className="asiento" data-value={`B${i + 1}`} onClick={handleClick}>
-          <img key={`B${i + 1}`} data-value={`B${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-<div className='Filaderecha'>  
-{[...Array(20)].map((_, i) => (
-        <div key={`B${i + 10}`} className="asiento" data-value={`B${i + 11}`} onClick={handleClick}>
-          <img key={`B${i + 10}`}  data-value={`B${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-</div>
+<Seats seatsData={asientos} handleClick={handleClick} letra= "B" asientosSeleccionados = {asientosSeleccionados} />
 
 {/* ************* fila C *****************/}
 
-<div className="seats">
-<div className="Filaizquierda">    
-{[...Array(20)].map((_, i) => (
-        <div key={`C${i + 1}`} className="asiento" data-value={`C${i + 1}`} onClick={handleClick}>
-          <img key={`C${i + 1}`} data-value={`C${i + 1}`}  onClick={handleClick} src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-<div className='Filaderecha'>  
-{[...Array(20)].map((_, i) => (
-        <div key={`C${i + 10}`} className="asiento" data-value={`C${i + 11}`} onClick={handleClick}>
-          <img key={`C${i + 10}`} data-value={`C${i + 11}`}  onClick={handleClick}  src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-</div>
+<Seats seatsData={asientos} handleClick={handleClick} letra= "C" asientosSeleccionados = {asientosSeleccionados} />
 
 {/* *********** fila D  *********** */}
   
-
-<div className="seats">
-<div className="Filaizquierda">    
-{[...Array(20)].map((_, i) => (
-        <div key={`D${i + 1}`} className="asiento" data-value={`D${i + 1}`} onClick={handleClick}>
-          <img key={`D${i + 1}`} data-value={`D${i + 1}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-<div className='Filaderecha'>  
-{[...Array(20)].map((_, i) => (
-        <div key={`D${i + 10}`} className="asiento" data-value={`D${i + 11}`} onClick={handleClick}>
-          <img key={`D${i + 10}`} data-value={`D${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-</div>
+<Seats seatsData={asientos} handleClick={handleClick} letra= "D" asientosSeleccionados = {asientosSeleccionados} />
 
 {/* ******* fila E ********* */}
 
+<Seats seatsData={asientos} handleClick={handleClick} letra= "E" asientosSeleccionados = {asientosSeleccionados} />
 
-<div className="seats">
-<div className="Filaizquierda">    
-{[...Array(20)].map((_, i) => (
-        <div key={`E${i + 1}`} className="asiento" data-value={`E${i + 1}`} onClick={handleClick}>
-          <img key={`E${i + 1}`} data-value={`E${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"   />
-        </div>
-      ))}
-</div>
-<div className='Filaderecha'>  
-{[...Array(20)].map((_, i) => (
-        <div key={`E${i + 10}`} className="asiento" data-value={`E${i + 11}`} onClick={handleClick}>
-          <img key={`E${i + 10}`} data-value={`E${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"   />
-        </div>
-      ))}
-</div>
-</div>
 {/* ************* fila F ************* */}
 
+<Seats seatsData={asientos} handleClick={handleClick} letra= "F" asientosSeleccionados = {asientosSeleccionados} />
 
-<div className="seats">
-<div className="Filaizquierda">    
-{[...Array(20)].map((_, i) => (
-        <div key={`F${i + 1}`} className="asiento" data-value={`F${i + 1}`} onClick={handleClick}>
-          <img key={`F${i + 1}`} data-value={`F${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-<div className='Filaderecha'>  
-{[...Array(20)].map((_, i) => (
-        <div key={`F${i + 10}`} className="asiento" data-value={`F${i + 11}`} onClick={handleClick}>
-          <img key={`F${i + 10}`} data-value={`F${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-</div>
 {/* *************** Fila G ****************** */}
-<div className="seats">
-<div className="Filaizquierda">    
-{[...Array(20)].map((_, i) => (
-        <div key={`G${i + 1}`} className="asiento" data-value={`G${i + 1}`} onClick={handleClick}>
-          <img key={`G${i + 1}`} data-value={`G${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-<div className='Filaderecha'>  
-{[...Array(20)].map((_, i) => (
-        <div key={`G${i + 10}`} className="asiento" data-value={`G${i + 11}`} onClick={handleClick}>
-          <img key={`G${i + 10}`} data-value={`G${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-</div>
+
+<Seats seatsData={asientos} handleClick={handleClick} letra= "G" asientosSeleccionados = {asientosSeleccionados} />
 
 {/* *************** Fila H  ***************** */}
 
-<div className="seats">
-<div className="Filaizquierda">    
-{[...Array(20)].map((_, i) => (
-        <div key={`H${i + 1}`} className="asiento" data-value={`H${i + 1}`} onClick={handleClick}>
-          <img key={`H${i + 1}`} data-value={`H${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-<div className='Filaderecha'>  
-{[...Array(20)].map((_, i) => (
-        <div key={`H${i + 10}`} className="asiento" data-value={`H${i + 11}`} onClick={handleClick}>
-          <img key={`H${i + 10}`} data-value={`H${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-</div>
+<Seats seatsData={asientos} handleClick={handleClick} letra= "H" asientosSeleccionados = {asientosSeleccionados} />
 
 {/* --------------  Fila I -----------------*/}
 
-
-<div className="seats">
-<div className="Filaizquierda">    
-{[...Array(20)].map((_, i) => (
-        <div key={`I${i + 1}`} className="asiento" data-value={`I${i + 1}`} onClick={handleClick}>
-          <img key={`I${i + 1}`} data-value={`I${i + 1}`} onClick={handleClick} src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-<div className='Filaderecha'>  
-{[...Array(20)].map((_, i) => (
-        <div key={`I${i + 10}`} className="asiento" data-value={`I${i + 11}`} onClick={handleClick}>
-          <img key={`I${i + 10}`} data-value={`I${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-</div>
+<Seats seatsData={asientos} handleClick={handleClick} letra= "I" asientosSeleccionados = {asientosSeleccionados} />
 
 {/* *********** Fila J **************** */}
 
-<div className="seats">
-<div className="Filaizquierda">    
-{[...Array(20)].map((_, i) => (
-        <div key={`J${i + 1}`} className="asiento" data-value={`J${i + 1}`} onClick={handleClick}>
-          <img key={`J${i + 1}`} data-value={`J${i + 1}`}  onClick={handleClick} src={Chair} alt="Asiento"/>
-        </div>
-      ))}
-</div>
-<div className='Filaderecha'>  
-{[...Array(20)].map((_, i) => (
-        <div key={`J${i + 10}`} className="asiento" data-value={`J${i + 11}`} onClick={handleClick}>
-          <img key={`J${i + 10}`} data-value={`J${i + 11}`} onClick={handleClick}  src={Chair} alt="Asiento"/>
-        </div>
-      ))}
+<Seats seatsData={asientos} handleClick={handleClick} letra= "J" asientosSeleccionados = {asientosSeleccionados} />
+
+<div className="selected">
+      <p>Funcion El Gato con botas</p>
+      <p>Sala H 2D Fecha 14/2 22:15</p>
+      <p>Lugares: {asientosSeleccionados.join(" ,")}</p>
+      <p>Cantidad de entradas : {asientosSeleccionados.length}</p>
+      <p>Monto tototal: {asientosSeleccionados.length* 10} USD </p>
 </div>
 
-
 </div>
-<div className="selected"><h5>Asientos seleccionados: {asientosSeleccionados.join(" ,")}</h5></div>
-
-
-
-
-
-</div>
- 
     </div>
   )
 }
 
 export default Seating
+

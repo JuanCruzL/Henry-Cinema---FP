@@ -97,8 +97,8 @@ export default function HomeCarrusel({ cartelera }) {
             {cartelera.map((data, index) => {
               return (
                 index != 0 ?
-                  <span className="punto" onClick={() => mostrar(index)}></span>
-                  :<span className="punto activo" onClick={() => mostrar(index)}></span>
+                  <span key={Math.random()*10000} className="punto" onClick={() => mostrar(index)}></span>
+                  :<span  key={Math.random()*1000} className="punto activo" onClick={() => mostrar(index)}></span>
               )
             })
             }

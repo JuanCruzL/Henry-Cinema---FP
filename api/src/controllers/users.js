@@ -13,10 +13,11 @@ const postUsersDb = async (formData) => {
     const {
         userName,
         email,
-        password
+        password,
+        notifications,
     } = formData;
 
-    if ( userName && email && password) {
+    if ( userName && email && password && notifications) {
         const hashPw = bcrypt.hashSync(password, salt);
         // console.log(hashPw);
 
@@ -33,7 +34,8 @@ const postUsersDb = async (formData) => {
         await User.create({ 
             userName,
             email,
-            password: hashPw 
+            password: hashPw, 
+            notifications,
         });
 
         return "User created successfully";
