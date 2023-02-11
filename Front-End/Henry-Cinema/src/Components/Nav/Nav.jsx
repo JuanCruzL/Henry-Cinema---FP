@@ -37,7 +37,7 @@ const Nav = ({ setCurrentPage }) => {
                 </label>
               </li>
               <li className="menu-inside">
-                <Link to="/movies">
+                <Link to="/">
                   <div className="menu-link menu-link--inside">Home</div>
                 </Link>
               </li>
