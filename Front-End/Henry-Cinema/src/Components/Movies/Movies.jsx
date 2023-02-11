@@ -3,7 +3,7 @@ import Carousel from "./Carousel";
 import Loader from "../Loader/Loader";
 import "./Movies.css";
 import { useState, useEffect } from "react";
-import { getMovies, getRelease, requestGenders } from "../../redux/actions";
+import { getMovies, getRelease, requestGenres } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import Nav from "../../Components/Nav/Nav";
 import Footer from "../footer/footer";
@@ -62,7 +62,7 @@ const Movies = () => {
 
   useEffect(() => {
     if (!genres.length) {
-      dispatch(requestGenders());
+      dispatch(requestGenres());
     }
     setGenresCurrent(genres);
   }, [genresCurrent, dispatch]);

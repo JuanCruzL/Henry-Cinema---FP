@@ -194,12 +194,11 @@
     font-size: 15px;
    }
 
-   .googleButton{
-    /* width: 200px; */
+ .googlecontainer {
     position: absolute;
-    bottom: 200px;
+    bottom: 100px;
    }
-   
+
    /* When the checkbox is checked, add a blue background */
    .container .checkinput:checked ~ .checkmark {
      background-color: #2196F3;

@@ -2,7 +2,7 @@ import axios from "axios";
 const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
 export const GET_MOVIES = "GET_MOVIES";
 export const GET_RELEASES = "GET_RELEASES";
-export const REQUEST_GENDERS = "REQUEST_GENDERS";
+export const REQUEST_GENRES2 = "REQUEST_GENRES2";
 export const GET_SEATS = "GET_SEATS";
 import {
   GET_MOVIE_ID,
@@ -11,18 +11,12 @@ import {
   GET_FOODS,
   GET_DRINKS,
   GET_COMBOS,
-  REQUEST_GENRES,
   SEARCH_FOOD,
 } from "./actionTypes";
 
-<<<<<<< HEAD
 axios.defaults.baseURL = "http://localhost:3001";
-//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/"
-=======
->>>>>>> 0b93e902aab96168d9cf67e9d99160d70e82b4ab
+//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 
-//axios.defaults.baseURL = "http://localhost:3001"
-axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/"
 //MOVIES
 
 export const getMovies = () => {
@@ -169,9 +163,9 @@ export const getasientos = () => {
 
 //GENRES
 
-export const requestGenders = () => {
+export const requestGenres = () => {
   return {
-    type: REQUEST_GENRES,
+    type: REQUEST_GENRES2,
   };
 };
 
