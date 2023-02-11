@@ -54,16 +54,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         allMovies: action.payload,
       };
-    case "AGE_CLASSIFICATION":
-      const allM = state.allMovies;
-      const age_classification = allM.filter(
-        (data) => data.classification === payload
-      );
-      return {
-        ...state,
-        movies: age_classification,
-      };
-
     case "SEARCH_MOVIE":
       const searchMoviesBar = state.allMovies;
       const searchMoviesFound = searchMoviesBar.filter((m) => {
