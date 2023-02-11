@@ -1,6 +1,8 @@
 import axios from "axios";
 
 import {
+  GET_MOVIES,
+  GET_RELEASES,
   GET_MOVIE_ID,
   SEARCH_MOVIE,
   DELETE_MOVIE,
