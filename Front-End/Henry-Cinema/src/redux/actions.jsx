@@ -1,23 +1,22 @@
 import axios from "axios";
 
 import {
-  GET_MOVIES,
-  GET_RELEASES,
   GET_MOVIE_ID,
   SEARCH_MOVIE,
   DELETE_MOVIE,
   GET_FOODS,
   GET_DRINKS,
   GET_COMBOS,
-  REQUEST_GENRES,
+  REQUEST_GENRES2,
   GET_SEATS,
   SEARCH_FOOD,
   CREATE_MOVIE,
   AGE_CLASSIFICATION,
 } from "./actionTypes";
 
-//axios.defaults.baseURL = "http://localhost:3001"
-axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
+axios.defaults.baseURL = "http://localhost:3001";
+//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
+
 //MOVIES
 
 export const getMovies = () => {
@@ -180,9 +179,9 @@ export const getasientos = () => {
 
 //GENRES
 
-export const requestGenders = () => {
+export const requestGenres = () => {
   return {
-    type: REQUEST_GENRES,
+    type: REQUEST_GENRES2,
   };
 };
 

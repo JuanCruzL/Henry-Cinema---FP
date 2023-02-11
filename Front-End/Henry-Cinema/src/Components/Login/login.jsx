@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import "./Login.css";
 import logo from "../Utils/logo-henry-cinema.png";
 import { logInUser, logInUserWithGoogle, signUp } from "../../redux/actions";
-import  { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 export default function Login() {
-  const currentUser = useSelector(state => state.currentUser);
+  const currentUser = useSelector((state) => state.currentUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [sign, setSign] = useState("sign-in");
@@ -19,7 +19,6 @@ export default function Login() {
     formupFullname: false,
     formupPassword: false,
     formupEmail: false,
-
   });
 
   const [formUp, setFormUp] = useState({
@@ -38,64 +37,78 @@ export default function Login() {
     google.accounts.id.initialize({
       client_id: import.meta.env.VITE_FRONTEND_CLIENT_ID,
       callback: onSuccess,
-    })
+    });
 
-    google.accounts.id.renderButton(
-      document.getElementById('googleButton'),
-      { theme: "outline", size: "large" }
-    );
-
+    google.accounts.id.renderButton(document.getElementById("googleButton"), {
+      theme: "outline",
+      size: "large",
+    });
   }, []);
 
-//-------------------------------------------HANDLERS-----------------------------------------------------
+  //-------------------------------------------HANDLERS-----------------------------------------------------
 
+  //--------------------------------------SIGN IN VALIDATOR-------------------------------------------
+  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(
+    formIn.email
+  )
+    ? (errors.forminEmail = false)
+    : (errors.forminEmail = true);
 
-//--------------------------------------SIGN IN VALIDATOR-------------------------------------------
-  (/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g).test(formIn.email) ? errors.forminEmail = false : errors.forminEmail = true;
+  /([\da-zA-Z]){8,}/.test(formIn.password)
+    ? (errors.forminPassword = false)
+    : (errors.forminPassword = true);
 
- /([\da-zA-Z]){8,}/.test(formIn.password) ? errors.forminPassword = false : errors.forminPassword = true;
+  const validate = (formUp) => {
+    if (
+      errors.formupFullname === false &&
+      errors.formupEmail === false &&
+      errors.formupPassword === false
+    ) {
+      return true;
+    }
+  };
 
- const validate = (formUp) => {
-  if(errors.formupFullname === false && errors.formupEmail === false && errors.formupPassword === false) {
-    return true
-  }
- }
+  //----------------------------------------SIGN UP VALIDATOR--------------------------------------
+  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(
+    formUp.email
+  )
+    ? (errors.formupEmail = false)
+    : (errors.formupEmail = true);
 
- //----------------------------------------SIGN UP VALIDATOR--------------------------------------
- (/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g).test(formUp.email) ? errors.formupEmail = false : errors.formupEmail = true;
-    
- /([\da-zA-Z]){8,}/.test(formUp.password) ? errors.formupPassword = false : errors.formupPassword = true;
+  /([\da-zA-Z]){8,}/.test(formUp.password)
+    ? (errors.formupPassword = false)
+    : (errors.formupPassword = true);
 
- /^(?!.* $)+[a-zA-Z][A-Za-z ]+$/.test(formUp.userName) ? errors.formupFullname = false : errors.formupFullname = true
-
+  /^(?!.* $)+[a-zA-Z][A-Za-z ]+$/.test(formUp.userName)
+    ? (errors.formupFullname = false)
+    : (errors.formupFullname = true);
 
   const handleSign = (signstring) => {
     setSign(signstring);
   };
 
   const handleCheck = (e) => {
-    setChecked2(e.target.checked)
-    formUp.notifications = e.target.checked
+    setChecked2(e.target.checked);
+    formUp.notifications = e.target.checked;
   };
-
 
   const handleSubmitIn = (e) => {
     // console.log(formIn)
     e.preventDefault();
     dispatch(logInUser(formIn.email, formIn.password));
     console.log(currentUser);
-    if(currentUser.accessToken) navigate("/");
+    if (currentUser.accessToken) navigate("/");
   };
 
-  const handleSubmitUp=(e) => {
-    e.preventDefault()
+  const handleSubmitUp = (e) => {
+    e.preventDefault();
     dispatch(signUp(formUp));
     setFormUp({
-      userName:"",
+      userName: "",
       email: "",
       password: "",
       notifications: checked2,
-    })
+    });
   };
 
   const handleChangeIn = (e) => {
@@ -103,7 +116,6 @@ export default function Login() {
       ...formIn,
       [e.target.name]: e.target.value,
     });
-    
   };
 
   const handleChangeUp = (e) => {
@@ -111,10 +123,9 @@ export default function Login() {
       ...formUp,
       [e.target.name]: e.target.value,
     });
-
   };
 
-  function onSuccess (response) {
+  function onSuccess(response) {
     try {
       const userObject = jwt_decode(response.credential);
       console.log(userObject);
@@ -138,7 +149,10 @@ export default function Login() {
           <div className="prueba">
             <div className="form-container">
               <div className="sign">
-                <p className="sign-inPselect" onClick={() => handleSign("sign-in")}>
+                <p
+                  className="sign-inPselect"
+                  onClick={() => handleSign("sign-in")}
+                >
                   Sign in
                 </p>
                 <p className="signP">or</p>
@@ -147,7 +161,9 @@ export default function Login() {
                 </p>
               </div>
               <form onSubmit={(e) => handleSubmitIn(e)} className="formsignin">
-                <p className={errors.forminEmail ? "baddesc-p": "desc-p"}>E-MAIL</p>
+                <p className={errors.forminEmail ? "baddesc-p" : "desc-p"}>
+                  E-MAIL
+                </p>
                 <input
                   placeholder="Enter your Email"
                   className={errors.forminEmail ? "badinput" : "formInput"}
@@ -155,7 +171,9 @@ export default function Login() {
                   value={formIn.email}
                   onChange={(e) => handleChangeIn(e)}
                 />
-                <p className={errors.forminPassword ? "baddesc-p": "desc-p"}>PASSWORD</p>
+                <p className={errors.forminPassword ? "baddesc-p" : "desc-p"}>
+                  PASSWORD
+                </p>
                 <input
                   placeholder="Enter your password"
                   type="password"
@@ -164,21 +182,20 @@ export default function Login() {
                   value={formIn.password}
                   onChange={(e) => handleChangeIn(e)}
                 />
-                <button className="buttonSubmit" type="submit">Sign in</button>
+                <button className="buttonSubmit" type="submit">
+                  Sign in
+                </button>
               </form>
-              <div id="googleButton">
-                
+              <div className="googlecontainer">
+                <div id="googleButton"></div>
+              </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+    )
 
-
-
-//--------------------------------------SIGN UP FORM-------------------------------------------
-
+    //--------------------------------------SIGN UP FORM-------------------------------------------
   } else if (sign === "sign-up") {
     return (
       <div className="loginContainer">
@@ -193,35 +210,44 @@ export default function Login() {
                   Sign in
                 </p>
                 <p className="signP">or</p>
-                <p className="sign-upPselect" onClick={() => handleSign("sign-up")}>
+                <p
+                  className="sign-upPselect"
+                  onClick={() => handleSign("sign-up")}
+                >
                   Sign up
                 </p>
               </div>
               <form onSubmit={(e) => handleSubmitUp(e)}>
-                <p className={errors.formupFullname ? "baddesc-p": "desc-p"}>FULL NAME</p>
+                <p className={errors.formupFullname ? "baddesc-p" : "desc-p"}>
+                  FULL NAME
+                </p>
                 <input
                   placeholder="Enter your full name"
                   className={errors.formupFullname ? "badinput" : "formInput"}
-                  onChange={e => handleChangeUp(e)}
+                  onChange={(e) => handleChangeUp(e)}
                   value={formUp.userName}
                   name="userName"
                 />
-                <p className={errors.formupPassword ? "baddesc-p": "desc-p"}>PASSWORD</p>
+                <p className={errors.formupPassword ? "baddesc-p" : "desc-p"}>
+                  PASSWORD
+                </p>
                 <input
                   placeholder="Enter your password"
                   type="password"
                   className={errors.formupPassword ? "badinput" : "formInput"}
                   value={formUp.password}
                   name="password"
-                  onChange={e => handleChangeUp(e)}
+                  onChange={(e) => handleChangeUp(e)}
                 />
-                <p className={errors.formupEmail ? "baddesc-p" : "desc-p"}>E-MAIL</p>
+                <p className={errors.formupEmail ? "baddesc-p" : "desc-p"}>
+                  E-MAIL
+                </p>
                 <input
                   placeholder="Enter your Email"
                   className={errors.formupEmail ? "badinput" : "formInput"}
                   value={formUp.email}
                   name="email"
-                  onChange={e => handleChangeUp(e)}
+                  onChange={(e) => handleChangeUp(e)}
                 />
                 <label className="container">
                   <input
@@ -235,7 +261,9 @@ export default function Login() {
                     I want to recieve e-mail notifications
                   </div>
                 </label>
-                <button className="buttonSubmitup" type="submit">Sign Up</button>
+                <button className="buttonSubmitup" type="submit">
+                  Sign Up
+                </button>
               </form>
               {/* <div id="googleButton"></div> */}
             </div>
@@ -245,4 +273,3 @@ export default function Login() {
     );
   }
 }
-

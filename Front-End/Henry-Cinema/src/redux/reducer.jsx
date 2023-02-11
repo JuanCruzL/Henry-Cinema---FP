@@ -18,6 +18,7 @@ const initialState = {
   combos: [],
   copyCombos: [],
   currentUser: {},
+  seats: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -31,6 +32,13 @@ const rootReducer = (state = initialState, action) => {
         searchMovies: action.payload,
       };
     }
+    case "GET_SEATS": {
+      return {
+        ...state,
+        seats: action.payload,
+      };
+    }
+
     case "GET_MOVIE_ID":
       return {
         ...state,
@@ -51,16 +59,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         allMovies: action.payload,
       };
-    case "AGE_CLASSIFICATION":
-      const allM = state.allMovies;
-      const age_classification = allM.filter(
-        (data) => data.classification === payload
-      );
-      return {
-        ...state,
-        movies: age_classification,
-      };
-
     case "SEARCH_MOVIE":
       const searchMoviesBar = state.allMovies;
       const searchMoviesFound = searchMoviesBar.filter((m) => {
@@ -121,7 +119,7 @@ const rootReducer = (state = initialState, action) => {
         foods: foodsFound,
       };
     // GENRES
-    case "REQUEST_GENRES":
+    case "REQUEST_GENRES2":
       return {
         ...state,
         uniqueGenres: Array.from(
@@ -129,7 +127,7 @@ const rootReducer = (state = initialState, action) => {
         ),
       };
 
-    case "LOGIN_OR_REGISTER_USER_WITH_GOOGLE":
+    case "POST_USER_WITH_GOOGLE":
       return {
         ...state,
         currentUser: action.payload,

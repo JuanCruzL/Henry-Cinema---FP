@@ -43,12 +43,8 @@
 
 .menu {
   width: 100%;
-  height: 70px;
+  height: 66px;
   font-weight: bold;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
-  position: fixed;
-  z-index: 100;
-  opacity: 0.9;
 }
 
 .menu-container {
@@ -63,7 +59,6 @@
   width: 100%;
   height: 100%;
   transition: transform 0.5s;
-
   display: flex;
   list-style: none;
   align-items: center;
@@ -103,18 +98,74 @@
   justify-content: space-between;
 
   /* border:2px solid red; */
-
 }
 
-.menu-des{
-  width: 100%;
+.items {
+  text-decoration: none;
+  list-style: none;
+  padding: 25px;
+  justify-content: space-between;
+}
+.items:hover {
+  background-color: black;
+}
+
+.items:hover .menu-link {
+  color: yellow;
+}
+
+.menu-link-logo,
+.menu-link-about,
+.menu-link-movies,
+.menu-link-food,
+.menu-link-mode,
+.menu-link-user {
+  list-style: none;
+  text-decoration: none;
+  padding: 10px 30px;
+  display: grid;
   height: 100%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  color: black;
+  transition: 0.5s;
+  font-size: 18px;
+}
+
+.menu-link-about:hover,
+.menu-link-movies:hover,
+.menu-link-food:hover {
+  transform: scale(0.9);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.menu-link-user {
+  text-decoration: none;
+  padding-left: 120px;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+.menu-link-user .perfil {
+  display: block;
+  margin: auto;
+}
+.perfil {
+  height: 35px;
 }
 .menu-des {
   list-style: none;
+  position: relative;
+  height: 100%;
   /*  --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
   --clip: polygon(0 0, 100% 0, 100% 0, 100% 0, 0 0);
 }
+
 .menu-des:hover {
   --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
@@ -143,117 +194,22 @@
   padding: 10px 100px 10px 30px;
 }
 
-
-.menu-link-logo,
-.menu-item-logo,
-.menu-item-about,
-.menu-item-movies,
-.menu-item-food,
-.menu-itemSearchBar,
-.menu-item-mode,
-.menu-item-perfil{
-  width: 100%;
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-
 .logo {
-  width: 50px;
-  height: 50px;
-  margin: auto;
-  transition: 2s;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 
-.menu-item-logo {
-  transition: 0.5s;
-  margin: auto;
-}
-.menu-item-logo:hover{
-  transform: scale(0.9);
-  transition: 0.5s;
-}
 .logoh {
-  width: 80%;
-  height: 80%;
-  
-}
-
-
-.menu-itemSearchBar{
-  list-style: none;
-  /* border:2px solid red; */
-  font-weight: normal;
-  transition: 0.5s;
-}
-
-.link-food,
-.link-movies,
-.link-about{
-  text-decoration: none;
-  list-style: none;
-}
-
-.link-about,
-.link-movies,
-.link-food,
-.menu-link-mode,
-.menu-link-user{
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
-  text-decoration: none;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: black;
-  transition: 0.4s;
-  font-size: 18px;
-  margin: auto;
-} 
-
-
-
-.link-about:hover,
-.link-food:hover,
-.link-movies:hover {
-  background-color: black;
-  color: yellow;
 }
-.link-about:hover .menu-link-about,
-.link-movies:hover .menu-link-movies,
-.link-food:hover .menu-link-food{
-  transform: scale(0.95);
-  transition: 0.1s;
-}
-
-
-.menu-link-mode,
-.menu-item-perfil,
-.menu-link-user{
-display: flex;
-align-items: center;
-text-align: center;
-}
-.perfil{
-  height: 35px;
-}
-
-
-
-
-.menu-item-perfil:hover,
-.menu-item-mode:hover{
+.logoh:hover {
   cursor: pointer;
-  transform: scale(1.2);
-  transition: 0.3s;
-} 
-
-.iconD{
-  color: blue;
 }
-.iconN{
-color: crimson;
+
+.Switch {
+  font-size: 25px;
 }

@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 //import { iconNav } from "../../redux/actions";
+=======
+import React from "react";
+>>>>>>> develop
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../img/menus.png";
 import perfil from "../../img/editar.png";
@@ -10,6 +14,7 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 import "./darkmode.css";
 
+<<<<<<< HEAD
 import Brightness7SharpIcon from "@mui/icons-material/Brightness7Sharp";
 import Brightness5SharpIcon from "@mui/icons-material/Brightness5Sharp";
 
@@ -21,6 +26,9 @@ const Nav = ({ setCurrentPage }) => {
     dispatch(iconNav());
     toggleDarkLight(e);
   }
+=======
+const Nav = ({ setCurrentPage }) => {
+>>>>>>> develop
   return (
     <nav className="menu">
       <section className="menu-container">
@@ -44,10 +52,15 @@ const Nav = ({ setCurrentPage }) => {
                     onClick={(e) => toggleDarkLight(e)}
                     type="checkbox"
                   />
+
                   <span className="slider"></span>
                 </label>
               </li>
-
+              <li className="menu-inside">
+                <Link to="/movies">
+                  <div className="menu-link menu-link--inside">Home</div>
+                </Link>
+              </li>
               <li className="menu-inside">
                 <Link to="/movies">
                   <div className="menu-link menu-link--inside">Movies</div>
@@ -68,34 +81,49 @@ const Nav = ({ setCurrentPage }) => {
             </ul>
           </li>
           {/* Menú Nav */}
+<<<<<<< HEAD
           <Link to="/">
             <li className="menu-item-logo">
               <img src={logoCinema} className="logoh"></img>
+=======
+          <li className="menu-item-logo">
+            <Link to="/">
+              <img src={logoCinema} className="logoh"></img>
+            </Link>
+          </li>
+          <Link to="/movies" className="link-movies">
+            <li className="items">
+              <div className="menu-link">Movies</div>
+>>>>>>> develop
             </li>
           </Link>
-
-          <li className="items">
-            <Link to="/movies" className="link-movies">
-              <div className="menu-link">Movies</div>
-            </Link>
-          </li>
-          <li className="items">
-            <Link to="/foods" className="link-foods">
+          <Link to="/foods" className="link-foods">
+            <li className="items">
               <div className="menu-link">Food & Drinks</div>
-            </Link>
-          </li>
-          <li className="items">
-            <Link to="/about" className="link-about">
+            </li>
+          </Link>
+          <Link to="/about" className="link-about">
+            <li className="items">
               <div className="menu-link">About Us</div>
+<<<<<<< HEAD
             </Link>
           </li>
+=======
+            </li>
+          </Link>
+>>>>>>> develop
 
           <li className="menu-itemSearchBar">
             <SearchBar setCurrentPage={setCurrentPage} />
           </li>
 
           <label className="switch">
-            <input onClick={(e) => toggleDarkLight(e)} type="checkbox" />
+            <input
+              className="menu-link menu-link--inside"
+              onClick={(e) => toggleDarkLight(e)}
+              type="checkbox"
+            />
+
             <span className="slider"></span>
           </label>
 
