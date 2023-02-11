@@ -32,10 +32,15 @@ const Nav = ({ setCurrentPage }) => {
                     onClick={(e) => toggleDarkLight(e)}
                     type="checkbox"
                   />
+
                   <span className="slider"></span>
                 </label>
               </li>
-
+              <li className="menu-inside">
+                <Link to="/movies">
+                  <div className="menu-link menu-link--inside">Home</div>
+                </Link>
+              </li>
               <li className="menu-inside">
                 <Link to="/movies">
                   <div className="menu-link menu-link--inside">Movies</div>
@@ -61,29 +66,33 @@ const Nav = ({ setCurrentPage }) => {
               <img src={logoCinema} className="logoh"></img>
             </Link>
           </li>
-
-          <li className="items">
-            <Link to="/movies" className="link-movies">
+          <Link to="/movies" className="link-movies">
+            <li className="items">
               <div className="menu-link">Movies</div>
-            </Link>
-          </li>
-          <li className="items">
-            <Link to="/foods" className="link-foods">
+            </li>
+          </Link>
+          <Link to="/foods" className="link-foods">
+            <li className="items">
               <div className="menu-link">Food & Drinks</div>
-            </Link>
-          </li>
-          <li className="items">
-            <Link to="/about" className="link-about">
+            </li>
+          </Link>
+          <Link to="/about" className="link-about">
+            <li className="items">
               <div className="menu-link">About Us</div>
-            </Link>
-          </li>
+            </li>
+          </Link>
 
           <li className="menu-itemSearchBar">
             <SearchBar setCurrentPage={setCurrentPage} />
           </li>
 
           <label className="switch">
-            <input onClick={(e) => toggleDarkLight(e)} type="checkbox" />
+            <input
+              className="menu-link menu-link--inside"
+              onClick={(e) => toggleDarkLight(e)}
+              type="checkbox"
+            />
+
             <span className="slider"></span>
           </label>
 
