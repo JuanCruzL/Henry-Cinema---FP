@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 import { searchMovie } from "../../redux/actions";
 import "./SearchBar.css";
 import logoSearch from "../../img/busqueda.png";
