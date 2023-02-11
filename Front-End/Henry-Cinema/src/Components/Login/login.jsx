@@ -189,11 +189,11 @@ export default function Login() {
               <div className="googlecontainer">
                 <div id="googleButton"></div>
               </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+    )
 
     //--------------------------------------SIGN UP FORM-------------------------------------------
   } else if (sign === "sign-up") {

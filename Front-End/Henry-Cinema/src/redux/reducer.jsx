@@ -38,16 +38,7 @@ const rootReducer = (state = initialState, action) => {
         seats: action.payload,
       };
     }
-    case "AGE_CLASSIFICATION": {
-      const allM = state.allMovies;
-      const age_classification = allM.filter(
-        (data) => data.classification === payload
-      );
-      return {
-        ...state,
-        movies: age_classification,
-      };
-    }
+ 
     case "GET_MOVIE_ID":
       return {
         ...state,
@@ -63,7 +54,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         allMovies: action.payload,
       };
-
     case "SEARCH_MOVIE":
       const searchMoviesBar = state.allMovies;
       const searchMoviesFound = searchMoviesBar.filter((m) => {
@@ -124,7 +114,7 @@ const rootReducer = (state = initialState, action) => {
         foods: foodsFound,
       };
     // GENRES
-    case "REQUEST_GENRES":
+    case "REQUEST_GENRES2":
       return {
         ...state,
         uniqueGenres: Array.from(
