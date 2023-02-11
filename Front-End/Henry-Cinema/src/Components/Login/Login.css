@@ -195,9 +195,9 @@
    }
 
    .googleButton{
-    width: 200px;
+    /* width: 200px; */
     position: absolute;
-    bottom: 100px;
+    bottom: 200px;
    }
    
    /* When the checkbox is checked, add a blue background */

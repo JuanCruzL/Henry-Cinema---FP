@@ -1,19 +1,23 @@
 import axios from "axios";
+const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
+export const GET_MOVIES = "GET_MOVIES";
+export const GET_RELEASES = "GET_RELEASES";
+export const REQUEST_GENDERS = 'REQUEST_GENDERS';
+export const GET_SEATS = "GET_SEATS";
 import {
-  GET_MOVIES,
   GET_MOVIE_ID,
-  GET_RELEASES,
   SEARCH_MOVIE,
   DELETE_MOVIE,
-  AGE_CLASSIFICATION,
   GET_FOODS,
   GET_DRINKS,
   GET_COMBOS,
   REQUEST_GENRES,
   SEARCH_FOOD,
 } from "./actionTypes";
-axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/"
-//axios.defaults.baseURL = http://localhost:3001
+
+
+axios.defaults.baseURL = "http://localhost:3001"
+//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/"
 //MOVIES
 
 export const getMovies = () => {
@@ -138,6 +142,28 @@ export const searchFood = (payload) => {
     payload,
   };
 };
+
+// actions.js
+export const getasientos = () => {
+  return (dispatch) => {
+    axios
+      .get(`/seats`)
+      .then((response) => {
+        dispatch({
+          type: GET_SEATS,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("error");
+      });
+  };
+};
+
+
+// actions.js
+
+
 
 //GENRES
 
