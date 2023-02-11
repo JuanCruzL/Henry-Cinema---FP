@@ -198,7 +198,7 @@
     position: absolute;
     bottom: 100px;
    }
-   
+
    /* When the checkbox is checked, add a blue background */
    .container .checkinput:checked ~ .checkmark {
      background-color: #2196F3;
