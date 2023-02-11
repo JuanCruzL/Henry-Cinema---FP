@@ -1,8 +1,27 @@
+<<<<<<< HEAD
+.light-mode .input-field {
+  border: 2px solid var(--NBase-2);
+  color: var(--NText-2);
+}
+.light-mode .input-field:focus {
+  border: 2px solid var(--NBase-2);
+  background-color: var(--NBase-1);
+  color: var(--NText-2);
+}
+
+
+.dark-mode .input-field {
+  border: 2px solid var(--NBase-2);
+  color: var(--NText-2);
+}
+.dark-mode .input-field:focus {
+=======
 .dark-mode input[type="text"] {
   border: 2px solid var(--NBase-2);
   color: var(--NText-2);
 }
 .dark-mode input[type="text"]:focus {
+>>>>>>> develop
   border: 2px solid var(--NBase-2);
   background-color: var(--NBase-1);
   color: var(--NText-2);
@@ -25,8 +44,17 @@ input[type="text"] {
   width: 80%;
 }
 
+<<<<<<< HEAD
+
+ 
+
+.button-search{
+  width: 100%;
+  height: 100%;
+=======
 .button-search {
   width: 4%;
+>>>>>>> develop
   /* border:2px solid red; */
   height: 5%;
   margin-left: 15px;

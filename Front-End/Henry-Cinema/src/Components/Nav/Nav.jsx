@@ -1,4 +1,10 @@
+<<<<<<< HEAD
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+//import { iconNav } from "../../redux/actions";
+=======
 import React from "react";
+>>>>>>> develop
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../img/menus.png";
 import perfil from "../../img/editar.png";
@@ -8,7 +14,21 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 import "./darkmode.css";
 
+<<<<<<< HEAD
+import Brightness7SharpIcon from "@mui/icons-material/Brightness7Sharp";
+import Brightness5SharpIcon from "@mui/icons-material/Brightness5Sharp";
+
 const Nav = ({ setCurrentPage }) => {
+  const dispatch = useDispatch();
+  var modo = useSelector((state) => state.modo);
+
+  function Cmodo(e) {
+    dispatch(iconNav());
+    toggleDarkLight(e);
+  }
+=======
+const Nav = ({ setCurrentPage }) => {
+>>>>>>> develop
   return (
     <nav className="menu">
       <section className="menu-container">
@@ -61,6 +81,11 @@ const Nav = ({ setCurrentPage }) => {
             </ul>
           </li>
           {/* Menú Nav */}
+<<<<<<< HEAD
+          <Link to="/">
+            <li className="menu-item-logo">
+              <img src={logoCinema} className="logoh"></img>
+=======
           <li className="menu-item-logo">
             <Link to="/">
               <img src={logoCinema} className="logoh"></img>
@@ -69,6 +94,7 @@ const Nav = ({ setCurrentPage }) => {
           <Link to="/movies" className="link-movies">
             <li className="items">
               <div className="menu-link">Movies</div>
+>>>>>>> develop
             </li>
           </Link>
           <Link to="/foods" className="link-foods">
@@ -79,8 +105,13 @@ const Nav = ({ setCurrentPage }) => {
           <Link to="/about" className="link-about">
             <li className="items">
               <div className="menu-link">About Us</div>
+<<<<<<< HEAD
+            </Link>
+          </li>
+=======
             </li>
           </Link>
+>>>>>>> develop
 
           <li className="menu-itemSearchBar">
             <SearchBar setCurrentPage={setCurrentPage} />
