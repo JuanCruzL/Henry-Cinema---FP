@@ -1,10 +1,8 @@
 import axios from "axios";
-const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
-export const GET_MOVIES = "GET_MOVIES";
-export const GET_RELEASES = "GET_RELEASES";
-export const REQUEST_GENDERS = "REQUEST_GENDERS";
-export const GET_SEATS = "GET_SEATS";
+
 import {
+  GET_MOVIES,
+  GET_RELEASES,
   GET_MOVIE_ID,
   SEARCH_MOVIE,
   DELETE_MOVIE,
@@ -12,8 +10,10 @@ import {
   GET_DRINKS,
   GET_COMBOS,
   REQUEST_GENRES,
+  GET_SEATS,
   SEARCH_FOOD,
   CREATE_MOVIE,
+  AGE_CLASSIFICATION,
 } from "./actionTypes";
 
 //axios.defaults.baseURL = "http://localhost:3001"
