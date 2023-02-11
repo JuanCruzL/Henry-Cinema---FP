@@ -70,6 +70,7 @@ export function createMovie(movie) {
     try {
       const response = await axios.post("http://localhost:3001/movies", movie);
       if (response.data === "MOVIE CREATED") {
+        console.log(movie);
         const allMovies = await axios.get("/movies");
         return dispatch({ type: CREATE_MOVIE, payload: allMovies.data });
       }

@@ -226,13 +226,7 @@ export const NewMovie = () => {
             />
           </div>
           <div className="right">
-            <form
-              name="newMovie"
-              onSubmit={handleSubmit}
-              enctype="multipart/form-data"
-              action="uploader.php"
-              method="POST"
-            >
+            <form name="newMovie" onSubmit={handleSubmit}>
               <div className="formNM">
                 <label>Title</label>
                 <input
