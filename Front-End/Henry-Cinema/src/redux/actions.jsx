@@ -67,7 +67,7 @@ export function createMovie(movie) {
   console.log("MOVIE: ", movie);
   return async function () {
     try {
-      const response = await axios.post("http://localhost:3001/movies", movie);
+      const response = await axios.post("/movies", movie);
       if (response.data === "MOVIE CREATED") {
         console.log(movie);
         const allMovies = await axios.get("/movies");
