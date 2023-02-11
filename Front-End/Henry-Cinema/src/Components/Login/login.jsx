@@ -166,8 +166,9 @@ export default function Login() {
                 />
                 <button className="buttonSubmit" type="submit">Sign in</button>
               </form>
-              <div id="googleButton">
-                
+              <div className="googlecontainer">
+                <div id="googleButton"></div>
+              </div>
               </div>
             </div>
           </div>
