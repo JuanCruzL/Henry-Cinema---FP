@@ -4,24 +4,22 @@ const fs = require("fs");
 const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY } = process.env;
 
-// const sequelize = new Sequelize(
-//   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/henryCinema`,
-//   {
-//     logging: false, // set to console.log to see the raw SQL queries
-//     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-//   }
-// );
-
-
-//deploy instance of sequelize------------------------------------------
-
-const sequelize = new Sequelize(DB_DEPLOY,
+const sequelize = new Sequelize(
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/henryCinema`,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   }
 );
 
+//deploy instance of sequelize------------------------------------------
+
+/* const sequelize = new Sequelize(DB_DEPLOY,
+  {
+    logging: false, // set to console.log to see the raw SQL queries
+    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  }
+); */
 
 const basename = path.basename(__filename);
 
@@ -49,7 +47,19 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { User, Ticket, Seat, Screening, Review, Reservation, Combo, Auditorium, Drink, Food, Movie } = sequelize.models;
+const {
+  User,
+  Ticket,
+  Seat,
+  Screening,
+  Review,
+  Reservation,
+  Combo,
+  Auditorium,
+  Drink,
+  Food,
+  Movie,
+} = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
@@ -75,12 +85,11 @@ Seat.belongsToMany(Reservation, { through: "Reservation_Seat" });
 Ticket.hasOne(Reservation, { foreignKey: "Ticket_Reservation" });
 Reservation.belongsTo(Ticket, { foreignKey: "Ticket_Reservation" });
 User.hasMany(Ticket, { foreignKey: "User_Ticket" });
-Ticket.belongsTo(User, { foreignKey: "User_Ticket" }); 
+Ticket.belongsTo(User, { foreignKey: "User_Ticket" });
 Movie.hasMany(Screening, { foreignKey: "Movie_Screening" });
 Screening.belongsTo(Movie, { foreignKey: "Movie_Screening" });
 Movie.hasMany(Review, { foreignKey: "Movie_Review" });
 Review.belongsTo(Movie, { foreignKey: "Movie_Review" });
-
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
