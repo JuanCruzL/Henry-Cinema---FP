@@ -14,14 +14,14 @@ export const HomeDash = () => {
       <div className="homeContainer">
         <NavBarDash />
         <div className="widgets">
-          <Widget type="users" />
-          <Widget type="reviews" />
-          <Widget type="screenings" />
-          <Widget type="sales" />
+          <Widget type="users" className="widget" />
+          <Widget type="reviews" className="widget" />
+          <Widget type="screenings" className="widget" />
+          <Widget type="sales" className="widget" />
         </div>
         <div className="charts">
-          <Featured />
-          <Chart />
+          <Featured className="featured" />
+          <Chart className="chart" />
         </div>
         <div className="listContainer">
           <div className="listTitle">LATEST TRANSACTIONS</div>
