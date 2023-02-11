@@ -13,7 +13,6 @@ module.exports = (sequelize) => {
 
     apiId: {
         type: DataTypes.INTEGER,
-        allowNull: true,
     },
 
     title: {
@@ -22,22 +21,22 @@ module.exports = (sequelize) => {
     },
 
     imageVertical: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false, 
     },
     imageHorizontal: {
-        type: DataTypes.TEXT,
-        allowNull: true,
+        type: DataTypes.STRING,
+        allowNull: false,
     },
 
     voteAverage: {
         type: DataTypes.DOUBLE,
-        allowNull: false,
+        allowNull: true,
     },
 
     overview: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
     },
 
     review: {
@@ -47,7 +46,7 @@ module.exports = (sequelize) => {
 
     status: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
 
     productionCompanies: {
@@ -57,17 +56,17 @@ module.exports = (sequelize) => {
 
     runtime: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
 
     originalLanguage: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
 
     genres:{
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: true,
     },
 
     directors: {
@@ -87,7 +86,7 @@ module.exports = (sequelize) => {
 
     classification:{
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
 
     distributor: {
