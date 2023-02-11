@@ -61,6 +61,18 @@ export const getRelease = (id) => {
   }
 };
 
+export function createMovie(movie) {
+  console.log("MOVIE: ", movie);
+  return async function () {
+    try {
+      const newMovie = await axios.post("http://localhost:3001/movies", movie);
+      console.log(newMovie);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
 export const deleteMovie = (id) => {
   return async function (dispatch) {
     try {
