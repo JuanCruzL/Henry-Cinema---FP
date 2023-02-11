@@ -114,7 +114,7 @@ const rootReducer = (state = initialState, action) => {
         foods: foodsFound,
       };
     // GENRES
-    case "REQUEST_GENRES":
+    case "REQUEST_GENRES2":
       return {
         ...state,
         uniqueGenres: Array.from(
