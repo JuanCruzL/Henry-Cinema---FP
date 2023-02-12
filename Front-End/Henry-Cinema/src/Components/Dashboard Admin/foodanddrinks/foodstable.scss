@@ -1,0 +1,50 @@
+.foodsTable {
+
+    align-items: center;
+    justify-content: space-between;
+
+
+    .tableRow {
+        background-color: rgb(236, 228, 228);
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+        .title {
+            font-size: 15px;
+            font-weight: 550;
+            color: rgb(80, 78, 78)
+        }
+
+        .list {
+            background-color: whitesmoke;
+        }
+    }
+
+    .tableCellFoods {
+        justify-content: center;
+
+        .bin {
+            font-size: 39px;
+            font-weight: bold;
+            color: rgb(105, 103, 103);
+            cursor: pointer;
+
+            &:hover {
+                color: red;
+            }
+
+        }
+
+        .cellWrapper {
+            display: flex;
+            align-items: center;
+
+            .movieImage {
+                width: 70px;
+                height: 100px;
+                margin-right: 10px;
+                border-radius: 0;
+            }
+        }
+    }
+}
