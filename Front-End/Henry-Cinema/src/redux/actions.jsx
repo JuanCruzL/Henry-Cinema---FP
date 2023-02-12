@@ -193,7 +193,6 @@ export const signUp = (payload) => {
     try {
       console.log(payload);
       const userCreated = await axios.post("/users", payload);
-      console.log(userCreated);
       alert("User register successfully!");
     } catch (e) {
       alert("Could not register, error!")
