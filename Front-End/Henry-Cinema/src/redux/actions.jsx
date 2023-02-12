@@ -7,6 +7,7 @@ import {
   SEARCH_MOVIE,
   DELETE_MOVIE,
   GET_FOODS,
+  CREATE_FOOD,
   GET_DRINKS,
   GET_COMBOS,
   REQUEST_GENRES2,
@@ -14,6 +15,7 @@ import {
   SEARCH_FOOD,
   CREATE_MOVIE,
   AGE_CLASSIFICATION,
+  DELETE_FOOD,
 } from "./actionTypes";
 
 axios.defaults.baseURL = "http://localhost:3001";
@@ -125,6 +127,35 @@ export const getFoods = () => {
   }
 };
 
+export function createFood(newFood) {
+  console.log("FOOD: ", newFood);
+  return async function () {
+    try {
+      const response = await axios.post("/foods", newFood);
+      if (response.data === newFood) {
+        console.log(newFood);
+        return dispatch({ type: CREATE_FOOD });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export const deleteFoods = (id) => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.delete(`/foods/${id}`);
+      if (response.data === "The food has been removed") {
+        const allFoods = await axios.get(`/foods`);
+        return dispatch({ type: DELETE_FOOD, payload: allFoods.data });
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
 export const getDrinks = () => {
   try {
     return async (dispatch) => {
@@ -205,7 +236,7 @@ export const signUp = (payload) => {
       const userCreated = await axios.post("/users", payload);
       alert("User register successfully!");
     } catch (e) {
-      alert("Could not register, error!")
+      alert("Could not register, error!");
       console.log(e);
     }
   };

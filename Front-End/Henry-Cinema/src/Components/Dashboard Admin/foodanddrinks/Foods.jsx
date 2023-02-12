@@ -1,11 +1,19 @@
 import React from "react";
+import "./foods.scss";
+import { SideBarDash } from "../SideBarDash/SideBarDash";
+import { NavBarDash } from "../NavbarDash/NavBarDash";
+import { FoodsTable } from "../foodanddrinks/FoodsTable";
 
-export const Foods = () => {
+export const MoviesDash = () => {
   return (
-    <div className="foods">
-      <h1 className="title">Foods</h1>
+    <div className="list">
+      <SideBarDash />
+      <div className="listContainer">
+        <NavBarDash />
+        <FoodsTable />
+      </div>
     </div>
   );
 };
 
-export default Foods;
+export default MoviesDash;
