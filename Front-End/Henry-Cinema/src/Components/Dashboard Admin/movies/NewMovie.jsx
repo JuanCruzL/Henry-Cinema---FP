@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-import { createMovie } from "../../../redux/actions";
-import { useDispatch } from "react-redux";
+import { createMovie, getGenres } from "../../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 import "./newmovie.scss";
 import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import OutboxRoundedIcon from "@mui/icons-material/OutboxRounded";
+import swal from "sweetalert";
+import { useEffect } from "react";
 
 export const NewMovie = () => {
   const dispatch = useDispatch();
+  const allGenres = useSelector((state) => state.newGenres);
+
+  useEffect(() => {
+    dispatch(getGenres());
+  }, [dispatch]);
+  console.log(allGenres);
 
   const [values, setValues] = useState({
     title: "",
@@ -167,14 +175,17 @@ export const NewMovie = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const isValid = validateAll();
-
     if (!isValid) {
       return false;
     }
-    dispatch(createMovie(values)).then(() => alert("Movie added"));
-    // si hay tiempo agregamos una alerta mejor de sweetalert
+    dispatch(createMovie(values)).then(() =>
+      swal({
+        title: `The movie ${m.title} has been created`,
+        icon: "success",
+        button: true,
+      })
+    );
   };
 
   const {
@@ -294,7 +305,7 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Review</label>
-                <input
+                {/* <input
                   className="inputNM"
                   type="text"
                   placeholder="what you think about this movie?"
@@ -302,7 +313,7 @@ export const NewMovie = () => {
                   value={review}
                   onChange={handleChange}
                   onBlur={validateOne}
-                />
+                /> */}
               </div>
               <div className="formNM">
                 <label>Status</label>
@@ -357,7 +368,7 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Genres</label>
-                <input
+                {/* <input
                   className="inputNM"
                   type="text"
                   placeholder="action"
@@ -365,7 +376,7 @@ export const NewMovie = () => {
                   value={genres}
                   onChange={handleChange}
                   onBlur={validateOne}
-                />
+                /> */}
                 <div className="vals">{genresVal}</div>
               </div>
               <div className="formNM">

@@ -11,16 +11,17 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
 export const MoviesTable = () => {
   const dispatch = useDispatch();
-  const allMovies = useSelector((state) => state.movies);
+  const allMovies = useSelector((state) => state.allMovies);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     dispatch(getMovies());
-  }, [allMovies]);
+  }, [dispatch]);
 
   const deleteAlert = (id, title) => {
     swal({
@@ -32,6 +33,10 @@ export const MoviesTable = () => {
     }).then((r) => {
       if (r) {
         dispatch(deleteMovie(id));
+        setTimeout(() => {
+          setCount(count + 1);
+          console.log("HOLAA");
+        }, 1500);
         swal({
           text: "The movie has been successfully removed.",
           icon: "success",
@@ -62,7 +67,7 @@ export const MoviesTable = () => {
               <TableCell className="tableCellMovies">
                 {m.title.slice(0, 20)}
               </TableCell>
-              <TableCell className="tableCellMovies">{m.genres[0]}</TableCell>
+              {/* <TableCell className="tableCellMovies">{m.genres[0]}</TableCell> */}
               <TableCell className="tableCellMovies">
                 {m.classification}
               </TableCell>
