@@ -8,12 +8,12 @@ const Movie = ({ movie }) => (
       <img src={movie.imageVertical} alt={movie.title} />
     </Link>
     <div className="movie-data">
-      <p>Vote Average: {movie.voteAverage}</p>
-      <p>Genre: {movie.genres.join(", ")}</p>
-      <p>Clasification: {movie.classification}</p>
       <div className="title">
         <h2 className="title">{movie.title}</h2>
       </div>
+      <p>Vote Average: {movie.voteAverage}</p>
+      <p>Genre: {movie.genres.join(", ")}</p>
+      <p>Clasification: {movie.classification}</p>
     </div>
   </div>
 );
