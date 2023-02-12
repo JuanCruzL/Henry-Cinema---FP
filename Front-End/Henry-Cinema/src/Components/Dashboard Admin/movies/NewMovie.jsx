@@ -17,7 +17,7 @@ export const NewMovie = () => {
   useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
-  console.log(allGenres);
+  
 
   const [values, setValues] = useState({
     title: "",
@@ -179,7 +179,7 @@ export const NewMovie = () => {
   //   console.log(values.genres)
   // };
 
-  const handleChange = (e) => {
+  const handleChangeSelect = (e) => {
     e.preventDefault();
     const genre = e.target.value;
   
@@ -195,7 +195,12 @@ export const NewMovie = () => {
       });
     }
   };
-  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+    console.log(values)
+    
+  }
 
 
   useEffect(() => {
@@ -334,18 +339,7 @@ export const NewMovie = () => {
                 />
                 <div className="vals">{overviewVal}</div>
               </div>
-              <div className="formNM">
-                <label>Review</label>
-                {/* <input
-                  className="inputNM"
-                  type="text"
-                  placeholder="what you think about this movie?"
-                  name="review"
-                  value={review}
-                  onChange={handleChange}
-                  onBlur={validateOne}
-                /> */}
-              </div>
+
               <div className="formNM">
                 <label>Status</label>
                 <input
@@ -402,7 +396,7 @@ export const NewMovie = () => {
                 <input type="text" value={values.genres.join(", ")} readOnly />
 
             
-         <select onChange={(e) => handleChange(e)} >
+         <select onChange={(e)=>handleChangeSelect(e)} >
          {allGenres.map((genre) => (
          <option key={genre.id} value={genre.name} name={genre.name}    onBlur={validateOne}  >
           {genre.name}
@@ -426,19 +420,7 @@ export const NewMovie = () => {
                   onBlur={validateOne}
                 />
               </div>
-              <div className="formNM">
-                <label>Actors</label>
-                {/* <input
-                  className="inputNM"
-                  type="text"
-                  placeholder="Leonardo Dicaprio..."
-                  name="actors"
-                  value={actors}
-                  onChange={handleChange}
-                  onBlur={validateOne}
-                /> */}
-                <h1></h1>
-              </div>
+              
               <div className="formNM">
                 <label>Video</label>
                 <input
@@ -464,18 +446,7 @@ export const NewMovie = () => {
                 />
                 <div className="vals">{classificationVal}</div>
               </div>
-              <div className="formNM">
-                <label>Distributor</label>
-                <input
-                  className="inputNM"
-                  type="text"
-                  placeholder="..."
-                  name="distributor"
-                  value={distributor}
-                  onChange={handleChange}
-                  onBlur={validateOne}
-                />
-              </div>
+             
               <button className="buttonNM" type="submit" value="SUBMIT RECIPE">
                 <OutboxRoundedIcon className="iconSubmit" />
               </button>
