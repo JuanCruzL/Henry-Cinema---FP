@@ -18,6 +18,7 @@
   width: 45%;
   height: 330px;
   display: flex;
+  flex-direction: row;
   margin: 1.5%;
 }
 
@@ -27,8 +28,10 @@
 }
 
 .movie-data {
-  color: #ffff00;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2%;
+  margin-top: 2%;
 }
 
 .movie-data p {
@@ -37,21 +40,10 @@
   font-weight: 400;
 }
 
-h2 {
-  text-align: center;
-  font-size: 20px;
-  font-weight: 200;
-  color: #ffff00;
-  font-size: 20px;
-  font-weight: 200;
-}
-
-.box {
+.movie-data h2 {
   display: flex;
-  margin-top: 120px;
-  background-color: var(--LBase-1);
-  cursor: pointer;
-  margin-top: 3%;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 25px;
+  margin: 10px;
+  padding: 100px 0px 10px 0px;
+  font-weight: 600;
 }
