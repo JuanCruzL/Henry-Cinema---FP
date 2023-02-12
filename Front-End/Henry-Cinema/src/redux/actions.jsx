@@ -203,8 +203,9 @@ export const signUp = (payload) => {
     try {
       console.log(payload);
       const userCreated = await axios.post("/users", payload);
-      console.log(userCreated);
+      alert("User register successfully!");
     } catch (e) {
+      alert("Could not register, error!")
       console.log(e);
     }
   };
@@ -216,10 +217,10 @@ export const signUp = (payload) => {
 export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
-      const { email, givenName } = response.profileObj;
+      const { email, given_name } = response;
       const userCreated = await axios.post(`/login/google`, {
         email,
-        userName: givenName,
+        userName: given_name,
       });
       console.log(userCreated.data);
       return dispatch({
