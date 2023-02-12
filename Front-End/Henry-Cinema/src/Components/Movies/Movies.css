@@ -126,6 +126,13 @@
   padding: 10px;
 }
 
+.carousel-container {
+  position: relative;
+  display: flex;
+  width: 85%;
+  min-height: 350px;
+  margin-bottom: 10px;
+}
 .Filter-results {
   padding: 10px;
   position: absolute;
