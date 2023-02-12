@@ -56,6 +56,11 @@ const Nav = ({ setCurrentPage }) => {
                 <div className="menu-link menu-link--inside">About Us</div>
               </Link>
             </li>
+            <li className="menu-inside">
+              <Link to="/dashboard">
+                <div className="menu-link menu-link--inside">Dashboard</div>
+              </Link>
+            </li>
           </ul>
         </li>
         {/* Menú Nav */}

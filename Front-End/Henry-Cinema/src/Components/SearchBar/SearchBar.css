@@ -12,8 +12,9 @@
 
 .input-field {
   padding: 2px;
-  max-width: 70%;
-  min-height: 28px;
+  max-width: 80%;
+  min-height: 30px;
+  padding-left: 10px;
   background-color: whitesmoke;
   border: 2px solid var(--NBase-2);
 }
@@ -26,9 +27,9 @@ input[type="text"] {
 }
 
 .button-search {
-  width: 4%;
+  width: 6%;
   /* border:2px solid red; */
   height: 5%;
-  margin-left: 15px;
+  margin-left: 8px;
   padding-top: 3px;
 }
