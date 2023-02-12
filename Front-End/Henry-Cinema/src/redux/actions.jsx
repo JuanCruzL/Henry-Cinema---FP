@@ -30,6 +30,7 @@ export const getMovies = () => {
           type: GET_MOVIES,
           payload: response.data,
         });
+        console.log(response.data);
       })
       .catch((error) => {
         console.log("error");
@@ -65,15 +66,14 @@ export const getRelease = (id) => {
   }
 };
 
-export function createMovie(movie) {
-  console.log("MOVIE: ", movie);
+export function createMovie(newMovie) {
+  console.log("MOVIE: ", newMovie);
   return async function () {
     try {
-      const response = await axios.post("/movies", movie);
-      if (response.data === "MOVIE CREATED") {
-        console.log(movie);
-        const allMovies = await axios.get("/movies");
-        return dispatch({ type: CREATE_MOVIE, payload: allMovies.data });
+      const response = await axios.post("/movies", newMovie);
+      if (response.data === newMovie) {
+        console.log(newMovie);
+        return dispatch({ type: CREATE_MOVIE });
       }
     } catch (error) {
       console.log(error);
@@ -184,6 +184,16 @@ export const getasientos = () => {
 export const requestGenres = () => {
   return {
     type: REQUEST_GENRES2,
+  };
+};
+
+export const getGenres = () => {
+  return async (dispatch) => {
+    let dataGenres = await axios.get("http://localhost:3001/genres");
+    return dispatch({
+      type: "GET_GENRES_DB",
+      payload: dataGenres.data,
+    });
   };
 };
 
