@@ -169,11 +169,38 @@ export const NewMovie = () => {
     setValidations({ ...validations, [name]: message });
   };
 
+  // const handleChange = (e) => {
+  //   e.preventDefault();
+  //   /* console.log(e.target.value) */
+  //   setValues({ 
+  //     ...values, 
+  //     genres : [...values.genres,e.target.value]
+  //   })
+  //   console.log(values.genres)
+  // };
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
-    console.log(values.genres)
+    e.preventDefault();
+    const genre = e.target.value;
+  
+    if (values.genres.includes(genre)) {
+      setValues({
+        ...values,
+        genres: values.genres.filter((g) => g !== genre),
+      });
+    } else if (values.genres.length < 3) {
+      setValues({
+        ...values,
+        genres: [...values.genres, genre],
+      });
+    }
   };
+  
+
+
+  useEffect(() => {
+    console.log(values.genres);
+  }, [values.genres]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -372,19 +399,12 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Genres</label>
-                 {/* <input
-                  className="inputNM"
-                  type="text"
-                  placeholder="action"
-                  name="genres"
-                  value={genres}
-                  onChange={handleChange}
-                  onBlur={validateOne}
-                />  */}
+                <input type="text" value={values.genres.join(", ")} readOnly />
 
-         <select>
+            
+         <select onChange={(e) => handleChange(e)} >
          {allGenres.map((genre) => (
-         <option key={genre.id} value={genre.name} onChange={handleChange}  onBlur={validateOne}>
+         <option key={genre.id} value={genre.name} name={genre.name}    onBlur={validateOne}  >
           {genre.name}
          </option>
           ))}
