@@ -3,18 +3,14 @@ import { Link } from "react-router-dom";
 import "../HomeCarrusel/HomeCarrusel.css";
 
 export default function HomeCarrusel({ cartelera }) {
-
   var tiempo;
   let actual = 0;
+  var cantidad = 0;
+  const velocidad = 5000;
+  mostrar(actual);
+  tiempo = setInterval(() => { Next(); }, velocidad);
   
-  useEffect(() => {
-    tiempo = null;
-    mostrar(actual);
-    playpause();;
-  },[cartelera])
   
-  const velocidad = 10000;
-  let cantidad = document.getElementsByClassName("carteleraHome").length;
 
 
   function puntos(n) {
@@ -28,6 +24,7 @@ export default function HomeCarrusel({ cartelera }) {
     ptn[n].className = "punto activo";
   }
   function mostrar(n) {
+    cantidad =document.getElementsByClassName("carteleraHome").length;
     actual = n;
     if(document.getElementsByClassName("carteleraHome").length==0){
       actual=0;
@@ -35,11 +32,10 @@ export default function HomeCarrusel({ cartelera }) {
       tiempo = null;
     }else{
       if (cantidad > 0) {
-        console.log(actual)
         var imagenes = document.getElementsByClassName("carteleraHome");
         for (let i = 0; i < imagenes.length; i++) {
           if (imagenes[i].className.includes("actual")) {
-            imagenes[i].className = imagenes[i].className.replace("actual", "");
+            imagenes[i].className = imagenes[i].className.replace(" actual", "");
             break;
           }
         }
@@ -69,17 +65,20 @@ export default function HomeCarrusel({ cartelera }) {
         } else {
           clearInterval(tiempo);
           tiempo = null;
-          boton.src = "https://assets.stickpng.com/images/580b57fcd9996e24bc43c4f9.png";
+          boton.src = "https://static.vecteezy.com/system/resources/previews/001/200/436/original/music-player-button-play-png.png";
         }
     }
   }
+  
   return (
     <div className="HomeCarrusel">
       <div className="contenedorCarrusel">
         <div className="Carrusel">
-          {cartelera.map((data) => {
+          {cartelera.map((data,index) => {
+            let name="carteleraHome";
+            if(index==0){name="carteleraHome actual"}
             return (
-              <div key={data.apiId} className="carteleraHome">
+              <div key={data.apiId} className={name}>
                 <button id={data.apiId} className="BuyT">BUY TICKETS</button>
                 <Link to={`/movie/${data.apiId}`}>
                   <button id={data.apiId} className="Trail">PLAY TRAILER</button>
@@ -105,7 +104,7 @@ export default function HomeCarrusel({ cartelera }) {
           </div>
 
           <div className="botonPause">
-            <img src="https://www.pngmart.com/files/3/Pause-Button-Transparent-Background.png" id="btnPauseHome" onClick={() => playpause(false)} />
+            <img src="https://www.pngmart.com/files/3/Pause-Button-Transparent-Background.png" id="btnPauseHome" onClick={() => playpause()} />
           </div>
 
         </div>

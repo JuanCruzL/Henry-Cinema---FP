@@ -19,6 +19,7 @@ const seatRoutes = require('./routes/seatRoutes');
 const nextReleases = require('./routes/nextReleaseRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const profileRoutes = require('./routes/profileRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
 
 require('./db.js');
 
@@ -62,5 +63,6 @@ server.use('/seats', seatRoutes);
 server.use('/tickets', ticketRoutes);
 server.use('/login', loginRoutes);
 server.use('/profile', profileRoutes);
+server.use('/payment',paymentRoutes)
 
 module.exports = server;

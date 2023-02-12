@@ -4,7 +4,7 @@ import "./Login.css";
 import logo from "../Utils/logo-henry-cinema.png";
 import { logInUser, logInUserWithGoogle, signUp } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 export default function Login() {
@@ -45,6 +45,12 @@ export default function Login() {
     });
   }, [sign]);
 
+  useEffect(() => {
+    const loggedUser = window.localStorage.getItem('loggedUser');
+    if(loggedUser) {
+      navigate("/");
+    }
+  },[]);
   //-------------------------------------------HANDLERS-----------------------------------------------------
 
   //--------------------------------------SIGN IN VALIDATOR-------------------------------------------
@@ -97,7 +103,16 @@ export default function Login() {
     e.preventDefault();
     dispatch(logInUser(formIn.email, formIn.password));
     console.log(currentUser);
-    if (currentUser.accessToken) navigate("/");
+    if (currentUser.accessToken) {
+      window.localStorage.setItem('loggedUser',
+      JSON.stringify(currentUser));
+      setFormIn({
+        email: "",
+        password: "",
+      });
+      navigate("/");
+    }
+      
   };
 
   const handleSubmitUp = (e) => {
@@ -128,9 +143,11 @@ export default function Login() {
   function onSuccess(response) {
     try {
       const userObject = jwt_decode(response.credential);
-      console.log(userObject);
+      // console.log(userObject);
       dispatch(logInUserWithGoogle(userObject));
-      console.log(currentUser);
+      window.localStorage.setItem('loggedUser',
+      JSON.stringify(currentUser));
+      // console.log(currentUser);
       navigate("/");
     } catch (error) {
       console.log(error);

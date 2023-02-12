@@ -12,6 +12,7 @@ import { useEffect } from "react";
 export const NewMovie = () => {
   const dispatch = useDispatch();
   const allGenres = useSelector((state) => state.newGenres);
+  const [selectedGenre, setSelectedGenre] = useState();
 
   useEffect(() => {
     dispatch(getGenres());
@@ -29,7 +30,7 @@ export const NewMovie = () => {
     productionCompanies: "",
     runtime: "",
     originalLanguage: "",
-    genres: "",
+    genres:[],
     directors: "",
     actors: "",
     video: "",
@@ -48,7 +49,7 @@ export const NewMovie = () => {
     productionCompanies: "",
     runtime: "",
     originalLanguage: "",
-    genres: "",
+    genres: [],
     directors: "",
     actors: "",
     video: "",
@@ -79,7 +80,7 @@ export const NewMovie = () => {
       status: "",
       runtime: "",
       originalLanguage: "",
-      genres: "",
+      genres: [],
       classification: "",
     };
 
@@ -168,10 +169,38 @@ export const NewMovie = () => {
     setValidations({ ...validations, [name]: message });
   };
 
+  // const handleChange = (e) => {
+  //   e.preventDefault();
+  //   /* console.log(e.target.value) */
+  //   setValues({ 
+  //     ...values, 
+  //     genres : [...values.genres,e.target.value]
+  //   })
+  //   console.log(values.genres)
+  // };
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
+    e.preventDefault();
+    const genre = e.target.value;
+  
+    if (values.genres.includes(genre)) {
+      setValues({
+        ...values,
+        genres: values.genres.filter((g) => g !== genre),
+      });
+    } else if (values.genres.length < 3) {
+      setValues({
+        ...values,
+        genres: [...values.genres, genre],
+      });
+    }
   };
+  
+
+
+  useEffect(() => {
+    console.log(values.genres);
+  }, [values.genres]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -219,6 +248,8 @@ export const NewMovie = () => {
     genres: genresVal,
     classification: classificationVal,
   } = validations;
+
+  
 
   return (
     <div className="newMovie">
@@ -368,6 +399,7 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Genres</label>
+<<<<<<< HEAD
                 <input
                   className="inputNM"
                   type="text"
@@ -377,6 +409,21 @@ export const NewMovie = () => {
                   onChange={handleChange}
                   onBlur={validateOne}
                 />
+=======
+                <input type="text" value={values.genres.join(", ")} readOnly />
+
+            
+         <select onChange={(e) => handleChange(e)} >
+         {allGenres.map((genre) => (
+         <option key={genre.id} value={genre.name} name={genre.name}    onBlur={validateOne}  >
+          {genre.name}
+         </option>
+          ))}
+          </select>
+
+   
+                
+>>>>>>> 1a0692088e4072dd2d29d0fa5fc33166941a0da5
                 <div className="vals">{genresVal}</div>
               </div>
               <div className="formNM">
@@ -393,7 +440,7 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Actors</label>
-                <input
+                {/* <input
                   className="inputNM"
                   type="text"
                   placeholder="Leonardo Dicaprio..."
@@ -401,7 +448,8 @@ export const NewMovie = () => {
                   value={actors}
                   onChange={handleChange}
                   onBlur={validateOne}
-                />
+                /> */}
+                <h1></h1>
               </div>
               <div className="formNM">
                 <label>Video</label>

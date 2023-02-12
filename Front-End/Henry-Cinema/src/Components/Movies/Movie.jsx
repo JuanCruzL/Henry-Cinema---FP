@@ -11,9 +11,9 @@ const Movie = ({ movie }) => (
       <p>Vote Average: {movie.voteAverage}</p>
       <p>Genre: {movie.genres.join(", ")}</p>
       <p>Clasification: {movie.classification}</p>
-      <div>
-        <h2 className="title">{movie.title}</h2>
-      </div>
+    </div>
+    <div className="box">
+      <h2 className="title">{movie.title}</h2>
     </div>
   </div>
 );
