@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
     },
 
     voteAverage: {
-        type: DataTypes.DOUBLE,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
 
@@ -40,18 +40,13 @@ module.exports = (sequelize) => {
         allowNull: false,
     },
 
-    review: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: true,
-    },
-
     status: {
         type: DataTypes.STRING,
         allowNull: false,
     },
 
     productionCompanies: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: true,
     },
 
@@ -66,7 +61,7 @@ module.exports = (sequelize) => {
     },
 
     genres:{
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
     },
 
@@ -75,24 +70,14 @@ module.exports = (sequelize) => {
         allowNull: true,
     },
 
-    actors: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-
     video: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: true,
     },
 
     classification:{
         type: DataTypes.STRING,
         allowNull: false,
-    },
-
-    distributor: {
-        type: DataTypes.STRING,
-        allowNull: true,
     }
   });
 };
