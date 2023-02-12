@@ -305,7 +305,7 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Review</label>
-                {/* <input
+                <input
                   className="inputNM"
                   type="text"
                   placeholder="what you think about this movie?"
@@ -313,7 +313,7 @@ export const NewMovie = () => {
                   value={review}
                   onChange={handleChange}
                   onBlur={validateOne}
-                /> */}
+                />
               </div>
               <div className="formNM">
                 <label>Status</label>
@@ -368,7 +368,7 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Genres</label>
-                {/* <input
+                <input
                   className="inputNM"
                   type="text"
                   placeholder="action"
@@ -376,7 +376,7 @@ export const NewMovie = () => {
                   value={genres}
                   onChange={handleChange}
                   onBlur={validateOne}
-                /> */}
+                />
                 <div className="vals">{genresVal}</div>
               </div>
               <div className="formNM">

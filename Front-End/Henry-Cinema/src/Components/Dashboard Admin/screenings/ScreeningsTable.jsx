@@ -1,7 +1,7 @@
 import React from "react";
-import "./moviestable.scss";
+import "./screeningstable.scss";
 import { useState, useEffect } from "react";
-import { getMovies, deleteMovie } from "../../../redux/actions";
+//import { getReleases, deleteRelease } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -14,13 +14,13 @@ import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
-export const MoviesTable = () => {
+export const ScreeningsTable = () => {
   const dispatch = useDispatch();
-  const allMovies = useSelector((state) => state.allMovies);
+  const allReleases = useSelector((state) => state.allReleases);
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    dispatch(getMovies());
+    dispatch(getReleases());
   }, [dispatch]);
 
   const deleteAlert = (id, title) => {
@@ -48,7 +48,7 @@ export const MoviesTable = () => {
   };
 
   return (
-    <TableContainer component={Paper} className="moviesTable">
+    <TableContainer component={Paper} className="releasesTable">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow className="tableRow">
@@ -62,32 +62,34 @@ export const MoviesTable = () => {
           </TableRow>
         </TableHead>
         <TableBody className="list">
-          {allMovies.map((m) => (
-            <TableRow key={m.id}>
-              <TableCell className="tableCellMovies">
-                {m.title.slice(0, 20)}
+          {allReleases.map((r) => (
+            <TableRow key={r.id}>
+              <TableCell className="tableCellReleases">
+                {r.title.slice(0, 20)}
               </TableCell>
-              <TableCell className="tableCellMovies">{m.genres[0]}</TableCell>
-              <TableCell className="tableCellMovies">
-                {m.classification}
+              <TableCell className="tableCellReleases">{r.genres[0]}</TableCell>
+              <TableCell className="tableCellReleases">
+                {r.classification}
               </TableCell>
-              <TableCell className="tableCellMovies">{m.voteAverage}</TableCell>
-              <TableCell className="tableCellMovies">
-                {m.createdAt.slice(0, 10)}
+              <TableCell className="tableCellReleases">
+                {r.voteAverage}
               </TableCell>
-              <TableCell className="tableCellMovies">
+              <TableCell className="tableCellReleases">
+                {r.createdAt.slice(0, 10)}
+              </TableCell>
+              <TableCell className="tableCellReleases">
                 <div className="cellWrapper">
-                  <Link to={`/movie/${m.apiId}`}>
+                  <Link to={`/movie/${r.apiId}`}>
                     <img
-                      alt={m.title}
-                      className="movieImage"
-                      src={m.imageVertical}
+                      alt={r.title}
+                      className="releaseImage"
+                      src={r.imageVertical}
                     />
                   </Link>
                 </div>
               </TableCell>
-              <TableCell className="tableCellMovies">
-                <button onClick={() => deleteAlert(m.id, m.title)}>
+              <TableCell className="tableCellReleases">
+                <button onClick={() => deleteAlert(r.id, r.title)}>
                   <div>
                     <DeleteForeverRoundedIcon className="bin" />
                   </div>
@@ -101,4 +103,4 @@ export const MoviesTable = () => {
   );
 };
 
-export default MoviesTable;
+export default ScreeningsTable;

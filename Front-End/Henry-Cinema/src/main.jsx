@@ -22,7 +22,6 @@ import Reviews from "./Components/Dashboard Admin/reviews/Reviews";
 import ReviewId from "./Components/Dashboard Admin/reviews/ReviewId";
 import Screenings from "./Components/Dashboard Admin/screenings/Screenings";
 import NewScreening from "./Components/Dashboard Admin/screenings/NewScreening";
-import ScreeningId from "./Components/Dashboard Admin/screenings/ScreeningId";
 import Combos from "./Components/Dashboard Admin/foodanddrinks/Combos";
 import NewCombo from "./Components/Dashboard Admin/foodanddrinks/NewCombo";
 import FoodsAdmin from "./Components/Dashboard Admin/foodanddrinks/Foods";
@@ -96,10 +95,6 @@ const router = createBrowserRouter([
   {
     path: "/dashboard/screenings",
     element: <Screenings />,
-  },
-  {
-    path: "/dashboard/screenings/:id",
-    element: <ScreeningId />,
   },
   {
     path: "/dashboard/screenings/new",
