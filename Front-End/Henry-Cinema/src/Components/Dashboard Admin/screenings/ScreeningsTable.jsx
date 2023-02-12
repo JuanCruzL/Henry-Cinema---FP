@@ -62,7 +62,7 @@ export const ScreeningsTable = () => {
           </TableRow>
         </TableHead>
         <TableBody className="list">
-          {allReleases.map((r) => (
+          {/* {allReleases.map((r) => (
             <TableRow key={r.id}>
               <TableCell className="tableCellReleases">
                 {r.title.slice(0, 20)}
@@ -94,9 +94,9 @@ export const ScreeningsTable = () => {
                     <DeleteForeverRoundedIcon className="bin" />
                   </div>
                 </button>
-              </TableCell>
-            </TableRow>
-          ))}
+              </TableCell> */}
+          {/* </TableRow>
+          ))} */}
         </TableBody>
       </Table>
     </TableContainer>
