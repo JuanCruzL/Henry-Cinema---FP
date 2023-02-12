@@ -30,7 +30,7 @@ router.get("/:id", async (req, res) => {
 
 
 router.post("/", async (req, res) => {
-  let {
+  const {
     title,
     imageVertical,
     imageHorizontal,
@@ -38,39 +38,34 @@ router.post("/", async (req, res) => {
     overview,
     status,
     productionCompanies,
-    review,
+    originalLanguage,
     runtime,
-    origin,
     genres,
     directors,
-    actors,
     video,
     classification,
-    distributor,
   } = req.body;
 
   try {
 
-    await Movie.create({
+    const newMovie = await Movie.create({
       title,
       imageVertical,
       imageHorizontal,
       voteAverage,
       overview,
       status,
-      review,
       productionCompanies,
+      originalLanguage,
       runtime,
-      origin,
       genres,
       directors,
-      actors,
       video,
       classification,
-      distributor,
     });
     
-    res.status(200).send('MOVIE CREATED');
+    res.status(200).send(newMovie);
+    console.log(newMovie);
   } catch (error) {
     console.log(error);
     res.status(400).send(error);

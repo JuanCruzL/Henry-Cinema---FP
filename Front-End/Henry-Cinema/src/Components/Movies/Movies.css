@@ -16,7 +16,7 @@
 
 .light-mode .Filter-results {
   box-shadow: var(--LDegradado) 0px 5px 15px;
-  background-color: var(--BaseL);
+  background-color: var(--LBase-1);
 }
 .light-mode .carousel-movies-b h1 {
   color: var(--LText-1);
@@ -112,11 +112,12 @@
   width: 80%;
   align-items: center;
   margin: auto;
+  padding: 10px;
 }
 
 .carousel-movies-b {
   grid-area: carousel-movies-b;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .carousel-movies-b h3 {
@@ -125,6 +126,13 @@
   padding: 10px;
 }
 
+.carousel-container {
+  position: relative;
+  display: flex;
+  width: 85%;
+  min-height: 350px;
+  margin-bottom: 10px;
+}
 .Filter-results {
   padding: 10px;
   position: absolute;

@@ -1,32 +1,36 @@
 import axios from "axios";
-const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
-export const GET_MOVIES = "GET_MOVIES";
-export const GET_RELEASES = "GET_RELEASES";
-export const REQUEST_GENDERS = 'REQUEST_GENDERS';
-export const GET_SEATS = "GET_SEATS";
+
 import {
+  GET_MOVIES,
+  GET_RELEASES,
   GET_MOVIE_ID,
   SEARCH_MOVIE,
   DELETE_MOVIE,
   GET_FOODS,
   GET_DRINKS,
   GET_COMBOS,
-  REQUEST_GENRES,
+  REQUEST_GENRES2,
+  GET_SEATS,
   SEARCH_FOOD,
+  CREATE_MOVIE,
+  AGE_CLASSIFICATION,
 } from "./actionTypes";
 
+axios.defaults.baseURL = "http://localhost:3001";
+//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 
 //MOVIES
 
 export const getMovies = () => {
   return (dispatch) => {
     axios
-      .get(`http://localhost:3001/movies`)
+      .get(`/movies`)
       .then((response) => {
         dispatch({
           type: GET_MOVIES,
           payload: response.data,
         });
+        console.log(response.data);
       })
       .catch((error) => {
         console.log("error");
@@ -37,7 +41,7 @@ export const getMovies = () => {
 export const getMovieById = (id) => {
   try {
     return async (dispatch) => {
-      let movieInfo = await axios.get(`http://localhost:3001/movies/${id}`);
+      let movieInfo = await axios.get(`/movies/${id}`);
       return dispatch({
         type: GET_MOVIE_ID,
         payload: movieInfo.data,
@@ -51,7 +55,7 @@ export const getMovieById = (id) => {
 export const getRelease = (id) => {
   try {
     return async (dispatch) => {
-      let movieInfo = await axios.get(`http://localhost:3001/nextReleases`);
+      let movieInfo = await axios.get(`/nextReleases`);
       return dispatch({
         type: GET_RELEASES,
         payload: movieInfo.data,
@@ -62,12 +66,27 @@ export const getRelease = (id) => {
   }
 };
 
+export function createMovie(newMovie) {
+  console.log("MOVIE: ", newMovie);
+  return async function () {
+    try {
+      const response = await axios.post("/movies", newMovie);
+      if (response.data === newMovie) {
+        console.log(newMovie);
+        return dispatch({ type: CREATE_MOVIE });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
 export const deleteMovie = (id) => {
   return async function (dispatch) {
     try {
-      const response = await axios.delete(`http://localhost:3001/movies/${id}`);
+      const response = await axios.delete(`/movies/${id}`);
       if (response.data === "The movie has been removed") {
-        const allMovies = await axios.get(`http://localhost:3001/movies`);
+        const allMovies = await axios.get(`/movies`);
         return dispatch({ type: DELETE_MOVIE, payload: allMovies.data });
       }
     } catch (error) {
@@ -95,7 +114,7 @@ export const searchMovie = (payload) => {
 export const getFoods = () => {
   try {
     return async (dispatch) => {
-      let allFoodsData = await axios.get("http://localhost:3001/foods");
+      let allFoodsData = await axios.get("/foods");
       return dispatch({
         type: GET_FOODS,
         payload: allFoodsData.data,
@@ -109,7 +128,7 @@ export const getFoods = () => {
 export const getDrinks = () => {
   try {
     return async (dispatch) => {
-      let allDrinksData = await axios.get("http://localhost:3001/drinks");
+      let allDrinksData = await axios.get("/drinks");
       return dispatch({
         type: GET_DRINKS,
         payload: allDrinksData.data,
@@ -123,7 +142,7 @@ export const getDrinks = () => {
 export const getCombos = () => {
   try {
     return async (dispatch) => {
-      let allCombosData = await axios.get("http://localhost:3001/combos");
+      let allCombosData = await axios.get("/combos");
       return dispatch({
         type: GET_COMBOS,
         payload: allCombosData.data,
@@ -145,7 +164,7 @@ export const searchFood = (payload) => {
 export const getasientos = () => {
   return (dispatch) => {
     axios
-      .get(`http://localhost:3001/seats`)
+      .get(`/seats`)
       .then((response) => {
         dispatch({
           type: GET_SEATS,
@@ -158,44 +177,39 @@ export const getasientos = () => {
   };
 };
 
-
 // actions.js
-
-
 
 //GENRES
 
-export const requestGenders = () => {
+export const requestGenres = () => {
   return {
-    type: REQUEST_GENRES,
+    type: REQUEST_GENRES2,
   };
 };
 
-
-
+export const getGenres = () => {
+  return async (dispatch) => {
+    let dataGenres = await axios.get("http://localhost:3001/genres");
+    return dispatch({
+      type: "GET_GENRES_DB",
+      payload: dataGenres.data,
+    });
+  };
+};
 
 // crea el usuario y lo guarda en la base de datos
 export const signUp = (payload) => {
   return async (dispatch) => {
     try {
-      console.log(payload)
-      const userCreated = await axios.post("http://localhost:3001/users", payload);
-      console.log(userCreated);
-    }catch(e) {
-      console.log(e)
+      console.log(payload);
+      const userCreated = await axios.post("/users", payload);
+      alert("User register successfully!");
+    } catch (e) {
+      alert("Could not register, error!")
+      console.log(e);
     }
-  }
-}
-
-
-
-
-
-
-
-
-
-
+  };
+};
 
 // action.js
 
@@ -203,39 +217,23 @@ export const signUp = (payload) => {
 export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
-      const { email, givenName } = response.profileObj;
-      const userCreated = await axios.post(
-        `http://localhost:3001/login/google`,
-        { email, userName: givenName }
-      );
+      const { email, given_name } = response;
+      const userCreated = await axios.post(`/login/google`, {
+        email,
+        userName: given_name,
+      });
       console.log(userCreated.data);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
       });
-
     } catch (error) {
       console.log("el error de logInUserWithGoogle es:", error.message);
     }
-  }
-}
-
-
-
-
-
-
-
-
-
+  };
+};
 
 // actions.js
-
-
-
-
-
-
 
 // busca en la base de datos al usuario y lo logea con su token faltaria navigates en el componente
 
@@ -253,22 +251,14 @@ export const logInUser = (email, password) => {
 
   try {
     return async (dispatch) => {
-      const loginCredentials = await axios.post("http://localhost:3001/login",
-        {email, password},
-      );
+      const loginCredentials = await axios.post("/login", { email, password });
       console.log(loginCredentials.data);
       return dispatch({
         type: "GET_CURRENT_USER",
         payload: loginCredentials.data,
       });
-    }  
+    };
   } catch (error) {
     console.log(error);
   }
-} 
-
-
-
-
-
-
+};

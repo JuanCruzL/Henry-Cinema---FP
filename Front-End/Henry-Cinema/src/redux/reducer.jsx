@@ -7,7 +7,7 @@ const initialState = {
   // Proximos estrenos
   releases: [],
   //componente dia/noche
-  modo:"dia",
+  modo: "dia",
   // Componente search
   searchMovies: [],
   //Para el componente Foods
@@ -18,7 +18,8 @@ const initialState = {
   combos: [],
   copyCombos: [],
   currentUser: {},
-  seats:[]
+  seats: [],
+  newGenres: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -38,16 +39,7 @@ const rootReducer = (state = initialState, action) => {
         seats: action.payload,
       };
     }
-    case "AGE_CLASSIFICATION": {
-      const allM = state.allMovies;
-      const age_classification = allM.filter(
-        (data) => data.classification === payload
-      );
-      return {
-        ...state,
-        movies: age_classification,
-      };
-    }
+
     case "GET_MOVIE_ID":
       return {
         ...state,
@@ -58,21 +50,16 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         releases: action.payload,
       };
+    case "CREATE_MOVIE":
+      return {
+        ...state,
+        allMovies: action.payload,
+      };
     case "DELETE_MOVIE":
       return {
         ...state,
         allMovies: action.payload,
       };
-    case "AGE_CLASSIFICATION":
-      const allM = state.allMovies;
-      const age_classification = allM.filter(
-        (data) => data.classification === payload
-      );
-      return {
-        ...state,
-        movies: age_classification,
-      };
-
     case "SEARCH_MOVIE":
       const searchMoviesBar = state.allMovies;
       const searchMoviesFound = searchMoviesBar.filter((m) => {
@@ -133,12 +120,17 @@ const rootReducer = (state = initialState, action) => {
         foods: foodsFound,
       };
     // GENRES
-    case "REQUEST_GENRES":
+    case "REQUEST_GENRES2":
       return {
         ...state,
         uniqueGenres: Array.from(
           new Set(state.allMovies.flatMap((movie) => movie.genres))
         ),
+      };
+    case "GET_GENRES_DB":
+      return {
+        ...state,
+        newGenres: action.payload,
       };
 
     case "POST_USER_WITH_GOOGLE":
@@ -154,12 +146,12 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case "MODO":
-      let M= state.modo;
-      M=="dia"?M="noche":M="dia";
-      return{
+      let M = state.modo;
+      M == "dia" ? (M = "noche") : (M = "dia");
+      return {
         ...state,
-        modo:M
-      }
+        modo: M,
+      };
 
     default:
       return state;

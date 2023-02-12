@@ -13,6 +13,7 @@ module.exports = (sequelize) => {
 
     apiId: {
         type: DataTypes.INTEGER,
+        allowNull: true,
     },
 
     title: {
@@ -21,52 +22,47 @@ module.exports = (sequelize) => {
     },
 
     imageVertical: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false, 
     },
     imageHorizontal: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-
-    voteAverage: {
-        type: DataTypes.DOUBLE,
-        allowNull: true,
-    },
-
-    overview: {
         type: DataTypes.TEXT,
         allowNull: true,
     },
 
-    review: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: true,
+    voteAverage: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+
+    overview: {
+        type: DataTypes.TEXT,
+        allowNull: false,
     },
 
     status: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
     },
 
     productionCompanies: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: true,
     },
 
     runtime: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
     },
 
     originalLanguage: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
     },
 
     genres:{
         type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: true,
+        allowNull: false,
     },
 
     directors: {
@@ -74,24 +70,14 @@ module.exports = (sequelize) => {
         allowNull: true,
     },
 
-    actors: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
-
     video: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: true,
     },
 
     classification:{
         type: DataTypes.STRING,
-        allowNull: true,
-    },
-
-    distributor: {
-        type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
     }
   });
 };

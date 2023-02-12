@@ -4,7 +4,12 @@ const axios = require("axios");
 const { Movie } = require("../db");
 const { getGenresDb } = require("./genres");
 
-const getMovies = async () => {
+const getMovies = async() => {
+  const ourMovies = Movie.findAll();
+  return ourMovies;
+}
+
+const getMoviesApi = async () => {
   const config = { headers: { "Accept-Encoding": null } };
   const finalMovies = [];
   const resultP1 = await axios.get(
