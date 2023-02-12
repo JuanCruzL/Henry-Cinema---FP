@@ -66,7 +66,7 @@ module.exports = (sequelize) => {
     },
 
     genres:{
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
     },
 
