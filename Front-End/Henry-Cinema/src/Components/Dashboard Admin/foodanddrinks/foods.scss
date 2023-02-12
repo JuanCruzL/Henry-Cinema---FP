@@ -1,7 +1,9 @@
-.foods {
-    background-color: rebeccapurple;
+.list {
+    display: flex;
 
-    .title {
-        color: white;
+    .listContainer {
+        background-color: white;
+        flex: 6;
+
     }
 }
