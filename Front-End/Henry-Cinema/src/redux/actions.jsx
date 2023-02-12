@@ -30,6 +30,7 @@ export const getMovies = () => {
           type: GET_MOVIES,
           payload: response.data,
         });
+        console.log(response.data);
       })
       .catch((error) => {
         console.log("error");
@@ -65,15 +66,14 @@ export const getRelease = (id) => {
   }
 };
 
-export function createMovie(movie) {
-  console.log("MOVIE: ", movie);
+export function createMovie(newMovie) {
+  console.log("MOVIE: ", newMovie);
   return async function () {
     try {
-      const response = await axios.post("/movies", movie);
-      if (response.data === "MOVIE CREATED") {
-        console.log(movie);
-        const allMovies = await axios.get("/movies");
-        return dispatch({ type: CREATE_MOVIE, payload: allMovies.data });
+      const response = await axios.post("/movies", newMovie);
+      if (response.data === newMovie) {
+        console.log(newMovie);
+        return dispatch({ type: CREATE_MOVIE });
       }
     } catch (error) {
       console.log(error);
@@ -187,14 +187,25 @@ export const requestGenres = () => {
   };
 };
 
+export const getGenres = () => {
+  return async (dispatch) => {
+    let dataGenres = await axios.get("http://localhost:3001/genres");
+    return dispatch({
+      type: "GET_GENRES_DB",
+      payload: dataGenres.data,
+    });
+  };
+};
+
 // crea el usuario y lo guarda en la base de datos
 export const signUp = (payload) => {
   return async (dispatch) => {
     try {
       console.log(payload);
       const userCreated = await axios.post("/users", payload);
-      console.log(userCreated);
+      alert("User register successfully!");
     } catch (e) {
+      alert("Could not register, error!")
       console.log(e);
     }
   };
@@ -206,10 +217,10 @@ export const signUp = (payload) => {
 export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
-      const { email, givenName } = response.profileObj;
+      const { email, given_name } = response;
       const userCreated = await axios.post(`/login/google`, {
         email,
-        userName: givenName,
+        userName: given_name,
       });
       console.log(userCreated.data);
       return dispatch({

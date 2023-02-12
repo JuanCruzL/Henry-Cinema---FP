@@ -1,14 +1,23 @@
 import React, { useState } from "react";
-import { createMovie } from "../../../redux/actions";
-import { useDispatch } from "react-redux";
+import { createMovie, getGenres } from "../../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 import "./newmovie.scss";
 import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import OutboxRoundedIcon from "@mui/icons-material/OutboxRounded";
+import swal from "sweetalert";
+import { useEffect } from "react";
 
 export const NewMovie = () => {
   const dispatch = useDispatch();
+  const allGenres = useSelector((state) => state.newGenres);
+  const [selectedGenre, setSelectedGenre] = useState();
+
+  useEffect(() => {
+    dispatch(getGenres());
+  }, [dispatch]);
+  console.log(allGenres);
 
   const [values, setValues] = useState({
     title: "",
@@ -21,7 +30,7 @@ export const NewMovie = () => {
     productionCompanies: "",
     runtime: "",
     originalLanguage: "",
-    genres: "",
+    genres:[],
     directors: "",
     actors: "",
     video: "",
@@ -40,7 +49,7 @@ export const NewMovie = () => {
     productionCompanies: "",
     runtime: "",
     originalLanguage: "",
-    genres: "",
+    genres: [],
     directors: "",
     actors: "",
     video: "",
@@ -71,7 +80,7 @@ export const NewMovie = () => {
       status: "",
       runtime: "",
       originalLanguage: "",
-      genres: "",
+      genres: [],
       classification: "",
     };
 
@@ -163,18 +172,22 @@ export const NewMovie = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
+    console.log(values.genres)
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const isValid = validateAll();
-
     if (!isValid) {
       return false;
     }
-    dispatch(createMovie(values)).then(() => alert("Movie added"));
-    // si hay tiempo agregamos una alerta mejor de sweetalert
+    dispatch(createMovie(values)).then(() =>
+      swal({
+        title: `The movie ${m.title} has been created`,
+        icon: "success",
+        button: true,
+      })
+    );
   };
 
   const {
@@ -208,6 +221,8 @@ export const NewMovie = () => {
     genres: genresVal,
     classification: classificationVal,
   } = validations;
+
+  
 
   return (
     <div className="newMovie">
@@ -294,7 +309,7 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Review</label>
-                <input
+                {/* <input
                   className="inputNM"
                   type="text"
                   placeholder="what you think about this movie?"
@@ -302,7 +317,7 @@ export const NewMovie = () => {
                   value={review}
                   onChange={handleChange}
                   onBlur={validateOne}
-                />
+                /> */}
               </div>
               <div className="formNM">
                 <label>Status</label>
@@ -357,7 +372,7 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Genres</label>
-                <input
+                 {/* <input
                   className="inputNM"
                   type="text"
                   placeholder="action"
@@ -365,7 +380,18 @@ export const NewMovie = () => {
                   value={genres}
                   onChange={handleChange}
                   onBlur={validateOne}
-                />
+                />  */}
+
+         <select>
+         {allGenres.map((genre) => (
+         <option key={genre.id} value={genre.name} onChange={handleChange}  onBlur={validateOne}>
+          {genre.name}
+         </option>
+          ))}
+          </select>
+
+   
+                
                 <div className="vals">{genresVal}</div>
               </div>
               <div className="formNM">
@@ -382,7 +408,7 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Actors</label>
-                <input
+                {/* <input
                   className="inputNM"
                   type="text"
                   placeholder="Leonardo Dicaprio..."
@@ -390,7 +416,8 @@ export const NewMovie = () => {
                   value={actors}
                   onChange={handleChange}
                   onBlur={validateOne}
-                />
+                /> */}
+                <h1></h1>
               </div>
               <div className="formNM">
                 <label>Video</label>

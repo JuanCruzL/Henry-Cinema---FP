@@ -19,6 +19,7 @@ const initialState = {
   copyCombos: [],
   currentUser: {},
   seats: [],
+  newGenres: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -125,6 +126,11 @@ const rootReducer = (state = initialState, action) => {
         uniqueGenres: Array.from(
           new Set(state.allMovies.flatMap((movie) => movie.genres))
         ),
+      };
+    case "GET_GENRES_DB":
+      return {
+        ...state,
+        newGenres: action.payload,
       };
 
     case "POST_USER_WITH_GOOGLE":
