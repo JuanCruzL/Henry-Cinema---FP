@@ -145,6 +145,11 @@ export const NewMovie = () => {
       isValid = false;
     }
 
+    if (classification !== "R" || classification !== "G") {
+      validations.classification = "Classification must be G or R";
+      isValid = false;
+    }
+
     if (!isValid) {
       setValidations(validations);
     }
@@ -202,14 +207,8 @@ export const NewMovie = () => {
       return false;
     }
 
-    const genresObject = values.genres.reduce((acc, genre) => {
-      acc[genre] = true;
-      return acc;
-    }, {});
-
     const newMovie = {
       ...values,
-      genres: genresObject,
     };
 
     dispatch(createMovie(newMovie)).then(() =>
@@ -445,8 +444,13 @@ export const NewMovie = () => {
                 <div className="vals">{classificationVal}</div>
               </div>
 
-              <button className="buttonNM" type="submit" value="SUBMIT RECIPE">
-                <OutboxRoundedIcon className="iconSubmit" />
+              <button
+                className="buttonNM"
+                type="submit"
+                value="SUBMIT RECIPE"
+                onClick={() => console.log("hola")}
+              >
+                <OutboxRoundedIcon />
               </button>
             </form>
           </div>

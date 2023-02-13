@@ -14,13 +14,13 @@ export const NewFood = () => {
 
   const [values, setValues] = useState({
     name: "",
-    price: 0,
+    price: "",
     image: "",
   });
 
   const [validations, setValidations] = useState({
     name: "",
-    price: 0,
+    price: "",
     image: "",
   });
 
@@ -29,7 +29,7 @@ export const NewFood = () => {
 
     const validations = {
       name: "",
-      price: 0,
+      price: "",
       image: "",
     };
 
@@ -95,14 +95,14 @@ export const NewFood = () => {
     if (!isValid) {
       return false;
     }
-    dispatch(createFood(newFood)).then(() =>
+    dispatch(createFood(values)).then(() =>
       swal({
-        title: `The food ${newFood.name} has been created`,
+        title: `The food ${values.name} has been created`,
         icon: "success",
         button: true,
       })
     );
-    console.log(newFood);
+    console.log(values);
   };
 
   const { name, image, price } = values;
