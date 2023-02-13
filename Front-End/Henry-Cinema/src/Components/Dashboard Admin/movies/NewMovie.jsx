@@ -145,10 +145,10 @@ export const NewMovie = () => {
       isValid = false;
     }
 
-    if (classification !== "R" || classification !== "G") {
-      validations.classification = "Classification must be G or R";
-      isValid = false;
-    }
+    // if (values.classification !== "R" || values.classification !== "G") {
+    //   validations.classification = "Classification must be G or R";
+    //   isValid = false;
+    // }
 
     if (!isValid) {
       setValidations(validations);
@@ -193,7 +193,7 @@ export const NewMovie = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-    console.log(values);
+
   };
 
   useEffect(() => {
