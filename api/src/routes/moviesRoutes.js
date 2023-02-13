@@ -88,4 +88,14 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+router.put("/", async (req, res) => {
+  //const {id,name,priority,description} = req.body
+  const movieUp =  await Movie.findOne("M3GAN")
+  //movieUp.name = name,
+  //movieUp.priority = priority
+  movieUp.classification = "R"
+  await Movie.save()
+  res.send('Updated movie')
+})
+
 module.exports = router;

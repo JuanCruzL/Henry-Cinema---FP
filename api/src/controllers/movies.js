@@ -4,10 +4,17 @@ const axios = require("axios");
 const { Movie } = require("../db");
 const { getGenresDb } = require("./genres");
 
+<<<<<<< HEAD
 const getMoviesDb = async() => {
   const ourMovies = Movie.findAll();
   return ourMovies;
 }
+=======
+// const getMovies = async() => {
+//   const ourMovies = Movie.findAll();
+//   return ourMovies;
+// }
+>>>>>>> 918a1d61d55a543b02c1531c4d1136d31d234618
 
 const getMovies = async () => {
   const config = { headers: { "Accept-Encoding": null } };
@@ -163,5 +170,17 @@ const getMovieById = async (id) => {
   // i.e: id: 78b8496d-357a-4b15-8fda-e99563df8c61 ( UUIDV4 )
   // to search for movies posted by admin in db
 };
+
+let arr = ["Candy Land", "Titanic", "In from the Side", "M3GAN"]
+
+const changeprops = async() => {
+  arr.forEach(e =>  await (Movie.findOne({
+    where: {
+      title: e,
+    },
+    
+  })))
+  
+}
 
 module.exports = { getMovies, getMovieById };
