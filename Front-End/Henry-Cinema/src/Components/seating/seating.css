@@ -1,23 +1,23 @@
 .seating {
   text-align: center;
-  background-color: #000000ca;
-  height: 110vh;
+  background-color: var(--NFondo-1);
+  height:100%;
   position: relative;
+  align-items: center;
 }
 
 .screen {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  width: 85%;
-  margin-left: 2.5%;
-  border: 3px solid #00000034;
+  width: 90%;
+  margin: auto;
+  border: 3px solid rgba(0, 0, 0, 0.204);
   box-sizing: border-box;
   padding: 8px;
   top: 30px;
   padding-bottom: 5px;
-  background-color: black;
+  background-color: var(--NFondo-3);
   box-shadow: var(--LDegradado) 0px 5px 15px;
+  display: grid;
+  grid-template-rows: 100px 300px auto;
 }
 .screen .selected {
   padding: 10px;
@@ -34,33 +34,34 @@
 
 .pantalla {
   padding: 8px;
-  background-color: #ffff00;
-  width: 80%;
-  margin-left: 10%;
+  background-color: var(--NFondo-2);
+  width: 97%;
+  max-width: 1100px;
+  margin: auto;
   margin-bottom: 5%;
-  color: black;
-  box-shadow: var(--LDegradado) 0px 5px 15px;
+  color: var(--NText-1);
+  box-shadow: var(--NDegradado) 0px 25px 25px;
 }
 
 .seats {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  width: 97%;
+  max-height: 30px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0px 60px;
   box-sizing: border-box;
 }
 
 .asiento {
   height: 20px;
   width: 20px;
-  margin-top: 0.5em;
-  margin-right: 0.2em;
-  background-color: #40ff00;
   border: 1px solid black;
   box-shadow: var(--LDegradado) 0px 5px 15px;
+  margin: 4px 2px;
 }
 
-.asiento :hover {
-  background-color: yellow;
+.asiento:hover {
   transform: scale(1.2);
 }
 
@@ -71,12 +72,16 @@
 }
 
 .Filaizquierda {
-  display: flex;
+  position: relative;
+  margin: auto;
+  margin-right: 0px;
   box-sizing: border-box;
 }
 
 .Filaderecha {
-  display: flex;
+  position: relative;
+  margin: auto;
+  margin-left: 0px;
   box-sizing: border-box;
 }
 
@@ -85,7 +90,6 @@
   margin-bottom: 10px;
   width: 25%;
   padding: 10px;
-  right: 0px;
   background-color: #ffff00;
   box-shadow: var(--LDegradado) 0px 5px 15px;
 }
