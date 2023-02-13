@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
     },
 
     voteAverage: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
 
@@ -42,7 +42,7 @@ module.exports = (sequelize) => {
 
     status: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
 
     productionCompanies: {
@@ -51,13 +51,13 @@ module.exports = (sequelize) => {
     },
 
     runtime: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.INTEGER,
+        allowNull: true,
     },
 
     originalLanguage: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
 
     genres:{

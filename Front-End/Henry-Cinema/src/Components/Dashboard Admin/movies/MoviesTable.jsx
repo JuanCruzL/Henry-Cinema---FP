@@ -67,7 +67,7 @@ export const MoviesTable = () => {
               <TableCell className="tableCellMovies">
                 {m.title.slice(0, 20)}
               </TableCell>
-              {/* <TableCell className="tableCellMovies">{m.genres[0]}</TableCell> */}
+              <TableCell className="tableCellMovies">{m.genres[0]}</TableCell>
               <TableCell className="tableCellMovies">
                 {m.classification}
               </TableCell>
