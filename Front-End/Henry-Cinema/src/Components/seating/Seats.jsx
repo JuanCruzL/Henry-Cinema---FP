@@ -19,10 +19,10 @@ const Seats = ({ handleClick, seatsData, letra, asientosSeleccionados }) => {
                 backgroundColor: asientosSeleccionados.includes(
                   `${seat.row}${seat.number}`
                 )
-                  ? "white"
+                  ? "#ffff00"
                   : seat.reserved || seat.payed
                   ? "red"
-                  : "#ffff00",
+                  : "white",
               }}
             >
               <img
@@ -51,10 +51,10 @@ const Seats = ({ handleClick, seatsData, letra, asientosSeleccionados }) => {
                 backgroundColor: asientosSeleccionados.includes(
                   `${seat.row}${seat.number}`
                 )
-                  ? "white"
+                  ? "#ffff00"
                   : seat.reserved || seat.payed
                   ? "red"
-                  : "#ffff00",
+                  : "white",
               }}
             >
               <img

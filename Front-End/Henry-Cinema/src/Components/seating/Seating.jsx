@@ -35,16 +35,16 @@ function Seating() {
         <div className="pantalla">
           <h1> Screen</h1>
         </div>
-
-        {filas.map((letra) => (
-          <Seats
-            seatsData={asientos}
-            handleClick={handleClick}
-            letra={letra}
-            asientosSeleccionados={asientosSeleccionados}
-          />
-        ))}
-
+        <div className="Container-Seating">
+          {filas.map((letra) => (
+            <Seats
+              seatsData={asientos}
+              handleClick={handleClick}
+              letra={letra}
+              asientosSeleccionados={asientosSeleccionados}
+            />
+          ))}
+        </div>
         <div className="selected">
           <Ticket asientosSeleccionados={asientosSeleccionados} />
         </div>
