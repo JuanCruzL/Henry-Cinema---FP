@@ -32,7 +32,6 @@ export const getMovies = () => {
           type: GET_MOVIES,
           payload: response.data,
         });
-        console.log(response.data);
       })
       .catch((error) => {
         console.log("error");
