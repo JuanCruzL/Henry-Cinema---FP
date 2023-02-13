@@ -220,7 +220,7 @@ export const requestGenres = () => {
 
 export const getGenres = () => {
   return async (dispatch) => {
-    let dataGenres = await axios.get("http://localhost:3001/genres");
+    let dataGenres = await axios.get("/genres");
     return dispatch({
       type: "GET_GENRES_DB",
       payload: dataGenres.data,
@@ -293,3 +293,11 @@ export const logInUser = (email, password) => {
     console.log(error);
   }
 };
+
+
+export const logOut = () => {
+  return {
+    type: "LOG_OUT"
+  }
+}
+ 
