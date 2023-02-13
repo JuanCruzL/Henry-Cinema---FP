@@ -1,22 +1,26 @@
 import axios from "axios";
-const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
-export const GET_MOVIES = "GET_MOVIES";
-export const GET_RELEASES = "GET_RELEASES";
-export const REQUEST_GENRES2 = "REQUEST_GENRES2";
-export const GET_SEATS = "GET_SEATS";
+
 import {
+  GET_MOVIES,
+  GET_RELEASES,
   GET_MOVIE_ID,
   SEARCH_MOVIE,
   DELETE_MOVIE,
   GET_FOODS,
+  CREATE_FOOD,
   GET_DRINKS,
   GET_COMBOS,
+  REQUEST_GENRES2,
+  GET_SEATS,
   SEARCH_FOOD,
+  CREATE_MOVIE,
+  AGE_CLASSIFICATION,
+  DELETE_FOOD,
 } from "./actionTypes";
 
+axios.defaults.baseURL = "http://localhost:3001";
+//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 
-//axios.defaults.baseURL = "http://localhost:3001"
-axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/"
 //MOVIES
 
 export const getMovies = () => {
@@ -28,6 +32,7 @@ export const getMovies = () => {
           type: GET_MOVIES,
           payload: response.data,
         });
+        console.log(response.data);
       })
       .catch((error) => {
         console.log("error");
@@ -62,6 +67,21 @@ export const getRelease = (id) => {
     console.log(e);
   }
 };
+
+export function createMovie(newMovie) {
+  console.log("MOVIE: ", newMovie);
+  return async function () {
+    try {
+      const response = await axios.post("/movies", newMovie);
+      if (response.data === newMovie) {
+        console.log(newMovie);
+        return dispatch({ type: CREATE_MOVIE });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 
 export const deleteMovie = (id) => {
   return async function (dispatch) {
@@ -105,6 +125,35 @@ export const getFoods = () => {
   } catch (error) {
     console.error(error);
   }
+};
+
+export function createFood(newFood) {
+  console.log("FOOD: ", newFood);
+  return async function () {
+    try {
+      const response = await axios.post("/foods", newFood);
+      if (response.data === newFood) {
+        console.log(newFood);
+        return dispatch({ type: CREATE_FOOD });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export const deleteFoods = (id) => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.delete(`/foods/${id}`);
+      if (response.data === "The food has been removed") {
+        const allFoods = await axios.get(`/foods`);
+        return dispatch({ type: DELETE_FOOD, payload: allFoods.data });
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 };
 
 export const getDrinks = () => {
@@ -159,10 +208,7 @@ export const getasientos = () => {
   };
 };
 
-
 // actions.js
-
-
 
 //GENRES
 
@@ -172,31 +218,29 @@ export const requestGenres = () => {
   };
 };
 
-
-
+export const getGenres = () => {
+  return async (dispatch) => {
+    let dataGenres = await axios.get("http://localhost:3001/genres");
+    return dispatch({
+      type: "GET_GENRES_DB",
+      payload: dataGenres.data,
+    });
+  };
+};
 
 // crea el usuario y lo guarda en la base de datos
 export const signUp = (payload) => {
   return async (dispatch) => {
     try {
-      console.log(payload)
+      console.log(payload);
       const userCreated = await axios.post("/users", payload);
-      console.log(userCreated);
-    }catch(e) {
-      console.log(e)
+      alert("User register successfully!");
+    } catch (e) {
+      alert("Could not register, error!");
+      console.log(e);
     }
-  }
-}
-
-
-
-
-
-
-
-
-
-
+  };
+};
 
 // action.js
 
@@ -204,39 +248,23 @@ export const signUp = (payload) => {
 export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
-      const { email, givenName } = response.profileObj;
-      const userCreated = await axios.post(
-        `/login/google`,
-        { email, userName: givenName }
-      );
+      const { email, given_name } = response;
+      const userCreated = await axios.post(`/login/google`, {
+        email,
+        userName: given_name,
+      });
       console.log(userCreated.data);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
       });
-
     } catch (error) {
       console.log("el error de logInUserWithGoogle es:", error.message);
     }
-  }
-}
-
-
-
-
-
-
-
-
-
+  };
+};
 
 // actions.js
-
-
-
-
-
-
 
 // busca en la base de datos al usuario y lo logea con su token faltaria navigates en el componente
 
@@ -254,22 +282,14 @@ export const logInUser = (email, password) => {
 
   try {
     return async (dispatch) => {
-      const loginCredentials = await axios.post("/login",
-        {email, password},
-      );
+      const loginCredentials = await axios.post("/login", { email, password });
       console.log(loginCredentials.data);
       return dispatch({
         type: "GET_CURRENT_USER",
         payload: loginCredentials.data,
       });
-    }  
+    };
   } catch (error) {
     console.log(error);
   }
-} 
-
-
-
-
-
-
+};

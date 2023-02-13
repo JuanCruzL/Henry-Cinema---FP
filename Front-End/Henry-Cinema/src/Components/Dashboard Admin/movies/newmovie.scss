@@ -1,80 +1,92 @@
 .newMovie {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
+  background-color: rgb(216, 213, 213);
 
-    .newContainer {
-        flex: 6;
+  .newContainer {
+    flex: 6;
 
+    .top,
+    .bottom {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      padding: 10px;
+      margin: 20px;
+      display: flex;
+      background-color: rgb(238, 210, 139);
+      display: flex;
 
-        .top,
-        .bottom {
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            padding: 10px;
-            margin: 20px;
-            display: flex;
-            background-color: rgb(227, 183, 73);
-            display: flex;
+      h1 {
+        color: rgb(98, 36, 36);
+        font-size: 21px;
+      }
 
-            h1{
-                color: pink;
-                font-size: 21px;
+      .left {
+        flex: 1;
+        text-align: center;
+      }
+
+      .right {
+        flex: 2;
+
+        form {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: space-around;
+
+          .formNM {
+            width: 40%;
+
+            label {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              color: rgb(98, 36, 36);
             }
-            
-            .left {
-                flex: 1;
-                text-align: center;
 
+            .icon {
+              cursor: pointer;
+              font-size: 30px;
             }
 
-            .right {
-                flex: 2;
-
-                form {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 20px;
-                    justify-content: space-around;
-
-                    .formNM {
-                        width: 40%;
-
-                        label{
-                            display: flex;
-                            align-items: center;
-                            gap: 10px;
-                        }
-
-                        .icon {
-                            cursor: pointer;
-                        }
-                    }
-
-                    input{
-                        width: 100%;
-                        padding: 5px;
-                        border: none;
-                        border-bottom: 1px solid grey;
-                    }
-
-                    button{
-                        width: 150px;
-                        padding: 10px;
-                        border: none;
-                        background-color: yellow;
-                        color: black;
-                        font-weight: bold;
-                        justify-content: center;
-                        cursor: pointer;
-                        margin-top: 10px;
-
-                    }
-                }
+            .vals {
+              font-size: 13px;
+              font-style: oblique;
+              color: rgb(203, 7, 7);
             }
+          }
+
+          input {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-bottom: 1px solid rgb(92, 92, 92);
+            font-size: 13px;
+            font-style: italic;
+          }
+
+          .buttonNM {
+            width: 0px;
+            border: none;
+            background-color: transparent;
+            color: black;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 30px;
+
+            .iconSubmit {
+              font-size: 35px;
+              margin-left: 3px;
+              color: rgb(98, 36, 36);
+              width: 500px;
+
+              &:hover {
+                color: white;
+              }
+            }
+          }
         }
+      }
     }
-
-    
+  }
 }
-
-
-

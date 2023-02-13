@@ -30,7 +30,7 @@ router.get("/:id", async (req, res) => {
 
 
 router.post("/", async (req, res) => {
-  let {
+  const {
     title,
     imageVertical,
     imageHorizontal,
@@ -38,39 +38,36 @@ router.post("/", async (req, res) => {
     overview,
     status,
     productionCompanies,
-    review,
+    originalLanguage,
     runtime,
-    origin,
     genres,
     directors,
-    actors,
     video,
     classification,
-    distributor,
   } = req.body;
 
   try {
+    console.log(voteAverage)
+    // let number = Number(voteAverage)
 
-    await Movie.create({
+    const newMovie = await Movie.create({
       title,
       imageVertical,
       imageHorizontal,
       voteAverage,
       overview,
       status,
-      review,
       productionCompanies,
+      originalLanguage,
       runtime,
-      origin,
       genres,
       directors,
-      actors,
       video,
       classification,
-      distributor,
     });
     
-    res.status(200).send('MOVIE CREATED');
+    res.status(200).send(newMovie);
+    console.log(newMovie);
   } catch (error) {
     console.log(error);
     res.status(400).send(error);
@@ -92,5 +89,21 @@ router.delete("/:id", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
+
+
+router.put("/", async (req, res) => {
+  //const {id,name,priority,description} = req.body
+  const movieUp =  await Movie.findOne({
+    where:{
+      title: "M3GAN"
+    }
+  })
+  //movieUp.name = name,
+  //movieUp.priority = priority
+   movieUp.classification = "R"
+   await movieUp.save()
+  res.status(200).send('Updated movie')
+})
 
 module.exports = router;

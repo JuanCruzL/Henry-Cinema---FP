@@ -1,24 +1,80 @@
-.moviesTable {
-
-    align-items: center;
-    justify-content: space-between;
-
+.light-mode {
+  .moviesTable {
+    background-color: var(--Dashboard-Base);
 
     .tableRow {
-        background-color: rgb(225, 224, 224);
-        align-items: center;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        
-        .title {
-            font-size: 15px;
-            font-weight: 550;
-            color: rgb(80, 78, 78)
-        }
+      background-color: var(--LFondo-1);
+      box-shadow: var(--LDegradado3) 0px 3px 8px;
 
-        .list {
-            background-color: whitesmoke;
-        }
+      .title {
+        color: rgb(80, 78, 78)
+      }
     }
+
+    .css-1ygcj2i-MuiTableCell-root {
+      border-bottom: 1px solid var(--LBase-2);
+    }
+
+    .list {
+      .css-1ex1afd-MuiTableCell-root {
+        border-bottom: 1px solid var(--LBase-2);
+      }
+    }
+
+    .tableCellMovies {
+      color: var(--LText-1);
+    }
+
+  }
+}
+
+.dark-mode {
+  .moviesTable {
+    background-color: var(--NFondo-3);
+
+    .tableRow {
+      background-color: var(--NFondo-1);
+      box-shadow: var(--NDegradado3) 0px 3px 8px;
+
+      .title {
+        color: var(--NText-1);
+      }
+    }
+
+    .css-1ygcj2i-MuiTableCell-root {
+      border-bottom: 1px solid var(--NBase-2);
+    }
+
+    .list {
+      .css-1ex1afd-MuiTableCell-root {
+        border-bottom: 1px solid var(--NBase-2);
+      }
+    }
+
+    .tableCellMovies {
+      color: var(--NText-1);
+    }
+  }
+}
+
+/*===============================================================================*/
+
+.moviesTable {
+
+  align-items: center;
+  justify-content: space-between;
+
+
+  .tableRow {
+
+    align-items: center;
+
+    .title {
+      font-size: 15px;
+      font-weight: 550;
+    }
+
+  }
 
 
 
@@ -26,15 +82,15 @@
     justify-content: center;
 
     .bin {
-        font-size: 39px;
-        font-weight:bold;
-        color: rgb(105, 103, 103);
-        cursor: pointer;
+      font-size: 39px;
+      font-weight: bold;
+      color: rgb(105, 103, 103);
+      cursor: pointer;
 
-        &:hover {
-            color:red;
-          }
-        
+      &:hover {
+        color: red;
+      }
+
     }
 
     .cellWrapper {

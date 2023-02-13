@@ -37,8 +37,8 @@ export const Featured = () => {
 
               // Colors
               pathColor: "#ffd900",
-              textColor: "#000000",
-              trailColor: "#3532329a",
+              // textColor: "#000000",
+              // trailColor: "#3532329a",
               backgroundColor: "#000000",
             })}
           />

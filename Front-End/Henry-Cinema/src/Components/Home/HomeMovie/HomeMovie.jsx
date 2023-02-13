@@ -6,15 +6,16 @@ export default function HomeMovie({ peliculas }) {
   return (
     <div className="HomeMovie">
       {peliculas.map((data) => {
+        let idc = data.apiId ? data.apiId : data.id
         return (
-          <div key={data.apiId} className="Peliculas">
-            {data.apiId != "Error" && (
-              <Link to={`/movie/${data.apiId}`}>
+          <div key={idc} className="Peliculas">
+            {idc != "Error" && (
+              <Link to={`/movie/${idc}`}>
                 <button className="GO">PREMIERE</button>
-                <img alt={data.apiId} src={data.imageVertical}></img>
+                <img alt={idc} src={data.imageVertical}></img>
               </Link>
             )}
-            {data.apiId=="Error"&&(
+            {idc =="Error"&&(
               <img src={data.imageVertical} className="Error" ></img>
             )}
           </div>

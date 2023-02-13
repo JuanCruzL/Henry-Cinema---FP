@@ -1,9 +1,59 @@
+.light-mode {
+    .listContainer {
+        background-color: var(--Dashboard-Base);
+        box-shadow: var(--LDegradado3) 0px 3px 8px;
+        color: var(--LText-1);
+    }
+
+    .table {
+        background-color: var(--Dashboard-Base);
+
+        .css-1ygcj2i-MuiTableCell-root {
+            background-color: var(--LFondo-2);
+            color: var(--LText-1);
+            border-bottom: 1px solid var(--LFondo-2)
+        }
+
+        .css-1ex1afd-MuiTableCell-root {
+            color: var(--LText-1);
+            border-bottom: 1px solid var(--LFondo-2)
+        }
+    }
+}
+
+.dark-mode {
+    .listContainer {
+        background-color: var(--NFondo-3);
+        box-shadow: var(--NDegradado3) 0px 3px 8px;
+        color: var(--NText-1);
+    }
+
+    .table {
+        background-color: var(--NFondo-1);
+
+        .css-1ygcj2i-MuiTableCell-root {
+            background-color: var(--NFondo-2);
+            color: var(--NText-1);
+            border-bottom: 1px solid var(--NFondo-2)
+        }
+
+        .css-1ex1afd-MuiTableCell-root {
+            color: var(--NText-1);
+            border-bottom: 1px solid var(--NFondo-2)
+        }
+    }
+}
+
+
+
+/*===========================================*/
 .table {
+
     .cellWrapper {
         display: flex;
         align-items: center;
 
-        .image{
+        .image {
             width: 32px;
             height: 32px;
             border-radius: 50%;
