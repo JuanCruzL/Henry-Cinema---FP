@@ -25,6 +25,14 @@ const Movies = () => {
   const [availableMovies, setAvailableMovies] = useState([]);
   const [filteredState, setFilteredState] = useState(null);
 
+  //cosas para el nuevo filtro(probando)
+
+  const [filter, setFilter] = useState({
+    Genre: "",
+    Classification: "todos",
+    Calification: "Calification"
+  })
+
   const getClassifications = () => {
     const classificationsArray = Array.from(
       new Set(allMovies.map((movie) => movie.classification))
@@ -111,11 +119,11 @@ const Movies = () => {
     );
     setFiltered(filteredMovies);
     setFilteredState(filteredMovies);
-};
+  };
 
   //------------------- funcion que ordena por popularidad-------------------------------
 
- 
+
   const handleCalificationSort = (event) => {
     if (event.target.value === "Calification") {
       // setFiltered(availableMovies);
@@ -137,8 +145,8 @@ const Movies = () => {
     setFiltered(sortedMovies);
   };
 
-  console.log(classifications);
-  console.log(Filtered);
+  // console.log(classifications);
+  // console.log(Filtered);
 
   //--------------------filtro de clasification--------------------------------
   // const handleClassificationFilter = (event) => {
@@ -161,54 +169,102 @@ const Movies = () => {
   //   }
   //   setFiltered(filteredMovies);
   // };
-  
-  
 
 
 
-// const handleClassificationFilter = (event) => {
-//   if (event.target.value === "todos") {
-//     setSelectedClassification(null);
-//     setFiltered(availableMovies);
-//     setFilteredState(null);
-//     setFilteredState(null);
-//     setSelectedGenre();
-//     return;
-//   }
 
 
-//   setSelectedClassification(event.target.value);
-//   let filteredMovies = [];
-//   if (filteredState) {
-//     filteredMovies = filteredState.filter((movie) =>
-//       movie.classification === event.target.value
-//     );
-//   } else {
-//     filteredMovies = Filtered.filter((movie) =>
-//       movie.classification === event.target.value
-//     );
-//   }
-//   setFiltered(filteredMovies);
-//   setFilteredState(Filtered);
-// };
+  // const handleClassificationFilter = (event) => {
+  //   if (event.target.value === "todos") {
+  //     setSelectedClassification(null);
+  //     setFiltered(availableMovies);
+  //     setFilteredState(null);
+  //     setFilteredState(null);
+  //     setSelectedGenre();
+  //     return;
+  //   }
 
 
-const handleClassificationFilter = (event) => {
-  if (event.target.value === "todos") {
-    setSelectedClassification(null);
-    setFiltered(availableMovies);
-    setFilteredState(null);
-    setSelectedGenre(null);
-    return;
+  //   setSelectedClassification(event.target.value);
+  //   let filteredMovies = [];
+  //   if (filteredState) {
+  //     filteredMovies = filteredState.filter((movie) =>
+  //       movie.classification === event.target.value
+  //     );
+  //   } else {
+  //     filteredMovies = Filtered.filter((movie) =>
+  //       movie.classification === event.target.value
+  //     );
+  //   }
+  //   setFiltered(filteredMovies);
+  //   setFilteredState(Filtered);
+  // };
+
+
+  const handleClassificationFilter = (event) => {
+    if (event.target.value === "todos") {
+      setSelectedClassification(null);
+      setFiltered(availableMovies);
+      setFilteredState(null);
+      setSelectedGenre(null);
+      return;
+    }
+
+    setSelectedClassification(event.target.value);
+    let filteredMovies = filteredState.filter((movie) =>
+      movie.classification === event.target.value
+    );
+    setFiltered(filteredMovies);
+  };
+
+
+
+  function FiltradosContenedor(e, filtroCambiado) {
+    let filteredMovies = allMovies;
+    let actual = e.target.value;
+
+    /* FILTRO DE GENERO */
+    if (filtroCambiado == "Genre") {
+      actual != "" ? filteredMovies = filteredMovies.filter((movie) => movie.genres.includes(actual)) : filteredMovies;
+      setFilter({ ...filter, Genre: actual })
+    } else {
+      filter.Genre != "" ? filteredMovies = filteredMovies.filter((movie) => movie.genres.includes(filter.Genre)) : filteredMovies;
+    }
+
+    /* FILTRO DE CALIFICACION */
+    if (filtroCambiado == "Classification") {
+      actual!="todos"? filteredMovies = filteredMovies.filter((movie) =>movie.classification === actual):filteredMovies;
+      setFilter({...filter,classification:actual})
+    }else{
+      filter.Classification!="todos"? filteredMovies = filteredMovies.filter((movie) =>movie.classification === filter.Classification):filteredMovies;
+    }
+    
+    /* FILTRO DE MAS POLULARES */
+    if (filtroCambiado == "Calification") {
+      actual != "Calification" ?
+        filteredMovies.sort((a, b) => {
+          if (actual == "More Popular") {return b.voteAverage - a.voteAverage;}
+          return a.voteAverage - b.voteAverage;
+        })
+        : filteredMovies;
+
+      setFilter({ ...filter, Calification: actual });
+    }else{
+      filter.Calification != "Calification" ?
+        filteredMovies.sort((a, b) => {
+          if (filter.Calification == "More Popular") {return b.voteAverage - a.voteAverage;}
+          return a.voteAverage - b.voteAverage;
+        })
+        : filteredMovies;
+    }
+    /*======================================= */
+
+
+    // console.log(actual, " - ", filtroCambiado)
+    // console.log(filter)
+    // console.log(filteredMovies)
+    setFiltered(filteredMovies)
   }
-
-  setSelectedClassification(event.target.value);
-  let filteredMovies = filteredState.filter((movie) =>
-    movie.classification === event.target.value
-  );
-  setFiltered(filteredMovies);
-};
-
 
   return (
     <div className="Container">
@@ -222,6 +278,41 @@ const handleClassificationFilter = (event) => {
         </section>
 
         <section className="movies-filter">
+          <select onChange={(e) => FiltradosContenedor(e, "Genre")} >
+            <option value="" style={{ color: "red" }} >
+              Select a Genre
+            </option>
+            {genresCurrent.map((genre) => (
+              <option key={genre} value={genre} >
+                {genre}
+              </option>
+            ))}
+          </select>
+
+          <select onChange={(e) => FiltradosContenedor(e, "Classification")}>
+            <option value="todos" onClick={() => setSelectedGenre(null)} > {selectedClassification ? "CLEAR" : "Classification"} </option>
+            {classifications.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+
+          <select>
+            <option value="todos">Lang </option>
+            <option value="sub">Sub</option>
+            <option value="dub">Dub</option>
+          </select>
+
+
+          <select onChange={(e) => FiltradosContenedor(e, "Calification")}>
+            <option value="Calification">Calification</option>
+            <option value="More Popular">More Popular</option>
+            <option value="Less Popular">Less Popular</option>
+          </select>
+        </section>
+
+        {/* <section className="movies-filter">
           <select onChange={handleSelect} value={selectedGenre}>
             <option value="" style={{ color: "red" }} onClick={() => setSelectedGenre(null)}>
               {selectedGenre ? "CLEAR" : "Select a Genre"}
@@ -254,7 +345,7 @@ const handleClassificationFilter = (event) => {
             <option value="More Popular">More Popular</option>
             <option value="Less Popular">Less Popular</option>
           </select>
-        </section>
+        </section> */}
 
         <section className="movies-Result">
           <div className="Filter-results">
@@ -262,7 +353,7 @@ const handleClassificationFilter = (event) => {
               <Movie movie={movie} />
             ))}
 
-          
+
           </div>
         </section>
 
