@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Movie = ({ movie }) => (
   <div className="movie">
-    <Link to={`/movie/${movie.apiId}`}>
+    <Link to={`/movie/${movie.apiId ? movie.apiId : movie.id}`}>
       <img src={movie.imageVertical} alt={movie.title} />
     </Link>
     <div className="movie-data">

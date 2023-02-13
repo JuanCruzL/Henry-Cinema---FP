@@ -47,6 +47,8 @@ router.post("/", async (req, res) => {
   } = req.body;
 
   try {
+    console.log(voteAverage)
+    // let number = Number(voteAverage)
 
     const newMovie = await Movie.create({
       title,
@@ -88,14 +90,20 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+
+
 router.put("/", async (req, res) => {
   //const {id,name,priority,description} = req.body
-  const movieUp =  await Movie.findOne("M3GAN")
+  const movieUp =  await Movie.findOne({
+    where:{
+      title: "M3GAN"
+    }
+  })
   //movieUp.name = name,
   //movieUp.priority = priority
-  movieUp.classification = "R"
-  await Movie.save()
-  res.send('Updated movie')
+   movieUp.classification = "R"
+   await movieUp.save()
+  res.status(200).send('Updated movie')
 })
 
 module.exports = router;

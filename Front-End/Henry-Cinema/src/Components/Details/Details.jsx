@@ -106,10 +106,9 @@ export default function Details() {
                 <b>Status: </b>
                 {movie.status}
               </p>
-              <p className="allDetailsP">
+              {movie.origin ? <p className="allDetailsP">
                 <b>Origin: </b>
-                {movie.origin}
-              </p>
+                {movie.origin}</p> : <></>} 
             </div>
           </div>
         </div>
