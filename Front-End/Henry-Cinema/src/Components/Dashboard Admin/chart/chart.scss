@@ -1,16 +1,77 @@
+.light-mode {
+    .chart {
+        box-shadow: var(--LDegradado3) 0px 3px 8px;
+        background-color: var(--Dashboard-Base);
+        color: var(--LText-1);
+
+        .recharts-tooltip-wrapper {
+            color: var(--LText-1);
+        }
+
+        .recharts-tooltip-item-list {
+            .recharts-tooltip-item span {
+                color: var(--Gold);
+            }
+        }
+
+        .chartGrid {
+            stroke: var(--Dashboard-Base);
+        }
+
+        .recharts-layer {
+            line {
+                stroke: var(--LText-1);
+            }
+
+            .recharts-cartesian-axis-ticks tspan {
+                fill: var(--LText-1);
+                ;
+            }
+        }
+    }
+}
+
+.dark-mode {
+    .chart {
+        box-shadow: var(--NDegradado3) 0px 3px 8px;
+        background-color: var(--NFondo-3);
+        color: var(--NText-1);
+
+        .recharts-tooltip-wrapper {
+            color: var(--NText-2);
+        }
+
+        .recharts-tooltip-item-list {
+            .recharts-tooltip-item span {
+                color: var(--Gold);
+            }
+        }
+
+        .chartGrid {
+            stroke: var(--NFondo-3);
+        }
+
+        .recharts-layer {
+            line {
+                stroke: var(--NText-1);
+            }
+
+            .recharts-cartesian-axis-ticks tspan {
+                fill: var(--NText-1);
+                ;
+            }
+        }
+    }
+}
+
+/*==================================================*/
+
 .chart {
     flex: 4;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: whitesmoke;
     padding: 10px;
-    color: black;
 
-    .title{
+    .title {
         margin-bottom: 20px;
         font-weight: bolder;
-    }
-
-    .chartGrid {
-        stroke: whitesmoke;
     }
 }
