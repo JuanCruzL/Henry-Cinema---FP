@@ -1,25 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import {useSelector, useDispatch } from 'react-redux'
-import { getasientos} from "../../../redux/actions"
-
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getasientos } from "../../../redux/actions";
 
 const RoomInputs = () => {
   const dispatch = useDispatch();
-  const asientos = useSelector(state => state.seats);
-  const roomLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-  const [roomLetter, setRoomLetter] = useState('A');
-  const [date, setDate] = useState('');
-  const [startTime, setStartTime] = useState('');
-  const [endTime, setEndTime] = useState('');
-  const [definition, setDefinition] = useState('IMAX');
-  const [language, setLanguage] = useState('Sub');
-  const [seats, setSeats]= useState([])
+  const asientos = useSelector((state) => state.seats);
+  const roomLetters = ["A", "B", "C", "D", "E", "F", "G", "H"];
+  const [roomLetter, setRoomLetter] = useState("A");
+  const [date, setDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const [definition, setDefinition] = useState("IMAX");
+  const [language, setLanguage] = useState("Sub");
+  const [seats, setSeats] = useState([]);
   const [reservation, setReservation] = useState({});
-  
+
   useEffect(() => {
     dispatch(getasientos());
-    setSeats(asientos)
-    
+    setSeats(asientos);
   }, [reservation]);
 
   const handleSave = () => {
@@ -30,11 +28,11 @@ const RoomInputs = () => {
       endTime,
       definition,
       language,
-      seats
+      seats,
     });
   };
 
-console.log(reservation)
+  console.log(reservation);
 
   const getNext5Days = () => {
     const today = new Date();
@@ -43,7 +41,7 @@ console.log(reservation)
     for (let i = 0; i < 5; i++) {
       const nextDay = new Date();
       nextDay.setDate(today.getDate() + i);
-      days.push(nextDay.toLocaleDateString('en-US', { weekday: 'long' }));
+      days.push(nextDay.toLocaleDateString("en-US", { weekday: "long" }));
     }
 
     return days;
@@ -51,12 +49,13 @@ console.log(reservation)
 
   const next5Days = getNext5Days();
 
-  
-
   return (
     <div>
-      <label >Room</label>
-      <select value={roomLetter} onChange={(e) => setRoomLetter(e.target.value)}>
+      <label>Room</label>
+      <select
+        value={roomLetter}
+        onChange={(e) => setRoomLetter(e.target.value)}
+      >
         {roomLetters.map((letter) => (
           <option key={letter} value={letter}>
             {letter}
@@ -91,34 +90,41 @@ console.log(reservation)
       </label>
       <br />
       <label>
-      End Time:
-      <br />
-      <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} />
+        End Time:
+        <br />
+        <input
+          type="time"
+          value={endTime}
+          onChange={(e) => setEndTime(e.target.value)}
+        />
       </label>
       <br />
       <label>
-      Definition:
-      <br />
-      <select value={definition} onChange={(e) => setDefinition(e.target.value)}>
-      <option value="IMAX">IMAX</option>
-      <option value="3D">3D</option>
-      <option value="2D">2D</option>
-      </select>
+        Definition:
+        <br />
+        <select
+          value={definition}
+          onChange={(e) => setDefinition(e.target.value)}
+        >
+          <option value="IMAX">IMAX</option>
+          <option value="3D">3D</option>
+          <option value="2D">2D</option>
+        </select>
       </label>
       <br />
       <label>
-      Language:
-      <br />
-      <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-      <option value="Sub">Sub</option>
-      <option value="Dub">Dub</option>
-      <option value="Origin">Origin</option>
-      </select>
+        Language:
+        <br />
+        <select value={language} onChange={(e) => setLanguage(e.target.value)}>
+          <option value="Sub">Sub</option>
+          <option value="Dub">Dub</option>
+          <option value="Origin">Origin</option>
+        </select>
       </label>
       <br />
       <button onClick={handleSave}>Guardar</button>
-</div>
-);
+    </div>
+  );
 };
 
 export default RoomInputs;
