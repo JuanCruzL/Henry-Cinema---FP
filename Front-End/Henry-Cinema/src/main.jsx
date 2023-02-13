@@ -153,12 +153,10 @@ const router = createBrowserRouter([
 
 root.render(
   <div id="Switch" className="light-mode">
-    <React.StrictMode>
       <Provider store={store}>
         <RouterProvider router={router}>
           <App />
         </RouterProvider>
       </Provider>
-    </React.StrictMode>
   </div>
 );

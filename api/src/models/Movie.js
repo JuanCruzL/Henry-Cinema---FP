@@ -42,7 +42,7 @@ module.exports = (sequelize) => {
 
     status: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
 
     productionCompanies: {
@@ -52,12 +52,12 @@ module.exports = (sequelize) => {
 
     runtime: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
 
     originalLanguage: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
 
     genres:{
