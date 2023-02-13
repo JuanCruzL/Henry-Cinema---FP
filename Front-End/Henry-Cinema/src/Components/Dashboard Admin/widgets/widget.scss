@@ -1,21 +1,91 @@
+.light-mode {
+    .widget {
+        background-color: var(--Dashboard-Base);
+        box-shadow: var(--LDegradado3) 0px 3px 8px;
+
+        .left,
+        .right {
+
+            .title,
+            .counter,
+            .link {
+                color: var(--LText-1);
+            }
+
+            .link {
+                border-bottom: 1px solid rgb(82, 79, 79);
+            }
+
+            .percentage {
+                &.positive {
+                    color: green;
+                }
+
+                &.negative {
+                    color: red;
+                }
+            }
+
+            .icon {
+                background-color: var(--BaseL);
+            }
+        }
+    }
+}
+
+.dark-mode {
+    .widget {
+        background-color: var(--NFondo-3);
+        box-shadow: var(--NDegradado3) 0px 3px 8px;
+
+        .left,
+        .right {
+
+            .title,
+            .counter,
+            .link {
+                color: var(--NText-1);
+            }
+
+            .link {
+                border-bottom: 1px solid rgb(180, 172, 172);
+            }
+
+            .percentage {
+                &.positive {
+                    color: greenyellow;
+                }
+
+                &.negative {
+                    color: rgb(254, 57, 195);
+                }
+            }
+
+            .icon {
+                background-color: var(--BaseN);
+            }
+        }
+    }
+}
+
+
+/*====================================================*/
 .widget {
     display: flex;
     justify-content: space-between;
     flex: 1;
     padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     height: 100px;
-    background-color: whitesmoke;
 
-    .left, .right {
+    .left,
+    .right {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        
+
 
         .title {
             font-size: 14px;
-            color: black;
         }
 
         .counter {
@@ -26,7 +96,6 @@
         .link {
             width: max-content;
             font-size: 12px;
-            border-bottom: 1px solid rgb(82, 79, 79);
         }
 
         .percentage {
@@ -34,23 +103,19 @@
             align-items: center;
             font-size: 15px;
 
-            &.positive {
-                color: green;
-            }
-            &.negative {
-                color: red;
-            }
+            // &.positive {
+            //     color: green;
+            // }
+            // &.negative {
+            //     color: red;
+            // }
         }
 
         .icon {
             font-size: 30px;
             padding: 5px;
-            background-color: yellow;
             border-radius: 5px;
             align-self: flex-end;
-
         }
     }
-
-
 }
