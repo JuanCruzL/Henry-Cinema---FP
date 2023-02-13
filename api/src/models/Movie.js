@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
     },
 
     voteAverage: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
     },
 
@@ -51,7 +51,7 @@ module.exports = (sequelize) => {
     },
 
     runtime: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
     },
 
