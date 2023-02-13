@@ -38,15 +38,12 @@ router.post("/", async (req, res) => {
     overview,
     status,
     productionCompanies,
-    review,
+    originalLanguage,
     runtime,
-    origin,
     genres,
     directors,
-    actors,
     video,
     classification,
-    distributor,
   } = req.body;
 
   try {
@@ -58,16 +55,13 @@ router.post("/", async (req, res) => {
       voteAverage,
       overview,
       status,
-      review,
       productionCompanies,
+      originalLanguage,
       runtime,
-      origin,
       genres,
       directors,
-      actors,
       video,
       classification,
-      distributor,
     });
     
     res.status(200).send(newMovie);
