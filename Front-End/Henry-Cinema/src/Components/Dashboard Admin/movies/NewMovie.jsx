@@ -17,7 +17,6 @@ export const NewMovie = () => {
   useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
-  
 
   const [values, setValues] = useState({
     title: "",
@@ -30,7 +29,7 @@ export const NewMovie = () => {
     productionCompanies: "",
     runtime: "",
     originalLanguage: "",
-    genres:[],
+    genres: [],
     directors: "",
     actors: "",
     video: "",
@@ -169,20 +168,10 @@ export const NewMovie = () => {
     setValidations({ ...validations, [name]: message });
   };
 
-  // const handleChange = (e) => {
-  //   e.preventDefault();
-  //   /* console.log(e.target.value) */
-  //   setValues({ 
-  //     ...values, 
-  //     genres : [...values.genres,e.target.value]
-  //   })
-  //   console.log(values.genres)
-  // };
-
   const handleChangeSelect = (e) => {
     e.preventDefault();
     const genre = e.target.value;
-  
+
     if (values.genres.includes(genre)) {
       setValues({
         ...values,
@@ -195,13 +184,12 @@ export const NewMovie = () => {
       });
     }
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-    console.log(values)
-    
-  }
-
+    console.log(values);
+  };
 
   useEffect(() => {
     console.log(values.genres);
@@ -213,13 +201,25 @@ export const NewMovie = () => {
     if (!isValid) {
       return false;
     }
-    dispatch(createMovie(values)).then(() =>
+
+    const genresObject = values.genres.reduce((acc, genre) => {
+      acc[genre] = true;
+      return acc;
+    }, {});
+
+    const newMovie = {
+      ...values,
+      genres: genresObject,
+    };
+
+    dispatch(createMovie(newMovie)).then(() =>
       swal({
-        title: `The movie ${m.title} has been created`,
+        title: `The movie ${newMovie.title} has been created`,
         icon: "success",
         button: true,
       })
     );
+    console.log(newMovie);
   };
 
   const {
@@ -228,17 +228,14 @@ export const NewMovie = () => {
     imageHorizontal,
     voteAverage,
     overview,
-    review,
     status,
     productionCompanies,
     runtime,
     originalLanguage,
     genres,
     directors,
-    actors,
     video,
     classification,
-    distributor,
   } = values;
 
   const {
@@ -253,8 +250,6 @@ export const NewMovie = () => {
     genres: genresVal,
     classification: classificationVal,
   } = validations;
-
-  
 
   return (
     <div className="newMovie">
@@ -392,20 +387,23 @@ export const NewMovie = () => {
                 <div className="vals">{originalLanguageVal}</div>
               </div>
               <div className="formNM">
-                <label>Genres</label>
+                <label>
+                  Genres
+                  <select onChange={(e) => handleChangeSelect(e)}>
+                    {allGenres.map((genre) => (
+                      <option
+                        key={genre.id}
+                        value={genre.name}
+                        name={genre.name}
+                        onBlur={validateOne}
+                      >
+                        {genre.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
                 <input type="text" value={values.genres.join(", ")} readOnly />
 
-            
-         <select onChange={(e)=>handleChangeSelect(e)} >
-         {allGenres.map((genre) => (
-         <option key={genre.id} value={genre.name} name={genre.name}    onBlur={validateOne}  >
-          {genre.name}
-         </option>
-          ))}
-          </select>
-
-   
-                
                 <div className="vals">{genresVal}</div>
               </div>
               <div className="formNM">
@@ -420,7 +418,7 @@ export const NewMovie = () => {
                   onBlur={validateOne}
                 />
               </div>
-              
+
               <div className="formNM">
                 <label>Video</label>
                 <input
@@ -446,7 +444,7 @@ export const NewMovie = () => {
                 />
                 <div className="vals">{classificationVal}</div>
               </div>
-             
+
               <button className="buttonNM" type="submit" value="SUBMIT RECIPE">
                 <OutboxRoundedIcon className="iconSubmit" />
               </button>

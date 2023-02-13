@@ -86,6 +86,18 @@ const rootReducer = (state = initialState, action) => {
         copyFoods: action.payload,
       };
 
+    case "CREATE_FOOD":
+      return {
+        ...state,
+        foods: action.payload,
+      };
+
+    case "DELETE_FOOD":
+      return {
+        ...state,
+        foods: action.payload,
+      };
+
     case "GET_DRINKS":
       return {
         ...state,

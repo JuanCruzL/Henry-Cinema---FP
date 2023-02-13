@@ -17,6 +17,7 @@ import ThreePRoundedIcon from "@mui/icons-material/ThreePRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import Logo from "../NavbarDash/images/logo-henry-cinema-mini.png";
 import { Link } from "react-router-dom";
+import {toggleDarkLight} from "../../Utils/Switch"
 
 export const SideBarDash = () => {
   return (
@@ -118,7 +119,7 @@ export const SideBarDash = () => {
       </div>
       <div className="bottom">
         <div className="colorOptions"></div>
-        <div className="colorOptions"></div>
+        <div className="colorOptions"  onClick={(e) => toggleDarkLight(e)}></div>
       </div>
     </div>
   );
