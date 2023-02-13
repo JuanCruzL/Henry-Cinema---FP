@@ -21,6 +21,7 @@ const Movies = () => {
   const [Filtered, setFiltered] = useState([]);
   const [genresCurrent, setGenresCurrent] = useState([]);
   const [classifications, setClassifications] = useState([]);
+  const [selectedClassification, setSelectedClassification] = useState(null);
   const [availableMovies, setAvailableMovies] = useState([]);
 
   const getClassifications = () => {
@@ -144,6 +145,29 @@ const Movies = () => {
   console.log(classifications);
   console.log(Filtered);
 
+  //--------------------filtro de clasification--------------------------------
+  const handleClassificationFilter = (event) => {
+    if (event.target.value === "todos") {
+      setSelectedClassification(null);
+      setFiltered(availableMovies);
+      return;
+    }
+    setSelectedClassification(event.target.value);
+    let filteredMovies = [];
+    if (Filtered.length > 0) {
+      filteredMovies = Filtered.filter((movie) =>
+        movie.classification === event.target.value
+      );
+    }
+    if (filteredMovies.length === 0) {
+      filteredMovies = allMovies.filter((movie) =>
+        movie.classification === event.target.value
+      );
+    }
+    setFiltered(filteredMovies);
+  };
+  
+
   return (
     <div className="Container">
       <Nav />
@@ -167,7 +191,7 @@ const Movies = () => {
             ))}
           </select>
 
-          <select>
+          <select onChange={handleClassificationFilter}>
             <option value="todos">Clasification</option>
             {classifications.map((c) => (
               <option key={c} value={c}>
@@ -181,11 +205,7 @@ const Movies = () => {
             <option value="sub">Sub</option>
             <option value="dub">Dub</option>
           </select>
-          {/* <select onChange={handleCalificationSort}>
-            <option value="Calification">Calification</option>
-            <option value="More Popular">More Popular</option>
-            <option value="Less Popular">Less Popular</option>
-          </select> */}
+         
 
           <select onClick={handleCalificationSort}>
             <option value="Calification">Calification</option>
@@ -200,15 +220,7 @@ const Movies = () => {
               <Movie movie={movie} />
             ))}
 
-            {/* {selectedGenre === null || !selectedGenre ? (
-              availableMovies.map(movie => (
-                <Movie movie={movie} />
-              ))
-            ) : (
-              Filtered.map(movie => (
-                <Movie movie={movie} />
-              ))
-            )} */}
+          
           </div>
         </section>
 
