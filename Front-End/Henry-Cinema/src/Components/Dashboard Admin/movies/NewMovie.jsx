@@ -202,14 +202,13 @@ export const NewMovie = () => {
       return false;
     }
 
-    const genresObject = values.genres.reduce((acc, genre) => {
+   /*  const genresObject = values.genres.reduce((acc, genre) => {
       acc[genre] = true;
       return acc;
-    }, {});
+    }, {}); */
 
     const newMovie = {
-      ...values,
-      genres: genresObject,
+      ...values
     };
 
     dispatch(createMovie(newMovie)).then(() =>
@@ -445,8 +444,8 @@ export const NewMovie = () => {
                 <div className="vals">{classificationVal}</div>
               </div>
 
-              <button className="buttonNM" type="submit" value="SUBMIT RECIPE">
-                <OutboxRoundedIcon className="iconSubmit" />
+              <button className="buttonNM" type="submit" value="SUBMIT RECIPE" onClick={()=>console.log("hola")}>
+                <OutboxRoundedIcon/>
               </button>
             </form>
           </div>
