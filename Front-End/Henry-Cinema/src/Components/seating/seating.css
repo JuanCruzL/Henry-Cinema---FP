@@ -21,15 +21,10 @@
 }
 .screen .selected {
   padding: 10px;
-  width: 250%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 18%;
   text-align: left;
   background-color: transparent;
   font-weight: 600;
   color: black;
-
   border: 5px solid rgba(0, 0, 0, 0.182);
 }
 
@@ -107,8 +102,8 @@
 
 .TiketDetail button {
   margin-top: 6px;
-  margin-left: 85%;
-  padding: 5px;
+  margin-left: 60%;
+  padding: 10px;
   color: #ffff00;
   background-color: black;
   box-shadow: var(--LDegradado) 0px 5px 15px;
