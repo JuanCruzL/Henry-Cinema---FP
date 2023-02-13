@@ -51,7 +51,7 @@ const Movies = () => {
     }, 2000);
     setImages(
       allMovies.map((movie) => ({
-        apiID: movie.apiId,
+        apiID: movie.apiId ? movie.apiID : movie.id,
         image: movie.imageVertical,
       }))
     );
