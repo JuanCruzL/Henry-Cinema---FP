@@ -9,11 +9,11 @@ function PerfilUser() {
       <Nav />
       <div className="container-perfil">
         <div className="container-settings-user">
-          <h2>User Settings</h2>
+          <h2 className="title-settings">USER SETTINGS</h2>
           <div className="settings-user">
-            <div>My Account</div>
-            <div>History</div>
-            <div>Log Out</div>
+            <div className="my-account-setting">MY ACCOUNT</div>
+            <div className="history-setting">HISTORY</div>
+            <div className="log-out-setting">LOG OUT</div>
           </div>
         </div>
         <div className="container-account-user">
@@ -24,23 +24,26 @@ function PerfilUser() {
             <div>
               <div className="container-edit-profile">
                 <div className="information-head">
-                  <h3>Your User Name </h3>
-                  <button>Edit User Profile</button>
+                  <img src="https://cdn-icons-png.flaticon.com/512/44/44091.png"
+                    className="image-icon-profile"
+                  />
+                  <h3 className="title-user-name"> EXAMPLE FIRST NAME / LAST NAME  </h3>
+                  <button className="button-edit-profile">Edit User Profile</button>
                 </div>
                 <div className="user-email">
                   <div className="edit-username">
-                    <div>
-                      <h3>USERNAME</h3>
-                      <h4>USERNAME EXAMPLE</h4>
+                    <div className="container-username">
+                      <h3 className="username-text">USERNAME</h3>
+                      <h4 className="username-profile">USERNAME EXAMPLE</h4>
                     </div>
-                    <botton>Edit</botton>
+                    <botton className="button-edit-username">Edit</botton>
                   </div>
                   <div className="edit-email">
-                    <div>
-                      <h3>EMAIL</h3>
-                      <h4>emailExample@gmail.com</h4>
+                    <div className="edit-email-profile">
+                      <h3 className="email-text">EMAIL</h3>
+                      <h4 className="email-profile">emailExample@gmail.com</h4>
                     </div>
-                    <button>Edit</button>
+                    <button className="button-edit-email">Edit</button>
                   </div>
                 </div>
               </div>
@@ -54,7 +57,7 @@ function PerfilUser() {
             <h3>ACCOUNT</h3>
             <div>
               <button>DISSABLE ACCOUNT</button>
-              <button>DELETE ACCOUNT</button>
+              <button onClick={() => console.log("delete account")}>DELETE ACCOUNT</button>
             </div>
           </div>
         </div>
