@@ -1,0 +1,35 @@
+.container-perfil{
+    border: 2px solid red;
+    display: flex;
+    max-height: 100vh;
+    min-height: 100vh;
+}
+.container-settings-user{
+    border:2px solid black;
+    min-width:15%;
+}
+.settings-user{
+    border: 2px solid green;
+    margin: 3px;
+}
+.container-account-user{
+    border:2px solid blue;
+    min-width: 85%;
+}
+.title-my-account{
+    border:2px solid red;
+    margin: 3px;
+}
+
+.container-user-information{
+    border:2px solid green;
+    margin: 3px;
+}
+.container-password{
+    border: 2px solid purple;
+    margin:3px;
+}
+.container-account{
+    border: 2px solid purple;
+    margin: 3px;
+}
