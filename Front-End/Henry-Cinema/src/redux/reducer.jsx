@@ -164,6 +164,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         modo: M,
       };
+      
     case "LOG_OUT":
       return {
         ...state,

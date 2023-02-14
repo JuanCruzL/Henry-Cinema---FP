@@ -249,17 +249,18 @@ export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
       const { email, given_name } = response;
+      console.log(email, given_name);
       const userCreated = await axios.post(`/login/google`, {
         email,
         userName: given_name,
       });
-      console.log(userCreated.data);
+      console.log(userCreated);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
       });
     } catch (error) {
-      console.log("el error de logInUserWithGoogle es:", error.message);
+      console.log("el error de logInUserWithGoogle es:", error);
     }
   };
 };
