@@ -18,8 +18,8 @@ import {
   DELETE_FOOD,
 } from "./actionTypes";
 
-axios.defaults.baseURL = "http://localhost:3001";
-//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
+//axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 
 //MOVIES
 
@@ -32,7 +32,6 @@ export const getMovies = () => {
           type: GET_MOVIES,
           payload: response.data,
         });
-        console.log(response.data);
       })
       .catch((error) => {
         console.log("error");
