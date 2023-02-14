@@ -43,6 +43,7 @@
 
 .menu {
   width: 100%;
+  min-width: 60rem;
   height: 66px;
   font-weight: bold;
 }
