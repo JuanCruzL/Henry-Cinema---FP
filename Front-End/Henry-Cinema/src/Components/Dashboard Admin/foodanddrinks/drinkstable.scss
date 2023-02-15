@@ -1,3 +1,53 @@
+.light-mode {
+    .drinksTable {
+        background-color: var(--Dashboard-Base);
+
+        .tableRow {
+            background-color: var(--LFondo-1);
+            box-shadow: var(--LDegradado3) 0px 3px 8px;
+
+            .title {
+                color: rgb(80, 78, 78)
+            }
+
+            .list {
+                background-color: var(--LFondo-2);
+            }
+        }
+
+        .tableCellDrinks {
+            border-bottom: 1px solid var(--LBase-1);
+            color: var(--LText-1);
+        }
+    }
+}
+
+
+.dark-mode{
+    .drinksTable {
+        background-color: var(--NFondo-3);
+
+        .tableRow {
+            background-color: var(--NFondo-1);
+            box-shadow: var(--NDegradado3) 0px 3px 8px;
+
+            .title {
+                color: var(--NText-1);
+            }
+
+            .list {
+                background-color: var(--LFondo-2);
+            }
+        }
+
+        .tableCellDrinks {
+            border-bottom: 1px solid var(--LBase-2);
+            color: var(--NText-1);
+        }
+    }
+}
+
+/*===================================================*/
 .drinksTable {
 
     align-items: center;
@@ -5,18 +55,11 @@
 
 
     .tableRow {
-        background-color: rgb(236, 228, 228);
         align-items: center;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
         .title {
             font-size: 15px;
             font-weight: 550;
-            color: rgb(80, 78, 78)
-        }
-
-        .list {
-            background-color: whitesmoke;
         }
     }
 
