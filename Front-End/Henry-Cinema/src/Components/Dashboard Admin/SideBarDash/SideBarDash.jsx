@@ -17,14 +17,9 @@ import ThreePRoundedIcon from "@mui/icons-material/ThreePRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import Logo from "../NavbarDash/images/logo-henry-cinema-mini.png";
 import { Link } from "react-router-dom";
-import { toggleDarkLight } from "../../Utils/Switch";
 
 export const SideBarDash = () => {
-  const dropdown = document.querySelector(".dropdown");
 
-  dropdown.addEventListener("click", function () {
-    this.classList.toggle("active");
-  });
 
   return (
     <div className="sidebar">
@@ -35,7 +30,6 @@ export const SideBarDash = () => {
             <img className="logo" alt="" src={Logo} />
           </Link>
         </div>
-        <hr />
         <div className="center">
           <ul>
             <p className="title">MAIN</p>
@@ -59,11 +53,11 @@ export const SideBarDash = () => {
                   <span className="span">Reviews</span>
                 </li>
               </Link>
-              <li>
-                <MovieFilterRoundedIcon className="icon" />
-                <span className="span">Movies</span>
+              <li className="MoviesDrop">
+                  <MovieFilterRoundedIcon className="icon" />
+                  <span className="span">Movies</span>
                 <ul className="dropdown">
-                  <li className>
+                  <li>
                     <Link to="/dashboard/movies" className="link">
                       <span>See all Movies</span>
                     </Link>
@@ -75,7 +69,7 @@ export const SideBarDash = () => {
                   </li>
                 </ul>
               </li>
-              <li>
+              <li className="ScreenDrop">
                 <GroupWorkRoundedIcon className="icon" />
                 <span className="span">Screenings</span>
                 <ul className="dropdown">
@@ -91,7 +85,7 @@ export const SideBarDash = () => {
                   </li>
                 </ul>
               </li>
-              <li>
+              <li className="CombosDrop">
                 <FastfoodRoundedIcon className="icon" />
                 <span className="span">Combos</span>
                 <ul className="dropdown">
@@ -107,7 +101,7 @@ export const SideBarDash = () => {
                   </li>
                 </ul>
               </li>
-              <li>
+              <li className="FoodsDrop">
                 <LocalPizzaRoundedIcon className="icon" />
                 <span className="span">Foods</span>
                 <ul className="dropdown">
@@ -123,7 +117,7 @@ export const SideBarDash = () => {
                   </li>
                 </ul>
               </li>
-              <li>
+              <li className="DrinksDrop">
                 <LiquorRoundedIcon className="icon" />
                 <span className="span">Drinks</span>
                 <ul className="dropdown">
@@ -171,13 +165,9 @@ export const SideBarDash = () => {
             </li>
           </ul>
         </div>
-        <div className="bottom">
-          <div className="colorOptions"></div>
-          <div className="colorOptions" onClick={(e) => toggleDarkLight(e)}></div>
-        </div>
       </div>
     </div>
-  );    
+  );
 };
 
 export default SideBarDash;
