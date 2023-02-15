@@ -3,7 +3,7 @@
     background-color: var(--LBase-2);
 
     .newContainer {
-
+  
       .top,
       .bottom {
         box-shadow: var(--LDegradado3) 0px 3px 8px;
@@ -11,6 +11,30 @@
 
         h1 {
           color: var(--LText-1);
+        }
+
+        .left {
+          position: relative;
+          .imageNM {
+            position: absolute;
+            width: 405px;
+            margin-right: 30px;
+            top: 0;
+            left: 0;
+            animation: float 3s ease-in-out infinite;
+          }
+
+          @keyframes float { 
+            0% {
+              transform: translate(0, 0);
+            }
+            50% {
+              transform: translate(10px, 10px);
+            }
+            100% {
+              transform: translate(0, 0);
+            }
+          }
         }
 
         .right {
@@ -57,11 +81,39 @@
     background-color: var(--NFondo-1);
 
     .newContainer {
-
       .top,
       .bottom {
         box-shadow: var(--NDegradado3) 0px 3px 8px;
         background-color: var(--NFondo-3);
+
+        .left {
+            position: relative;
+        
+            .imageNM {
+              position: absolute;
+              width: 405px;
+              margin-right: 30px;
+              top: 0;
+              left: 0;
+              animation: float 3s ease-in-out infinite;
+            }
+        
+            @keyframes float {
+              0% {
+                transform: translate(0, 0);
+              }
+        
+              50% {
+                transform: translate(10px, 10px);
+              }
+        
+              100% {
+                transform: translate(0, 0);
+              }
+            }
+          }
+
+
 
         h1 {
           color: var(--NText-1);
@@ -106,7 +158,6 @@
   }
 }
 
-
 /*================================================*/
 .newMovie {
   width: 100%;
@@ -120,6 +171,7 @@
       padding: 10px;
       margin: 20px;
       display: flex;
+
 
       h1 {
         font-size: 21px;
