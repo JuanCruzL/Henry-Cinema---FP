@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { getasientos } from "../../../redux/actions"
+import { getasientos, getMovies} from "../../../redux/actions"
 import NavBarDash from '../NavbarDash/NavBarDash';
 import SideBarDash from '../SideBarDash/SideBarDash';
 import "./newscreenings.scss";
@@ -9,6 +9,8 @@ import "./newscreenings.scss";
 const RoomInputs = () => {
   const dispatch = useDispatch();
   const asientos = useSelector(state => state.seats);
+  const movies = useSelector(state => state.movies);
+  const [images, setImages] = useState([]);
   const roomLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
   const [roomLetter, setRoomLetter] = useState('A');
   const [date, setDate] = useState('');
@@ -16,13 +18,14 @@ const RoomInputs = () => {
   const [endTime, setEndTime] = useState('');
   const [definition, setDefinition] = useState('IMAX');
   const [language, setLanguage] = useState('Sub');
-  const [seats, setSeats] = useState([])
+  const [seats, setSeats]= useState([]);
+  const [id, setId]= useState('');
   const [reservation, setReservation] = useState({});
 
   useEffect(() => {
     dispatch(getasientos());
+    dispatch(getMovies());
     setSeats(asientos)
-
   }, [reservation]);
 
   const handleSave = () => {
@@ -33,26 +36,30 @@ const RoomInputs = () => {
       endTime,
       definition,
       language,
-      seats
+      seats,
+      id
+      
     });
   };
 
   console.log(reservation)
 
-  const getNext5Days = () => {
+
+  const getNext30Days = () => {
     const today = new Date();
     const days = [];
-
-    for (let i = 0; i < 5; i++) {
+  
+    for (let i = 0; i < 30; i++) {
       const nextDay = new Date();
       nextDay.setDate(today.getDate() + i);
       days.push(nextDay.toLocaleDateString('en-US', { weekday: 'long' }));
     }
-
+  
     return days;
   };
+  
 
-  const next5Days = getNext5Days();
+  const next30Days = getNext30Days() ;
 
 
 
@@ -67,14 +74,25 @@ const RoomInputs = () => {
           </div>
           <div className="bottom">
             <div className="left">
-              <img
-                className="imageNF"
-                src="https://previews.123rf.com/images/foontntd/foontntd1705/foontntd170500070/77824901-menu-food-drawing-graphic-design-illustrate-objects-template.jpg"
-                alt=""
-              />
+              <div className="DataScreen">
+                <h1>ID: {reservation.id}</h1>
+                <h1>Room: {reservation.roomLetter}</h1>
+                <h1>Date: {reservation.date}</h1>
+                <h1>Start: {reservation.startTime}</h1>
+                <h1>End: {reservation.endTime}</h1>
+                <h1>Definition: {reservation.definition}</h1>
+                <h1>Language: {reservation.language}</h1>
+                <h1>Seats: {reservation.seats ? reservation.seats.length : 0}</h1> 
+              </div>
             </div>
             <div className="right">
-
+              <select value={id} onChange={(e) => setId(e.target.value)}>
+                {movies.map((movie) => (
+                  <option key={movie.id} value={movie.id}>
+                    {movie.title}
+                  </option>
+                ))}
+              </select>
               <label >Room</label>
               <select value={roomLetter} onChange={(e) => setRoomLetter(e.target.value)}>
                 {roomLetters.map((letter) => (
