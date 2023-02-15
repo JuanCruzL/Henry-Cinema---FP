@@ -1,5 +1,5 @@
 import React from "react";
-import "./foodstable.scss";
+import "./drinkstable.scss";
 import { useState, useEffect } from "react";
 import { getDrinks, deleteDrink } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";

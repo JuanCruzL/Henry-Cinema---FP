@@ -1,19 +1,22 @@
 .light-mode {
     .foodsTable {
         background-color: var(--Dashboard-Base);
+
         .tableRow {
             background-color: var(--LFondo-1);
             box-shadow: var(--LDegradado3) 0px 3px 8px;
-            
+
             .list {
                 background-color: var(--LFondo-2);
             }
+
             .title {
                 color: rgb(80, 78, 78)
             }
         }
-        .tableCellFoods{
-            border-bottom: 1px solid var(--LBase-2);
+
+        .tableCellFoods {
+            border-bottom: 1px solid var(--LBase-1);
             color: var(--LText-1);
         }
     }
@@ -23,18 +26,21 @@
 .dark-mode {
     .foodsTable {
         background-color: var(--NFondo-3);
+
         .tableRow {
             background-color: var(--NFondo-1);
             box-shadow: var(--NDegradado3) 0px 3px 8px;
-            
+
             .list {
                 background-color: var(--LFondo-2);
             }
+
             .title {
                 color: var(--NText-1);
-              }
+            }
         }
-        .tableCellFoods{
+
+        .tableCellFoods {
             border-bottom: 1px solid var(--LBase-2);
             color: var(--NText-1);
         }

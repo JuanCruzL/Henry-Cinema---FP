@@ -1,3 +1,105 @@
+.light-mode {
+    .newCombo {
+        background-color: var(--LBase-2);
+
+        .newContainer {
+
+            .top,
+            .bottom {
+                box-shadow: var(--LDegradado3) 0px 3px 8px;
+                background-color: var(--Gold);
+
+                h1 {
+                    color: var(--LText-1);
+                }
+
+                .right {
+                    form {
+                        .formNC {
+                            label {
+                                color: var(--LText-1);
+                            }
+                        }
+
+                        input {
+                            border-bottom: 1px solid rgb(92, 92, 92);
+
+                            &:hover {
+                                background-color: var(--LFondo-2);
+                            }
+                        }
+
+                        .buttonNC {
+                            color: var(--LText-1);
+
+                            .iconSubmit {
+                                color: var(--LText-1);
+
+                                &:hover {
+                                    color: var(--LText-2);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.dark-mode {
+    .newCombo {
+        background-color: var(--NFondo-1);
+
+        .newContainer {
+
+            .top,
+            .bottom {
+                box-shadow: var(--NDegradado3) 0px 3px 8px;
+                background-color: var(--NFondo-3);
+
+                h1 {
+                    color: var(--NText-1);
+                }
+
+                .right {
+                    form {
+                        .formNC {
+                            label {
+                                color: var(--NText-1);
+                            }
+                        }
+
+                        input {
+                            color: var(--NText-1);
+                            border-bottom: 2px solid rgb(92, 92, 92);
+
+                            &:hover {
+                                background-color: var(--NFondo-2);
+                            }
+                        }
+
+                        .buttonNC {
+                            color: var(--NText-1);
+
+                            .iconSubmit {
+                                color: var(--NText-1);
+
+                                &:hover {
+                                    color: var(--NText-2);
+                                    ;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*================================================================*/
 .newCombo {
     width: 100%;
     display: flex;
