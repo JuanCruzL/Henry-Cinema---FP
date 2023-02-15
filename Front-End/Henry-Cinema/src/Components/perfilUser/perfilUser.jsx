@@ -63,8 +63,7 @@ function PerfilUser() {
             <h3>ACCOUNT</h3>
             <div>
               <button className="button-dissable">DISSABLE ACCOUNT</button>
-            </div>
-            <div>
+
               <button
                 className="button-delete"
                 onClick={() => console.log("delete account")}
