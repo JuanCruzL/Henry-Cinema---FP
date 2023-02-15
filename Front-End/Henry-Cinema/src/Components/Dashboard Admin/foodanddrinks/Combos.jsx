@@ -1,11 +1,19 @@
 import React from "react";
+import "./combos.scss";
+import { SideBarDash } from "../SideBarDash/SideBarDash";
+import { NavBarDash } from "../NavbarDash/NavBarDash";
+import { CombosTable } from "./CombosTable.jsx";
 
-export const Combos = () => {
+export const CombosDash = () => {
   return (
-    <div className="combos">
-      <h1 className="title">Combos</h1>
+    <div className="list">
+      <SideBarDash />
+      <div className="listContainer">
+        <NavBarDash />
+        <CombosTable />
+      </div>
     </div>
   );
 };
 
-export default Combos;
+export default CombosDash;
