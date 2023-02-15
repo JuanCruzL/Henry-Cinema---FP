@@ -1,3 +1,113 @@
+.light-mode {
+    .newDrink {
+        background-color: var(--LBase-2);
+
+        .newContainer {
+
+            .top,
+            .bottom {
+                box-shadow: var(--LDegradado3) 0px 3px 8px;
+                background-color: var(--Gold);
+
+                h1 {
+                    color: var(--LText-1);
+                }
+
+                .right {
+                    form {
+                        .formND {
+                            label {
+                                color: var(--LText-1);
+                            }
+
+                            .vals {
+                                color: rgb(203, 7, 7);
+                            }
+                        }
+
+                        input {
+                            color: var(--LText-1);
+                            border-bottom: 2px solid rgb(92, 92, 92);
+
+                            &:hover {
+                                background-color: var(--LFondo-2);
+                            }
+                        }
+
+                        .buttonND {
+                            color: var(--LText-1);
+
+                            .iconSubmit {
+                                color: var(--LText-1);
+
+                                &:hover {
+                                    color: var(--LText-2);
+                                    ;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.dark-mode {
+    .newDrink {
+        background-color: var(--NFondo-1);
+
+        .newContainer {
+
+            .top,
+            .bottom {
+                box-shadow: var(--NDegradado3) 0px 3px 8px;
+                background-color: var(--NFondo-3);
+
+                h1 {
+                    color: var(--NText-1);
+                }
+
+                .right {
+                    form {
+                        .formND {
+                            label {
+                                color: var(--NText-1);
+                            }
+
+                            .vals {
+                                color: rgb(203, 7, 7);
+                            }
+                        }
+
+                        input {
+                            color: var(--NText-1);
+                            border-bottom: 2px solid rgb(92, 92, 92);
+
+                            &:hover {
+                                background-color: var(--NFondo-2);
+                            }
+                        }
+
+                        .buttonND {
+                            color: var(--NText-1);
+
+                            .iconSubmit {
+                                color: var(--NText-1);
+
+                                &:hover {
+                                    color: var(--NText-2);
+                                    ;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*===================================================================================*/
 .newDrink {
     width: 100%;
     display: flex;
