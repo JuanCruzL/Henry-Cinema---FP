@@ -376,11 +376,8 @@ export const getUsers = () => {
   };
 };
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 6e256687dad7dc67f4ef95b84a6d780409cb18db
 export const deleteUser = (id) => {
   return async function (dispatch) {
     try {
@@ -495,13 +492,9 @@ export const logInUserWithGoogle = (response) => {
         payload: userCreated.data,
       });
     } catch (error) {
-<<<<<<< HEAD
-      alert(error.response.data.message);
-=======
       console.log("el error de logInUserWithGoogle es:", error);
       alert(error.response.data.message)
-
->>>>>>> 6e256687dad7dc67f4ef95b84a6d780409cb18db
+      
     }
   };
 };
