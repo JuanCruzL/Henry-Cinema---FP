@@ -2,6 +2,7 @@
   --Gold:gold;
   --Degradado: rgba(217, 217, 217, 0.132);
   --DegradadoG: rgb(255, 255, 0,0.5);
+  --Dashboard-Base:rgb(236, 228, 228);
   /* LIGHT */
   --BaseL: #ffff00;
   --BaseLD: rgba(255, 255, 255, 0.8);
@@ -23,6 +24,7 @@
   --NBase-2: #000000;
   --NFondo-1: #111111;
   --NFondo-2:rgb(10, 10, 10);
+  --NFondo-3:rgb(50, 50, 50);
   --NText-1: #ffffff;
   --NText-2: #000000;
   --NDegradado: rgba(232, 225, 7, 0.39);

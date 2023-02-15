@@ -2,7 +2,8 @@
   flex: 1;
   border-right: 0.5px solid rgba(0, 0, 0, 0.24);
   min-height: 100vh;
-  background-color: #ffff00;
+  min-width: 180px;
+  background-color: var(--BaseL);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding-top: 19px;
 
@@ -75,20 +76,21 @@
     align-items: center;
     margin: 10px;
 
-    .colorOptions{
-        width: 20px;
-        height: 20px;
-        border-radius: 5px;
-        border: 1px solid;
-        cursor: pointer;
-        margin: 5px;
-        
-        &:nth-child(1){
-            background-color: whitesmoke;
-        }
-        &:nth-child(2) {
-            background-color: black;
-        }
+    .colorOptions {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      border: 1px solid;
+      cursor: pointer;
+      margin: 5px;
+
+      &:nth-child(1) {
+        background-color: whitesmoke;
+      }
+
+      &:nth-child(2) {
+        background-color: black;
+      }
     }
   }
 }

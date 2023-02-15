@@ -1,21 +1,29 @@
 import React from "react";
-import Chair from "../../img/asiento.svg/"
-import './seating.css'
+import Chair from "../../img/asiento.svg/";
+import "./seating.css";
 
 const Seats = ({ handleClick, seatsData, letra, asientosSeleccionados }) => {
   return (
     <div className="seats">
-      <div className="Filaizquierda">   
+      <div className="Filaizquierda">
         {seatsData
-          .filter(seat => seat.row === letra && seat.number <= 20)
-          .map(seat => (
+          .filter((seat) => seat.row === letra && seat.number <= 20)
+          .map((seat) => (
             <button
               key={`${seat.row}${seat.number}`}
               className="asiento"
               data-value={`${seat.row}${seat.number}`}
               onClick={handleClick}
               disabled={seat.reserved || seat.payed}
-              style={{ backgroundColor: asientosSeleccionados.includes(`${seat.row}${seat.number}`) ? "yellow" : seat.reserved || seat.payed ? "red" : "#40ff00" }}
+              style={{
+                backgroundColor: asientosSeleccionados.includes(
+                  `${seat.row}${seat.number}`
+                )
+                  ? "#ffff00"
+                  : seat.reserved || seat.payed
+                  ? "red"
+                  : "white",
+              }}
             >
               <img
                 key={`${seat.row}${seat.number}`}
@@ -26,17 +34,28 @@ const Seats = ({ handleClick, seatsData, letra, asientosSeleccionados }) => {
             </button>
           ))}
       </div>
-      <div className='Filaderecha'>  
+      <div className="Filaderecha">
         {seatsData
-          .filter(seat => seat.row === letra && seat.number > 20 && seat.number <= 40)
-          .map(seat => (
+          .filter(
+            (seat) =>
+              seat.row === letra && seat.number > 20 && seat.number <= 40
+          )
+          .map((seat) => (
             <button
               key={`${seat.row}${seat.number}`}
               className="asiento"
               data-value={`${seat.row}${seat.number}`}
               onClick={handleClick}
               disabled={seat.reserved || seat.payed}
-              style={{ backgroundColor: asientosSeleccionados.includes(`${seat.row}${seat.number}`) ? "yellow" : seat.reserved || seat.payed ? "red" : "#40ff00" }}
+              style={{
+                backgroundColor: asientosSeleccionados.includes(
+                  `${seat.row}${seat.number}`
+                )
+                  ? "#ffff00"
+                  : seat.reserved || seat.payed
+                  ? "red"
+                  : "white",
+              }}
             >
               <img
                 key={`${seat.row}${seat.number}`}
@@ -50,4 +69,4 @@ const Seats = ({ handleClick, seatsData, letra, asientosSeleccionados }) => {
     </div>
   );
 };
- export default Seats;
+export default Seats;

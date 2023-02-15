@@ -22,15 +22,21 @@ export default function Details() {
 
   const movie = useSelector((state) => state.movieId);
 
-  let genres = [];
-  let genres2 = [];
-  let productionCompanies = [];
+  let genres ;
+  let genres2 ;
+  let productionCompanies;
 
   if (movie) {
     genres = movie?.genres?.map((e) => e).join(" ");
     genres2 = movie?.genres?.map((e) => e).join(", ");
-    productionCompanies = movie?.productionCompanies?.map((e) => e).join(", ");
+    if(movie.apiId) {
+      productionCompanies = movie?.productionCompanies?.map((e) => e).join(", ");
+    }
+    else{
+      productionCompanies = movie.productionCompanies
+    }
   }
+
 
   if (loading) {
     return <Loader />;
@@ -100,10 +106,9 @@ export default function Details() {
                 <b>Status: </b>
                 {movie.status}
               </p>
-              <p className="allDetailsP">
+              {movie.origin ? <p className="allDetailsP">
                 <b>Origin: </b>
-                {movie.origin}
-              </p>
+                {movie.origin}</p> : <></>} 
             </div>
           </div>
         </div>

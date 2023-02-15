@@ -4,7 +4,7 @@ import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
 import { ScreeningsTable } from "../screenings/ScreeningsTable";
 
-export const Screenings = () => {
+export const ScreeningsDash = () => {
   return (
     <div className="list">
       <SideBarDash />
@@ -16,4 +16,4 @@ export const Screenings = () => {
   );
 };
 
-export default Screenings;
+export default ScreeningsDash;

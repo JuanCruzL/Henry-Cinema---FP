@@ -1,7 +1,198 @@
-.newfood {
-    background-color: rebeccapurple;
+.light-mode {
+  .newFood {
+    background-color: var(--LBase-2);
 
-    .title {
-        color: white;
+    .newContainer {
+
+      .top,
+      .bottom {
+        box-shadow: var(--LDegradado3) 0px 3px 8px;
+        background-color: var(--Gold);
+
+        h1 {
+          color: var(--LText-1);
+        }
+
+        .right {
+          form {
+            .formNF {
+              label {
+                color: var(--LText-1);
+              }
+
+              .vals {
+                color: rgb(203, 7, 7);
+              }
+            }
+
+            input {
+              color: var(--LText-1);
+              border-bottom: 2px solid rgb(92, 92, 92);
+
+              &:hover {
+                background-color: var(--LFondo-2);
+              }
+            }
+
+            .buttonNF {
+              color: var(--LText-1);
+
+              .iconSubmit {
+                color: var(--LText-1);
+
+                &:hover {
+                  color: var(--LText-2);
+                  ;
+                }
+              }
+            }
+          }
+        }
+      }
     }
+  }
+}
+
+
+.dark-mode {
+  .newFood {
+    background-color: var(--NFondo-1);
+
+    .newContainer {
+
+      .top,
+      .bottom {
+        box-shadow: var(--NDegradado3) 0px 3px 8px;
+        background-color: var(--NFondo-3);
+
+        h1 {
+          color: var(--NText-1);
+        }
+
+        .right {
+          form {
+            .formNF {
+              label {
+                color: var(--NText-1);
+              }
+
+              .vals {
+                color: rgb(203, 7, 7);
+              }
+            }
+
+            input {
+              color: var(--NText-1);
+              border-bottom: 2px solid rgb(92, 92, 92);
+
+              &:hover {
+                background-color: var(--NFondo-2);
+              }
+            }
+
+            .buttonNF {
+              color: var(--NText-1);
+
+              .iconSubmit {
+                color: var(--NText-1);
+
+                &:hover {
+                  color: var(--NText-2);
+                  ;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/*=====================================================================*/
+
+.newFood {
+  width: 100%;
+  display: flex;
+
+  .newContainer {
+    flex: 6;
+
+    .top,
+    .bottom {
+      padding: 10px;
+      margin: 20px;
+      display: flex;
+      display: flex;
+
+      h1 {
+        font-size: 21px;
+      }
+
+      .left {
+        flex: 1;
+        text-align: center;
+
+        .imageNF {
+          height: 600px;
+          width: 600px;
+        }
+      }
+
+      .right {
+        flex: 2;
+
+        form {
+          margin-left: 15px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px 50px;
+
+          .formNF {
+            width: 40%;
+
+            label {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
+
+            .icon {
+              cursor: pointer;
+              font-size: 30px;
+            }
+
+            .vals {
+              font-size: 13px;
+              font-style: oblique;
+            }
+          }
+
+          input {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            font-size: 13px;
+            font-style: italic;
+          }
+
+          .buttonNF {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 35px;
+            position: absolute;
+            bottom: 65px;
+            right: 50px;
+
+            .iconSubmit {
+              font-size: 40px;
+              margin-left: 3px;
+            }
+          }
+        }
+      }
+    }
+  }
 }

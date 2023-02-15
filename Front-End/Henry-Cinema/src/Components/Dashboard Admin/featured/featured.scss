@@ -1,7 +1,80 @@
+.light-mode {
+    .featured {
+        background-color: var(--Dashboard-Base);
+        box-shadow: var(--LDegradado3) 0px 3px 8px;
+        color: var(--LText-1);
+
+        .CircularProgressbar .CircularProgressbar-text {
+            fill: var(--LText-1);
+            ;
+        }
+
+        .CircularProgressbar .CircularProgressbar-trail {
+            stroke: var(--LBase-1);
+        }
+
+        .bottom {
+            color: var(--LText-1);
+
+            .desc {
+                color: gray;
+            }
+
+            .summary {
+                .itemResult {
+                    &.positive {
+                        color: green;
+                    }
+
+                    &.negative {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark-mode {
+    .featured {
+        background-color: var(--NFondo-3);
+        box-shadow: var(--NDegradado3) 0px 3px 8px;
+        color: var(--NText-1);
+
+        .CircularProgressbar .CircularProgressbar-text {
+            fill: var(--NText-1);
+            ;
+        }
+
+        .CircularProgressbar .CircularProgressbar-trail {
+            stroke: var(--NBase-1);
+        }
+
+        .bottom {
+            .desc {
+                color: rgb(192, 191, 191);
+            }
+
+            .summary {
+                .itemResult {
+                    &.positive {
+                        color: greenyellow;
+                    }
+
+                    &.negative {
+                        color: rgb(254, 57, 195);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/*====================================================*/
 .featured {
     flex: 2;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: whitesmoke;
     padding: 10px;
 
     .top {
@@ -12,7 +85,6 @@
         .title {
             font-size: 16px;
             font-weight: 500;
-            color: black;
             font-weight: bolder;
         }
     }
@@ -42,7 +114,6 @@
         .desc {
             font-weight: 300;
             font-size: 13px;
-            color: gray;
             text-align: center;
         }
 
@@ -57,7 +128,6 @@
 
                 .itemTitle {
                     font-size: 16px;
-                    color: black;
                     font-weight: bold;
                 }
 
@@ -68,13 +138,13 @@
                     font-size: 15px;
                     font-weight: bold;
 
-                    &.positive {
-                        color: green;
-                    }
+                    // &.positive {
+                    //     color: green;
+                    // }
 
-                    &.negative {
-                        color: red;
-                    }
+                    // &.negative {
+                    //     color: red;
+                    // }
                 }
             }
 

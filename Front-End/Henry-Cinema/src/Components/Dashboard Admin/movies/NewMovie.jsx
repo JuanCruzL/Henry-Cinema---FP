@@ -17,7 +17,6 @@ export const NewMovie = () => {
   useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
-  console.log(allGenres);
 
   const [values, setValues] = useState({
     title: "",
@@ -137,6 +136,11 @@ export const NewMovie = () => {
       isValid = false;
     }
 
+    // if (values.classification !== "R" || values.classification !== "G") {
+    //   validations.classification = "Classification must be G or R";
+    //   isValid = false;
+    // }
+
     if (!isValid) {
       setValidations(validations);
     }
@@ -160,6 +164,7 @@ export const NewMovie = () => {
     setValidations({ ...validations, [name]: message });
   };
 
+<<<<<<< HEAD
   // const handleChange = (e) => {
   //   e.preventDefault();
   //   /* console.log(e.target.value) */
@@ -171,6 +176,9 @@ export const NewMovie = () => {
   // };
 
   const handleChange = (e) => {
+=======
+  const handleChangeSelect = (e) => {
+>>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
     e.preventDefault();
     const genre = e.target.value;
 
@@ -186,6 +194,15 @@ export const NewMovie = () => {
       });
     }
   };
+<<<<<<< HEAD
+=======
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+
+  };
+>>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
 
   useEffect(() => {
     console.log(values.genres);
@@ -197,13 +214,19 @@ export const NewMovie = () => {
     if (!isValid) {
       return false;
     }
-    dispatch(createMovie(values)).then(() =>
+
+    const newMovie = {
+      ...values,
+    };
+
+    dispatch(createMovie(newMovie)).then(() =>
       swal({
-        title: `The movie ${m.title} has been created`,
+        title: `The movie ${newMovie.title} has been created`,
         icon: "success",
         button: true,
       })
     );
+    console.log(newMovie);
   };
 
   const {
@@ -318,6 +341,10 @@ export const NewMovie = () => {
                 />
                 <div className="vals">{overviewVal}</div>
               </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
               <div className="formNM">
                 <label>Status</label>
                 <input
@@ -370,6 +397,7 @@ export const NewMovie = () => {
                 <div className="vals">{originalLanguageVal}</div>
               </div>
               <div className="formNM">
+<<<<<<< HEAD
                 <label>Genres</label>
                 <input value={values.genres.join(", ")} readOnly />
                 <select
@@ -387,6 +415,25 @@ export const NewMovie = () => {
                     </option>
                   ))}
                 </select>
+=======
+                <label>
+                  Genres
+                  <select onChange={(e) => handleChangeSelect(e)}>
+                    {allGenres.map((genre) => (
+                      <option
+                        key={genre.id}
+                        value={genre.name}
+                        name={genre.name}
+                        onBlur={validateOne}
+                      >
+                        {genre.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <input type="text" value={values.genres.join(", ")} readOnly />
+
+>>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
                 <div className="vals">{genresVal}</div>
               </div>
               <div className="formNM">
@@ -401,6 +448,10 @@ export const NewMovie = () => {
                   onBlur={validateOne}
                 />
               </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
               <div className="formNM">
                 <label>Video</label>
                 <input
@@ -426,8 +477,19 @@ export const NewMovie = () => {
                 />
                 <div className="vals">{classificationVal}</div>
               </div>
+<<<<<<< HEAD
               <button className="buttonNM" type="submit" value="SUBMIT RECIPE">
                 <OutboxRoundedIcon className="iconSubmit" />
+=======
+
+              <button
+                className="buttonNM"
+                type="submit"
+                value="SUBMIT RECIPE"
+                onClick={() => console.log("hola")}
+              >
+                <OutboxRoundedIcon />
+>>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
               </button>
             </form>
           </div>

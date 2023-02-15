@@ -1,0 +1,88 @@
+.light-mode {
+    .foodsTable {
+        background-color: var(--Dashboard-Base);
+        .tableRow {
+            background-color: var(--LFondo-1);
+            box-shadow: var(--LDegradado3) 0px 3px 8px;
+            
+            .list {
+                background-color: var(--LFondo-2);
+            }
+            .title {
+                color: rgb(80, 78, 78)
+            }
+        }
+        .tableCellFoods{
+            border-bottom: 1px solid var(--LBase-2);
+            color: var(--LText-1);
+        }
+    }
+}
+
+
+.dark-mode {
+    .foodsTable {
+        background-color: var(--NFondo-3);
+        .tableRow {
+            background-color: var(--NFondo-1);
+            box-shadow: var(--NDegradado3) 0px 3px 8px;
+            
+            .list {
+                background-color: var(--LFondo-2);
+            }
+            .title {
+                color: var(--NText-1);
+              }
+        }
+        .tableCellFoods{
+            border-bottom: 1px solid var(--LBase-2);
+            color: var(--NText-1);
+        }
+    }
+}
+
+/*===================================================*/
+.foodsTable {
+
+    align-items: center;
+    justify-content: space-between;
+
+
+    .tableRow {
+        align-items: center;
+
+        .title {
+            font-size: 15px;
+            font-weight: 550;
+        }
+
+    }
+
+    .tableCellFoods {
+        justify-content: center;
+
+        .bin {
+            font-size: 39px;
+            font-weight: bold;
+            color: rgb(105, 103, 103);
+            cursor: pointer;
+
+            &:hover {
+                color: red;
+            }
+
+        }
+
+        .cellWrapper {
+            display: flex;
+            align-items: center;
+
+            .foodImage {
+                width: 150px;
+                height: 100px;
+                margin-right: 10px;
+                border-radius: 0;
+            }
+        }
+    }
+}

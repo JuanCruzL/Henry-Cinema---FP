@@ -1,8 +1,8 @@
-.dark-mode input[type="text"] {
+.dark-mode .input-field {
   border: 2px solid var(--NBase-2);
   color: var(--NText-2);
 }
-.dark-mode input[type="text"]:focus {
+.dark-mode .input-field:focus {
   border: 2px solid var(--NBase-2);
   background-color: var(--NBase-1);
   color: var(--NText-2);
