@@ -1,11 +1,12 @@
 .sidebar {
   flex: 1;
-  border-right: 0.5px solid rgba(0, 0, 0, 0.24);
+  border-right: 1px solid rgba(0, 0, 0, 0.24);
   min-height: 100vh;
   min-width: 180px;
   background-color: var(--BaseL);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding-top: 19px;
+  flex-direction: column;
 
   .link {
     text-decoration: none;
@@ -39,16 +40,71 @@
       margin: 0;
       padding: 0;
 
+      .dropdown {
+        position: relative;
+
+        & > .title {
+          font-size: 12px;
+          font-weight: bold;
+          color: rgb(47, 47, 47);
+          margin-top: 15px;
+          margin-bottom: 5px;
+          cursor: pointer;
+        }
+
+        & > .list {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 100%;
+          margin-top: -15px;
+          padding-left: 10px;
+          background-color: white;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          z-index: 1;
+
+          &.active {
+            display: block;
+          }
+
+          li {
+            display: inline-block;
+            align-items: center;
+            padding: 5px;
+            cursor: pointer;
+
+            &.active {
+              display: block;
+            }
+
+            &:hover {
+              background-color: var(--BaseL);
+            }
+            .span {
+              font-size: 15px;
+              margin-left: 10px;
+            }
+            .icon {
+              font-size: 20px;
+              color: black;
+            }
+          }
+        }
+      }
+
       .title {
         font-size: 12px;
         font-weight: bold;
         color: rgb(47, 47, 47);
         margin-top: 15px;
         margin-bottom: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
       }
 
       li {
-        display: flex;
+        display: block;
         align-items: center;
         padding: 5px;
         cursor: pointer;
@@ -58,11 +114,41 @@
         }
 
         .span {
-
-          font-size: 15px;
+          font-size: 16px;
           margin-left: 10px;
         }
 
+        .icon {
+          font-size: 20px;
+          color: black;
+        }
+      }
+    }
+  }
+
+  .movies,
+  .screenings,
+  .combos,
+  .foods,
+  .drinks {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: block;
+        align-items: center;
+        padding: 5px;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        .span {
+          font-size: 15px;
+          margin-left: 10px;
+        }
         .icon {
           font-size: 20px;
           color: black;
