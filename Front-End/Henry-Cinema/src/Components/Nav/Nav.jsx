@@ -70,17 +70,17 @@ const Nav = ({ setCurrentPage }) => {
           </Link>
         </li>
         <Link to="/movies" className="link-movies">
-          <li className="items">
+          <li className="itemsNav">
             <div className="menu-link">Movies</div>
           </li>
         </Link>
         <Link to="/foods" className="link-foods">
-          <li className="items">
+          <li className="itemsNav">
             <div className="menu-link">Food & Drinks</div>
           </li>
         </Link>
         <Link to="/about" className="link-about">
-          <li className="items">
+          <li className="itemsNav">
             <div className="menu-link">About Us</div>
           </li>
         </Link>

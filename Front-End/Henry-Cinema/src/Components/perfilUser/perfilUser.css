@@ -1,0 +1,166 @@
+.container-perfil {
+  background-color: rgb(30, 30, 30);
+  display: flex;
+  max-height: 120vh;
+  min-height: 100vh;
+  min-width: 35rem;
+}
+
+.container-settings-user {
+  border: 2px solid black;
+  min-width: 15rem;
+  background-color: rgba(0, 0, 0, 0.68);
+}
+.title-settings {
+  color: aliceblue;
+  margin: 3px;
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 7px;
+  padding-left: 20px;
+}
+.settings-user {
+  margin: 3px;
+  margin-top: 35px;
+}
+.my-account-setting,
+.history-setting {
+  color: #ffff00;
+  font-size: 16px;
+  padding: 10px;
+  padding-left: 20px;
+  margin: 5px;
+}
+.log-out-setting {
+  color: #ffff00;
+  font-size: 16px;
+  padding: 10px;
+  padding-left: 20px;
+  margin: 5px;
+  margin: 3px;
+  margin-top: 70px;
+}
+
+.container-account-user {
+  min-width: 85%;
+  display: flex;
+  flex-direction: column;
+}
+.title-my-account {
+  color: aliceblue;
+  margin: 5px;
+  margin-top: 23px;
+  font-size: 20px;
+  padding: 7px;
+  margin-left: 50px;
+}
+
+.container-user-information {
+  background-color: black;
+  max-width: 60%;
+  min-width: 40rem;
+  margin: 3px;
+  margin-top: 32px;
+  margin-left: 60px;
+}
+.background-container {
+  height: 6rem;
+  background-color: #ffff00;
+}
+.information-head {
+  display: flex;
+  flex-direction: wrap;
+  height: 4rem;
+}
+.image-icon-profile {
+  height: 95px;
+  width: 95px;
+  border-radius: 50px;
+  margin-left: 25px;
+  margin-top: -45px;
+}
+.title-user-name {
+  color: #ffff00;
+  width: 65%;
+  height: 65%;
+  margin-left: 15px;
+  padding-top: 5px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+.button-edit-profile {
+  background-color: #ffff00;
+  margin: 15px 20px 15px 45px;
+  min-width: 18px;
+  font-size: 15px;
+}
+.user-email {
+  min-height: 15rem;
+}
+.edit-username,
+.edit-email {
+  display: flex;
+
+  min-height: 4.5rem;
+  margin-top: 25px;
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.68);
+}
+.container-username,
+.edit-email-profile {
+  width: 35rem;
+  padding-left: 15px;
+}
+.username-text,
+.email-text {
+  color: #ffff00;
+  border: 2px solid black;
+  margin: 7px;
+  font-size: 18px;
+}
+.username-profile,
+.email-profile {
+  color: #ffff00;
+  margin: 7px;
+  font-size: 14px;
+}
+
+.button-edit-username,
+.button-edit-email {
+  width: 5rem;
+  height: 2rem;
+  background-color: #ffff00;
+  text-align: center;
+  padding-top: 6px;
+  margin: 18px 40px 10px 13rem;
+}
+
+.container-password {
+  margin: 3px;
+  margin-top: 32px;
+  margin-left: 65px;
+}
+
+.container-account {
+  margin: 3px;
+  margin-top: 32px;
+  margin-left: 65px;
+}
+.button-change {
+  display: flex;
+  width: 8rem;
+  height: 2.5rem;
+  background-color: #ffff00;
+  text-align: center;
+  margin: 18px 10px 5px;
+}
+.button-dissable,
+.button-delete {
+  display: flex;
+  width: 8rem;
+  height: 2.5rem;
+  background-color: #ffff00;
+  text-align: center;
+  margin: 18px 10px 5px;
+  justify-content: space-between;
+}

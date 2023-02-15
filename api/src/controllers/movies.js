@@ -4,10 +4,10 @@ const axios = require("axios");
 const { Movie } = require("../db");
 const { getGenresDb } = require("./genres");
 
-// const getMovies = async() => {
-//   const ourMovies = Movie.findAll();
-//   return ourMovies;
-// }
+const getMovies12 = async() => {
+  const ourMovies = Movie.findAll();
+  return ourMovies;
+}
 
 const getMovies = async () => {
   const config = { headers: { "Accept-Encoding": null } };
@@ -59,8 +59,8 @@ const getMovies = async () => {
     } else {
       movie.classification = "General Audiences";
     }
-    if (allResults[i].original_language === 'es') {
-      movie.originalLanguage = 'es';
+    if (allResults[i].original_language === "es") {
+      movie.originalLanguage = "es";
     }
     finalMovies.push(movie);
   }
@@ -77,7 +77,7 @@ const getMovies = async () => {
         voteAverage: m.voteAverage,
         overview: m.overview,
         genres: m.genres,
-        classification: m.classification,
+        classification: "G",
         apiId: m.apiId,
       },
     });
@@ -90,16 +90,17 @@ const getMovies = async () => {
 const getMovieById = async (id) => {
   // verify if id its a real number.
   // ie: id: 12665.
-  if (id.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)){
-    
+  if (
+    id.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)
+  ) {
     const recipeDbById = await Movie.findOne({
       where: {
         id: id,
       },
     });
-    
+
     return recipeDbById;
-}
+  }
 
   if (!isNaN(id)) {
     const config = { headers: { "Accept-Encoding": null } };
@@ -164,16 +165,5 @@ const getMovieById = async (id) => {
   // to search for movies posted by admin in db
 };
 
-let arr = ["Candy Land", "Titanic", "In from the Side", "M3GAN"]
-
-const changeprops = async() => {
-  arr.forEach(e =>  await (Movie.findOne({
-    where: {
-      title: e,
-    },
-    
-  })))
-  
-}
 
 module.exports = { getMovies, getMovieById };

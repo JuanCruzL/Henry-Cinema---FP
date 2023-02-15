@@ -17,11 +17,19 @@ import ThreePRoundedIcon from "@mui/icons-material/ThreePRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import Logo from "../NavbarDash/images/logo-henry-cinema-mini.png";
 import { Link } from "react-router-dom";
-import {toggleDarkLight} from "../../Utils/Switch"
+import { toggleDarkLight } from "../../Utils/Switch";
 
 export const SideBarDash = () => {
+  const dropdown = document.querySelector(".dropdown");
+
+  dropdown.addEventListener("click", function () {
+    this.classList.toggle("active");
+  });
+
   return (
     <div className="sidebar">
+
+     <div className="DesplegableSide">
       <div className="top">
         <Link to="/" className="link">
           <img className="logo" alt="" src={Logo} />
@@ -38,60 +46,106 @@ export const SideBarDash = () => {
             </li>
           </Link>
           <p className="title">LISTS</p>
-          <Link to="/dashboard/users" className="link">
-            <li>
-              <PersonIcon className="icon" />
-              <span className="span">Users</span>
-            </li>
-          </Link>
-          <Link to="/dashboard/reviews" className="link">
-            <li>
-              <ReviewsIcon className="icon" />
-              <span className="span">Reviews</span>
-            </li>
-          </Link>
-          <Link to="/dashboard/movies" className="link">
+          <ul>
+            <Link to="/dashboard/users" className="link">
+              <li>
+                <PersonIcon className="icon" />
+                <span className="span">Users</span>
+              </li>
+            </Link>
+            <Link to="/dashboard/reviews" className="link">
+              <li>
+                <ReviewsIcon className="icon" />
+                <span className="span">Reviews</span>
+              </li>
+            </Link>
             <li>
               <MovieFilterRoundedIcon className="icon" />
               <span className="span">Movies</span>
+              <ul className="dropdown">
+                <li className>
+                  <Link to="/dashboard/movies" className="link">
+                    <span>See all Movies</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/movies/new" className="link">
+                    <span>Add a new Movie</span>
+                  </Link>
+                </li>
+              </ul>
             </li>
-          </Link>
-          <Link to="/dashboard/movies/genres" className="link">
-            <li>
-              <GMobiledataRoundedIcon className="icon" />
-              <span className="span">Genres</span>
-            </li>
-          </Link>
-          <Link to="/dashboard/screenings" className="link">
             <li>
               <GroupWorkRoundedIcon className="icon" />
               <span className="span">Screenings</span>
+              <ul className="dropdown">
+                <li>
+                  <Link to="/dashboard/screenings" className="link">
+                    <span>View all Screenings</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/screenings/new" className="link">
+                    <span>Add a new Screening</span>
+                  </Link>
+                </li>
+              </ul>
             </li>
-          </Link>
-          <Link to="/dashboard/combos" className="link">
             <li>
               <FastfoodRoundedIcon className="icon" />
               <span className="span">Combos</span>
+              <ul className="dropdown">
+                <li>
+                  <Link to="/dashboard/combos" className="link">
+                    <span>View all Combos</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/combos/new" className="link">
+                    <span>Add a new Combo</span>
+                  </Link>
+                </li>
+              </ul>
             </li>
-          </Link>
-          <Link to="/dashboard/foods" className="link">
             <li>
               <LocalPizzaRoundedIcon className="icon" />
               <span className="span">Foods</span>
+              <ul className="dropdown">
+                <li>
+                  <Link to="/dashboard/foods" className="link">
+                    <span>View all Foods</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/foods/new" className="link">
+                    <span>Add a new Food</span>
+                  </Link>
+                </li>
+              </ul>
             </li>
-          </Link>
-          <Link to="/dashboard/drinks" className="link">
             <li>
               <LiquorRoundedIcon className="icon" />
               <span className="span">Drinks</span>
+              <ul className="dropdown">
+                <li>
+                  <Link to="/dashboard/drinks" className="link">
+                    <span>View all Drinks</span>
+                  </Link>
+                </li>
+                <li className="dropdown">
+                  <Link to="/dashboard/drinks/new" className="link">
+                    <span>Add a new Drink</span>
+                  </Link>
+                </li>
+              </ul>
             </li>
-          </Link>
-          <Link to="/dashboard/sales" className="link">
-            <li>
-              <PointOfSaleRoundedIcon className="icon" />
-              <span className="span">Sales</span>
-            </li>
-          </Link>
+            <Link to="/dashboard/sales" className="link">
+              <li>
+                <PointOfSaleRoundedIcon className="icon" />
+                <span className="span">Sales</span>
+              </li>
+            </Link>
+          </ul>
           <p className="title">USEFUL</p>
           <li>
             <QueryStatsRoundedIcon className="icon" />
@@ -119,7 +173,7 @@ export const SideBarDash = () => {
       </div>
       <div className="bottom">
         <div className="colorOptions"></div>
-        <div className="colorOptions"  onClick={(e) => toggleDarkLight(e)}></div>
+        <div className="colorOptions" onClick={(e) => toggleDarkLight(e)}></div>
       </div>
     </div>
   );

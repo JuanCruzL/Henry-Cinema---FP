@@ -24,17 +24,14 @@ export const NewMovie = () => {
     voteAverage: "",
     imageHorizontal: "",
     overview: "",
-    review: "",
     status: "",
     productionCompanies: "",
     runtime: "",
     originalLanguage: "",
     genres: [],
     directors: "",
-    actors: "",
     video: "",
     classification: "",
-    distributor: "",
   });
 
   const [validations, setValidations] = useState({
@@ -43,17 +40,11 @@ export const NewMovie = () => {
     voteAverage: "",
     imageHorizontal: "",
     overview: "",
-    review: "",
     status: "",
-    productionCompanies: "",
     runtime: "",
     originalLanguage: "",
     genres: [],
-    directors: "",
-    actors: "",
-    video: "",
     classification: "",
-    distributor: "",
   });
 
   const validateAll = () => {
@@ -145,10 +136,10 @@ export const NewMovie = () => {
       isValid = false;
     }
 
-    if (classification !== "R" || classification !== "G") {
-      validations.classification = "Classification must be G or R";
-      isValid = false;
-    }
+    // if (values.classification !== "R" || values.classification !== "G") {
+    //   validations.classification = "Classification must be G or R";
+    //   isValid = false;
+    // }
 
     if (!isValid) {
       setValidations(validations);
@@ -193,7 +184,6 @@ export const NewMovie = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-    console.log(values);
   };
 
   useEffect(() => {
@@ -333,7 +323,6 @@ export const NewMovie = () => {
                 />
                 <div className="vals">{overviewVal}</div>
               </div>
-
               <div className="formNM">
                 <label>Status</label>
                 <input
@@ -417,7 +406,6 @@ export const NewMovie = () => {
                   onBlur={validateOne}
                 />
               </div>
-
               <div className="formNM">
                 <label>Video</label>
                 <input

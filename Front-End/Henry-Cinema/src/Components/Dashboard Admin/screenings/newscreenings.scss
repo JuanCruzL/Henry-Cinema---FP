@@ -1,7 +1,150 @@
-.newscreening {
-    background-color: rebeccapurple;
+.light-mode {
+    .NewScreen {
+        background-color: var(--LBase-2);
 
-    .title {
-        color: white;
+        .ContainerNewScreen {
+            .InfoNewScreen {
+
+                .top,
+                .bottom {
+                    box-shadow: var(--LDegradado3) 0px 3px 8px;
+                    background-color: var(--Gold);
+
+                    label,
+                    h1 {
+                        color: var(--LText-1);
+                    }
+
+                    .left {
+                        h1 {
+                            background-color: rgb(200, 200, 200, 0.6);
+                            border: 2px solid var(--LBase-1);
+                        }
+                    }
+
+                    .right {
+
+                        select {
+                            background-color: var(--LBase-1);
+                            color: var(--LText-2);
+                        }
+
+                        button {
+                            background-color: var(--LBase-1);
+                            color: var(--LText-2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.dark-mode {
+    .NewScreen {
+        background-color: var(--NFondo-1);
+
+        .ContainerNewScreen {
+            .InfoNewScreen {
+
+                .top,
+                .bottom {
+                    box-shadow: var(--NDegradado3) 0px 3px 8px;
+                    background-color: var(--NFondo-3);
+
+                    label,
+                    h1 {
+                        color: var(--NText-1);
+                    }
+
+                    .left {
+                        h1 {
+                            background-color: rgb(200, 200, 200, 0.6);
+                            border: 2px solid var(--NBase-1);
+                            color: var(--NText-2);
+                        }
+                    }
+
+                    .right {
+
+                        select {
+                            background-color: var(--NBase-1);
+                            color: var(--NText-2);
+                        }
+
+                        button {
+                            background-color: var(--BaseN);
+                            color: var(--NText-2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/*====================================================*/
+.NewScreen {
+    width: 100%;
+    display: flex;
+
+    .ContainerNewScreen {
+        flex: 6;
+
+        .InfoNewScreen {
+
+            .top,
+            .bottom {
+                width: 95%;
+                padding: 10px;
+                margin: 20px auto;
+                display: flex;
+
+                label,
+                h1 {
+                    font-size: 21px;
+                }
+
+                .left {
+                    flex: 1;
+                    text-align: left;
+                    min-width: 600px;
+
+                    h1 {
+                        padding: 5px;
+                        margin: 13px 20px;
+                    }
+                }
+
+                .right {
+                    flex: 2;
+                    display: grid;
+                    grid-template-rows: 40px 20px 40px 20px 70px 40px 40px 70px 70px auto;
+                    margin: 20px 30px;
+
+                    label,
+                    button {
+                        margin: 10px;
+                        height: 20px;
+                    }
+
+                    select {
+                        width: 90%;
+                    }
+
+                    button {
+                        position: relative;
+                        align-self: self-end;
+                        width: 100px;
+                        padding: 5px;
+                        text-align: center;
+                        border-radius: 10px;
+                    }
+
+                }
+            }
+        }
     }
 }
