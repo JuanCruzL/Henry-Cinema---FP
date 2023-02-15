@@ -5,6 +5,7 @@ import ReviewsIcon from "@mui/icons-material/Reviews";
 import GroupWorkRoundedIcon from "@mui/icons-material/GroupWorkRounded";
 import PointOfSaleRoundedIcon from "@mui/icons-material/PointOfSaleRounded";
 import PersonIcon from "@mui/icons-material/Person";
+import { Link } from "react-router-dom";
 
 export const Widget = ({ type }) => {
   let data = {};
@@ -19,32 +20,64 @@ export const Widget = ({ type }) => {
       data = {
         title: "USERS",
         isMoney: false,
-        link: "See all users",
-        icon: <PersonIcon className="icon" />,
+        link: (
+          <Link to="/dashboard/users" className="link">
+            See all users"
+          </Link>
+        ),
+        icon: (
+          <Link to="/dashboard/users" className="link">
+            <PersonIcon className="icon" />
+          </Link>
+        ),
       };
       break;
     case "reviews":
       data = {
         title: "REVIEWS",
         isMoney: false,
-        link: "View all reviews",
-        icon: <ReviewsIcon className="icon" />,
+        link: (
+          <Link to="/dashboard/reviews" className="link">
+            View all reviews"
+          </Link>
+        ),
+        icon: (
+          <Link to="/dashboard/reviews" className="link">
+            <ReviewsIcon className="icon" />
+          </Link>
+        ),
       };
       break;
     case "screenings":
       data = {
         title: "SCREENINGS",
         isMoney: false,
-        link: "View all screenings",
-        icon: <GroupWorkRoundedIcon className="icon" />,
+        link: (
+          <Link to="/dashboard/screenings" className="link">
+            "View all screenings"
+          </Link>
+        ),
+        icon: (
+          <Link to="/dashboard/screenings" className="link">
+            <GroupWorkRoundedIcon className="icon" />
+          </Link>
+        ),
       };
       break;
     case "sales":
       data = {
         title: "SALES",
         isMoney: true,
-        link: "View all sales",
-        icon: <PointOfSaleRoundedIcon className="icon" />,
+        link: (
+          <Link to="/dashboard/sales" className="link">
+            "View all sales"
+          </Link>
+        ),
+        icon: (
+          <Link to="/dashboard/sales" className="link">
+            <PointOfSaleRoundedIcon className="icon" />
+          </Link>
+        ),
       };
       break;
     default:
