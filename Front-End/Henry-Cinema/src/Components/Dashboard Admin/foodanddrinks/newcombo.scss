@@ -80,7 +80,6 @@
         background-color: var(--NFondo-1);
 
         .newContainer {
-
             .top,
             .bottom {
                 box-shadow: var(--NDegradado3) 0px 3px 8px;
@@ -92,6 +91,7 @@
 
                 .left {
                     position: relative;
+                    height: 400px;
         
                     .imageNC {
                         position: absolute;
