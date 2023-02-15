@@ -10,7 +10,6 @@ const RoomInputs = () => {
   const dispatch = useDispatch();
   const asientos = useSelector(state => state.seats);
   const movies = useSelector(state => state.movies);
-  const [images, setImages] = useState([]);
   const roomLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
   const [roomLetter, setRoomLetter] = useState('A');
   const [date, setDate] = useState('');
@@ -19,14 +18,16 @@ const RoomInputs = () => {
   const [definition, setDefinition] = useState('IMAX');
   const [language, setLanguage] = useState('Sub');
   const [seats, setSeats]= useState([]);
-  const [id, setId]= useState('');
+  const [id, setId]= useState(movies[0].id);
   const [reservation, setReservation] = useState({});
 
   useEffect(() => {
     dispatch(getasientos());
     dispatch(getMovies());
     setSeats(asientos)
-  }, [reservation]);
+  }, [id]);
+  
+
 
   const handleSave = () => {
     setReservation({
@@ -46,6 +47,7 @@ const RoomInputs = () => {
 
 
   const getNext30Days = () => {
+    
     const today = new Date();
     const days = [];
   
@@ -83,6 +85,9 @@ const RoomInputs = () => {
                 <h1>Definition: {reservation.definition}</h1>
                 <h1>Language: {reservation.language}</h1>
                 <h1>Seats: {reservation.seats ? reservation.seats.length : 0}</h1> 
+                <div className="right">
+                <button>Confirm</button>
+                </div>
               </div>
             </div>
             <div className="right">
@@ -106,7 +111,7 @@ const RoomInputs = () => {
               <label>
                 Date:
                 <select value={date} onChange={(e) => setDate(e.target.value)}>
-                  {[...Array(5)].map((_, i) => {
+                  {[...Array(30)].map((_, i) => {
                     const nextDay = new Date();
                     nextDay.setDate(nextDay.getDate() + i);
                     const dateString = nextDay.toISOString().split("T")[0];
