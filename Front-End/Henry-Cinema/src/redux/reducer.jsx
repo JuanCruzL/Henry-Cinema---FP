@@ -26,6 +26,8 @@ const initialState = {
   users: [],
   // Para el componente Reviews.
   reviews: [],
+  // Para el componente Sales.
+  sales: [],
 };
 
 const rootReducer = (state = initialState, action) => {
