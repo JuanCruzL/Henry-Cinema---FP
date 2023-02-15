@@ -143,14 +143,6 @@ export default function Login() {
   async function onSuccess(response) {
     try {
       const userObject = jwt_decode(response.credential);
-<<<<<<< HEAD
-      console.log(userObject);
-      dispatch(logInUserWithGoogle(userObject));
-      window.localStorage.setItem('loggedUser',
-      JSON.stringify(currentUser));
-      console.log(currentUser);
-      navigate("/");
-=======
       // console.log(userObject);
       const action = await dispatch(logInUserWithGoogle(userObject))
       const loggedUser = action.payload;
@@ -161,7 +153,6 @@ export default function Login() {
         // console.log(currentUser);
         navigate("/");
       }
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
     } catch (error) {
       console.log(error);
     }
