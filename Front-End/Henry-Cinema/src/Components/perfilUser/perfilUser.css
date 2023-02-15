@@ -1,149 +1,166 @@
-
-.container-perfil{
-    border: 2px solid red;
-    display: flex;
-    max-height: 100vh;
-    min-height: 100vh;
-    min-width: 40rem;
+.container-perfil {
+  background-color: rgb(30, 30, 30);
+  display: flex;
+  max-height: 120vh;
+  min-height: 100vh;
+  min-width: 35rem;
 }
 
-.container-settings-user{
-    border:2px solid black;
-    min-width:13rem;
+.container-settings-user {
+  border: 2px solid black;
+  min-width: 15rem;
+  background-color: rgba(0, 0, 0, 0.68);
 }
-.title-settings{
-    border:2px solid blue;
-    margin: 3px;
-    font-size:16px;
-    margin-top: 20px;
-    padding:7px;
-    padding-left: 34px;
-    
+.title-settings {
+  color: aliceblue;
+  margin: 3px;
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 7px;
+  padding-left: 20px;
 }
-.settings-user{
-    border: 2px solid green;
-    margin: 3px;
-    margin-top: 35px;
+.settings-user {
+  margin: 3px;
+  margin-top: 35px;
 }
 .my-account-setting,
-.history-setting,
-.log-out-setting{
-    border:2px solid purple;
-    font-size: 16px;
-    padding: 5px;
-    padding-left: 30px;
-    margin: 5px;
+.history-setting {
+  color: #ffff00;
+  font-size: 16px;
+  padding: 10px;
+  padding-left: 20px;
+  margin: 5px;
 }
-.container-account-user{
-    border:2px solid blue;
-    min-width: 85%;
-    display: flex;
-    flex-direction: column;
-  
-}
-.title-my-account{
-    border:2px solid red;
-    margin: 3px;
-    margin-top: 20px;
-    font-size: 16px;
-    padding: 7px;
-    margin-left: 30px;
+.log-out-setting {
+  color: #ffff00;
+  font-size: 16px;
+  padding: 10px;
+  padding-left: 20px;
+  margin: 5px;
+  margin: 3px;
+  margin-top: 70px;
 }
 
-.container-user-information{
-    border:2px solid green;
-    max-width: 65%;
-    min-width: 50rem;
-    margin: 3px;
-    margin-top: 32px;
-    margin-left: 35px;
+.container-account-user {
+  min-width: 85%;
+  display: flex;
+  flex-direction: column;
 }
-.background-container{
-    border:2px solid black;
-    height: 6rem;
-    background-color: yellow;
+.title-my-account {
+  color: aliceblue;
+  margin: 5px;
+  margin-top: 23px;
+  font-size: 20px;
+  padding: 7px;
+  margin-left: 50px;
 }
-.information-head{
-    display: flex;
-    flex-direction: wrap;
-    border:2px solid red;
-    height: 4rem;
+
+.container-user-information {
+  background-color: black;
+  max-width: 60%;
+  min-width: 40rem;
+  margin: 3px;
+  margin-top: 32px;
+  margin-left: 60px;
 }
-.image-icon-profile{
-    height: 95px;
-    width: 95px;
-    border-radius: 50px;
-    margin-left: 25px;
-    margin-top: -45px;
+.background-container {
+  height: 6rem;
+  background-color: #ffff00;
 }
-.title-user-name{
-    border:2px solid blue;
-    width:65%;
-    height:65%;
-    margin-top: 7px;
-    margin-left: 15px;
-    padding-top: 9px;
-    padding-left: 15px;
-    font-size:18px;
+.information-head {
+  display: flex;
+  flex-direction: wrap;
+  height: 4rem;
 }
-.button-edit-profile{
-    border: 2px solid blue;
-    margin:15px 20px 15px 45px;
-    min-width: 15px;
-    font-size: 15px;
+.image-icon-profile {
+  height: 95px;
+  width: 95px;
+  border-radius: 50px;
+  margin-left: 25px;
+  margin-top: -45px;
 }
-.user-email{
-    border:2px solid red;
-    min-height:15rem
+.title-user-name {
+  color: #ffff00;
+  width: 65%;
+  height: 65%;
+  margin-left: 15px;
+  padding-top: 5px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+.button-edit-profile {
+  background-color: #ffff00;
+  margin: 15px 20px 15px 45px;
+  min-width: 18px;
+  font-size: 15px;
+}
+.user-email {
+  min-height: 15rem;
 }
 .edit-username,
-.edit-email{
-    display: flex;
-    border:2px solid green;
-    min-height: 4.5rem;
-    margin-top: 25px;
-    font-size: 15px;
+.edit-email {
+  display: flex;
+
+  min-height: 4.5rem;
+  margin-top: 25px;
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.68);
 }
 .container-username,
-.edit-email-profile{
-    width:35rem;
-    border:2px solid blue;
+.edit-email-profile {
+  width: 35rem;
+  padding-left: 15px;
 }
 .username-text,
-.email-text{
-    border:2px solid black;
-    margin: 7px;
-    font-size: 18px;
+.email-text {
+  color: #ffff00;
+  border: 2px solid black;
+  margin: 7px;
+  font-size: 18px;
 }
 .username-profile,
-.email-profile{
-    border:2px solid purple;
-    margin: 7px;
-    font-size: 14px;
+.email-profile {
+  color: #ffff00;
+  margin: 7px;
+  font-size: 14px;
 }
-
 
 .button-edit-username,
-.button-edit-email{
-    width: 5rem;
-    height: 2rem;
-    border:2px solid purple;
-    text-align: center;
-    padding-top: 6px;
-    margin: 18px 10px 10px 13rem;
-
+.button-edit-email {
+  width: 5rem;
+  height: 2rem;
+  background-color: #ffff00;
+  text-align: center;
+  padding-top: 6px;
+  margin: 18px 40px 10px 13rem;
 }
 
-
-.container-password{
-    border: 2px solid purple;
-    margin:3px;
-    margin-top: 32px;
-    margin-left: 35px;
+.container-password {
+  margin: 3px;
+  margin-top: 32px;
+  margin-left: 65px;
 }
-.container-account{
-    border: 2px solid purple;
-    margin: 3px;
-    margin-top: 32px;
-    margin-left: 35px;
+
+.container-account {
+  margin: 3px;
+  margin-top: 32px;
+  margin-left: 65px;
+}
+.button-change {
+  display: flex;
+  width: 8rem;
+  height: 2.5rem;
+  background-color: #ffff00;
+  text-align: center;
+  margin: 18px 10px 5px;
+}
+.button-dissable,
+.button-delete {
+  display: flex;
+  width: 8rem;
+  height: 2.5rem;
+  background-color: #ffff00;
+  text-align: center;
+  margin: 18px 10px 5px;
+  justify-content: space-between;
 }
