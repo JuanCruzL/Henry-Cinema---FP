@@ -24,11 +24,17 @@ function PerfilUser() {
             <div>
               <div className="container-edit-profile">
                 <div className="information-head">
-                  <img src="https://cdn-icons-png.flaticon.com/512/44/44091.png"
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/44/44091.png"
                     className="image-icon-profile"
                   />
-                  <h3 className="title-user-name"> EXAMPLE FIRST NAME / LAST NAME  </h3>
-                  <button className="button-edit-profile">Edit User Profile</button>
+                  <h3 className="title-user-name">
+                    {" "}
+                    EXAMPLE FIRST NAME / LAST NAME{" "}
+                  </h3>
+                  <button className="button-edit-profile">
+                    Edit User Profile
+                  </button>
                 </div>
                 <div className="user-email">
                   <div className="edit-username">
@@ -51,18 +57,25 @@ function PerfilUser() {
           </div>
           <div className="container-password">
             <h3>PASSWORD</h3>
-            <button>CHANGE PASSWORD</button>
+            <button className="button-change"> CHANGE PASSWORD</button>
           </div>
           <div className="container-account">
             <h3>ACCOUNT</h3>
             <div>
-              <button>DISSABLE ACCOUNT</button>
-              <button onClick={() => console.log("delete account")}>DELETE ACCOUNT</button>
+              <button className="button-dissable">DISSABLE ACCOUNT</button>
+            </div>
+            <div>
+              <button
+                className="button-delete"
+                onClick={() => console.log("delete account")}
+              >
+                DELETE ACCOUNT
+              </button>
             </div>
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
