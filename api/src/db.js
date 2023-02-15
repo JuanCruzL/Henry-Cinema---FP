@@ -21,26 +21,6 @@ const sequelize = new Sequelize(
 //   }
 // );
 
-<<<<<<< HEAD
-//----------------------------deploy instance of sequelize------------------------------------------
-
-/* const sequelize = new Sequelize(DB_DEPLOY,
-  {
-    logging: false, // set to console.log to see the raw SQL queries
-    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-  }
-); */
-=======
-//deploy instance of sequelize------------------------------------------
-
-// const sequelize = new Sequelize(DB_DEPLOY,
-//   {
-//     logging: false, // set to console.log to see the raw SQL queries
-//     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-//   }
-// );
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
-
 
 const basename = path.basename(__filename);
 
