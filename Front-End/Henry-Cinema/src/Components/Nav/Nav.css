@@ -102,18 +102,18 @@
   align-items: center;
 }
 
-.items {
+.itemsNav {
   display: flex;
   text-decoration: none;
   list-style: none;
   padding: 20px;
   justify-content: space-between;
 }
-.items:hover {
+.itemsNav:hover {
   background-color: black;
 }
 
-.items:hover .menu-link {
+.itemsNav:hover .menu-link {
   color: yellow;
 }
 
