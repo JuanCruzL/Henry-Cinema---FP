@@ -28,6 +28,8 @@ export const SideBarDash = () => {
 
   return (
     <div className="sidebar">
+
+     <div className="DesplegableSide">
       <div className="top">
         <Link to="/" className="link">
           <img className="logo" alt="" src={Logo} />

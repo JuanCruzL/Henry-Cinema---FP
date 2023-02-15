@@ -11,6 +11,8 @@ import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 export const NavBarDash = () => {
   return (
     <div className="navbardash">
+      <div className="Desplegable">
+
       <div className="wrapper">
         <div className="searchbar">
           <input type="text" placeholder="Search..." />
@@ -46,6 +48,7 @@ export const NavBarDash = () => {
             />
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
