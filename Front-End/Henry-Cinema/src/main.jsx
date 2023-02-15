@@ -128,7 +128,7 @@ const router = createBrowserRouter([
 ]);
 
 root.render(
-  <div id="Switch" className="light-mode">
+  <div id="Switch" className="dark-mode">
       <Provider store={store}>
         <RouterProvider router={router}>
           <App />
