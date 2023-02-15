@@ -19,26 +19,14 @@ import Logo from "../NavbarDash/images/logo-henry-cinema-mini.png";
 import { Link } from "react-router-dom";
 
 export const SideBarDash = () => {
-<<<<<<< HEAD
   return (
     <div className="sidebar">
-=======
-
-
-  return (
-    <div className="sidebar">
-
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
       <div className="DesplegableSide">
         <div className="top">
           <Link to="/" className="link">
             <img className="logo" alt="" src={Logo} />
           </Link>
         </div>
-<<<<<<< HEAD
-        <hr />
-=======
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
         <div className="center">
           <ul>
             <p className="title">MAIN</p>
@@ -62,19 +50,11 @@ export const SideBarDash = () => {
                   <span className="span">Reviews</span>
                 </li>
               </Link>
-<<<<<<< HEAD
-              <li>
+              <li className="MoviesDrop">
                 <MovieFilterRoundedIcon className="icon" />
                 <span className="span">Movies</span>
                 <ul className="dropdown">
-                  <li className>
-=======
-              <li className="MoviesDrop">
-                  <MovieFilterRoundedIcon className="icon" />
-                  <span className="span">Movies</span>
-                <ul className="dropdown">
                   <li>
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
                     <Link to="/dashboard/movies" className="link">
                       <span>See all Movies</span>
                     </Link>
@@ -86,11 +66,7 @@ export const SideBarDash = () => {
                   </li>
                 </ul>
               </li>
-<<<<<<< HEAD
-              <li>
-=======
               <li className="ScreenDrop">
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
                 <GroupWorkRoundedIcon className="icon" />
                 <span className="span">Screenings</span>
                 <ul className="dropdown">
@@ -106,11 +82,7 @@ export const SideBarDash = () => {
                   </li>
                 </ul>
               </li>
-<<<<<<< HEAD
-              <li>
-=======
               <li className="CombosDrop">
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
                 <FastfoodRoundedIcon className="icon" />
                 <span className="span">Combos</span>
                 <ul className="dropdown">
@@ -126,11 +98,7 @@ export const SideBarDash = () => {
                   </li>
                 </ul>
               </li>
-<<<<<<< HEAD
-              <li>
-=======
               <li className="FoodsDrop">
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
                 <LocalPizzaRoundedIcon className="icon" />
                 <span className="span">Foods</span>
                 <ul className="dropdown">
@@ -146,11 +114,7 @@ export const SideBarDash = () => {
                   </li>
                 </ul>
               </li>
-<<<<<<< HEAD
-              <li>
-=======
               <li className="DrinksDrop">
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
                 <LiquorRoundedIcon className="icon" />
                 <span className="span">Drinks</span>
                 <ul className="dropdown">
@@ -198,16 +162,6 @@ export const SideBarDash = () => {
             </li>
           </ul>
         </div>
-<<<<<<< HEAD
-        <div className="bottom">
-          <div className="colorOptions"></div>
-          <div
-            className="colorOptions"
-            onClick={(e) => toggleDarkLight(e)}
-          ></div>
-        </div>
-=======
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
       </div>
     </div>
   );

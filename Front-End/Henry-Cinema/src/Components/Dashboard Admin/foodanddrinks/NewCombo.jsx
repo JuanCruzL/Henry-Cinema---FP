@@ -121,7 +121,7 @@ export const NewCombo = () => {
           <div className="left">
             <img
               className="imageNC"
-              src="https://previews.123rf.com/images/foontntd/foontntd1705/foontntd170500070/77824901-menu-food-drawing-graphic-design-illustrate-objects-template.jpg"
+              src="https://static8.depositphotos.com/1077687/1062/v/950/depositphotos_10622859-stock-illustration-cine-fast-food-combo.jpg"
               alt=""
             />
           </div>

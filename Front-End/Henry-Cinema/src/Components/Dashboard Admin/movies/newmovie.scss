@@ -3,7 +3,6 @@
     background-color: var(--LBase-2);
 
     .newContainer {
-
       .top,
       .bottom {
         box-shadow: var(--LDegradado3) 0px 3px 8px;
@@ -57,11 +56,12 @@
     background-color: var(--NFondo-1);
 
     .newContainer {
-
       .top,
       .bottom {
         box-shadow: var(--NDegradado3) 0px 3px 8px;
         background-color: var(--NFondo-3);
+
+
 
         h1 {
           color: var(--NText-1);
@@ -106,7 +106,6 @@
   }
 }
 
-
 /*================================================*/
 .newMovie {
   width: 100%;
@@ -120,6 +119,7 @@
       padding: 10px;
       margin: 20px;
       display: flex;
+
 
       h1 {
         font-size: 21px;
