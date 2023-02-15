@@ -3,7 +3,6 @@
     background-color: var(--LBase-2);
 
     .newContainer {
-
       .top,
       .bottom {
         box-shadow: var(--LDegradado3) 0px 3px 8px;
@@ -11,6 +10,34 @@
 
         h1 {
           color: var(--LText-1);
+        }
+
+        .left {
+          position: relative;
+
+          .imageNF {
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            margin-right: 30px;
+            top: 0;
+            left: 0;
+            animation: float 3s ease-in-out infinite;
+          }
+
+          @keyframes float {
+            0% {
+              transform: translate(0, 0);
+            }
+
+            50% {
+              transform: translate(10px, 10px);
+            }
+
+            100% {
+              transform: translate(0, 0);
+            }
+          }
         }
 
         .right {
@@ -42,7 +69,6 @@
 
                 &:hover {
                   color: var(--LText-2);
-                  ;
                 }
               }
             }
@@ -53,13 +79,11 @@
   }
 }
 
-
 .dark-mode {
   .newFood {
     background-color: var(--NFondo-1);
 
     .newContainer {
-
       .top,
       .bottom {
         box-shadow: var(--NDegradado3) 0px 3px 8px;
@@ -67,6 +91,34 @@
 
         h1 {
           color: var(--NText-1);
+        }
+
+        .left {
+          position: relative;
+
+          .imageNF {
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            margin-right: 30px;
+            top: 0;
+            left: 0;
+            animation: float 3s ease-in-out infinite;
+          }
+
+          @keyframes float {
+            0% {
+              transform: translate(0, 0);
+            }
+
+            50% {
+              transform: translate(10px, 10px);
+            }
+
+            100% {
+              transform: translate(0, 0);
+            }
+          }
         }
 
         .right {
@@ -98,7 +150,6 @@
 
                 &:hover {
                   color: var(--NText-2);
-                  ;
                 }
               }
             }
@@ -108,7 +159,6 @@
     }
   }
 }
-
 
 /*=====================================================================*/
 

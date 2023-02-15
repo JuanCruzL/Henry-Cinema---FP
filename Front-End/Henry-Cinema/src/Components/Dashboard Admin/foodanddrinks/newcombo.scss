@@ -13,6 +13,33 @@
                     color: var(--LText-1);
                 }
 
+                .left {
+                    position: relative;
+        
+                    .imageNC {
+                        position: absolute;
+                        width: 405px;
+                        margin-right: 30px;
+                        top: 0;
+                        left: 0;
+                        animation: float 3s ease-in-out infinite;
+                    }
+        
+                    @keyframes float {
+                        0% {
+                            transform: translate(0, 0);
+                        }
+        
+                        50% {
+                            transform: translate(10px, 10px);
+                        }
+        
+                        100% {
+                            transform: translate(0, 0);
+                        }
+                    }
+                }
+
                 .right {
                     form {
                         .formNC {
@@ -61,6 +88,34 @@
 
                 h1 {
                     color: var(--NText-1);
+                }
+
+                .left {
+                    position: relative;
+        
+                    .imageNC {
+                        position: absolute;
+                        width: 380px;
+                        height: 380px;
+                        margin-right: 30px;
+                        top: 0;
+                        left: 0;
+                        animation: float 3s ease-in-out infinite;
+                    }
+        
+                    @keyframes float {
+                        0% {
+                            transform: translate(0, 0);
+                        }
+        
+                        50% {
+                            transform: translate(10px, 10px);
+                        }
+        
+                        100% {
+                            transform: translate(0, 0);
+                        }
+                    }
                 }
 
                 .right {
