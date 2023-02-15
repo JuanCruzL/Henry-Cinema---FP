@@ -7,10 +7,13 @@ import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlin
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
+import { toggleDarkLight } from "../../Utils/Switch";
 
 export const NavBarDash = () => {
   return (
     <div className="navbardash">
+      <div className="Desplegable">
+
       <div className="wrapper">
         <div className="searchbar">
           <input type="text" placeholder="Search..." />
@@ -21,7 +24,7 @@ export const NavBarDash = () => {
             <LanguageRoundedIcon className="icon" />
             English
           </div>
-          <div className="item">
+          <div className="item" onClick={(e) => toggleDarkLight(e)}>
             <DarkModeOutlinedIcon className="icon" />
           </div>
           <div className="item">
@@ -46,6 +49,7 @@ export const NavBarDash = () => {
             />
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
