@@ -22,98 +22,101 @@ import { toggleDarkLight } from "../../Utils/Switch";
 export const SideBarDash = () => {
   return (
     <div className="sidebar">
-      <div className="top">
-        <Link to="/" className="link">
-          <img className="logo" alt="" src={Logo} />
-        </Link>
-      </div>
-      <hr />
-      <div className="center">
-        <ul>
-          <p className="title">MAIN</p>
-          <Link to="/dashboard" className="link">
-            <li>
-              <DashboardIcon className="icon" />
-              <span className="span">Dashboard</span>
-            </li>
+      <div className="DesplegableSide">
+
+        <div className="top">
+          <Link to="/" className="link">
+            <img className="logo" alt="" src={Logo} />
           </Link>
-          <p className="title">LISTS</p>
-          <Link to="/dashboard/users" className="link">
+        </div>
+        <hr />
+        <div className="center">
+          <ul>
+            <p className="title">MAIN</p>
+            <Link to="/dashboard" className="link">
+              <li>
+                <DashboardIcon className="icon" />
+                <span className="span">Dashboard</span>
+              </li>
+            </Link>
+            <p className="title">LISTS</p>
+            <Link to="/dashboard/users" className="link">
+              <li>
+                <PersonIcon className="icon" />
+                <span className="span">Users</span>
+              </li>
+            </Link>
+            <Link to="/dashboard/reviews" className="link">
+              <li>
+                <ReviewsIcon className="icon" />
+                <span className="span">Reviews</span>
+              </li>
+            </Link>
+            <Link to="/dashboard/movies" className="link">
+              <li>
+                <MovieFilterRoundedIcon className="icon" />
+                <span className="span">Movies</span>
+              </li>
+            </Link>
+            <Link to="/dashboard/screenings" className="link">
+              <li>
+                <GroupWorkRoundedIcon className="icon" />
+                <span className="span">Screenings</span>
+              </li>
+            </Link>
+            <Link to="/dashboard/combos" className="link">
+              <li>
+                <FastfoodRoundedIcon className="icon" />
+                <span className="span">Combos</span>
+              </li>
+            </Link>
+            <Link to="/dashboard/foods" className="link">
+              <li>
+                <LocalPizzaRoundedIcon className="icon" />
+                <span className="span">Foods</span>
+              </li>
+            </Link>
+            <Link to="/dashboard/drinks" className="link">
+              <li>
+                <LiquorRoundedIcon className="icon" />
+                <span className="span">Drinks</span>
+              </li>
+            </Link>
+            <Link to="/dashboard/sales" className="link">
+              <li>
+                <PointOfSaleRoundedIcon className="icon" />
+                <span className="span">Sales</span>
+              </li>
+            </Link>
+            <p className="title">USEFUL</p>
             <li>
-              <PersonIcon className="icon" />
-              <span className="span">Users</span>
+              <QueryStatsRoundedIcon className="icon" />
+              <span className="span">Stats</span>
             </li>
-          </Link>
-          <Link to="/dashboard/reviews" className="link">
+            <p className="title">SERVICE</p>
             <li>
-              <ReviewsIcon className="icon" />
-              <span className="span">Reviews</span>
+              <VpnKeyRoundedIcon className="icon" />
+              <span className="span">Logs</span>
             </li>
-          </Link>
-          <Link to="/dashboard/movies" className="link">
             <li>
-              <MovieFilterRoundedIcon className="icon" />
-              <span className="span">Movies</span>
+              <SettingsSuggestRoundedIcon className="icon" />
+              <span className="span">Settings</span>
             </li>
-          </Link>
-          <Link to="/dashboard/screenings" className="link">
+            <p className="title">USER</p>
             <li>
-              <GroupWorkRoundedIcon className="icon" />
-              <span className="span">Screenings</span>
+              <ThreePRoundedIcon className="icon" />
+              <span className="span">Profile</span>
             </li>
-          </Link>
-          <Link to="/dashboard/combos" className="link">
             <li>
-              <FastfoodRoundedIcon className="icon" />
-              <span className="span">Combos</span>
+              <LogoutRoundedIcon className="icon" />
+              <span className="span">Logout</span>
             </li>
-          </Link>
-          <Link to="/dashboard/foods" className="link">
-            <li>
-              <LocalPizzaRoundedIcon className="icon" />
-              <span className="span">Foods</span>
-            </li>
-          </Link>
-          <Link to="/dashboard/drinks" className="link">
-            <li>
-              <LiquorRoundedIcon className="icon" />
-              <span className="span">Drinks</span>
-            </li>
-          </Link>
-          <Link to="/dashboard/sales" className="link">
-            <li>
-              <PointOfSaleRoundedIcon className="icon" />
-              <span className="span">Sales</span>
-            </li>
-          </Link>
-          <p className="title">USEFUL</p>
-          <li>
-            <QueryStatsRoundedIcon className="icon" />
-            <span className="span">Stats</span>
-          </li>
-          <p className="title">SERVICE</p>
-          <li>
-            <VpnKeyRoundedIcon className="icon" />
-            <span className="span">Logs</span>
-          </li>
-          <li>
-            <SettingsSuggestRoundedIcon className="icon" />
-            <span className="span">Settings</span>
-          </li>
-          <p className="title">USER</p>
-          <li>
-            <ThreePRoundedIcon className="icon" />
-            <span className="span">Profile</span>
-          </li>
-          <li>
-            <LogoutRoundedIcon className="icon" />
-            <span className="span">Logout</span>
-          </li>
-        </ul>
-      </div>
-      <div className="bottom">
-        <div className="colorOptions"></div>
-        <div className="colorOptions" onClick={(e) => toggleDarkLight(e)}></div>
+          </ul>
+        </div>
+        <div className="bottom">
+          <div className="colorOptions"></div>
+          <div className="colorOptions" onClick={(e) => toggleDarkLight(e)}></div>
+        </div>
       </div>
     </div>
   );
