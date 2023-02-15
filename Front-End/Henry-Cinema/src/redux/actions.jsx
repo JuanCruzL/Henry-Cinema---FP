@@ -27,6 +27,7 @@ import {
   DELETE_USER,
   GET_REVIEWS,
   DELETE_REVIEW,
+  GET_SALES,
 } from "./actionTypes";
 
 //axios.defaults.baseURL = "http://localhost:3001";
@@ -431,6 +432,24 @@ export const deleteReview = (id) => {
     } catch (error) {
       console.log(error.message);
     }
+  };
+};
+
+//SALES
+
+export const getSales = () => {
+  return (dispatch) => {
+    axios
+      .get(`/sales`)
+      .then((response) => {
+        dispatch({
+          type: GET_SALES,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log("error");
+      });
   };
 };
 
