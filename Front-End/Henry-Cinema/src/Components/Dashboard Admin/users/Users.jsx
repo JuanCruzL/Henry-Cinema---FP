@@ -1,11 +1,19 @@
 import React from "react";
+import "./users.scss";
+import { SideBarDash } from "../SideBarDash/SideBarDash";
+import { NavBarDash } from "../NavbarDash/NavBarDash";
+import { UsersTable } from "../users/UsersTable";
 
-export const Users = () => {
+export const UsersDash = () => {
   return (
     <div className="list">
-      <h1 className="title">List</h1>
+      <SideBarDash />
+      <div className="listContainer">
+        <NavBarDash />
+        <UsersTable />
+      </div>
     </div>
   );
 };
 
-export default Users;
+export default UsersDash;
