@@ -2,14 +2,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getMovies, getRelease, requestGenres } from "../../redux/actions";
+import { getMovies, getNextReleases, requestGenres } from "../../redux/actions";
 import Nav from "../Nav/Nav";
 import HomeCarrusel from "./HomeCarrusel/HomeCarrusel";
 import HomeMovie from "./HomeMovie/HomeMovie";
 import HomePaginated from "./HomePaginated/HomePaginated";
 import Footer from "../footer/footer";
 import "../Home/Home.css";
-import Loader from "../Loader/Loader"
+import Loader from "../Loader/Loader";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -31,28 +31,30 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getMovies());
-    dispatch(getRelease());
+    dispatch(getNextReleases());
     dispatch(requestGenres());
 
-    setTimeout(()=>{
+    setTimeout(() => {
       setLoading(false);
-    },1500)
-
+    }, 1500);
   }, [dispatch]);
-  
+
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
   return (
-
     <div className="Homehome">
-      <Nav setCurrentPage={setCurrentPage}/>
+      <Nav setCurrentPage={setCurrentPage} />
       <div className="BodyHome">
-        <HomeCarrusel cartelera={cartelera}/>
-        <HomePaginated peliculas={allMovies.length} moviesPerPage={moviesPerPage} paginated={paginated}/>
-        <HomeMovie peliculas={currentMovie}/>
+        <HomeCarrusel cartelera={cartelera} />
+        <HomePaginated
+          peliculas={allMovies.length}
+          moviesPerPage={moviesPerPage}
+          paginated={paginated}
+        />
+        <HomeMovie peliculas={currentMovie} />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

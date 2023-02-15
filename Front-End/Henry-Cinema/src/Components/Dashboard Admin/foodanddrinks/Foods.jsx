@@ -4,7 +4,7 @@ import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
 import { FoodsTable } from "../foodanddrinks/FoodsTable";
 
-export const MoviesDash = () => {
+export const FoodsDash = () => {
   return (
     <div className="list">
       <SideBarDash />
@@ -16,4 +16,4 @@ export const MoviesDash = () => {
   );
 };
 
-export default MoviesDash;
+export default FoodsDash;

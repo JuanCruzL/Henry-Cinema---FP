@@ -5,7 +5,7 @@ const initialState = {
   uniqueGenres: [],
   topMovies: [],
   // Proximos estrenos
-  releases: [],
+  nextReleases: [],
   //componente dia/noche
   modo: "dia",
   // Componente search
@@ -20,6 +20,12 @@ const initialState = {
   currentUser: {},
   seats: [],
   newGenres: [],
+  // Para el componente Screenings
+  screenings: [],
+  // Para el componente Users.
+  users: [],
+  // Para el componente Reviews.
+  reviews: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -45,7 +51,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         movieId: action.payload,
       };
-    case "GET_RELEASES":
+    case "GET_NEXT_RELEASES":
       return {
         ...state,
         releases: action.payload,
@@ -78,6 +84,23 @@ const rootReducer = (state = initialState, action) => {
                 },
               ],
       };
+    // SCREENINGS
+    case "GET_SCREENINGS": {
+      return {
+        ...state,
+        screenings: action.payload,
+      };
+    }
+    case "CREATE_SCREENING":
+      return {
+        ...state,
+        screenings: action.payload,
+      };
+    case "DELETE_SCREENING":
+      return {
+        ...state,
+        screenings: action.payload,
+      };
     //FOOD & DRINKS
     case "GET_FOODS":
       return {
@@ -105,7 +128,34 @@ const rootReducer = (state = initialState, action) => {
         copyDrinks: action.payload,
       };
 
+    case "CREATE_DRINK":
+      return {
+        ...state,
+        drinks: action.payload,
+        copyDrinks: action.payload,
+      };
+
+    case "DELETE_DRINK":
+      return {
+        ...state,
+        drinks: action.payload,
+        copyDrinks: action.payload,
+      };
     case "GET_COMBOS":
+      return {
+        ...state,
+        combos: action.payload,
+        copyCombos: action.payload,
+      };
+
+    case "CREATE_COMBO":
+      return {
+        ...state,
+        combos: action.payload,
+        copyCombos: action.payload,
+      };
+
+    case "DELETE_COMBO":
       return {
         ...state,
         combos: action.payload,
@@ -155,6 +205,25 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         currentUser: action.payload,
+      };
+
+    case "GET_USERS": {
+      return {
+        ...state,
+        users: action.payload,
+      };
+    }
+
+    case "GET_REVIEWS": {
+      return {
+        ...state,
+        reviews: action.payload,
+      };
+    }
+    case "DELETE_REVIEW":
+      return {
+        ...state,
+        reviews: action.payload,
       };
 
     case "MODO":
