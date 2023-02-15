@@ -18,8 +18,8 @@ import {
   DELETE_FOOD,
 } from "./actionTypes";
 
-//axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
+axios.defaults.baseURL = "http://localhost:3001";
+//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 
 //MOVIES
 
@@ -253,7 +253,7 @@ export const logInUserWithGoogle = (response) => {
         email,
         userName: given_name,
       });
-      console.log(userCreated);
+      console.log("userCreated action",userCreated.data);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
@@ -270,14 +270,14 @@ export const logInUserWithGoogle = (response) => {
 
 export const logInUser = (email, password) => {
   if (!email && !password) {
-    return message.warn("Completa los campos para ingresar");
+    return alert("Completa los campos para ingresar");
   }
   if (!email) {
-    return message.warn("Ingresa correo electronico");
+    return alert("Ingresa correo electronico");
   }
 
   if (!password) {
-    return message.warn("Ingresa tu contraseña");
+    return alert("Ingresa tu contraseña");
   }
 
   try {

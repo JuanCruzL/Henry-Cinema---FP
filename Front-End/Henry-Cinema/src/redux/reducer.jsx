@@ -146,10 +146,15 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case "POST_USER_WITH_GOOGLE":
-      return {
-        ...state,
-        currentUser: action.payload,
-      };
+      console.log("yo soy el payload",action.payload)
+      try {
+        return {
+          ...state,
+          currentUser: action.payload,
+        };
+      }catch(err) {
+        console.log(err)
+      }
 
     case "GET_CURRENT_USER":
       return {
@@ -164,12 +169,13 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         modo: M,
       };
-      
     case "LOG_OUT":
+      window.localStorage.removeItem("loggedUser")
       return {
         ...state,
         currentUser: {}
       }
+      
 
     default:
       return state;
