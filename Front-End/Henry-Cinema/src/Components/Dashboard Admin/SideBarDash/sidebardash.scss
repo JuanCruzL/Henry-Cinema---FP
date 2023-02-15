@@ -4,7 +4,7 @@
   min-width: 200px;
   max-width: 200px;
   background-color: var(--BaseL);
-  
+
   .DesplegableSide {
     position: fixed;
     padding-top: 19px;
@@ -47,142 +47,142 @@
         margin: 0;
         padding: 0;
 
-      .dropdown {
-        position: relative;
+        .dropdown {
+          position: relative;
 
-        & > .title {
+          & > .title {
+            font-size: 12px;
+            font-weight: bold;
+            color: rgb(47, 47, 47);
+            margin-top: 15px;
+            margin-bottom: 5px;
+            cursor: pointer;
+          }
+
+          & > .list {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin-top: -15px;
+            padding-left: 10px;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            z-index: 1;
+
+            &.active {
+              display: block;
+            }
+
+            li {
+              display: inline-block;
+              align-items: center;
+              padding: 5px;
+              cursor: pointer;
+
+              &.active {
+                display: block;
+              }
+
+              &:hover {
+                background-color: var(--BaseL);
+              }
+              .span {
+                font-size: 15px;
+                margin-left: 10px;
+              }
+              .icon {
+                font-size: 20px;
+                color: black;
+              }
+            }
+          }
+        }
+
+        .title {
           font-size: 12px;
           font-weight: bold;
           color: rgb(47, 47, 47);
           margin-top: 15px;
           margin-bottom: 5px;
           cursor: pointer;
+          display: flex;
+          align-items: center;
         }
 
-        & > .list {
-          display: none;
-          position: absolute;
-          top: 0;
-          left: 100%;
-          margin-top: -15px;
-          padding-left: 10px;
-          background-color: white;
-          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-          z-index: 1;
-
-          &.active {
-            display: block;
-          }
-
-          li {
-            display: inline-block;
-            align-items: center;
-            padding: 5px;
-            cursor: pointer;
-
-            &.active {
-              display: block;
-            }
-
-            &:hover {
-              background-color: var(--BaseL);
-            }
-            .span {
-              font-size: 15px;
-              margin-left: 10px;
-            }
-            .icon {
-              font-size: 20px;
-              color: black;
-            }
-          }
-        }
-      }
-
-      .title {
-        font-size: 12px;
-        font-weight: bold;
-        color: rgb(47, 47, 47);
-        margin-top: 15px;
-        margin-bottom: 5px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-      }
-
-      li {
-        display: block;
-        align-items: center;
-        padding: 5px;
-        cursor: pointer;
+        li {
+          display: block;
+          align-items: center;
+          padding: 5px;
+          cursor: pointer;
 
           &:hover {
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
           }
 
+          .span {
+            font-size: 16px;
+            margin-left: 10px;
+          }
 
-        .span {
-          font-size: 16px;
-          margin-left: 10px;
-        }
-
-        .icon {
-          font-size: 20px;
-          color: black;
+          .icon {
+            font-size: 20px;
+            color: black;
+          }
         }
       }
     }
-  }
 
-  .movies,
-  .screenings,
-  .combos,
-  .foods,
-  .drinks {
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    .movies,
+    .screenings,
+    .combos,
+    .foods,
+    .drinks {
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
 
-      li {
-        display: block;
+        li {
+          display: block;
+          align-items: center;
+          padding: 5px;
+          cursor: pointer;
+
+          &:hover {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          }
+          .span {
+            font-size: 15px;
+            margin-left: 10px;
+          }
+          .icon {
+            font-size: 20px;
+            color: black;
+          }
+        }
+      }
+
+      .bottom {
+        display: flex;
         align-items: center;
-        padding: 5px;
-        cursor: pointer;
+        margin: 10px;
 
-        &:hover {
-          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        }
-        .span {
-          font-size: 15px;
-          margin-left: 10px;
-        }
-        .icon {
-          font-size: 20px;
-          color: black;
-        }
-      }
-    }
+        .colorOptions {
+          width: 20px;
+          height: 20px;
+          border-radius: 5px;
+          border: 1px solid;
+          cursor: pointer;
+          margin: 5px;
 
-    .bottom {
-      display: flex;
-      align-items: center;
-      margin: 10px;
+          &:nth-child(1) {
+            background-color: whitesmoke;
+          }
 
-      .colorOptions {
-        width: 20px;
-        height: 20px;
-        border-radius: 5px;
-        border: 1px solid;
-        cursor: pointer;
-        margin: 5px;
-
-        &:nth-child(1) {
-          background-color: whitesmoke;
-        }
-
-        &:nth-child(2) {
-          background-color: black;
+          &:nth-child(2) {
+            background-color: black;
+          }
         }
       }
     }

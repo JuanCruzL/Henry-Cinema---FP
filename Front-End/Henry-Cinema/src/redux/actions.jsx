@@ -30,13 +30,8 @@ import {
   GET_SALES,
 } from "./actionTypes";
 
-<<<<<<< HEAD
-axios.defaults.baseURL = "http://localhost:3001";
-// axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
-=======
 //axios.defaults.baseURL = "http://localhost:3001";
 axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
->>>>>>> develop
 
 //MOVIES
 
@@ -376,15 +371,6 @@ export const getUsers = () => {
   };
 };
 
-<<<<<<< HEAD
-export const getGenres = () => {
-  return async (dispatch) => {
-    let dataGenres = await axios.get("/genres");
-    return dispatch({
-      type: "GET_GENRES_DB",
-      payload: dataGenres.data,
-    });
-=======
 export const deleteUser = (id) => {
   return async function (dispatch) {
     try {
@@ -396,13 +382,11 @@ export const deleteUser = (id) => {
     } catch (error) {
       console.log(error.message);
     }
->>>>>>> develop
   };
 };
 
 // crea el usuario y lo guarda en la base de datos
 export const signUp = (payload) => {
-  
   if (!payload.email && !payload.password && !payload.userName) {
     return alert("Complete the inputs to log in");
   }
@@ -417,8 +401,8 @@ export const signUp = (payload) => {
   }
   return async () => {
     try {
-      if(payload.notifications === false) {
-        payload.notifications = "false"
+      if (payload.notifications === false) {
+        payload.notifications = "false";
         await axios.post("/users", payload);
         return alert("User register successfully!, You can now Log In!");
       }
@@ -500,7 +484,7 @@ export const logInUserWithGoogle = (response) => {
         payload: userCreated.data,
       });
     } catch (error) {
-      alert(error.response.data.message)
+      alert(error.response.data.message);
     }
   };
 };
@@ -520,14 +504,14 @@ export const logInUser = (email, password) => {
   }
   return async (dispatch) => {
     try {
-        const loginCredentials = await axios.post("/login", { email, password });
-        console.log(loginCredentials.data);
-        return dispatch({
-          type: "GET_CURRENT_USER",
-          payload: loginCredentials.data,
-        });
+      const loginCredentials = await axios.post("/login", { email, password });
+      console.log(loginCredentials.data);
+      return dispatch({
+        type: "GET_CURRENT_USER",
+        payload: loginCredentials.data,
+      });
     } catch (error) {
       alert(error.response.data.message);
     }
-  }
+  };
 };
