@@ -30,19 +30,9 @@ import {
   GET_SALES,
 } from "./actionTypes";
 
-<<<<<<< HEAD
+
 axios.defaults.baseURL = "http://localhost:3001";
 //axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
-=======
-<<<<<<< HEAD
-axios.defaults.baseURL = "http://localhost:3001";
-// axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
-=======
-//axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
->>>>>>> develop
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
-
 //MOVIES
 
 export const getMovies = () => {
@@ -381,15 +371,8 @@ export const getUsers = () => {
   };
 };
 
-<<<<<<< HEAD
-export const getGenres = () => {
-  return async (dispatch) => {
-    let dataGenres = await axios.get("/genres");
-    return dispatch({
-      type: "GET_GENRES_DB",
-      payload: dataGenres.data,
-    });
-=======
+
+
 export const deleteUser = (id) => {
   return async function (dispatch) {
     try {
@@ -401,7 +384,6 @@ export const deleteUser = (id) => {
     } catch (error) {
       console.log(error.message);
     }
->>>>>>> develop
   };
 };
 
@@ -506,11 +488,9 @@ export const logInUserWithGoogle = (response) => {
         payload: userCreated.data,
       });
     } catch (error) {
-<<<<<<< HEAD
       console.log("el error de logInUserWithGoogle es:", error);
-=======
       alert(error.response.data.message)
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
+
     }
   };
 };
@@ -519,16 +499,14 @@ export const logInUserWithGoogle = (response) => {
 
 export const logInUser = (email, password) => {
   if (!email && !password) {
-<<<<<<< HEAD
-    return alert("Completa los campos para ingresar");
+   return alert("Completa los campos para ingresar");
   }
   if (!email) {
     return alert("Ingresa correo electronico");
   }
-
   if (!password) {
     return alert("Ingresa tu contraseña");
-=======
+
     return alert("Complete the inputs to log in");
   }
   if (!email) {
@@ -537,7 +515,7 @@ export const logInUser = (email, password) => {
 
   if (!password) {
     return alert("Enter your Password");
->>>>>>> 471bfac0cd4d2b913fd2db1e4ed2ebc31edc8163
+
   }
   return async (dispatch) => {
     try {
