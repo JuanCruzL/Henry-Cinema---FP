@@ -143,11 +143,11 @@ export default function Login() {
   function onSuccess(response) {
     try {
       const userObject = jwt_decode(response.credential);
-      // console.log(userObject);
+      console.log("soy el user object",userObject);
       dispatch(logInUserWithGoogle(userObject));
       window.localStorage.setItem('loggedUser',
       JSON.stringify(currentUser));
-      // console.log(currentUser);
+      console.log("soy el current user",currentUser);
       navigate("/");
     } catch (error) {
       console.log(error);
