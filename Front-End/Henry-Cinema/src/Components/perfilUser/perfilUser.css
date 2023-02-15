@@ -1,3 +1,69 @@
+.light-mode .container-perfil {
+  background-color: var(--LFondo-1);
+}
+
+.light-mode .container-settings-user {
+  background-color: black;
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+.light-mode .container-user-information {
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+.light-mode .title-my-account {
+  color: black;
+  text-shadow: var(--LDegradado) 0px 5px 20px;
+}
+.light-mode .container-account {
+  color: black;
+}
+.light-mode .container-password {
+  color: black;
+}
+.light-mode .button-change {
+  background-color: #ffff00;
+  color: var(--LText-1);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+.light-mode .button-change:hover {
+  background-color: var(--LBase-1);
+  color: var(--LText-3);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+.light-mode .button-dissable {
+  background-color: #ffff00;
+  color: var(--LText-1);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+.light-mode .button-dissable:hover {
+  background-color: var(--LBase-1);
+  color: var(--LText-3);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+.light-mode .button-delete {
+  background-color: #ffff00;
+  color: var(--LText-1);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+.light-mode .button-delete:hover {
+  background-color: var(--LBase-1);
+  color: var(--LText-3);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+.dark-mode .button-delete:hover {
+  background-color: #ffff00;
+  color: var(--LText-1);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+.dark-mode .button-dissable:hover {
+  background-color: #ffff00;
+  color: var(--LText-1);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
+.dark-mode .button-change:hover {
+  background-color: #ffff00;
+  color: var(--LText-1);
+  box-shadow: var(--LDegradado) 0px 5px 15px;
+}
 .container-perfil {
   background-color: rgb(30, 30, 30);
   display: flex;
@@ -7,7 +73,6 @@
 }
 
 .container-settings-user {
-  border: 2px solid black;
   min-width: 15rem;
   background-color: rgba(0, 0, 0, 0.68);
 }
@@ -30,6 +95,7 @@
   padding: 10px;
   padding-left: 20px;
   margin: 5px;
+  cursor: pointer;
 }
 .log-out-setting {
   color: #ffff00;
@@ -39,6 +105,7 @@
   margin: 5px;
   margin: 3px;
   margin-top: 70px;
+  cursor: pointer;
 }
 
 .container-account-user {
@@ -50,9 +117,9 @@
   color: aliceblue;
   margin: 5px;
   margin-top: 23px;
-  font-size: 20px;
+  font-size: 22px;
   padding: 7px;
-  margin-left: 50px;
+  margin-left: 55px;
 }
 
 .container-user-information {
@@ -90,9 +157,11 @@
 }
 .button-edit-profile {
   background-color: #ffff00;
-  margin: 15px 20px 15px 45px;
-  min-width: 18px;
-  font-size: 15px;
+  margin: 6px 10px 15px 25px;
+  width: 25%;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
 }
 .user-email {
   min-height: 15rem;
@@ -100,7 +169,6 @@
 .edit-username,
 .edit-email {
   display: flex;
-
   min-height: 4.5rem;
   margin-top: 25px;
   font-size: 15px;
@@ -108,7 +176,7 @@
 }
 .container-username,
 .edit-email-profile {
-  width: 35rem;
+  width: 40rem;
   padding-left: 15px;
 }
 .username-text,
@@ -122,45 +190,58 @@
 .email-profile {
   color: #ffff00;
   margin: 7px;
-  font-size: 14px;
+  font-size: 18px;
 }
 
-.button-edit-username,
 .button-edit-email {
-  width: 5rem;
-  height: 2rem;
+  width: 15%;
   background-color: #ffff00;
+  margin: 18px 45px 20px 5px;
   text-align: center;
-  padding-top: 6px;
-  margin: 18px 40px 10px 13rem;
+  cursor: pointer;
+}
+.button-edit-username {
+  width: 17%;
+  background-color: #ffff00;
+  margin: 20px 40px 20px 45px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .container-password {
   margin: 3px;
   margin-top: 32px;
   margin-left: 65px;
+  color: aliceblue;
 }
 
 .container-account {
   margin: 3px;
   margin-top: 32px;
   margin-left: 65px;
+  color: aliceblue;
 }
 .button-change {
+  color: #ffff00;
   display: flex;
-  width: 8rem;
+  width: 10rem;
   height: 2.5rem;
-  background-color: #ffff00;
+  background-color: black;
   text-align: center;
   margin: 18px 10px 5px;
+  margin: 7px;
+  cursor: pointer;
 }
 .button-dissable,
 .button-delete {
+  color: #ffff00;
   display: flex;
-  width: 8rem;
-  height: 2.5rem;
-  background-color: #ffff00;
+  padding: 8px;
+  width: 15%;
+  background-color: black;
   text-align: center;
   margin: 18px 10px 5px;
-  justify-content: space-between;
+  font-size: 15px;
+  margin: 7px;
+  cursor: pointer;
 }
