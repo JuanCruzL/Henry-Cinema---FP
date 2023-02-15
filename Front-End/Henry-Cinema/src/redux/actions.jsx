@@ -30,14 +30,9 @@ import {
   GET_SALES,
 } from "./actionTypes";
 
-<<<<<<< HEAD
-axios.defaults.baseURL = "http://localhost:3001";
-// axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
-=======
-//axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
->>>>>>> develop
 
+axios.defaults.baseURL = "http://localhost:3001";
+//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 //MOVIES
 
 export const getMovies = () => {
@@ -376,15 +371,8 @@ export const getUsers = () => {
   };
 };
 
-<<<<<<< HEAD
-export const getGenres = () => {
-  return async (dispatch) => {
-    let dataGenres = await axios.get("/genres");
-    return dispatch({
-      type: "GET_GENRES_DB",
-      payload: dataGenres.data,
-    });
-=======
+
+
 export const deleteUser = (id) => {
   return async function (dispatch) {
     try {
@@ -396,7 +384,6 @@ export const deleteUser = (id) => {
     } catch (error) {
       console.log(error.message);
     }
->>>>>>> develop
   };
 };
 
@@ -490,17 +477,20 @@ export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
       const { email, given_name } = response;
+      console.log(email, given_name);
       const userCreated = await axios.post(`/login/google`, {
         email,
         userName: given_name,
       });
-      console.log(userCreated.data);
+      console.log("userCreated action",userCreated.data);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
       });
     } catch (error) {
+      console.log("el error de logInUserWithGoogle es:", error);
       alert(error.response.data.message)
+
     }
   };
 };
@@ -509,6 +499,14 @@ export const logInUserWithGoogle = (response) => {
 
 export const logInUser = (email, password) => {
   if (!email && !password) {
+   return alert("Completa los campos para ingresar");
+  }
+  if (!email) {
+    return alert("Ingresa correo electronico");
+  }
+  if (!password) {
+    return alert("Ingresa tu contraseña");
+
     return alert("Complete the inputs to log in");
   }
   if (!email) {
@@ -517,6 +515,7 @@ export const logInUser = (email, password) => {
 
   if (!password) {
     return alert("Enter your Password");
+
   }
   return async (dispatch) => {
     try {
@@ -531,3 +530,11 @@ export const logInUser = (email, password) => {
     }
   }
 };
+
+
+export const logOut = () => {
+  return {
+    type: "LOG_OUT"
+  }
+}
+ 
