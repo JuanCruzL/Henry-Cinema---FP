@@ -86,6 +86,7 @@ const RoomInputs = () => {
               </div>
             </div>
             <div className="right">
+              <label>Movie</label>
               <select value={id} onChange={(e) => setId(e.target.value)}>
                 {movies.map((movie) => (
                   <option key={movie.id} value={movie.id}>
