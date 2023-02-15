@@ -30,8 +30,13 @@ import {
   GET_SALES,
 } from "./actionTypes";
 
+<<<<<<< HEAD
+axios.defaults.baseURL = "http://localhost:3001";
+// axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
+=======
 //axios.defaults.baseURL = "http://localhost:3001";
 axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
+>>>>>>> develop
 
 //MOVIES
 
@@ -371,6 +376,15 @@ export const getUsers = () => {
   };
 };
 
+<<<<<<< HEAD
+export const getGenres = () => {
+  return async (dispatch) => {
+    let dataGenres = await axios.get("/genres");
+    return dispatch({
+      type: "GET_GENRES_DB",
+      payload: dataGenres.data,
+    });
+=======
 export const deleteUser = (id) => {
   return async function (dispatch) {
     try {
@@ -382,19 +396,37 @@ export const deleteUser = (id) => {
     } catch (error) {
       console.log(error.message);
     }
+>>>>>>> develop
   };
 };
 
 // crea el usuario y lo guarda en la base de datos
 export const signUp = (payload) => {
-  return async (dispatch) => {
+  
+  if (!payload.email && !payload.password && !payload.userName) {
+    return alert("Complete the inputs to log in");
+  }
+  if (!payload.userName) {
+    return alert("Enter the Full Name");
+  }
+  if (!payload.password) {
+    return alert("Enter the Password");
+  }
+  if (!payload.email) {
+    return alert("Enter the Email");
+  }
+  return async () => {
     try {
-      console.log(payload);
-      const userCreated = await axios.post("/users", payload);
-      alert("User register successfully!");
+      if(payload.notifications === false) {
+        payload.notifications = "false"
+        await axios.post("/users", payload);
+        return alert("User register successfully!, You can now Log In!");
+      }
+      console.log(payload.notifications);
+      await axios.post("/users", payload);
+      return alert("User register successfully!, You can now Log In!");
     } catch (e) {
-      alert("Could not register, error!");
-      console.log(e);
+      alert(e.response.data.message);
     }
   };
 };
@@ -468,7 +500,7 @@ export const logInUserWithGoogle = (response) => {
         payload: userCreated.data,
       });
     } catch (error) {
-      console.log("el error de logInUserWithGoogle es:", error.message);
+      alert(error.response.data.message)
     }
   };
 };
@@ -477,26 +509,25 @@ export const logInUserWithGoogle = (response) => {
 
 export const logInUser = (email, password) => {
   if (!email && !password) {
-    return message.warn("Completa los campos para ingresar");
+    return alert("Complete the inputs to log in");
   }
   if (!email) {
-    return message.warn("Ingresa correo electronico");
+    return alert("Enter your Email");
   }
 
   if (!password) {
-    return message.warn("Ingresa tu contraseña");
+    return alert("Enter your Password");
   }
-
-  try {
-    return async (dispatch) => {
-      const loginCredentials = await axios.post("/login", { email, password });
-      console.log(loginCredentials.data);
-      return dispatch({
-        type: "GET_CURRENT_USER",
-        payload: loginCredentials.data,
-      });
-    };
-  } catch (error) {
-    console.log(error);
+  return async (dispatch) => {
+    try {
+        const loginCredentials = await axios.post("/login", { email, password });
+        console.log(loginCredentials.data);
+        return dispatch({
+          type: "GET_CURRENT_USER",
+          payload: loginCredentials.data,
+        });
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   }
 };
