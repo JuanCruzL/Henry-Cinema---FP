@@ -3,7 +3,7 @@ import Carousel from "./Carousel";
 import Loader from "../Loader/Loader";
 import "./Movies.css";
 import { useState, useEffect } from "react";
-import { getMovies, getRelease, requestGenres } from "../../redux/actions";
+import { getMovies, getNextReleases, requestGenres } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import Nav from "../../Components/Nav/Nav";
 import Footer from "../footer/footer";
@@ -13,7 +13,7 @@ const Movies = () => {
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.uniqueGenres); //trae los generos disponibles en la cartelera
   const allMovies = useSelector((state) => state.movies); // trae todas las peliculas de redux que estan en la cartelera
-  const allReleases = useSelector((state) => state.releases); // trae las proximas
+  const allReleases = useSelector((state) => state.nextReleases); // trae las proximas
   const [movies, setMovies] = useState([]); // guarda las peliculas del corrousel del footer
   const [images, setImages] = useState([]); // renderiza las imagenes para el carrousel
   const [loading, setLoading] = useState(true); // setea el loading
@@ -56,7 +56,7 @@ const Movies = () => {
   useEffect(() => {
     if (!allMovies.length && !allReleases.length) {
       dispatch(getMovies());
-      dispatch(getRelease());
+      dispatch(getNextReleases());
       getClassifications();
     }
     setTimeout(() => {
