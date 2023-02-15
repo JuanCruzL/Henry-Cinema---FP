@@ -1,22 +1,127 @@
+.light-mode {
+  .newMovie {
+    background-color: var(--LBase-2);
+
+    .newContainer {
+
+      .top,
+      .bottom {
+        box-shadow: var(--LDegradado3) 0px 3px 8px;
+        background-color: var(--Gold);
+
+        h1 {
+          color: var(--LText-1);
+        }
+
+        .right {
+          form {
+            .formNM {
+              label {
+                color: var(--LText-1);
+              }
+
+              .vals {
+                color: rgb(203, 7, 7);
+              }
+            }
+
+            input {
+              border-bottom: 1px solid rgb(92, 92, 92);
+              color: var(--LText-1);
+
+              &:hover {
+                background-color: var(--LFondo-2);
+              }
+            }
+
+            .buttonNM {
+              color: var(--LText-1);
+
+              .MuiSvgIcon-root {
+                color: var(--LText-1);
+
+                &:hover {
+                  color: var(--LText-2);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.dark-mode {
+  .newMovie {
+    background-color: var(--NFondo-1);
+
+    .newContainer {
+
+      .top,
+      .bottom {
+        box-shadow: var(--NDegradado3) 0px 3px 8px;
+        background-color: var(--NFondo-3);
+
+        h1 {
+          color: var(--NText-1);
+        }
+
+        .right {
+          form {
+            .formNM {
+              label {
+                color: var(--NText-1);
+              }
+
+              .vals {
+                color: rgb(203, 7, 7);
+              }
+            }
+
+            input {
+              border-bottom: 1px solid rgb(92, 92, 92);
+              color: var(--NText-1);
+
+              &:hover {
+                background-color: var(--NFondo-2);
+              }
+            }
+
+            .buttonNM {
+              color: var(--NText-1);
+
+              .MuiSvgIcon-root {
+                color: var(--NText-1);
+
+                &:hover {
+                  color: var(--NText-2);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/*================================================*/
 .newMovie {
   width: 100%;
   display: flex;
-  background-color: rgb(216, 213, 213);
 
   .newContainer {
     flex: 6;
 
     .top,
     .bottom {
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       padding: 10px;
       margin: 20px;
       display: flex;
-      background-color: rgb(238, 210, 139);
-      display: flex;
 
       h1 {
-        color: rgb(98, 36, 36);
         font-size: 21px;
       }
 
@@ -41,7 +146,6 @@
               display: flex;
               align-items: center;
               gap: 10px;
-              color: rgb(98, 36, 36);
             }
 
             .icon {
@@ -52,7 +156,6 @@
             .vals {
               font-size: 13px;
               font-style: oblique;
-              color: rgb(203, 7, 7);
             }
           }
 
@@ -60,7 +163,6 @@
             width: 100%;
             padding: 5px;
             border: none;
-            border-bottom: 1px solid rgb(92, 92, 92);
             font-size: 13px;
             font-style: italic;
           }
@@ -69,20 +171,13 @@
             width: 0px;
             border: none;
             background-color: transparent;
-            color: black;
             cursor: pointer;
             margin-top: 10px;
             font-size: 30px;
 
-            .iconSubmit {
+            .MuiSvgIcon-root {
               font-size: 35px;
               margin-left: 3px;
-              color: rgb(98, 36, 36);
-              width: 500px;
-
-              &:hover {
-                color: white;
-              }
             }
           }
         }

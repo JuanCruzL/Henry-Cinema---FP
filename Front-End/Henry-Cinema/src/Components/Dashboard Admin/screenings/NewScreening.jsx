@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import {useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getasientos, getMovies} from "../../../redux/actions"
+import NavBarDash from '../NavbarDash/NavBarDash';
+import SideBarDash from '../SideBarDash/SideBarDash';
+import "./newscreenings.scss";
 
 
 const RoomInputs = () => {
@@ -18,7 +21,7 @@ const RoomInputs = () => {
   const [seats, setSeats]= useState([]);
   const [id, setId]= useState('');
   const [reservation, setReservation] = useState({});
-  
+
   useEffect(() => {
     dispatch(getasientos());
     dispatch(getMovies());
@@ -39,7 +42,7 @@ const RoomInputs = () => {
     });
   };
 
-console.log(reservation)
+  console.log(reservation)
 
 
   const getNext30Days = () => {
@@ -58,99 +61,107 @@ console.log(reservation)
 
   const next30Days = getNext30Days() ;
 
-  
+
 
   return (
-    <div>
-      <h1>Crear funcion</h1>
-      
-      <div>
-      <label >Movie</label>
-      <br />
-      <select value={id} onChange={(e) => setId(e.target.value)}>
-      {movies.map((movie) => (
-        <option key={movie.id} value={movie.id}>
-          {movie.title}
-        </option>
-      ))}
-    </select>
-      <br />
-      <label >Room</label>
-      <br />
-      <select value={roomLetter} onChange={(e) => setRoomLetter(e.target.value)}>
-        {roomLetters.map((letter) => (
-          <option key={letter} value={letter}>
-            {letter}
-          </option>
-        ))}
-      </select>
-      <br />
-      <label>Date:</label>
-      <br />
-        <select value={date} onChange={(e) => setDate(e.target.value)}>
-          {[...Array(30)].map((_, i) => {
-            const nextDay = new Date();
-            nextDay.setDate(nextDay.getDate() + i);
-            const dateString = nextDay.toISOString().split("T")[0];
-            return (
-              <option key={dateString} value={dateString}>
-                {dateString}
-              </option>
-            );
-          })}
-        </select>
-      
-      <br />
-      <label>
-        Start Time:
-        <br />
-        <input
-          type="time"
-          value={startTime}
-          onChange={(e) => setStartTime(e.target.value)}
-        />
-      </label>
-      <br />
-      <label>
-      End Time:
-      <br />
-      <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} />
-      </label>
-      <br />
-      <label>
-      Definition:
-      <br />
-      <select value={definition} onChange={(e) => setDefinition(e.target.value)}>
-      <option value="IMAX">IMAX</option>
-      <option value="3D">3D</option>
-      <option value="2D">2D</option>
-      </select>
-      </label>
-      <br />
-      <label>
-      Language:
-      <br />
-      <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-      <option value="Sub">Sub</option>
-      <option value="Dub">Dub</option>
-      <option value="Origin">Origin</option>
-      </select>
-      </label>
-      <br />
-      <button onClick={handleSave}>Guardar</button>
-</div>
-<div>
-       <h1>ID: {reservation.id}</h1>
-       <h1>Room: {reservation.roomLetter}</h1>
-       <h1>Date: {reservation.date}</h1>
-       <h1>Start: {reservation.startTime}</h1>
-       <h1>End: {reservation.endTime}</h1>
-       <h1>Definition: {reservation.definition}</h1>
-       <h1>Language: {reservation.language}</h1>
-       <h1>Seats: {reservation.seats ? reservation.seats.length : 0}</h1>
-</div>
-</div>
-);
+    <div className='NewScreen'>
+      <SideBarDash />
+      <div className='ContainerNewScreen'>
+        <NavBarDash />
+        <div className='InfoNewScreen'>
+          <div className="top">
+            <h1>Add New Screenings</h1>
+          </div>
+          <div className="bottom">
+            <div className="left">
+              <div className="DataScreen">
+                <h1>ID: {reservation.id}</h1>
+                <h1>Room: {reservation.roomLetter}</h1>
+                <h1>Date: {reservation.date}</h1>
+                <h1>Start: {reservation.startTime}</h1>
+                <h1>End: {reservation.endTime}</h1>
+                <h1>Definition: {reservation.definition}</h1>
+                <h1>Language: {reservation.language}</h1>
+                <h1>Seats: {reservation.seats ? reservation.seats.length : 0}</h1> 
+              </div>
+            </div>
+            <div className="right">
+              <select value={id} onChange={(e) => setId(e.target.value)}>
+                {movies.map((movie) => (
+                  <option key={movie.id} value={movie.id}>
+                    {movie.title}
+                  </option>
+                ))}
+              </select>
+              <label >Room</label>
+              <select value={roomLetter} onChange={(e) => setRoomLetter(e.target.value)}>
+                {roomLetters.map((letter) => (
+                  <option key={letter} value={letter}>
+                    {letter}
+                  </option>
+                ))}
+              </select>
+               
+              <label>
+                Date:
+                <select value={date} onChange={(e) => setDate(e.target.value)}>
+                  {[...Array(5)].map((_, i) => {
+                    const nextDay = new Date();
+                    nextDay.setDate(nextDay.getDate() + i);
+                    const dateString = nextDay.toISOString().split("T")[0];
+                    return (
+                      <option key={dateString} value={dateString}>
+                        {dateString}
+                      </option>
+                    );
+                  })}
+                </select>
+              </label>
+               
+              <label>
+                Start Time:
+                 
+                <input
+                  type="time"
+                  value={startTime}
+                  onChange={(e) => setStartTime(e.target.value)}
+                />
+              </label>
+               
+              <label>
+                End Time:
+                 
+                <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} />
+              </label>
+               
+              <label>
+                Definition:
+                 
+                <select value={definition} onChange={(e) => setDefinition(e.target.value)}>
+                  <option value="IMAX">IMAX</option>
+                  <option value="3D">3D</option>
+                  <option value="2D">2D</option>
+                </select>
+              </label>
+               
+              <label>
+                Language:
+                 
+                <select value={language} onChange={(e) => setLanguage(e.target.value)}>
+                  <option value="Sub">Sub</option>
+                  <option value="Dub">Dub</option>
+                  <option value="Origin">Origin</option>
+                </select>
+              </label>
+               
+              <button onClick={handleSave}>Guardar</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default RoomInputs;
