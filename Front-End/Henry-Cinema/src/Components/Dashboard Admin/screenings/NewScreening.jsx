@@ -56,7 +56,7 @@ console.log(reservation)
   };
   
 
-  const next5Days = getNext30Days();
+  const next30Days = getNext30Days();
 
   
 
