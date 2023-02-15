@@ -59,8 +59,8 @@ const getMovies = async () => {
     } else {
       movie.classification = "General Audiences";
     }
-    if (allResults[i].original_language === 'es') {
-      movie.originalLanguage = 'es';
+    if (allResults[i].original_language === "es") {
+      movie.originalLanguage = "es";
     }
     finalMovies.push(movie);
   }
@@ -77,7 +77,7 @@ const getMovies = async () => {
         voteAverage: m.voteAverage,
         overview: m.overview,
         genres: m.genres,
-        classification: m.classification,
+        classification: "G",
         apiId: m.apiId,
       },
     });
@@ -90,16 +90,17 @@ const getMovies = async () => {
 const getMovieById = async (id) => {
   // verify if id its a real number.
   // ie: id: 12665.
-  if (id.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)){
-    
+  if (
+    id.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)
+  ) {
     const recipeDbById = await Movie.findOne({
       where: {
         id: id,
       },
     });
-    
+
     return recipeDbById;
-}
+  }
 
   if (!isNaN(id)) {
     const config = { headers: { "Accept-Encoding": null } };
@@ -163,5 +164,6 @@ const getMovieById = async (id) => {
   // i.e: id: 78b8496d-357a-4b15-8fda-e99563df8c61 ( UUIDV4 )
   // to search for movies posted by admin in db
 };
+
 
 module.exports = { getMovies, getMovieById };
