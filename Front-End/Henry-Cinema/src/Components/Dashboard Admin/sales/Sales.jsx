@@ -1,11 +1,19 @@
 import React from "react";
+import "./sales.scss";
+import { SideBarDash } from "../SideBarDash/SideBarDash";
+import { NavBarDash } from "../NavbarDash/NavBarDash";
+import { SalesTable } from "../sales/SalesTable";
 
-export const Sale = () => {
+export const SalesDash = () => {
   return (
-    <div className="Sale">
-      <h1 className="title">Sale</h1>
+    <div className="list">
+      <SideBarDash />
+      <div className="listContainer">
+        <NavBarDash />
+        <SalesTable />
+      </div>
     </div>
   );
 };
 
-export default Sale;
+export default SalesDash;

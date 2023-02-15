@@ -20,9 +20,10 @@ const postUsersDb = async (formData) => {
     if ( userName && email && password && notifications) {
         const hashPw = bcrypt.hashSync(password, salt);
         // console.log(hashPw);
-
-        const findEmail = await User.findOne({where: { email: email }});
-        const findUserName = await User.findOne({ where: { userName: userName }});
+        const userNameCi = userName.toLowerCase();
+        const emailCi = email.toLowerCase();
+        const findEmail = await User.findOne({where: { email: emailCi }});
+        const findUserName = await User.findOne({ where: { userName: userNameCi }});
 
         if (findEmail || findUserName) {
             throw {
@@ -32,10 +33,10 @@ const postUsersDb = async (formData) => {
         }
 
         await User.create({ 
-            userName,
-            email,
+            userName: userNameCi,
+            email: emailCi,
             password: hashPw, 
-            notifications,
+            notifications
         });
 
         return "User created successfully";
