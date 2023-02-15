@@ -30,12 +30,6 @@ import {
   GET_SALES,
 } from "./actionTypes";
 
-<<<<<<< HEAD
-//axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
-=======
->>>>>>> 6e256687dad7dc67f4ef95b84a6d780409cb18db
-
 axios.defaults.baseURL = "http://localhost:3001";
 //axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 //MOVIES
@@ -376,8 +370,6 @@ export const getUsers = () => {
   };
 };
 
-
-
 export const deleteUser = (id) => {
   return async function (dispatch) {
     try {
@@ -486,15 +478,14 @@ export const logInUserWithGoogle = (response) => {
         email,
         userName: given_name,
       });
-      console.log("userCreated action",userCreated.data);
+      console.log("userCreated action", userCreated.data);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
       });
     } catch (error) {
       console.log("el error de logInUserWithGoogle es:", error);
-      alert(error.response.data.message)
-      
+      alert(error.response.data.message);
     }
   };
 };
@@ -503,7 +494,7 @@ export const logInUserWithGoogle = (response) => {
 
 export const logInUser = (email, password) => {
   if (!email && !password) {
-   return alert("Completa los campos para ingresar");
+    return alert("Completa los campos para ingresar");
   }
   if (!email) {
     return alert("Ingresa correo electronico");
@@ -519,7 +510,6 @@ export const logInUser = (email, password) => {
 
   if (!password) {
     return alert("Enter your Password");
-
   }
   return async (dispatch) => {
     try {
@@ -535,10 +525,8 @@ export const logInUser = (email, password) => {
   };
 };
 
-
 export const logOut = () => {
   return {
-    type: "LOG_OUT"
-  }
-}
- 
+    type: "LOG_OUT",
+  };
+};
