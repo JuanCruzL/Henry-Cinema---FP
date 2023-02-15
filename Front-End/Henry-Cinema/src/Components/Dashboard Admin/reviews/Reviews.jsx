@@ -1,11 +1,19 @@
 import React from "react";
+import "./reviews.scss";
+import { SideBarDash } from "../SideBarDash/SideBarDash";
+import { NavBarDash } from "../NavbarDash/NavBarDash";
+import { ReviewsTable } from "../reviews/ReviewsTable";
 
-export const Reviews = () => {
+export const ReviewsDash = () => {
   return (
-    <div className="Reviews">
-      <h1 className="title">Reviews</h1>
+    <div className="list">
+      <SideBarDash />
+      <div className="listContainer">
+        <NavBarDash />
+        <ReviewsTable />
+      </div>
     </div>
   );
 };
 
-export default Reviews;
+export default ReviewsDash;

@@ -1,7 +1,99 @@
-.newcombo {
-    background-color: rebeccapurple;
+.newCombo {
+    width: 100%;
+    display: flex;
+    background-color: rgb(216, 213, 213);
 
-    .title {
-        color: white;
+    .newContainer {
+        flex: 6;
+
+        .top,
+        .bottom {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 10px;
+            margin: 20px;
+            display: flex;
+            background-color: rgb(238, 210, 139);
+            display: flex;
+
+            h1 {
+                color: rgb(98, 36, 36);
+                font-size: 21px;
+            }
+
+            .left {
+                flex: 1;
+                text-align: center;
+
+                .imageNC {
+                    height: 600px;
+                    width: 600px;
+                }
+            }
+
+            .right {
+                flex: 2;
+
+                form {
+                    margin-left: 15px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    justify-content: space-between;
+
+                    .formNC {
+                        width: 40%;
+
+                        label {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            color: rgb(98, 36, 36);
+                        }
+
+                        .icon {
+                            cursor: pointer;
+                            font-size: 30px;
+                        }
+
+                        .vals {
+                            font-size: 13px;
+                            font-style: oblique;
+                            color: rgb(203, 7, 7);
+                        }
+                    }
+
+                    input {
+                        width: 100%;
+                        padding: 5px;
+                        border: none;
+                        border-bottom: 1px solid rgb(92, 92, 92);
+                        font-size: 13px;
+                        font-style: italic;
+                    }
+
+                    .buttonNC {
+                        border: none;
+                        background-color: transparent;
+                        color: black;
+                        cursor: pointer;
+                        font-size: 35px;
+                        position: absolute;
+                        bottom: 65px;
+                        right: 50px;
+
+                        .iconSubmit {
+                            font-size: 40px;
+                            margin-left: 3px;
+                            color: rgb(98, 36, 36);
+
+
+                            &:hover {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

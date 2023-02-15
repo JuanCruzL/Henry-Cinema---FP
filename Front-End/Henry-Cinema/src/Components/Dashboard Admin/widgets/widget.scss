@@ -10,10 +10,13 @@
             .counter,
             .link {
                 color: var(--LText-1);
+                text-decoration: none;
             }
 
             .link {
                 border-bottom: 1px solid rgb(82, 79, 79);
+                text-decoration: none;
+                color: inherit;
             }
 
             .percentage {
@@ -45,10 +48,12 @@
             .counter,
             .link {
                 color: var(--NText-1);
+                text-decoration: none;
             }
 
             .link {
                 border-bottom: 1px solid rgb(180, 172, 172);
+                text-decoration: none;
             }
 
             .percentage {
@@ -96,6 +101,7 @@
         .link {
             width: max-content;
             font-size: 12px;
+            text-decoration: none;
         }
 
         .percentage {
