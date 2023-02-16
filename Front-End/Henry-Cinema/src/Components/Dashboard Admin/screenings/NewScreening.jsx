@@ -20,6 +20,7 @@ const RoomInputs = () => {
   const [language, setLanguage] = useState('Sub');
   const [seats, setSeats]= useState([]);
   const [id, setId]= useState(movies[0]);
+  const [title, setTitle]= useState([movies[0]]);
   const [reservation, setReservation] = useState({});
 
   useEffect(() => {
@@ -32,6 +33,7 @@ const RoomInputs = () => {
 
   const handleSave = () => {
     setReservation({
+      title,
       roomLetter,
       date,
       startTime,
@@ -91,6 +93,7 @@ const RoomInputs = () => {
           <div className="bottom">
             <div className="left">
               <div className="DataScreen">
+                <h1>Title: {reservation.title}</h1>
                 <h1>ID: {reservation.id}</h1>
                 <h1>Room: {reservation.roomLetter}</h1>
                 <h1>Date: {reservation.date}</h1>
@@ -106,14 +109,20 @@ const RoomInputs = () => {
             </div>
             <div className="right">
               <label>Movie</label>
-              <select value={id} onChange={(e) => setId(e.target.value)}>
-                <option>Movies</option>
-                {movies.map((movie) => (
-                  <option key={movie.id} value={movie.id}>
-                    {movie.title}
-                  </option>
-                ))}
-              </select>
+           <select value={id} onChange={(e) => {
+           const selectedMovie = movies.find(movie => movie.id === e.target.value);
+          setId(selectedMovie.id);
+          setTitle(selectedMovie.title);
+                                         }}>
+             <option>Movies</option>
+             {movies.map((movie) => (
+             <option key={movie.id} value={movie.id}>
+             {movie.title}
+             </option>
+             ))}
+</select>
+
+
               <label >Room</label>
               <select value={roomLetter} onChange={(e) => setRoomLetter(e.target.value)}>
                 {roomLetters.map((letter) => (
