@@ -2,16 +2,11 @@
   background-color: var(--BaseL);
   color: var(--LText-1);
 }
-.light-mode .menu-link:hover {
-  background-color: var(--LBase-1);
-  color: var(--BaseL);
-}
+
 .light-mode .menu-nesting {
   background-color: var(--BaseLD);
 }
-.light-mode .menu-link {
-  color: var(--LText-1);
-}
+
 .light-mode .menu-inside {
   background-color: var(--BaseL);
 }
@@ -22,15 +17,9 @@
   background-color: var(--BaseL);
   color: var(--NText-2);
 }
-.dark-mode .menu-link:hover {
-  background-color: var(--NBase-2);
-  color: var(--BaseN);
-}
+
 .dark-mode .menu-nesting {
   background-color: var(--BaseND);
-}
-.dark-mode .menu-link {
-  color: var(--NText-2);
 }
 
 /*======================================================================*/
@@ -54,19 +43,23 @@
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  width: 100%;
-  height: 100%;
-  padding-left: 35px;
   transition: transform 0.5s;
   display: flex;
   list-style: none;
   align-items: center;
 }
+.left-menu {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.right-menu {
+  display: flex;
+}
 
 .menu-links {
   width: 100%;
   height: 100%;
-  padding-left: 35px;
   transition: transform 0.5s;
   display: flex;
   list-style: none;
@@ -75,46 +68,46 @@
 
 .menu-item-logo {
   list-style: none;
-  height: 93%;
-  width: 10%;
-  padding: 10px;
+  margin: 6px;
+  height: 90%;
+  width: 12%;
+  padding: 8px;
   transition: 0.5s;
 }
 
 .menu-itemSearchBar {
-  list-style: none;
-  height: 70%;
-  width: 25%;
-  margin-top: 4px;
-  padding: auto;
+  width: 35%;
   align-items: center;
-  justify-content: space-around;
-  cursor: pointer;
 }
 
 .link-foods,
 .link-movies,
 .link-about {
+  color: black;
+  padding: 25px;
   text-decoration: none;
   list-style: none;
-  /* border: 2px solid red; */
   display: flex;
   align-items: center;
 }
-
+.link-about:hover {
+  background-color: black;
+  color: #ffff00;
+}
+.link-movies:hover {
+  background-color: black;
+  color: #ffff00;
+}
+.link-foods:hover {
+  background-color: black;
+  color: #ffff00;
+}
 .items {
   display: flex;
   text-decoration: none;
   list-style: none;
   padding: 20px;
   justify-content: space-between;
-}
-.items:hover {
-  background-color: black;
-}
-
-.items:hover .menu-link {
-  color: yellow;
 }
 
 .menu-link-logo {
@@ -158,10 +151,6 @@
 
 .menu-link-user {
   text-decoration: none;
-  padding-left: 100px;
-  display: grid;
-  height: 100%;
-  width: 100%;
   align-items: center;
   text-align: center;
   cursor: pointer;
@@ -192,6 +181,7 @@
   position: absolute;
   z-index: 1000;
 }
+
 .menu-inside {
   width: 250px;
   text-align: left;
@@ -206,7 +196,12 @@
   text-decoration: none;
 }
 .menu-link--inside {
-  padding: 10px 100px 10px 30px;
+  padding: 20px 30px 15px 20px;
+  color: black;
+}
+.menu-link--inside:hover {
+  background-color: black;
+  color: #ffff00;
 }
 
 .logo {
@@ -247,10 +242,27 @@
 }
 
 .link {
+  font-size: 2rem;
   text-decoration: none;
   color: black;
 }
+.link .fQQvfO {
+  font-size: 2rem;
+}
+.shopBag {
+  padding: 5px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  width: 100%;
+}
+.bag .fQQvfO {
+  font-size: 2rem;
+}
+.input-icons .fQQvfO {
+  margin-top: 5px;
+}
 
 .userLogo {
-  width: 25px;
+  width: 35px;
 }
