@@ -402,11 +402,11 @@ export const signUp = (payload) => {
     try {
       if (payload.notifications === false) {
         payload.notifications = "false";
-        await axios.post("/users", payload);
+        await axios.post("/register", payload);
         return alert("User register successfully!, You can now Log In!");
       }
       console.log(payload.notifications);
-      await axios.post("/users", payload);
+      await axios.post("/register", payload);
       return alert("User register successfully!, You can now Log In!");
     } catch (e) {
       alert(e.response.data.message);
@@ -473,18 +473,15 @@ export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
       const { email, given_name } = response;
-      
       const userCreated = await axios.post(`/login/google`, {
         email,
         userName: given_name,
       });
-      console.log("userCreated action", userCreated.data);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
       });
     } catch (error) {
-      
       alert(error.response.data.message);
     }
   };
