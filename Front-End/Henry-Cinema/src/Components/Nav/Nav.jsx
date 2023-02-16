@@ -10,23 +10,24 @@ import "./darkmode.css";
 import { useDispatch } from "react-redux";
 import { logOut } from "../../redux/actions";
 import swal from "sweetalert";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import PersonIcon from "@mui/icons-material/Person";
 
 const Nav = ({ setCurrentPage }) => {
-
   const dispatch = useDispatch();
-  const user = window.localStorage.getItem('loggedUser')
+  const user = window.localStorage.getItem("loggedUser");
   const navigate = useNavigate();
 
   const handleLogOut = () => {
-    window.localStorage.removeItem('loggedUser')
-    dispatch(logOut())
+    window.localStorage.removeItem("loggedUser");
+    dispatch(logOut());
     swal({
       title: `Logged Out Succesfully`,
       icon: "success",
       button: true,
-    })  
-    window.location.reload(true)
-  }
+    });
+    window.location.reload(true);
+  };
 
   return (
     <nav className="menu">
@@ -39,12 +40,6 @@ const Nav = ({ setCurrentPage }) => {
           </div>
           <ul className="menu-nesting">
             <li className="menu-inside">
-              {/* <div
-                  className="menu-link menu-link--inside"
-                  onClick={(e) => toggleDarkLight(e)}
-                >
-                  🌑
-                </div> */}
               <label className="switch">
                 <input
                   className="menu-link menu-link--inside"
@@ -79,10 +74,16 @@ const Nav = ({ setCurrentPage }) => {
               <Link to="/dashboard">
                 <div className="menu-link menu-link--inside">Dashboard</div>
               </Link>
-            </li>           
-            {user ? <li className="menu-inside">
-                <div className="logout" onClick={e => handleLogOut()}>Log Out</div>
-            </li> : <></>}
+            </li>
+            {user ? (
+              <li className="menu-inside">
+                <div className="logout" onClick={(e) => handleLogOut()}>
+                  Log Out
+                </div>
+              </li>
+            ) : (
+              <></>
+            )}
           </ul>
         </li>
         {/* Menú Nav */}
@@ -106,22 +107,18 @@ const Nav = ({ setCurrentPage }) => {
             <div className="menu-link">About Us</div>
           </li>
         </Link>
-
         <li className="menu-itemSearchBar">
           <SearchBar setCurrentPage={setCurrentPage} />
         </li>
-        <div className="moon">
-          <label className="switch">
-            <input onClick={(e) => toggleDarkLight(e)} type="checkbox" />
-
-            <span className="slider"></span>
+        <div className="shopBag">
+          <label className="bag">
+            <ShoppingBagIcon />
           </label>
         </div>
-
         <li className="menu-item">
           <div className="menu-link-user">
             <Link to="/login">
-              <img src={perfil} className="perfil"></img>
+              <PersonIcon />
             </Link>
           </div>
         </li>
