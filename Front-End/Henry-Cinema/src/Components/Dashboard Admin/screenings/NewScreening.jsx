@@ -20,6 +20,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getasientos, getMovies} from "../../../redux/actions"
 import NavBarDash from '../NavbarDash/NavBarDash';
 import SideBarDash from '../SideBarDash/SideBarDash';
+import axios from 'axios';
 import "./newscreenings.scss";
 
 
@@ -27,7 +28,6 @@ const RoomInputs = () => {
   const dispatch = useDispatch();
   const asientos = useSelector(state => state.seats);
   const movies = useSelector(state => state.movies);
-  const [images, setImages] = useState([]);
   const roomLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
   const [roomLetter, setRoomLetter] = useState('A');
   const [date, setDate] = useState('');
@@ -36,6 +36,7 @@ const RoomInputs = () => {
   const [definition, setDefinition] = useState('IMAX');
   const [language, setLanguage] = useState('Sub');
   const [seats, setSeats]= useState([]);
+<<<<<<< HEAD
   const [id, setId]= useState('');
 >>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
   const [reservation, setReservation] = useState({});
@@ -45,10 +46,23 @@ const RoomInputs = () => {
 <<<<<<< HEAD
     setSeats(asientos);
 =======
+=======
+  const [id, setId]= useState(movies[0]);
+  const [reservation, setReservation] = useState({});
+
+  useEffect(() => {
+>>>>>>> cda2499370631c4e48c161beab11d981cb456fd6
     dispatch(getMovies());
+    dispatch(getasientos());
     setSeats(asientos)
+<<<<<<< HEAD
 >>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
   }, [reservation]);
+=======
+  }, [id]);
+  
+
+>>>>>>> cda2499370631c4e48c161beab11d981cb456fd6
 
   const handleSave = () => {
     setReservation({
@@ -75,6 +89,7 @@ const RoomInputs = () => {
 >>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
 
   const getNext30Days = () => {
+    
     const today = new Date();
     const days = [];
   
@@ -89,6 +104,19 @@ const RoomInputs = () => {
   
 
   const next30Days = getNext30Days() ;
+
+  function enviarDatos() {
+    console.log(reservation) ;
+    axios.post('http://localhost:3001/screenings', reservation)
+    
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  
 
 
 <<<<<<< HEAD
@@ -188,10 +216,15 @@ const RoomInputs = () => {
                 <h1>Definition: {reservation.definition}</h1>
                 <h1>Language: {reservation.language}</h1>
                 <h1>Seats: {reservation.seats ? reservation.seats.length : 0}</h1> 
+                <div className="right">
+                <button onClick={enviarDatos} >Confirm</button>
+                </div>
               </div>
             </div>
             <div className="right">
+              <label>Movie</label>
               <select value={id} onChange={(e) => setId(e.target.value)}>
+                <option>Movies</option>
                 {movies.map((movie) => (
                   <option key={movie.id} value={movie.id}>
                     {movie.title}
@@ -209,8 +242,10 @@ const RoomInputs = () => {
                
               <label>
                 Date:
+                < br/>
                 <select value={date} onChange={(e) => setDate(e.target.value)}>
-                  {[...Array(5)].map((_, i) => {
+                  <option>Select a Date</option>
+                  {[...Array(30)].map((_, i) => {
                     const nextDay = new Date();
                     nextDay.setDate(nextDay.getDate() + i);
                     const dateString = nextDay.toISOString().split("T")[0];
@@ -223,7 +258,8 @@ const RoomInputs = () => {
                 </select>
               </label>
                
-              <label>
+           
+             <label>
                 Start Time:
                  
                 <input
@@ -232,12 +268,30 @@ const RoomInputs = () => {
                   onChange={(e) => setStartTime(e.target.value)}
                 />
               </label>
-               
-              <label>
-                End Time:
-                 
-                <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} />
-              </label>
+
+<label>
+  End Time:
+  <input
+    type="time"
+    value={endTime}
+    name="endTime"
+    min={startTime} // Establece el valor mínimo para el input de end time
+    onChange={(e) => {
+      const { name, value } = e.target;
+      const newStartTime = name === "startTime" ? value : startTime;
+      const newEndTime = name === "endTime" ? value : endTime;
+
+      if (newStartTime >= newEndTime) {
+        alert("End time must be after start time");
+        return;
+      }
+
+      setStartTime(newStartTime);
+      setEndTime(newEndTime);
+    }}
+   disabled={!startTime}/>
+</label>
+
                
               <label>
                 Definition:

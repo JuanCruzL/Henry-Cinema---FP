@@ -65,7 +65,7 @@ export const CombosTable = () => {
               <TableCell className="tableCellCombos">${c.price}</TableCell>
               <TableCell className="tableCellCombos">
                 <div className="cellWrapper">
-                  <img alt={d.name} className="comboImage" src={c.image} />
+                  <img alt={c.name} className="comboImage" src={c.image} />
                 </div>
               </TableCell>
               <TableCell className="tableCellCombos">

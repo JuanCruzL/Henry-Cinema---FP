@@ -1,7 +1,7 @@
 import React from "react";
-import "./drinkstable.scss";
+import "./salestable.scss";
 import { useState, useEffect } from "react";
-import { getDrinks, deleteDrink } from "../../../redux/actions";
+import { getSales } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -11,44 +11,20 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
-import { Link, useNavigate } from "react-router-dom";
+//mport { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
-export const DrinksTable = () => {
+export const SalesTable = () => {
   const dispatch = useDispatch();
-  const allDrinks = useSelector((state) => state.drinks);
+  const allSales = useSelector((state) => state.sales);
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    dispatch(getDrinks());
+    dispatch(getSales());
   }, [dispatch, count]);
 
-  const deleteAlert = (id, name) => {
-    swal({
-      title: "Are you sure?",
-      text: `this will remove ${name} from the database.`,
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((r) => {
-      if (r) {
-        dispatch(deleteDrink(id));
-        setTimeout(() => {
-          setCount(count + 1);
-          console.log("HOLAA");
-        }, 1500);
-        swal({
-          text: "The drink has been successfully removed.",
-          icon: "success",
-        });
-      } else {
-        swal("Remove cancelled");
-      }
-    });
-  };
-
   return (
-    <TableContainer component={Paper} className="drinksTable">
+    <TableContainer component={Paper} className="salesTable">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow className="tableRow">
@@ -59,17 +35,17 @@ export const DrinksTable = () => {
           </TableRow>
         </TableHead>
         <TableBody className="list">
-          {allDrinks.map((d) => (
-            <TableRow key={d.id}>
-              <TableCell className="tableCellDrinks">{d.name}</TableCell>
-              <TableCell className="tableCellDrinks">${d.price}</TableCell>
-              <TableCell className="tableCellDrinks">
+          {allSales.map((s) => (
+            <TableRow key={s.id}>
+              <TableCell className="tableCellSales">{s.name}</TableCell>
+              <TableCell className="tableCellSales">${s.price}</TableCell>
+              <TableCell className="tableCellSales">
                 <div className="cellWrapper">
-                  <img alt={d.name} className="drinkImage" src={d.image} />
+                  <img alt={f.name} className="saleImage" src={s.image} />
                 </div>
               </TableCell>
-              <TableCell className="tableCellDrinks">
-                <button onClick={() => deleteAlert(d.id, d.name)}>
+              <TableCell className="tableCellSales">
+                <button onClick={() => deleteAlert(s.id, s.name)}>
                   <div>
                     <DeleteForeverRoundedIcon className="bin" />
                   </div>
@@ -83,4 +59,4 @@ export const DrinksTable = () => {
   );
 };
 
-export default DrinksTable;
+export default SalesTable;

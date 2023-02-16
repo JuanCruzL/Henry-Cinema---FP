@@ -114,62 +114,64 @@ export const NewCombo = () => {
       <SideBarDash />
       <div className="newContainer">
         <NavBarDash />
-        <div className="top">
-          <h1>Add a New Combo</h1>
-        </div>
-        <div className="bottom">
-          <div className="left">
-            <img
-              className="imageNC"
-              src="https://previews.123rf.com/images/foontntd/foontntd1705/foontntd170500070/77824901-menu-food-drawing-graphic-design-illustrate-objects-template.jpg"
-              alt=""
-            />
+        <div className="formContainer">
+          <div className="top">
+            <h1>Add a New Combo</h1>
           </div>
-          <div className="right">
-            <form name="newCombo" onSubmit={handleSubmit}>
-              <div className="formNC">
-                <label>Name</label>
-                <input
-                  className="inputNC"
-                  type="text"
-                  placeholder="Name of the meal..."
-                  name="name"
-                  value={name}
-                  onChange={handleChange}
-                  onBlur={validateOne}
-                />
-                <div className="vals">{nameVal}</div>
-              </div>
-              <div className="formNC">
-                <label>Price</label>
-                <input
-                  className="inputNC"
-                  type="number"
-                  placeholder="how much it cost..."
-                  name="price"
-                  value={price}
-                  onChange={handleChange}
-                  onBlur={validateOne}
-                />
-                <div className="vals">{priceVal}</div>
-              </div>
-              <div className="formNC">
-                <label>Image</label>
-                <input
-                  className="inputNC"
-                  type="text"
-                  placeholder="img url"
-                  name="image"
-                  value={image}
-                  onChange={handleChange}
-                  onBlur={validateOne}
-                />
-                <div className="vals">{imageVal}</div>
-              </div>
-              <button className="buttonNC" type="submit" value="SUBMIT COMBO">
-                <OutboxRoundedIcon className="iconSubmit" />
-              </button>
-            </form>
+          <div className="bottom">
+            <div className="left">
+              <img
+                className="imageNC"
+                src="https://static8.depositphotos.com/1077687/1062/v/950/depositphotos_10622859-stock-illustration-cine-fast-food-combo.jpg"
+                alt=""
+              />
+            </div>
+            <div className="right">
+              <form name="newCombo" onSubmit={handleSubmit}>
+                <div className="formNC">
+                  <label>Name</label>
+                  <input
+                    className="inputNC"
+                    type="text"
+                    placeholder="Name of the meal..."
+                    name="name"
+                    value={name}
+                    onChange={handleChange}
+                    onBlur={validateOne}
+                  />
+                  <div className="vals">{nameVal}</div>
+                </div>
+                <div className="formNC">
+                  <label>Price</label>
+                  <input
+                    className="inputNC"
+                    type="number"
+                    placeholder="how much it cost..."
+                    name="price"
+                    value={price}
+                    onChange={handleChange}
+                    onBlur={validateOne}
+                  />
+                  <div className="vals">{priceVal}</div>
+                </div>
+                <div className="formNC">
+                  <label>Image</label>
+                  <input
+                    className="inputNC"
+                    type="text"
+                    placeholder="img url"
+                    name="image"
+                    value={image}
+                    onChange={handleChange}
+                    onBlur={validateOne}
+                  />
+                  <div className="vals">{imageVal}</div>
+                </div>
+                <button className="buttonNC" type="submit" value="SUBMIT COMBO">
+                  SUBMIT
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
