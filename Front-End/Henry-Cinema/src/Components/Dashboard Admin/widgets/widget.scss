@@ -39,7 +39,6 @@
   .widget {
     background-color: var(--NFondo-3);
     box-shadow: var(--NDegradado3) 0px 3px 8px;
-    color: aliceblue;
 
     .left,
     .right {
@@ -67,10 +66,6 @@
 
       .icon {
         background-color: var(--BaseN);
-      }
-      .widget .left .icon,
-      .widget .right .icon {
-        color: black;
       }
     }
   }
