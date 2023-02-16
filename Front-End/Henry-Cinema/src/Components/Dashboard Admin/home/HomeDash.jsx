@@ -12,7 +12,7 @@ export const HomeDash = () => {
     <div className="home">
       <SideBarDash />
       <div className="homeContainer">
-        <NavBarDash />
+        <NavBarDash location="Home" />
         <div className="widgets">
           <Widget type="users" className="widget" />
           <Widget type="reviews" className="widget" />
