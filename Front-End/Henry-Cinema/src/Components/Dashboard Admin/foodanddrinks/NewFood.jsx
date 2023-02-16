@@ -115,7 +115,7 @@ export const NewFood = () => {
       <div className="newContainer">
         <NavBarDash />
         <div className="top">
-          <h1>Add New Food</h1>
+          <h1>Add a New Food</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -167,7 +167,7 @@ export const NewFood = () => {
                 <div className="vals">{imageVal}</div>
               </div>
               <button className="buttonNF" type="submit" value="SUBMIT FOOD">
-                <OutboxRoundedIcon className="iconSubmit" />
+                SUMBIT
               </button>
             </form>
           </div>

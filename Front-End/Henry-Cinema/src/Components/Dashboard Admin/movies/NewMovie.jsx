@@ -246,7 +246,7 @@ export const NewMovie = () => {
       <div className="newContainer">
         <NavBarDash />
         <div className="top">
-          <h1>Add New Movie</h1>
+          <h1>Add a New Movie</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -438,7 +438,7 @@ export const NewMovie = () => {
                 value="SUBMIT RECIPE"
                 onClick={() => console.log("hola")}
               >
-                <OutboxRoundedIcon />
+                SUBMIT
               </button>
             </form>
           </div>

@@ -56,6 +56,7 @@
 
     .tableRow {
         align-items: center;
+        justify-content: space-between;
 
         .title {
             font-size: 15px;
@@ -65,6 +66,7 @@
 
     .tableCellDrinks {
         justify-content: center;
+        align-items: center;
 
         .bin {
             font-size: 39px;
