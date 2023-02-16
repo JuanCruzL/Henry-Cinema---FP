@@ -1,127 +1,127 @@
 .light-mode {
-    .widget {
-        background-color: var(--Dashboard-Base);
-        box-shadow: var(--LDegradado3) 0px 3px 8px;
-
-        .left,
-        .right {
-
-            .title,
-            .counter,
-            .link {
-                color: var(--LText-1);
-                text-decoration: none;
-            }
-
-            .link {
-                border-bottom: 1px solid rgb(82, 79, 79);
-                text-decoration: none;
-                color: inherit;
-            }
-
-            .percentage {
-                &.positive {
-                    color: green;
-                }
-
-                &.negative {
-                    color: red;
-                }
-            }
-
-            .icon {
-                background-color: var(--BaseL);
-            }
-        }
-    }
-}
-
-.dark-mode {
-    .widget {
-        background-color: var(--NFondo-3);
-        box-shadow: var(--NDegradado3) 0px 3px 8px;
-
-        .left,
-        .right {
-
-            .title,
-            .counter,
-            .link {
-                color: var(--NText-1);
-                text-decoration: none;
-            }
-
-            .link {
-                border-bottom: 1px solid rgb(180, 172, 172);
-                text-decoration: none;
-            }
-
-            .percentage {
-                &.positive {
-                    color: greenyellow;
-                }
-
-                &.negative {
-                    color: rgb(254, 57, 195);
-                }
-            }
-
-            .icon {
-                background-color: var(--BaseN);
-            }
-        }
-    }
-}
-
-
-/*====================================================*/
-.widget {
-    display: flex;
-    justify-content: space-between;
-    flex: 1;
-    padding: 10px;
-    height: 100px;
+  .widget {
+    background-color: var(--Dashboard-Base);
+    box-shadow: var(--LDegradado3) 0px 3px 8px;
 
     .left,
     .right {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+      .title,
+      .counter,
+      .link {
+        color: var(--LText-1);
+        text-decoration: none;
+      }
 
+      .link {
+        border-bottom: 1px solid rgb(82, 79, 79);
+        text-decoration: none;
+        color: inherit;
+      }
 
-        .title {
-            font-size: 14px;
+      .percentage {
+        &.positive {
+          color: green;
         }
 
-        .counter {
-            font-size: 28px;
-            font-weight: 300;
+        &.negative {
+          color: red;
         }
+      }
 
-        .link {
-            width: max-content;
-            font-size: 12px;
-            text-decoration: none;
-        }
-
-        .percentage {
-            display: flex;
-            align-items: center;
-            font-size: 15px;
-
-            // &.positive {
-            //     color: green;
-            // }
-            // &.negative {
-            //     color: red;
-            // }
-        }
-
-        .icon {
-            font-size: 30px;
-            padding: 5px;
-            border-radius: 5px;
-            align-self: flex-end;
-        }
+      .icon {
+        background-color: var(--BaseL);
+      }
     }
+  }
+}
+
+.dark-mode {
+  .widget {
+    background-color: var(--NFondo-3);
+    box-shadow: var(--NDegradado3) 0px 3px 8px;
+
+    .left,
+    .right {
+      .title,
+      .counter,
+      .link {
+        color: var(--NText-1);
+        text-decoration: none;
+      }
+
+      .link {
+        border-bottom: 1px solid rgb(180, 172, 172);
+        text-decoration: none;
+      }
+
+      .percentage {
+        &.positive {
+          color: greenyellow;
+        }
+
+        &.negative {
+          color: rgb(254, 57, 195);
+        }
+      }
+
+      .icon {
+        background-color: var(--BaseN);
+      }
+    }
+  }
+}
+.dark-mode .widget .right .link .icon {
+  background-color: var(--BaseN);
+  color: black;
+}
+
+/*====================================================*/
+.widget {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding: 10px;
+  height: 100px;
+
+  .left,
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+      font-size: 14px;
+    }
+
+    .counter {
+      font-size: 28px;
+      font-weight: 300;
+    }
+
+    .link {
+      width: max-content;
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    .percentage {
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+
+      // &.positive {
+      //     color: green;
+      // }
+      // &.negative {
+      //     color: red;
+      // }
+    }
+
+    .icon {
+      font-size: 30px;
+      padding: 5px;
+      border-radius: 5px;
+      align-self: flex-end;
+    }
+  }
 }

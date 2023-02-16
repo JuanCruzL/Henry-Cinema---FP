@@ -57,6 +57,7 @@
         background-color: var(--NFondo-1);
 
         .newContainer {
+        background-image: url(../img/fondo-negro-degradado-lineas-onduladas_23-2149157313.avif);
 
             .top,
             .bottom {
@@ -135,6 +136,7 @@
       .left {
           position: relative;
           height: 400px;
+          flex: 1;
           .imageND {
             position: absolute;
             width: 380px;

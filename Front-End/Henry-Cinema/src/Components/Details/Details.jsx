@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieById } from "../../redux/actions";
@@ -21,6 +21,7 @@ export default function Details() {
   }, [dispatch]);
 
   const movie = useSelector((state) => state.movieId);
+  console.log(movie);
 
   let genres ;
   let genres2 ;
@@ -58,12 +59,12 @@ export default function Details() {
                 <p className="info-mid">{movie.classification}</p>
                 <p className="info">{genres2}</p>
               </div>
-              <a className="fancy" href="#">
+              <Link to={`/showscreenings/${id}`} className="fancy">
                 <span className="top-key"></span>
                 <span className="text">Buy Tickets</span>
                 <span className="bottom-key-1"></span>
                 <span className="bottom-key-2"></span>
-              </a>
+              </Link>
               <iframe
                 width="800"
                 height="450"

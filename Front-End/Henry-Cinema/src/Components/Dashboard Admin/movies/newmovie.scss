@@ -1,9 +1,10 @@
+
 .light-mode {
   .newMovie {
     background-color: var(--LBase-2);
 
     .newContainer {
-  
+      
       .top,
       .bottom {
         box-shadow: var(--LDegradado3) 0px 3px 8px;
@@ -81,6 +82,7 @@
     background-color: var(--NFondo-1);
 
     .newContainer {
+      background-image: url(../img/fondo-negro.avif);
       .top,
       .bottom {
         box-shadow: var(--NDegradado3) 0px 3px 8px;
@@ -159,6 +161,7 @@
 }
 
 /*================================================*/
+
 .newMovie {
   width: 100%;
   display: flex;
@@ -229,7 +232,9 @@
             background-color: transparent;
             cursor: pointer;
             margin-top: 10px;
-            font-size: 30px;
+            font-size: 20px;
+            align-items:baseline;
+            justify-content: space-between;
 
             .MuiSvgIcon-root {
               font-size: 35px;
