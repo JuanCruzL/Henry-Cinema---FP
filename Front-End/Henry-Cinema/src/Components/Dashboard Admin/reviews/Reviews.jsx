@@ -9,7 +9,7 @@ export const ReviewsDash = () => {
     <div className="list">
       <SideBarDash />
       <div className="listContainer">
-        <NavBarDash />
+        <NavBarDash location="Review" />
         <ReviewsTable />
       </div>
     </div>

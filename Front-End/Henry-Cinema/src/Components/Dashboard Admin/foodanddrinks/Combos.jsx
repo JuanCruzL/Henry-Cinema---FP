@@ -9,7 +9,7 @@ export const CombosDash = () => {
     <div className="list">
       <SideBarDash />
       <div className="listContainer">
-        <NavBarDash />
+        <NavBarDash location="Combos" />
         <CombosTable />
       </div>
     </div>
