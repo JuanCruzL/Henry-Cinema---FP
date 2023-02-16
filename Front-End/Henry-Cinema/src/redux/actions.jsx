@@ -31,8 +31,7 @@ import {
 } from "./actionTypes";
 
 axios.defaults.baseURL = "http://localhost:3001";
-// axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
-
+//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 //MOVIES
 
 export const getMovies = () => {
@@ -387,7 +386,6 @@ export const deleteUser = (id) => {
 
 // crea el usuario y lo guarda en la base de datos
 export const signUp = (payload) => {
-  
   if (!payload.email && !payload.password && !payload.userName) {
     return alert("Complete the inputs to log in");
   }
@@ -402,8 +400,8 @@ export const signUp = (payload) => {
   }
   return async () => {
     try {
-      if(payload.notifications === false) {
-        payload.notifications = "false"
+      if (payload.notifications === false) {
+        payload.notifications = "false";
         await axios.post("/users", payload);
         return alert("User register successfully!, You can now Log In!");
       }
@@ -475,17 +473,19 @@ export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
       const { email, given_name } = response;
+      
       const userCreated = await axios.post(`/login/google`, {
         email,
         userName: given_name,
       });
-      console.log(userCreated.data);
+      console.log("userCreated action", userCreated.data);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
       });
     } catch (error) {
-      alert(error.response.data.message)
+      
+      alert(error.response.data.message);
     }
   };
 };
@@ -499,20 +499,53 @@ export const logInUser = (email, password) => {
   if (!email) {
     return alert("Enter your Email");
   }
-
   if (!password) {
     return alert("Enter your Password");
   }
   return async (dispatch) => {
     try {
-        const loginCredentials = await axios.post("/login", { email, password });
-        console.log(loginCredentials.data);
-        return dispatch({
-          type: "GET_CURRENT_USER",
-          payload: loginCredentials.data,
-        });
+      const loginCredentials = await axios.post("/login", { email, password });
+      console.log(loginCredentials.data);
+      return dispatch({
+        type: "GET_CURRENT_USER",
+        payload: loginCredentials.data,
+      });
     } catch (error) {
       alert(error.response.data.message);
     }
-  }
+  };
+};
+
+export const logOut = () => {
+  return {
+    type: "LOG_OUT"
+  };
+};
+ 
+
+//Todo: para el DashSearch
+
+export const DashMovie = (payload) => {
+  return {
+    type: "DASH_MOVIES",
+    payload,
+  };
+};
+export	const DashCombos = (payload) =>{
+  return{
+    type: "DASH_COMBOS",
+    payload,
+  };
+};
+export	const DashFoods = (payload) =>{
+  return{
+    type: "DASH_FOODS",
+    payload,
+  };
+};
+export	const DashDrinks = (payload) =>{
+  return{
+    type: "DASH_DRINKS",
+    payload,
+  };
 };

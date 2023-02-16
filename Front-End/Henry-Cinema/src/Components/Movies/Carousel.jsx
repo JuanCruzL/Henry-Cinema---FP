@@ -7,6 +7,7 @@ import { useState } from "react";
 const Carousel = ({ images }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const numOfImages = 5;
+
   
     const handlePrev = () => {
       setCurrentImageIndex((currentImageIndex - numOfImages + images.length) % images.length);
@@ -15,6 +16,7 @@ const Carousel = ({ images }) => {
     const handleNext = () => {
       setCurrentImageIndex((currentImageIndex + numOfImages) % images.length);
     };
+    console.log(images.apiID)
 
   return (
     <div className="carousel-container">
@@ -24,6 +26,7 @@ const Carousel = ({ images }) => {
       <div className="carousel-container-img">
       {[...images, ...images].slice(currentImageIndex, currentImageIndex + numOfImages).map(({ apiID, image }, index) => (
         <Link  to={`/movie/${apiID}`}><img key={apiID} src={image} alt={`Image ${index + 1}`} /></Link>
+        
       ))}
       </div>
       <button className="btn-next" onClick={handleNext}>

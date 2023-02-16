@@ -4,11 +4,30 @@ import logo from "../../img/menus.png";
 import perfil from "../../img/editar.png";
 import logoCinema from "../../img/logoHenryNav.png";
 import { toggleDarkLight } from "../Utils/Switch";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Nav.css";
 import "./darkmode.css";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../redux/actions";
+import swal from "sweetalert";
 
 const Nav = ({ setCurrentPage }) => {
+
+  const dispatch = useDispatch();
+  const user = window.localStorage.getItem('loggedUser')
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    window.localStorage.removeItem('loggedUser')
+    dispatch(logOut())
+    swal({
+      title: `Logged Out Succesfully`,
+      icon: "success",
+      button: true,
+    })  
+    window.location.reload(true)
+  }
+
   return (
     <nav className="menu">
       <section className="menu-container">
@@ -60,7 +79,10 @@ const Nav = ({ setCurrentPage }) => {
               <Link to="/dashboard">
                 <div className="menu-link menu-link--inside">Dashboard</div>
               </Link>
-            </li>
+            </li>           
+            {user ? <li className="menu-inside">
+                <div className="logout" onClick={e => handleLogOut()}>Log Out</div>
+            </li> : <></>}
           </ul>
         </li>
         {/* Menú Nav */}

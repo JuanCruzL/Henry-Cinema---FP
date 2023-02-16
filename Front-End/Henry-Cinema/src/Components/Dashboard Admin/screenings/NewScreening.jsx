@@ -64,6 +64,19 @@ const RoomInputs = () => {
 
   const next30Days = getNext30Days() ;
 
+  function enviarDatos() {
+    console.log(reservation) ;
+    axios.post('http://localhost:3001/screenings', reservation)
+    
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  
+
 
 
   return (
@@ -87,7 +100,7 @@ const RoomInputs = () => {
                 <h1>Language: {reservation.language}</h1>
                 <h1>Seats: {reservation.seats ? reservation.seats.length : 0}</h1> 
                 <div className="right">
-                <button>Confirm</button>
+                <button onClick={enviarDatos} >Confirm</button>
                 </div>
               </div>
             </div>
