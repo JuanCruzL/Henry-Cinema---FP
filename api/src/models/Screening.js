@@ -1,28 +1,42 @@
-const { DataTypes, UUIDV4 } = require('sequelize');
+const { DataTypes, UUIDV4 } = require("sequelize");
 //const { v4: uuidv4 } = require('uuid');
 
 module.exports = (sequelize) => {
   // define the model
-  sequelize.define('Screening', {
-    
+  sequelize.define("Screening", {
     id: {
-      type: DataTypes.UUID,
-      defaultValue: UUIDV4,
+      type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
       allowNull: false,
-      
     },
-    name: {
+    roomLetter: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    screeningStart: {
-        type: DataTypes.TIME,
-        allowNull: false
+      allowNull: false,
     },
     date: {
-        type: DataTypes.DATE,
-        allowNull: false
-    }
-  },{timestamps:false});
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    startTime: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    endTime: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    definition: {
+      type: DataTypes.ENUM("2D", "3D", "IMAX"),
+      allowNull: false,
+    },
+    language: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    seats: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
+    },
+  });
 };
