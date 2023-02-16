@@ -198,16 +198,11 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case "POST_USER_WITH_GOOGLE":
-      console.log("yo soy el payload",action.payload)
-      try {
         return {
           ...state,
           currentUser: action.payload,
         };
-      }catch(err) {
-        console.log(err)
-      }
-
+     
     case "GET_CURRENT_USER":
       return {
         ...state,

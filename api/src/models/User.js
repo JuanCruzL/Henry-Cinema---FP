@@ -22,6 +22,10 @@ module.exports = (sequelize) =>{
         notifications:{
             type:DataTypes.BOOLEAN,
             allowNull:true,
+        },
+        isAdministrator: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
         }
     },{timestamps:false})
 }
