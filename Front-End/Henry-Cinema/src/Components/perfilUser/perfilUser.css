@@ -23,6 +23,7 @@
   background-color: #ffff00;
   color: var(--LText-1);
   box-shadow: var(--LDegradado) 0px 5px 15px;
+  transition-duration: 0.4s;
 }
 .light-mode .button-change:hover {
   background-color: var(--LBase-1);
@@ -33,6 +34,7 @@
   background-color: #ffff00;
   color: var(--LText-1);
   box-shadow: var(--LDegradado) 0px 5px 15px;
+  transition-duration: 0.4s;
 }
 .light-mode .button-dissable:hover {
   background-color: var(--LBase-1);
@@ -43,6 +45,7 @@
   background-color: #ffff00;
   color: var(--LText-1);
   box-shadow: var(--LDegradado) 0px 5px 15px;
+  transition-duration: 0.4s;
 }
 .light-mode .button-delete:hover {
   background-color: var(--LBase-1);
@@ -64,6 +67,12 @@
   color: var(--LText-1);
   box-shadow: var(--LDegradado) 0px 5px 15px;
 }
+.dark-mode .container-user-information {
+  box-shadow: var(--NDegradado3) 0px 3px 8px;
+}
+.dark-mode .container-settings-user {
+  box-shadow: var(--NDegradado3) 0px 3px 8px;
+}
 .container-perfil {
   background-color: rgb(30, 30, 30);
   display: flex;
@@ -75,6 +84,7 @@
 .container-settings-user {
   min-width: 15rem;
   background-color: rgba(0, 0, 0, 0.68);
+  padding: 60px 6px 60px 20px;
 }
 .title-settings {
   color: aliceblue;
@@ -82,7 +92,7 @@
   font-size: 16px;
   margin-top: 20px;
   padding: 7px;
-  padding-left: 20px;
+  padding-left: 70px;
 }
 .settings-user {
   margin: 3px;
@@ -93,7 +103,7 @@
   color: #ffff00;
   font-size: 16px;
   padding: 10px;
-  padding-left: 20px;
+  padding-left: 70px;
   margin: 5px;
   cursor: pointer;
 }
@@ -101,10 +111,10 @@
   color: #ffff00;
   font-size: 16px;
   padding: 10px;
-  padding-left: 20px;
+  padding-left: 70px;
   margin: 5px;
   margin: 3px;
-  margin-top: 70px;
+  margin-top: 100px;
   cursor: pointer;
 }
 
@@ -112,6 +122,7 @@
   min-width: 85%;
   display: flex;
   flex-direction: column;
+  padding: 60px 6px 60px 20px;
 }
 .title-my-account {
   color: aliceblue;
@@ -174,6 +185,7 @@
   font-size: 15px;
   background-color: rgba(0, 0, 0, 0.68);
 }
+
 .container-username,
 .edit-email-profile {
   width: 40rem;
@@ -194,16 +206,19 @@
 }
 
 .button-edit-email {
-  width: 15%;
   background-color: #ffff00;
-  margin: 18px 45px 20px 5px;
+  margin: 10px 40px 20px 20px;
+  width: 15%;
+  font-size: 16px;
   text-align: center;
   cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .button-edit-username {
-  width: 17%;
   background-color: #ffff00;
-  margin: 20px 40px 20px 45px;
+  margin: 12px 40px 20px 20px;
+  width: 15%;
+  font-size: 16px;
   text-align: center;
   cursor: pointer;
 }
@@ -224,24 +239,27 @@
 .button-change {
   color: #ffff00;
   display: flex;
-  width: 10rem;
-  height: 2.5rem;
   background-color: black;
-  text-align: center;
-  margin: 18px 10px 5px;
+  font-size: 15px;
   margin: 7px;
   cursor: pointer;
+  transition-duration: 0.4s;
+  float: left;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
 }
 .button-dissable,
 .button-delete {
   color: #ffff00;
   display: flex;
-  padding: 8px;
-  width: 15%;
   background-color: black;
-  text-align: center;
-  margin: 18px 10px 5px;
   font-size: 15px;
   margin: 7px;
   cursor: pointer;
+  transition-duration: 0.4s;
+  float: left;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
 }
