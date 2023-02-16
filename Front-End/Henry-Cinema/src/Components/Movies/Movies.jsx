@@ -30,13 +30,8 @@ const Movies = () => {
   const [filter, setFilter] = useState({
     Genre: "",
     Classific: "todos",
-<<<<<<< HEAD
     Calification: "Calification",
   });
-=======
-    Calification: "Calification"
-  })
->>>>>>> 717ecf79e7382a4e1f45ef723d9d5a37370ca80d
 
   const getClassifications = () => {
     const classificationsArray = Array.from(
@@ -89,7 +84,6 @@ const Movies = () => {
     return <Loader />;
   }
 
-<<<<<<< HEAD
   function FiltradosContenedor(e, filtroCambiado) {
     let filteredMovies = allMovies;
     let actual = e.target.value;
@@ -108,25 +102,10 @@ const Movies = () => {
             movie.genres.includes(filter.Genre)
           ))
         : filteredMovies;
-=======
-
-
-  function FiltradosContenedor(e, filtroCambiado) {
-    let filteredMovies = allMovies;
-    let actual = e.target.value;
-    console.log(actual)
-    /* FILTRO DE GENERO */
-    if (filtroCambiado == "Genre") {
-      actual != "" ? filteredMovies = filteredMovies.filter((movie) => movie.genres.includes(actual)) : filteredMovies;
-      setFilter({ ...filter, Genre: actual })
-    } else {
-      filter.Genre != "" ? filteredMovies = filteredMovies.filter((movie) => movie.genres.includes(filter.Genre)) : filteredMovies;
->>>>>>> 717ecf79e7382a4e1f45ef723d9d5a37370ca80d
     }
 
     /* FILTRO DE CLASIFICACION */
     if (filtroCambiado == "Classification") {
-<<<<<<< HEAD
       console.log(actual, filtroCambiado);
       actual != "todos"
         ? (filteredMovies = filteredMovies.filter(
@@ -143,16 +122,6 @@ const Movies = () => {
         : filteredMovies;
     }
 
-=======
-      console.log(actual,filtroCambiado)
-      actual!="todos"? filteredMovies = filteredMovies.filter((movie) =>movie.classification ==actual):filteredMovies;
-      console.log(filteredMovies)
-      setFilter({...filter,Classific:actual})
-    }else{
-      filter.Classific!="todos"? filteredMovies = filteredMovies.filter((movie) =>movie.classification==filter.Classific):filteredMovies;
-    }
-    
->>>>>>> 717ecf79e7382a4e1f45ef723d9d5a37370ca80d
     /* FILTRO DE MAS POLULARES */
     if (filtroCambiado == "Calification") {
       actual != "Calification"
@@ -196,22 +165,14 @@ const Movies = () => {
               Select a Genre
             </option>
             {genresCurrent.map((genre) => (
-<<<<<<< HEAD
               <option key={genre} value={genre}>
-=======
-              <option key={genre} value={genre} >
->>>>>>> 717ecf79e7382a4e1f45ef723d9d5a37370ca80d
                 {genre}
               </option>
             ))}
           </select>
 
           <select onChange={(e) => FiltradosContenedor(e, "Classification")}>
-<<<<<<< HEAD
             <option value="todos"> Classification </option>
-=======
-            <option value="todos" > Classification </option>
->>>>>>> 717ecf79e7382a4e1f45ef723d9d5a37370ca80d
             {classifications.map((c) => (
               <option key={c} value={c}>
                 {c}

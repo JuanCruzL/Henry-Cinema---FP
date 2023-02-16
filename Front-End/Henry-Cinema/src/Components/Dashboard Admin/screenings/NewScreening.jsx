@@ -6,7 +6,7 @@ import SideBarDash from "../SideBarDash/SideBarDash";
 import axios from "axios";
 import "./newscreenings.scss";
 
-const [id, setId] = useState("");
+//const [id, setId] = useState("");
 
 const RoomInputs = () => {
   const dispatch = useDispatch();
