@@ -115,7 +115,7 @@ export const NewDrink = () => {
       <div className="newContainer">
         <NavBarDash />
         <div className="top">
-          <h1>Add New Food</h1>
+          <h1>Add a New Drink</h1>
         </div>
         <div className="bottom">
           <div className="left">
