@@ -63,6 +63,7 @@ async function addScreeningToMovie(req, res, next) {
     definition,
     language,
     seats,
+    title,
   } = req.body; // Los datos de la proyección se pasan en el cuerpo de la solicitud
 
   try {
@@ -84,6 +85,7 @@ async function addScreeningToMovie(req, res, next) {
       definition,
       language,
       seats,
+      title,
     });
 
     // Agregar la proyección a la película
