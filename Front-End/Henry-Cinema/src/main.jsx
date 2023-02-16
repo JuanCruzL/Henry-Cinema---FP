@@ -28,6 +28,7 @@ import Foods from "./Components/Foods/Foods";
 import AboutUs from "./Components/AboutUs/AboutUs";
 import Seating from "./Components/seating/Seating";
 import PerfilUser from "./Components/perfilUser/perfilUser";
+import ShowScreenings from "./Components/screenings/ShowScreenings";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard/login",
     element: <LoginDash />,
+  },
+  {
+    path: "/showscreenings/:id",
+    element: <ShowScreenings/>
   },
   {
     path: "/dashboard/users",
