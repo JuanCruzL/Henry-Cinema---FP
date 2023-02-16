@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { logOut } from "../../redux/actions";
 import swal from "sweetalert";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import PersonIcon from "@mui/icons-material/Person";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Nav = ({ setCurrentPage }) => {
   const dispatch = useDispatch();
@@ -112,13 +112,13 @@ const Nav = ({ setCurrentPage }) => {
         </li>
         <div className="shopBag">
           <label className="bag">
-            <ShoppingBagIcon />
+            <ShoppingBagIcon className="bagLogo" />
           </label>
         </div>
         <li className="menu-item">
           <div className="menu-link-user">
-            <Link to="/login">
-              <PersonIcon />
+            <Link to="/login" className="link">
+              <AccountCircleIcon className="userLogo" />
             </Link>
           </div>
         </li>
