@@ -112,10 +112,10 @@ export default function Details() {
                 {movie.origin}</p> : <></>} 
             </div>
           </div>
-        </div>
-          {/* <div className="reviews-container">
+          <div className="reviews-container">
             reviews
-          </div> */}
+          </div>
+        </div>
         <Footer/>
       </div>
     );
