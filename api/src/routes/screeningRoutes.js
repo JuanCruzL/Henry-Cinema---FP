@@ -1,12 +1,15 @@
 /* developer */
 
 const { Router } = require("express");
-const { Screening } = require("../db");
+const { Screening, Movie } = require("../db");
 const router = Router();
 
 /* Controllers */
 
-const { getScreeningsDb } = require("../controllers/screenings");
+const {
+  getScreeningsDb,
+  addScreeningToMovie,
+} = require("../controllers/screenings");
 
 /* routes */
 
@@ -20,16 +23,18 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
-  try {
-    let { name, screeningStart, date } = req.body;
-    await Screening.create({ name, screeningStart, date });
-    res.status(200).send("CREATED");
-  } catch (error) {
-    console.log(error);
-    res.status(400).send(error);
-  }
-});
+// router.post("/", async (req, res) => {
+//   try {
+//     let { name, screeningStart, date } = req.body;
+//     await Screening.create({ name, screeningStart, date });
+//     res.status(200).send("CREATED");
+//   } catch (error) {
+//     console.log(error);
+//     res.status(400).send(error);
+//   }
+// });
+
+router.post("/", addScreeningToMovie);
 
 router.delete("/:id", async (req, res) => {
   try {
