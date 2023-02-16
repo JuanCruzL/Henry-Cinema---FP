@@ -19,11 +19,8 @@ import Logo from "../NavbarDash/images/logo-henry-cinema-mini.png";
 import { Link } from "react-router-dom";
 
 export const SideBarDash = () => {
-
-
   return (
     <div className="sidebar">
-
       <div className="DesplegableSide">
         <div className="top">
           <Link to="/" className="link">
@@ -54,8 +51,8 @@ export const SideBarDash = () => {
                 </li>
               </Link>
               <li className="MoviesDrop">
-                  <MovieFilterRoundedIcon className="icon" />
-                  <span className="span">Movies</span>
+                <MovieFilterRoundedIcon className="icon" />
+                <span className="span">Movies</span>
                 <ul className="dropdown">
                   <li>
                     <Link to="/dashboard/movies" className="link">

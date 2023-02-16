@@ -53,7 +53,7 @@
         background-color: var(--NFondo-1);
 
         .newContainer {
-
+        
             .top,
             .bottom {
                 box-shadow: var(--NDegradado3) 0px 3px 8px;
@@ -123,14 +123,32 @@
             }
 
             .left {
-                flex: 1;
-                text-align: center;
-
-                .imageNC {
-                    height: 600px;
-                    width: 600px;
+                    position: relative;
+                    height: 400px;
+                    .imageNC {
+                        position: absolute;
+                        width: 380px;
+                        height: 380px;
+                        margin-right: 30px;
+                        top: 0;
+                        left: 0;
+                        animation: float 3s ease-in-out infinite;
+                    }
+        
+                    @keyframes float {
+                        0% {
+                            transform: translate(0, 0);
+                        }
+        
+                        50% {
+                            transform: translate(10px, 10px);
+                        }
+        
+                        100% {
+                            transform: translate(0, 0);
+                        }
+                    }
                 }
-            }
 
             .right {
                 flex: 2;
