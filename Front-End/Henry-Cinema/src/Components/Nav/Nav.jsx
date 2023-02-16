@@ -107,7 +107,6 @@ const Nav = ({ setCurrentPage }) => {
             <div className="menu-link">About Us</div>
           </li>
         </Link>
-
         <li className="menu-itemSearchBar">
           <SearchBar setCurrentPage={setCurrentPage} />
         </li>
