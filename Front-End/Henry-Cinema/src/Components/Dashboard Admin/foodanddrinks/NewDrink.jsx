@@ -83,11 +83,19 @@ export const NewDrink = () => {
     setValidations({ ...validations, [name]: message });
   };
 
+<<<<<<< HEAD
   const handleChange = (e, im = 0) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
     if (im == 1) {
       let img = e.target.value;
+=======
+  const handleChange = (e,im=0) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+    if(im==1){
+      let img =e.target.value;
+>>>>>>> 1480043c7589862ac179cedf520314b275de7d47
       cambiarImagen(img);
     }
   };
@@ -113,6 +121,7 @@ export const NewDrink = () => {
 
   const { name: nameVal, image: imageVal, price: priceVal } = validations;
 
+<<<<<<< HEAD
   const cambiarImagen = (img = "") => {
     let comprobar = document.getElementById("imageND");
     let defaultImg =
@@ -125,6 +134,19 @@ export const NewDrink = () => {
       comprobar.src = defaultImg;
     }
   };
+=======
+  const cambiarImagen=(img="")=>{
+    let comprobar = document.getElementById("imageND");
+    let defaultImg= "https://www.eatthis.com/wp-content/uploads/sites/4/2021/06/soda-4.jpg?quality=82&strip=1&w=1250";
+    let imgPoster = img;
+    comprobar.src=imgPoster;
+    if(comprobar.src==imgPoster && comprobar.naturalHeight>0){
+      comprobar.src=imgPoster
+    }else{
+      comprobar.src=defaultImg;
+    }
+  }
+>>>>>>> 1480043c7589862ac179cedf520314b275de7d47
 
   return (
     <div className="newDrink">
@@ -139,7 +161,11 @@ export const NewDrink = () => {
             <img
               className="imageND"
               id="imageND"
+<<<<<<< HEAD
               src="https://thumbs.dreamstime.com/b/takeaway-cold-brew-coffee-vector-minimalistic-line-art-illustration-isolated-white-background-216624208.jpg"
+=======
+              src="https://www.eatthis.com/wp-content/uploads/sites/4/2021/06/soda-4.jpg?quality=82&strip=1&w=1250"
+>>>>>>> 1480043c7589862ac179cedf520314b275de7d47
               alt=""
             />
           </div>
@@ -179,7 +205,11 @@ export const NewDrink = () => {
                   placeholder="img url"
                   name="image"
                   value={image}
+<<<<<<< HEAD
                   onChange={(e) => handleChange(e, 1)}
+=======
+                  onChange={(e)=>handleChange(e,1)}
+>>>>>>> 1480043c7589862ac179cedf520314b275de7d47
                   onBlur={validateOne}
                 />
                 <div className="vals">{imageVal}</div>

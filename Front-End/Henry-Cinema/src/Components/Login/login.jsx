@@ -105,7 +105,7 @@ export default function Login() {
     console.log(loggedUser);
     if (loggedUser.accessToken) {
       window.localStorage.setItem('loggedUser',
-      JSON.stringify(loggedUser));
+      JSON.stringify({accessToken: loggedUser.accessToken}));
       setFormIn({
         email: "",
         password: "",
@@ -149,7 +149,7 @@ export default function Login() {
       console.log(loggedUser);
       if(loggedUser.accessToken) {
         window.localStorage.setItem('loggedUser',
-        JSON.stringify(loggedUser));
+        JSON.stringify({accessToken: loggedUser.accessToken}));
         // console.log(currentUser);
         navigate("/");
       }

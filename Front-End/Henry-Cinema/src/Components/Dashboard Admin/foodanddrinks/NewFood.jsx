@@ -83,11 +83,19 @@ export const NewFood = () => {
     setValidations({ ...validations, [name]: message });
   };
 
+<<<<<<< HEAD
   const handleChange = (e, im = 0) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
     if (im == 1) {
       let img = e.target.value;
+=======
+  const handleChange = (e,im=0) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+    if(im==1){
+      let img =e.target.value;
+>>>>>>> 1480043c7589862ac179cedf520314b275de7d47
       cambiarImagen(img);
     }
   };
@@ -113,6 +121,7 @@ export const NewFood = () => {
 
   const { name: nameVal, image: imageVal, price: priceVal } = validations;
 
+<<<<<<< HEAD
   const cambiarImagen = (img = "") => {
     let comprobar = document.getElementById("imageNF");
     let defaultImg =
@@ -125,6 +134,19 @@ export const NewFood = () => {
       comprobar.src = defaultImg;
     }
   };
+=======
+  const cambiarImagen=(img="")=>{
+    let comprobar = document.getElementById("imageNF");
+    let defaultImg= "https://previews.123rf.com/images/foontntd/foontntd1705/foontntd170500070/77824901-menu-food-drawing-graphic-design-illustrate-objects-template.jpg";
+    let imgPoster = img;
+    comprobar.src=imgPoster;
+    if(comprobar.src==imgPoster && comprobar.naturalHeight>0){
+      comprobar.src=imgPoster
+    }else{
+      comprobar.src=defaultImg;
+    }
+  }
+>>>>>>> 1480043c7589862ac179cedf520314b275de7d47
 
   return (
     <div className="newFood">
@@ -139,7 +161,11 @@ export const NewFood = () => {
             <img
               className="imageNF"
               id="imageNF"
+<<<<<<< HEAD
               src="https://thumbs.dreamstime.com/b/objeto-vectorial-de-la-vista-superior-pizza-blanco-y-negro-con-diferentes-ingredientes-o-elemento-dise%C3%B1o-en-estilo-monocromo-185052567.jpg"
+=======
+              src="https://previews.123rf.com/images/foontntd/foontntd1705/foontntd170500070/77824901-menu-food-drawing-graphic-design-illustrate-objects-template.jpg"
+>>>>>>> 1480043c7589862ac179cedf520314b275de7d47
               alt=""
             />
           </div>
@@ -179,7 +205,11 @@ export const NewFood = () => {
                   placeholder="img url"
                   name="image"
                   value={image}
+<<<<<<< HEAD
                   onChange={(e) => handleChange(e, 1)}
+=======
+                  onChange={(e)=>handleChange(e,1)}
+>>>>>>> 1480043c7589862ac179cedf520314b275de7d47
                   onBlur={validateOne}
                 />
                 <div className="vals">{imageVal}</div>
