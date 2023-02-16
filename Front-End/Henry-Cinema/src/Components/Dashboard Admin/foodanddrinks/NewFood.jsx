@@ -83,9 +83,13 @@ export const NewFood = () => {
     setValidations({ ...validations, [name]: message });
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e,im=0) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
+    if(im==1){
+      let img =e.target.value;
+      cambiarImagen(img);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -109,6 +113,18 @@ export const NewFood = () => {
 
   const { name: nameVal, image: imageVal, price: priceVal } = validations;
 
+  const cambiarImagen=(img="")=>{
+    let comprobar = document.getElementById("imageNF");
+    let defaultImg= "https://previews.123rf.com/images/foontntd/foontntd1705/foontntd170500070/77824901-menu-food-drawing-graphic-design-illustrate-objects-template.jpg";
+    let imgPoster = img;
+    comprobar.src=imgPoster;
+    if(comprobar.src==imgPoster && comprobar.naturalHeight>0){
+      comprobar.src=imgPoster
+    }else{
+      comprobar.src=defaultImg;
+    }
+  }
+
   return (
     <div className="newFood">
       <SideBarDash />
@@ -121,6 +137,7 @@ export const NewFood = () => {
           <div className="left">
             <img
               className="imageNF"
+              id="imageNF"
               src="https://previews.123rf.com/images/foontntd/foontntd1705/foontntd170500070/77824901-menu-food-drawing-graphic-design-illustrate-objects-template.jpg"
               alt=""
             />
@@ -161,7 +178,7 @@ export const NewFood = () => {
                   placeholder="img url"
                   name="image"
                   value={image}
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e,1)}
                   onBlur={validateOne}
                 />
                 <div className="vals">{imageVal}</div>
