@@ -1,13 +1,13 @@
 require("dotenv").config();
 const { API_KEY } = process.env;
 const axios = require("axios");
-const { Movie } = require("../db");
+const { Movie, Screening } = require("../db");
 const { getGenresDb } = require("./genres");
 
-const getMovies12 = async() => {
+const getMovies12 = async () => {
   const ourMovies = Movie.findAll();
   return ourMovies;
-}
+};
 
 const getMovies = async () => {
   const config = { headers: { "Accept-Encoding": null } };
@@ -97,6 +97,7 @@ const getMovieById = async (id) => {
       where: {
         id: id,
       },
+      include: { model: Screening },
     });
 
     return recipeDbById;
@@ -164,6 +165,5 @@ const getMovieById = async (id) => {
   // i.e: id: 78b8496d-357a-4b15-8fda-e99563df8c61 ( UUIDV4 )
   // to search for movies posted by admin in db
 };
-
 
 module.exports = { getMovies, getMovieById };

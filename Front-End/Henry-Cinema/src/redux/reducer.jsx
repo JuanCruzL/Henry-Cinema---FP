@@ -56,7 +56,7 @@ const rootReducer = (state = initialState, action) => {
     case "GET_NEXT_RELEASES":
       return {
         ...state,
-        releases: action.payload,
+        nextReleases: action.payload,
       };
     case "CREATE_MOVIE":
       return {

@@ -65,7 +65,9 @@ const RoomInputs = () => {
   const next30Days = getNext30Days() ;
 
   function enviarDatos() {
+    console.log(reservation) ;
     axios.post('http://localhost:3001/screenings', reservation)
+    
       .then(response => {
         console.log(response.data);
       })
