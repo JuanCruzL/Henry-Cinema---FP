@@ -6,18 +6,8 @@ import { Widget } from "../widgets/Widget";
 import { Featured } from "../featured/Featured";
 import { Chart } from "../chart/Chart";
 import { List } from "../table/Table";
-import { useEffect } from "react";
-const loggedUser = useSelector((state) => state.currentUser);
-import { useNavigate } from "react-router-dom";
 
 export const HomeDash = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (loggedUser.isAdministrator === false) {
-      navigate("/");
-    }
-  }, []);
-
   return (
     <div className="home">
       <SideBarDash />
