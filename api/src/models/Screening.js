@@ -15,19 +15,19 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     date: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     startTime: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     endTime: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     definition: {
-      type: DataTypes.ENUM("2D", "3D"),
+      type: DataTypes.ENUM("2D", "3D", "IMAX"),
       allowNull: false,
     },
     language: {
@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     seats: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
   });
