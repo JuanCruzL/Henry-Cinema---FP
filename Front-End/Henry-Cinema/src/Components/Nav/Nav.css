@@ -210,16 +210,17 @@
 }
 
 .logo {
-  width: 30px;
-  height: 30px;
+  width: 18px;
+  height: 18px;
   cursor: pointer;
 }
 
 .logoh {
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  height: 100%;
+  margin-top: 2px;
+  width: 90%;
+  height: 70%;
 }
 .logoh:hover {
   cursor: pointer;
@@ -243,4 +244,13 @@
   cursor: pointer;
   background-color: black;
   color: #ffff00;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.userLogo {
+  width: 25px;
 }
