@@ -13,12 +13,13 @@ import Paper from "@mui/material/Paper";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import { all } from "axios";
 
 export const MoviesTable = () => {
   const dispatch = useDispatch();
-  const allMovies = useSelector((state) => state.allMovies);
+  var allMovies = useSelector((state) => state.movies);
   const [count, setCount] = useState(0);
-
+  
   useEffect(() => {
     dispatch(getMovies());
   }, [dispatch]);

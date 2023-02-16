@@ -121,7 +121,7 @@ export const NewDrink = () => {
           <div className="left">
             <img
               className="imageND"
-              src="https://previews.123rf.com/images/foontntd/foontntd1705/foontntd170500070/77824901-menu-food-drawing-graphic-design-illustrate-objects-template.jpg"
+              src="https://www.eatthis.com/wp-content/uploads/sites/4/2021/06/soda-4.jpg?quality=82&strip=1&w=1250"
               alt=""
             />
           </div>

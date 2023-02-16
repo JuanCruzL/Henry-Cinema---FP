@@ -58,24 +58,28 @@ const Movies = () => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
+    
     setImages(
       allMovies.map((movie) => ({
-        apiID: movie.apiId ? movie.apiID : movie.id,
+        apiID: movie.apiId ? movie.apiId : movie.id,
         image: movie.imageVertical,
       }))
     );
+   
+   
+    setAvailableMovies(allMovies);
     setMovies(
       allReleases.map((movie) => ({ apiID: movie.id, image: movie.image }))
     );
-    setAvailableMovies(allMovies);
   }, [allMovies, setImages]);
-
-  useEffect(() => {
-    if (!genres.length) {
-      dispatch(requestGenres());
-    }
-    setGenresCurrent(genres);
-  }, [genresCurrent, dispatch]);
+ 
+  console.log(allReleases)
+  // useEffect(() => {
+  //   if (!genres.length) {
+  //     dispatch(requestGenres());
+  //   }
+  //   setGenresCurrent(genres);
+  // }, [genresCurrent, dispatch]);
 
   if (loading) {
     return <Loader />;

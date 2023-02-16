@@ -28,7 +28,7 @@
       align-items: center;
       justify-content: center;
 
-      .logo { 
+      .logo {
         width: 100px;
         height: 30px;
       }
@@ -50,7 +50,7 @@
         .dropdown {
           position: relative;
 
-          &>.title {
+          & > .title {
             font-size: 12px;
             font-weight: bold;
             color: rgb(47, 47, 47);
@@ -59,7 +59,7 @@
             cursor: pointer;
           }
 
-          &>.list {
+          & > .list {
             display: none;
             position: absolute;
             top: 0;
@@ -87,12 +87,10 @@
               &:hover {
                 background-color: var(--BaseL);
               }
-
               .span {
                 font-size: 15px;
                 margin-left: 10px;
               }
-
               .icon {
                 font-size: 20px;
                 color: black;
@@ -122,6 +120,10 @@
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
           }
 
+          .span {
+            font-size: 16px;
+            margin-left: 10px;
+          }
 
           .span {
             font-size: 16px;
@@ -168,17 +170,15 @@
         }
       }
     }
-
   }
 }
-
 
 .MoviesDrop .dropdown,
 .ScreenDrop .dropdown,
 .CombosDrop .dropdown,
 .FoodsDrop .dropdown,
-.DrinksDrop .dropdown{
-  visibility:hidden;
+.DrinksDrop .dropdown {
+  visibility: hidden;
   height: 5px;
 }
 
@@ -186,8 +186,7 @@
 .ScreenDrop:hover .dropdown,
 .CombosDrop:hover .dropdown,
 .FoodsDrop:hover .dropdown,
-.DrinksDrop:hover .dropdown{
+.DrinksDrop:hover .dropdown {
   visibility: visible;
   height: auto;
 }
-
