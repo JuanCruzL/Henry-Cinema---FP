@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getasientos } from "../../../redux/actions";
-
-const RoomInputs = () => {
-  const dispatch = useDispatch();
-  const asientos = useSelector((state) => state.seats);
-  const roomLetters = ["A", "B", "C", "D", "E", "F", "G", "H"];
-  const [roomLetter, setRoomLetter] = useState("A");
-  const [date, setDate] = useState("");
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
-  const [definition, setDefinition] = useState("IMAX");
-  const [language, setLanguage] = useState("Sub");
-  const [seats, setSeats] = useState([]);
-=======
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getasientos, getMovies} from "../../../redux/actions"
@@ -36,34 +19,17 @@ const RoomInputs = () => {
   const [definition, setDefinition] = useState('IMAX');
   const [language, setLanguage] = useState('Sub');
   const [seats, setSeats]= useState([]);
-<<<<<<< HEAD
-  const [id, setId]= useState('');
->>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
-  const [reservation, setReservation] = useState({});
-
-  useEffect(() => {
-    dispatch(getasientos());
-<<<<<<< HEAD
-    setSeats(asientos);
-=======
-=======
   const [id, setId]= useState(movies[0]);
   const [title, setTitle]= useState([movies[0]]);
   const [reservation, setReservation] = useState({});
 
   useEffect(() => {
->>>>>>> cda2499370631c4e48c161beab11d981cb456fd6
     dispatch(getMovies());
     dispatch(getasientos());
     setSeats(asientos)
-<<<<<<< HEAD
->>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
-  }, [reservation]);
-=======
   }, [id]);
   
 
->>>>>>> cda2499370631c4e48c161beab11d981cb456fd6
 
   const handleSave = () => {
     setReservation({
@@ -75,12 +41,6 @@ const RoomInputs = () => {
       definition,
       language,
       seats,
-<<<<<<< HEAD
-    });
-  };
-
-  console.log(reservation);
-=======
       id
       
     });
@@ -88,7 +48,6 @@ const RoomInputs = () => {
 
   console.log(reservation)
 
->>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
 
   const getNext30Days = () => {
     
@@ -98,7 +57,7 @@ const RoomInputs = () => {
     for (let i = 0; i < 30; i++) {
       const nextDay = new Date();
       nextDay.setDate(today.getDate() + i);
-      days.push(nextDay.toLocaleDateString("en-US", { weekday: "long" }));
+      days.push(nextDay.toLocaleDateString('en-US', { weekday: 'long' }));
     }
   
     return days;
@@ -121,82 +80,6 @@ const RoomInputs = () => {
   
 
 
-<<<<<<< HEAD
-  return (
-    <div>
-      <label>Room</label>
-      <select
-        value={roomLetter}
-        onChange={(e) => setRoomLetter(e.target.value)}
-      >
-        {roomLetters.map((letter) => (
-          <option key={letter} value={letter}>
-            {letter}
-          </option>
-        ))}
-      </select>
-      <br />
-      <label>
-        Date:
-        <select value={date} onChange={(e) => setDate(e.target.value)}>
-          {[...Array(5)].map((_, i) => {
-            const nextDay = new Date();
-            nextDay.setDate(nextDay.getDate() + i);
-            const dateString = nextDay.toISOString().split("T")[0];
-            return (
-              <option key={dateString} value={dateString}>
-                {dateString}
-              </option>
-            );
-          })}
-        </select>
-      </label>
-      <br />
-      <label>
-        Start Time:
-        <br />
-        <input
-          type="time"
-          value={startTime}
-          onChange={(e) => setStartTime(e.target.value)}
-        />
-      </label>
-      <br />
-      <label>
-        End Time:
-        <br />
-        <input
-          type="time"
-          value={endTime}
-          onChange={(e) => setEndTime(e.target.value)}
-        />
-      </label>
-      <br />
-      <label>
-        Definition:
-        <br />
-        <select
-          value={definition}
-          onChange={(e) => setDefinition(e.target.value)}
-        >
-          <option value="IMAX">IMAX</option>
-          <option value="3D">3D</option>
-          <option value="2D">2D</option>
-        </select>
-      </label>
-      <br />
-      <label>
-        Language:
-        <br />
-        <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-          <option value="Sub">Sub</option>
-          <option value="Dub">Dub</option>
-          <option value="Origin">Origin</option>
-        </select>
-      </label>
-      <br />
-      <button onClick={handleSave}>Guardar</button>
-=======
 
   return (
     <div className='NewScreen'>
@@ -328,7 +211,6 @@ const RoomInputs = () => {
           </div>
         </div>
       </div>
->>>>>>> 1065860e4ba60ccd75a75f48010e2780e600ef08
     </div>
   );
 };
