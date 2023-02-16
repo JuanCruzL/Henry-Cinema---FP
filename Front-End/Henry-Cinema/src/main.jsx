@@ -29,6 +29,7 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import Seating from "./Components/seating/Seating";
 import PerfilUser from "./Components/perfilUser/perfilUser";
 import ShowScreenings from "./Components/screenings/ShowScreenings";
+import ShoppingCart from "./Components/Shopping-Cart/ShoppingCart";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -127,8 +128,12 @@ const router = createBrowserRouter([
     element: <Seating />,
   },
   {
-    path:"user",
+    path:"/user",
     element: <PerfilUser />,
+  },
+  {
+    path: "/shopping",
+    element: <ShoppingCart/>
   }
 ]);
 
