@@ -9,7 +9,7 @@ export const FoodsDash = () => {
     <div className="list">
       <SideBarDash />
       <div className="listContainer">
-        <NavBarDash />
+        <NavBarDash location="Foods" />
         <FoodsTable />
       </div>
     </div>

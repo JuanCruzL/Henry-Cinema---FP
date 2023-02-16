@@ -247,7 +247,43 @@ const rootReducer = (state = initialState, action) => {
         currentUser: {}
       }
       
-
+      //SearchDashboard=====================================================================================0//
+      case "DASH_MOVIES":
+        const movi=state.allMovies;
+        const FoundMovi=movi.filter((M) => {
+          return M.title.toLowerCase().includes(action.payload.toLowerCase());
+        });
+        return{
+          ...state,
+          movies:FoundMovi
+        }
+      case "DASH_COMBOS":
+        const com=state.copyCombos;
+        const FoundCom=com.filter((C)=>{
+          return C.name.toLowerCase().includes(action.payload.toLowerCase());
+        })
+        return{
+          ...state,
+          combos:FoundCom
+        }
+      case "DASH_FOODS":
+        const foo=state.copyFoods;
+        const FoundFoo=foo.filter((f)=>{
+          return f.name.toLowerCase().includes(action.payload.toLowerCase());
+        })
+        return{
+          ...state,
+          foods:FoundFoo
+        }
+      case "DASH_DRINKS":
+        const dri=state.copyDrinks;
+        const FoundDri=dri.filter((d)=>{
+          return d.name.toLowerCase().includes(action.payload.toLowerCase());
+        })
+        return{
+          ...state,
+          drinks:FoundDri
+        }
     default:
       return state;
   }

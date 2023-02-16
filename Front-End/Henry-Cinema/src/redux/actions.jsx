@@ -527,6 +527,34 @@ export const logInUser = (email, password) => {
 
 export const logOut = () => {
   return {
-    type: "LOG_OUT",
+    type: "LOG_OUT"
+  };
+};
+ 
+
+//Todo: para el DashSearch
+
+export const DashMovie = (payload) => {
+  return {
+    type: "DASH_MOVIES",
+    payload,
+  };
+};
+export	const DashCombos = (payload) =>{
+  return{
+    type: "DASH_COMBOS",
+    payload,
+  };
+};
+export	const DashFoods = (payload) =>{
+  return{
+    type: "DASH_FOODS",
+    payload,
+  };
+};
+export	const DashDrinks = (payload) =>{
+  return{
+    type: "DASH_DRINKS",
+    payload,
   };
 };
