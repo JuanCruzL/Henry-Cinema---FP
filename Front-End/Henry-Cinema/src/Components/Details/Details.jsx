@@ -113,6 +113,9 @@ export default function Details() {
             </div>
           </div>
         </div>
+          {/* <div className="reviews-container">
+            reviews
+          </div> */}
         <Footer/>
       </div>
     );
