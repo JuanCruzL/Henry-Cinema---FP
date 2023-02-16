@@ -39,10 +39,6 @@
   .widget {
     background-color: var(--NFondo-3);
     box-shadow: var(--NDegradado3) 0px 3px 8px;
-<<<<<<< HEAD
-    color: aliceblue;
-=======
->>>>>>> af94c34339d97a6e8dc05410e08a43605024fd91
 
     .left,
     .right {
@@ -71,21 +67,12 @@
       .icon {
         background-color: var(--BaseN);
       }
-<<<<<<< HEAD
-      .widget .left .icon,
-      .widget .right .icon {
-        color: black;
-      }
-    }
-  }
-=======
     }
   }
 }
 .dark-mode .widget .right .link .icon {
   background-color: var(--BaseN);
   color: black;
->>>>>>> af94c34339d97a6e8dc05410e08a43605024fd91
 }
 
 /*====================================================*/
