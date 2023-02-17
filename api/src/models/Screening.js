@@ -38,5 +38,9 @@ module.exports = (sequelize) => {
       type: DataTypes.ARRAY(DataTypes.JSON),
       allowNull: false,
     },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   });
 };
