@@ -4,8 +4,11 @@ import "./perfilUser.css";
 import Footer from "../footer/footer";
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
+import { putUser } from "../../redux/actions";
+import { logOut } from "../../redux/actions";
 
 function PerfilUser() {
+  const dispatch = useDispatch();
   let token = window.localStorage.getItem("loggedUser");
   let user = jwt_decode(token);
   const [nameEdit, setNameEdit] = useState("");
@@ -25,17 +28,27 @@ function PerfilUser() {
       setPasswordEdit(e.target.value);
     }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("funciona")
-    console.log(e.target)
-    if(e.target.id === "form-name"){
+    /* console.log("funciona")
+    console.log(e.target.name) */
+    if(e.target.name === "form-name"){
+      let newName = {
+        userName : nameEdit
+      }
+      dispatch(putUser(newName,token))
 
-      console.log("form-name enviado")
-    } else if (e.target.form === "form-password"){
+    } else if (e.target.name === "form-password"){
+      let newPassword = {
+        password : passwordEdit
+      }
+      dispatch(putUser(newPassword,token))
       console.log("form-password enviado")
     }
   };
+
+
   const handleClickEdit = (e) => {
     if(e.target.name === "edit-name") {
       
@@ -55,6 +68,16 @@ function PerfilUser() {
       setPasswordEdit("");
     }
   };
+  const handleLogOut = () => {
+    window.location.href = "/"
+    window.localStorage.removeItem("loggedUser");
+    dispatch(logOut());
+    swal({
+      title: `Logged Out Succesfully`,
+      icon: "success",
+      button: true,
+    });
+  };
   return (
     <div className="container-user">
       <Nav />
@@ -64,7 +87,7 @@ function PerfilUser() {
           <div className="settings-user">
             <div className="my-account-setting">MY ACCOUNT</div>
             <div className="history-setting">HISTORY</div>
-            <div className="log-out-setting">LOG OUT</div>
+            <div className="log-out-setting" onClick={handleLogOut}>LOG OUT</div>
           </div>
         </div>
         <div className="container-account-user">
@@ -107,11 +130,14 @@ function PerfilUser() {
                         className="input-name-edit"
                         value={nameEdit}
                         name={"edit-name"}
-                        onChange={(e) => handleChange(e)}
+                        autoComplete="off"
+                        onChange={handleChange}
                       />
                       <button
                         className="button-name-submit"
                         type="submit"
+                        onClick={handleSubmit}
+                        name="form-name"
                       >
                         Save
                       </button>
@@ -134,7 +160,7 @@ function PerfilUser() {
               </div>
             </div>
           </div>
-          {!user.password && (
+          {user.password && (
             <div className="container-password">
               <h3>PASSWORD</h3>
               <button className="button-change" name={"edit-password"}
@@ -149,17 +175,19 @@ function PerfilUser() {
               className="input-password-edit"
               value={passwordEdit}
               name={"edit-password"}
+              autoComplete="off"
               onChange={(e) => handleChange(e)}
             />
             <button
               className="button-password-submit"
               type="submit"
-              onClick={() => console.log("enviado")}
+              name={"password-form"}
+              onClick={handleSubmit}
             >
               Save
             </button>
             <button className="button-password-cancel" onClick={handleClickClose}
-            name={"edit-password"}
+            name={"form-password"}
             >
               x
             </button>
@@ -167,7 +195,6 @@ function PerfilUser() {
           <div className="container-account">
             <h3>ACCOUNT</h3>
             <div>
-              <button className="button-dissable">DISSABLE ACCOUNT</button>
 
               <button
                 className="button-delete"
