@@ -160,7 +160,7 @@
         position: relative;;
         form {
           margin-top: 25px;
-          margin-left: 20px;
+          margin-left: 40px;
           display: flex;
           flex-wrap: wrap;
           gap: 20px 50px;
@@ -196,12 +196,12 @@
 
           .buttonNF {
             position: absolute;
-            margin-bottom: 230px;
+            margin-bottom: 20px;
             margin-right: 30px;
             border: none;
             background-color: transparent;
             cursor: pointer;
-            font-size: 35px;
+            font-size: 30px;
             position: absolute;
             bottom: 0px;
             right: 10px;

@@ -118,6 +118,7 @@
 
   .newContainer {
     flex: 6;
+    background-image: url(../img/doodle.jpg);
 
     .top,
     .bottom {
@@ -170,6 +171,7 @@
         margin-right: 60px;
         position: relative;
         form {
+          margin-right: 40px;
           margin-top: 35px;
           display: flex;
           flex-wrap: wrap;
@@ -209,17 +211,13 @@
 
           .buttonND {
             position: absolute;
-            margin-bottom: 230px;
-            margin-right: 20px;
             border: none;
             background-color: transparent;
             color: black;
             cursor: pointer;
-            font-size: 35px;
-            position: absolute;
-            bottom: 65px;
+            font-size: 30px;
+            bottom: 20px;
             right: 50px;
-
           }
         }
       }
