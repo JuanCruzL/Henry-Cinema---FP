@@ -153,10 +153,10 @@
 .image-icon-profile {
   height: 95px;
   width: 95px;
-  border:2px solid yellow;
+  border:1px solid yellow;
   border-radius: 50px;
   margin-left: 55px;
-  margin-top: -30px;
+  margin-top: -40px;
 }
 .title-user-name {
   color: #ffff00;

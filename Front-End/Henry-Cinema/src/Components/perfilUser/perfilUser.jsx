@@ -13,7 +13,6 @@ function PerfilUser() {
     <div className="container-user">
       <Nav />
       <div className="container-perfil">
-        <button onClick={() => console.log(user)}>Click Me</button>
         <div className="container-settings-user">
           <h2 className="title-settings">USER SETTINGS</h2>
           <div className="settings-user">
@@ -31,7 +30,7 @@ function PerfilUser() {
               <div className="container-edit-profile">
                 <div className="information-head">
                   <img
-                    src="https://cdn-icons-png.flaticon.com/512/44/44091.png"
+                    src={user.image}
                     className="image-icon-profile"
                   />
                   <h3 className="title-user-name">
