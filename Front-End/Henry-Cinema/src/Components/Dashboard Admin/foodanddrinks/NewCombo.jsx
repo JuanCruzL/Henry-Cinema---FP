@@ -140,7 +140,7 @@ export const NewCombo = () => {
               <img
                 className="imageNC"
                 id="imageNC"
-                src="https://static8.depositphotos.com/1077687/1062/v/950/depositphotos_10622859-stock-illustration-cine-fast-food-combo.jpg"
+                src="https://st3.depositphotos.com/1755257/13176/v/450/depositphotos_131760572-stock-illustration-popcorn-boxes-set.jpg"
                 alt=""
               />
             </div>

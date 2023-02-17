@@ -17,6 +17,10 @@ module.exports= (sequelize) =>{
         commentary:{
             type: DataTypes.TEXT,
             allowNull:false,
-        }
+        },
+        date: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
     })
 }
