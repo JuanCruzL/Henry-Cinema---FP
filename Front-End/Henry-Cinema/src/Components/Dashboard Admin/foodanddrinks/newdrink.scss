@@ -138,6 +138,7 @@
           height: 400px;
           flex: 1;
           .imageND {
+            border: 15px outset #000000;
             margin-left: 20px;
             position: absolute;
             width: 290px;
@@ -147,6 +148,7 @@
             left: 0;
             animation: float 3s ease-in-out infinite;
           }
+        
 
           @keyframes float {
             0% {
@@ -166,9 +168,9 @@
       .right {
         flex: 2;
         margin-right: 60px;
-
+        position: relative;
         form {
-          margin-left: 15px;
+          margin-top: 35px;
           display: flex;
           flex-wrap: wrap;
           gap: 20px;
@@ -206,6 +208,9 @@
           }
 
           .buttonND {
+            position: absolute;
+            margin-bottom: 230px;
+            margin-right: 20px;
             border: none;
             background-color: transparent;
             color: black;
@@ -215,15 +220,6 @@
             bottom: 65px;
             right: 50px;
 
-            .iconSubmit {
-              font-size: 40px;
-              margin-left: 3px;
-              color: rgb(98, 36, 36);
-
-              &:hover {
-                color: white;
-              }
-            }
           }
         }
       }

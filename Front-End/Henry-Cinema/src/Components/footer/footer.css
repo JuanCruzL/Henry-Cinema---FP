@@ -7,7 +7,7 @@
   /* box-shadow: 6px 6px 10px 1px var(--LBase-1); */
 }
 .light-mode .footer-options a,
-.light-mode .a-href .user {
+.light-mode .a-href .userFooter {
   color: var(--LText-1);
 }
 .light-mode .a-href .tag {
@@ -31,7 +31,7 @@
   /* box-shadow: 6px 6px 10px 1px var(--LBase-1); */
 }
 .dark-mode .footer-options a,
-.dark-mode .a-href .user {
+.dark-mode .a-href .userFooter {
   color: var(--NText-2);
 }
 .dark-mode .a-href .tag {
@@ -105,7 +105,7 @@
   cursor: pointer;
   transform: scale(1.1);
 }
-.footer-profile .user {
+.footer-profile .userFooter {
   display: flex;
   align-items: center;
   font-weight: bold;

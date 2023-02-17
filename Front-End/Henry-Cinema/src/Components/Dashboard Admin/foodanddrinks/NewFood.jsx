@@ -139,7 +139,7 @@ export const NewFood = () => {
             <img
               className="imageNF"
               id="imageNF"
-              src="https://previews.123rf.com/images/foontntd/foontntd1705/foontntd170500070/77824901-menu-food-drawing-graphic-design-illustrate-objects-template.jpg"
+              src="https://thumbs.dreamstime.com/b/objeto-vectorial-de-la-vista-superior-pizza-blanco-y-negro-con-diferentes-ingredientes-o-elemento-dise%C3%B1o-en-estilo-monocromo-185052567.jpg"
               alt=""
             />
           </div>
@@ -185,7 +185,7 @@ export const NewFood = () => {
                 <div className="vals">{imageVal}</div>
               </div>
               <button className="buttonNF" type="submit" value="SUBMIT FOOD">
-                SUMBIT
+                <OutboxRoundedIcon className="iconSubmit" />
               </button>
             </form>
           </div>

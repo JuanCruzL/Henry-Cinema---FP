@@ -1,7 +1,7 @@
 import React from "react";
 import "./screeningstable.scss";
 import { useState, useEffect } from "react";
-import { getScreenings } from "../../../redux/actions";
+import { getScreenings, deleteScreening } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -11,7 +11,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
-//mport { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
 export const ScreeningsTable = () => {
@@ -23,53 +22,63 @@ export const ScreeningsTable = () => {
     dispatch(getScreenings());
   }, [dispatch, count]);
 
-  // const deleteAlert = (id, name) => {
-  //   swal({
-  //     title: "Are you sure?",
-  //     text: `this will remove ${name} from the database.`,
-  //     icon: "warning",
-  //     buttons: true,
-  //     dangerMode: true,
-  //   }).then((r) => {
-  //     if (r) {
-  //       dispatch(deleteFoods(id));
-  //       setTimeout(() => {
-  //         setCount(count + 1);
-  //         console.log("HOLAA");
-  //       }, 1500);
-  //       swal({
-  //         text: "The screening has been successfully removed.",
-  //         icon: "success",
-  //       });
-  //     } else {
-  //       swal("Remove cancelled");
-  //     }
-  //   });
-  // };
+  const deleteAlert = (id, title) => {
+    swal({
+      title: "Are you sure?",
+      text: `this will remove the screening of ${title} from the database.`,
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((r) => {
+      if (r) {
+        dispatch(deleteScreening(id));
+        setTimeout(() => {
+          setCount(count + 1);
+          console.log(title);
+        }, 1500);
+        swal({
+          text: "The screening has been successfully removed.",
+          icon: "success",
+        });
+      } else {
+        swal("Remove cancelled");
+      }
+    });
+  };
 
   return (
     <TableContainer component={Paper} className="screeningsTable">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow className="tableRow">
-            <TableCell className="title">NAME</TableCell>
-            <TableCell className="title">PRICE</TableCell>
-            <TableCell className="title">IMAGE</TableCell>
+            <TableCell className="title">TITLE</TableCell>
+            <TableCell className="title">AUDITORIUM</TableCell>
+            <TableCell className="title">DATE</TableCell>
+            <TableCell className="title">START TIME</TableCell>
+            <TableCell className="title">DEFINITION</TableCell>
+            <TableCell className="title">LANGUAGE</TableCell>
             <TableCell className="title">DELETE</TableCell>
           </TableRow>
         </TableHead>
         <TableBody className="list">
-          {allScreenings.map((f) => (
-            <TableRow key={f.id}>
-              <TableCell className="tableCellScreenings">{f.name}</TableCell>
-              <TableCell className="tableCellScreenings">${f.price}</TableCell>
+          {allScreenings.map((s) => (
+            <TableRow key={s.id}>
+              <TableCell className="tableCellScreenings">{s.title}</TableCell>
               <TableCell className="tableCellScreenings">
-                <div className="cellWrapper">
-                  <img alt={f.name} className="screeningImage" src={f.image} />
-                </div>
+                ${s.roomLetter}
+              </TableCell>
+              <TableCell className="tableCellScreenings">{s.date}</TableCell>
+              <TableCell className="tableCellScreenings">
+                {s.startTime}
               </TableCell>
               <TableCell className="tableCellScreenings">
-                <button onClick={() => deleteAlert(f.id, f.name)}>
+                {s.definition}
+              </TableCell>
+              <TableCell className="tableCellScreenings">
+                {s.language}
+              </TableCell>
+              <TableCell className="tableCellScreenings">
+                <button onClick={() => deleteAlert(s.id, s.title)}>
                   <div>
                     <DeleteForeverRoundedIcon className="bin" />
                   </div>

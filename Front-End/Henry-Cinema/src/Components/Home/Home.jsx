@@ -10,14 +10,11 @@ import HomePaginated from "./HomePaginated/HomePaginated";
 import Footer from "../footer/footer";
 import "../Home/Home.css";
 import Loader from "../Loader/Loader";
-import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const loggedUser = useSelector((state) => state.currentUser);
   console.log(loggedUser);
-
   const allMovies = useSelector((state) => state.searchMovies);
   const cartelera = useSelector((state) => state.allMovies);
 
