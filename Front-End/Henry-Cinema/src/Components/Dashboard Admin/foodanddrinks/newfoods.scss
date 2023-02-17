@@ -199,10 +199,12 @@
         flex: 2;
 
         form {
-          margin-left: 15px;
+          margin-top: 25px;
+          margin-left: 20px;
           display: flex;
           flex-wrap: wrap;
           gap: 20px 50px;
+
 
           .formNF {
             width: 40%;
@@ -233,6 +235,9 @@
           }
 
           .buttonNF {
+            position: absolute;
+            margin-bottom: 230px;
+            margin-right: 30px;
             border: none;
             background-color: transparent;
             cursor: pointer;
@@ -241,10 +246,6 @@
             bottom: 65px;
             right: 50px;
 
-            .iconSubmit {
-              font-size: 40px;
-              margin-left: 3px;
-            }
           }
         }
       }

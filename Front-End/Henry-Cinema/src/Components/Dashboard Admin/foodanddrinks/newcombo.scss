@@ -157,7 +157,8 @@
                 flex: 2;
 
                 form {
-                    margin-left: 15px;
+                    margin-left: 20px;
+                    margin-top: 35px;
                     display: flex;
                     flex-wrap: wrap;
                     gap: 20px;
@@ -196,6 +197,9 @@
 
                     .buttonNC {
                         border: none;
+                        position: absolute;
+                        margin-bottom: 230px;
+                        margin-right: 20px ;
                         background-color: transparent;
                         color: black;
                         cursor: pointer;
@@ -204,16 +208,6 @@
                         bottom: 65px;
                         right: 50px;
 
-                        .iconSubmit {
-                            font-size: 40px;
-                            margin-left: 3px;
-                            color: rgb(98, 36, 36);
-
-
-                            &:hover {
-                                color: white;
-                            }
-                        }
                     }
                 }
             }
