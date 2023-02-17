@@ -66,4 +66,37 @@ async function getScreeningById(req, res, next) {
   }
 }
 
-module.exports = { getScreeningsDb, addScreeningToMovie, getScreeningById };
+const modifySeatsById = async (req, res, next) => {
+  const { id } = req.params;
+  const { seats } = req.body;
+
+  try {
+    // Buscar la proyección por ID
+    const screening = await Screening.findByPk(id);
+
+    if (!screening) {
+      return res.status(404).json({ message: "La proyección no existe" });
+    }
+
+    // Actualizar los asientos de la proyección
+    screening.seats.forEach((seat) => {
+      if (seats.includes(seat.name)) {
+        seat.reserved = true;
+      }
+    });
+
+    // Guardar los cambios en la base de datos
+    await screening.save();
+
+    return res.status(200).json(screening); // Devolver la proyección actualizada
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = {
+  getScreeningsDb,
+  addScreeningToMovie,
+  getScreeningById,
+  modifySeatsById,
+};

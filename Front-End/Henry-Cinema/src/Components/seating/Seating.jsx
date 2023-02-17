@@ -39,7 +39,7 @@ function Seating() {
     dispatch(getScreeningId(id));
     setAsientosArray(screening.seats);
   }, []);
-  console.log(screening);
+  console.log(asientosSeleccionados);
   return (
     <div className="seating">
       <div className="screen">
