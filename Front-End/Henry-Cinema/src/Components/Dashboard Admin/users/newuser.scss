@@ -1,0 +1,237 @@
+.light-mode {
+    .newUser {
+        background-color: var(--LBase-2);
+
+        .newContainer {
+
+            .top,
+            .bottom {
+                box-shadow: var(--LDegradado3) 0px 3px 8px;
+                background-color: var(--Gold);
+
+                h1 {
+                    color: var(--LText-1);
+                }
+
+                .right {
+                    form {
+                        .formNU {
+                            label {
+                                color: var(--LText-1);
+                            }
+
+                            .vals {
+                                color: rgb(203, 7, 7);
+                            }
+                        }
+
+                        input {
+                            color: var(--LText-1);
+                            border-bottom: 2px solid rgb(92, 92, 92);
+
+                            &:hover {
+                                background-color: var(--LFondo-2);
+                            }
+                        }
+
+                        .buttonNU {
+                            color: var(--LText-1);
+
+                            .iconSubmit {
+                                color: var(--LText-1);
+
+                                &:hover {
+                                    color: var(--LText-2);
+                                    ;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark-mode {
+    .newUser {
+        background-color: var(--NFondo-1);
+
+        .newContainer {
+            background-image: url(../img/doodle.jpg);
+
+            .top,
+            .bottom {
+                box-shadow: var(--NDegradado3) 0px 3px 8px;
+                background-color: var(--NFondo-3);
+
+                h1 {
+                    color: var(--NText-1);
+                }
+
+                .right {
+                    form {
+                        .formNU {
+                            label {
+                                color: var(--NText-1);
+                            }
+
+                            .vals {
+                                color: rgb(203, 7, 7);
+                            }
+                        }
+
+                        input {
+                            color: var(--NText-1);
+                            border-bottom: 2px solid rgb(92, 92, 92);
+
+                            &:hover {
+                                background-color: var(--NFondo-2);
+                            }
+                        }
+
+                        .buttonNU {
+                            color: var(--NText-1);
+
+                            .iconSubmit {
+                                color: var(--NText-1);
+
+                                &:hover {
+                                    color: var(--NText-2);
+                                    ;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/*===================================================================================*/
+.newUser {
+    width: 100%;
+    display: flex;
+    background-color: rgb(216, 213, 213);
+
+    .newContainer {
+        flex: 6;
+
+        .top,
+        .bottom {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 10px;
+            margin: 20px;
+            display: flex;
+            background-color: rgb(238, 210, 139);
+            display: flex;
+
+            h1 {
+                color: rgb(98, 36, 36);
+                font-size: 21px;
+            }
+
+            .left {
+                position: relative;
+                height: 400px;
+                flex: 1;
+
+                .imageNU {
+                    border: 15px outset #000000;
+                    margin-top: 10px;
+                    margin-left: 20px;
+                    position: absolute;
+                    width: 290px;
+                    height: 360px;
+                    margin-right: 30px;
+                    top: 0;
+                    left: 0;
+                    animation: float 3s ease-in-out infinite;
+                }
+
+                @keyframes float {
+                    0% {
+                        transform: translate(0, 0);
+                    }
+
+                    50% {
+                        transform: translate(10px, 10px);
+                    }
+
+                    100% {
+                        transform: translate(0, 0);
+                    }
+                }
+            }
+
+            .right {
+                flex: 2;
+                margin-right: 60px;
+
+                form {
+                    margin-top: 35px;
+                    margin-left: 5px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    justify-content: space-between;
+
+                    .formNU {
+                        width: 40%;
+
+                        label {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            color: rgb(98, 36, 36);
+                        }
+
+                        .icon {
+                            cursor: pointer;
+                            font-size: 30px;
+                        }
+
+                        .vals {
+                            font-size: 13px;
+                            font-style: oblique;
+                            color: rgb(203, 7, 7);
+                        }
+                    }
+
+                    input {
+                        width: 100%;
+                        padding: 5px;
+                        border: none;
+                        border-bottom: 1px solid rgb(92, 92, 92);
+                        font-size: 13px;
+                        font-style: italic;
+                    }
+
+                    .buttonNU {
+                        border: none;
+                        background-color: transparent;
+                        color: black;
+                        cursor: pointer;
+                        font-size: 35px;
+                        position: absolute;
+                        bottom: 290px;
+                        right: 80px;
+
+                        .iconSubmit {
+                            font-size: 40px;
+                            margin-left: 3px;
+                            color: rgb(98, 36, 36);
+
+                            &:hover {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

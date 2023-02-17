@@ -153,7 +153,8 @@
 
                 position: relative;
                 form {
-                    margin-left: 15px;
+                    margin-left: 20px;
+                    margin-top: 35px;
                     display: flex;
                     flex-wrap: wrap;
                     gap: 20px;
@@ -190,17 +191,15 @@
 
                     .buttonNC {
                         border: none;
+                        position: absolute;
+                        margin-bottom: 230px;
+                        margin-right: 20px ;
                         background-color: transparent;
                         cursor: pointer;
                         font-size: 35px;
                         position: absolute;
                         bottom: 0px;
                         right: 10px;
-
-                        .iconSubmit {
-                            font-size: 40px;
-                            margin-left: 3px;
-                        }
                     }
                 }
             }

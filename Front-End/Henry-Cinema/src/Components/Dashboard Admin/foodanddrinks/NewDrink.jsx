@@ -186,7 +186,7 @@ export const NewDrink = () => {
                 <div className="vals">{imageVal}</div>
               </div>
               <button className="buttonND" type="submit" value="SUBMIT DRINK">
-                <OutboxRoundedIcon className="iconSubmit" />
+                SUBMIT
               </button>
             </form>
           </div>
