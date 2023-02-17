@@ -138,6 +138,7 @@
           height: 400px;
           flex: 1;
           .imageND {
+            border: 15px outset #000000;
             margin-left: 20px;
             position: absolute;
             width: 290px;
@@ -147,6 +148,7 @@
             left: 0;
             animation: float 3s ease-in-out infinite;
           }
+        
 
           @keyframes float {
             0% {
