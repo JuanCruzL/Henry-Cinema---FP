@@ -24,6 +24,7 @@ import {
   AGE_CLASSIFICATION,
   GET_SEATS,
   GET_USERS,
+  CREATE_ADMIN_USER,
   DELETE_USER,
   GET_REVIEWS,
   DELETE_REVIEW,
@@ -399,6 +400,21 @@ export const deleteUser = (id) => {
   };
 };
 
+export function createAdminUser(newAdminUser) {
+  console.log("New Admin: ", newAdminUser);
+  return async function () {
+    try {
+      const response = await axios.post("/users", newAdminUser);
+      if (response.data === newAdminUser) {
+        console.log(newAdminUser);
+        return dispatch({ type: CREATE_ADMIN_USER });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
 // crea el usuario y lo guarda en la base de datos
 export const signUp = (payload) => {
   if (!payload.email && !payload.password && !payload.userName) {
@@ -535,7 +551,6 @@ export const logOut = () => {
     type: "LOG_OUT",
   };
 };
- 
 
 //Todo: para el DashSearch
 

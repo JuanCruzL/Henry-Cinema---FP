@@ -140,7 +140,7 @@ export const NewDrink = () => {
             <img
               className="imageND"
               id="imageND"
-              src="https://www.eatthis.com/wp-content/uploads/sites/4/2021/06/soda-4.jpg?quality=82&strip=1&w=1250"
+              src="https://thumbs.dreamstime.com/b/takeaway-cold-brew-coffee-vector-minimalistic-line-art-illustration-isolated-white-background-216624208.jpg"
               alt=""
             />
           </div>
@@ -186,7 +186,7 @@ export const NewDrink = () => {
                 <div className="vals">{imageVal}</div>
               </div>
               <button className="buttonND" type="submit" value="SUBMIT DRINK">
-                <OutboxRoundedIcon className="iconSubmit" />
+                SUBMIT
               </button>
             </form>
           </div>

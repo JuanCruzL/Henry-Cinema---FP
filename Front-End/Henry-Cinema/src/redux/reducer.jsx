@@ -223,7 +223,12 @@ const rootReducer = (state = initialState, action) => {
         users: action.payload,
       };
     }
-
+    case "CREATE_ADMIN_USER": {
+      return {
+        ...state,
+        users: action.payload,
+      };
+    }
     case "GET_REVIEWS": {
       return {
         ...state,
