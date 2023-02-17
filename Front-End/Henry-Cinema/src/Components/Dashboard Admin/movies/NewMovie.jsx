@@ -455,7 +455,7 @@ export const NewMovie = () => {
                 value="SUBMIT RECIPE"
                 onClick={() => console.log("hola")}
               >
-                SUBMIT
+                <OutboxRoundedIcon className="iconSubmit" />
               </button>
             </form>
           </div>
