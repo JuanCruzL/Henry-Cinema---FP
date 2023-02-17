@@ -144,8 +144,9 @@ export default function Login() {
 
   async function onSuccess(response) {
     try {
+      console.log(response.credential);
       const userObject = jwt_decode(response.credential);
-      // console.log(userObject);
+      console.log(userObject);
       const action = await dispatch(logInUserWithGoogle(userObject));
       const loggedUser = action.payload;
       console.log(loggedUser);
