@@ -10,6 +10,7 @@ const {
   getScreeningsDb,
   addScreeningToMovie,
   getScreeningById,
+  modifySeatsById,
 } = require("../controllers/screenings");
 
 /* routes */
@@ -24,9 +25,11 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", getScreeningById);
+
 router.post("/", addScreeningToMovie);
 
-router.get("/:id", getScreeningById);
+router.put("/:id/seats", modifySeatsById);
 
 router.delete("/:id", async (req, res) => {
   try {

@@ -24,10 +24,12 @@ import {
   AGE_CLASSIFICATION,
   GET_SEATS,
   GET_USERS,
+  CREATE_ADMIN_USER,
   DELETE_USER,
   GET_REVIEWS,
   DELETE_REVIEW,
   GET_SALES,
+  GET_SCREENING,
 } from "./actionTypes";
 
 axios.defaults.baseURL = "http://localhost:3001";
@@ -115,6 +117,20 @@ export const deleteMovie = (id) => {
 };
 
 //SCREENINGS
+
+export const getScreeningId = (id) => {
+  try {
+    return async (dispatch) => {
+      let screeningId = await axios.get(`/screenings/${id}`);
+      return dispatch({
+        type: GET_SCREENING,
+        payload: screeningId.data,
+      });
+    };
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const getScreenings = () => {
   return (dispatch) => {
@@ -384,6 +400,21 @@ export const deleteUser = (id) => {
   };
 };
 
+export function createAdminUser(newAdminUser) {
+  console.log("New Admin: ", newAdminUser);
+  return async function () {
+    try {
+      const response = await axios.post("/users", newAdminUser);
+      if (response.data === newAdminUser) {
+        console.log(newAdminUser);
+        return dispatch({ type: CREATE_ADMIN_USER });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
 // crea el usuario y lo guarda en la base de datos
 export const signUp = (payload) => {
   if (!payload.email && !payload.password && !payload.userName) {
@@ -472,11 +503,13 @@ export const getSales = () => {
 export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
-      const { email, given_name } = response;
+      const { email, given_name, picture } = response;
       const userCreated = await axios.post(`/login/google`, {
         email,
         userName: given_name,
+        image: picture,
       });
+      console.log(picture);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
@@ -516,12 +549,15 @@ export const logInUser = (email, password) => {
 export const logOut = () => {
   return {
     type: "LOG_OUT",
+<<<<<<< HEAD
   };
 };
 
 export const getLocalUser = () => {
   return {
     type: "GET_LOCAL_USER",
+=======
+>>>>>>> Dashboard
   };
 };
 
@@ -551,3 +587,20 @@ export const DashDrinks = (payload) => {
     payload,
   };
 };
+
+//Put 
+export const putUser = (payload,token) => {
+  return async(dispatch) => {
+    const user = axios.put("http://localhost:5173/profile",{
+      payload
+    },{
+      headers : {
+        'Authorization': `Bearer ${token}` 
+      }
+    })
+    return dispatch({
+      type: "PUT_USER",
+      payload: user.data
+    })
+  }
+}

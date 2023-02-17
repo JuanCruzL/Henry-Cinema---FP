@@ -5,6 +5,7 @@ export const CREATE_MOVIE = "CREATE_MOVIE";
 export const DELETE_MOVIE = "DELETE_MOVIE";
 export const GET_NEXT_RELEASES = "GET_NEXT_RELEASES";
 export const AGE_CLASSIFICATION = "AGE_CLASSIFICATION";
+export const GET_SCREENING = "GET_SCREENING";
 export const GET_SCREENINGS = "GET_SCREENINGS";
 export const CREATE_SCREENING = "CREATE_SCREENING";
 export const DELETE_SCREENING = "DELETE_SCREENING";
@@ -28,4 +29,8 @@ export const REQUEST_GENRES2 = "REQUEST_GENRES2";
 export const GET_REVIEWS = "GET_REVIEWS";
 export const DELETE_REVIEW = "DELETE_REVIEW";
 export const GET_SALES = "GET_SALES";
+<<<<<<< HEAD
 export const GET_LOCAL_USER = "GET_LOCAL_USER";
+=======
+export const CREATE_ADMIN_USER = "CREATE_ADMIN_USER";
+>>>>>>> Dashboard

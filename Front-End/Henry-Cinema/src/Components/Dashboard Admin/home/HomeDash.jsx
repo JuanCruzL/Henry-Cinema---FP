@@ -9,6 +9,7 @@ import { Chart } from "../chart/Chart";
 import { List } from "../table/Table";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 
 const loggedUser = useSelector((state) => state.currentUser);
 
@@ -19,6 +20,17 @@ export const HomeDash = () => {
       navigate("/");
     }
   }, []);
+=======
+
+export const HomeDash = () => {
+  // const loggedUser = useSelector((state) => state.currentUser);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+  //     navigate("/");
+  //   }
+  // });
+>>>>>>> Dashboard
 
   return (
     <div className="home">

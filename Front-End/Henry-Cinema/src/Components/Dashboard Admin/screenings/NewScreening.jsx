@@ -97,7 +97,7 @@ const RoomInputs = () => {
                 <h1>
                   Seats: {reservation.seats ? reservation.seats.length : 0}
                 </h1>
-                <div className="right">
+                <div className="buttonConfirmL">
                   <button onClick={enviarDatos}>Confirm</button>
                 </div>
               </div>

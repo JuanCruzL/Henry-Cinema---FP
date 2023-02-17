@@ -12,6 +12,7 @@ import { logOut } from "../../redux/actions";
 import swal from "sweetalert";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 const Nav = ({ setCurrentPage }) => {
   const dispatch = useDispatch();
@@ -121,7 +122,7 @@ const Nav = ({ setCurrentPage }) => {
           </div>
           <li className="menu-item">
             <div className="menu-link-user">
-              <Link to="/login" className="link">
+              <Link to="/login" className="user">
                 <AccountCircleIcon className="userLogo" />
               </Link>
             </div>

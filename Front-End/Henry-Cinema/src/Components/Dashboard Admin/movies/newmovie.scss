@@ -4,6 +4,7 @@
     background-color: var(--LBase-2);
 
     .newContainer {
+      background-image: url(../img/doodle.jpg);
       
       .top,
       .bottom {
@@ -12,30 +13,6 @@
 
         h1 {
           color: var(--LText-1);
-        }
-
-        .left {
-          position: relative;
-          .imageNM {
-            position: absolute;
-            width: 405px;
-            margin-right: 30px;
-            top: 0;
-            left: 0;
-            animation: float 3s ease-in-out infinite;
-          }
-
-          @keyframes float { 
-            0% {
-              transform: translate(0, 0);
-            }
-            50% {
-              transform: translate(10px, 10px);
-            }
-            100% {
-              transform: translate(0, 0);
-            }
-          }
         }
 
         .right {
@@ -82,40 +59,11 @@
     background-color: var(--NFondo-1);
 
     .newContainer {
-      background-image: url(../img/fondo-negro.avif);
+      background-image: url(../img/doodle.jpg);
       .top,
       .bottom {
         box-shadow: var(--NDegradado3) 0px 3px 8px;
         background-color: var(--NFondo-3);
-
-        .left {
-            position: relative;
-        
-            .imageNM {
-              position: absolute;
-              width: 405px;
-              margin-right: 30px;
-              top: 0;
-              left: 0;
-              animation: float 3s ease-in-out infinite;
-            }
-        
-            @keyframes float {
-              0% {
-                transform: translate(0, 0);
-              }
-        
-              50% {
-                transform: translate(10px, 10px);
-              }
-        
-              100% {
-                transform: translate(0, 0);
-              }
-            }
-          }
-
-
 
         h1 {
           color: var(--NText-1);
@@ -167,13 +115,18 @@
   display: flex;
 
   .newContainer {
+    background-image: url(../img/doodle.jpg);
     flex: 6;
 
+    .bottom{
+      height: 500px;
+    }
     .top,
     .bottom {
       padding: 10px;
       margin: 20px;
       display: flex;
+      
 
 
       h1 {
@@ -181,14 +134,36 @@
       }
 
       .left {
-        flex: 1;
-        text-align: center;
-      }
+          position: relative;
+          flex: 1;
+          .imageNM {
+            position: absolute;
+            width: 405px;
+            height: 450px;
+            margin-right: 30px;
+            top: 0;
+            left: 0;
+            animation: float 3s ease-in-out infinite;
+          }
+
+          @keyframes float { 
+            0% {
+              transform: translate(0, 0);
+            }
+            50% {
+              transform: translate(10px, 10px);
+            }
+            100% {
+              transform: translate(0, 0);
+            }
+          }
+        }
 
       .right {
         flex: 2;
 
         form {
+          margin-left: 15px;
           display: flex;
           flex-wrap: wrap;
           gap: 20px;
@@ -227,12 +202,13 @@
           }
 
           .buttonNM {
+            margin-right: 318px;
             width: 0px;
             border: none;
             background-color: transparent;
             cursor: pointer;
             margin-top: 10px;
-            font-size: 20px;
+            font-size: 30px;
             align-items:baseline;
             justify-content: space-between;
 

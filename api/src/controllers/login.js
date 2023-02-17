@@ -61,10 +61,11 @@ const verifyLogin = async (formData) => {
 const verifyGoogleLogin = async (googleData) => {
         const { 
             email, 
-            userName 
+            userName,
+            image,
         } = googleData;
 
-        if (!email || !userName) {
+        if (!email || !userName || !image) {
           throw {
             status:false,
             message: "Missing obligatory information",
@@ -78,7 +79,8 @@ const verifyGoogleLogin = async (googleData) => {
             },
             defaults: {
                 email,
-                userName
+                userName,
+                image,
             }
         });
         if (user) {

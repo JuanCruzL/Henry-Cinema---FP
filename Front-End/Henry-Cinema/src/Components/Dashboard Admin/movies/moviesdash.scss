@@ -1,11 +1,24 @@
+.light-mode {
+    .list {
+        .listContainer {
+            background-color: var(--Dashboard-Base);
+        }
+    }
+}
+
+.dark-mode {
+    .list {
+        .listContainer {
+            background-color: var(--NFondo-3);
+        }
+    }
+}
+
 .list {
     display: flex;
 
     .listContainer {
-        background-color: white;
         flex: 6;
 
-
-        
     }
 }
