@@ -185,7 +185,7 @@ export const NewFood = () => {
                 <div className="vals">{imageVal}</div>
               </div>
               <button className="buttonNF" type="submit" value="SUBMIT FOOD">
-                <OutboxRoundedIcon className="iconSubmit" />
+                SUBMIT
               </button>
             </form>
           </div>

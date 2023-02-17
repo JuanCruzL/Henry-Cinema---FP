@@ -292,6 +292,10 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         drinks: FoundDri,
       };
+      case "PUT_USER":
+        return {
+          ...state,
+        }
     default:
       return state;
   }

@@ -4,6 +4,7 @@
     background-color: var(--LBase-2);
 
     .newContainer {
+      background-image: url(../img/doodle.jpg);
       
       .top,
       .bottom {
@@ -58,7 +59,7 @@
     background-color: var(--NFondo-1);
 
     .newContainer {
-      background-image: url(../img/fondo-negro.avif);
+      background-image: url(../img/doodle.jpg);
       .top,
       .bottom {
         box-shadow: var(--NDegradado3) 0px 3px 8px;
@@ -114,16 +115,18 @@
   display: flex;
 
   .newContainer {
+    background-image: url(../img/doodle.jpg);
     flex: 6;
 
     .bottom{
-      height: 550px;
+      height: 500px;
     }
     .top,
     .bottom {
       padding: 10px;
       margin: 20px;
       display: flex;
+      
 
 
       h1 {
@@ -136,7 +139,7 @@
           .imageNM {
             position: absolute;
             width: 405px;
-            height: 520px;
+            height: 450px;
             margin-right: 30px;
             top: 0;
             left: 0;
