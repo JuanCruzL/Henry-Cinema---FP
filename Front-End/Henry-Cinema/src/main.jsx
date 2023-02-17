@@ -36,7 +36,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    
   },
   {
     path: "movie/:id",
@@ -56,7 +55,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/showscreenings/:id",
-    element: <ShowScreenings/>
+    element: <ShowScreenings />,
   },
   {
     path: "/dashboard/users",
@@ -123,21 +122,21 @@ const router = createBrowserRouter([
     element: <AboutUs />,
   },
   {
-    path: "/seating",
+    path: "/seating/:id",
     element: <Seating />,
   },
   {
-    path:"user",
+    path: "user",
     element: <PerfilUser />,
-  }
+  },
 ]);
 
 root.render(
   <div id="Switch" className="dark-mode">
-      <Provider store={store}>
-        <RouterProvider router={router}>
-          <App />
-        </RouterProvider>
-      </Provider>
+    <Provider store={store}>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </Provider>
   </div>
 );

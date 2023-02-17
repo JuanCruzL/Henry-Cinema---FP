@@ -9,6 +9,7 @@ const router = Router();
 const {
   getScreeningsDb,
   addScreeningToMovie,
+  getScreeningById,
 } = require("../controllers/screenings");
 
 /* routes */
@@ -23,18 +24,9 @@ router.get("/", async (req, res) => {
   }
 });
 
-// router.post("/", async (req, res) => {
-//   try {
-//     let { name, screeningStart, date } = req.body;
-//     await Screening.create({ name, screeningStart, date });
-//     res.status(200).send("CREATED");
-//   } catch (error) {
-//     console.log(error);
-//     res.status(400).send(error);
-//   }
-// });
-
 router.post("/", addScreeningToMovie);
+
+router.get("/:id", getScreeningById);
 
 router.delete("/:id", async (req, res) => {
   try {

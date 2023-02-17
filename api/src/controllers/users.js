@@ -15,9 +15,10 @@ const postUsersDb = async (formData) => {
         email,
         password,
         notifications,
+        isAdministrator,
     } = formData;
 
-    if ( userName && email && password && notifications) {
+    if ( userName && email && password) {
         const hashPw = bcrypt.hashSync(password, salt);
         // console.log(hashPw);
         const userNameCi = userName.toLowerCase();
@@ -36,7 +37,8 @@ const postUsersDb = async (formData) => {
             userName: userNameCi,
             email: emailCi,
             password: hashPw, 
-            notifications
+            notifications,
+            isAdministrator,
         });
 
         return "User created successfully";
