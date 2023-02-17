@@ -73,12 +73,12 @@ const Movies = () => {
   }, [allMovies, setImages]);
 
   console.log(allReleases);
-  // useEffect(() => {
-  //   if (!genres.length) {
-  //     dispatch(requestGenres());
-  //   }
-  //   setGenresCurrent(genres);
-  // }, [genresCurrent, dispatch]);
+  useEffect(() => {
+    if (!genres.length) {
+      dispatch(requestGenres());
+    }
+    setGenresCurrent(genres);
+  }, [genresCurrent, dispatch]);
 
   if (loading) {
     return <Loader />;

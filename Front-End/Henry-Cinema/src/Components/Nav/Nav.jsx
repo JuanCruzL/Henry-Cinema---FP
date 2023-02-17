@@ -88,41 +88,46 @@ const Nav = ({ setCurrentPage }) => {
           </ul>
         </li>
         {/* Menú Nav */}
-        <li className="menu-item-logo">
-          <Link to="/">
-            <img src={logoCinema} className="logoh"></img>
+        <div className="left-menu">
+          <li className="menu-item-logo">
+            <Link to="/">
+              <img src={logoCinema} className="logoh"></img>
+            </Link>
+          </li>
+          <Link to="/movies" className="link-movies">
+            <li className="itemsNav">
+              <div className="menu-link">Movies</div>
+            </li>
           </Link>
-        </li>
-        <Link to="/movies" className="link-movies">
-          <li className="itemsNav">
-            <div className="menu-link">Movies</div>
-          </li>
-        </Link>
-        <Link to="/foods" className="link-foods">
-          <li className="itemsNav">
-            <div className="menu-link">Food & Drinks</div>
-          </li>
-        </Link>
-        <Link to="/about" className="link-about">
-          <li className="itemsNav">
-            <div className="menu-link">About Us</div>
-          </li>
-        </Link>
+          <Link to="/foods" className="link-foods">
+            <li className="itemsNav">
+              <div className="menu-link">Food & Drinks</div>
+            </li>
+          </Link>
+          <Link to="/about" className="link-about">
+            <li className="itemsNav">
+              <div className="menu-link">About Us</div>
+            </li>
+          </Link>
+        </div>
+
         <li className="menu-itemSearchBar">
           <SearchBar setCurrentPage={setCurrentPage} />
         </li>
-        <div className="shopBag">
-          <label className="bag">
-            <ShoppingBagIcon className="bagLogo" />
-          </label>
-        </div>
-        <li className="menu-item">
-          <div className="menu-link-user">
-            <Link to="/login" className="link">
-              <AccountCircleIcon className="userLogo" />
-            </Link>
+        <div className="right-menu">
+          <div className="shopBag">
+            <label className="bag">
+              <ShoppingBagIcon className="bagLogo" />
+            </label>
           </div>
-        </li>
+          <li className="menu-item">
+            <div className="menu-link-user">
+              <Link to="/login" className="link">
+                <AccountCircleIcon className="userLogo" />
+              </Link>
+            </div>
+          </li>
+        </div>
         {/*  </ul> */}
       </section>
     </nav>
