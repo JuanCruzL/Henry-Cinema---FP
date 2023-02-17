@@ -11,7 +11,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
-import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
 export const CombosTable = () => {
@@ -35,7 +34,7 @@ export const CombosTable = () => {
         dispatch(deleteCombo(id));
         setTimeout(() => {
           setCount(count + 1);
-          console.log("HOLAA");
+          console.log(name);
         }, 1500);
         swal({
           text: "The combo has been successfully removed.",
@@ -53,6 +52,7 @@ export const CombosTable = () => {
         <TableHead>
           <TableRow className="tableRow">
             <TableCell className="title">NAME</TableCell>
+            <TableCell className="title">DESCRIPTION</TableCell>
             <TableCell className="title">PRICE</TableCell>
             <TableCell className="title">IMAGE</TableCell>
             <TableCell className="title">DELETE</TableCell>
@@ -62,6 +62,9 @@ export const CombosTable = () => {
           {allCombos.map((c) => (
             <TableRow key={c.id}>
               <TableCell className="tableCellCombos">{c.name}</TableCell>
+              <TableCell className="tableCellCombos">
+                {c.description.slice(0, 25)}
+              </TableCell>
               <TableCell className="tableCellCombos">${c.price}</TableCell>
               <TableCell className="tableCellCombos">
                 <div className="cellWrapper">

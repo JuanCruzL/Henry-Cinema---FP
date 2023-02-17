@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { createFood } from "../../../redux/actions";
+import { createAdminUser } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import "./newfoods.scss";
+import "./newdrink.scss";
 import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
@@ -9,54 +9,48 @@ import OutboxRoundedIcon from "@mui/icons-material/OutboxRounded";
 import swal from "sweetalert";
 import { useEffect } from "react";
 
-export const NewFood = () => {
+export const NewDrink = () => {
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
-    name: "",
-    price: "",
-    image: "",
+    userName: "",
+    password: "",
+    email: "",
+    isAdministrator: "",
   });
 
   const [validations, setValidations] = useState({
-    name: "",
-    price: "",
-    image: "",
+    userName: "",
+    password: "",
+    email: "",
+    isAdministrator: "",
   });
 
   const validateAll = () => {
-    const { name, price, image } = values;
+    const { userName, password, email, isAdministrator } = values;
 
     const validations = {
-      name: "",
-      price: "",
-      image: "",
+      userName: "",
+      password: "",
+      email: "",
+      isAdministrator: "",
     };
 
     let isValid = true;
 
-    if (!name) {
+    if (!userName) {
       validations.name = "Name is required";
       isValid = false;
     }
 
-    if ((name && name.length < 2) || name.length > 40) {
-      validations.name = "The name must contain between 2 and 40 characters";
+    if ((userName && userName.length < 2) || userName.length > 40) {
+      validations.name =
+        "The username must contain between 2 and 40 characters";
       isValid = false;
     }
 
-    if (!image) {
-      validations.image = "An image of the food is required";
-      isValid = false;
-    }
-
-    if (!price) {
-      validations.price = "Price is required";
-      isValid = false;
-    }
-
-    if (isNaN(price) === true || price < 0 || price > 100000) {
-      validations.voteAverage = "Price must be a number betweeen 1 and 100000";
+    if (!isAdministrator) {
+      validations.price = "This field is required";
       isValid = false;
     }
 
@@ -68,28 +62,23 @@ export const NewFood = () => {
   };
 
   const validateOne = (e) => {
-    const { name } = e.target;
-    const value = values[name];
+    const { userName } = e.target;
+    const value = values[userName];
     let message = "";
 
     if (!value) {
-      message = `${name} is required`;
+      message = `${userName} is required`;
     }
 
-    if (value && name === "name" && (value.length < 2 || value.length > 40)) {
-      message = "Name must contain between 2 and 40 characters";
+    if (
+      value &&
+      userName === "userName" &&
+      (value.length < 2 || value.length > 40)
+    ) {
+      message = "Username must contain between 2 and 40 characters";
     }
 
-    setValidations({ ...validations, [name]: message });
-  };
-
-  const handleChange = (e, im = 0) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
-    if (im == 1) {
-      let img = e.target.value;
-      cambiarImagen(img);
-    }
+    setValidations({ ...validations, [userName]: message });
   };
 
   const handleSubmit = (e) => {
@@ -99,9 +88,9 @@ export const NewFood = () => {
     if (!isValid) {
       return false;
     }
-    dispatch(createFood(values)).then(() =>
+    dispatch(createAdminUser(values)).then(() =>
       swal({
-        title: `The food ${values.name} has been created`,
+        title: `The user ${values.userName} has been created`,
         icon: "success",
         button: true,
       })
@@ -113,42 +102,29 @@ export const NewFood = () => {
 
   const { name: nameVal, image: imageVal, price: priceVal } = validations;
 
-  const cambiarImagen = (img = "") => {
-    let comprobar = document.getElementById("imageNF");
-    let defaultImg =
-      "https://previews.123rf.com/images/foontntd/foontntd1705/foontntd170500070/77824901-menu-food-drawing-graphic-design-illustrate-objects-template.jpg";
-    let imgPoster = img;
-    comprobar.src = imgPoster;
-    if (comprobar.src == imgPoster && comprobar.naturalHeight > 0) {
-      comprobar.src = imgPoster;
-    } else {
-      comprobar.src = defaultImg;
-    }
-  };
-
   return (
-    <div className="newFood">
+    <div className="newDrink">
       <SideBarDash />
       <div className="newContainer">
         <NavBarDash />
         <div className="top">
-          <h1>Add a New Food</h1>
+          <h1>Add a New User</h1>
         </div>
         <div className="bottom">
           <div className="left">
             <img
-              className="imageNF"
-              id="imageNF"
-              src="https://thumbs.dreamstime.com/b/objeto-vectorial-de-la-vista-superior-pizza-blanco-y-negro-con-diferentes-ingredientes-o-elemento-dise%C3%B1o-en-estilo-monocromo-185052567.jpg"
+              className="imageND"
+              id="imageND"
+              src="https://thumbs.dreamstime.com/b/takeaway-cold-brew-coffee-vector-minimalistic-line-art-illustration-isolated-white-background-216624208.jpg"
               alt=""
             />
           </div>
           <div className="right">
-            <form name="newFood" onSubmit={handleSubmit}>
-              <div className="formNF">
+            <form name="newDrink" onSubmit={handleSubmit}>
+              <div className="formND">
                 <label>Name</label>
                 <input
-                  className="inputNF"
+                  className="inputND"
                   type="text"
                   placeholder="Name of the meal..."
                   name="name"
@@ -158,10 +134,10 @@ export const NewFood = () => {
                 />
                 <div className="vals">{nameVal}</div>
               </div>
-              <div className="formNF">
+              <div className="formND">
                 <label>Price</label>
                 <input
-                  className="inputNF"
+                  className="inputND"
                   type="number"
                   placeholder="how much it cost..."
                   name="price"
@@ -171,10 +147,10 @@ export const NewFood = () => {
                 />
                 <div className="vals">{priceVal}</div>
               </div>
-              <div className="formNF">
+              <div className="formND">
                 <label>Image</label>
                 <input
-                  className="inputNF"
+                  className="inputND"
                   type="text"
                   placeholder="img url"
                   name="image"
@@ -184,8 +160,8 @@ export const NewFood = () => {
                 />
                 <div className="vals">{imageVal}</div>
               </div>
-              <button className="buttonNF" type="submit" value="SUBMIT FOOD">
-                SUMBIT
+              <button className="buttonND" type="submit" value="SUBMIT DRINK">
+                <OutboxRoundedIcon className="iconSubmit" />
               </button>
             </form>
           </div>
@@ -195,4 +171,4 @@ export const NewFood = () => {
   );
 };
 
-export default NewFood;
+export default NewDrink;
