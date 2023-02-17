@@ -487,11 +487,13 @@ export const getSales = () => {
 export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
-      const { email, given_name } = response;
+      const { email, given_name, picture } = response;
       const userCreated = await axios.post(`/login/google`, {
         email,
         userName: given_name,
+        image: picture,
       });
+      console.log(picture);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,

@@ -51,7 +51,7 @@
 .left-menu {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
 .right-menu {
   display: flex;
@@ -68,15 +68,16 @@
 
 .menu-item-logo {
   list-style: none;
-  margin: 6px;
-  height: 90%;
-  width: 12%;
-  padding: 8px;
+  height: 120%;
+  width: 16%;
+  padding: 10px;
   transition: 0.5s;
+  text-align: center;
 }
 
 .menu-itemSearchBar {
   width: 35%;
+
   align-items: center;
 }
 
@@ -84,7 +85,9 @@
 .link-movies,
 .link-about {
   color: black;
+  width: 18%;
   padding: 25px;
+  justify-content: space-around;
   text-decoration: none;
   list-style: none;
   display: flex;
@@ -106,6 +109,7 @@
   display: flex;
   text-decoration: none;
   list-style: none;
+
   padding: 20px;
   justify-content: space-between;
 }
@@ -113,15 +117,15 @@
 .menu-link-logo {
   list-style: none;
   text-decoration: none;
-  padding: 20px;
+  margin: 15px;
+  padding: 10px;
   display: grid;
-  height: 100%;
-  width: 100%;
+  height: 50%;
   align-items: center;
   text-align: center;
   color: black;
   transition: 0.5s;
-  font-size: 18px;
+  font-size: 25px;
 }
 .menu-link-about,
 .menu-link-movies,
@@ -150,6 +154,11 @@
 }
 
 .menu-link-user {
+  margin: 20px;
+  padding: 12px;
+  justify-content: space-between;
+  margin-top: 5px;
+  width: 100%;
   text-decoration: none;
   align-items: center;
   text-align: center;
@@ -241,19 +250,20 @@
   color: #ffff00;
 }
 
-.link {
+.user {
   font-size: 2rem;
   text-decoration: none;
   color: black;
 }
-.link .fQQvfO {
+.user .fQQvfO {
   font-size: 2rem;
 }
 .shopBag {
+  margin: 25px;
   padding: 5px;
   align-items: center;
   justify-content: space-between;
-  margin-top: 15px;
+  margin-top: 30px;
   width: 100%;
 }
 .bag .fQQvfO {
