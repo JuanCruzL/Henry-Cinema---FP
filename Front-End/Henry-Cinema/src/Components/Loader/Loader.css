@@ -17,10 +17,10 @@
    background-color: var(--NFondo-1);
 }
 .dark-mode .circle{
-   background-color: var(--NBase-1);
+   background-color: var(--BaseN);
 }
 .dark-mode .wrapper-loader .text-loader{
-   color: var(--NBase-1);
+   color: var(--BaseN);
 }
 .dark-mode .shadow{
    background-color: var(--NDegradado2);

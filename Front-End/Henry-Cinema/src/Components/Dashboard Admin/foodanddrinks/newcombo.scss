@@ -53,6 +53,7 @@
         background-color: var(--NFondo-1);
 
         .newContainer {
+            background-image: url(../img/doodle.jpg);
         
             .top,
             .bottom {
@@ -125,6 +126,7 @@
             .left {
                     position: relative;
                     height: 400px;
+                    flex: 1;
                     .imageNC {
                         position: absolute;
                         width: 380px;

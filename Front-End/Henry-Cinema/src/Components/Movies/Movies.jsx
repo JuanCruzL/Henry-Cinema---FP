@@ -30,8 +30,8 @@ const Movies = () => {
   const [filter, setFilter] = useState({
     Genre: "",
     Classific: "todos",
-    Calification: "Calification"
-  })
+    Calification: "Calification",
+  });
 
   const getClassifications = () => {
     const classificationsArray = Array.from(
@@ -58,73 +58,90 @@ const Movies = () => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-    
+
     setImages(
       allMovies.map((movie) => ({
         apiID: movie.apiId ? movie.apiId : movie.id,
         image: movie.imageVertical,
       }))
     );
-   
-   
+
     setAvailableMovies(allMovies);
     setMovies(
       allReleases.map((movie) => ({ apiID: movie.id, image: movie.image }))
     );
   }, [allMovies, setImages]);
- 
-  console.log(allReleases)
-  // useEffect(() => {
-  //   if (!genres.length) {
-  //     dispatch(requestGenres());
-  //   }
-  //   setGenresCurrent(genres);
-  // }, [genresCurrent, dispatch]);
+
+  console.log(allReleases);
+  useEffect(() => {
+    if (!genres.length) {
+      dispatch(requestGenres());
+    }
+    setGenresCurrent(genres);
+  }, [genresCurrent, dispatch]);
 
   if (loading) {
     return <Loader />;
   }
 
-
-
   function FiltradosContenedor(e, filtroCambiado) {
     let filteredMovies = allMovies;
     let actual = e.target.value;
-    console.log(actual)
+    console.log(actual);
     /* FILTRO DE GENERO */
     if (filtroCambiado == "Genre") {
-      actual != "" ? filteredMovies = filteredMovies.filter((movie) => movie.genres.includes(actual)) : filteredMovies;
-      setFilter({ ...filter, Genre: actual })
+      actual != ""
+        ? (filteredMovies = filteredMovies.filter((movie) =>
+            movie.genres.includes(actual)
+          ))
+        : filteredMovies;
+      setFilter({ ...filter, Genre: actual });
     } else {
-      filter.Genre != "" ? filteredMovies = filteredMovies.filter((movie) => movie.genres.includes(filter.Genre)) : filteredMovies;
+      filter.Genre != ""
+        ? (filteredMovies = filteredMovies.filter((movie) =>
+            movie.genres.includes(filter.Genre)
+          ))
+        : filteredMovies;
     }
 
     /* FILTRO DE CLASIFICACION */
     if (filtroCambiado == "Classification") {
-      console.log(actual,filtroCambiado)
-      actual!="todos"? filteredMovies = filteredMovies.filter((movie) =>movie.classification ==actual):filteredMovies;
-      console.log(filteredMovies)
-      setFilter({...filter,Classific:actual})
-    }else{
-      filter.Classific!="todos"? filteredMovies = filteredMovies.filter((movie) =>movie.classification==filter.Classific):filteredMovies;
+      console.log(actual, filtroCambiado);
+      actual != "todos"
+        ? (filteredMovies = filteredMovies.filter(
+            (movie) => movie.classification == actual
+          ))
+        : filteredMovies;
+      console.log(filteredMovies);
+      setFilter({ ...filter, Classific: actual });
+    } else {
+      filter.Classific != "todos"
+        ? (filteredMovies = filteredMovies.filter(
+            (movie) => movie.classification == filter.Classific
+          ))
+        : filteredMovies;
     }
-    
+
     /* FILTRO DE MAS POLULARES */
     if (filtroCambiado == "Calification") {
-      actual != "Calification" ?
-        filteredMovies.sort((a, b) => {
-          if (actual == "More Popular") {return b.voteAverage - a.voteAverage;}
-          return a.voteAverage - b.voteAverage;
-        })
+      actual != "Calification"
+        ? filteredMovies.sort((a, b) => {
+            if (actual == "More Popular") {
+              return b.voteAverage - a.voteAverage;
+            }
+            return a.voteAverage - b.voteAverage;
+          })
         : filteredMovies;
 
       setFilter({ ...filter, Calification: actual });
-    }else{
-      filter.Calification != "Calification" ?
-        filteredMovies.sort((a, b) => {
-          if (filter.Calification == "More Popular") {return b.voteAverage - a.voteAverage;}
-          return a.voteAverage - b.voteAverage;
-        })
+    } else {
+      filter.Calification != "Calification"
+        ? filteredMovies.sort((a, b) => {
+            if (filter.Calification == "More Popular") {
+              return b.voteAverage - a.voteAverage;
+            }
+            return a.voteAverage - b.voteAverage;
+          })
         : filteredMovies;
     }
     /*======================================= */
@@ -143,19 +160,19 @@ const Movies = () => {
         </section>
 
         <section className="movies-filter">
-          <select onChange={(e) => FiltradosContenedor(e, "Genre")} >
-            <option value="" style={{ color: "red" }} >
+          <select onChange={(e) => FiltradosContenedor(e, "Genre")}>
+            <option value="" style={{ color: "red" }}>
               Select a Genre
             </option>
             {genresCurrent.map((genre) => (
-              <option key={genre} value={genre} >
+              <option key={genre} value={genre}>
                 {genre}
               </option>
             ))}
           </select>
 
           <select onChange={(e) => FiltradosContenedor(e, "Classification")}>
-            <option value="todos" > Classification </option>
+            <option value="todos"> Classification </option>
             {classifications.map((c) => (
               <option key={c} value={c}>
                 {c}
@@ -181,8 +198,6 @@ const Movies = () => {
             {Filtered.map((movie) => (
               <Movie movie={movie} />
             ))}
-
-
           </div>
         </section>
 

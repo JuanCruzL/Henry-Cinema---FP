@@ -2,13 +2,15 @@ import React from "react";
 import "./seating.css";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getasientos } from "../../redux/actions";
+import { useParams, Link } from "react-router-dom";
+import { getScreeningId } from "../../redux/actions";
 import Seats from "./Seats";
 import Ticket from "./Ticket";
 
 function Seating() {
+  const { id, numberOfEntries } = useParams();
   const dispatch = useDispatch();
-  const asientos = useSelector((state) => state.seats);
+  const screening = useSelector((state) => state.screeningID);
   const [asientosArray, setAsientosArray] = useState([]);
   const [asientosSeleccionados, setAsientosSeleccionados] = useState([]);
 
@@ -16,19 +18,28 @@ function Seating() {
 
   const handleClick = (event) => {
     const asiento = event.target.getAttribute("data-value");
-    if (asientosSeleccionados.includes(asiento)) {
+
+    // Verifica si el asiento ya está seleccionado
+    const index = asientosSeleccionados.indexOf(asiento);
+    if (index > -1) {
+      // Si ya está seleccionado, lo elimina del array
       setAsientosSeleccionados(
         asientosSeleccionados.filter((a) => a !== asiento)
       );
     } else {
-      setAsientosSeleccionados([...asientosSeleccionados, asiento]);
+      // Si no está seleccionado, verifica si se ha alcanzado el límite
+      if (asientosSeleccionados.length < numberOfEntries) {
+        // Si no se ha alcanzado el límite, lo agrega al array
+        setAsientosSeleccionados([...asientosSeleccionados, asiento]);
+      }
     }
   };
-  useEffect(() => {
-    dispatch(getasientos());
-    setAsientosArray(asientos);
-  }, []);
 
+  useEffect(() => {
+    dispatch(getScreeningId(id));
+    setAsientosArray(screening.seats);
+  }, []);
+  console.log(screening);
   return (
     <div className="seating">
       <div className="screen">
@@ -38,7 +49,7 @@ function Seating() {
         <div className="Container-Seating">
           {filas.map((letra) => (
             <Seats
-              seatsData={asientos}
+              seatsData={asientosArray}
               handleClick={handleClick}
               letra={letra}
               asientosSeleccionados={asientosSeleccionados}
@@ -46,7 +57,10 @@ function Seating() {
           ))}
         </div>
         <div className="selected">
-          <Ticket asientosSeleccionados={asientosSeleccionados} />
+          <Ticket
+            asientosSeleccionados={asientosSeleccionados}
+            screening={screening}
+          />
         </div>
       </div>
     </div>
