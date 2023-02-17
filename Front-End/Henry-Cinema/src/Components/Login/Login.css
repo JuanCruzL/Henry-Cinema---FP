@@ -1,3 +1,131 @@
+.light-mode .loginContainer{
+    background-color: var(--LFondo-1);
+}
+.light-mode .form-imageContainer{
+    background-color: var(--LFondo-1);
+    box-shadow: var(--LDegradado) 0px 30px 90px;
+    color: var(--LText-1);
+}
+.light-mode .image-container{
+    background-color: var(--BaseL)
+}
+.light-mode .form-container form input::placeholder{
+    color: #858585;
+}
+.light-mode .check{
+    background-color: var(--LBase-1);
+}
+.light-mode .sign-inPselect,
+.light-mode .sign-upPselect{
+    border-bottom: 1px solid var(--LBase-1);
+}
+.light-mode .sign-inP:hover,
+.light-mode .sign-upP:hover{
+    border-bottom: 1px solid var(--LBase-1);
+}
+.light-mode .checkmark{
+    background-color: #ccc;
+}
+.light-mode .buttonSubmit{
+    color: #212121;
+    background: #e8e8e8;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+}
+.light-mode .buttonSubmit::before {
+    background-color: var(--BaseL);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+}
+.light-mode .buttonSubmit:hover {
+    color: var(--LText-1);
+}
+.light-mode .buttonSubmitup {
+    color: #212121;
+    background: #e8e8e8;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+}
+.light-mode .buttonSubmitup::before {
+    background-color: var(--BaseL);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+}
+.light-mode .buttonSubmitup:hover {
+    color: var(--LText-1);
+}
+.light-mode .S9gUrf-YoZ4jf div{
+    border-color: var(--LBase-1);
+    background-color: var(--LFondo-1);
+    color: var(--LText-1);
+}
+
+
+
+
+.dark-mode .loginContainer{
+    background-color: var(--NFondo-3);
+}
+.dark-mode .form-imageContainer{
+    background-color: var(--NFondo-1);
+    box-shadow: var(--NDegradado) 0px 20px 40px;
+    color: var(--NText-1);
+}
+.dark-mode .image-container{
+    background-color: var(--BaseN)
+}
+.dark-mode .form-container form input::placeholder{
+    color: var(--BaseND);
+}
+.dark-mode .check{
+    background-color: var(--NBase-1);
+}
+.dark-mode .sign-inPselect,
+.dark-mode .sign-upPselect{
+    border-bottom: 1px solid var(--NBase-1);
+}
+.dark-mode .sign-inP:hover, 
+.dark-mode .sign-upP:hover{
+    border-bottom: 1px solid var(--NBase-1);
+}
+.dark-mode .checkmark{
+    background-color: #ccc;
+}
+.dark-mode .buttonSubmit{
+    color: #212121;
+    background: #e8e8e8;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+}
+.dark-mode .buttonSubmit::before {
+    background-color: var(--BaseL);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+}
+.dark-mode .buttonSubmit:hover {
+    color: var(--NText-2);
+}
+.dark-mode .buttonSubmitup {
+    color: #212121;
+    background: #e8e8e8;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+}
+.dark-mode .buttonSubmitup::before {
+    background-color: var(--BaseL);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+}
+.dark-mode .buttonSubmitup:hover {
+    color: var(--NText-2);
+}
+.dark-mode .S9gUrf-YoZ4jf div{
+    border-color: var(--NBase-1);
+    background-color: var(--NFondo-3);
+    color: var(--NText-1);
+}
+
+/*====================================================*/
 .loginContainer {
     position: absolute;
     width: 100%;
@@ -20,16 +148,13 @@
     height: 600px;
     width: 900px;
     display: flex;
-    flex-direction: row;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+    flex-direction: row; 
 }
 
 .image-container {
     position: relative;
     height: 100%;
     width: 450px;
-    background-color: #ffff00;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,7 +215,7 @@
     font-weight: bold;
     cursor: pointer;
     box-sizing: border-box;
-    border-bottom: 1px solid black;
+    
 }
 
 .sign-upP {
@@ -99,7 +224,6 @@
     font-weight: bold;
     cursor: pointer;
     box-sizing: border-box;
-    
 }
 .sign-upPselect {
     margin-right: 10px;
@@ -107,23 +231,14 @@
     font-weight: bold;
     cursor: pointer;
     box-sizing: border-box;
-    border-bottom: 1px solid black;
 }
 
 
 .check {
     width: 10px;
     height: 10px;
-    background-color: black;
 }
 
-.sign-inP:hover {
-    border-bottom: 1px solid black;
-}
-
-.sign-upP:hover {
-    border-bottom: 1px solid black;
-}
 
 .formsignin{
     position: relative;
@@ -188,7 +303,6 @@
      left: 0;
      height: 20px;
      width: 20px;
-     background-color: #ccc;
    }
    .textdiv {
     font-size: 15px;
@@ -230,16 +344,12 @@
    .buttonSubmit {
     padding: 5px 10px;
     border: unset;
-    color: #212121;
     z-index: 1;
     bottom: -40px;
     right: 226px;
-    background: #e8e8e8;
     position: absolute;
     font-weight: 1000;
     font-size: 17px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     transition: all 250ms;
     overflow: hidden;
    }
@@ -251,15 +361,12 @@
     left: 0;
     height: 100%;
     width: 0;
-    background-color: #ffff00;
     z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     transition: all 250ms
    }
    
    .buttonSubmit:hover {
-    color: #000000;
+    cursor: pointer;
    }
    
    .buttonSubmit:hover::before {
@@ -269,16 +376,12 @@
    .buttonSubmitup {
     padding: 5px 10px;
     border: unset;
-    color: #212121;
     z-index: 1;
     bottom: 100px;
     /* right: 225px; */
-    background: #e8e8e8;
     position: absolute;
     font-weight: 1000;
     font-size: 17px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     transition: all 250ms;
     overflow: hidden;
    }
@@ -290,15 +393,12 @@
     left: 0;
     height: 100%;
     width: 0;
-    background-color: #ffff00;
     z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     transition: all 250ms
    }
    
    .buttonSubmitup:hover {
-    color: #000000;
+    cursor: pointer;
    }
    
    .buttonSubmitup:hover::before {

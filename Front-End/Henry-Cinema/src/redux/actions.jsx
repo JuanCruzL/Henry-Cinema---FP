@@ -28,6 +28,7 @@ import {
   GET_REVIEWS,
   DELETE_REVIEW,
   GET_SALES,
+  GET_SCREENING,
 } from "./actionTypes";
 
 axios.defaults.baseURL = "http://localhost:3001";
@@ -115,6 +116,20 @@ export const deleteMovie = (id) => {
 };
 
 //SCREENINGS
+
+export const getScreeningId = (id) => {
+  try {
+    return async (dispatch) => {
+      let screeningId = await axios.get(`/screenings/${id}`);
+      return dispatch({
+        type: GET_SCREENING,
+        payload: screeningId.data,
+      });
+    };
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const getScreenings = () => {
   return (dispatch) => {
@@ -515,10 +530,9 @@ export const logInUser = (email, password) => {
 
 export const logOut = () => {
   return {
-    type: "LOG_OUT"
+    type: "LOG_OUT",
   };
 };
- 
 
 //Todo: para el DashSearch
 
@@ -528,20 +542,20 @@ export const DashMovie = (payload) => {
     payload,
   };
 };
-export	const DashCombos = (payload) =>{
-  return{
+export const DashCombos = (payload) => {
+  return {
     type: "DASH_COMBOS",
     payload,
   };
 };
-export	const DashFoods = (payload) =>{
-  return{
+export const DashFoods = (payload) => {
+  return {
     type: "DASH_FOODS",
     payload,
   };
 };
-export	const DashDrinks = (payload) =>{
-  return{
+export const DashDrinks = (payload) => {
+  return {
     type: "DASH_DRINKS",
     payload,
   };

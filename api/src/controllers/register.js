@@ -1,9 +1,8 @@
-const { User } = require('../db');
+const { User } = require("../db");
 const bcrypt = require("bcrypt");
 const saltRound = 10;
 const salt = bcrypt.genSaltSync(saltRound);
-const sendEmail = require("../utils/sendEmail");
-
+//const sendEmail = require("../utils/sendEmail");
 const registerToDb = async (formData) => {
     const {
         userName,
@@ -34,17 +33,18 @@ const registerToDb = async (formData) => {
             notifications
         });
 
-        if (userRegister.notifications === true) {
-            sendEmail(userRegister);
-        }
+        // if (userRegister.notifications === true) {
+        //     sendEmail(userRegister);
+        // }
 
         return "User created successfully";
-    }
 
-    throw {
-        status:false,
-        message: 'Need to add all information',
-    }
-}
+  }
+
+  throw {
+    status: false,
+    message: "Need to add all information",
+  };
+};
 
 module.exports = { registerToDb };
