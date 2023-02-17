@@ -83,11 +83,11 @@ export const NewCombo = () => {
     setValidations({ ...validations, [name]: message });
   };
 
-  const handleChange = (e,im=0) => {
+  const handleChange = (e, im = 0) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-    if(im==1){
-      let img =e.target.value;
+    if (im == 1) {
+      let img = e.target.value;
       cambiarImagen(img);
     }
   };
@@ -113,18 +113,18 @@ export const NewCombo = () => {
 
   const { name: nameVal, image: imageVal, price: priceVal } = validations;
 
-
-  const cambiarImagen=(img="")=>{
+  const cambiarImagen = (img = "") => {
     let comprobar = document.getElementById("imageNC");
-    let defaultImg= "https://static8.depositphotos.com/1077687/1062/v/950/depositphotos_10622859-stock-illustration-cine-fast-food-combo.jpg";
+    let defaultImg =
+      "https://static8.depositphotos.com/1077687/1062/v/950/depositphotos_10622859-stock-illustration-cine-fast-food-combo.jpg";
     let imgPoster = img;
-    comprobar.src=imgPoster;
-    if(comprobar.src==imgPoster && comprobar.naturalHeight>0){
-      comprobar.src=imgPoster
-    }else{
-      comprobar.src=defaultImg;
+    comprobar.src = imgPoster;
+    if (comprobar.src == imgPoster && comprobar.naturalHeight > 0) {
+      comprobar.src = imgPoster;
+    } else {
+      comprobar.src = defaultImg;
     }
-  }
+  };
 
   return (
     <div className="newCombo">
@@ -180,7 +180,7 @@ export const NewCombo = () => {
                     placeholder="img url"
                     name="image"
                     value={image}
-                    onChange={(e)=>handleChange(e,1)}
+                    onChange={(e) => handleChange(e, 1)}
                     onBlur={validateOne}
                   />
                   <div className="vals">{imageVal}</div>

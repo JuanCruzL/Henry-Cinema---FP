@@ -12,6 +12,7 @@ import { logOut } from "../../redux/actions";
 import swal from "sweetalert";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 const Nav = ({ setCurrentPage }) => {
   const dispatch = useDispatch();
