@@ -9,8 +9,8 @@ import Details from "./Components/Details/Details";
 import "./index.css";
 import Movies from "./Components/Movies/Movies";
 import HomeDash from "./Components/Dashboard Admin/home/HomeDash";
-import LoginDash from "./Components/Dashboard Admin/login/Login";
 import Users from "./Components/Dashboard Admin/users/Users";
+// import NewUser from "./Components/Dashboard Admin/users/NewUser";
 import MoviesDash from "./Components/Dashboard Admin/movies/MoviesDash";
 import NewMovie from "./Components/Dashboard Admin/movies/NewMovie";
 import Reviews from "./Components/Dashboard Admin/reviews/Reviews";
@@ -50,10 +50,6 @@ const router = createBrowserRouter([
     element: <HomeDash />,
   },
   {
-    path: "/dashboard/login",
-    element: <LoginDash />,
-  },
-  {
     path: "/showscreenings/:id",
     element: <ShowScreenings />,
   },
@@ -61,6 +57,10 @@ const router = createBrowserRouter([
     path: "/dashboard/users",
     element: <Users />,
   },
+  // {
+  //   path: "/dashboard/users/new",
+  //   element: <NewUser />,
+  // },
   {
     path: "/dashboard/movies",
     element: <MoviesDash />,

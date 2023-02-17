@@ -57,7 +57,7 @@
         background-color: var(--NFondo-1);
 
         .newContainer {
-        background-image: url(../img/fondo-negro-degradado-lineas-onduladas_23-2149157313.avif);
+        background-image: url(../img/doodle.jpg);
 
             .top,
             .bottom {
@@ -138,8 +138,9 @@
           height: 400px;
           flex: 1;
           .imageND {
+            margin-left: 20px;
             position: absolute;
-            width: 380px;
+            width: 290px;
             height: 380px;
             margin-right: 30px;
             top: 0;
@@ -164,6 +165,7 @@
 
       .right {
         flex: 2;
+        margin-right: 60px;
 
         form {
           margin-left: 15px;
