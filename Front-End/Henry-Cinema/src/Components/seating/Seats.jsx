@@ -12,7 +12,7 @@ const Seats = ({ handleClick, seatsData, letra, asientosSeleccionados }) => {
             <button
               key={`${seat.row}${seat.number}`}
               className="asiento"
-              data-value={`${seat.row}${seat.number}`}
+              data-value={`${seat.id}${seat.row}${seat.number}`}
               onClick={handleClick}
               disabled={seat.reserved || seat.payed}
               style={{
@@ -44,7 +44,7 @@ const Seats = ({ handleClick, seatsData, letra, asientosSeleccionados }) => {
             <button
               key={`${seat.row}${seat.number}`}
               className="asiento"
-              data-value={`${seat.row}${seat.number}`}
+              data-value={`${seat.id}${seat.row}${seat.number}`}
               onClick={handleClick}
               disabled={seat.reserved || seat.payed}
               style={{
