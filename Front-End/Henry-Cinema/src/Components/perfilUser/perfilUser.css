@@ -195,6 +195,48 @@
   width: 40rem;
   padding-left: 15px;
 }
+.form-name{
+  padding-left: 80px;
+}
+.label-name-edit,
+.label-password-edit{
+  color:white
+}
+.input-name-edit,
+.input-password-edit{
+  border:2px solid white;
+  max-width: 50%;
+  margin-left: 15px;
+}
+.input-name-edit:focus,
+.input-password-edit:focus{
+  padding-left: 5px;
+  color: white;
+}
+.button-name-submit,
+.button-name-cancel,
+.button-password-submit,
+.button-password-cancel{
+  border:2px solid white;
+  color:white;
+  margin-left: 45px;
+  border-radius: 20px;
+  width:70px;
+  text-align: center;
+  font-size: 15px;
+}
+.button-name-cancel,
+.button-password-cancel{
+  width:20px;
+  padding-bottom: 1px;
+  padding-right: 1px;
+}
+.form-password{
+  margin-left: 75px;
+}
+.label-password-edit{
+  color:white;
+}
 .username-text,
 .email-text {
   color: #ffff00;
