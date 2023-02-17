@@ -518,7 +518,15 @@ export const logOut = () => {
     type: "LOG_OUT"
   };
 };
- 
+
+export const getUser = async(token) => {
+  let userInf = await axios.get(`/profile/${token}`,token)
+  console.log(userInf)
+  return dispatch({
+    type:"GET_USER_INFO",
+    payload:userInf
+  })
+}
 
 //Todo: para el DashSearch
 
