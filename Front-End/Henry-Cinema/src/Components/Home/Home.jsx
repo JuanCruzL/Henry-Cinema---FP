@@ -13,7 +13,8 @@ import Loader from "../Loader/Loader";
 
 export default function Home() {
   const dispatch = useDispatch();
-
+  const loggedUser = useSelector((state) => state.currentUser);
+  console.log(loggedUser);
   const allMovies = useSelector((state) => state.searchMovies);
   const cartelera = useSelector((state) => state.allMovies);
 

@@ -515,10 +515,15 @@ export const logInUser = (email, password) => {
 
 export const logOut = () => {
   return {
-    type: "LOG_OUT"
+    type: "LOG_OUT",
   };
 };
- 
+
+export const getLocalUser = () => {
+  return {
+    type: "GET_LOCAL_USER",
+  };
+};
 
 //Todo: para el DashSearch
 
@@ -528,20 +533,20 @@ export const DashMovie = (payload) => {
     payload,
   };
 };
-export	const DashCombos = (payload) =>{
-  return{
+export const DashCombos = (payload) => {
+  return {
     type: "DASH_COMBOS",
     payload,
   };
 };
-export	const DashFoods = (payload) =>{
-  return{
+export const DashFoods = (payload) => {
+  return {
     type: "DASH_FOODS",
     payload,
   };
 };
-export	const DashDrinks = (payload) =>{
-  return{
+export const DashDrinks = (payload) => {
+  return {
     type: "DASH_DRINKS",
     payload,
   };

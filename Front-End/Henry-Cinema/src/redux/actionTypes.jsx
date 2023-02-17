@@ -28,3 +28,4 @@ export const REQUEST_GENRES2 = "REQUEST_GENRES2";
 export const GET_REVIEWS = "GET_REVIEWS";
 export const DELETE_REVIEW = "DELETE_REVIEW";
 export const GET_SALES = "GET_SALES";
+export const GET_LOCAL_USER = "GET_LOCAL_USER";
