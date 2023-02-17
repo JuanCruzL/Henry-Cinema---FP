@@ -153,23 +153,24 @@
 .image-icon-profile {
   height: 95px;
   width: 95px;
+  border:1px solid yellow;
   border-radius: 50px;
-  margin-left: 25px;
-  margin-top: -45px;
+  margin-left: 55px;
+  margin-top: -40px;
 }
 .title-user-name {
   color: #ffff00;
   width: 65%;
   height: 65%;
   margin-left: 15px;
-  padding-top: 5px;
-  padding-left: 15px;
+  padding-top: 15px;
+  padding-left: 25px;
   font-size: 18px;
 }
 .button-edit-profile {
   background-color: #ffff00;
-  margin: 6px 10px 15px 25px;
-  width: 25%;
+  margin: 6px 30px 15px 25px;
+  width: 18%;
   font-size: 16px;
   text-align: center;
   cursor: pointer;
@@ -184,7 +185,10 @@
   margin-top: 25px;
   font-size: 15px;
   background-color: rgba(0, 0, 0, 0.68);
+  padding-left: 60px;
+ /*  border:2px solid yellow */
 }
+
 
 .container-username,
 .edit-email-profile {
@@ -203,6 +207,7 @@
   color: #ffff00;
   margin: 7px;
   font-size: 18px;
+  font-weight: normal;
 }
 
 .button-edit-email {
@@ -217,6 +222,7 @@
 .button-edit-username {
   background-color: #ffff00;
   margin: 12px 40px 20px 20px;
+  padding-top: 13px;
   width: 15%;
   font-size: 16px;
   text-align: center;
