@@ -1,16 +1,17 @@
 import React from "react";
 
-function Ticket({ asientosSeleccionados }) {
+function Ticket({ asientosSeleccionados, screening }) {
   return (
     <div className="TiketDetail">
       <h1>Ticket</h1>
-      <p>Room: H 2D</p>
-      <p>Date: 14/2 22:15</p>
-      <p>Lang: Sub</p>
-      <p>Movie: El Gato con botas</p>
-      <p>Lugares: {asientosSeleccionados.join(", ")}</p>
+      <p>Room: {screening.roomLetter}</p>
+      <p>Date: {screening.date}</p>
+      <p>Start: {screening.startTime} </p>
+      <p>Lang: {screening.language}</p>
+      <p>Movie: {screening.title}</p>
+      <p>Seats: {asientosSeleccionados.join(", ")}</p>
       <p>Tickets : {asientosSeleccionados.length}</p>
-      <p>Tototal: {asientosSeleccionados.length * 10} USD </p>
+      <p>Total: {asientosSeleccionados.length * 10} USD </p>
       <button>Reserve</button>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovieById } from "../../redux/actions";
@@ -61,7 +61,9 @@ function ShowScreenings() {
                     type="number"
                     onChange={(e) => setNumberOfEntries(e.target.value)}
                   />
-                  <button>select seats</button>
+                  <Link to={`/seating/${screening.id}`}>
+                    <button>select seats</button>
+                  </Link>
                 </div>
               )}
             </div>
