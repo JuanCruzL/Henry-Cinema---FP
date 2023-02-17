@@ -168,7 +168,7 @@
       .right {
         flex: 2;
         margin-right: 60px;
-
+        position: relative;
         form {
           margin-left: 15px;
           display: flex;
@@ -214,17 +214,12 @@
             cursor: pointer;
             font-size: 35px;
             position: absolute;
-            bottom: 65px;
-            right: 50px;
+            bottom: 0px;
+            right: 10px;
 
             .iconSubmit {
               font-size: 40px;
               margin-left: 3px;
-              color: rgb(98, 36, 36);
-
-              &:hover {
-                color: white;
-              }
             }
           }
         }
