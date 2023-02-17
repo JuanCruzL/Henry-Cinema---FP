@@ -20,6 +20,10 @@
                             background-color: rgb(200, 200, 200, 0.6);
                             border: 2px solid var(--LBase-1);
                         }
+                        .buttonConfirmL{
+                            background-color: var(--LBase-1);
+                            color: var(--LText-2);
+                        }
                     }
 
                     .right {
@@ -64,6 +68,10 @@
                             border: 2px solid var(--NBase-1);
                             color: var(--NText-2);
                         }
+                        .buttonConfirmL{
+                            background-color: var(--BaseN);
+                            color: var(--NText-2);
+                        }
                     }
 
                     .right {
@@ -94,7 +102,9 @@
         flex: 6;
 
         .InfoNewScreen {
-
+            .bottom{
+                height: 550px;
+            }
             .top,
             .bottom {
                 width: 95%;
@@ -115,6 +125,15 @@
                     h1 {
                         padding: 5px;
                         margin: 13px 20px;
+                    }
+                    .buttonConfirmL{
+                        position: relative;
+                        align-self: self-end;
+                        width: 100px;
+                        padding: 5px;
+                        margin-left: 20px;
+                        text-align: center;
+                        border-radius: 10px;
                     }
                 }
 

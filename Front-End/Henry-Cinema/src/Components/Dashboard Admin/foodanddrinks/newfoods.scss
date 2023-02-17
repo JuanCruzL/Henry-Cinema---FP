@@ -7,39 +7,9 @@
       .bottom {
         box-shadow: var(--LDegradado3) 0px 3px 8px;
         background-color: var(--Gold);
-        height: 400px;
 
         h1 {
           color: var(--LText-1);
-        }
-
-        .left {
-          position: relative;
-          height: 400px;
-
-          .imageNF {
-            position: absolute;
-            width: 380px;
-            height: 380px;
-            margin-right: 30px;
-            top: 0;
-            left: 0;
-            animation: float 3s ease-in-out infinite;
-          }
-
-          @keyframes float {
-            0% {
-              transform: translate(0, 0);
-            }
-
-            50% {
-              transform: translate(10px, 10px);
-            }
-
-            100% {
-              transform: translate(0, 0);
-            }
-          }
         }
 
         .right {
@@ -94,36 +64,6 @@
 
         h1 {
           color: var(--NText-1);
-        }
-
-        .left {
-          position: relative;
-          height: 400px;
-
-          .imageNF {
-            border: 15px outset #000000;
-            position: absolute;
-            width: 380px;
-            height: 380px;
-            margin-right: 30px;
-            top: 0;
-            left: 0;
-            animation: float 3s ease-in-out infinite;
-          }
-
-          @keyframes float {
-            0% {
-              transform: translate(0, 0);
-            }
-
-            50% {
-              transform: translate(10px, 10px);
-            }
-
-            100% {
-              transform: translate(0, 0);
-            }
-          }
         }
 
         .right {
@@ -186,18 +126,38 @@
       }
 
       .left {
+        position: relative;
+        height: 400px;
         flex: 1;
-        text-align: center;
-
         .imageNF {
-          height: 600px;
-          width: 600px;
+          border: 15px outset #000000;
+          position: absolute;
+          width: 380px;
+          height: 380px;
+          margin-right: 30px;
+          top: 0;
+          left: 0;
+          animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0% {
+            transform: translate(0, 0);
+          }
+
+          50% {
+            transform: translate(10px, 10px);
+          }
+
+          100% {
+            transform: translate(0, 0);
+          }
         }
       }
 
       .right {
         flex: 2;
-
+        position: relative;;
         form {
           margin-top: 25px;
           margin-left: 20px;
@@ -243,8 +203,8 @@
             cursor: pointer;
             font-size: 35px;
             position: absolute;
-            bottom: 65px;
-            right: 50px;
+            bottom: 0px;
+            right: 10px;
 
           }
         }

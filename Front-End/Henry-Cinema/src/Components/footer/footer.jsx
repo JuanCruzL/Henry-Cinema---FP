@@ -75,7 +75,7 @@ const Footer = () => {
         <span className="made-by">Made by</span>
         <div className="footer-profile">
           <a className="a-href" href="https://github.com/emagarc">
-            <div className="user">
+            <div className="userFooter">
               <span className="user-name">emagarc</span>
               <img src={git} className="git-logo"></img>
             </div>
@@ -85,7 +85,7 @@ const Footer = () => {
         </div>
         <div className="footer-profile">
           <a className="a-href" href="https://github.com/JuanCruzL">
-            <div className="user">
+            <div className="userFooter">
               <span className="user-name">JuanCruzL</span>
               <img src={git} className="git-logo"></img>
             </div>
@@ -95,7 +95,7 @@ const Footer = () => {
         </div>
         <div className="footer-profile">
           <a className="a-href" href="https://github.com/ZTPspartan">
-            <div className="user">
+            <div className="userFooter">
               <span className="user-name">ZTPspartan</span>
               <img src={git} className="git-logo"></img>
             </div>
@@ -105,7 +105,7 @@ const Footer = () => {
         </div>
         <div className="footer-profile">
           <a className="a-href" href="https://github.com/Mariapaula56">
-            <div className="user">
+            <div className="userFooter">
               <span className="user-name">Mariapaula56</span>
               <img src={git} className="git-logo"></img>
             </div>
@@ -115,7 +115,7 @@ const Footer = () => {
         </div>
         <div className="footer-profile">
           <a className="a-href" href="https://github.com/Deybi1004">
-            <div className="user">
+            <div className="userFooter">
               <span className="user-name">Deybi1004</span>
               <img src={git} className="git-logo"></img>
             </div>
@@ -125,7 +125,7 @@ const Footer = () => {
         </div>
         <div className="footer-profile">
           <a className="a-href" href="https://github.com/Novales87">
-            <div className="user">
+            <div className="userFooter">
               <span className="user-name">Novales87</span>
               <img src={git} className="git-logo"></img>
             </div>
@@ -136,7 +136,7 @@ const Footer = () => {
         </div>
         <div className="footer-profile">
           <a className="a-href" href="https://github.com/Streisam">
-            <div className="user">
+            <div className="userFooter">
               <span className="user-name">Streisam</span>
               <img src={git} className="git-logo"></img>
             </div>

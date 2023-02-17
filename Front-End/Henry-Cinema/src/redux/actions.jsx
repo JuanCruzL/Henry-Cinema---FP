@@ -551,7 +551,6 @@ export const logOut = () => {
     type: "LOG_OUT",
   };
 };
- 
 
 //Todo: para el DashSearch
 

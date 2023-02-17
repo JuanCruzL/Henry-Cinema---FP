@@ -186,7 +186,7 @@ export const NewCombo = () => {
                   <div className="vals">{imageVal}</div>
                 </div>
                 <button className="buttonNC" type="submit" value="SUBMIT COMBO">
-                  SUBMIT
+                  <OutboxRoundedIcon className="iconSubmit" />
                 </button>
               </form>
             </div>

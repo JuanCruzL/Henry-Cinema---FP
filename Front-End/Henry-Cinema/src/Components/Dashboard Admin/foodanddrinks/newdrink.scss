@@ -168,7 +168,7 @@
       .right {
         flex: 2;
         margin-right: 60px;
-
+        position: relative;
         form {
           margin-top: 35px;
           display: flex;
@@ -219,6 +219,7 @@
             position: absolute;
             bottom: 65px;
             right: 50px;
+
           }
         }
       }
