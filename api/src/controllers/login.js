@@ -41,7 +41,8 @@ const verifyLogin = async (formData) => {
             // })
             console.log(accessToken);
             
-            return { accessToken };
+            return { accessToken, isAdministrator: user.isAdministrator ? 
+                    user.isAdministrator : false };
         } else {
             throw {
                 status: false,
@@ -88,7 +89,8 @@ const verifyGoogleLogin = async (googleData) => {
                 }
             })
             const accessToken = generateAccessToken(finalUser);
-            return { accessToken };
+            return { accessToken, isAdministrator: finalUser.isAdministrator ?
+                    finalUser.isAdministrator : false };
         } else {
             throw {
                 status:false,

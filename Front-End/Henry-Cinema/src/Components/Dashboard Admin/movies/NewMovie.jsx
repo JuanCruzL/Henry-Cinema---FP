@@ -181,9 +181,13 @@ export const NewMovie = () => {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e,im=0) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
+    if(im==1){
+      let img =e.target.value;
+      cambiarImagen(img);
+    }
   };
 
   useEffect(() => {
@@ -240,6 +244,18 @@ export const NewMovie = () => {
     classification: classificationVal,
   } = validations;
 
+  const cambiarImagen=(img="")=>{
+    let comprobar = document.getElementById("imageNM");
+    let defaultImg= "https://st4.depositphotos.com/3788621/24041/i/450/depositphotos_240418652-stock-photo-movie-time-concept-creative-template.jpg";
+    let imgPoster = img;
+    comprobar.src=imgPoster;
+    if(comprobar.src==imgPoster && comprobar.naturalHeight>0){
+      comprobar.src=imgPoster
+    }else{
+      comprobar.src=defaultImg;
+    }
+  }
+
   return (
     <div className="newMovie">
       <SideBarDash />
@@ -252,6 +268,7 @@ export const NewMovie = () => {
           <div className="left">
             <img
               className="imageNM"
+              id="imageNM"
               src="https://st4.depositphotos.com/3788621/24041/i/450/depositphotos_240418652-stock-photo-movie-time-concept-creative-template.jpg"
               alt=""
             />
@@ -279,7 +296,7 @@ export const NewMovie = () => {
                   placeholder="image url..."
                   name="imageVertical"
                   value={imageVertical}
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange(e,1)}
                   onBlur={validateOne}
                 />
                 <div className="vals">{imageVerticalVal}</div>
