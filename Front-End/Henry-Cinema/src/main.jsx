@@ -122,7 +122,7 @@ const router = createBrowserRouter([
     element: <AboutUs />,
   },
   {
-    path: "/seating/:id",
+    path: "/seating/:id/:numberOfEntries",
     element: <Seating />,
   },
   {

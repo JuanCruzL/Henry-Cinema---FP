@@ -8,7 +8,7 @@ import Seats from "./Seats";
 import Ticket from "./Ticket";
 
 function Seating() {
-  const { id } = useParams();
+  const { id, numberOfEntries } = useParams();
   const dispatch = useDispatch();
   const screening = useSelector((state) => state.screeningID);
   const [asientosArray, setAsientosArray] = useState([]);
@@ -18,14 +18,23 @@ function Seating() {
 
   const handleClick = (event) => {
     const asiento = event.target.getAttribute("data-value");
-    if (asientosSeleccionados.includes(asiento)) {
+
+    // Verifica si el asiento ya está seleccionado
+    const index = asientosSeleccionados.indexOf(asiento);
+    if (index > -1) {
+      // Si ya está seleccionado, lo elimina del array
       setAsientosSeleccionados(
         asientosSeleccionados.filter((a) => a !== asiento)
       );
     } else {
-      setAsientosSeleccionados([...asientosSeleccionados, asiento]);
+      // Si no está seleccionado, verifica si se ha alcanzado el límite
+      if (asientosSeleccionados.length < numberOfEntries) {
+        // Si no se ha alcanzado el límite, lo agrega al array
+        setAsientosSeleccionados([...asientosSeleccionados, asiento]);
+      }
     }
   };
+
   useEffect(() => {
     dispatch(getScreeningId(id));
     setAsientosArray(screening.seats);

@@ -61,7 +61,7 @@ function ShowScreenings() {
                     type="number"
                     onChange={(e) => setNumberOfEntries(e.target.value)}
                   />
-                  <Link to={`/seating/${screening.id}`}>
+                  <Link to={`/seating/${screening.id}/${numberOfEntries}`}>
                     <button>select seats</button>
                   </Link>
                 </div>
