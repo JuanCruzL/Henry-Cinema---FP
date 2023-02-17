@@ -122,7 +122,7 @@ const Nav = ({ setCurrentPage }) => {
           </div>
           <li className="menu-item">
             <div className="menu-link-user">
-              <Link to="/login" className="user">
+              <Link to="/login" className="perfil">
                 <AccountCircleIcon className="userLogo" />
               </Link>
             </div>
