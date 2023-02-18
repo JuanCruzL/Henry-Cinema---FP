@@ -29,7 +29,7 @@ module.exports = (sequelize) =>{
         },
         activated:{
             type: DataTypes.BOOLEAN,
-            default: true
+            defaultValue: true
         }
     },{timestamps:false})
 }

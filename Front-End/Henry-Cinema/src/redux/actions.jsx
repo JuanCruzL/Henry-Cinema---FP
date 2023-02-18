@@ -599,3 +599,13 @@ export const putUser = (payload, token) => {
     });
   };
 };
+export const putAccount= (id) => {
+  return async(dispatch) => {
+    const putActualizate = axios.put(`http://localhost:3001/profile/${id}/account`)
+
+    return dispatch({
+      type: "ACCOUNT_DELETE",
+      payload: putActualizate.data
+    })
+  }
+}
