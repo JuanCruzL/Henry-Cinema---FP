@@ -1,5 +1,4 @@
-
-.light-mode .footer{
+.light-mode .footer {
   background-color: var(--BaseL);
 }
 .light-mode .footer-profile {
@@ -22,8 +21,7 @@
   color: var(--LText-1);
 }
 
-
-.dark-mode .footer{
+.dark-mode .footer {
   background-color: var(--BaseL);
 }
 .dark-mode .footer-profile {
@@ -46,12 +44,8 @@
   color: var(--NText-2);
 }
 
-
-
-
-
 .footer {
-  height: 200px;
+  height: 150px;
   position: absolute;
   width: 100%;
   display: flex;
@@ -139,7 +133,7 @@
   padding: 0.5em;
   transition: all ease-in-out 0.3s;
 }
-.footer-options a{
+.footer-options a {
   text-decoration: none;
 }
 
