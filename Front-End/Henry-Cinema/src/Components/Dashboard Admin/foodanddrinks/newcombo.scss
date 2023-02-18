@@ -32,12 +32,8 @@
                         .buttonNC {
                             color: var(--LText-1);
 
-                            .iconSubmit {
-                                color: var(--LText-1);
-
-                                &:hover {
-                                    color: var(--LText-2);
-                                }
+                            &:hover {
+                                color: var(--LText-2);
                             }
                         }
                     }
@@ -54,7 +50,7 @@
 
         .newContainer {
             background-image: url(../img/doodle.jpg);
-        
+
             .top,
             .bottom {
                 box-shadow: var(--NDegradado3) 0px 3px 8px;
@@ -84,13 +80,9 @@
                         .buttonNC {
                             color: var(--NText-1);
 
-                            .iconSubmit {
-                                color: var(--NText-1);
-
-                                &:hover {
-                                    color: var(--NText-2);
-                                    ;
-                                }
+                            &:hover {
+                                color: var(--NText-2);
+                                ;
                             }
                         }
                     }
@@ -119,39 +111,41 @@
             }
 
             .left {
-                    position: relative;
-                    height: 400px;
-                    flex: 1;
-                    .imageNC {
-                        border: 15px outset #000000;
-                        position: absolute;
-                        width: 380px;
-                        height: 380px;
-                        margin-right: 30px;
-                        top: 0;
-                        left: 0;
-                        animation: float 3s ease-in-out infinite;
+                position: relative;
+                height: 400px;
+                flex: 1;
+
+                .imageNC {
+                    border: 15px outset #000000;
+                    position: absolute;
+                    width: 380px;
+                    height: 380px;
+                    margin-right: 30px;
+                    top: 0;
+                    left: 0;
+                    animation: float 3s ease-in-out infinite;
+                }
+
+                @keyframes float {
+                    0% {
+                        transform: translate(0, 0);
                     }
-        
-                    @keyframes float {
-                        0% {
-                            transform: translate(0, 0);
-                        }
-        
-                        50% {
-                            transform: translate(10px, 10px);
-                        }
-        
-                        100% {
-                            transform: translate(0, 0);
-                        }
+
+                    50% {
+                        transform: translate(10px, 10px);
+                    }
+
+                    100% {
+                        transform: translate(0, 0);
                     }
                 }
+            }
 
             .right {
                 flex: 2;
 
                 position: relative;
+
                 form {
                     margin-left: 20px;
                     margin-top: 35px;
@@ -159,6 +153,7 @@
                     flex-wrap: wrap;
                     gap: 20px;
                     justify-content: space-between;
+
                     .formNC {
                         width: 40%;
 
@@ -196,6 +191,10 @@
                         background-color: transparent;
                         cursor: pointer;
                         font-size: 30px;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
                     }
                 }
             }
