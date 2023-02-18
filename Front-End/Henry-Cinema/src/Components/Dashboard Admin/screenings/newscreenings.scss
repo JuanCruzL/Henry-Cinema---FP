@@ -20,9 +20,11 @@
                             background-color: rgb(200, 200, 200, 0.6);
                             border: 2px solid var(--LBase-1);
                         }
-                        .buttonConfirmL{
+
+                        .buttonConfirmL {
                             color: var(--LText-1);
-                            &:hover{
+
+                            &:hover {
                                 color: var(--LText-2);
                             }
                         }
@@ -37,7 +39,8 @@
 
                         button {
                             color: var(--LText-1);
-                            &:hover{
+
+                            &:hover {
                                 color: var(--LText-2);
                             }
                         }
@@ -72,9 +75,11 @@
                             border: 2px solid var(--NBase-1);
                             color: var(--NText-2);
                         }
-                        .buttonConfirmL{
+
+                        .buttonConfirmL {
                             color: var(--NText-1);
-                            &:hover{
+
+                            &:hover {
                                 color: var(--NText-2);
                             }
                         }
@@ -89,9 +94,14 @@
 
                         button {
                             color: var(--NText-1);
-                            &:hover{
+
+                            &:hover {
                                 color: var(--NText-2);
                             }
+                        }
+
+                        input[type="time"]::-webkit-calendar-picker-indicator {
+                            filter: invert(1);
                         }
                     }
                 }
@@ -110,9 +120,10 @@
         flex: 6;
 
         .InfoNewScreen {
-            .bottom{
+            .bottom {
                 height: 550px;
             }
+
             .top,
             .bottom {
                 width: 95%;
@@ -134,7 +145,8 @@
                         padding: 5px;
                         margin: 13px 20px;
                     }
-                    .buttonConfirmL{
+
+                    .buttonConfirmL {
                         position: relative;
                         align-self: self-end;
                         width: 100px;
@@ -143,7 +155,8 @@
                         margin-left: 20px;
                         text-align: center;
                         border-radius: 10px;
-                        &:hover{
+
+                        &:hover {
                             cursor: pointer;
                         }
                     }
@@ -161,18 +174,25 @@
                         height: 20px;
                     }
 
+                    input[type="time"]::-webkit-calendar-picker-indicator {
+                        cursor: pointer;
+                    }
+
                     select {
                         width: 300px;
                     }
+
                     .seleMoviScre,
-                    .seleRoomScre{
-                        margin-left:10px;
+                    .seleRoomScre {
+                        margin-left: 10px;
                     }
+
                     .seleMoviScre,
                     .seleRoomScre,
-                    .seleDateScre{
+                    .seleDateScre {
                         width: 400px;
                     }
+
                     button {
                         position: relative;
                         align-self: self-end;
@@ -182,7 +202,8 @@
                         text-align: center;
                         border-radius: 10px;
                     }
-                    button:hover{
+
+                    button:hover {
                         cursor: pointer;
                     }
                 }
