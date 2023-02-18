@@ -549,6 +549,15 @@ export const logInUser = (email, password) => {
 export const logOut = () => {
   return {
     type: "LOG_OUT",
+<<<<<<< HEAD
+  };
+};
+
+export const getLocalUser = () => {
+  return {
+    type: "GET_LOCAL_USER",
+=======
+>>>>>>> Dashboard
   };
 };
 
