@@ -549,15 +549,6 @@ export const logInUser = (email, password) => {
 export const logOut = () => {
   return {
     type: "LOG_OUT",
-<<<<<<< HEAD
-  };
-};
-
-export const getLocalUser = () => {
-  return {
-    type: "GET_LOCAL_USER",
-=======
->>>>>>> Dashboard
   };
 };
 
@@ -588,19 +579,23 @@ export const DashDrinks = (payload) => {
   };
 };
 
-//Put 
-export const putUser = (payload,token) => {
-  return async(dispatch) => {
-    const user = axios.put("http://localhost:5173/profile",{
-      payload
-    },{
-      headers : {
-        'Authorization': `Bearer ${token}` 
+//Put
+export const putUser = (payload, token) => {
+  return async (dispatch) => {
+    const user = axios.put(
+      "http://localhost:5173/profile",
+      {
+        payload,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
-    })
+    );
     return dispatch({
       type: "PUT_USER",
-      payload: user.data
-    })
-  }
-}
+      payload: user.data,
+    });
+  };
+};
