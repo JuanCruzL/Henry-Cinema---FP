@@ -75,7 +75,7 @@ function ShowScreenings() {
                     id="bottone1"
                     onClick={() => handleCardClick(screening.id)}
                   >
-                    SEATS
+                    <strong>SEATS</strong>
                   </button>
                 </div>
 
@@ -88,12 +88,13 @@ function ShowScreenings() {
                       How many tickets do you want?
                     </label>
                     <input
+                      className="number-1"
                       id={`input-${screening.id}`}
                       type="number"
                       onChange={(e) => setNumberOfEntries(e.target.value)}
                     />
                     <Link to={`/seating/${screening.id}/${numberOfEntries}`}>
-                      <button>select seats</button>
+                      <button className="seat-button">select seats</button>
                     </Link>
                   </div>
                 )}

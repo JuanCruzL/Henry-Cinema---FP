@@ -24,8 +24,9 @@ export const SearchBar = ({ setCurrentPage }) => {
           placeholder="Search Movies..."
           maxLength={20}
         />
-
-        <SearchRoundedIcon className="button-search" />
+      </div>
+      <div className="button-search">
+        <SearchRoundedIcon />
       </div>
     </div>
   );
