@@ -12,7 +12,7 @@ function Ticket({ asientosSeleccionados, screening }) {
       <p>Seats: {asientosSeleccionados.join(", ")}</p>
       <p>Tickets : {asientosSeleccionados.length}</p>
       <p>Total: {asientosSeleccionados.length * 10} USD </p>
-      <button onClick={reserve}>Reserve</button>
+      <button>Reserve</button>
     </div>
   );
 }
