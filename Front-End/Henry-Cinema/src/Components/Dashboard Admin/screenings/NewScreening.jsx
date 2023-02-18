@@ -5,10 +5,16 @@ import NavBarDash from "../NavbarDash/NavBarDash";
 import SideBarDash from "../SideBarDash/SideBarDash";
 import axios from "axios";
 import "./newscreenings.scss";
-
-//const [id, setId] = useState("");
+import { useNavigate } from "react-router-dom";
 
 const RoomInputs = () => {
+  const loggedUser = useSelector((state) => state.currentUser);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+      navigate("/");
+    }
+  });
   const dispatch = useDispatch();
   const asientos = useSelector((state) => state.seats);
   const movies = useSelector((state) => state.movies);
