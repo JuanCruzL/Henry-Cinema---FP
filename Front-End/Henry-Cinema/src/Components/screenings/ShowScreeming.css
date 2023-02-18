@@ -1,3 +1,42 @@
+.light-mode .screening-container {
+  background-color: var(--LFondo-1);
+}
+.light-mode .poster-container {
+  background-color: var(--BaseL);
+  box-shadow: 0 8px 16px 0 #08080872, 0 6px 20px 0 hsla(0, 0%, 2%, 0.662);
+}
+.light-mode .ticketsseats {
+  background-color: var(--BaseL);
+  box-shadow: 0 8px 16px 0 #08080872, 0 6px 20px 0 hsla(0, 0%, 2%, 0.662);
+}
+.light-mode .tickets {
+  color: var(--LText-1);
+}
+.light-mode .number-1 {
+  background-color: var(--LBase-1);
+  color: #ffff00;
+}
+.light-mode .seat-button {
+  background-color: var(--LBase-1);
+  color: #ffff00;
+}
+.light-mode .cardinfo {
+  color: var(--LText-1);
+}
+.light-mode .cardinfo-1 {
+  border-bottom: 2px solid var(--LBase-1);
+}
+.light-mode #bottone1 {
+  background-color: var(--LBase-1);
+  color: var(--LText-3);
+}
+.light-mode #bottone1:hover {
+  box-shadow: 0 8px 16px 0 #08080872, 0 6px 20px 0 hsla(0, 0%, 2%, 0.662);
+}
+.light-mode #bottone1:active {
+  transform: scale(0.97);
+  box-shadow: 0 8px 16px 0 #08080872, 0 6px 20px 0 hsla(0, 0%, 2%, 0.662);
+}
 .screening-container {
   background-color: rgb(30, 30, 30);
   display: flex;
@@ -57,12 +96,34 @@
   border-bottom: 2px solid #ffff00;
 }
 .ticketsseats {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 50px;
+  padding: 10px;
   display: flex;
-  border: 2px solid red;
+  background-color: black;
+  box-shadow: 0 8px 16px 0 rgba(80, 79, 40, 0.227), 0 6px 20px 0 #83824b41;
 }
 .tickets {
+  padding: 5px;
+  margin-left: 15%;
   display: flex;
-  border: 2px solid red;
+  color: #ffff00;
+}
+.number-1 {
+  background-color: #ffff00;
+  margin-left: 10px;
+  margin-right: 20px;
+  display: flex;
+  color: black;
+}
+.seat-button {
+  padding: 5px;
+  background-color: #ffff00;
+  display: flex;
+
+  color: black;
+  text-decoration: none;
 }
 .cardinfo {
   float: left;

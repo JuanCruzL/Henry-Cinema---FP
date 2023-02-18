@@ -76,7 +76,8 @@
 }
 
 .menu-itemSearchBar {
-  width: 45%;
+  margin-top: 2px;
+  width: 30%;
   align-items: center;
 }
 
@@ -253,20 +254,17 @@
   font-size: 2rem;
 }
 .shopBag {
-  margin: 25px;
-  padding: 5px;
+  margin: 35px;
+  margin-left: 45px;
+
   align-items: center;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 40px;
   width: 100%;
   cursor: pointer;
 }
 .bag .fQQvfO {
   font-size: 2rem;
-  cursor: pointer;
-}
-.input-icons .fQQvfO {
-  margin-top: 3px;
   cursor: pointer;
 }
 
