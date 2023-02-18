@@ -28,6 +28,8 @@ const initialState = {
   reviews: [],
   // Para el componente Sales.
   sales: [],
+  // Para el carrito
+  ShoppingCarItems: [],
 };
 
 const rootReducer = (state = initialState, action) => {
