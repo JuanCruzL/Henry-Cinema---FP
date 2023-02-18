@@ -26,6 +26,10 @@ module.exports = (sequelize) =>{
         },
         image: {
             type: DataTypes.TEXT,
+        },
+        activated:{
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
         }
     },{timestamps:false})
 }
