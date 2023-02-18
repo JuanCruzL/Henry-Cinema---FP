@@ -296,6 +296,10 @@ const rootReducer = (state = initialState, action) => {
         return {
           ...state,
         }
+      case "ACCOUNT_DELETE" :
+        return {
+          ...state
+        }
     default:
       return state;
   }

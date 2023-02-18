@@ -6,6 +6,7 @@ import { getMovieById } from "../../redux/actions";
 import Loader from "../Loader/Loader";
 import Nav from "../../Components/Nav/Nav";
 import Footer from "../footer/footer";
+import "./ShowScreeming.css";
 
 function ShowScreenings() {
   const [showInput, setShowInput] = useState({});
@@ -37,37 +38,69 @@ function ShowScreenings() {
       ) : (
         <div>
           <Nav />
-          {movie.Screenings.map((screening) => (
-            <div key={screening.id} className="cardfuncion">
-              <img key={screening.id} src={movie.imageVertical} />
-              <div
-                className="cardinfo"
-                onClick={() => handleCardClick(screening.id)}
-              >
-                <h1>Room: {screening.roomLetter} </h1>
-                <h1>Title: {screening.title}</h1>
-                <h1>Date: {screening.date}</h1>
-                <h1>Start Time: {screening.startTime}</h1>
-                <h1>Language: {screening.language}</h1>
-                <h1>Definition: {screening.definition}</h1>
-              </div>
-              {selectedId === screening.id && (
-                <div>
-                  <label htmlFor={`input-${screening.id}`}>
-                    How many tickets do you want?
-                  </label>
-                  <input
-                    id={`input-${screening.id}`}
-                    type="number"
-                    onChange={(e) => setNumberOfEntries(e.target.value)}
+          <div className="screening-container">
+            {movie.Screenings?.map((screening) => (
+              <div key={screening.id}>
+                <div className="poster-container">
+                  <img
+                    className="poster"
+                    key={screening.id}
+                    src={movie.imageVertical}
                   />
-                  <Link to={`/seating/${screening.id}/${numberOfEntries}`}>
-                    <button>select seats</button>
-                  </Link>
+
+                  <div className="cardinfo">
+                    <div className="cardinfo-1">
+                      <h1>Title: {screening.title}</h1>
+
+                      <div className="room">
+                        <h1>Definition: {screening.definition}</h1>
+                      </div>
+                      <div className="room">
+                        <h1>Room: {screening.roomLetter}</h1>
+                      </div>
+                    </div>
+
+                    <div className="cardinfo-2">
+                      <h1>Date: {screening.date}</h1>
+                      <div className="room">
+                        <h1>Start Time: {screening.startTime}</h1>
+                      </div>
+
+                      <h1>Language: {screening.language}</h1>
+                    </div>
+                  </div>
+
+                  <button
+                    className="buy"
+                    id="bottone1"
+                    onClick={() => handleCardClick(screening.id)}
+                  >
+                    <strong>SEATS</strong>
+                  </button>
                 </div>
-              )}
-            </div>
-          ))}
+
+                {selectedId === screening.id && (
+                  <div className="ticketsseats">
+                    <label
+                      className="tickets"
+                      htmlFor={`input-${screening.id}`}
+                    >
+                      How many tickets do you want?
+                    </label>
+                    <input
+                      className="number-1"
+                      id={`input-${screening.id}`}
+                      type="number"
+                      onChange={(e) => setNumberOfEntries(e.target.value)}
+                    />
+                    <Link to={`/seating/${screening.id}/${numberOfEntries}`}>
+                      <button className="seat-button">select seats</button>
+                    </Link>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       )}
       <Footer />

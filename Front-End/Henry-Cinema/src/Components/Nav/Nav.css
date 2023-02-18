@@ -33,7 +33,7 @@
 .menu {
   width: 100%;
   min-width: 60rem;
-  height: 66px;
+  height: 55px;
   font-weight: bold;
 }
 
@@ -68,16 +68,16 @@
 
 .menu-item-logo {
   list-style: none;
-  height: 120%;
-  width: 16%;
+  height: 110%;
+  width: 14%;
   padding: 10px;
   transition: 0.5s;
   text-align: center;
 }
 
 .menu-itemSearchBar {
-  width: 35%;
-
+  margin-top: 2px;
+  width: 30%;
   align-items: center;
 }
 
@@ -86,7 +86,7 @@
 .link-about {
   color: black;
   width: 18%;
-  padding: 25px;
+  padding: 20px;
   justify-content: space-around;
   text-decoration: none;
   list-style: none;
@@ -109,7 +109,6 @@
   display: flex;
   text-decoration: none;
   list-style: none;
-
   padding: 20px;
   justify-content: space-between;
 }
@@ -117,15 +116,12 @@
 .menu-link-logo {
   list-style: none;
   text-decoration: none;
-  margin: 15px;
-  padding: 10px;
+  margin: 10px;
+  padding: 5px;
   display: grid;
-  height: 50%;
-  align-items: center;
-  text-align: center;
+  width: 60px;
   color: black;
   transition: 0.5s;
-  font-size: 25px;
 }
 .menu-link-about,
 .menu-link-movies,
@@ -154,10 +150,9 @@
 }
 
 .menu-link-user {
-  margin: 20px;
-  padding: 12px;
+  padding: 25px;
   justify-content: space-between;
-  margin-top: 5px;
+  margin-top: 2px;
   width: 100%;
   text-decoration: none;
   align-items: center;
@@ -214,8 +209,8 @@
 }
 
 .logo {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 25px;
   cursor: pointer;
 }
 
@@ -231,7 +226,7 @@
 }
 
 .Switch {
-  font-size: 10px;
+  font-size: 20px;
 }
 
 .moon {
@@ -250,27 +245,27 @@
   color: #ffff00;
 }
 
-.user {
+.perfil {
   font-size: 2rem;
   text-decoration: none;
   color: black;
 }
-.user .fQQvfO {
+.perfil .fQQvfO {
   font-size: 2rem;
 }
 .shopBag {
-  margin: 25px;
-  padding: 5px;
+  margin: 35px;
+  margin-left: 45px;
+
   align-items: center;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 40px;
   width: 100%;
+  cursor: pointer;
 }
 .bag .fQQvfO {
   font-size: 2rem;
-}
-.input-icons .fQQvfO {
-  margin-top: 5px;
+  cursor: pointer;
 }
 
 .userLogo {

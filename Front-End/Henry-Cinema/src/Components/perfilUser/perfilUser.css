@@ -195,11 +195,40 @@
   min-height: 100vh;
   min-width: 35rem;
 }
+.title-my-account-disable{
+  /* border:2px solid red; */
+  color: aliceblue;
+  margin: 5px;
+  margin-top: 23px;
+  font-size: 22px;
+  padding: 7px;
+  text-align: center;
+
+}
+.button-change-disable{
+  color: #ffff00;
+  display: flex;
+  background-color: black;
+  font-size: 15px;
+  margin: 7px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  padding-left: 43%;
+  margin-top: 55px;
+}
+.button-change-disable:hover{
+  background-color: #ffff00;
+  color: black;
+}
 
 .container-settings-user {
   min-width: 18%;
   padding: 60px 6px 60px 20px;
 }
+
 .title-settings {
   margin: 3px;
   font-size: 16px;
