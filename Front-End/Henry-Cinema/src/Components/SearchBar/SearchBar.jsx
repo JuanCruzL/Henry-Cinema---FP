@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { searchMovie } from "../../redux/actions";
 import "./SearchBar.css";
-import logoSearch from "../../img/busqueda.png";
 
 export const SearchBar = ({ setCurrentPage }) => {
   const dispatch = useDispatch();
