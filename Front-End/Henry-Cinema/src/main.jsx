@@ -9,8 +9,8 @@ import Details from "./Components/Details/Details";
 import "./index.css";
 import Movies from "./Components/Movies/Movies";
 import HomeDash from "./Components/Dashboard Admin/home/HomeDash";
-import LoginDash from "./Components/Dashboard Admin/login/Login";
 import Users from "./Components/Dashboard Admin/users/Users";
+import NewUser from "./Components/Dashboard Admin/users/NewUser";
 import MoviesDash from "./Components/Dashboard Admin/movies/MoviesDash";
 import NewMovie from "./Components/Dashboard Admin/movies/NewMovie";
 import Reviews from "./Components/Dashboard Admin/reviews/Reviews";
@@ -37,7 +37,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    
   },
   {
     path: "movie/:id",
@@ -52,16 +51,16 @@ const router = createBrowserRouter([
     element: <HomeDash />,
   },
   {
-    path: "/dashboard/login",
-    element: <LoginDash />,
-  },
-  {
     path: "/showscreenings/:id",
-    element: <ShowScreenings/>
+    element: <ShowScreenings />,
   },
   {
     path: "/dashboard/users",
     element: <Users />,
+  },
+  {
+    path: "/dashboard/users/new",
+    element: <NewUser />,
   },
   {
     path: "/dashboard/movies",
@@ -124,7 +123,7 @@ const router = createBrowserRouter([
     element: <AboutUs />,
   },
   {
-    path: "/seating",
+    path: "/seating/:id/:numberOfEntries",
     element: <Seating />,
   },
   {
@@ -134,15 +133,19 @@ const router = createBrowserRouter([
   {
     path: "/shopping",
     element: <ShoppingCart/>
-  }
+  },
+  {
+    path: "user",
+    element: <PerfilUser />,
+  },
 ]);
 
 root.render(
   <div id="Switch" className="dark-mode">
-      <Provider store={store}>
-        <RouterProvider router={router}>
-          <App />
-        </RouterProvider>
-      </Provider>
+    <Provider store={store}>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </Provider>
   </div>
 );

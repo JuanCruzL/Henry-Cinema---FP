@@ -8,8 +8,16 @@ import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import OutboxRoundedIcon from "@mui/icons-material/OutboxRounded";
 import swal from "sweetalert";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const NewCombo = () => {
+  // const loggedUser = useSelector((state) => state.currentUser);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+  //     navigate("/");
+  //   }
+  // });
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
@@ -83,9 +91,13 @@ export const NewCombo = () => {
     setValidations({ ...validations, [name]: message });
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e, im = 0) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
+    if (im == 1) {
+      let img = e.target.value;
+      cambiarImagen(img);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -109,6 +121,19 @@ export const NewCombo = () => {
 
   const { name: nameVal, image: imageVal, price: priceVal } = validations;
 
+  const cambiarImagen = (img = "") => {
+    let comprobar = document.getElementById("imageNC");
+    let defaultImg =
+      "https://static8.depositphotos.com/1077687/1062/v/950/depositphotos_10622859-stock-illustration-cine-fast-food-combo.jpg";
+    let imgPoster = img;
+    comprobar.src = imgPoster;
+    if (comprobar.src == imgPoster && comprobar.naturalHeight > 0) {
+      comprobar.src = imgPoster;
+    } else {
+      comprobar.src = defaultImg;
+    }
+  };
+
   return (
     <div className="newCombo">
       <SideBarDash />
@@ -122,7 +147,8 @@ export const NewCombo = () => {
             <div className="left">
               <img
                 className="imageNC"
-                src="https://static8.depositphotos.com/1077687/1062/v/950/depositphotos_10622859-stock-illustration-cine-fast-food-combo.jpg"
+                id="imageNC"
+                src="https://st3.depositphotos.com/1755257/13176/v/450/depositphotos_131760572-stock-illustration-popcorn-boxes-set.jpg"
                 alt=""
               />
             </div>
@@ -162,7 +188,7 @@ export const NewCombo = () => {
                     placeholder="img url"
                     name="image"
                     value={image}
-                    onChange={handleChange}
+                    onChange={(e) => handleChange(e, 1)}
                     onBlur={validateOne}
                   />
                   <div className="vals">{imageVal}</div>

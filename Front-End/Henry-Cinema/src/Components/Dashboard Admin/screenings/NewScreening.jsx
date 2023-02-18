@@ -5,10 +5,16 @@ import NavBarDash from "../NavbarDash/NavBarDash";
 import SideBarDash from "../SideBarDash/SideBarDash";
 import axios from "axios";
 import "./newscreenings.scss";
-
-//const [id, setId] = useState("");
+import { useNavigate } from "react-router-dom";
 
 const RoomInputs = () => {
+  // const loggedUser = useSelector((state) => state.currentUser);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+  //     navigate("/");
+  //   }
+  // });
   const dispatch = useDispatch();
   const asientos = useSelector((state) => state.seats);
   const movies = useSelector((state) => state.movies);
@@ -97,14 +103,15 @@ const RoomInputs = () => {
                 <h1>
                   Seats: {reservation.seats ? reservation.seats.length : 0}
                 </h1>
-                <div className="right">
-                  <button onClick={enviarDatos}>Confirm</button>
+                <div className="buttonConfirmL">
+                  <button onClick={enviarDatos}>CONFIRM</button>
                 </div>
               </div>
             </div>
             <div className="right">
               <label>Movie</label>
               <select
+                className="seleMoviScre"
                 value={id}
                 onChange={(e) => {
                   const selectedMovie = movies.find(
@@ -124,6 +131,7 @@ const RoomInputs = () => {
 
               <label>Room</label>
               <select
+                className="seleRoomScre"
                 value={roomLetter}
                 onChange={(e) => setRoomLetter(e.target.value)}
               >
@@ -137,7 +145,11 @@ const RoomInputs = () => {
               <label>
                 Date:
                 <br />
-                <select value={date} onChange={(e) => setDate(e.target.value)}>
+                <select
+                  className="seleDateScre"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                >
                   <option>Select a Date</option>
                   {[...Array(30)].map((_, i) => {
                     const nextDay = new Date();
@@ -188,6 +200,7 @@ const RoomInputs = () => {
 
               <label>
                 Definition:
+                <p></p>
                 <select
                   value={definition}
                   onChange={(e) => setDefinition(e.target.value)}
@@ -200,6 +213,7 @@ const RoomInputs = () => {
 
               <label>
                 Language:
+                <p></p>
                 <select
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
@@ -209,8 +223,7 @@ const RoomInputs = () => {
                   <option value="Origin">Origin</option>
                 </select>
               </label>
-
-              <button onClick={handleSave}>Guardar</button>
+              <button onClick={handleSave}>SAVE</button>
             </div>
           </div>
         </div>

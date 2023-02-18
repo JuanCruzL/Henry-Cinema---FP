@@ -24,10 +24,12 @@ import {
   AGE_CLASSIFICATION,
   GET_SEATS,
   GET_USERS,
+  CREATE_ADMIN_USER,
   DELETE_USER,
   GET_REVIEWS,
   DELETE_REVIEW,
   GET_SALES,
+  GET_SCREENING,
 } from "./actionTypes";
 
 axios.defaults.baseURL = "http://localhost:3001";
@@ -115,6 +117,20 @@ export const deleteMovie = (id) => {
 };
 
 //SCREENINGS
+
+export const getScreeningId = (id) => {
+  try {
+    return async (dispatch) => {
+      let screeningId = await axios.get(`/screenings/${id}`);
+      return dispatch({
+        type: GET_SCREENING,
+        payload: screeningId.data,
+      });
+    };
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const getScreenings = () => {
   return (dispatch) => {
@@ -384,6 +400,21 @@ export const deleteUser = (id) => {
   };
 };
 
+export function createAdminUser(newAdminUser) {
+  console.log("New Admin: ", newAdminUser);
+  return async function () {
+    try {
+      const response = await axios.post("/users", newAdminUser);
+      if (response.data === newAdminUser) {
+        console.log(newAdminUser);
+        return dispatch({ type: CREATE_ADMIN_USER });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
 // crea el usuario y lo guarda en la base de datos
 export const signUp = (payload) => {
   if (!payload.email && !payload.password && !payload.userName) {
@@ -402,11 +433,11 @@ export const signUp = (payload) => {
     try {
       if (payload.notifications === false) {
         payload.notifications = "false";
-        await axios.post("/users", payload);
+        await axios.post("/register", payload);
         return alert("User register successfully!, You can now Log In!");
       }
       console.log(payload.notifications);
-      await axios.post("/users", payload);
+      await axios.post("/register", payload);
       return alert("User register successfully!, You can now Log In!");
     } catch (e) {
       alert(e.response.data.message);
@@ -472,19 +503,18 @@ export const getSales = () => {
 export const logInUserWithGoogle = (response) => {
   return async (dispatch) => {
     try {
-      const { email, given_name } = response;
-      console.log(email, given_name);
+      const { email, given_name, picture } = response;
       const userCreated = await axios.post(`/login/google`, {
         email,
         userName: given_name,
+        image: picture,
       });
-      console.log("userCreated action", userCreated.data);
+      console.log(picture);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
       });
     } catch (error) {
-      console.log("el error de logInUserWithGoogle es:", error);
       alert(error.response.data.message);
     }
   };
@@ -494,20 +524,11 @@ export const logInUserWithGoogle = (response) => {
 
 export const logInUser = (email, password) => {
   if (!email && !password) {
-    return alert("Completa los campos para ingresar");
-  }
-  if (!email) {
-    return alert("Ingresa correo electronico");
-  }
-  if (!password) {
-    return alert("Ingresa tu contraseña");
-
     return alert("Complete the inputs to log in");
   }
   if (!email) {
     return alert("Enter your Email");
   }
-
   if (!password) {
     return alert("Enter your Password");
   }
@@ -527,10 +548,9 @@ export const logInUser = (email, password) => {
 
 export const logOut = () => {
   return {
-    type: "LOG_OUT"
+    type: "LOG_OUT",
   };
 };
- 
 
 //Todo: para el DashSearch
 
@@ -540,21 +560,42 @@ export const DashMovie = (payload) => {
     payload,
   };
 };
-export	const DashCombos = (payload) =>{
-  return{
+export const DashCombos = (payload) => {
+  return {
     type: "DASH_COMBOS",
     payload,
   };
 };
-export	const DashFoods = (payload) =>{
-  return{
+export const DashFoods = (payload) => {
+  return {
     type: "DASH_FOODS",
     payload,
   };
 };
-export	const DashDrinks = (payload) =>{
-  return{
+export const DashDrinks = (payload) => {
+  return {
     type: "DASH_DRINKS",
     payload,
+  };
+};
+
+//Put
+export const putUser = (payload, token) => {
+  return async (dispatch) => {
+    const user = axios.put(
+      "http://localhost:5173/profile",
+      {
+        payload,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return dispatch({
+      type: "PUT_USER",
+      payload: user.data,
+    });
   };
 };

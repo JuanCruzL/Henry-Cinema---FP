@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./Login.css";
 import logo from "../Utils/logo-henry-cinema.png";
 import { logInUser, logInUserWithGoogle, signUp } from "../../redux/actions";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
@@ -45,11 +45,11 @@ export default function Login() {
   }, [sign]);
 
   useEffect(() => {
-    const loggedUser = window.localStorage.getItem('loggedUser');
-    if(loggedUser) {
+    const loggedUser = window.localStorage.getItem("loggedUser");
+    if (loggedUser) {
       navigate("/");
     }
-  },[]);
+  }, []);
   //-------------------------------------------HANDLERS-----------------------------------------------------
 
   //--------------------------------------SIGN IN VALIDATOR-------------------------------------------
@@ -102,17 +102,19 @@ export default function Login() {
     e.preventDefault();
     const action = await dispatch(logInUser(formIn.email, formIn.password));
     const loggedUser = action.payload;
+    console.log(action);
     console.log(loggedUser);
     if (loggedUser.accessToken) {
-      window.localStorage.setItem('loggedUser',
-      JSON.stringify(loggedUser));
+      window.localStorage.setItem(
+        "loggedUser",
+        JSON.stringify({ accessToken: loggedUser.accessToken })
+      );
       setFormIn({
         email: "",
         password: "",
       });
       navigate("/");
     }
-      
   };
 
   const handleSubmitUp = (e) => {
@@ -142,14 +144,17 @@ export default function Login() {
 
   async function onSuccess(response) {
     try {
+      console.log(response.credential);
       const userObject = jwt_decode(response.credential);
-      // console.log(userObject);
-      const action = await dispatch(logInUserWithGoogle(userObject))
+      console.log(userObject);
+      const action = await dispatch(logInUserWithGoogle(userObject));
       const loggedUser = action.payload;
       console.log(loggedUser);
-      if(loggedUser.accessToken) {
-        window.localStorage.setItem('loggedUser',
-        JSON.stringify(loggedUser));
+      if (loggedUser.accessToken) {
+        window.localStorage.setItem(
+          "loggedUser",
+          JSON.stringify({ accessToken: loggedUser.accessToken })
+        );
         // console.log(currentUser);
         navigate("/");
       }
@@ -210,11 +215,11 @@ export default function Login() {
               <div className="googlecontainer">
                 <div id="googleButton"></div>
               </div>
-              </div>
             </div>
           </div>
         </div>
-    )
+      </div>
+    );
 
     //--------------------------------------SIGN UP FORM-------------------------------------------
   } else if (sign === "sign-up") {

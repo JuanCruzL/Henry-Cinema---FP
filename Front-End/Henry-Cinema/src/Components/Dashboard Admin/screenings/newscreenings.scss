@@ -8,7 +8,7 @@
                 .top,
                 .bottom {
                     box-shadow: var(--LDegradado3) 0px 3px 8px;
-                    background-color: var(--Gold);
+                    background-color: whitesmoke;
 
                     label,
                     h1 {
@@ -20,6 +20,14 @@
                             background-color: rgb(200, 200, 200, 0.6);
                             border: 2px solid var(--LBase-1);
                         }
+
+                        .buttonConfirmL {
+                            color: var(--LText-1);
+
+                            &:hover {
+                                color: var(--LText-2);
+                            }
+                        }
                     }
 
                     .right {
@@ -30,8 +38,11 @@
                         }
 
                         button {
-                            background-color: var(--LBase-1);
-                            color: var(--LText-2);
+                            color: var(--LText-1);
+
+                            &:hover {
+                                color: var(--LText-2);
+                            }
                         }
                     }
                 }
@@ -64,6 +75,14 @@
                             border: 2px solid var(--NBase-1);
                             color: var(--NText-2);
                         }
+
+                        .buttonConfirmL {
+                            color: var(--NText-1);
+
+                            &:hover {
+                                color: var(--NText-2);
+                            }
+                        }
                     }
 
                     .right {
@@ -74,8 +93,15 @@
                         }
 
                         button {
-                            background-color: var(--BaseN);
-                            color: var(--NText-2);
+                            color: var(--NText-1);
+
+                            &:hover {
+                                color: var(--NText-2);
+                            }
+                        }
+
+                        input[type="time"]::-webkit-calendar-picker-indicator {
+                            filter: invert(1);
                         }
                     }
                 }
@@ -91,9 +117,13 @@
     display: flex;
 
     .ContainerNewScreen {
+        background-image: url(../img/doodle.jpg);
         flex: 6;
 
         .InfoNewScreen {
+            .bottom {
+                height: 550px;
+            }
 
             .top,
             .bottom {
@@ -116,6 +146,21 @@
                         padding: 5px;
                         margin: 13px 20px;
                     }
+
+                    .buttonConfirmL {
+                        position: absolute;
+                        left: 650px;
+                        width: 100px;
+                        padding: 5px;
+                        font-size: 30px;
+                        margin-left: 20px;
+                        text-align: center;
+                        border-radius: 10px;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
                 }
 
                 .right {
@@ -123,6 +168,8 @@
                     display: grid;
                     grid-template-rows: 40px 20px 40px 20px 70px 40px 40px 70px 70px auto;
                     margin: 20px 30px;
+                    align-items: center;
+                    justify-content: center;
 
                     label,
                     button {
@@ -130,19 +177,39 @@
                         height: 20px;
                     }
 
+                    input[type="time"]::-webkit-calendar-picker-indicator {
+                        cursor: pointer;
+                    }
+
                     select {
-                        width: 90%;
+                        width: 400px;
+                    }
+
+                    .seleMoviScre,
+                    .seleRoomScre {
+                        margin-left: 10px;
+                    }
+
+                    .seleMoviScre,
+                    .seleRoomScre,
+                    .seleDateScre {
+                        width: 400px;
                     }
 
                     button {
-                        position: relative;
-                        align-self: self-end;
+                        position: absolute;
+                        right: 100px;
+                        bottom: 150px;
                         width: 100px;
                         padding: 5px;
+                        font-size: 30px;
                         text-align: center;
                         border-radius: 10px;
                     }
 
+                    button:hover {
+                        cursor: pointer;
+                    }
                 }
             }
         }

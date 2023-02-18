@@ -142,7 +142,8 @@
     .screenings,
     .combos,
     .foods,
-    .drinks {
+    .drinks
+    .users {
       ul {
         list-style: none;
         margin: 0;
@@ -177,7 +178,8 @@
 .ScreenDrop .dropdown,
 .CombosDrop .dropdown,
 .FoodsDrop .dropdown,
-.DrinksDrop .dropdown {
+.DrinksDrop .dropdown,
+.UsersDrop .dropdown {
   visibility: hidden;
   height: 5px;
 }
@@ -186,7 +188,8 @@
 .ScreenDrop:hover .dropdown,
 .CombosDrop:hover .dropdown,
 .FoodsDrop:hover .dropdown,
-.DrinksDrop:hover .dropdown {
+.DrinksDrop:hover .dropdown,
+.UsersDrop:hover .dropdown {
   visibility: visible;
   height: auto;
 }

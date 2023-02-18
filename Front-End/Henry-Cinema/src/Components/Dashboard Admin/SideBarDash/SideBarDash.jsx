@@ -39,9 +39,21 @@ export const SideBarDash = () => {
             <p className="title">LISTS</p>
             <ul>
               <Link to="/dashboard/users" className="link">
-                <li>
+                <li className="UsersDrop">
                   <PersonIcon className="icon" />
                   <span className="span">Users</span>
+                  <ul className="dropdown">
+                    <li>
+                      <Link to="/dashboard/users" className="link">
+                        <span>See all Users</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/dashboard/users/new" className="link">
+                        <span>Add a new User</span>
+                      </Link>
+                    </li>
+                  </ul>
                 </li>
               </Link>
               <Link to="/dashboard/reviews" className="link">

@@ -30,6 +30,7 @@ const initialState = {
   sales: [],
   // Para el carrito
   ShoppingCarItems: [],
+  screeningID: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -89,6 +90,13 @@ const rootReducer = (state = initialState, action) => {
               ],
       };
     // SCREENINGS
+
+    case "GET_SCREENING": {
+      return {
+        ...state,
+        screeningID: action.payload,
+      };
+    }
     case "GET_SCREENINGS": {
       return {
         ...state,
@@ -200,15 +208,10 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case "POST_USER_WITH_GOOGLE":
-      console.log("yo soy el payload",action.payload)
-      try {
-        return {
-          ...state,
-          currentUser: action.payload,
-        };
-      }catch(err) {
-        console.log(err)
-      }
+      return {
+        ...state,
+        currentUser: action.payload,
+      };
 
     case "GET_CURRENT_USER":
       return {
@@ -222,7 +225,12 @@ const rootReducer = (state = initialState, action) => {
         users: action.payload,
       };
     }
-
+    case "CREATE_ADMIN_USER": {
+      return {
+        ...state,
+        users: action.payload,
+      };
+    }
     case "GET_REVIEWS": {
       return {
         ...state,
@@ -243,48 +251,52 @@ const rootReducer = (state = initialState, action) => {
         modo: M,
       };
     case "LOG_OUT":
-      window.localStorage.removeItem("loggedUser")
+      window.localStorage.removeItem("loggedUser");
       return {
         ...state,
-        currentUser: {}
-      }
-      
-      //SearchDashboard=====================================================================================0//
-      case "DASH_MOVIES":
-        const movi=state.allMovies;
-        const FoundMovi=movi.filter((M) => {
-          return M.title.toLowerCase().includes(action.payload.toLowerCase());
-        });
-        return{
+        currentUser: {},
+      };
+
+    //SearchDashboard=====================================================================================0//
+    case "DASH_MOVIES":
+      const movi = state.allMovies;
+      const FoundMovi = movi.filter((M) => {
+        return M.title.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return {
+        ...state,
+        movies: FoundMovi,
+      };
+    case "DASH_COMBOS":
+      const com = state.copyCombos;
+      const FoundCom = com.filter((C) => {
+        return C.name.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return {
+        ...state,
+        combos: FoundCom,
+      };
+    case "DASH_FOODS":
+      const foo = state.copyFoods;
+      const FoundFoo = foo.filter((f) => {
+        return f.name.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return {
+        ...state,
+        foods: FoundFoo,
+      };
+    case "DASH_DRINKS":
+      const dri = state.copyDrinks;
+      const FoundDri = dri.filter((d) => {
+        return d.name.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return {
+        ...state,
+        drinks: FoundDri,
+      };
+      case "PUT_USER":
+        return {
           ...state,
-          movies:FoundMovi
-        }
-      case "DASH_COMBOS":
-        const com=state.copyCombos;
-        const FoundCom=com.filter((C)=>{
-          return C.name.toLowerCase().includes(action.payload.toLowerCase());
-        })
-        return{
-          ...state,
-          combos:FoundCom
-        }
-      case "DASH_FOODS":
-        const foo=state.copyFoods;
-        const FoundFoo=foo.filter((f)=>{
-          return f.name.toLowerCase().includes(action.payload.toLowerCase());
-        })
-        return{
-          ...state,
-          foods:FoundFoo
-        }
-      case "DASH_DRINKS":
-        const dri=state.copyDrinks;
-        const FoundDri=dri.filter((d)=>{
-          return d.name.toLowerCase().includes(action.payload.toLowerCase());
-        })
-        return{
-          ...state,
-          drinks:FoundDri
         }
     default:
       return state;

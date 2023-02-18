@@ -17,11 +17,15 @@ module.exports = (sequelize) =>{
         },
         password:{
             type: DataTypes.STRING, 
-            allowNull: true,
         },
         notifications:{
             type:DataTypes.BOOLEAN,
-            allowNull:true,
+        },
+        isAdministrator: {
+            type: DataTypes.BOOLEAN,
+        },
+        image: {
+            type: DataTypes.TEXT,
         }
     },{timestamps:false})
 }
