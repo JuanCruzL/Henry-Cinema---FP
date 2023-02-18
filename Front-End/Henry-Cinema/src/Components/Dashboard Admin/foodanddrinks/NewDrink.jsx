@@ -8,8 +8,16 @@ import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import OutboxRoundedIcon from "@mui/icons-material/OutboxRounded";
 import swal from "sweetalert";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const NewDrink = () => {
+  // const loggedUser = useSelector((state) => state.currentUser);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+  //     navigate("/");
+  //   }
+  // });
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
