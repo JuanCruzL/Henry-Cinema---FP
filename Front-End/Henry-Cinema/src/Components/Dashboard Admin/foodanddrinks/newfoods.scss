@@ -3,6 +3,7 @@
     background-color: var(--LBase-2);
 
     .newContainer {
+
       .top,
       .bottom {
         box-shadow: var(--LDegradado3) 0px 3px 8px;
@@ -36,12 +37,8 @@
             .buttonNF {
               color: var(--LText-1);
 
-              .iconSubmit {
-                color: var(--LText-1);
-
-                &:hover {
-                  color: var(--LText-2);
-                }
+              &:hover {
+                color: var(--LText-2);
               }
             }
           }
@@ -57,6 +54,7 @@
 
     .newContainer {
       background-image: url(../img/doodle.jpg);
+
       .top,
       .bottom {
         box-shadow: var(--NDegradado3) 0px 3px 8px;
@@ -90,12 +88,8 @@
             .buttonNF {
               color: var(--NText-1);
 
-              .iconSubmit {
-                color: var(--NText-1);
-
-                &:hover {
-                  color: var(--NText-2);
-                }
+              &:hover {
+                color: var(--NText-2);
               }
             }
           }
@@ -129,6 +123,7 @@
         position: relative;
         height: 400px;
         flex: 1;
+
         .imageNF {
           border: 15px outset #000000;
           position: absolute;
@@ -157,7 +152,9 @@
 
       .right {
         flex: 2;
-        position: relative;;
+        position: relative;
+        ;
+
         form {
           margin-top: 25px;
           margin-left: 40px;
@@ -200,12 +197,14 @@
             margin-right: 30px;
             border: none;
             background-color: transparent;
-            cursor: pointer;
             font-size: 30px;
             position: absolute;
             bottom: 0px;
             right: 10px;
 
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
       }

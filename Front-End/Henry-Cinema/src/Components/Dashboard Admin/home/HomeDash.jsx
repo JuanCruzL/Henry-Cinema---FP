@@ -7,7 +7,7 @@ import { Widget } from "../widgets/Widget";
 import { Featured } from "../featured/Featured";
 import { Chart } from "../chart/Chart";
 import { List } from "../table/Table";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export const HomeDash = () => {

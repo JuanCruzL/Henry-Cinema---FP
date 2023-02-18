@@ -37,13 +37,9 @@
                         .buttonNU {
                             color: var(--LText-1);
 
-                            .iconSubmit {
-                                color: var(--LText-1);
-
-                                &:hover {
-                                    color: var(--LText-2);
-                                    ;
-                                }
+                            &:hover {
+                                color: var(--LText-2);
+                                ;
                             }
                         }
                     }
@@ -93,13 +89,8 @@
                         .buttonNU {
                             color: var(--NText-1);
 
-                            .iconSubmit {
-                                color: var(--NText-1);
-
-                                &:hover {
-                                    color: var(--NText-2);
-                                    ;
-                                }
+                            &:hover {
+                                color: var(--NText-2);
                             }
                         }
                     }
@@ -169,7 +160,8 @@
 
             .right {
                 flex: 2;
-                margin-right: 60px;
+                margin-right: 40px;
+                position: relative;
 
                 form {
                     margin-top: 35px;
@@ -215,19 +207,13 @@
                         background-color: transparent;
                         color: black;
                         cursor: pointer;
-                        font-size: 35px;
+                        font-size: 30px;
                         position: absolute;
-                        bottom: 290px;
-                        right: 80px;
+                        bottom: 0px;
+                        right: 0px;
 
                         .iconSubmit {
                             font-size: 40px;
-                            margin-left: 3px;
-                            color: rgb(98, 36, 36);
-
-                            &:hover {
-                                color: white;
-                            }
                         }
                     }
                 }
