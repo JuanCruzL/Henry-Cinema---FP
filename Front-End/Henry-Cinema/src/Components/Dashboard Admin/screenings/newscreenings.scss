@@ -8,7 +8,7 @@
                 .top,
                 .bottom {
                     box-shadow: var(--LDegradado3) 0px 3px 8px;
-                    background-color: var(--Gold);
+                    background-color: whitesmoke;
 
                     label,
                     h1 {
@@ -148,8 +148,8 @@
                     }
 
                     .buttonConfirmL {
-                        position: relative;
-                        align-self: self-end;
+                        position: absolute;
+                        left: 650px;
                         width: 100px;
                         padding: 5px;
                         font-size: 30px;
@@ -182,7 +182,7 @@
                     }
 
                     select {
-                        width: 300px;
+                        width: 400px;
                     }
 
                     .seleMoviScre,
@@ -197,8 +197,9 @@
                     }
 
                     button {
-                        position: relative;
-                        align-self: self-end;
+                        position: absolute;
+                        right: 100px;
+                        bottom: 150px;
                         width: 100px;
                         padding: 5px;
                         font-size: 30px;

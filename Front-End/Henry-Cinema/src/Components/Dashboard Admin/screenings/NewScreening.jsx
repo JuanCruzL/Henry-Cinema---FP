@@ -111,7 +111,7 @@ const RoomInputs = () => {
             <div className="right">
               <label>Movie</label>
               <select
-              className="seleMoviScre"
+                className="seleMoviScre"
                 value={id}
                 onChange={(e) => {
                   const selectedMovie = movies.find(
@@ -145,7 +145,11 @@ const RoomInputs = () => {
               <label>
                 Date:
                 <br />
-                <select className="seleDateScre" value={date} onChange={(e) => setDate(e.target.value)}>
+                <select
+                  className="seleDateScre"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                >
                   <option>Select a Date</option>
                   {[...Array(30)].map((_, i) => {
                     const nextDay = new Date();
@@ -196,6 +200,7 @@ const RoomInputs = () => {
 
               <label>
                 Definition:
+                <p></p>
                 <select
                   value={definition}
                   onChange={(e) => setDefinition(e.target.value)}
@@ -208,6 +213,7 @@ const RoomInputs = () => {
 
               <label>
                 Language:
+                <p></p>
                 <select
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
@@ -217,7 +223,6 @@ const RoomInputs = () => {
                   <option value="Origin">Origin</option>
                 </select>
               </label>
-
               <button onClick={handleSave}>SAVE</button>
             </div>
           </div>
