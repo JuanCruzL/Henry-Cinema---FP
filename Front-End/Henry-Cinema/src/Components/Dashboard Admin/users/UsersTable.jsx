@@ -54,8 +54,8 @@ export const UsersTable = () => {
           <TableRow className="tableRow">
             <TableCell className="title">USERNAME</TableCell>
             <TableCell className="title">EMAIL</TableCell>
-            <TableCell className="title">IMAGE</TableCell>
             <TableCell className="title">ADMIN</TableCell>
+            <TableCell className="title">IMAGE</TableCell>
             <TableCell className="title">DELETE</TableCell>
           </TableRow>
         </TableHead>
@@ -64,12 +64,16 @@ export const UsersTable = () => {
             <TableRow key={u.id}>
               <TableCell className="tableUsers">{u.userName}</TableCell>
               <TableCell className="tableUsers">{u.email}</TableCell>
+              <TableCell
+                className={u.isAdministrator ? "isAdmin YES" : "isAdmin NO"}
+              >
+                {u.isAdministrator ? "YES" : "NO"}
+              </TableCell>
               <TableCell className="tableUsers">
                 <div className="cellWrapper">
                   <img alt={u.image} className="userImage" src={u.image} />
                 </div>
               </TableCell>
-              <TableCell className="isAdmin">{u.isAdministrator}</TableCell>
               <TableCell className="tableUsers">
                 <button onClick={() => deleteAlert(u.id, u.name)}>
                   <div>

@@ -117,6 +117,7 @@
     display: flex;
 
     .ContainerNewScreen {
+        background-image: url(../img/doodle.jpg);
         flex: 6;
 
         .InfoNewScreen {
@@ -167,6 +168,8 @@
                     display: grid;
                     grid-template-rows: 40px 20px 40px 20px 70px 40px 40px 70px 70px auto;
                     margin: 20px 30px;
+                    align-items: center;
+                    justify-content: center;
 
                     label,
                     button {
