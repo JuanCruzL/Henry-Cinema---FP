@@ -9,12 +9,20 @@
 }
 
 /*------------------------------------------------------------------------------*/
-
+.search-container {
+  display: inline-flex;
+  justify-content: space-between;
+  float: left;
+}
+.input-icons {
+  width: 320px;
+}
 .input-field {
   padding: 2px;
-  max-width: 80%;
+  max-width: 90%;
   min-height: 30px;
-  padding-left: 10px;
+  padding-left: 20px;
+  padding-right: 10px;
   background-color: whitesmoke;
   border: 2px solid var(--NBase-2);
 }
@@ -26,13 +34,9 @@ input[type="text"] {
   width: 80%;
 }
 
-.inputIcons {
-  font-size: 18px;
-}
-
 .button-search {
-  width: 60%;
-  font-size: 20px;
-  margin-left: 8px;
-  margin-top: 8px;
+  margin-top: 2px;
+}
+.button-search .fQQvfO {
+  font-size: 2rem;
 }
