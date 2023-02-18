@@ -11,13 +11,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewCombo = () => {
-  const loggedUser = useSelector((state) => state.currentUser);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
-      navigate("/");
-    }
-  });
+  // const loggedUser = useSelector((state) => state.currentUser);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+  //     navigate("/");
+  //   }
+  // });
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
