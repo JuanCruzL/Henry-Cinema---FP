@@ -98,13 +98,14 @@ const RoomInputs = () => {
                   Seats: {reservation.seats ? reservation.seats.length : 0}
                 </h1>
                 <div className="buttonConfirmL">
-                  <button onClick={enviarDatos}>Confirm</button>
+                  <button onClick={enviarDatos}>CONFIRM</button>
                 </div>
               </div>
             </div>
             <div className="right">
               <label>Movie</label>
               <select
+              className="seleMoviScre"
                 value={id}
                 onChange={(e) => {
                   const selectedMovie = movies.find(
@@ -124,6 +125,7 @@ const RoomInputs = () => {
 
               <label>Room</label>
               <select
+                className="seleRoomScre"
                 value={roomLetter}
                 onChange={(e) => setRoomLetter(e.target.value)}
               >
@@ -137,7 +139,7 @@ const RoomInputs = () => {
               <label>
                 Date:
                 <br />
-                <select value={date} onChange={(e) => setDate(e.target.value)}>
+                <select className="seleDateScre" value={date} onChange={(e) => setDate(e.target.value)}>
                   <option>Select a Date</option>
                   {[...Array(30)].map((_, i) => {
                     const nextDay = new Date();
@@ -210,7 +212,7 @@ const RoomInputs = () => {
                 </select>
               </label>
 
-              <button onClick={handleSave}>Guardar</button>
+              <button onClick={handleSave}>SAVE</button>
             </div>
           </div>
         </div>

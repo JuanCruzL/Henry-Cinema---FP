@@ -21,8 +21,10 @@
                             border: 2px solid var(--LBase-1);
                         }
                         .buttonConfirmL{
-                            background-color: var(--LBase-1);
-                            color: var(--LText-2);
+                            color: var(--LText-1);
+                            &:hover{
+                                color: var(--LText-2);
+                            }
                         }
                     }
 
@@ -34,8 +36,10 @@
                         }
 
                         button {
-                            background-color: var(--LBase-1);
-                            color: var(--LText-2);
+                            color: var(--LText-1);
+                            &:hover{
+                                color: var(--LText-2);
+                            }
                         }
                     }
                 }
@@ -69,8 +73,10 @@
                             color: var(--NText-2);
                         }
                         .buttonConfirmL{
-                            background-color: var(--BaseN);
-                            color: var(--NText-2);
+                            color: var(--NText-1);
+                            &:hover{
+                                color: var(--NText-2);
+                            }
                         }
                     }
 
@@ -82,8 +88,10 @@
                         }
 
                         button {
-                            background-color: var(--BaseN);
-                            color: var(--NText-2);
+                            color: var(--NText-1);
+                            &:hover{
+                                color: var(--NText-2);
+                            }
                         }
                     }
                 }
@@ -131,9 +139,13 @@
                         align-self: self-end;
                         width: 100px;
                         padding: 5px;
+                        font-size: 30px;
                         margin-left: 20px;
                         text-align: center;
                         border-radius: 10px;
+                        &:hover{
+                            cursor: pointer;
+                        }
                     }
                 }
 
@@ -150,18 +162,29 @@
                     }
 
                     select {
-                        width: 90%;
+                        width: 300px;
                     }
-
+                    .seleMoviScre,
+                    .seleRoomScre{
+                        margin-left:10px;
+                    }
+                    .seleMoviScre,
+                    .seleRoomScre,
+                    .seleDateScre{
+                        width: 400px;
+                    }
                     button {
                         position: relative;
                         align-self: self-end;
                         width: 100px;
                         padding: 5px;
+                        font-size: 30px;
                         text-align: center;
                         border-radius: 10px;
                     }
-
+                    button:hover{
+                        cursor: pointer;
+                    }
                 }
             }
         }
