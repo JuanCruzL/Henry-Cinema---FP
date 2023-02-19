@@ -164,7 +164,8 @@
   margin: auto;
 }
 .perfil {
-  height: 35px;
+  height:45px;
+  width: 65px;
 }
 .menu-des {
   list-style: none;
@@ -270,4 +271,8 @@
 
 .userLogo {
   width: 35px;
+}
+.userLogo-registed{
+  border-radius: 50px;
+  width: 27px;
 }

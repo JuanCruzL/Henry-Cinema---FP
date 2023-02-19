@@ -26,6 +26,25 @@ router.put("/:id/account", async (req, res) => {
   await userFound.save();
   res.status(200).send("success");
 });
+router.put("/:id/password", async (req, res) => {
+    const { id } = req.params;
+    const { password } = req.body;
+  
+    const userFound = await User.findByPk(id);
+    
+    await userFound.save();
+    res.status(200).send("success");
+  });
+
+  router.put("/:id/name", async (req, res) => {
+    const { id } = req.params;
+    const { userName} = req.body;
+  
+    const userFound = await User.findByPk(id);
+        userFound.userName = userName
+    await userFound.save();
+    res.status(200).send("success");
+  }); 
 
 
 router.put("/:id", validateToken, async (req, res) => {
