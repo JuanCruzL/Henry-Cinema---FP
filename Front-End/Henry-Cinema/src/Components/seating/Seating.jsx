@@ -38,7 +38,7 @@ function Seating() {
   useEffect(() => {
     dispatch(getScreeningId(id));
     setAsientosArray(screening.seats);
-  }, []);
+  }, [dispatch]);
   console.log(asientosSeleccionados);
   return (
     <div className="seating">

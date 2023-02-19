@@ -26,7 +26,7 @@ const postUsersDb = async (formData) => {
         const emailCi = email.toLowerCase();
         const findEmail = await User.findOne({where: { email: emailCi }});
         const findUserName = await User.findOne({ where: { userName: userNameCi }});
-
+        const date = new Date();
         if (findEmail || findUserName) {
             throw {
                 status: false,
@@ -47,6 +47,7 @@ const postUsersDb = async (formData) => {
                 public_id: result.public_id,
                 url: result.secure_url,
             },
+            createdAt: date,
         });
         console.log(created);
 

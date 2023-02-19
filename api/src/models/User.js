@@ -31,6 +31,13 @@ module.exports = (sequelize) =>{
             url: {
                 type: DataTypes.STRING,
             }
+        },
+        activated:{
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        },
+        createdAt: {
+            type: DataTypes.DATE,
         }
     },{timestamps:false})
 }
