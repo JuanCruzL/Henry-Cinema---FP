@@ -2,6 +2,7 @@ const { User } = require('../db');
 const bcrypt = require("bcrypt");
 const saltRound = 10;
 const salt = bcrypt.genSaltSync(saltRound);
+const { cloudinary } = require("../utils/cloudinary");
 
 const getUsersDb = async () => {
 
@@ -14,8 +15,8 @@ const postUsersDb = async (formData) => {
         userName,
         email,
         password,
-        notifications,
         isAdministrator,
+        image,
     } = formData;
 
     if ( userName && email && password) {
@@ -33,13 +34,21 @@ const postUsersDb = async (formData) => {
             }
         }
 
-        await User.create({ 
+        const result = await cloudinary.uploader.upload(image, {
+            folder: "users",
+        });
+
+        const created = await User.create({ 
             userName: userNameCi,
             email: emailCi,
             password: hashPw, 
-            notifications,
             isAdministrator,
+            image: {
+                public_id: result.public_id,
+                url: result.secure_url,
+            },
         });
+        console.log(created);
 
         return "User created successfully";
     }

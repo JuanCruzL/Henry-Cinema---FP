@@ -25,7 +25,12 @@ module.exports = (sequelize) =>{
             type: DataTypes.BOOLEAN,
         },
         image: {
-            type: DataTypes.TEXT,
+            public_id: {
+                type: DataTypes.TEXT,
+            },
+            url: {
+                type: DataTypes.STRING,
+            }
         }
     },{timestamps:false})
 }
