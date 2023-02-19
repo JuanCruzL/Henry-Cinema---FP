@@ -16,6 +16,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import jwt_decode from "jwt-decode";
 
 const Nav = ({ setCurrentPage }) => {
+  const imageDefault = 'https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg'
   const dispatch = useDispatch();
   const user = window.localStorage.getItem("loggedUser");
   let decrypted = "";
@@ -134,7 +135,7 @@ const Nav = ({ setCurrentPage }) => {
             {decrypted !== "null" ? (
               <div className="menu-link-user">
               <Link to="/user" className="perfil">
-                <img  src = {decrypted.image} className="userLogo-registed" />
+                <img  src = {decrypted.image ? decrypted.image : imageDefault} className="userLogo-registed" />
               </Link>
             </div>
             ): (
