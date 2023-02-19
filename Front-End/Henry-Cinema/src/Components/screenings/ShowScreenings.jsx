@@ -38,15 +38,18 @@ function ShowScreenings() {
       ) : (
         <div>
           <Nav />
+          <div>
+            <img className="poster" src={movie.imageVertical} />
+          </div>
           <div className="screening-container">
             {movie.Screenings?.map((screening) => (
               <div key={screening.id}>
                 <div className="poster-container">
-                  <img
+                  {/* <img
                     className="poster"
                     key={screening.id}
                     src={movie.imageVertical}
-                  />
+                  /> */}
 
                   <div className="cardinfo">
                     <div className="cardinfo-1">
