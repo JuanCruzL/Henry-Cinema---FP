@@ -30,6 +30,9 @@ module.exports = (sequelize) =>{
         activated:{
             type: DataTypes.BOOLEAN,
             defaultValue: true
+        },
+        createdAt: {
+            type: DataTypes.DATE,
         }
     },{timestamps:false})
 }
