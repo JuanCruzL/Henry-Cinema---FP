@@ -600,7 +600,6 @@ export const putUser = (payload, token) => {
   };
 };
 
-<<<<<<< HEAD
 
 export const addToCart = (data) => {
   return {
@@ -608,7 +607,6 @@ export const addToCart = (data) => {
     payload: data,
   }
 }
-=======
 export const putAccount= (id) => {
   return async(dispatch) => {
     const putActualizate = axios.put(`http://localhost:3001/profile/${id}/account`)
@@ -636,4 +634,3 @@ export const putImageUserP = (id, file) => {
     return alert('Please, log-in again!')
   }
 }
->>>>>>> ec7963aabd2ebea83e37ada221865b7a0e55fb40
