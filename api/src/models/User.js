@@ -26,6 +26,7 @@ module.exports = (sequelize) =>{
         },
         image: {
             type: DataTypes.TEXT,
+            defaultValue: 'https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg'
         },
         activated:{
             type: DataTypes.BOOLEAN,
