@@ -26,30 +26,26 @@ const postUsersDb = async (formData) => {
         const emailCi = email.toLowerCase();
         const findEmail = await User.findOne({where: { email: emailCi }});
         const findUserName = await User.findOne({ where: { userName: userNameCi }});
-        const date = new Date();
         if (findEmail || findUserName) {
             throw {
                 status: false,
                 message: "Email or Username already in use",
             }
         }
-
+        // console.log(image);
         const result = await cloudinary.uploader.upload(image, {
-            folder: "users",
+            upload_preset: 'preset_hcinema',
         });
-
+        console.log(result);
         const created = await User.create({ 
             userName: userNameCi,
             email: emailCi,
             password: hashPw, 
             isAdministrator,
-            image: {
-                public_id: result.public_id,
-                url: result.secure_url,
-            },
-            createdAt: date,
+            image: result.secure_url,
+            image_id: result.public_id,
         });
-        console.log(created);
+        // console.log(created);
 
         return "User created successfully";
     }

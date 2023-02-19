@@ -25,19 +25,14 @@ module.exports = (sequelize) =>{
             type: DataTypes.BOOLEAN,
         },
         image: {
-            public_id: {
-                type: DataTypes.TEXT,
-            },
-            url: {
-                type: DataTypes.STRING,
-            }
+            type: DataTypes.STRING,
+        },
+        image_id: {
+            type: DataTypes.STRING,
         },
         activated:{
             type: DataTypes.BOOLEAN,
             defaultValue: true
         },
-        createdAt: {
-            type: DataTypes.DATE,
-        }
     },{timestamps:false})
 }

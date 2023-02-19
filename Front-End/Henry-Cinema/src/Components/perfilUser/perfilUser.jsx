@@ -8,6 +8,7 @@ import { putUser } from "../../redux/actions";
 import { logOut } from "../../redux/actions";
 import { putAccount } from "../../redux/actions";
 import { putName } from "../../redux/actions";
+import { putImageUserP } from "../../redux/actions";
 import Loader from "../Loader/Loader";
 
 function PerfilUser() {
@@ -26,6 +27,8 @@ function PerfilUser() {
   const [form, setForm] = useState(false);
   const [password, setPassword] = useState(false);
   const [passwordEdit, setPasswordEdit] = useState("");
+  const [image, setImage] = useState(false);
+  const [imageEdit, setImageEdit] = useState("");
   const [loader, setLoader] = useState(false);
   console.log(token);
 
@@ -40,6 +43,20 @@ function PerfilUser() {
       setPasswordEdit(e.target.value);
     }
   };
+
+  const handleImageChange = (e) => {
+    e.preventDefault();
+    const file = e.target.files[0];
+    setFileToBase(file);
+  }
+
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImageEdit(reader.result);
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,6 +76,14 @@ function PerfilUser() {
       };
       dispatch(putUser(newPassword, token));
       console.log("form-password enviado");
+    } else if (e.target.name === "form-image") {
+      let newImage = {
+        file: imageEdit,
+      }
+      dispatch(putImageUserP(user.id, newImage));
+      window.localStorage.removeItem("loggedUser");
+
+      window.location.href = "/login";
     }
   };
 
@@ -69,15 +94,24 @@ function PerfilUser() {
       setPassword(true);
     }
   };
+
   const handleClickClose = (e) => {
     if (e.target.name === "edit-name") {
       setForm(false);
       setNameEdit("");
-    } else {
+    } else if (e.target.name === "form-password"){
       setPassword(false);
       setPasswordEdit("");
+    } else if (e.target.name === "edit-image") {
+      setImage(false);
+      setImageEdit("");
     }
   };
+
+  const handleClickImageEdit = (e) => {
+    setImage(true);
+  }
+
   const handleLogOut = () => {
     window.localStorage.removeItem("loggedUser");
     window.location.href = "/";
@@ -152,28 +186,51 @@ function PerfilUser() {
                     <div className="information-head">
                       <img src={user.image ? user.image :imageDefault} className="image-icon-profile" />
                       <h3 className="title-user-name">{user.userName}</h3>
-                      {/* <button className="button-edit-profile">
+                      <div>
+                      <button 
+                      className="button-edit-profile"
+                      onClick={handleClickImageEdit}
+                      name="edit-image">
                         Edit Image
-                      </button> */}
-                    {/* SELECCIONAR IMAGEN */}
+                      </button>
                     <div className="form-outline mb-4">
-                      <input
-                        type="file"
-                        id="formupload"
-                        name="image"
-                        className="form-control"
-                      />
-                      <label className="form-label" htmlFor="form4Example2">
-                        Image
-                      </label>
+                      {image && (
+                        <form
+                        // className="form-image"
+                        onSubmit={handleSubmit}
+                        name="form-image">
+                          <label className="form-label">
+                            Edit your Image:
+                          </label>
+                          <input
+                            type="file"
+                            id="formupload"
+                            name="edit-image"
+                            onChange={handleImageChange}
+                            // className="form-control"
+                          />
+                          <button
+                            className="button-name-submit"
+                            type="submit"
+                            onClick={handleSubmit}
+                            name="form-image"
+                          >
+                            Save
+                          </button>
+                          <button
+                            className="button-name-cancel"
+                            onClick={handleClickClose}
+                            name="edit-image"
+                          >
+                            x
+                          </button>
+                          <img width="100px" src={imageEdit} />
+                        </form>
+                      )}
+                      </div>
                     </div>
                     <img className="img-fluid" alt="" />
-                    <button
-                      type="submit"
-                      className="btn btn-primary btn-block mb-4"
-                    >
-                      Create
-                    </button>
+                    
                     </div>
 
                     <div className="user-email">
@@ -218,7 +275,7 @@ function PerfilUser() {
                           <button
                             className="button-name-cancel"
                             onClick={handleClickClose}
-                            name={"edit-name"}
+                            name="edit-name"
                           >
                             x
                           </button>
