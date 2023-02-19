@@ -294,6 +294,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         drinks: FoundDri,
       };
+<<<<<<< HEAD
       case "PUT_USER":
         return {
           ...state,
@@ -303,6 +304,20 @@ const rootReducer = (state = initialState, action) => {
           ...state,
           ShoppingCartItems: action.payload
         }
+=======
+    case "PUT_USER":
+      return {
+        ...state,
+      };
+    case "ACCOUNT_DELETE":
+      return {
+        ...state,
+      };
+    case "PUT_NAME_ACCOUNT":
+      return {
+        ...state,
+      };
+>>>>>>> ec7963aabd2ebea83e37ada221865b7a0e55fb40
 
     default:
       return state;

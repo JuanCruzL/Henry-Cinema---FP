@@ -1,93 +1,235 @@
-.light-mode .container-perfil {
-  background-color: var(--LFondo-1);
+.light-mode .container-perfil{
+  background-color: var(--LBase-2);
 }
-
-.light-mode .container-settings-user {
-  background-color: black;
-  box-shadow: var(--LDegradado) 0px 5px 15px;
-}
-.light-mode .container-user-information {
-  box-shadow: var(--LDegradado) 0px 5px 15px;
-}
-.light-mode .title-my-account {
-  color: black;
-  text-shadow: var(--LDegradado) 0px 5px 20px;
-}
-.light-mode .container-account {
-  color: black;
-}
-.light-mode .container-password {
-  color: black;
-}
-.light-mode .button-change {
-  background-color: #ffff00;
-  color: var(--LText-1);
-  box-shadow: var(--LDegradado) 0px 5px 15px;
-  transition-duration: 0.4s;
-}
+.light-mode .button-delete:hover,
+.light-mode .button-dissable:hover,
 .light-mode .button-change:hover {
   background-color: var(--LBase-1);
-  color: var(--LText-3);
+  color: var(--BaseL);
   box-shadow: var(--LDegradado) 0px 5px 15px;
 }
-.light-mode .button-dissable {
-  background-color: #ffff00;
+.light-mode .container-user-information,
+.light-mode .container-settings-user {
+  box-shadow: var(--LDegradado3) 0px 3px 8px;
+}
+.light-mode .container-settings-user {
+  background-color: var(--Dashboard-Base);
+}
+.light-mode .title-settings,
+.light-mode .title-my-account {
   color: var(--LText-1);
-  box-shadow: var(--LDegradado) 0px 5px 15px;
-  transition-duration: 0.4s;
 }
-.light-mode .button-dissable:hover {
+.light-mode .my-account-setting,
+.light-mode .history-setting,
+.light-mode .log-out-setting,
+.light-mode .title-user-name,
+.light-mode .username-text,
+.light-mode .email-text {
+  color: var(--LText-1);
+}
+.light-mode .my-account-setting:hover,
+.light-mode .history-setting:hover,
+.light-mode .log-out-setting:hover{
+  color: var(--BaseL);
   background-color: var(--LBase-1);
-  color: var(--LText-3);
-  box-shadow: var(--LDegradado) 0px 5px 15px;
 }
-.light-mode .button-delete {
-  background-color: #ffff00;
+.light-mode .container-user-information {
+  background-color: var(--Dashboard-Base);
+}
+.light-mode .background-container,
+.light-mode .button-edit-profile,
+.light-mode .button-edit-email,
+.light-mode .button-edit-username,
+.light-mode .image-icon-profile{
+  background-color: var(--BaseL);
+  border:2px solid var(--BaseL);
+}
+.light-mode .button-edit-profile:hover,
+.light-mode .button-edit-email:hover,
+.light-mode .button-edit-username:hover{
+  background-color: var(--LBase-2);
   color: var(--LText-1);
-  box-shadow: var(--LDegradado) 0px 5px 15px;
-  transition-duration: 0.4s;
 }
-.light-mode .button-delete:hover {
-  background-color: var(--LBase-1);
-  color: var(--LText-3);
-  box-shadow: var(--LDegradado) 0px 5px 15px;
+.light-mode .label-name-edit,
+.light-mode .label-password-edit{
+  color:rgb(132, 132, 23);
 }
-.dark-mode .button-delete:hover {
-  background-color: #ffff00;
+.light-mode .container-password,
+.light-mode .container-account{
   color: var(--LText-1);
-  box-shadow: var(--LDegradado) 0px 5px 15px;
 }
-.dark-mode .button-dissable:hover {
-  background-color: #ffff00;
+.light-mode .input-name-edit,
+.light-mode .input-password-edit,
+.light-mode .button-name-submit,
+.light-mode .button-name-cancel,
+.light-mode .button-password-submit,
+.light-mode .button-password-cancel{
   color: var(--LText-1);
-  box-shadow: var(--LDegradado) 0px 5px 15px;
+  border:2px solid rgb(132, 132, 23);
 }
+.light-mode .button-name-submit:hover,
+.light-mode .button-password-submit:hover{
+  background-color: var(--BaseL);
+  color: var(--LText-1);
+}
+.light-mode .button-name-cancel:hover,
+.light-mode .button-password-cancel:hover{
+  background-color: red;
+  color: var(--LText-1);
+  border-color: var(--LText-1);
+}
+.light-mode .username-profile,
+.light-mode .email-profile {
+  color: var(--LText-1);
+}
+.light-mode .button-edit-email {
+  box-shadow: 0 8px 16px 0 var(--Degradado), 0 6px 20px 0 var(--Degradado);
+}
+.light-mode .button-change,
+.light-mode .button-dissable,
+.light-mode .button-delete{
+  color: var(--LText-1);
+  background-color: var(--BaseL);
+}
+
+
+
+
+
+.dark-mode .container-perfil{
+  background-color: var(--NFondo-3);
+}
+.dark-mode .button-delete:hover,
+.dark-mode .button-dissable:hover,
 .dark-mode .button-change:hover {
-  background-color: #ffff00;
-  color: var(--LText-1);
-  box-shadow: var(--LDegradado) 0px 5px 15px;
+  background-color: var(--BaseN);
+  color: var(--NText-2);
+  box-shadow: var(--NDegradado) 0px 5px 15px;
 }
-.dark-mode .container-user-information {
-  box-shadow: var(--NDegradado3) 0px 3px 8px;
-}
+.dark-mode .container-user-information,
 .dark-mode .container-settings-user {
   box-shadow: var(--NDegradado3) 0px 3px 8px;
 }
+.dark-mode .container-settings-user {
+  background-color: rgba(0, 0, 0, 0.68);
+}
+.dark-mode .title-settings,
+.dark-mode .title-my-account {
+  color: var(--NText-1);
+}
+.dark-mode .my-account-setting,
+.dark-mode .history-setting,
+.dark-mode .log-out-setting,
+.dark-mode .title-user-name,
+.dark-mode .username-text,
+.dark-mode .email-text {
+  color: var(--BaseN);
+}
+.dark-mode .my-account-setting:hover,
+.dark-mode .history-setting:hover,
+.dark-mode .log-out-setting:hover{
+  color: var(--NText-2);
+  background-color: var(--BaseN);
+}
+.dark-mode .container-user-information {
+  background-color: var(--NBase-2);
+}
+.dark-mode .background-container,
+.dark-mode .button-edit-profile,
+.dark-mode .button-edit-email,
+.dark-mode .button-edit-username,
+.dark-mode .image-icon-profile{
+  background-color: var(--BaseN);
+  border:2px solid var(--BaseN);
+}
+.dark-mode .button-edit-profile:hover,
+.dark-mode .button-edit-email:hover,
+.dark-mode .button-edit-username:hover{
+  background-color: var(--NBase-2);
+  color: var(--NText-1);
+}
+.dark-mode .label-name-edit,
+.dark-mode .label-password-edit,
+.dark-mode .container-password,
+.dark-mode .container-account{
+  color: var(--NText-1)
+}
+.dark-mode .input-name-edit,
+.dark-mode .input-password-edit,
+.dark-mode .button-name-submit,
+.dark-mode .button-name-cancel,
+.dark-mode .button-password-submit,
+.dark-mode .button-password-cancel{
+  color: var(--NText-1);
+  border:2px solid var(--NText-1);
+}
+.dark-mode .button-name-submit:hover,
+.dark-mode .button-password-submit:hover{
+  background-color: var(--BaseN);
+  color: var(--NText-2);
+  border: 0px;
+}
+.dark-mode .button-name-cancel:hover,
+.dark-mode .button-password-cancel:hover{
+  background-color: red;
+  color: var(--NText-2);
+  border-color: var(--NText-2);
+}
+.dark-mode .username-profile,
+.dark-mode .email-profile {
+  color: var(--Gold);
+}
+.dark-mode .button-edit-email {
+  box-shadow: 0 8px 16px 0 var(--Degradado), 0 6px 20px 0 var(--Degradado);
+}
+.dark-mode .button-change,
+.dark-mode .button-dissable,
+.dark-mode .button-delete{
+  color: var(--BaseN);
+  background-color: var(--NBase-2);
+}
+
 .container-perfil {
-  background-color: rgb(30, 30, 30);
   display: flex;
   max-height: 120vh;
   min-height: 100vh;
   min-width: 35rem;
 }
+.title-my-account-disable{
+  /* border:2px solid red; */
+  color: aliceblue;
+  margin: 5px;
+  margin-top: 23px;
+  font-size: 22px;
+  padding: 7px;
+  text-align: center;
+
+}
+.button-change-disable{
+  color: #ffff00;
+  display: flex;
+  background-color: black;
+  font-size: 15px;
+  margin: 7px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  padding-left: 43%;
+  margin-top: 55px;
+}
+.button-change-disable:hover{
+  background-color: #ffff00;
+  color: black;
+}
 
 .container-settings-user {
-  min-width: 15rem;
-  background-color: rgba(0, 0, 0, 0.68);
+  min-width: 18%;
   padding: 60px 6px 60px 20px;
 }
+
 .title-settings {
-  color: aliceblue;
   margin: 3px;
   font-size: 16px;
   margin-top: 20px;
@@ -100,7 +242,6 @@
 }
 .my-account-setting,
 .history-setting {
-  color: #ffff00;
   font-size: 16px;
   padding: 10px;
   padding-left: 70px;
@@ -108,7 +249,6 @@
   cursor: pointer;
 }
 .log-out-setting {
-  color: #ffff00;
   font-size: 16px;
   padding: 10px;
   padding-left: 70px;
@@ -119,31 +259,29 @@
 }
 
 .container-account-user {
-  min-width: 85%;
+  min-width: 82%;
   display: flex;
   flex-direction: column;
-  padding: 60px 6px 60px 20px;
+  position: relative;
 }
 .title-my-account {
-  color: aliceblue;
   margin: 5px;
   margin-top: 23px;
   font-size: 22px;
   padding: 7px;
-  margin-left: 55px;
+  margin-left: 5%;
 }
 
 .container-user-information {
-  background-color: black;
-  max-width: 60%;
   min-width: 40rem;
-  margin: 3px;
-  margin-top: 32px;
-  margin-left: 60px;
+  width: 90%;
+  margin: auto;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
 }
 .background-container {
   height: 6rem;
-  background-color: #ffff00;
+  border-top-right-radius: 150px;
 }
 .information-head {
   display: flex;
@@ -151,73 +289,55 @@
   height: 4rem;
 }
 .image-icon-profile {
-  height: 95px;
-  width: 95px;
-  border:1px solid yellow;
+  height: 105px;
+  width: 105px;
   border-radius: 50px;
-  margin-left: 55px;
+  margin-left:5%;
+  margin-right:5%;
   margin-top: -40px;
 }
 .title-user-name {
-  color: #ffff00;
-  width: 65%;
-  height: 65%;
-  margin-left: 15px;
-  padding-top: 15px;
-  padding-left: 25px;
-  font-size: 18px;
+  width: auto;
+  height: 60%;
+  font-size: 28px;
+  margin: auto;
+  margin-left: 0;
 }
-.button-edit-profile {
-  background-color: #ffff00;
-  margin: 6px 30px 15px 25px;
-  width: 18%;
-  font-size: 16px;
-  text-align: center;
-  cursor: pointer;
-}
+
 .user-email {
+  padding-top: 20px;
   min-height: 15rem;
 }
 .edit-username,
 .edit-email {
   display: flex;
   min-height: 4.5rem;
-  margin-top: 25px;
   font-size: 15px;
-  background-color: rgba(0, 0, 0, 0.68);
-  padding-left: 60px;
+  margin-left: 5%;
  /*  border:2px solid yellow */
 }
 
 .container-username,
 .edit-email-profile {
   width: 40rem;
-  padding-left: 15px;
 }
 .form-name{
-  padding-left: 80px;
+  margin-left: 10%;
 }
-.label-name-edit,
-.label-password-edit{
-  color:white
-}
+
 .input-name-edit,
 .input-password-edit{
-  border:2px solid white;
   max-width: 50%;
   margin-left: 15px;
 }
 .input-name-edit:focus,
 .input-password-edit:focus{
   padding-left: 5px;
-  color: white;
 }
 .button-name-submit,
 .button-name-cancel,
 .button-password-submit,
 .button-password-cancel{
-  border:2px solid white;
-  color:white;
   margin-left: 45px;
   border-radius: 20px;
   width:70px;
@@ -233,60 +353,44 @@
 .form-password{
   margin-left: 75px;
 }
-.label-password-edit{
-  color:white;
-}
+
 .username-text,
 .email-text {
-  color: #ffff00;
-  border: 2px solid black;
   margin: 7px;
   font-size: 18px;
 }
 .username-profile,
 .email-profile {
-  color: #ffff00;
   margin: 7px;
   font-size: 18px;
   font-weight: normal;
 }
-
+.button-edit-profile,
+.button-edit-username,
 .button-edit-email {
-  background-color: #ffff00;
-  margin: 10px 40px 20px 20px;
-  width: 15%;
+  width: 160px;
+  height: 35px;
   font-size: 16px;
   text-align: center;
-  cursor: pointer;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: auto;
+  margin-right: 20px;
+  border-radius: 40px;
 }
-.button-edit-username {
-  background-color: #ffff00;
-  margin: 12px 40px 20px 20px;
-  padding-top: 13px;
-  width: 15%;
-  font-size: 16px;
-  text-align: center;
+.button-edit-profile:hover{
   cursor: pointer;
 }
 
 .container-password {
-  margin: 3px;
-  margin-top: 32px;
-  margin-left: 65px;
-  color: aliceblue;
+  margin: 5px;
+  margin-left: 5%;
 }
 
 .container-account {
-  margin: 3px;
-  margin-top: 32px;
-  margin-left: 65px;
-  color: aliceblue;
+  margin: 5px;
+  margin-left: 5%;
 }
 .button-change {
-  color: #ffff00;
   display: flex;
-  background-color: black;
   font-size: 15px;
   margin: 7px;
   cursor: pointer;
@@ -298,9 +402,7 @@
 }
 .button-dissable,
 .button-delete {
-  color: #ffff00;
   display: flex;
-  background-color: black;
   font-size: 15px;
   margin: 7px;
   cursor: pointer;
@@ -309,4 +411,10 @@
   padding: 15px 20px;
   text-align: center;
   text-decoration: none;
+}
+.button-name-submit,
+.button-name-cancel,
+.button-password-submit,
+.button-password-cancel{
+  cursor:  pointer;
 }

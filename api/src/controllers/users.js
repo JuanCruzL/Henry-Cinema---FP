@@ -2,6 +2,7 @@ const { User } = require('../db');
 const bcrypt = require("bcrypt");
 const saltRound = 10;
 const salt = bcrypt.genSaltSync(saltRound);
+const { cloudinary } = require("../utils/cloudinary");
 
 const getUsersDb = async () => {
 
@@ -14,8 +15,8 @@ const postUsersDb = async (formData) => {
         userName,
         email,
         password,
-        notifications,
         isAdministrator,
+        image,
     } = formData;
 
     if ( userName && email && password) {
@@ -25,21 +26,26 @@ const postUsersDb = async (formData) => {
         const emailCi = email.toLowerCase();
         const findEmail = await User.findOne({where: { email: emailCi }});
         const findUserName = await User.findOne({ where: { userName: userNameCi }});
-
         if (findEmail || findUserName) {
             throw {
                 status: false,
                 message: "Email or Username already in use",
             }
         }
-
-        await User.create({ 
+        // console.log(image);
+        const result = await cloudinary.uploader.upload(image, {
+            upload_preset: 'preset_hcinema',
+        });
+        console.log(result);
+        const created = await User.create({ 
             userName: userNameCi,
             email: emailCi,
             password: hashPw, 
-            notifications,
             isAdministrator,
+            image: result.secure_url,
+            image_id: result.public_id,
         });
+        // console.log(created);
 
         return "User created successfully";
     }

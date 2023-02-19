@@ -25,6 +25,7 @@ export const NewUser = () => {
     password: "",
     email: "",
     isAdministrator: "",
+    image: "",
   });
 
   const [validations, setValidations] = useState({
@@ -32,16 +33,18 @@ export const NewUser = () => {
     password: "",
     email: "",
     isAdministrator: "",
+    image: "",
   });
 
   const validateAll = () => {
-    const { userName, password, email, isAdministrator } = values;
+    const { userName, password, email, isAdministrator, image } = values;
 
     const validations = {
       userName: "",
       password: "",
       email: "",
       isAdministrator: "",
+      image: "",
     };
 
     let isValid = true;
@@ -70,6 +73,11 @@ export const NewUser = () => {
     if (!isAdministrator) {
       validations.price = "This field is required";
       isValid = false;
+    }
+
+    if (!image) {
+     validations.image = "Please put an image for the user";
+     isValid = false;
     }
 
     if (!isValid) {
@@ -104,6 +112,20 @@ export const NewUser = () => {
     setValues({ ...values, [name]: value });
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setFileToBase(file);
+    console.log(file);
+  }
+
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setValues({...values, image: reader.result});
+    }
+  }
+
   const handleSubmit = (e) => {
     console.log(values);
     e.preventDefault();
@@ -121,13 +143,14 @@ export const NewUser = () => {
     console.log(values);
   };
 
-  const { userName, password, email, isAdministrator } = values;
+  const { userName, password, email, isAdministrator, image } = values;
 
   const {
     userName: userNameVal,
     password: passwordVal,
     email: emailVal,
     isAdministrator: isAdminVal,
+    image: imageVal,
   } = validations;
 
   return (
@@ -201,6 +224,19 @@ export const NewUser = () => {
                 />
                 <div className="vals">{isAdminVal}</div>
               </div>
+              <div className="formNU">
+                <label>IMAGE</label>
+                <input
+                className="inputNU"
+                type="file"
+                placeholder="enter user image"
+                name="image"
+                onChange={handleImageChange}
+                onBlur={validateOne}
+                />
+              <div className="vals">{imageVal}</div>
+              </div>
+              <img width="200px" src={values.image} alt="" />
               <button className="buttonNU" type="submit" value="SUBMIT USER">
                 SUBMIT
               </button>
