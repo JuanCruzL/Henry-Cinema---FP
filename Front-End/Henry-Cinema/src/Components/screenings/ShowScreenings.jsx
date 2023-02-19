@@ -38,26 +38,11 @@ function ShowScreenings() {
       ) : (
         <div>
           <Nav />
+          <div>
+            <img className="poster" src={movie.imageVertical} />
+          </div>
           <div className="screening-container">
-            <div>
-              <img
-                className="poster"
-                key={movie.Screenings.id}
-                src={movie.imageVertical}
-              />
-            </div>
-            <div className="posters-container">
-              {movie.Screenings?.map((screening) => {
-                console.log("screening dentro del map", screening);
-                return (
-                  <div key={screening.id}>
-                    <div className="poster-container">
-                      <div
-                        className="cardinfo"
-                        onClick={() => handleCardClick(screening.id)}
-                      >
-                        <div className="cardinfo-1">
-                          <h1>Title: {screening.title}</h1>
+
 
                           <div className="room">
                             <h1>Definition: {screening.definition}</h1>
