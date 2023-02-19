@@ -142,7 +142,7 @@ export default function Login() {
     });
   };
 
-  async function onSuccess(response) {
+   async function onSuccess(response) {
     try {
       console.log(response.credential);
       const userObject = jwt_decode(response.credential);

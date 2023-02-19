@@ -25,7 +25,7 @@ const postUsersDb = async (formData) => {
         const emailCi = email.toLowerCase();
         const findEmail = await User.findOne({where: { email: emailCi }});
         const findUserName = await User.findOne({ where: { userName: userNameCi }});
-
+        const date = new Date();
         if (findEmail || findUserName) {
             throw {
                 status: false,
@@ -39,6 +39,7 @@ const postUsersDb = async (formData) => {
             password: hashPw, 
             notifications,
             isAdministrator,
+            createdAt: date,
         });
 
         return "User created successfully";
