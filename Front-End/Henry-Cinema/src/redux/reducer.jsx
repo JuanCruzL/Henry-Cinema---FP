@@ -29,7 +29,7 @@ const initialState = {
   // Para el componente Sales.
   sales: [],
   // Para el carrito
-  ShoppingCarItems: [],
+  ShoppingCartItems: [],
   screeningID: [],
 };
 
@@ -298,6 +298,12 @@ const rootReducer = (state = initialState, action) => {
         return {
           ...state,
         }
+      case "ADD_TO_CART":
+        return{
+          ...state,
+          ShoppingCartItems: action.payload
+        }
+
     default:
       return state;
   }
