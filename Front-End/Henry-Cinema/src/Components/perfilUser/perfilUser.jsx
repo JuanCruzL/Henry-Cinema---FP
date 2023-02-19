@@ -12,6 +12,8 @@ import Loader from "../Loader/Loader";
 
 function PerfilUser() {
   const dispatch = useDispatch();
+  const imageDefault = 'https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg'
+
   let token = window.localStorage.getItem("loggedUser");
   let user = "";
   if (token === null) {
@@ -148,11 +150,30 @@ function PerfilUser() {
                 <div>
                   <div className="container-edit-profile">
                     <div className="information-head">
-                      <img src={user.image} className="image-icon-profile" />
+                      <img src={user.image ? user.image :imageDefault} className="image-icon-profile" />
                       <h3 className="title-user-name">{user.userName}</h3>
-                      <button className="button-edit-profile">
+                      {/* <button className="button-edit-profile">
                         Edit Image
-                      </button>
+                      </button> */}
+                    {/* SELECCIONAR IMAGEN */}
+                    <div className="form-outline mb-4">
+                      <input
+                        type="file"
+                        id="formupload"
+                        name="image"
+                        className="form-control"
+                      />
+                      <label className="form-label" htmlFor="form4Example2">
+                        Image
+                      </label>
+                    </div>
+                    <img className="img-fluid" alt="" />
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-block mb-4"
+                    >
+                      Create
+                    </button>
                     </div>
 
                     <div className="user-email">
