@@ -23,7 +23,7 @@
   left: 8px;
   right: 2px;
   bottom: 0;
-  background-color: rgb(0, 0, 0);
+  background-color: #ffff00;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 5px;
@@ -31,14 +31,13 @@
 
 .slider:before {
   position: absolute;
-
   content: "";
   height: 1.5em;
   width: 1.5em;
   border-radius: 20px;
   left: 0.9em;
   bottom: 0.2em;
-  background-color: rgb(219, 198, 2);
+  background-color: black;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -60,7 +59,7 @@ input:focus + .slider {
   border-radius: 50%;
   position: absolute;
   content: "";
-  background-color: rgb(0, 0, 0);
+  background-color: #ffff00;
   -webkit-transition: ease 0.4s;
   transition: ease 0.4s;
 }

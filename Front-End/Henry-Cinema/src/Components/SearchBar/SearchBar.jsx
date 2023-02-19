@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { searchMovie } from "../../redux/actions";
 import "./SearchBar.css";
-import logoSearch from "../../img/busqueda.png";
 
 export const SearchBar = ({ setCurrentPage }) => {
   const dispatch = useDispatch();
@@ -25,8 +24,9 @@ export const SearchBar = ({ setCurrentPage }) => {
           placeholder="Search Movies..."
           maxLength={20}
         />
-
-        <img src={logoSearch} className="button-search" />
+      </div>
+      <div className="button-search">
+        <SearchRoundedIcon />
       </div>
     </div>
   );

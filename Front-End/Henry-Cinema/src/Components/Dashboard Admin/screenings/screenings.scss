@@ -1,7 +1,23 @@
-.screenings {
-    background-color: rebeccapurple;
+.light-mode {
+    .list{
+        .listContainer{
+            background-color: var(--Dashboard-Base);
+        }
+    }
+  }
+  .dark-mode {
+    .list{
+        .listContainer{
+            background-color: var(--NFondo-3);
+        }
+    }
+  }
+  
+.list {
+    display: flex;
 
-    .title {
-        color: white;
+    .listContainer {
+        flex: 6;
+
     }
 }

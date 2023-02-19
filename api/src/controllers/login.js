@@ -41,7 +41,8 @@ const verifyLogin = async (formData) => {
             // })
             console.log(accessToken);
             
-            return { accessToken };
+            return { accessToken, isAdministrator: user.isAdministrator ? 
+                    user.isAdministrator : false };
         } else {
             throw {
                 status: false,
@@ -60,10 +61,11 @@ const verifyLogin = async (formData) => {
 const verifyGoogleLogin = async (googleData) => {
         const { 
             email, 
-            userName 
+            userName,
+            image,
         } = googleData;
 
-        if (!email || !userName) {
+        if (!email || !userName || !image) {
           throw {
             status:false,
             message: "Missing obligatory information",
@@ -77,7 +79,8 @@ const verifyGoogleLogin = async (googleData) => {
             },
             defaults: {
                 email,
-                userName
+                userName,
+                image,
             }
         });
         if (user) {
@@ -88,7 +91,8 @@ const verifyGoogleLogin = async (googleData) => {
                 }
             })
             const accessToken = generateAccessToken(finalUser);
-            return { accessToken };
+            return { accessToken, isAdministrator: finalUser.isAdministrator ?
+                    finalUser.isAdministrator : false };
         } else {
             throw {
                 status:false,

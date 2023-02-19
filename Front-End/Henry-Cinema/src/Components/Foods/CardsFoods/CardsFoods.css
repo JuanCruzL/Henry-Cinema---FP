@@ -105,7 +105,6 @@
 
 .button-cardFood{
     display: flex;
-    border-radius: 25px;
     width: 100%;
     max-width: 130px;
     justify-content: center;

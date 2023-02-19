@@ -5,7 +5,7 @@ const initialState = {
   uniqueGenres: [],
   topMovies: [],
   // Proximos estrenos
-  releases: [],
+  nextReleases: [],
   //componente dia/noche
   modo: "dia",
   // Componente search
@@ -20,6 +20,15 @@ const initialState = {
   currentUser: {},
   seats: [],
   newGenres: [],
+  // Para el componente Screenings
+  screenings: [],
+  // Para el componente Users.
+  users: [],
+  // Para el componente Reviews.
+  reviews: [],
+  // Para el componente Sales.
+  sales: [],
+  screeningID: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -45,10 +54,10 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         movieId: action.payload,
       };
-    case "GET_RELEASES":
+    case "GET_NEXT_RELEASES":
       return {
         ...state,
-        releases: action.payload,
+        nextReleases: action.payload,
       };
     case "CREATE_MOVIE":
       return {
@@ -78,6 +87,30 @@ const rootReducer = (state = initialState, action) => {
                 },
               ],
       };
+    // SCREENINGS
+
+    case "GET_SCREENING": {
+      return {
+        ...state,
+        screeningID: action.payload,
+      };
+    }
+    case "GET_SCREENINGS": {
+      return {
+        ...state,
+        screenings: action.payload,
+      };
+    }
+    case "CREATE_SCREENING":
+      return {
+        ...state,
+        screenings: action.payload,
+      };
+    case "DELETE_SCREENING":
+      return {
+        ...state,
+        screenings: action.payload,
+      };
     //FOOD & DRINKS
     case "GET_FOODS":
       return {
@@ -105,7 +138,34 @@ const rootReducer = (state = initialState, action) => {
         copyDrinks: action.payload,
       };
 
+    case "CREATE_DRINK":
+      return {
+        ...state,
+        drinks: action.payload,
+        copyDrinks: action.payload,
+      };
+
+    case "DELETE_DRINK":
+      return {
+        ...state,
+        drinks: action.payload,
+        copyDrinks: action.payload,
+      };
     case "GET_COMBOS":
+      return {
+        ...state,
+        combos: action.payload,
+        copyCombos: action.payload,
+      };
+
+    case "CREATE_COMBO":
+      return {
+        ...state,
+        combos: action.payload,
+        copyCombos: action.payload,
+      };
+
+    case "DELETE_COMBO":
       return {
         ...state,
         combos: action.payload,
@@ -157,6 +217,30 @@ const rootReducer = (state = initialState, action) => {
         currentUser: action.payload,
       };
 
+    case "GET_USERS": {
+      return {
+        ...state,
+        users: action.payload,
+      };
+    }
+    case "CREATE_ADMIN_USER": {
+      return {
+        ...state,
+        users: action.payload,
+      };
+    }
+    case "GET_REVIEWS": {
+      return {
+        ...state,
+        reviews: action.payload,
+      };
+    }
+    case "DELETE_REVIEW":
+      return {
+        ...state,
+        reviews: action.payload,
+      };
+
     case "MODO":
       let M = state.modo;
       M == "dia" ? (M = "noche") : (M = "dia");
@@ -164,7 +248,58 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         modo: M,
       };
+    case "LOG_OUT":
+      window.localStorage.removeItem("loggedUser");
+      return {
+        ...state,
+        currentUser: {},
+      };
 
+    //SearchDashboard=====================================================================================0//
+    case "DASH_MOVIES":
+      const movi = state.allMovies;
+      const FoundMovi = movi.filter((M) => {
+        return M.title.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return {
+        ...state,
+        movies: FoundMovi,
+      };
+    case "DASH_COMBOS":
+      const com = state.copyCombos;
+      const FoundCom = com.filter((C) => {
+        return C.name.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return {
+        ...state,
+        combos: FoundCom,
+      };
+    case "DASH_FOODS":
+      const foo = state.copyFoods;
+      const FoundFoo = foo.filter((f) => {
+        return f.name.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return {
+        ...state,
+        foods: FoundFoo,
+      };
+    case "DASH_DRINKS":
+      const dri = state.copyDrinks;
+      const FoundDri = dri.filter((d) => {
+        return d.name.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return {
+        ...state,
+        drinks: FoundDri,
+      };
+      case "PUT_USER":
+        return {
+          ...state,
+        }
+      case "ACCOUNT_DELETE" :
+        return {
+          ...state
+        }
     default:
       return state;
   }

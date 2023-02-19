@@ -1,34 +1,169 @@
+
+.light-mode {
+  .newMovie {
+    background-color: var(--LBase-2);
+
+    .newContainer {
+      background-image: url(../img/doodle.jpg);
+      
+      .top,
+      .bottom {
+        box-shadow: var(--LDegradado3) 0px 3px 8px;
+        background-color: whitesmoke;
+
+        h1 {
+          color: var(--LText-1);
+        }
+
+        .right {
+          form {
+            .formNM {
+              label {
+                color: var(--LText-1);
+              }
+
+              .vals {
+                color: rgb(203, 7, 7);
+              }
+            }
+
+            input {
+              border-bottom: 1px solid rgb(92, 92, 92);
+              color: var(--LText-1);
+
+              &:hover {
+                background-color: var(--LFondo-2);
+              }
+            }
+
+            .buttonNM {
+              color: var(--LText-1);
+
+              .MuiSvgIcon-root {
+                color: var(--LText-1);
+
+                &:hover {
+                  color: var(--LText-2);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.dark-mode {
+  .newMovie {
+    background-color: var(--NFondo-1);
+
+    .newContainer {
+      background-image: url(../img/doodle.jpg);
+      .top,
+      .bottom {
+        box-shadow: var(--NDegradado3) 0px 3px 8px;
+        background-color: var(--NFondo-3);
+
+        h1 {
+          color: var(--NText-1);
+        }
+
+        .right {
+          form {
+            .formNM {
+              label {
+                color: var(--NText-1);
+              }
+
+              .vals {
+                color: rgb(203, 7, 7);
+              }
+            }
+
+            input {
+              border-bottom: 1px solid rgb(92, 92, 92);
+              color: var(--NText-1);
+
+              &:hover {
+                background-color: var(--NFondo-2);
+              }
+            }
+
+            .buttonNM {
+              color: var(--NText-1);
+
+              .MuiSvgIcon-root {
+                color: var(--NText-1);
+
+                &:hover {
+                  color: var(--NText-2);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*================================================*/
+
 .newMovie {
   width: 100%;
   display: flex;
-  background-color: rgb(216, 213, 213);
 
   .newContainer {
+    background-image: url(../img/doodle.jpg);
     flex: 6;
 
+    .bottom{
+      height: 500px;
+    }
     .top,
     .bottom {
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       padding: 10px;
       margin: 20px;
       display: flex;
-      background-color: rgb(238, 210, 139);
-      display: flex;
+      
+
 
       h1 {
-        color: rgb(98, 36, 36);
         font-size: 21px;
       }
 
       .left {
-        flex: 1;
-        text-align: center;
-      }
+          position: relative;
+          flex: 1;
+          .imageNM {
+            position: absolute;
+            width: 405px;
+            height: 450px;
+            margin-right: 30px;
+            top: 0;
+            left: 0;
+            animation: float 3s ease-in-out infinite;
+          }
+
+          @keyframes float { 
+            0% {
+              transform: translate(0, 0);
+            }
+            50% {
+              transform: translate(10px, 10px);
+            }
+            100% {
+              transform: translate(0, 0);
+            }
+          }
+        }
 
       .right {
         flex: 2;
 
         form {
+          margin-left: 15px;
           display: flex;
           flex-wrap: wrap;
           gap: 20px;
@@ -41,7 +176,6 @@
               display: flex;
               align-items: center;
               gap: 10px;
-              color: rgb(98, 36, 36);
             }
 
             .icon {
@@ -52,7 +186,10 @@
             .vals {
               font-size: 13px;
               font-style: oblique;
-              color: rgb(203, 7, 7);
+            }
+
+            .selectorGenre {
+              background-color: rgb(238, 210, 139);
             }
           }
 
@@ -60,29 +197,24 @@
             width: 100%;
             padding: 5px;
             border: none;
-            border-bottom: 1px solid rgb(92, 92, 92);
             font-size: 13px;
             font-style: italic;
           }
 
           .buttonNM {
+            margin-right: 318px;
             width: 0px;
             border: none;
             background-color: transparent;
-            color: black;
             cursor: pointer;
             margin-top: 10px;
             font-size: 30px;
+            align-items:baseline;
+            justify-content: space-between;
 
-            .iconSubmit {
+            .MuiSvgIcon-root {
               font-size: 35px;
               margin-left: 3px;
-              color: rgb(98, 36, 36);
-              width: 500px;
-
-              &:hover {
-                color: white;
-              }
             }
           }
         }

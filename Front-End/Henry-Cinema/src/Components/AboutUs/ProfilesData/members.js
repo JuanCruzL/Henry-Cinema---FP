@@ -26,7 +26,7 @@ const profilesTeam = [
         gitName: 'ZTPspartan',
         gitLink:'https://github.com/ZTPspartan',
         gitImage:'https://avatars.githubusercontent.com/u/61982641?v=4',
-        linkedin: ''
+        linkedin: 'https://www.linkedin.com/in/alfonso-pinto-iglesias-7ba183232/'
     },
     {
         name : 'Juan Cruz',

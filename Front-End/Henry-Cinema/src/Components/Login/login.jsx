@@ -3,12 +3,11 @@ import React, { useEffect, useState } from "react";
 import "./Login.css";
 import logo from "../Utils/logo-henry-cinema.png";
 import { logInUser, logInUserWithGoogle, signUp } from "../../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
-import { json, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 export default function Login() {
-  const currentUser = useSelector((state) => state.currentUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [sign, setSign] = useState("sign-in");
@@ -46,11 +45,11 @@ export default function Login() {
   }, [sign]);
 
   useEffect(() => {
-    const loggedUser = window.localStorage.getItem('loggedUser');
-    if(loggedUser) {
+    const loggedUser = window.localStorage.getItem("loggedUser");
+    if (loggedUser) {
       navigate("/");
     }
-  },[]);
+  }, []);
   //-------------------------------------------HANDLERS-----------------------------------------------------
 
   //--------------------------------------SIGN IN VALIDATOR-------------------------------------------
@@ -98,21 +97,24 @@ export default function Login() {
     formUp.notifications = e.target.checked;
   };
 
-  const handleSubmitIn = (e) => {
+  const handleSubmitIn = async (e) => {
     // console.log(formIn)
     e.preventDefault();
-    dispatch(logInUser(formIn.email, formIn.password));
-    console.log(currentUser);
-    if (currentUser.accessToken) {
-      window.localStorage.setItem('loggedUser',
-      JSON.stringify(currentUser));
+    const action = await dispatch(logInUser(formIn.email, formIn.password));
+    const loggedUser = action.payload;
+    console.log(action);
+    console.log(loggedUser);
+    if (loggedUser.accessToken) {
+      window.localStorage.setItem(
+        "loggedUser",
+        JSON.stringify({ accessToken: loggedUser.accessToken })
+      );
       setFormIn({
         email: "",
         password: "",
       });
       navigate("/");
     }
-      
   };
 
   const handleSubmitUp = (e) => {
@@ -140,15 +142,22 @@ export default function Login() {
     });
   };
 
-  function onSuccess(response) {
+   async function onSuccess(response) {
     try {
+      console.log(response.credential);
       const userObject = jwt_decode(response.credential);
-      console.log("soy el user object",userObject);
-      dispatch(logInUserWithGoogle(userObject));
-      window.localStorage.setItem('loggedUser',
-      JSON.stringify(currentUser));
-      console.log("soy el current user",currentUser);
-      navigate("/");
+      console.log(userObject);
+      const action = await dispatch(logInUserWithGoogle(userObject));
+      const loggedUser = action.payload;
+      console.log(loggedUser);
+      if (loggedUser.accessToken) {
+        window.localStorage.setItem(
+          "loggedUser",
+          JSON.stringify({ accessToken: loggedUser.accessToken })
+        );
+        // console.log(currentUser);
+        navigate("/");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -206,11 +215,11 @@ export default function Login() {
               <div className="googlecontainer">
                 <div id="googleButton"></div>
               </div>
-              </div>
             </div>
           </div>
         </div>
-    )
+      </div>
+    );
 
     //--------------------------------------SIGN UP FORM-------------------------------------------
   } else if (sign === "sign-up") {

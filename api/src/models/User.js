@@ -1,8 +1,5 @@
-const { DataTypes } = require('sequelize');
-//const { v4: uuidv4 } = require('uuid');
-
+const { DataTypes } = require("sequelize")
 module.exports = (sequelize) =>{
-
     sequelize.define('User',{
         id : {
             type: DataTypes.UUID,
@@ -20,11 +17,19 @@ module.exports = (sequelize) =>{
         },
         password:{
             type: DataTypes.STRING, 
-            allowNull: true,
         },
         notifications:{
             type:DataTypes.BOOLEAN,
-            allowNull:true,
+        },
+        isAdministrator: {
+            type: DataTypes.BOOLEAN,
+        },
+        image: {
+            type: DataTypes.TEXT,
+        },
+        activated:{
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
         }
     },{timestamps:false})
 }

@@ -1,11 +1,28 @@
 import React from "react";
+import "./users.scss";
+import { SideBarDash } from "../SideBarDash/SideBarDash";
+import { NavBarDash } from "../NavbarDash/NavBarDash";
+import { UsersTable } from "../users/UsersTable";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-export const Users = () => {
+export const UsersDash = () => {
+  // const loggedUser = useSelector((state) => state.currentUser);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+  //     navigate("/");
+  //   }
+  // });
   return (
     <div className="list">
-      <h1 className="title">List</h1>
+      <SideBarDash />
+      <div className="listContainer">
+        <NavBarDash location="User" />
+        <UsersTable />
+      </div>
     </div>
   );
 };
 
-export default Users;
+export default UsersDash;
