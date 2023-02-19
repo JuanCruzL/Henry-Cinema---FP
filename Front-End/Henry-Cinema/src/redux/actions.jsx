@@ -620,3 +620,10 @@ export const putName = (id,data) => {
     })
   }
 }
+
+export const putImageUserP = (id, file) => {
+  return async () => {
+    await axios.put(`/profile/${id}/image`, file);
+    return alert('Please, log-in again!')
+  }
+}
