@@ -91,15 +91,24 @@ export const NewDrink = () => {
     setValidations({ ...validations, [name]: message });
   };
 
-  const handleChange = (e, im = 0) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-    if (im == 1) {
-      let img = e.target.value;
-
-      cambiarImagen(img);
-    }
   };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setFileToBase(file);
+    console.log(file);
+  }
+
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setValues({ ...values, image: reader.result });
+    }
+  }
 
   const handleSubmit = (e) => {
     console.log(values);
@@ -122,19 +131,6 @@ export const NewDrink = () => {
 
   const { name: nameVal, image: imageVal, price: priceVal } = validations;
 
-  const cambiarImagen = (img = "") => {
-    let comprobar = document.getElementById("imageND");
-    let defaultImg =
-      "https://www.eatthis.com/wp-content/uploads/sites/4/2021/06/soda-4.jpg?quality=82&strip=1&w=1250";
-    let imgPoster = img;
-    comprobar.src = imgPoster;
-    if (comprobar.src == imgPoster && comprobar.naturalHeight > 0) {
-      comprobar.src = imgPoster;
-    } else {
-      comprobar.src = defaultImg;
-    }
-  };
-
   return (
     <div className="newDrink">
       <SideBarDash />
@@ -148,7 +144,7 @@ export const NewDrink = () => {
             <img
               className="imageND"
               id="imageND"
-              src="https://thumbs.dreamstime.com/b/takeaway-cold-brew-coffee-vector-minimalistic-line-art-illustration-isolated-white-background-216624208.jpg"
+              src={image ? image : "https://thumbs.dreamstime.com/b/takeaway-cold-brew-coffee-vector-minimalistic-line-art-illustration-isolated-white-background-216624208.jpg"}
               alt=""
             />
           </div>
@@ -182,15 +178,16 @@ export const NewDrink = () => {
               </div>
               <div className="formND">
                 <label>Image</label>
-                <input
-                  className="inputND"
-                  type="text"
-                  placeholder="img url"
-                  name="image"
-                  value={image}
-                  onChange={(e) => handleChange(e, 1)}
-                  onBlur={validateOne}
-                />
+                <div className="inputNUImage">
+                  <input
+                    className="image-charge"
+                    type="file"
+                    placeholder="img url"
+                    name="image"
+                    onChange={handleImageChange}
+                    onBlur={validateOne}
+                  />
+                </div>
                 <div className="vals">{imageVal}</div>
               </div>
               <button className="buttonND" type="submit" value="SUBMIT DRINK">

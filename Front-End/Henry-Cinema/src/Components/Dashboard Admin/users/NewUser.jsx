@@ -166,7 +166,7 @@ export const NewUser = () => {
             <img
               className="imageNU"
               id="imageNU"
-              src="https://img.freepik.com/vector-premium/usuario-gafas-realidad-virtual-icono-doodle-contorno-dibujado-mano-casco-realidad-virtual-concepto-gadget-vr-ilustracion-dibujo-vectorial-impresion-web-movil-e-infografia-sobre-fondo-blanco_107173-18905.jpg"
+              src={values.image?values.image:"https://img.freepik.com/vector-premium/usuario-gafas-realidad-virtual-icono-doodle-contorno-dibujado-mano-casco-realidad-virtual-concepto-gadget-vr-ilustracion-dibujo-vectorial-impresion-web-movil-e-infografia-sobre-fondo-blanco_107173-18905.jpg"}
               alt=""
             />
           </div>
@@ -226,17 +226,19 @@ export const NewUser = () => {
               </div>
               <div className="formNU">
                 <label>IMAGE</label>
+                <div className="inputNUImage">
+
                 <input
-                className="inputNU"
+                className="image-charge"
                 type="file"
                 placeholder="enter user image"
                 name="image"
                 onChange={handleImageChange}
                 onBlur={validateOne}
                 />
-              <div className="vals">{imageVal}</div>
+                </div>
+              {/* <div className="vals">{imageVal}</div> */}
               </div>
-              <img width="200px" src={values.image} alt="" />
               <button className="buttonNU" type="submit" value="SUBMIT USER">
                 SUBMIT
               </button>
