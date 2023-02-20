@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./foods.scss";
 import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
