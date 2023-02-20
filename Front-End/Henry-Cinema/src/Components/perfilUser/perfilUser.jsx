@@ -4,7 +4,7 @@ import "./perfilUser.css";
 import Footer from "../footer/footer";
 import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
-import { putUser } from "../../redux/actions";
+import { putPassword, putUser } from "../../redux/actions";
 import { logOut } from "../../redux/actions";
 import { putAccount } from "../../redux/actions";
 import { putName } from "../../redux/actions";
@@ -30,8 +30,6 @@ function PerfilUser() {
   const [image, setImage] = useState(false);
   const [imageEdit, setImageEdit] = useState("");
   const [loader, setLoader] = useState(false);
-  console.log(token);
-
   const userToken = useSelector((state) => state.currentUser);
 
   const handleChange = (e) => {
@@ -70,11 +68,14 @@ function PerfilUser() {
       window.localStorage.removeItem("loggedUser");
 
       window.location.href = "/login";
-    } else if (e.target.name === "form-password") {
+    } else if (e.target.name === "password-form") {
       let newPassword = {
         password: passwordEdit,
       };
-      dispatch(putUser(newPassword, token));
+      dispatch(putPassword(user.id, newPassword));
+      window.localStorage.removeItem("loggedUser");
+
+      window.location.href = "/login";
       console.log("form-password enviado");
     } else if (e.target.name === "form-image") {
       let newImage = {

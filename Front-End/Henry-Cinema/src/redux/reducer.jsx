@@ -310,6 +310,10 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+    case "PUT_PASSWORD":
+      return{
+        ...state
+      }
 
     default:
       return state;

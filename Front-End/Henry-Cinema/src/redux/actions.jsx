@@ -625,6 +625,17 @@ export const putName = (id, data) => {
     });
   };
 };
+export const putPassword = (id,data) => {
+  return async(dispatch) => {
+    const putPass= axios.put(
+      `http://localhost:3001/profile/${id}/password`,data
+    );
+    return dispatch({
+      type:"PUT_PASSWORD",
+      payload: putPass.data
+    })
+  }
+}
 
 export const putImageUserP = (id, file) => {
   return async () => {
