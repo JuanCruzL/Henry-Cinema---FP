@@ -24,6 +24,7 @@ const initialState = {
   screenings: [],
   // Para el componente Users.
   users: [],
+  usersCopy:[],
   // Para el componente Reviews.
   reviews: [],
   // Para el componente Sales.
@@ -221,6 +222,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         users: action.payload,
+        usersCopy:action.payload,
       };
     }
     case "CREATE_ADMIN_USER": {
@@ -262,6 +264,15 @@ const rootReducer = (state = initialState, action) => {
       };
 
     //SearchDashboard=====================================================================================0//
+    case "DASH_USERS":
+      const use = state.users;
+      const FoundUse = use.filter((u) => {
+        return u.userName.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return {
+        ...state,
+        usersCopy: FoundUse,
+      };
     case "DASH_MOVIES":
       const movi = state.allMovies;
       const FoundMovi = movi.filter((M) => {

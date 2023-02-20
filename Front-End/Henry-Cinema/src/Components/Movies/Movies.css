@@ -95,7 +95,8 @@
   margin: auto;
   margin-bottom: 0;
   display: grid;
-  grid-template-columns: 24% 24% 24% 24%;
+  /* grid-template-columns: 24% 24% 24% 24%; */
+  grid-template-columns: 30% 30% 30%;
   gap: 0px 1%;
 }
 .movies-filter select {

@@ -5,6 +5,7 @@ const router = Router();
 
 /* Controllers */
 const { getFoodDb } = require("../controllers/foods.js");
+const { cloudinary } = require("../utils/cloudinary");
 
 /* routes */
 
@@ -21,10 +22,14 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   let { name, price, image } = req.body;
   try {
+    const result = await cloudinary.uploader.upload(image, {
+      upload_preset: 'preset_hcinema',
+    });
      await Food.create({
       name,
       price,
-      image,
+      image: result.secure_url,
+      image_id: result.public_id,
     });
     res.status(200).send('CREATED');
   } catch (error) {
