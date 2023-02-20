@@ -195,11 +195,11 @@ const Movies = () => {
             ))}
           </select>
 
-          <select onChange={(e) => FiltradosContenedor(e, "Lang")}>
+          {/* <select onChange={(e) => FiltradosContenedor(e, "Lang")}>
             <option value="todos">Lang </option>
             <option value="sub">Sub</option>
             <option value="dub">Dub</option>
-          </select>
+          </select> */}
 
           <select onChange={(e) => FiltradosContenedor(e, "Calification")}>
             <option value="Calification">Calification</option>
