@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, DATE } = require('sequelize');
 
 module.exports = (sequelize) => {
   
@@ -25,9 +25,15 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         allowNull: false, 
     },
+    imageVertical_id: {
+        type: DataTypes.TEXT,
+    },
     imageHorizontal: {
         type: DataTypes.TEXT,
         allowNull: true,
+    },
+    imageHorizontal_id: {
+        type: DataTypes.TEXT,
     },
 
     voteAverage: {
