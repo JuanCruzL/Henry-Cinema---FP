@@ -241,6 +241,12 @@ const rootReducer = (state = initialState, action) => {
         reviews: action.payload,
       };
 
+    case "GET_SALES":
+      return {
+        ...state,
+        sales: action.payload,
+      };
+
     case "MODO":
       let M = state.modo;
       M == "dia" ? (M = "noche") : (M = "dia");
@@ -304,6 +310,10 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+    case "PUT_PASSWORD":
+      return{
+        ...state
+      }
 
     default:
       return state;

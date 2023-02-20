@@ -22,8 +22,9 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
+    const date = new Date();
     let { reserved, ticket_contact, movie_title } = req.body;
-    await Ticket.create({ reserved, ticket_contact, movie_title });
+    await Ticket.create({ reserved, ticket_contact, movie_title, date });
     res.status(200).send("CREATED");
   } catch (error) {
     console.log(error);
