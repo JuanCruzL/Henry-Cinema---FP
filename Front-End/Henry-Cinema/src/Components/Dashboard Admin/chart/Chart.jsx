@@ -11,35 +11,34 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const allSales = useSelector((state) => state.sales);
+// const allSales = useSelector((state) => state.sales);
 
-const salesInMonth = (salesArray, month) => {
-  const filteredSales = salesArray.filter((sale) => {
-    const saleDate = new Date(sale.date);
-    return saleDate.getMonth() === month;
-  });
-  const totalAmount = filteredSales.reduce((acc, sale) => {
-    return acc + sale.amount;
-  }, 0);
+// const salesInMonth = (salesArray, month) => {
+//   const filteredSales = salesArray.filter((sale) => {
+//     const saleDate = new Date(sale.date);
+//     return saleDate.getMonth() === month;
+//   });
+//   const totalAmount = filteredSales.reduce((acc, sale) => {
+//     return acc + sale.amount;
+//   }, 0);
 
-  return totalAmount;
-};
+//   return totalAmount;
+// };
 
-// Ejemplo de uso:
-const salesForJanuary = salesInMonth(allSales, 0);
-const salesForFebruary = salesInMonth(allSales, 1);
-const salesForMarch = salesInMonth(allSales, 2);
-const salesForApril = salesInMonth(allSales, 3);
-const salesForMay = salesInMonth(allSales, 4);
-const salesForJune = salesInMonth(allSales, 5);
+// const salesForJanuary = salesInMonth(allSales, 0);
+// const salesForFebruary = salesInMonth(allSales, 1);
+// const salesForMarch = salesInMonth(allSales, 2);
+// const salesForApril = salesInMonth(allSales, 3);
+// const salesForMay = salesInMonth(allSales, 4);
+// const salesForJune = salesInMonth(allSales, 5);
 
 const data = [
-  { name: "January", Total: salesForJanuary },
-  { name: "February", Total: salesForFebruary },
-  { name: "March", Total: salesForMarch },
-  { name: "April", Total: salesForApril },
-  { name: "May", Total: salesForMay },
-  { name: "June", Total: salesForJune },
+  { name: "January", Total: 1800 },
+  { name: "February", Total: 2000 },
+  { name: "March", Total: 1000 },
+  { name: "April", Total: 500 },
+  { name: "May", Total: 600 },
+  { name: "June", Total: 3000 },
 ];
 
 export const Chart = () => {
