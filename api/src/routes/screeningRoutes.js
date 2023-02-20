@@ -29,7 +29,7 @@ router.get("/:id", getScreeningById);
 
 router.post("/", addScreeningToMovie);
 
-router.put("/:id/seats", modifySeatsById);
+router.put("/:id/seatIds", modifySeatsById);
 
 router.delete("/:id", async (req, res) => {
   try {

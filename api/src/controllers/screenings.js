@@ -66,31 +66,38 @@ async function getScreeningById(req, res, next) {
   }
 }
 
-const modifySeatsById = async (req, res, next) => {
-  const { id } = req.params;
-  const { seats } = req.body;
-
+const modifySeatsById = async (screeningId, seatIds) => {
+  const id = screeningId;
   try {
-    // Buscar la proyección por ID
     const screening = await Screening.findByPk(id);
-
+    console.log(id);
     if (!screening) {
-      return res.status(404).json({ message: "La proyección no existe" });
+      throw new Error(`Screening with id ${id} not found`);
     }
 
-    // Actualizar los asientos de la proyección
-    screening.seats.forEach((seat) => {
-      if (seats.includes(seat.name)) {
-        seat.reserved = true;
+    const seats = screening.seats;
+    seatIds.forEach((seatId) => {
+      const seat = seats.find((s) => s.id === seatId);
+      if (seat) {
+        seats.reserved = true;
       }
     });
 
-    // Guardar los cambios en la base de datos
     await screening.save();
 
-    return res.status(200).json(screening); // Devolver la proyección actualizada
+    return {
+      success: true,
+      message: "Seats modified successfully",
+      error: null,
+    }; // or any other value to indicate success
   } catch (error) {
-    next(error);
+    console.error(error);
+
+    return {
+      success: false,
+      message: "Error modifying seats",
+      error: error.message,
+    }; // or any other value to indicate failure
   }
 };
 
