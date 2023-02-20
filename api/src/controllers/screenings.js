@@ -27,7 +27,6 @@ async function addScreeningToMovie(req, res, next) {
     if (!movie) {
       return res.status(404).json({ message: "La película no existe" });
     }
-    const date = new Date();
     // Crear la proyección
     const screening = await Screening.create({
       roomLetter,
@@ -38,7 +37,6 @@ async function addScreeningToMovie(req, res, next) {
       language,
       seats,
       title,
-      createdAt: date,
     });
 
     // Agregar la proyección a la película
@@ -102,7 +100,41 @@ async function getScreeningById(req, res, next) {
 //   }
 // };
 
-const modifySeatsById = async (screeningId, seatsToModify) => {
+// const modifySeatsById = async (screeningId, seatsToModify) => {
+//   try {
+//     console.log(screeningId);
+//     const screening = await Screening.findByPk(screeningId);
+
+//     if (!screening) {
+//       throw new Error(`Screening with id ${screeningId} not found`);
+//     }
+
+//     const seatIds = seatsToModify.map((seat) => seat.id);
+//     const seats = await screening.getSeats({ where: { id: seatIds } });
+
+//     for (const seat of seats) {
+//       const { reserved } = seatsToModify.find((s) => s.id === seat.id);
+//       await seat.update({ reserved });
+//     }
+
+//     return {
+//       success: true,
+//       message: "Seats modified successfully",
+//       error: null,
+//     };
+//   } catch (error) {
+//     console.error(error);
+
+//     return {
+//       success: false,
+//       message: "Error modifying seats",
+//       error: error.message,
+//     };
+//   }
+// };
+
+const modifySeatsById = async (req, res) => {
+  const { screeningId, seatsToModify } = req.body;
   try {
     console.log(screeningId);
     const screening = await Screening.findByPk(screeningId);
@@ -119,19 +151,19 @@ const modifySeatsById = async (screeningId, seatsToModify) => {
       await seat.update({ reserved });
     }
 
-    return {
+    res.json({
       success: true,
       message: "Seats modified successfully",
       error: null,
-    };
+    });
   } catch (error) {
     console.error(error);
 
-    return {
+    res.status(500).json({
       success: false,
       message: "Error modifying seats",
       error: error.message,
-    };
+    });
   }
 };
 
