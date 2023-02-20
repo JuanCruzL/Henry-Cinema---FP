@@ -99,7 +99,7 @@ function PerfilUser() {
     if (e.target.name === "edit-name") {
       setForm(false);
       setNameEdit("");
-    } else if (e.target.name === "form-password"){
+    } else if (e.target.name === "form-password") {
       setPassword(false);
       setPasswordEdit("");
     } else if (e.target.name === "edit-image") {
@@ -184,55 +184,52 @@ function PerfilUser() {
                 <div>
                   <div className="container-edit-profile">
                     <div className="information-head">
-                      <img src={user.image ? user.image :imageDefault} className="image-icon-profile" />
+                      <img src={user.image ? user.image : imageDefault} className="image-icon-profile" />
                       <h3 className="title-user-name">{user.userName}</h3>
-                      <div>
-                      <button 
-                      className="button-edit-profile"
-                      onClick={handleClickImageEdit}
-                      name="edit-image">
+                      <button
+                        className="button-edit-profile"
+                        onClick={handleClickImageEdit}
+                        name="edit-image">
                         Edit Image
                       </button>
-                    <div className="form-outline mb-4">
-                      {image && (
-                        <form
-                        // className="form-image"
+                    </div>
+
+                    {image && (
+                      <form
+                        className="form-image"
                         onSubmit={handleSubmit}
                         name="form-image">
-                          <label className="form-label">
-                            Edit your Image:
-                          </label>
+                        <label className="label-name-edit">
+                          Edit your Image:
+                        </label>
+                        <div className="container-load-image">
                           <input
                             type="file"
                             id="formupload"
                             name="edit-image"
                             onChange={handleImageChange}
-                            // className="form-control"
+                            className="form-control-image-load"
                           />
-                          <button
-                            className="button-name-submit"
-                            type="submit"
-                            onClick={handleSubmit}
-                            name="form-image"
-                          >
-                            Save
-                          </button>
-                          <button
-                            className="button-name-cancel"
-                            onClick={handleClickClose}
-                            name="edit-image"
-                          >
-                            x
-                          </button>
-                          <img width="100px" src={imageEdit} />
-                        </form>
-                      )}
-                      </div>
-                    </div>
+                        </div>
+                        <button
+                          className="button-name-submit"
+                          type="submit"
+                          onClick={handleSubmit}
+                          name="form-image"
+                        >
+                          Save
+                        </button>
+                        <button
+                          className="button-name-cancel"
+                          onClick={handleClickClose}
+                          name="edit-image"
+                        >
+                          x
+                        </button>
+                        <img className="imagePreview" src={imageEdit?imageEdit:imageDefault} />
+                      </form>
+                    )}
                     <img className="img-fluid" alt="" />
-                    
-                    </div>
-
                     <div className="user-email">
                       <div className="edit-username">
                         <div className="container-username">

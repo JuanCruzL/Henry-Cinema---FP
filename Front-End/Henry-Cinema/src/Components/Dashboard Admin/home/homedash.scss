@@ -3,11 +3,13 @@
     .homeContainer {
       background-color: var(--LFondo-2);
     }
-    .listContainer{
+
+    .listContainer {
       background-color: var(--Dashboard-Base);
-    }
-    .listContainer .jFoVbT {
-      color: var(--NText-2);
+      .cZxdyt,
+      .jFoVbT {
+        color: var(--NText-2);
+      }
     }
   }
 }
@@ -17,14 +19,15 @@
     .homeContainer {
       background-color: var(--NFondo-1);
     }
-    .listContainer{
+
+    .listContainer {
       background-color: var(--NFondo-3);
-  }
-    .listContainer .gOSrbZ {
-      color: var(--NText-1);
-    }
-    .listContainer .feMqkq {
-      color: var(--NText-1);
+
+      .gOSrbZ,
+      .cofaMY,
+      .feMqkq {
+        color: var(--NText-1);
+      }
     }
   }
 }

@@ -40,7 +40,8 @@
 .light-mode .button-edit-profile,
 .light-mode .button-edit-email,
 .light-mode .button-edit-username,
-.light-mode .image-icon-profile{
+.light-mode .image-icon-profile,
+.light-mode .imagePreview{
   background-color: var(--BaseL);
   border:2px solid var(--BaseL);
 }
@@ -57,6 +58,11 @@
 .light-mode .container-password,
 .light-mode .container-account{
   color: var(--LText-1);
+}
+.light-mode .container-load-image::before{
+  color: var(--LText-1);
+  background-color: var(--BaseL);
+  border:2px solid rgb(132, 132, 23);
 }
 .light-mode .input-name-edit,
 .light-mode .input-password-edit,
@@ -138,7 +144,8 @@
 .dark-mode .button-edit-profile,
 .dark-mode .button-edit-email,
 .dark-mode .button-edit-username,
-.dark-mode .image-icon-profile{
+.dark-mode .image-icon-profile,
+.dark-mode .imagePreview{
   background-color: var(--BaseN);
   border:2px solid var(--BaseN);
 }
@@ -154,6 +161,11 @@
 .dark-mode .container-account{
   color: var(--NText-1)
 }
+.dark-mode .container-load-image::before{
+  color: var(--NText-1);
+  background-color: var(--NBase-2);
+  border:2px solid  var(--NText-1);
+}
 .dark-mode .input-name-edit,
 .dark-mode .input-password-edit,
 .dark-mode .button-name-submit,
@@ -167,7 +179,7 @@
 .dark-mode .button-password-submit:hover{
   background-color: var(--BaseN);
   color: var(--NText-2);
-  border: 0px;
+  border-color: var(--BaseN);
 }
 .dark-mode .button-name-cancel:hover,
 .dark-mode .button-password-cancel:hover{
@@ -257,6 +269,37 @@
   margin-top: 100px;
   cursor: pointer;
 }
+.container-load-image{
+  width: 390px;
+  height: 24px;
+  position: relative;
+  display: inline-block;
+}
+.container-load-image::before{
+  width: 390px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: 'Search Image'; /* testo por defecto */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: 10px;
+}
+.form-image input[type="file"] {
+  opacity: 0;
+  display: inline-block;
+}
+  
+.form-control-image-load{
+  width: 390px;
+  height: 24px;
+  margin-left: 10px;
+}
+
 
 .container-account-user {
   min-width: 82%;
@@ -296,6 +339,15 @@
   margin-right:5%;
   margin-top: -40px;
 }
+.imagePreview{
+  height: 105px;
+  width: 105px;
+  border-radius: 50px;
+  margin: 10px 40%;
+}
+.form-image{
+ margin-top: 20px; 
+}
 .title-user-name {
   width: auto;
   height: 60%;
@@ -321,6 +373,7 @@
 .edit-email-profile {
   width: 40rem;
 }
+.form-image,
 .form-name{
   margin-left: 10%;
 }
