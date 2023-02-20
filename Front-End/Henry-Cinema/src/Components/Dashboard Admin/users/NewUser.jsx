@@ -11,13 +11,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewUser = () => {
-  // const loggedUser = useSelector((state) => state.currentUser);
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
-  //     navigate("/");
-  //   }
-  // });
+  const loggedUser = useSelector((state) => state.currentUser);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+      navigate("/");
+    }
+  });
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
@@ -76,8 +76,8 @@ export const NewUser = () => {
     }
 
     if (!image) {
-     validations.image = "Please put an image for the user";
-     isValid = false;
+      validations.image = "Please put an image for the user";
+      isValid = false;
     }
 
     if (!isValid) {
@@ -116,15 +116,15 @@ export const NewUser = () => {
     const file = e.target.files[0];
     setFileToBase(file);
     console.log(file);
-  }
+  };
 
   const setFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setValues({...values, image: reader.result});
-    }
-  }
+      setValues({ ...values, image: reader.result });
+    };
+  };
 
   const handleSubmit = (e) => {
     console.log(values);
@@ -166,7 +166,11 @@ export const NewUser = () => {
             <img
               className="imageNU"
               id="imageNU"
-              src={values.image?values.image:"https://img.freepik.com/vector-premium/usuario-gafas-realidad-virtual-icono-doodle-contorno-dibujado-mano-casco-realidad-virtual-concepto-gadget-vr-ilustracion-dibujo-vectorial-impresion-web-movil-e-infografia-sobre-fondo-blanco_107173-18905.jpg"}
+              src={
+                values.image
+                  ? values.image
+                  : "https://img.freepik.com/vector-premium/usuario-gafas-realidad-virtual-icono-doodle-contorno-dibujado-mano-casco-realidad-virtual-concepto-gadget-vr-ilustracion-dibujo-vectorial-impresion-web-movil-e-infografia-sobre-fondo-blanco_107173-18905.jpg"
+              }
               alt=""
             />
           </div>
@@ -227,17 +231,16 @@ export const NewUser = () => {
               <div className="formNU">
                 <label>IMAGE</label>
                 <div className="inputNUImage">
-
-                <input
-                className="image-charge"
-                type="file"
-                placeholder="enter user image"
-                name="image"
-                onChange={handleImageChange}
-                onBlur={validateOne}
-                />
+                  <input
+                    className="image-charge"
+                    type="file"
+                    placeholder="enter user image"
+                    name="image"
+                    onChange={handleImageChange}
+                    onBlur={validateOne}
+                  />
                 </div>
-              {/* <div className="vals">{imageVal}</div> */}
+                {/* <div className="vals">{imageVal}</div> */}
               </div>
               <button className="buttonNU" type="submit" value="SUBMIT USER">
                 SUBMIT
