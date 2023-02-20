@@ -30,80 +30,80 @@ function ShowScreenings() {
     setSelectedId(screeningId);
     setShowInput((prevState) => ({ ...prevState, [screeningId]: true }));
   };
+return (<div>screenings</div>)
+//   return (
+//     <div>
+//       {loading ? (
+//         <Loader />
+//       ) : (
+//         <div>
+//           <Nav />
+//           <div>
+//             <img className="poster" src={movie.imageVertical} />
+//           </div>
+//           <div className="screening-container">
 
-  return (
-    <div>
-      {loading ? (
-        <Loader />
-      ) : (
-        <div>
-          <Nav />
-          <div>
-            <img className="poster" src={movie.imageVertical} />
-          </div>
-          <div className="screening-container">
 
+//                           <div className="room">
+//                             <h1>Definition: {screening.definition}</h1>
+//                           </div>
+//                           <div className="room">
+//                             <h1>Room: {screening.roomLetter}</h1>
+//                           </div>
+//                         </div>
 
-                          <div className="room">
-                            <h1>Definition: {screening.definition}</h1>
-                          </div>
-                          <div className="room">
-                            <h1>Room: {screening.roomLetter}</h1>
-                          </div>
-                        </div>
+//                         <div className="cardinfo-2">
+//                           <h1>Date: {screening.date}</h1>
+//                           <div className="room">
+//                             <h1>Start Time: {screening.startTime}</h1>
+//                           </div>
 
-                        <div className="cardinfo-2">
-                          <h1>Date: {screening.date}</h1>
-                          <div className="room">
-                            <h1>Start Time: {screening.startTime}</h1>
-                          </div>
+//                           <h1>Language: {screening.language}</h1>
+//                         </div>
+//                       </div>
+//                     </div>
+//                     {/* <button
+//                       className="buy"
+//                       id="bottone1"
+//                       onClick={() => handleCardClick(screening.id)}
+//                     >
+//                       <strong>SEATS</strong>
+//                     </button> */}
 
-                          <h1>Language: {screening.language}</h1>
-                        </div>
-                      </div>
-                    </div>
-                    {/* <button
-                      className="buy"
-                      id="bottone1"
-                      onClick={() => handleCardClick(screening.id)}
-                    >
-                      <strong>SEATS</strong>
-                    </button> */}
-
-                    {selectedId === screening.id && (
-                      <div className="ticketsseats">
-                        <label
-                          className="tickets"
-                          htmlFor={`input-${screening.id}`}
-                        >
-                          Select tickets
-                        </label>
-                        <input
-                          className="number-1"
-                          id={`input-${screening.id}`}
-                          placeholder="0"
-                          type="number"
-                          value={numberOfEntries}
-                          onChange={(e) => setNumberOfEntries(e.target.value)}
-                        />
-                        <Link
-                          className="seat-selector"
-                          to={`/seating/${screening.id}/${numberOfEntries}`}
-                        >
-                          <button>select seats</button>
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      )}
-      <Footer />
-    </div>
-  );
+//                     {selectedId === screening.id && (
+//                       <div className="ticketsseats">
+//                         <label
+//                           className="tickets"
+//                           htmlFor={`input-${screening.id}`}
+//                         >
+//                           Select tickets
+//                         </label>
+//                         <input
+//                           className="number-1"
+//                           id={`input-${screening.id}`}
+//                           placeholder="0"
+//                           type="number"
+//                           value={numberOfEntries}
+//                           onChange={(e) => setNumberOfEntries(e.target.value)}
+//                         />
+//                         <Link
+//                           className="seat-selector"
+//                           to={`/seating/${screening.id}/${numberOfEntries}`}
+//                         >
+//                           <button>select seats</button>
+//                         </Link>
+//                       </div>
+//                     )}
+//                   </div>
+//                 );
+//               })}
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//       <Footer />
+//     </div>
+//   );
+// }
 }
-
 export default ShowScreenings;
