@@ -94,10 +94,6 @@ export const NewFood = () => {
   const handleChange = (e, im = 0) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-    if (im == 1) {
-      let img = e.target.value;
-      cambiarImagen(img);
-    }
   };
 
   const handleImageChange = (e) => {
@@ -110,7 +106,7 @@ export const NewFood = () => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setValues({...values, image: reader.result});
+      setValues({ ...values, image: reader.result });
     }
   }
 
@@ -135,18 +131,6 @@ export const NewFood = () => {
 
   const { name: nameVal, image: imageVal, price: priceVal } = validations;
 
-  const cambiarImagen = (img = "") => {
-    let comprobar = document.getElementById("imageNF");
-    let defaultImg =
-      "https://previews.123rf.com/images/foontntd/foontntd1705/foontntd170500070/77824901-menu-food-drawing-graphic-design-illustrate-objects-template.jpg";
-    let imgPoster = img;
-    comprobar.src = imgPoster;
-    if (comprobar.src == imgPoster && comprobar.naturalHeight > 0) {
-      comprobar.src = imgPoster;
-    } else {
-      comprobar.src = defaultImg;
-    }
-  };
 
   return (
     <div className="newFood">
@@ -161,7 +145,7 @@ export const NewFood = () => {
             <img
               className="imageNF"
               id="imageNF"
-              src="https://thumbs.dreamstime.com/b/objeto-vectorial-de-la-vista-superior-pizza-blanco-y-negro-con-diferentes-ingredientes-o-elemento-dise%C3%B1o-en-estilo-monocromo-185052567.jpg"
+              src={image ? image : "https://thumbs.dreamstime.com/b/objeto-vectorial-de-la-vista-superior-pizza-blanco-y-negro-con-diferentes-ingredientes-o-elemento-dise%C3%B1o-en-estilo-monocromo-185052567.jpg"}
               alt=""
             />
           </div>
@@ -195,14 +179,16 @@ export const NewFood = () => {
               </div>
               <div className="formNF">
                 <label>Image</label>
-                <input
-                  className="inputNF"
-                  type="file"
-                  placeholder="img url"
-                  name="image"
-                  onChange={handleImageChange}
-                  onBlur={validateOne}
-                />
+                <div className="inputNUImage">
+                  <input
+                    className="image-charge"
+                    type="file"
+                    placeholder="img url"
+                    name="image"
+                    onChange={handleImageChange}
+                    onBlur={validateOne}
+                  />
+                </div>
                 <div className="vals">{imageVal}</div>
               </div>
               <button className="buttonNF" type="submit" value="SUBMIT FOOD">
