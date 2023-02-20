@@ -195,6 +195,7 @@ export const NewMovie = () => {
     setPosterFileToBase(file);
   };
 
+
   const setPosterFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -208,6 +209,7 @@ export const NewMovie = () => {
     setBannerFileToBase(file);
   };
 
+
   const setBannerFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -215,6 +217,7 @@ export const NewMovie = () => {
       setValues({ ...values, imageHorizontal: reader.result });
     };
   };
+
 
   const handleChange = (e, im = 0) => {
     const { name, value } = e.target;

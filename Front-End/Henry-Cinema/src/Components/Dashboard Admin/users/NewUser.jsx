@@ -166,11 +166,9 @@ export const NewUser = () => {
             <img
               className="imageNU"
               id="imageNU"
-              src={
-                values.image
-                  ? values.image
-                  : "https://img.freepik.com/vector-premium/usuario-gafas-realidad-virtual-icono-doodle-contorno-dibujado-mano-casco-realidad-virtual-concepto-gadget-vr-ilustracion-dibujo-vectorial-impresion-web-movil-e-infografia-sobre-fondo-blanco_107173-18905.jpg"
-              }
+
+              src={values.image?values.image:"https://img.freepik.com/vector-premium/usuario-gafas-realidad-virtual-icono-doodle-contorno-dibujado-mano-casco-realidad-virtual-concepto-gadget-vr-ilustracion-dibujo-vectorial-impresion-web-movil-e-infografia-sobre-fondo-blanco_107173-18905.jpg"}
+
               alt=""
             />
           </div>
@@ -241,6 +239,7 @@ export const NewUser = () => {
                   />
                 </div>
                 {/* <div className="vals">{imageVal}</div> */}
+
               </div>
               <button className="buttonNU" type="submit" value="SUBMIT USER">
                 SUBMIT

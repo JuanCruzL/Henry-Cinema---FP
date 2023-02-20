@@ -100,15 +100,15 @@ export const NewFood = () => {
     const file = e.target.files[0];
     setFileToBase(file);
     console.log(file);
-  };
+  }
 
   const setFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setValues({ ...values, image: reader.result });
-    };
-  };
+    }
+  }
 
   const handleSubmit = (e) => {
     console.log(values);
@@ -144,11 +144,9 @@ export const NewFood = () => {
             <img
               className="imageNF"
               id="imageNF"
-              src={
-                image
-                  ? image
-                  : "https://thumbs.dreamstime.com/b/objeto-vectorial-de-la-vista-superior-pizza-blanco-y-negro-con-diferentes-ingredientes-o-elemento-dise%C3%B1o-en-estilo-monocromo-185052567.jpg"
-              }
+
+              src={image ? image : "https://thumbs.dreamstime.com/b/objeto-vectorial-de-la-vista-superior-pizza-blanco-y-negro-con-diferentes-ingredientes-o-elemento-dise%C3%B1o-en-estilo-monocromo-185052567.jpg"}
+
               alt=""
             />
           </div>

@@ -100,7 +100,9 @@ export const NewDrink = () => {
     const file = e.target.files[0];
     setFileToBase(file);
     console.log(file);
+
   };
+
 
   const setFileToBase = (file) => {
     const reader = new FileReader();
@@ -109,6 +111,7 @@ export const NewDrink = () => {
       setValues({ ...values, image: reader.result });
     };
   };
+
 
   const handleSubmit = (e) => {
     console.log(values);
@@ -144,11 +147,9 @@ export const NewDrink = () => {
             <img
               className="imageND"
               id="imageND"
-              src={
-                image
-                  ? image
-                  : "https://thumbs.dreamstime.com/b/takeaway-cold-brew-coffee-vector-minimalistic-line-art-illustration-isolated-white-background-216624208.jpg"
-              }
+
+              src={image ? image : "https://thumbs.dreamstime.com/b/takeaway-cold-brew-coffee-vector-minimalistic-line-art-illustration-isolated-white-background-216624208.jpg"}
+
               alt=""
             />
           </div>
