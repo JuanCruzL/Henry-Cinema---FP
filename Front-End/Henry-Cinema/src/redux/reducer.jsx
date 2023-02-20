@@ -306,6 +306,14 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+<<<<<<< HEAD
+=======
+    case "PUT_NAME_ACCOUNT":
+      return {
+        ...state,
+      };
+
+>>>>>>> 14bfeb22bf65be33fa28f5969abd91b9e7b8b587
     default:
       return state;
   }

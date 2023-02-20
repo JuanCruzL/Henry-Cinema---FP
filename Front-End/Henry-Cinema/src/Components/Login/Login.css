@@ -3,7 +3,7 @@
 }
 .light-mode .form-imageContainer{
     background-color: var(--LFondo-1);
-    box-shadow: var(--LDegradado) 0px 30px 90px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 2px;
     color: var(--LText-1);
 }
 .light-mode .image-container{
@@ -29,13 +29,13 @@
 .light-mode .buttonSubmit{
     color: #212121;
     background: #e8e8e8;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
 }
 .light-mode .buttonSubmit::before {
     background-color: var(--BaseL);
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
 }
 .light-mode .buttonSubmit:hover {
     color: var(--LText-1);
@@ -43,13 +43,13 @@
 .light-mode .buttonSubmitup {
     color: #212121;
     background: #e8e8e8;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
 }
 .light-mode .buttonSubmitup::before {
     background-color: var(--BaseL);
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
 }
 .light-mode .buttonSubmitup:hover {
     color: var(--LText-1);
@@ -68,7 +68,7 @@
 }
 .dark-mode .form-imageContainer{
     background-color: var(--NFondo-1);
-    box-shadow: var(--NDegradado) 0px 20px 40px;
+    box-shadow: rgba(0, 0, 0, 0.27) 0px 20px 40px;
     color: var(--NText-1);
 }
 .dark-mode .image-container{
@@ -94,13 +94,13 @@
 .dark-mode .buttonSubmit{
     color: #212121;
     background: #e8e8e8;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
 }
 .dark-mode .buttonSubmit::before {
     background-color: var(--BaseL);
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
 }
 .dark-mode .buttonSubmit:hover {
     color: var(--NText-2);
@@ -108,13 +108,13 @@
 .dark-mode .buttonSubmitup {
     color: #212121;
     background: #e8e8e8;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
 }
 .dark-mode .buttonSubmitup::before {
     background-color: var(--BaseL);
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
 }
 .dark-mode .buttonSubmitup:hover {
     color: var(--NText-2);

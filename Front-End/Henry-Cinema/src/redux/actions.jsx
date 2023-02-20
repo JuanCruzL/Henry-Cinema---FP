@@ -599,6 +599,7 @@ export const putUser = (payload, token) => {
     });
   };
 };
+<<<<<<< HEAD
 export const putAccount = (id) => {
   return async (dispatch) => {
     const putActualizate = axios.put(
@@ -611,3 +612,33 @@ export const putAccount = (id) => {
     });
   };
 };
+=======
+
+export const putAccount= (id) => {
+  return async(dispatch) => {
+    const putActualizate = axios.put(`http://localhost:3001/profile/${id}/account`)
+
+    return dispatch({
+      type: "ACCOUNT_DELETE",
+      payload: putActualizate.data
+    })
+  }
+}
+export const putName = (id,data) => {
+  return async(dispatch) => {
+    const putNameRequest = axios.put(`http://localhost:3001/profile/${id}/name`,data)
+
+    return dispatch({
+      type:'PUT_NAME_ACCOUNT',
+      payload: putNameRequest.data
+    })
+  }
+}
+
+export const putImageUserP = (id, file) => {
+  return async () => {
+    await axios.put(`/profile/${id}/image`, file);
+    return alert('Please, log-in again!')
+  }
+}
+>>>>>>> 14bfeb22bf65be33fa28f5969abd91b9e7b8b587

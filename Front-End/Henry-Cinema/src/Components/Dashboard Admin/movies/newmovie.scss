@@ -1,11 +1,10 @@
-
 .light-mode {
   .newMovie {
     background-color: var(--LBase-2);
 
     .newContainer {
       background-image: url(../img/doodle.jpg);
-      
+
       .top,
       .bottom {
         box-shadow: var(--LDegradado3) 0px 3px 8px;
@@ -39,13 +38,10 @@
             .buttonNM {
               color: var(--LText-1);
 
-              .MuiSvgIcon-root {
-                color: var(--LText-1);
-
-                &:hover {
-                  color: var(--LText-2);
-                }
+              &:hover {
+                color: green;
               }
+
             }
           }
         }
@@ -60,6 +56,7 @@
 
     .newContainer {
       background-image: url(../img/doodle.jpg);
+
       .top,
       .bottom {
         box-shadow: var(--NDegradado3) 0px 3px 8px;
@@ -93,13 +90,10 @@
             .buttonNM {
               color: var(--NText-1);
 
-              .MuiSvgIcon-root {
-                color: var(--NText-1);
-
-                &:hover {
-                  color: var(--NText-2);
-                }
+              &:hover {
+                color: var(--NText-2);
               }
+
             }
           }
         }
@@ -118,15 +112,16 @@
     background-image: url(../img/doodle.jpg);
     flex: 6;
 
-    .bottom{
+    .bottom {
       height: 500px;
     }
+
     .top,
     .bottom {
       padding: 10px;
       margin: 20px;
       display: flex;
-      
+
 
 
       h1 {
@@ -134,30 +129,33 @@
       }
 
       .left {
-          position: relative;
-          flex: 1;
-          .imageNM {
-            position: absolute;
-            width: 405px;
-            height: 450px;
-            margin-right: 30px;
-            top: 0;
-            left: 0;
-            animation: float 3s ease-in-out infinite;
+        position: relative;
+        flex: 1;
+
+        .imageNM {
+          position: absolute;
+          width: 405px;
+          height: 450px;
+          margin-right: 30px;
+          top: 0;
+          left: 0;
+          animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0% {
+            transform: translate(0, 0);
           }
 
-          @keyframes float { 
-            0% {
-              transform: translate(0, 0);
-            }
-            50% {
-              transform: translate(10px, 10px);
-            }
-            100% {
-              transform: translate(0, 0);
-            }
+          50% {
+            transform: translate(10px, 10px);
+          }
+
+          100% {
+            transform: translate(0, 0);
           }
         }
+      }
 
       .right {
         flex: 2;
@@ -209,7 +207,7 @@
             cursor: pointer;
             margin-top: 10px;
             font-size: 30px;
-            align-items:baseline;
+            align-items: baseline;
             justify-content: space-between;
 
             .MuiSvgIcon-root {
