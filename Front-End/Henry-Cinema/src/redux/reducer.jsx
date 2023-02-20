@@ -241,6 +241,12 @@ const rootReducer = (state = initialState, action) => {
         reviews: action.payload,
       };
 
+    case "GET_SALES":
+      return {
+        ...state,
+        sales: action.payload,
+      };
+
     case "MODO":
       let M = state.modo;
       M == "dia" ? (M = "noche") : (M = "dia");
@@ -292,14 +298,14 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         drinks: FoundDri,
       };
-      case "PUT_USER":
-        return {
-          ...state,
-        }
-      case "ACCOUNT_DELETE" :
-        return {
-          ...state
-        }
+    case "PUT_USER":
+      return {
+        ...state,
+      };
+    case "ACCOUNT_DELETE":
+      return {
+        ...state,
+      };
     default:
       return state;
   }
