@@ -4,7 +4,8 @@ import "./ShoppingCart.css"
 
 
 export default function ShoppingCart() {
-  const shoppingCartItems = useSelector(state => state.ShoppingCartItems)
+
+  const shoppingCartItems = useSelector((state) => state.ShoppingCartItems)
   const[items,setItems] = useState([])
     let total = 0;
     if(shoppingCartItems.length) {
@@ -17,10 +18,11 @@ export default function ShoppingCart() {
         total = 5
       }
     }
-    let price = 45.70
+
     useEffect(()=>{
+      console.log("items",items)
       calculateTotal()
-      setItems([...items, shoppingCartItems])
+      setItems([...items, ...shoppingCartItems])
     },[shoppingCartItems])
 
   return (

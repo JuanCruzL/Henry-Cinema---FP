@@ -297,24 +297,21 @@ const rootReducer = (state = initialState, action) => {
       case "PUT_USER":
         return {
           ...state,
-        }
+        };
       case "ADD_TO_CART":
+        console.log(action.payload)
         return{
           ...state,
           ShoppingCartItems: action.payload
-        }
-    case "PUT_USER":
-      return {
+        };
+      case "ACCOUNT_DELETE":
+        return {
         ...state,
-      };
-    case "ACCOUNT_DELETE":
-      return {
+        };
+      case "PUT_NAME_ACCOUNT":
+        return {
         ...state,
-      };
-    case "PUT_NAME_ACCOUNT":
-      return {
-        ...state,
-      };
+        };
 
     default:
       return state;
