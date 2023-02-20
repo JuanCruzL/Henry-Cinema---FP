@@ -5,6 +5,7 @@ const router = Router();
 
 // Controllers
 const { getComboDb } = require("../controllers/combos.js");
+const { cloudinary } = require("../utils/cloudinary");
 
 router.get("/", async (req, res) => {
     try {
@@ -17,11 +18,15 @@ router.get("/", async (req, res) => {
 router.post("/", async(req, res) => {
     try {
         let { name, description, price, image } = req.body;
+        const result = await cloudinary.uploader.upload(image, {
+            upload_preset: 'preset_hcinema',
+        })
         await Combo.create({
             name,
             description,
             price,
-            image,
+            image: result.secure_url,
+            image_id: result.public_id,
         });
         res.status(200).send("CREATED");
     } catch (error) {
