@@ -67,31 +67,70 @@ async function getScreeningById(req, res, next) {
   }
 }
 
-const modifySeatsById = async (req, res, next) => {
-  const { id } = req.params;
-  const { seats } = req.body;
+// const modifySeatsById = async (screeningId, seatIds) => {
+//   const id = screeningId;
+//   try {
+//     const screening = await Screening.findByPk(id);
+//     console.log(id);
+//     if (!screening) {
+//       throw new Error(`Screening with id ${id} not found`);
+//     }
 
+//     const seats = screening.seats;
+//     seatIds.forEach((seatId) => {
+//       const seat = seats.find((s) => s.id === seatId);
+//       if (seat) {
+//         seats.reserved = true;
+//       }
+//     });
+
+//     await screening.save();
+
+//     return {
+//       success: true,
+//       message: "Seats modified successfully",
+//       error: null,
+//     }; // or any other value to indicate success
+//   } catch (error) {
+//     console.error(error);
+
+//     return {
+//       success: false,
+//       message: "Error modifying seats",
+//       error: error.message,
+//     }; // or any other value to indicate failure
+//   }
+// };
+
+const modifySeatsById = async (screeningId, seatsToModify) => {
   try {
-    // Buscar la proyección por ID
-    const screening = await Screening.findByPk(id);
+    const screening = await Screening.findByPk(screeningId);
 
     if (!screening) {
-      return res.status(404).json({ message: "La proyección no existe" });
+      throw new Error(`Screening with id ${screeningId} not found`);
     }
 
-    // Actualizar los asientos de la proyección
-    screening.seats.forEach((seat) => {
-      if (seats.includes(seat.name)) {
-        seat.reserved = true;
-      }
-    });
+    const seatIds = seatsToModify.map((seat) => seat.id);
+    const seats = await screening.getSeats({ where: { id: seatIds } });
 
-    // Guardar los cambios en la base de datos
-    await screening.save();
+    for (const seat of seats) {
+      const { reserved } = seatsToModify.find((s) => s.id === seat.id);
+      await seat.update({ reserved });
+    }
 
-    return res.status(200).json(screening); // Devolver la proyección actualizada
+    return {
+      success: true,
+      message: "Seats modified successfully",
+      error: null,
+    };
   } catch (error) {
-    next(error);
+    console.error(error);
+
+    return {
+      success: false,
+      message: "Error modifying seats",
+      error: error.message,
+    };
   }
 };
 

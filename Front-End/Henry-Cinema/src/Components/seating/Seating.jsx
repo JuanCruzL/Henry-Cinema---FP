@@ -17,20 +17,20 @@ function Seating() {
   const filas = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 
   const handleClick = (event) => {
-    const asiento = event.target.getAttribute("data-value");
+    const asientoId = event.target.getAttribute("data-value"); // obtener el id del asiento
 
     // Verifica si el asiento ya está seleccionado
-    const index = asientosSeleccionados.indexOf(asiento);
+    const index = asientosSeleccionados.indexOf(asientoId);
     if (index > -1) {
       // Si ya está seleccionado, lo elimina del array
       setAsientosSeleccionados(
-        asientosSeleccionados.filter((a) => a !== asiento)
+        asientosSeleccionados.filter((a) => a !== asientoId)
       );
     } else {
       // Si no está seleccionado, verifica si se ha alcanzado el límite
       if (asientosSeleccionados.length < numberOfEntries) {
         // Si no se ha alcanzado el límite, lo agrega al array
-        setAsientosSeleccionados([...asientosSeleccionados, asiento]);
+        setAsientosSeleccionados([...asientosSeleccionados, asientoId]);
       }
     }
   };
@@ -38,7 +38,7 @@ function Seating() {
   useEffect(() => {
     dispatch(getScreeningId(id));
     setAsientosArray(screening.seats);
-  }, [dispatch]);
+  }, [dispatch, id]);
   console.log(asientosSeleccionados);
   return (
     <div className="seating">
