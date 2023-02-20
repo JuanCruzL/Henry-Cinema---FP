@@ -486,7 +486,7 @@ export const deleteReview = (id) => {
 export const getSales = () => {
   return (dispatch) => {
     axios
-      .get(`/sales`)
+      .get(`/tickets`)
       .then((response) => {
         dispatch({
           type: GET_SALES,
@@ -554,6 +554,12 @@ export const logOut = () => {
 
 //Todo: para el DashSearch
 
+export const DashUsers = (payload) => {
+  return {
+    type: "DASH_USERS",
+    payload,
+  };
+};
 export const DashMovie = (payload) => {
   return {
     type: "DASH_MOVIES",
@@ -627,30 +633,34 @@ export const putAccount= (id) => {
   }
 }
 
-export const putName = (id,data) => {
-  try {
-    return async(dispatch) => {
-      const putNameRequest = axios.put(`/profile/${id}/name`,data)
-  
-      return dispatch({
-        type:'PUT_NAME_ACCOUNT',
-        payload: putNameRequest.data
-      })
-    }
-    
-  }catch(err) {
-    console.log(err)
+export const putName = (id, data) => {
+  return async (dispatch) => {
+    const putNameRequest = axios.put(
+      `http://localhost:3001/profile/${id}/name`,
+      data
+    );
+
+    return dispatch({
+      type: "PUT_NAME_ACCOUNT",
+      payload: putNameRequest.data,
+    });
+  };
+};
+export const putPassword = (id,data) => {
+  return async(dispatch) => {
+    const putPass= axios.put(
+      `http://localhost:3001/profile/${id}/password`,data
+    );
+    return dispatch({
+      type:"PUT_PASSWORD",
+      payload: putPass.data
+    })
   }
 }
 
 export const putImageUserP = (id, file) => {
-  try {
-    return async () => {
-      await axios.put(`/profile/${id}/image`, file);
-      return alert('Please, log-in again!')
-    }
-
-  } catch(err) {
-    console.log(err)
-  }
-}
+  return async () => {
+    await axios.put(`/profile/${id}/image`, file);
+    return alert("Please, log-in again!");
+  };
+};

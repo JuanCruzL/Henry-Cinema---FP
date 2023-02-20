@@ -16,7 +16,7 @@ import swal from "sweetalert";
 
 export const UsersTable = () => {
   const dispatch = useDispatch();
-  const allUsers = useSelector((state) => state.users);
+  const allUsers = useSelector((state) => state.usersCopy);
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export const UsersTable = () => {
   };
 
   return (
-    <TableContainer component={Paper} className="screeningsUsers">
+    <TableContainer component={Paper} className="usersTable">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow className="tableRow">
@@ -62,19 +62,19 @@ export const UsersTable = () => {
         <TableBody className="list">
           {allUsers.map((u) => (
             <TableRow key={u.id}>
-              <TableCell className="tableUsers">{u.userName}</TableCell>
-              <TableCell className="tableUsers">{u.email}</TableCell>
+              <TableCell className="tableCellUsers">{u.userName}</TableCell>
+              <TableCell className="tableCellUsers">{u.email}</TableCell>
               <TableCell
                 className={u.isAdministrator ? "isAdmin YES" : "isAdmin NO"}
               >
                 {u.isAdministrator ? "YES" : "NO"}
               </TableCell>
-              <TableCell className="tableUsers">
+              <TableCell className="tableCellUsers">
                 <div className="cellWrapper">
                   <img alt={u.image} className="userImage" src={u.image} />
                 </div>
               </TableCell>
-              <TableCell className="tableUsers">
+              <TableCell className="tableCellUsers">
                 <button onClick={() => deleteAlert(u.id, u.name)}>
                   <div>
                     <DeleteForeverRoundedIcon className="bin" />
