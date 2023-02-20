@@ -104,6 +104,7 @@ async function getScreeningById(req, res, next) {
 
 const modifySeatsById = async (screeningId, seatsToModify) => {
   try {
+    console.log(screeningId);
     const screening = await Screening.findByPk(screeningId);
 
     if (!screening) {
