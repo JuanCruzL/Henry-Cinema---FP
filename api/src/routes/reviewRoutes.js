@@ -23,7 +23,8 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     let { score, commentary } = req.body;
-    await Review.create({ score, commentary });
+    const date = new Date();
+    await Review.create({ score, commentary, date });
     res.status(200).send("CREATED");
   } catch (error) {
     console.log(error);

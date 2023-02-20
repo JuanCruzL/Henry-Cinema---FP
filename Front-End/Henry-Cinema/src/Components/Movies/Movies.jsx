@@ -30,6 +30,7 @@ const Movies = () => {
   const [filter, setFilter] = useState({
     Genre: "",
     Classific: "todos",
+    Lang: "Lang",
     Calification: "Calification",
   });
 
@@ -87,61 +88,75 @@ const Movies = () => {
   function FiltradosContenedor(e, filtroCambiado) {
     let filteredMovies = allMovies;
     let actual = e.target.value;
-    console.log(actual);
+    console.log(filteredMovies);
     /* FILTRO DE GENERO */
     if (filtroCambiado == "Genre") {
       actual != ""
         ? (filteredMovies = filteredMovies.filter((movie) =>
-            movie.genres.includes(actual)
-          ))
+          movie.genres.includes(actual)
+        ))
         : filteredMovies;
       setFilter({ ...filter, Genre: actual });
     } else {
       filter.Genre != ""
         ? (filteredMovies = filteredMovies.filter((movie) =>
-            movie.genres.includes(filter.Genre)
-          ))
+          movie.genres.includes(filter.Genre)
+        ))
         : filteredMovies;
     }
 
     /* FILTRO DE CLASIFICACION */
     if (filtroCambiado == "Classification") {
-      console.log(actual, filtroCambiado);
       actual != "todos"
         ? (filteredMovies = filteredMovies.filter(
-            (movie) => movie.classification == actual
-          ))
+          (movie) => movie.classification == actual
+        ))
         : filteredMovies;
-      console.log(filteredMovies);
       setFilter({ ...filter, Classific: actual });
     } else {
       filter.Classific != "todos"
         ? (filteredMovies = filteredMovies.filter(
-            (movie) => movie.classification == filter.Classific
-          ))
+          (movie) => movie.classification == filter.Classific
+        ))
         : filteredMovies;
     }
+
+    /* FILTRO POR LENGUAJE*/
+    // if (filtroCambiado == "Lang") {
+    //   actual != "todos"
+    //     ? (filteredMovies = filteredMovies.filter(
+    //       (movie) => movie.screenig == actual
+    //     ))
+    //     : filteredMovies;
+    //   setFilter({ ...filter, Lang: actual });
+    // }else{
+    //   filter.Lang!="todos"
+    //   ?(filteredMovies=filteredMovies.filter(
+    //     (movie)=> movie.screenig==filter.Lang
+    //   ))
+    //   :filteredMovies;
+    // }
 
     /* FILTRO DE MAS POLULARES */
     if (filtroCambiado == "Calification") {
       actual != "Calification"
         ? filteredMovies.sort((a, b) => {
-            if (actual == "More Popular") {
-              return b.voteAverage - a.voteAverage;
-            }
-            return a.voteAverage - b.voteAverage;
-          })
+          if (actual == "More Popular") {
+            return b.voteAverage - a.voteAverage;
+          }
+          return a.voteAverage - b.voteAverage;
+        })
         : filteredMovies;
 
       setFilter({ ...filter, Calification: actual });
     } else {
       filter.Calification != "Calification"
         ? filteredMovies.sort((a, b) => {
-            if (filter.Calification == "More Popular") {
-              return b.voteAverage - a.voteAverage;
-            }
-            return a.voteAverage - b.voteAverage;
-          })
+          if (filter.Calification == "More Popular") {
+            return b.voteAverage - a.voteAverage;
+          }
+          return a.voteAverage - b.voteAverage;
+        })
         : filteredMovies;
     }
     /*======================================= */
@@ -180,7 +195,7 @@ const Movies = () => {
             ))}
           </select>
 
-          <select>
+          <select onChange={(e) => FiltradosContenedor(e, "Lang")}>
             <option value="todos">Lang </option>
             <option value="sub">Sub</option>
             <option value="dub">Dub</option>

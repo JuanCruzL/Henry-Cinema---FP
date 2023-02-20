@@ -25,7 +25,7 @@
                             color: var(--LText-1);
 
                             &:hover {
-                                color: var(--LText-2);
+                                color: rgb(41, 175, 4);
                             }
                         }
                     }
@@ -41,7 +41,7 @@
                             color: var(--LText-1);
 
                             &:hover {
-                                color: var(--LText-2);
+                                color: rgb(41, 175, 4);
                             }
                         }
                     }
@@ -165,6 +165,7 @@
 
                 .right {
                     flex: 2;
+                    position: relative;
                     display: grid;
                     grid-template-rows: 40px 20px 40px 20px 70px 40px 40px 70px 70px auto;
                     margin: 20px 30px;
@@ -174,7 +175,7 @@
                     label,
                     button {
                         margin: 10px;
-                        height: 20px;
+                        height: 30px;
                     }
 
                     input[type="time"]::-webkit-calendar-picker-indicator {
@@ -198,8 +199,8 @@
 
                     button {
                         position: absolute;
-                        right: 100px;
-                        bottom: 150px;
+                        right: 60px;
+                        bottom: 0px;
                         width: 100px;
                         padding: 5px;
                         font-size: 30px;

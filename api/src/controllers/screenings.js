@@ -27,7 +27,7 @@ async function addScreeningToMovie(req, res, next) {
     if (!movie) {
       return res.status(404).json({ message: "La película no existe" });
     }
-
+    const date = new Date();
     // Crear la proyección
     const screening = await Screening.create({
       roomLetter,
@@ -38,6 +38,7 @@ async function addScreeningToMovie(req, res, next) {
       language,
       seats,
       title,
+      createdAt: date,
     });
 
     // Agregar la proyección a la película
