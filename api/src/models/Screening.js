@@ -45,5 +45,8 @@ module.exports = (sequelize) => {
     createdAt: {
       type: DataTypes.DATE,
     }
+  },
+    {
+    timestamps: true
   });
 };

@@ -21,7 +21,7 @@ function ShowScreenings() {
     setTimeout(() => {
       setLoading(false);
     }, 1500);
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const movie = useSelector((state) => state.movieId);
   console.log(movie);
