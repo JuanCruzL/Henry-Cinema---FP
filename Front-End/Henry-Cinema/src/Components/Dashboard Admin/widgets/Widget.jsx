@@ -6,13 +6,14 @@ import GroupWorkRoundedIcon from "@mui/icons-material/GroupWorkRounded";
 import PointOfSaleRoundedIcon from "@mui/icons-material/PointOfSaleRounded";
 import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const Widget = ({ type }) => {
   let data = {};
-
-  // temporary
-
-  const amount = 100;
+  const allUsers = useSelector((state) => state.users);
+  const allReviews = useSelector((state) => state.reviews);
+  const allScreenings = useSelector((state) => state.screenings);
+  const allSales = useSelector((state) => state.sales);
   const diff = 20;
 
   switch (type) {
@@ -30,6 +31,7 @@ export const Widget = ({ type }) => {
             <PersonIcon className="icon" />
           </Link>
         ),
+        amount: allUsers.length,
       };
       break;
     case "reviews":
@@ -46,6 +48,7 @@ export const Widget = ({ type }) => {
             <ReviewsIcon className="icon" />
           </Link>
         ),
+        amount: allReviews.length,
       };
       break;
     case "screenings":
@@ -62,6 +65,7 @@ export const Widget = ({ type }) => {
             <GroupWorkRoundedIcon className="icon" />
           </Link>
         ),
+        amount: allScreenings.length,
       };
       break;
     case "sales":
@@ -78,6 +82,7 @@ export const Widget = ({ type }) => {
             <PointOfSaleRoundedIcon className="icon" />
           </Link>
         ),
+        amount: allSales.length,
       };
       break;
     default:
@@ -90,7 +95,7 @@ export const Widget = ({ type }) => {
         <span className="title">{data.title}</span>
         <span className="counter">
           {data.isMoney && "$"}
-          {amount}
+          {data.amount}
         </span>
         <span className="link">{data.link}</span>
       </div>

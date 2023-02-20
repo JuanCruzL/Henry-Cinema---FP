@@ -13,10 +13,20 @@ import swal from "sweetalert";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import jwt_decode from "jwt-decode";
 
 const Nav = ({ setCurrentPage }) => {
+  const imageDefault = 'https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg'
   const dispatch = useDispatch();
   const user = window.localStorage.getItem("loggedUser");
+  let decrypted = "";
+  if (user === null) {
+    decrypted = "null";
+  } else {
+    decrypted = jwt_decode(user);
+  }
+  console.log(decrypted)
+
   const navigate = useNavigate();
 
   const handleLogOut = () => {
@@ -120,12 +130,23 @@ const Nav = ({ setCurrentPage }) => {
               <ShoppingBagIcon className="bagLogo" />
             </label>
           </div>
+
           <li className="menu-item">
-            <div className="menu-link-user">
-              <Link to="/login" className="perfil">
-                <AccountCircleIcon className="userLogo" />
+            {decrypted !== "null" ? (
+              <div className="menu-link-user">
+              <Link to="/user" className="perfil">
+                <img  src = {decrypted.image ? decrypted.image : imageDefault} className="userLogo-registed" />
               </Link>
             </div>
+            ): (
+              <>
+                <div className="menu-link-user">
+                  <Link to="/login" className="perfil">
+                    <AccountCircleIcon className="userLogo" />
+                  </Link>
+                </div>
+              </>
+            )}
           </li>
         </div>
         {/*  </ul> */}

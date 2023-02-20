@@ -292,14 +292,19 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         drinks: FoundDri,
       };
-      case "PUT_USER":
-        return {
-          ...state,
-        }
-      case "ACCOUNT_DELETE" :
-        return {
-          ...state
-        }
+    case "PUT_USER":
+      return {
+        ...state,
+      };
+    case "ACCOUNT_DELETE":
+      return {
+        ...state,
+      };
+    case "PUT_NAME_ACCOUNT":
+      return {
+        ...state,
+      };
+
     default:
       return state;
   }
