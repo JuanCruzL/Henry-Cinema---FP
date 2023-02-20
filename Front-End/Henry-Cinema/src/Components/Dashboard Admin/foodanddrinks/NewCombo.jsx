@@ -11,13 +11,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewCombo = () => {
-  // const loggedUser = useSelector((state) => state.currentUser);
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
-  //     navigate("/");
-  //   }
-  // });
+  const loggedUser = useSelector((state) => state.currentUser);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+      navigate("/");
+    }
+  });
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
@@ -154,7 +154,9 @@ export const NewCombo = () => {
               <img
                 className="imageNC"
                 id="imageNC"
+
                 src={image ? image : "https://st3.depositphotos.com/1755257/13176/v/450/depositphotos_131760572-stock-illustration-popcorn-boxes-set.jpg"}
+
                 alt=""
               />
             </div>

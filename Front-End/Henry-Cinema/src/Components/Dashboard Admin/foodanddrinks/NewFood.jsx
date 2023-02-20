@@ -11,13 +11,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewFood = () => {
-  // const loggedUser = useSelector((state) => state.currentUser);
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
-  //     navigate("/");
-  //   }
-  // });
+  const loggedUser = useSelector((state) => state.currentUser);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+      navigate("/");
+    }
+  });
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
@@ -131,7 +131,6 @@ export const NewFood = () => {
 
   const { name: nameVal, image: imageVal, price: priceVal } = validations;
 
-
   return (
     <div className="newFood">
       <SideBarDash />
@@ -145,7 +144,9 @@ export const NewFood = () => {
             <img
               className="imageNF"
               id="imageNF"
+
               src={image ? image : "https://thumbs.dreamstime.com/b/objeto-vectorial-de-la-vista-superior-pizza-blanco-y-negro-con-diferentes-ingredientes-o-elemento-dise%C3%B1o-en-estilo-monocromo-185052567.jpg"}
+
               alt=""
             />
           </div>

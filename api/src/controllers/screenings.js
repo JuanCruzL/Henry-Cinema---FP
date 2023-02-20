@@ -27,7 +27,6 @@ async function addScreeningToMovie(req, res, next) {
     if (!movie) {
       return res.status(404).json({ message: "La película no existe" });
     }
-    const date = new Date();
     // Crear la proyección
     const screening = await Screening.create({
       roomLetter,
@@ -38,7 +37,6 @@ async function addScreeningToMovie(req, res, next) {
       language,
       seats,
       title,
-      createdAt: date,
     });
 
     // Agregar la proyección a la película
@@ -67,31 +65,105 @@ async function getScreeningById(req, res, next) {
   }
 }
 
-const modifySeatsById = async (req, res, next) => {
-  const { id } = req.params;
-  const { seats } = req.body;
+// const modifySeatsById = async (screeningId, seatIds) => {
+//   const id = screeningId;
+//   try {
+//     const screening = await Screening.findByPk(id);
+//     console.log(id);
+//     if (!screening) {
+//       throw new Error(`Screening with id ${id} not found`);
+//     }
 
+//     const seats = screening.seats;
+//     seatIds.forEach((seatId) => {
+//       const seat = seats.find((s) => s.id === seatId);
+//       if (seat) {
+//         seats.reserved = true;
+//       }
+//     });
+
+//     await screening.save();
+
+//     return {
+//       success: true,
+//       message: "Seats modified successfully",
+//       error: null,
+//     }; // or any other value to indicate success
+//   } catch (error) {
+//     console.error(error);
+
+//     return {
+//       success: false,
+//       message: "Error modifying seats",
+//       error: error.message,
+//     }; // or any other value to indicate failure
+//   }
+// };
+
+// const modifySeatsById = async (screeningId, seatsToModify) => {
+//   try {
+//     console.log(screeningId);
+//     const screening = await Screening.findByPk(screeningId);
+
+//     if (!screening) {
+//       throw new Error(`Screening with id ${screeningId} not found`);
+//     }
+
+//     const seatIds = seatsToModify.map((seat) => seat.id);
+//     const seats = await screening.getSeats({ where: { id: seatIds } });
+
+//     for (const seat of seats) {
+//       const { reserved } = seatsToModify.find((s) => s.id === seat.id);
+//       await seat.update({ reserved });
+//     }
+
+//     return {
+//       success: true,
+//       message: "Seats modified successfully",
+//       error: null,
+//     };
+//   } catch (error) {
+//     console.error(error);
+
+//     return {
+//       success: false,
+//       message: "Error modifying seats",
+//       error: error.message,
+//     };
+//   }
+// };
+
+const modifySeatsById = async (req, res) => {
+  const { screeningId, seatsToModify } = req.body;
   try {
-    // Buscar la proyección por ID
-    const screening = await Screening.findByPk(id);
+    console.log(screeningId);
+    const screening = await Screening.findByPk(screeningId);
 
     if (!screening) {
-      return res.status(404).json({ message: "La proyección no existe" });
+      throw new Error(`Screening with id ${screeningId} not found`);
     }
 
-    // Actualizar los asientos de la proyección
-    screening.seats.forEach((seat) => {
-      if (seats.includes(seat.name)) {
-        seat.reserved = true;
-      }
+    const seatIds = seatsToModify.map((seat) => seat.id);
+    const seats = await screening.getSeats({ where: { id: seatIds } });
+
+    for (const seat of seats) {
+      const { reserved } = seatsToModify.find((s) => s.id === seat.id);
+      await seat.update({ reserved });
+    }
+
+    res.json({
+      success: true,
+      message: "Seats modified successfully",
+      error: null,
     });
-
-    // Guardar los cambios en la base de datos
-    await screening.save();
-
-    return res.status(200).json(screening); // Devolver la proyección actualizada
   } catch (error) {
-    next(error);
+    console.error(error);
+
+    res.status(500).json({
+      success: false,
+      message: "Error modifying seats",
+      error: error.message,
+    });
   }
 };
 

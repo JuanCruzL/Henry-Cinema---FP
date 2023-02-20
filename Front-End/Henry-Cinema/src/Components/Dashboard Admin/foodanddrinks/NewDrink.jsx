@@ -11,13 +11,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewDrink = () => {
-  // const loggedUser = useSelector((state) => state.currentUser);
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
-  //     navigate("/");
-  //   }
-  // });
+  const loggedUser = useSelector((state) => state.currentUser);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+      navigate("/");
+    }
+  });
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
@@ -100,15 +100,18 @@ export const NewDrink = () => {
     const file = e.target.files[0];
     setFileToBase(file);
     console.log(file);
-  }
+
+  };
+
 
   const setFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setValues({ ...values, image: reader.result });
-    }
-  }
+    };
+  };
+
 
   const handleSubmit = (e) => {
     console.log(values);
@@ -144,7 +147,9 @@ export const NewDrink = () => {
             <img
               className="imageND"
               id="imageND"
+
               src={image ? image : "https://thumbs.dreamstime.com/b/takeaway-cold-brew-coffee-vector-minimalistic-line-art-illustration-isolated-white-background-216624208.jpg"}
+
               alt=""
             />
           </div>
