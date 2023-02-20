@@ -22,21 +22,24 @@ export const NewCombo = () => {
 
   const [values, setValues] = useState({
     name: "",
+    description: "",
     price: "",
     image: "",
   });
 
   const [validations, setValidations] = useState({
     name: "",
+    description: "",
     price: "",
     image: "",
   });
 
   const validateAll = () => {
-    const { name, price, image } = values;
+    const { name, description, price, image } = values;
 
     const validations = {
       name: "",
+      description: "",
       price: "",
       image: "",
     };
@@ -50,6 +53,11 @@ export const NewCombo = () => {
 
     if ((name && name.length < 2) || name.length > 40) {
       validations.name = "The name must contain between 2 and 40 characters";
+      isValid = false;
+    }
+
+    if(!description) {
+      validations.description = "Description is required";
       isValid = false;
     }
 
@@ -100,6 +108,20 @@ export const NewCombo = () => {
     }
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setFileToBase(file);
+    console.log(file);
+  }
+
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setValues({...values, image: reader.result});
+    }
+  }
+
   const handleSubmit = (e) => {
     console.log(values);
     e.preventDefault();
@@ -117,9 +139,9 @@ export const NewCombo = () => {
     console.log(values);
   };
 
-  const { name, image, price } = values;
+  const { name, description, image, price } = values;
 
-  const { name: nameVal, image: imageVal, price: priceVal } = validations;
+  const { name: nameVal, description: descriptionVal, image: imageVal, price: priceVal } = validations;
 
   const cambiarImagen = (img = "") => {
     let comprobar = document.getElementById("imageNC");
@@ -168,6 +190,19 @@ export const NewCombo = () => {
                   <div className="vals">{nameVal}</div>
                 </div>
                 <div className="formNC">
+                  <label>Description</label>
+                  <input
+                    className="inputNC"
+                    type="text"
+                    placeholder="Description of the meal..."
+                    name="description"
+                    value={description}
+                    onChange={handleChange}
+                    onBlur={validateOne}
+                  />
+                  <div className="vals">{descriptionVal}</div>
+                </div>
+                <div className="formNC">
                   <label>Price</label>
                   <input
                     className="inputNC"
@@ -184,11 +219,10 @@ export const NewCombo = () => {
                   <label>Image</label>
                   <input
                     className="inputNC"
-                    type="text"
+                    type="file"
                     placeholder="img url"
                     name="image"
-                    value={image}
-                    onChange={(e) => handleChange(e, 1)}
+                    onChange={handleImageChange}
                     onBlur={validateOne}
                   />
                   <div className="vals">{imageVal}</div>
