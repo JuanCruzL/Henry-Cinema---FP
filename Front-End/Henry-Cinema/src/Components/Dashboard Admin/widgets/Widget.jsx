@@ -17,96 +17,75 @@ export const Widget = ({ type }) => {
   const allScreenings = useSelector((state) => state.screenings);
   const allSales = useSelector((state) => state.sales);
 
-  const lastUsersIncrement = () => {
-    const lastUser = allUsers[allUsers.length - 1];
-    const lastUserDate = lastUser.createdAt;
-    const yesterday = new Date(lastUserDate);
-    yesterday.setDate(lastUserDate.getDate() - 1);
+  const incrementPercentage = (currentCount, previousCount) => {
+    if (previousCount > 0) {
+      return ((currentCount - previousCount) * 100) / previousCount;
+    } else {
+      return 100;
+    }
+  };
+
+  const getLastItemCount = (items, property, date) => {
+    const item = items[items.length - 1];
+    const lastItemDate = new Date(item[property]);
+    const yesterday = new Date(date);
+    yesterday.setDate(lastItemDate.getDate() - 1);
     let contToday = 0;
     let contYesterday = 0;
-    let result = 0;
-    for (let i = 0; i < allUsers.length; i++) {
-      if (allUsers[i].createdAt === lastUserDate) {
+
+    for (let i = 0; i < items.length; i++) {
+      const itemDate = new Date(items[i][property]);
+      if (itemDate.getTime() === lastItemDate.getTime()) {
         contToday++;
-      } else if (allUsers[i].createdAt === yesterday) {
+      } else if (itemDate.getTime() === yesterday.getTime()) {
         contYesterday++;
       }
     }
-    if (contYesterday > 0) {
-      result = ((contToday - contYesterday) * 100) / contYesterday;
-    } else {
-      result = 100;
-    }
-    return result;
+
+    return {
+      today: contToday,
+      yesterday: contYesterday,
+    };
+  };
+
+  const lastUsersIncrement = () => {
+    const lastUser = allUsers[allUsers.length - 1];
+    const { today, yesterday } = getLastItemCount(
+      allUsers,
+      "createdAt",
+      lastUser.createdAt
+    );
+    return incrementPercentage(today, yesterday);
   };
 
   const lastReviewIncrement = () => {
     const lastReview = allReviews[allReviews.length - 1];
-    const lastReviewDate = lastReview.date;
-    const yesterday = new Date(lastReviewDate);
-    yesterday.setDate(lastReviewDate.getDate() - 1);
-    let contToday = 0;
-    let contYesterday = 0;
-    let result = 0;
-    for (let i = 0; i < allReviews.length; i++) {
-      if (allReviews[i].date === lastReviewDate) {
-        contToday++;
-      } else if (allReviews[i].date === yesterday) {
-        contYesterday++;
-      }
-    }
-    if (contYesterday > 0) {
-      result = ((contToday - contYesterday) * 100) / contYesterday;
-    } else {
-      result = 100;
-    }
-    return result;
+    const { today, yesterday } = getLastItemCount(
+      allReviews,
+      "date",
+      lastReview.date
+    );
+    return incrementPercentage(today, yesterday);
   };
 
   const lastScreeningIncrement = () => {
     const lastScreening = allScreenings[allScreenings.length - 1];
-    const lastScreeningDate = lastScreening.date;
-    const yesterday = new Date(lastScreeningDate);
-    yesterday.setDate(lastScreeningDate.getDate() - 1);
-    let contToday = 0;
-    let contYesterday = 0;
-    let result = 0;
-    for (let i = 0; i < allScreenings.length; i++) {
-      if (allScreenings[i].date === lastScreeningDate) {
-        contToday++;
-      } else if (allScreenings[i].date === yesterday) {
-        contYesterday++;
-      }
-    }
-    if (contYesterday > 0) {
-      result = ((contToday - contYesterday) * 100) / contYesterday;
-    } else {
-      result = 100;
-    }
-    return result;
+    const { today, yesterday } = getLastItemCount(
+      allScreenings,
+      "createdAt",
+      lastScreening.createdAt
+    );
+    return incrementPercentage(today, yesterday);
   };
 
   const lastSalesIncrement = () => {
-    const lastSales = allSales[allSales.length - 1];
-    const lastSalesDate = lastSales.date;
-    const yesterday = new Date(lastSalesDate);
-    yesterday.setDate(lastSalesDate.getDate() - 1);
-    let contToday = 0;
-    let contYesterday = 0;
-    let result = 0;
-    for (let i = 0; i < allSales.length; i++) {
-      if (allSales[i].date === lastSalesDate) {
-        contToday++;
-      } else if (allSales[i].date === yesterday) {
-        contYesterday++;
-      }
-    }
-    if (contYesterday > 0) {
-      result = ((contToday - contYesterday) * 100) / contYesterday;
-    } else {
-      result = 100;
-    }
-    return result;
+    const lastSale = allSales[allSales.length - 1];
+    const { today, yesterday } = getLastItemCount(
+      allSales,
+      "date",
+      lastSale.date
+    );
+    return incrementPercentage(today, yesterday);
   };
 
   switch (type) {
