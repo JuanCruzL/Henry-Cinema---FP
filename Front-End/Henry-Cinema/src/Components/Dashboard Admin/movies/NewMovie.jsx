@@ -190,6 +190,32 @@ export const NewMovie = () => {
     }
   };
 
+  const handlePosterChange = (e) => {
+    const file = e.target.files[0];
+    setPosterFileToBase(file);
+  }
+
+  const setPosterFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setValues({...values, imageVertical: reader.result});
+    }
+  }
+
+  const handleBannerChange = (e) => {
+    const file = e.target.files[0];
+    setBannerFileToBase(file);
+  }
+
+  const setBannerFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setValues({...values, imageHorizontal: reader.result});
+    }
+  }
+
   const handleChange = (e, im = 0) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
@@ -302,11 +328,10 @@ export const NewMovie = () => {
                 <label>Poster</label>
                 <input
                   className="inputNM"
-                  type="text"
+                  type="file"
                   placeholder="image url..."
                   name="imageVertical"
-                  value={imageVertical}
-                  onChange={(e) => handleChange(e, 1)}
+                  onChange={handlePosterChange}
                   onBlur={validateOne}
                 />
                 <div className="vals">{imageVerticalVal}</div>
@@ -328,11 +353,10 @@ export const NewMovie = () => {
                 <label>Banner</label>
                 <input
                   className="inputNM"
-                  type="text"
+                  type="file"
                   placeholder="image url..."
                   name="imageHorizontal"
-                  value={imageHorizontal}
-                  onChange={handleChange}
+                  onChange={handleBannerChange}
                   onBlur={validateOne}
                 />
                 <div className="vals">{imageHorizontalVal}</div>

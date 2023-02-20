@@ -2,6 +2,7 @@
 const { Router } = require("express");
 const { Drink } = require("../db");
 const router = Router();
+const { cloudinary } = require("../utils/cloudinary");
 
 /* Controllers */
 const { getDrinkDb } = require("../controllers/drinks.js");
@@ -21,10 +22,14 @@ router.get("/", async (_req, res) => {
 router.post("/", async (req, res) => {
   try {
     let { name, price, image } = req.body;
+    const result = await cloudinary.uploader.upload(image, {
+      upload_preset: 'preset_hcinema',
+    });
     await Drink.create({
       name,
       price,
-      image,
+      image: result.secure_url,
+      image_id: result.public_id,
     });
     res.status(200).send("CREATED");
   } catch (error) {

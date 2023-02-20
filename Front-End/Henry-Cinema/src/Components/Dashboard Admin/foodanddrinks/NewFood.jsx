@@ -100,6 +100,20 @@ export const NewFood = () => {
     }
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setFileToBase(file);
+    console.log(file);
+  }
+
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setValues({...values, image: reader.result});
+    }
+  }
+
   const handleSubmit = (e) => {
     console.log(values);
     e.preventDefault();
@@ -183,11 +197,10 @@ export const NewFood = () => {
                 <label>Image</label>
                 <input
                   className="inputNF"
-                  type="text"
+                  type="file"
                   placeholder="img url"
                   name="image"
-                  value={image}
-                  onChange={(e) => handleChange(e, 1)}
+                  onChange={handleImageChange}
                   onBlur={validateOne}
                 />
                 <div className="vals">{imageVal}</div>
