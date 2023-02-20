@@ -11,13 +11,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewMovie = () => {
-  // const loggedUser = useSelector((state) => state.currentUser);
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
-  //     navigate("/");
-  //   }
-  // });
+  const loggedUser = useSelector((state) => state.currentUser);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+      navigate("/");
+    }
+  });
 
   const dispatch = useDispatch();
   const allGenres = useSelector((state) => state.newGenres);
@@ -193,28 +193,31 @@ export const NewMovie = () => {
   const handlePosterChange = (e) => {
     const file = e.target.files[0];
     setPosterFileToBase(file);
-  }
+  };
+
 
   const setPosterFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setValues({...values, imageVertical: reader.result});
-    }
-  }
+      setValues({ ...values, imageVertical: reader.result });
+    };
+  };
 
   const handleBannerChange = (e) => {
     const file = e.target.files[0];
     setBannerFileToBase(file);
-  }
+  };
+
 
   const setBannerFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setValues({...values, imageHorizontal: reader.result});
-    }
-  }
+      setValues({ ...values, imageHorizontal: reader.result });
+    };
+  };
+
 
   const handleChange = (e, im = 0) => {
     const { name, value } = e.target;
