@@ -554,6 +554,12 @@ export const logOut = () => {
 
 //Todo: para el DashSearch
 
+export const DashUsers = (payload) => {
+  return {
+    type: "DASH_USERS",
+    payload,
+  };
+};
 export const DashMovie = (payload) => {
   return {
     type: "DASH_MOVIES",

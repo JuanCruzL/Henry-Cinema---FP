@@ -1,23 +1,83 @@
-.usersTable {
+.light-mode {
+    .usersTable {
+        background-color: var(--Dashboard-Base);
 
+        .tableRow {
+            background-color: var(--LFondo-1);
+            box-shadow: var(--LDegradado3) 0px 3px 8px;
+
+            .title {
+                color: rgb(80, 78, 78)
+            }
+
+        }
+        .css-1ygcj2i-MuiTableCell-root {
+            border-bottom: 1px solid var(--LBase-2);
+        }
+        .list {
+            .css-1q1u3t4-MuiTableRow-root {
+                border-bottom: 1px solid var(--LBase-1);
+            }
+        }
+
+        .tableCellUsers {
+            color: var(--LText-1);
+        }
+    }
+}
+
+
+.dark-mode {
+    .usersTable {
+        background-color: var(--NFondo-3);
+
+        .tableRow {
+            background-color: var(--NFondo-1);
+            box-shadow: var(--NDegradado3) 0px 3px 8px;
+
+            .title {
+                color: var(--NText-1);
+            }
+
+        }
+        .css-1ygcj2i-MuiTableCell-root {
+            border-bottom: 1px solid var(--NBase-2);
+        }
+        .list {
+            .css-1q1u3t4-MuiTableRow-root {
+                border-bottom: 1px solid var(--NBase-1);
+            }
+        }
+
+        .tableCellUsers {
+            color: var(--NText-1);
+        }
+    }
+}
+
+/*===================================================================*/
+.usersTable {
     align-items: center;
     justify-content: space-between;
 
-
     .tableRow {
-        background-color: rgb(236, 228, 228);
         align-items: center;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
         .title {
             font-size: 15px;
             font-weight: 550;
-            color: rgb(80, 78, 78)
         }
 
         .list {
             background-color: whitesmoke;
         }
+    }
+
+    .YES{
+        color: green;
+    }
+    .NO{
+        color: red;
     }
 
     .tableCellUsers {
