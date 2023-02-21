@@ -10,7 +10,7 @@
 .light-mode .menu-inside {
   background-color: var(--BaseL);
 }
-.light-mode .menu-linkBagTable{
+.light-mode .menu-linkBagTable {
   background-color: var(--LBase-2);
   color: var(--LText-1);
 }
@@ -19,49 +19,36 @@
   color: var(--LText-1);
 }
 .light-mode .menu-linkBag:hover .menu-linkBag-Delete,
-.light-mode .menu-linkBag:hover .menu-linkBag-Data{
+.light-mode .menu-linkBag:hover .menu-linkBag-Data {
   background-color: var(--BaseL);
 }
-.light-mode .menu-linkBagTable .NavTableBagLink{
+.light-mode .menu-linkBagTable .NavTableBagLink {
   border: 2px solid var(--BaseL);
   background-color: var(--Dashboard-Base);
 }
-.light-mode .menu-linkBag .menu-linkBag-Movie{
+.light-mode .menu-linkBag .menu-linkBag-Movie {
   background-color: var(--BaseLD);
   color: var(--LText-1);
 }
 .light-mode .menu-linkBagTotal .menu-linkBag-Data,
-.light-mode .menu-linkBag .menu-linkBag-Data{
+.light-mode .menu-linkBag .menu-linkBag-Data {
   background-color: var(--LFondo-1);
 }
-.light-mode .menu-linkBag .menu-linkBag-Delete{
+.light-mode .menu-linkBag .menu-linkBag-Delete {
   background-color: var(--LFondo-1);
 }
-.light-mode .menu-linkBag .menu-linkBag-Delete:hover{
+.light-mode .menu-linkBag .menu-linkBag-Delete:hover {
   color: var(--LText-1);
   background-color: red;
 }
-.light-mode .menu-linkBagTotal{
+.light-mode .menu-linkBagTotal {
   background-color: var(--Dashboard-Base);
   color: var(--LText-1);
 }
-.light-mode .menu-linkBagPay:hover{
+.light-mode .menu-linkBagPay:hover {
   background-color: var(--LBase-1);
   color: var(--NText-1);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .dark-mode .menu-inside {
   background-color: var(--BaseL);
@@ -75,7 +62,7 @@
   background-color: var(--BaseND);
 }
 
-.dark-mode .menu-linkBagTable{
+.dark-mode .menu-linkBagTable {
   background-color: var(--NBase-2);
   color: var(--BaseN);
 }
@@ -86,35 +73,32 @@
 .dark-mode .menu-linkBag:hover {
   color: var(--BaseN);
 }
-.dark-mode .menu-linkBagTable .NavTableBagLink{
+.dark-mode .menu-linkBagTable .NavTableBagLink {
   border: 2px solid var(--BaseN);
   background-color: var(--NFondo-2);
 }
-.dark-mode .menu-linkBag .menu-linkBag-Movie{
+.dark-mode .menu-linkBag .menu-linkBag-Movie {
   background-color: var(--BaseND);
   color: var(--NText-2);
 }
 .dark-mode .menu-linkBagTotal .menu-linkBag-Data,
-.dark-mode .menu-linkBag .menu-linkBag-Data{
+.dark-mode .menu-linkBag .menu-linkBag-Data {
   background-color: var(--NFondo-3);
 }
-.dark-mode .menu-linkBag .menu-linkBag-Delete{
+.dark-mode .menu-linkBag .menu-linkBag-Delete {
   background-color: var(--NFondo-3);
 }
-.dark-mode .menu-linkBag .menu-linkBag-Delete:hover{
+.dark-mode .menu-linkBag .menu-linkBag-Delete:hover {
   color: var(--NText-1);
 }
-.dark-mode .menu-linkBagTotal{
+.dark-mode .menu-linkBagTotal {
   background-color: var(--NFondo-2);
   color: var(--BaseN);
 }
-.dark-mode .menu-linkBagPay:hover{
+.dark-mode .menu-linkBagPay:hover {
   background-color: var(--BaseN);
   color: var(--NText-2);
 }
-
-
-
 
 /*======================================================================*/
 
@@ -169,12 +153,12 @@
   text-align: center;
 }
 
-.menu-itemSearchBar {
+/* .menu-itemSearchBar {
   margin-top: 2px;
   width: 30%;
   align-items: center;
 }
-
+ */
 .link-foods,
 .link-movies,
 .link-about {
@@ -258,7 +242,7 @@
   margin: auto;
 }
 .perfil {
-  height:45px;
+  height: 45px;
   width: 65px;
 }
 .menu-des {
@@ -356,7 +340,7 @@
   width: 100%;
   height: 55px;
 }
-.bag{
+.bag {
   text-align: center;
   margin-top: 18px;
 }
@@ -365,10 +349,8 @@
   cursor: pointer;
 }
 
-
-
 .menu-BagInside {
-  border:  2px solid #ffff00;
+  border: 2px solid #ffff00;
   width: 630px;
   text-align: center;
   padding: 0;
@@ -378,7 +360,7 @@
 .userLogo {
   width: 35px;
 }
-.userLogo-registed{
+.userLogo-registed {
   border-radius: 50px;
   width: 27px;
 }
@@ -395,7 +377,7 @@
   --clep: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
-.menu-BagInside{
+.menu-BagInside {
   clip-path: var(--clep);
   list-style: none;
   transition: clip-path 0.3s;
@@ -404,8 +386,7 @@
   left: -400px;
 }
 
-
-.menu-linkBagTable{
+.menu-linkBagTable {
   text-decoration: none;
   display: grid;
   grid-template-columns: 50% 15% 10% 20% 5%;
@@ -415,29 +396,29 @@
   display: grid;
   grid-template-columns: 50% 15% 10% 20% 5%;
 }
-.menu-linkBag:hover  .menu-linkBag-Delete{
+.menu-linkBag:hover .menu-linkBag-Delete {
   color: red;
 }
-.menu-linkBagTable .NavTableBagLink{
+.menu-linkBagTable .NavTableBagLink {
   padding: 10px 10px 10px 10px;
 }
-.menu-linkBag .menu-linkBag-Movie{
+.menu-linkBag .menu-linkBag-Movie {
   padding: 10px;
 }
 .menu-linkBagTotal .menu-linkBag-Data,
-.menu-linkBag .menu-linkBag-Data{
+.menu-linkBag .menu-linkBag-Data {
   padding: 10px 10px 10px 10px;
   height: 100%;
 }
-.menu-linkBag .menu-linkBag-Delete:hover{
+.menu-linkBag .menu-linkBag-Delete:hover {
   cursor: pointer;
   background-color: red;
 }
-.menu-linkBagTotal{
+.menu-linkBagTotal {
   text-decoration: none;
   display: grid;
   grid-template-columns: 50% 50%;
 }
-.menu-linkBagPay:hover{
+.menu-linkBagPay:hover {
   cursor: pointer;
 }
