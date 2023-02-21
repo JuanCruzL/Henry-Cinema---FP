@@ -5,6 +5,7 @@ import { sendShopping } from '../../redux/actions';
 
 function ShoppingBag() {
     const dispatch = useDispatch();
+    const url = useSelector((state) => state.url);
     const allItems = useSelector(state => state.shoppingBag)
     const total = allItems.reduce((accumulator, item) => {
         return accumulator + (item.price * item.quantity);
@@ -12,6 +13,9 @@ function ShoppingBag() {
     const handleSend = (e) => {
         dispatch(sendShopping(e));
         console.log("enviado")
+        setTimeout(() =>{
+          window.open(url, "_blank");
+        },1000) 
     }
 
     const exampleTicket = {
