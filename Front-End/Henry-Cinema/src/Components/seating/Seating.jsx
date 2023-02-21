@@ -7,6 +7,8 @@ import { getScreeningId } from "../../redux/actions";
 import Seats from "./Seats";
 import Ticket from "./Ticket";
 import Loader from "../Loader/Loader";
+import Nav from "../../Components/Nav/Nav";
+import Footer from "../footer/footer";
 
 function Seating() {
   const { id, numberOfEntries } = useParams();
@@ -52,33 +54,37 @@ function Seating() {
 
   console.log(asientosSeleccionados);
   return (
-    <div className="seating">
-      {loading ? (
-        <Loader />
-      ) : (
-        <div className="screen">
-          <div className="pantalla">
-            <h1> Screen</h1>
-          </div>
-          <div className="Container-Seating">
-            {filas.map((letra) => (
-              <Seats
-                seatsData={asientosArray}
-                handleClick={handleClick}
-                letra={letra}
+    <>
+      <Nav />
+      <div className="seating">
+        {loading ? (
+          <Loader />
+        ) : (
+          <div className="screen">
+            <div className="pantalla">
+              <h1> Screen</h1>
+            </div>
+            <div className="Container-Seating">
+              {filas.map((letra) => (
+                <Seats
+                  seatsData={asientosArray}
+                  handleClick={handleClick}
+                  letra={letra}
+                  asientosSeleccionados={asientosSeleccionados}
+                />
+              ))}
+            </div>
+            <div className="selected">
+              <Ticket
                 asientosSeleccionados={asientosSeleccionados}
+                screening={screening}
               />
-            ))}
+            </div>
           </div>
-          <div className="selected">
-            <Ticket
-              asientosSeleccionados={asientosSeleccionados}
-              screening={screening}
-            />
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+        <Footer />
+      </div>
+    </>
   );
 }
 
