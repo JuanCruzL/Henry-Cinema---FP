@@ -24,6 +24,20 @@
               .vals {
                 color: rgb(203, 7, 7);
               }
+              .inputNUImage {
+                &:before {
+                  border: 3px solid var(--LBase-1);
+                  color: var(--LText-1);
+                }
+
+                &:hover {
+                  &:before {
+                    color: var(--LText-2);
+                    background-color: var(--LBase-1);
+                  }
+
+                }
+              }
             }
 
             input {
@@ -74,6 +88,20 @@
 
               .vals {
                 color: rgb(203, 7, 7);
+              }
+              .inputNUImage {
+                &:before {
+                  border: 3px solid var(--NBase-1);
+                  color: var(--NText-1);
+                }
+
+                &:hover {
+                  &:before {
+                    color: var(--NText-2);
+                    background-color: var(--NBase-1);
+                  }
+
+                }
               }
             }
 
@@ -181,6 +209,45 @@
             .vals {
               font-size: 13px;
               font-style: oblique;
+            }
+            .inputNUImage {
+              width: 100%;
+              height: 30px;
+              position: relative;
+              margin: 0px;
+              left: 0px;
+              top: 0px;
+              padding: 2px;
+              border-radius: 10px;
+
+              &::before {
+                width: 100%;
+                height: 31px;
+                max-height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                content: "Search Image";
+                font-size: 20px;
+                position: absolute;
+                left: 0px;
+                margin: 0px;
+                left: 0px;
+                top: 0px;
+                border-radius: 10px;
+              }
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            .image-charge {
+              padding: 0px;
+              font-size: 10px;
+              height: 30px;
+              opacity: 0;
             }
           }
 

@@ -11,13 +11,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewMovie = () => {
-  // const loggedUser = useSelector((state) => state.currentUser);
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
-  //     navigate("/");
-  //   }
-  // });
+  const loggedUser = useSelector((state) => state.currentUser);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+      navigate("/");
+    }
+  });
 
   const dispatch = useDispatch();
   const allGenres = useSelector((state) => state.newGenres);
@@ -193,36 +193,35 @@ export const NewMovie = () => {
   const handlePosterChange = (e) => {
     const file = e.target.files[0];
     setPosterFileToBase(file);
-  }
+  };
+
 
   const setPosterFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setValues({...values, imageVertical: reader.result});
-    }
-  }
+      setValues({ ...values, imageVertical: reader.result });
+    };
+  };
 
   const handleBannerChange = (e) => {
     const file = e.target.files[0];
     setBannerFileToBase(file);
-  }
+  };
+
 
   const setBannerFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setValues({...values, imageHorizontal: reader.result});
-    }
-  }
+      setValues({ ...values, imageHorizontal: reader.result });
+    };
+  };
 
-  const handleChange = (e, im = 0) => {
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-    if (im == 1) {
-      let img = e.target.value;
-      cambiarImagen(img);
-    }
   };
 
   useEffect(() => {
@@ -279,18 +278,7 @@ export const NewMovie = () => {
     classification: classificationVal,
   } = validations;
 
-  const cambiarImagen = (img = "") => {
-    let comprobar = document.getElementById("imageNM");
-    let defaultImg =
-      "https://st4.depositphotos.com/3788621/24041/i/450/depositphotos_240418652-stock-photo-movie-time-concept-creative-template.jpg";
-    let imgPoster = img;
-    comprobar.src = imgPoster;
-    if (comprobar.src == imgPoster && comprobar.naturalHeight > 0) {
-      comprobar.src = imgPoster;
-    } else {
-      comprobar.src = defaultImg;
-    }
-  };
+
 
   return (
     <div className="newMovie">
@@ -305,7 +293,7 @@ export const NewMovie = () => {
             <img
               className="imageNM"
               id="imageNM"
-              src="https://st4.depositphotos.com/3788621/24041/i/450/depositphotos_240418652-stock-photo-movie-time-concept-creative-template.jpg"
+              src={imageVertical ? imageVertical : "https://st4.depositphotos.com/3788621/24041/i/450/depositphotos_240418652-stock-photo-movie-time-concept-creative-template.jpg"}
               alt=""
             />
           </div>
@@ -326,14 +314,16 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Poster</label>
-                <input
-                  className="inputNM"
-                  type="file"
-                  placeholder="image url..."
-                  name="imageVertical"
-                  onChange={handlePosterChange}
-                  onBlur={validateOne}
-                />
+                <div className="inputNUImage">
+                  <input
+                    className="image-charge"
+                    type="file"
+                    placeholder="image url..."
+                    name="imageVertical"
+                    onChange={handlePosterChange}
+                    onBlur={validateOne}
+                  />
+                </div>
                 <div className="vals">{imageVerticalVal}</div>
               </div>
               <div className="formNM">
@@ -351,14 +341,16 @@ export const NewMovie = () => {
               </div>
               <div className="formNM">
                 <label>Banner</label>
-                <input
-                  className="inputNM"
-                  type="file"
-                  placeholder="image url..."
-                  name="imageHorizontal"
-                  onChange={handleBannerChange}
-                  onBlur={validateOne}
-                />
+                <div className="inputNUImage">
+                  <input
+                    className="image-charge"
+                    type="file"
+                    placeholder="image url..."
+                    name="imageHorizontal"
+                    onChange={handleBannerChange}
+                    onBlur={validateOne}
+                  />
+                </div>
                 <div className="vals">{imageHorizontalVal}</div>
               </div>
               <div className="formNM">
@@ -494,6 +486,14 @@ export const NewMovie = () => {
             </form>
           </div>
         </div>
+          <div className="BottomBottom">
+          <img
+              className="imageNMB"
+              id="imageNMB"
+              src={imageHorizontal ? imageHorizontal : "https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-film-and-television-film-festival-retro-wind-camera-film-poster-image_215411.jpg"}
+              alt=""
+            />
+          </div>
       </div>
     </div>
   );

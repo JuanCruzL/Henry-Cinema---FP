@@ -509,7 +509,6 @@ export const logInUserWithGoogle = (response) => {
         userName: given_name,
         image: picture,
       });
-      console.log(picture);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
@@ -554,6 +553,12 @@ export const logOut = () => {
 
 //Todo: para el DashSearch
 
+export const DashUsers = (payload) => {
+  return {
+    type: "DASH_USERS",
+    payload,
+  };
+};
 export const DashMovie = (payload) => {
   return {
     type: "DASH_MOVIES",
@@ -625,6 +630,17 @@ export const putName = (id, data) => {
     });
   };
 };
+export const putPassword = (id,data) => {
+  return async(dispatch) => {
+    const putPass= axios.put(
+      `http://localhost:3001/profile/${id}/password`,data
+    );
+    return dispatch({
+      type:"PUT_PASSWORD",
+      payload: putPass.data
+    })
+  }
+}
 
 export const putImageUserP = (id, file) => {
   return async () => {
@@ -632,3 +648,10 @@ export const putImageUserP = (id, file) => {
     return alert("Please, log-in again!");
   };
 };
+
+export const addItem = (payload) => {
+  return   {
+    type:"ADD_ITEM",
+    payload
+  }
+}

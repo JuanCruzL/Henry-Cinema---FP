@@ -11,13 +11,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewCombo = () => {
-  // const loggedUser = useSelector((state) => state.currentUser);
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
-  //     navigate("/");
-  //   }
-  // });
+  const loggedUser = useSelector((state) => state.currentUser);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+      navigate("/");
+    }
+  });
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
@@ -56,7 +56,7 @@ export const NewCombo = () => {
       isValid = false;
     }
 
-    if(!description) {
+    if (!description) {
       validations.description = "Description is required";
       isValid = false;
     }
@@ -99,13 +99,9 @@ export const NewCombo = () => {
     setValidations({ ...validations, [name]: message });
   };
 
-  const handleChange = (e, im = 0) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-    if (im == 1) {
-      let img = e.target.value;
-      cambiarImagen(img);
-    }
   };
 
   const handleImageChange = (e) => {
@@ -118,7 +114,7 @@ export const NewCombo = () => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setValues({...values, image: reader.result});
+      setValues({ ...values, image: reader.result });
     }
   }
 
@@ -143,18 +139,6 @@ export const NewCombo = () => {
 
   const { name: nameVal, description: descriptionVal, image: imageVal, price: priceVal } = validations;
 
-  const cambiarImagen = (img = "") => {
-    let comprobar = document.getElementById("imageNC");
-    let defaultImg =
-      "https://static8.depositphotos.com/1077687/1062/v/950/depositphotos_10622859-stock-illustration-cine-fast-food-combo.jpg";
-    let imgPoster = img;
-    comprobar.src = imgPoster;
-    if (comprobar.src == imgPoster && comprobar.naturalHeight > 0) {
-      comprobar.src = imgPoster;
-    } else {
-      comprobar.src = defaultImg;
-    }
-  };
 
   return (
     <div className="newCombo">
@@ -170,7 +154,9 @@ export const NewCombo = () => {
               <img
                 className="imageNC"
                 id="imageNC"
-                src="https://st3.depositphotos.com/1755257/13176/v/450/depositphotos_131760572-stock-illustration-popcorn-boxes-set.jpg"
+
+                src={image ? image : "https://st3.depositphotos.com/1755257/13176/v/450/depositphotos_131760572-stock-illustration-popcorn-boxes-set.jpg"}
+
                 alt=""
               />
             </div>
@@ -217,14 +203,16 @@ export const NewCombo = () => {
                 </div>
                 <div className="formNC">
                   <label>Image</label>
-                  <input
-                    className="inputNC"
-                    type="file"
-                    placeholder="img url"
-                    name="image"
-                    onChange={handleImageChange}
-                    onBlur={validateOne}
-                  />
+                  <div className="inputNUImage">
+                    <input
+                      className="image-charge"
+                      type="file"
+                      placeholder="img url"
+                      name="image"
+                      onChange={handleImageChange}
+                      onBlur={validateOne}
+                    />
+                  </div>
                   <div className="vals">{imageVal}</div>
                 </div>
                 <button className="buttonNC" type="submit" value="SUBMIT COMBO">

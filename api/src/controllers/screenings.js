@@ -27,7 +27,6 @@ async function addScreeningToMovie(req, res, next) {
     if (!movie) {
       return res.status(404).json({ message: "La película no existe" });
     }
-    const date = new Date();
     // Crear la proyección
     const screening = await Screening.create({
       roomLetter,
@@ -38,7 +37,6 @@ async function addScreeningToMovie(req, res, next) {
       language,
       seats,
       title,
-      createdAt: date,
     });
 
     // Agregar la proyección a la película
@@ -67,31 +65,34 @@ async function getScreeningById(req, res, next) {
   }
 }
 
-const modifySeatsById = async (req, res, next) => {
-  const { id } = req.params;
-  const { seats } = req.body;
+const modifySeatsById = async (req, res) => {
+  const screeningId = req.params.id;
+  const seatsToModify = req.body.ids;
 
   try {
-    // Buscar la proyección por ID
-    const screening = await Screening.findByPk(id);
+    // Buscamos la proyección por su ID
+    const screening = await Screening.findByPk(screeningId);
 
-    if (!screening) {
-      return res.status(404).json({ message: "La proyección no existe" });
-    }
-
-    // Actualizar los asientos de la proyección
-    screening.seats.forEach((seat) => {
-      if (seats.includes(seat.name)) {
-        seat.reserved = true;
+    // Actualizamos los asientos que se deben modificar
+    screening.seats = screening.seats.map((seat) => {
+      if (seatsToModify.includes(seat.id)) {
+        return {
+          ...seat,
+          reserved: true,
+        };
       }
+      return seat;
     });
 
-    // Guardar los cambios en la base de datos
+    // Guardamos los cambios en la base de datos
     await screening.save();
 
-    return res.status(200).json(screening); // Devolver la proyección actualizada
+    res.status(200).json({ message: "Asientos actualizados correctamente" });
   } catch (error) {
-    next(error);
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "Ocurrió un error al actualizar los asientos" });
   }
 };
 

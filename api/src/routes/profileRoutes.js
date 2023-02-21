@@ -5,6 +5,9 @@ const { getProfileById, putProfileById } = require("../controllers/profile");
 const validateToken = require("../middlewares/validateToken");
 const { User } = require("../db");
 const { cloudinary } = require("../utils/cloudinary");
+const bcrypt = require("bcrypt");
+const saltRound = 10;
+const salt = bcrypt.genSaltSync(saltRound);
 
 router.get("/:id", validateToken, async (req, res) => {
   const { id } = req.params;
@@ -28,52 +31,53 @@ router.put("/:id/account", async (req, res) => {
   res.status(200).send("success");
 });
 router.put("/:id/password", async (req, res) => {
-    const { id } = req.params;
-    const { password } = req.body;
-  
-    const userFound = await User.findByPk(id);
-    
-    await userFound.save();
-    res.status(200).send("success");
-  });
+  const { id } = req.params;
+  let { password } = req.body;
+  password = bcrypt.hashSync(password, salt);
 
-  router.put("/:id/name", async (req, res) => {
-    const { id } = req.params;
-    const { userName} = req.body;
-  
-    const userFound = await User.findByPk(id);
-        userFound.userName = userName
-    await userFound.save();
-    res.status(200).send("success");
-  }); 
+  const userFound = await User.findByPk(id);
+  userFound.password = password;
+  await userFound.save();
+  res.status(200).send("success");
+});
+
+router.put("/:id/name", async (req, res) => {
+  const { id } = req.params;
+  const { userName } = req.body;
+
+  const userFound = await User.findByPk(id);
+  userFound.userName = userName;
+  await userFound.save();
+  res.status(200).send("success");
+});
 
 router.put("/:id/image", async (req, res) => {
   const { id } = req.params;
   const { file } = req.body;
   try {
     const userFound = await User.findByPk(id);
-    if(!userFound) {
+    if (!userFound) {
       return res.status(400).send("The user doesn't exist");
     }
-    if(userFound.image) {
+    if (userFound.image) {
       // console.log(file);
       const imgId = userFound.image_id;
       const response = await cloudinary.uploader.destroy(imgId);
       // console.log(imgId);
       // console.log(response);
       const newImage = await cloudinary.uploader.upload(file, {
-        upload_preset: 'preset_hcinema',
+        upload_preset: "preset_hcinema",
       });
-      console.log(newImage);
+     
       await userFound.update({
         image: newImage.secure_url,
         image_id: newImage.public_id,
       });
       return res.status(200).send("success");
     }
-    console.log(file);
+
     const image = await cloudinary.uploader.upload(file, {
-      upload_preset: 'preset_hcinema',
+      upload_preset: "preset_hcinema",
     });
     await userFound.update({
       image: image.secure_url,
@@ -82,10 +86,9 @@ router.put("/:id/image", async (req, res) => {
 
     return res.status(200).send("success");
   } catch (error) {
-    throw {message: error};
+    throw { message: error };
   }
-    
-})
+});
 
 router.put("/:id", validateToken, async (req, res) => {
   const { id } = req.params;

@@ -7,7 +7,7 @@ import { toggleDarkLight } from "../Utils/Switch";
 import { Link, useNavigate } from "react-router-dom";
 import "./Nav.css";
 import "./darkmode.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../redux/actions";
 import swal from "sweetalert";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
@@ -26,8 +26,10 @@ const Nav = ({ setCurrentPage }) => {
     decrypted = jwt_decode(user);
   }
   console.log(decrypted)
-
+  const loggedUser = useSelector((state) => state.currentUser);
   const navigate = useNavigate();
+
+
 
   const handleLogOut = () => {
     window.localStorage.removeItem("loggedUser");
@@ -81,11 +83,15 @@ const Nav = ({ setCurrentPage }) => {
                 <div className="menu-link menu-link--inside">About Us</div>
               </Link>
             </li>
-            <li className="menu-inside">
-              <Link to="/dashboard">
-                <div className="menu-link menu-link--inside">Dashboard</div>
-              </Link>
-            </li>
+            {!(!loggedUser.isAdministrator || loggedUser.isAdministrator === false) ? (
+
+              <li className="menu-inside">
+                <Link to="/dashboard">
+                  <div className="menu-link menu-link--inside">Dashboard</div>
+                </Link>
+              </li>
+            ) : (<></>
+            )}
             {user ? (
               <li className="menu-inside">
                 <div className="logout" onClick={(e) => handleLogOut()}>
@@ -126,19 +132,32 @@ const Nav = ({ setCurrentPage }) => {
         </li>
         <div className="right-menu">
           <div className="shopBag">
+            
+            <div className="menu-link-logo">
             <label className="bag">
               <ShoppingBagIcon className="bagLogo" />
             </label>
+          </div>
+          <ul className="menu-Bag">
+            <li className="menu-BagInside">
+            <div className="menu-linkBag" id="244">
+                  <div> <p>Name</p> <p>hamburguesa</p> </div>
+                  <div> <p>Price</p> <p>334</p></div>
+                  <div> <p>Cant</p> <p>2</p></div>
+                  <div> <button>X</button></div>
+                </div>
+            </li>
+          </ul>
           </div>
 
           <li className="menu-item">
             {decrypted !== "null" ? (
               <div className="menu-link-user">
-              <Link to="/user" className="perfil">
-                <img  src = {decrypted.image ? decrypted.image : imageDefault} className="userLogo-registed" />
-              </Link>
-            </div>
-            ): (
+                <Link to="/user" className="perfil">
+                  <img src={decrypted.image ? decrypted.image : imageDefault} className="userLogo-registed" />
+                </Link>
+              </div>
+            ) : (
               <>
                 <div className="menu-link-user">
                   <Link to="/login" className="perfil">

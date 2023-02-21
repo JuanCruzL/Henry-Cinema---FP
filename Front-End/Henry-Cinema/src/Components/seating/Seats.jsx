@@ -12,12 +12,12 @@ const Seats = ({ handleClick, seatsData, letra, asientosSeleccionados }) => {
             <button
               key={`${seat.row}${seat.number}`}
               className="asiento"
-              data-value={`${seat.id}${seat.row}${seat.number}`}
+              data-value={`${seat.row}${seat.number}-${seat.id}`}
               onClick={handleClick}
               disabled={seat.reserved || seat.payed}
               style={{
                 backgroundColor: asientosSeleccionados.includes(
-                  `${seat.row}${seat.number}`
+                  `${seat.row}${seat.number}-${seat.id}`
                 )
                   ? "#ffff00"
                   : seat.reserved || seat.payed
@@ -26,8 +26,8 @@ const Seats = ({ handleClick, seatsData, letra, asientosSeleccionados }) => {
               }}
             >
               <img
-                key={`${seat.row}${seat.number}`}
-                data-value={`${seat.row}${seat.number}`}
+                key={`${seat.row}${seat.number}-${seat.id}`}
+                data-value={`${seat.row}${seat.number}-${seat.id}`}
                 src={Chair}
                 alt="Asiento"
               />
@@ -44,12 +44,12 @@ const Seats = ({ handleClick, seatsData, letra, asientosSeleccionados }) => {
             <button
               key={`${seat.row}${seat.number}`}
               className="asiento"
-              data-value={`${seat.id}${seat.row}${seat.number}`}
+              data-value={`${seat.row}${seat.number}-${seat.id}`}
               onClick={handleClick}
               disabled={seat.reserved || seat.payed}
               style={{
                 backgroundColor: asientosSeleccionados.includes(
-                  `${seat.row}${seat.number}`
+                  `${seat.row}${seat.number}-${seat.id}`
                 )
                   ? "#ffff00"
                   : seat.reserved || seat.payed
@@ -58,8 +58,8 @@ const Seats = ({ handleClick, seatsData, letra, asientosSeleccionados }) => {
               }}
             >
               <img
-                key={`${seat.row}${seat.number}`}
-                data-value={`${seat.row}${seat.number}`}
+                key={`${seat.row}${seat.number}-${seat.id}`}
+                data-value={`${seat.row}${seat.number}-${seat.id}`}
                 src={Chair}
                 alt="Asiento"
               />
@@ -69,4 +69,5 @@ const Seats = ({ handleClick, seatsData, letra, asientosSeleccionados }) => {
     </div>
   );
 };
+
 export default Seats;
