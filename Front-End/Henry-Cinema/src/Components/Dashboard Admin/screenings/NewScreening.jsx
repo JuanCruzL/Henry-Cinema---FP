@@ -72,44 +72,15 @@ const RoomInputs = () => {
 
   const next30Days = getNext30Days();
 
-<<<<<<< HEAD
-  // function enviarDatos() {
-  //   console.log(reservation);
-  //   axios
-  //     .post("http://localhost:3001/screenings", reservation)
-
-  //     .then((response) => {
-  //       swal({
-  //         title: `The screening of ${reservation.title} has been created`,
-  //         icon: "success",
-  //         button: true,
-  //       });
-  //       console.log(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
-
-=======
->>>>>>> f751722fd41b20b0141c03234088adb487715261
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createScreening(reservation)).then(() =>
       swal({
-<<<<<<< HEAD
-        title: `The screening ${reservation.title} has been created`,
-=======
         title: `The movie ${reservation.title} has been created`,
->>>>>>> f751722fd41b20b0141c03234088adb487715261
         icon: "success",
         button: true,
       })
     );
-<<<<<<< HEAD
-    navigate("/dashboard/movies/new");
-=======
->>>>>>> f751722fd41b20b0141c03234088adb487715261
     console.log(reservation);
   };
 
