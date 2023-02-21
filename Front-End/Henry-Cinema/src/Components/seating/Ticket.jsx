@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { addItem } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 function Ticket({ asientosSeleccionados, screening }) {
   const [ids, setIds] = useState([]);
-  console.log(ids);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const newIds = asientosSeleccionados.map((asiento) =>
@@ -11,7 +13,6 @@ function Ticket({ asientosSeleccionados, screening }) {
     );
     setIds(newIds);
   }, [asientosSeleccionados]);
-  console.log(ids);
 
   const reserveSeats = () => {
     const id = screening.id;
@@ -20,6 +21,9 @@ function Ticket({ asientosSeleccionados, screening }) {
       .then((response) => {
         console.log(response.data);
         alert("Seats reserved successfully");
+        dispatch(
+          addItem(screening.title, id, asientosSeleccionados.length, 10)
+        );
       })
       .catch((error) => {
         console.error(error);
@@ -43,7 +47,6 @@ function Ticket({ asientosSeleccionados, screening }) {
       </p>
       <p>Tickets : {asientosSeleccionados.length}</p>
       <p>Total: {asientosSeleccionados.length * 10} USD </p>
-      {/* <p>IDs: {ids.join(", ")}</p> */}
       <button onClick={reserveSeats}>Reserve</button>
     </div>
   );
