@@ -42,6 +42,16 @@ const Nav = ({ setCurrentPage }) => {
     window.location.reload(true);
   };
 
+  const mostrarShop =()=>{
+    let visible=document.getElementById('menu-BagInside')
+    
+    if(visible.className=="menu-BagInside"){
+      visible.className="menu-BagInside-invi"
+    }else{
+      visible.className="menu-BagInside";
+    }
+  }
+  
   return (
     <nav className="menu">
       <section className="menu-container">
