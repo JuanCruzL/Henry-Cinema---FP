@@ -126,6 +126,10 @@ const router = createBrowserRouter([
     element: <Seating />,
   },
   {
+    path:"/user",
+    element: <PerfilUser />,
+  },
+  {
     path: "user",
     element: <PerfilUser />,
   },

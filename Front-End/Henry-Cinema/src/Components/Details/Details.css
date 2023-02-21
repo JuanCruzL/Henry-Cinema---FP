@@ -88,13 +88,6 @@
   background: var(--Degradado);
 }
 
-
-
-
-
-
-
-
 .Big-container {
   display: flex;
   justify-content: center;
@@ -102,6 +95,7 @@
   padding: 80px 0px;
   width: 100%;
   padding-top: 80px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
+  flex-direction: column;
 }
 
 
@@ -275,4 +269,77 @@
 .fancy:hover .bottom-key-2 {
   right: 0;
   width: 0;
+}
+
+
+.reviews-container {
+  position: relative;
+  margin-top: 80px;
+  left: -302px
+}
+
+.review-container {
+  background-color: #232323;
+  width: 600px;
+  min-height: 200px;
+  max-height: fit-content;
+  display:flex;
+  flex-direction: column;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.user-image {
+  height: 60px;
+  width: 60px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.review-user-name{
+  padding-left: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+
+.decoration {
+  width: 80%;
+  position: relative;
+  padding-top: 20px;
+  border-bottom: 2px solid #ffff00;
+  justify-self: center;
+  left:  55px;
+}
+
+.text-container {
+  padding-top: 20px;
+  word-spacing: 0.5;
+}
+
+
+.review-input {
+  all:unset;
+  background-color: transparent;
+  width: 100%;
+  min-height: auto;
+  color:white;
+  overflow: visible;
+  font-size: 1.1rem;
+}
+
+.char-counter {
+  padding-top: 5px;
+  position: relative;
+  right: -420px;
+  font-size: 0.8rem;
 }

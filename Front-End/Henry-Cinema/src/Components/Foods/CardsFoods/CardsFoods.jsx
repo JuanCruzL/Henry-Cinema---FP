@@ -1,8 +1,9 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../../redux/actions";
 import "./CardsFoods.css";
 import { addItem } from "../../../redux/actions";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
 function CardsFoods({ name,id, description, price, image, kind }) {
   const dispatch = useDispatch();

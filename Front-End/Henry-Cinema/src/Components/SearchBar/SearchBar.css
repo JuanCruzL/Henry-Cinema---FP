@@ -27,12 +27,12 @@
   border: 2px solid var(--NBase-2);
 }
 
-input[type="text"] {
+/* input[type="text"] {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
   width: 80%;
-}
+} */
 
 .button-search {
   margin-top: 2px;
