@@ -33,6 +33,8 @@ import {
 } from "./actionTypes";
 
 axios.defaults.baseURL = "http://localhost:3001";
+//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
+axios.defaults.baseURL = "http://localhost:3001";
 // axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 //MOVIES
 
@@ -678,4 +680,12 @@ export const sendShopping = (data) => {
       payload: postShopp.data,
     });
   };
+};
+
+export const postReview = async (payload) => {
+  try {
+    await axios.post("/reviews/", payload);
+  } catch (error) {
+    console.log(error);
+  }
 };

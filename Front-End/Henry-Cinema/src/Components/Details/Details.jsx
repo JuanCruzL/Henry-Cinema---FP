@@ -2,17 +2,25 @@ import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovieById } from "../../redux/actions";
+import { getMovieById, postReview } from "../../redux/actions";
 import Nav from "../Nav/Nav";
 import "./Details.css";
 import Loader from "../Loader/Loader";
 import Footer from "../footer/footer";
+import jwt_decode from "jwt-decode";
 
 export default function Details() {
-  const [leftchars, setLeftchars] = useState(800);
   const { id } = useParams();
+  const [leftchars, setLeftchars] = useState(800);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
+  const accestoken = localStorage.getItem("loggedUser")
+  const userinfo = jwt_decode(accestoken)
+  const [form, setForm] = useState({
+    review: "",
+    userId: userinfo.id,
+    movieId: id,
+  })
 
   useEffect(() => {
     dispatch(getMovieById(id));
@@ -21,9 +29,8 @@ export default function Details() {
     }, 1500);
   }, [dispatch]);
 
-  // const image = user.image ? user.image : "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg"
-  const defaultimage =
-    "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg";
+  const image = userinfo.image ? userinfo.image : "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg"
+ 
 
   const movie = useSelector((state) => state.movieId);
 
@@ -55,6 +62,19 @@ export default function Details() {
       calculateChars(e.target.value);
     }
   };
+  const handleChange = (e) => {
+    setForm({
+      review: e.target.value
+    })
+    console.log(form)
+  }
+
+  const handlePostReview = () => {
+    // await dispatch(postReview({
+    //   review: form.review
+    // }))
+    console.log(form)
+  }
 
   if (loading) {
     return <Loader />;
@@ -137,14 +157,15 @@ export default function Details() {
           <div className="reviews-container">
             <div className="review-container">
               <div className="user-info">
-                <img className="user-image" src={defaultimage}></img>
-                <div className="review-user-name">Juan Cruz Laumann</div>
+                <img className="user-image" src={image}></img>
+                <div className="review-user-name">{userinfo.userName}</div>
               </div>
               <div className="decoration"></div>
-              <form onSubmit={() => handleSubmit()}>
+              <form onSubmit={() => handlePostReview()} onChange={(e) => handleChange(e)}>
                 <div className="text-container">
                   <textarea
                     type="textarea"
+                    name="review"
                     maxLength="800"
                     placeholder="¿Qué te pareció la película?"
                     className="review-input"

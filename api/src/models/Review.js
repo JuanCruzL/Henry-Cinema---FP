@@ -10,25 +10,9 @@ module.exports= (sequelize) =>{
             primaryKey: true,
             allowNull:false
         },
-        score:{
-            type: DataTypes.INTEGER,
-            allowNull:false
-        },
-        commentary:{
+        review:{
             type: DataTypes.TEXT,
             allowNull:false,
-        },
-        date: {
-            type: DataTypes.DATE,
-            allowNull: false,
-        },
-        userName:{
-            type:DataTypes.STRING,
-            allowNull:false
-        },
-        userProfilePhoto: {
-            type:DataTypes.TEXT,
-            allowNull:true
         },
     },
     {
