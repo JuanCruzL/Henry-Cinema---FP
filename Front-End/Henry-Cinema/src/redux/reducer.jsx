@@ -340,6 +340,27 @@ const rootReducer = (state = initialState, action) => {
         return { ...state, shoppingBag: [...state.shoppingBag, newItem] };
       }
 
+    case "LESS_ITEM":
+      const itemId = action.payload;
+      const itemIndexLess = state.shoppingBag.findIndex(
+        (item) => item.id === itemId
+      );
+      if (itemIndexLess !== -1) {
+        const updatedShoppingBag = [...state.shoppingBag];
+        if (updatedShoppingBag[itemIndexLess].quantity > 1) {
+          updatedShoppingBag[itemIndexLess].quantity -= 1;
+        } else {
+          updatedShoppingBag.splice(itemIndexLess, 1);
+        }
+        return { ...state, shoppingBag: updatedShoppingBag };
+      } else {
+        return state;
+      }
+
+      case "POST_MERCADO_PAGO":
+        return{
+          ...state
+        }
     default:
       return state;
   }
