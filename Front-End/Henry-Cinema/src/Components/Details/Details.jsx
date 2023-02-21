@@ -16,23 +16,24 @@ export default function Details() {
   const dispatch = useDispatch();
   const accestoken = localStorage.getItem("loggedUser")
   const userinfo = jwt_decode(accestoken)
-  const [form, setForm] = useState({
-    review: "",
-    userId: userinfo.id,
-    movieId: id,
-  })
-
+  
   useEffect(() => {
     dispatch(getMovieById(id));
     setTimeout(() => {
       setLoading(false);
     }, 1500);
   }, [dispatch]);
-
+  
   const image = userinfo.image ? userinfo.image : "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg"
- 
-
+  
+  
   const movie = useSelector((state) => state.movieId);
+  console.log(movie)
+  const [form, setForm] = useState({
+    review: "",
+    userId: userinfo.id,
+    movieId: id,
+  })
 
   let genres;
   let genres2;
@@ -64,16 +65,15 @@ export default function Details() {
   };
   const handleChange = (e) => {
     setForm({
-      review: e.target.value
+      ...form,
+    review: e.target.value
     })
-    console.log(form)
+    // console.log(form)
   }
 
-  const handlePostReview = () => {
-    // await dispatch(postReview({
-    //   review: form.review
-    // }))
-    console.log(form)
+  const handlePostReview = async(e) => {
+    e.preventDefault()
+    await dispatch(postReview(form))
   }
 
   if (loading) {
@@ -161,7 +161,7 @@ export default function Details() {
                 <div className="review-user-name">{userinfo.userName}</div>
               </div>
               <div className="decoration"></div>
-              <form onSubmit={() => handlePostReview()} onChange={(e) => handleChange(e)}>
+              <form onSubmit={(e) => handlePostReview(e)} onChange={(e) => handleChange(e)}>
                 <div className="text-container">
                   <textarea
                     type="textarea"
