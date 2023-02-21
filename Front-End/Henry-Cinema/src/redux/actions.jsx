@@ -635,7 +635,7 @@ export const putAccount= (id) => {
 export const putName = (id, data) => {
   return async (dispatch) => {
     const putNameRequest = axios.put(
-      `http://localhost:3001/profile/${id}/name`,
+      `/profile/${id}/name`,
       data
     );
 
@@ -648,7 +648,7 @@ export const putName = (id, data) => {
 export const putPassword = (id, data) => {
   return async (dispatch) => {
     const putPass = axios.put(
-      `http://localhost:3001/profile/${id}/password`,
+      `/profile/${id}/password`,
       data
     );
     return dispatch({
@@ -680,7 +680,7 @@ export const lessItem = (payload) => {
 
 export const sendShopping = (data) => {
   return async(dispatch) => {
-    const postShopp = axios.post(`http://localhost:3001/payment`,data)
+    const postShopp = axios.post(`/payment`,data)
     return dispatch({
       type:"POST_MERCADO_PAGO",
       payload:postShopp.data

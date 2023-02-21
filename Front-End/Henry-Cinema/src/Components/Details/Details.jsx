@@ -9,7 +9,7 @@ import Loader from "../Loader/Loader";
 import Footer from "../footer/footer";
 
 export default function Details() {
-  const[leftchars, setLeftchars] = useState(800)
+  const [leftchars, setLeftchars] = useState(800);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
@@ -20,6 +20,10 @@ export default function Details() {
       setLoading(false);
     }, 1500);
   }, [dispatch]);
+
+  // const image = user.image ? user.image : "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg"
+  const defaultimage =
+    "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg";
 
   const movie = useSelector((state) => state.movieId);
 
@@ -40,18 +44,17 @@ export default function Details() {
   }
   const calculateChars = (chars) => {
     let maxchars = 800;
-    let charsleft = maxchars - chars.length
-    setLeftchars(charsleft)
-  }
-  const handleResize=(e) => {
-    if(e){
+    let charsleft = maxchars - chars.length;
+    setLeftchars(charsleft);
+  };
+  const handleResize = (e) => {
+    if (e) {
       const target = e.target ? e.target : e;
-      target.style.height = "auto"
-      target.style.height = `${target.scrollHeight}px`
-      calculateChars(e.target.value)
+      target.style.height = "auto";
+      target.style.height = `${target.scrollHeight}px`;
+      calculateChars(e.target.value);
     }
-  }
-
+  };
 
   if (loading) {
     return <Loader />;
@@ -134,20 +137,23 @@ export default function Details() {
           <div className="reviews-container">
             <div className="review-container">
               <div className="user-info">
-              <div className="user-image"></div>
-              <div className="review-user-name">Juan Cruz Laumann</div>
+                <img className="user-image" src={defaultimage}></img>
+                <div className="review-user-name">Juan Cruz Laumann</div>
               </div>
               <div className="decoration"></div>
-              <div className="text-container">
-              <textarea
-                type="textarea"
-                maxLength="800"
-                placeholder="¿Qué te pareció la película?"
-                className="review-input"
-                onChange={e=> handleResize(e)}
-              ></textarea>
-              </div>
-              <div className="char-counter">characters left: {leftchars}</div>
+              <form onSubmit={() => handleSubmit()}>
+                <div className="text-container">
+                  <textarea
+                    type="textarea"
+                    maxLength="800"
+                    placeholder="¿Qué te pareció la película?"
+                    className="review-input"
+                    onChange={(e) => handleResize(e)}
+                  ></textarea>
+                </div>
+                <div className="char-counter">characters left: {leftchars}</div>
+                <button type="submit">Post Review</button>
+              </form>
             </div>
           </div>
         </div>
