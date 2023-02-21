@@ -10,7 +10,7 @@ import "./ShowScreeming.css";
 
 function ShowScreenings() {
   const [showInput, setShowInput] = useState({});
-  const [numberOfEntries, setNumberOfEntries] = useState(0);
+  const [numberOfEntries, setNumberOfEntries] = useState(1);
   const [selectedId, setSelectedId] = useState(null);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -77,13 +77,6 @@ function ShowScreenings() {
                         </div>
                       </div>
                     </div>
-                    {/* <button
-                        className="buy"
-                        id="bottone1"
-                        onClick={() => handleCardClick(screening.id)}
-                      >
-                        <strong>SEATS</strong>
-                      </button> */}
 
                     {selectedId === screening.id && (
                       <div className="ticketsseats">
@@ -99,7 +92,22 @@ function ShowScreenings() {
                           placeholder="0"
                           type="number"
                           value={numberOfEntries}
-                          onChange={(e) => setNumberOfEntries(e.target.value)}
+                          //
+                          onChange={(e) => {
+                            const value = parseInt(e.target.value); // convierte el valor a un número entero
+                            if (value < 1) {
+                              setNumberOfEntries(1); // establece el valor mínimo a 1
+                            } else if (value > 10) {
+                              setNumberOfEntries(10); // establece el valor máximo a 10
+                              alert(
+                                "You can't select more than 10 seats per purchase."
+                              ); // muestra la alerta en inglés
+                            } else {
+                              setNumberOfEntries(value); // establece el valor actual
+                            }
+                          }}
+                          min="1"
+                          max="10"
                         />
                         <Link
                           className="seat-selector"

@@ -656,3 +656,19 @@ export const addItem = (payload) => {
     payload,
   };
 };
+export const lessItem = (payload) => {
+  return {
+    type: "LESS_ITEM",
+    payload,
+  };
+};
+
+export const sendShopping = (data) => {
+  return async (dispatch) => {
+    const postShopp = axios.post(`http://localhost:3001/payment`, data);
+    return dispatch({
+      type: "POST_MERCADO_PAGO",
+      payload: postShopp.data,
+    });
+  };
+};

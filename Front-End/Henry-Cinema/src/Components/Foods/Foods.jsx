@@ -65,7 +65,7 @@ function Foods() {
           </div>
         </div>
         <div className="container-all">
-          <SearchBarFood className="search-bar-food" />
+          {/* <SearchBarFood className="search-bar-food" /> */}
           {seeFood === "combos" && (
             <div className="containerForCards">
               {seeFood === "combos" &&

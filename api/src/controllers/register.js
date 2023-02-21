@@ -34,9 +34,7 @@ const registerToDb = async (formData) => {
         });
 
         
-        if (userRegister.notifications === true) {
-            sendEmail(userRegister);
-        }
+        sendEmail(userRegister);
 
         return "User created successfully";
 
