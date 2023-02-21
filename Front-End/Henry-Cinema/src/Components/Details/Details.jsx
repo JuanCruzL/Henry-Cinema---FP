@@ -114,6 +114,7 @@ export default function Details() {
           </div>
           <div className="reviews-container">
             reviews
+            <input type="text" maxLength="300" placeholder="¿Qué te pareció la película?"></input>
           </div>
         </div>
         <Footer/>
