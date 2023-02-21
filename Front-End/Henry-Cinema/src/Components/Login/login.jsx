@@ -126,6 +126,7 @@ export default function Login() {
       password: "",
       notifications: checked2,
     });
+    setSign("sign-in")
   };
 
   const handleChangeIn = (e) => {
