@@ -152,7 +152,7 @@ const Nav = ({ setCurrentPage }) => {
             </label>
           </div>
           <ul className="menu-Bag">
-            <li className="menu-BagInside" id="menu-BagInside">
+            <li className="menu-BagInside-invi" id="menu-BagInside">
             <ShoppingBag/>
             </li>
           </ul>
