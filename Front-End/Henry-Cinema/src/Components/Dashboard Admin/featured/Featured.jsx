@@ -12,12 +12,12 @@ export const Featured = () => {
 
   const lastSalesIncrement = () => {
     const lastSale = allSales[allSales.length - 1];
-    const lastSaleDate = new Date(lastSale.date);
+    const lastSaleDate = new Date(lastSale.createdAt);
     const yesterday = new Date(lastSaleDate);
     yesterday.setDate(lastSaleDate.getDate() - 1);
 
     const contToday = allSales.reduce((total, sale) => {
-      const saleDate = new Date(sale.date);
+      const saleDate = new Date(sale.createdAt);
       if (saleDate.getTime() === lastSaleDate.getTime()) {
         return total + sale.amount;
       } else {
@@ -26,7 +26,7 @@ export const Featured = () => {
     }, 0);
 
     const contYesterday = allSales.reduce((total, sale) => {
-      const saleDate = new Date(sale.date);
+      const saleDate = new Date(sale.createdAt);
       if (saleDate.getTime() === yesterday.getTime()) {
         return total + sale.amount;
       } else {
@@ -46,11 +46,11 @@ export const Featured = () => {
 
   const totalSalesOfTheDay = () => {
     const lastSale = allSales[allSales.length - 1];
-    const lastSaleDate = lastSale.date;
+    const lastSaleDate = lastSale.createdAt;
     let totalAmount = 0;
 
     for (let i = 0; i < allSales.length; i++) {
-      if (allSales[i].date.getTime() === lastSaleDate.getTime()) {
+      if (allSales[i].createdAt.getTime() === lastSaleDate.getTime()) {
         totalAmount = totalAmount + allSales[i].amount;
       }
     }
@@ -60,7 +60,7 @@ export const Featured = () => {
 
   const salesLastWeek = () => {
     const lastSale = allSales[allSales.length - 1];
-    const lastSaleDate = new Date(lastSale.date);
+    const lastSaleDate = new Date(lastSale.createdAt);
     const lastWeekEnd = new Date(lastSaleDate);
     const lastWeekStart = new Date(lastSaleDate);
     lastWeekStart.setDate(lastSaleDate.getDate() - 6);
@@ -70,12 +70,17 @@ export const Featured = () => {
     previousWeekStart.setDate(previousWeekEnd.getDate() - 6);
 
     const thisWeekSales = allSales
-      .filter((sale) => sale.date >= lastWeekStart && sale.date <= lastWeekEnd)
+      .filter(
+        (sale) =>
+          sale.createdAt >= lastWeekStart && sale.createdAt <= lastWeekEnd
+      )
       .reduce((total, sale) => total + sale.amount, 0);
 
     const lastWeekSales = allSales
       .filter(
-        (sale) => sale.date >= previousWeekStart && sale.date <= previousWeekEnd
+        (sale) =>
+          sale.createdAt >= previousWeekStart &&
+          sale.createdAt <= previousWeekEnd
       )
       .reduce((total, sale) => total + sale.amount, 0);
 
@@ -89,7 +94,7 @@ export const Featured = () => {
 
   const salesLastMonth = () => {
     const lastSale = allSales[allSales.length - 1];
-    const lastSaleDate = new Date(lastSale.date);
+    const lastSaleDate = new Date(lastSale.createdAt);
     const lastMonthEnd = new Date(lastSaleDate);
     const lastMonthStart = new Date(
       lastMonthEnd.getFullYear(),
@@ -109,13 +114,13 @@ export const Featured = () => {
 
     for (let i = 0; i < allSales.length; i++) {
       if (
-        allSales[i].date <= lastMonthEnd &&
-        allSales[i].date >= lastMonthStart
+        allSales[i].createdAt <= lastMonthEnd &&
+        allSales[i].createdAt >= lastMonthStart
       ) {
         contThisMonth = contThisMonth + allSales[i].amount;
       } else if (
-        allSales[i].date <= previousMonthEnd &&
-        allSales[i].date >= previousMonthStart
+        allSales[i].createdAt <= previousMonthEnd &&
+        allSales[i].createdAt >= previousMonthStart
       ) {
         contLastMonth = contLastMonth + allSales[i].amount;
       }

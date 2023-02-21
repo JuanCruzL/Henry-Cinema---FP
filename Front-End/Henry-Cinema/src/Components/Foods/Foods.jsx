@@ -72,6 +72,7 @@ function Foods() {
                 combos.map((e) => (
                   <CardsFoods
                     key={e.id}
+                    id={e.id}
                     kind={seeFood}
                     name={e.name}
                     description={e.description}
@@ -88,6 +89,7 @@ function Foods() {
                 allDrinks.map((e) => (
                   <CardsFoods
                     key={e.id}
+                    id={e.id}
                     kind={seeFood}
                     name={e.name}
                     description={e.description}
@@ -104,6 +106,7 @@ function Foods() {
                 allFoods.map((e) => (
                   <CardsFoods
                     key={e.id}
+                    id={e.id}
                     kind={seeFood}
                     name={e.name}
                     description={e.description}
