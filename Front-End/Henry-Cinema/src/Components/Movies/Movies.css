@@ -76,7 +76,8 @@
 .Available {
   width: 80%;
   text-align: center;
-  margin: auto auto 0 auto;
+  margin: 0 auto 0 auto;
+  margin-bottom: 30px;
 }
 
 .Available h3 {
@@ -138,7 +139,7 @@
   padding: 10px;
   position: absolute;
   width: 80%;
-  height: 100vh;
+  height: 800px; 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
