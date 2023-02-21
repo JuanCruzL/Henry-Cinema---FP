@@ -193,7 +193,12 @@
   align-items: center;
   cursor: pointer;
 }
-
+.link-about:hover,
+.link-movies:hover,
+.link-foods:hover {
+  background-color: black;
+  color: #ffff00;
+}
 .items {
   display: flex;
   text-decoration: none;
