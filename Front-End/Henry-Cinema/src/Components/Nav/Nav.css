@@ -184,8 +184,8 @@
 .link-movies,
 .link-about {
   color: black;
-  width: 26%;
-  padding: 12px;
+  width: 25%;
+  padding: 15px;
   justify-content: space-around;
   text-decoration: none;
   list-style: none;
@@ -193,7 +193,12 @@
   align-items: center;
   cursor: pointer;
 }
-
+.link-about:hover,
+.link-movies:hover,
+.link-foods:hover {
+  background-color: black;
+  color: #ffff00;
+}
 .items {
   display: flex;
   text-decoration: none;
