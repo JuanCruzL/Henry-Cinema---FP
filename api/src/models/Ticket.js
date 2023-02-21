@@ -18,6 +18,15 @@ module.exports = (sequelize) => {
         },
         movie_title: {
             type: DataTypes.INTEGER,
+        },
+        date: {
+            type: DataTypes.DATE,
+        },
+        amount: {
+            type: DataTypes.INTEGER,
         }
-    })
+    },
+    {
+    timestamps: true
+  });
 }

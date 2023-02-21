@@ -89,7 +89,7 @@ export const getNextReleases = (id) => {
 
 export function createMovie(newMovie) {
   console.log("MOVIE: ", newMovie);
-  return async function () {
+  return async function (dispatch) {
     try {
       const response = await axios.post("/movies", newMovie);
       if (response.data === newMovie) {
@@ -151,7 +151,7 @@ export const getScreenings = () => {
 
 export function createScreening(newScreening) {
   console.log("SCREENING: ", newScreening);
-  return async function () {
+  return async function (dispatch) {
     try {
       const response = await axios.post("/screenings", newScreening);
       if (response.data === newScreening) {
@@ -169,7 +169,7 @@ export const deleteScreening = (id) => {
     try {
       const response = await axios.delete(`/screenings/${id}`);
       if (response.data === "The screening has been removed") {
-        const allScreenings = await axios.get(`/screening`);
+        const allScreenings = await axios.get(`/screenings`);
         return dispatch({
           type: DELETE_SCREENING,
           payload: allScreenings.data,
@@ -486,7 +486,7 @@ export const deleteReview = (id) => {
 export const getSales = () => {
   return (dispatch) => {
     axios
-      .get(`/sales`)
+      .get(`/tickets`)
       .then((response) => {
         dispatch({
           type: GET_SALES,
@@ -509,7 +509,6 @@ export const logInUserWithGoogle = (response) => {
         userName: given_name,
         image: picture,
       });
-      console.log(picture);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
@@ -554,6 +553,12 @@ export const logOut = () => {
 
 //Todo: para el DashSearch
 
+export const DashUsers = (payload) => {
+  return {
+    type: "DASH_USERS",
+    payload,
+  };
+};
 export const DashMovie = (payload) => {
   return {
     type: "DASH_MOVIES",
@@ -581,31 +586,104 @@ export const DashDrinks = (payload) => {
 
 //Put
 export const putUser = (payload, token) => {
-  return async (dispatch) => {
-    const user = axios.put(
-      "http://localhost:5173/profile",
-      {
-        payload,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
+  try{
+    return async (dispatch) => {
+      const user = axios.put("/profile",
+        {
+          payload,
         },
-      }
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return dispatch({
+        type: "PUT_USER",
+        payload: user.data,
+      });
+    };
+
+  } catch(err) {
+    console.log(err)
+  }
+};
+
+
+export const addToCart = (payload) => {
+  return {
+    type: "ADD_TO_CART",
+    payload,
+  }
+};
+export const putAccount= (id) => {
+  try{
+    return async(dispatch) => {
+      const putActualizate = axios.put(`/profile/${id}/account`)
+  
+      return dispatch({
+        type: "ACCOUNT_DELETE",
+        payload: putActualizate.data
+      })
+    }
+
+  }catch(err) {
+    console.log(err)
+  }
+}
+
+export const putName = (id, data) => {
+  return async (dispatch) => {
+    const putNameRequest = axios.put(
+      `/profile/${id}/name`,
+      data
     );
+
     return dispatch({
-      type: "PUT_USER",
-      payload: user.data,
+      type: "PUT_NAME_ACCOUNT",
+      payload: putNameRequest.data,
     });
   };
 };
-export const putAccount= (id) => {
-  return async(dispatch) => {
-    const putActualizate = axios.put(`http://localhost:3001/profile/${id}/account`)
-
+export const putPassword = (id, data) => {
+  return async (dispatch) => {
+    const putPass = axios.put(
+      `/profile/${id}/password`,
+      data
+    );
     return dispatch({
-      type: "ACCOUNT_DELETE",
-      payload: putActualizate.data
+      type: "PUT_PASSWORD",
+      payload: putPass.data,
+    });
+  };
+};
+
+export const putImageUserP = (id, file) => {
+  return async () => {
+    await axios.put(`/profile/${id}/image`, file);
+    return alert("Please, log-in again!");
+  };
+};
+
+export const addItem = (payload) => {
+  return {
+    type: "ADD_ITEM",
+    payload,
+  };
+};
+export const lessItem = (payload) => {
+  return {
+    type: "LESS_ITEM",
+    payload,
+  };
+};
+
+export const sendShopping = (data) => {
+  return async(dispatch) => {
+    const postShopp = axios.post(`/payment`,data)
+    return dispatch({
+      type:"POST_MERCADO_PAGO",
+      payload:postShopp.data
     })
   }
 }

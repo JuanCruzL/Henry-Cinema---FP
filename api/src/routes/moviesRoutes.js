@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const { Movie } = require("../db");
 const { getMovies, getMovieById } = require("../controllers/movies");
+const { cloudinary } = require("../utils/cloudinary");
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -50,10 +51,19 @@ router.post("/", async (req, res) => {
     console.log(voteAverage)
     // let number = Number(voteAverage)
 
+    const resultV = await cloudinary.uploader.upload(imageVertical, {
+      upload_preset: 'preset_hcinema',
+    });
+    const resultH = await cloudinary.uploader.upload(imageHorizontal, {
+      upload_preset: 'preset_hcinema',
+    });
+
     const newMovie = await Movie.create({
       title,
-      imageVertical,
-      imageHorizontal,
+      imageVertical: resultV.secure_url,
+      imageVertical_id: resultV.public_id,
+      imageHorizontal: resultH.secure_url,
+      imageHorizontal_id: resultH.public_id,
       voteAverage,
       overview,
       status,

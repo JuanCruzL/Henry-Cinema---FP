@@ -1,11 +1,10 @@
-
 .light-mode {
   .newMovie {
     background-color: var(--LBase-2);
 
     .newContainer {
       background-image: url(../img/doodle.jpg);
-      
+      .BottomBottom,
       .top,
       .bottom {
         box-shadow: var(--LDegradado3) 0px 3px 8px;
@@ -25,6 +24,19 @@
               .vals {
                 color: rgb(203, 7, 7);
               }
+              .inputNUImage{
+                &:before{
+                    border: 3px solid var(--LBase-1);
+                    color: var(--LText-1);
+                }
+                &:hover{
+                    &:before{
+                        color: var(--LText-2);
+                        background-color: var(--LBase-1);
+                    }
+                    
+                }
+            }
             }
 
             input {
@@ -39,13 +51,10 @@
             .buttonNM {
               color: var(--LText-1);
 
-              .MuiSvgIcon-root {
-                color: var(--LText-1);
-
-                &:hover {
-                  color: var(--LText-2);
-                }
+              &:hover {
+                color: green;
               }
+
             }
           }
         }
@@ -60,6 +69,7 @@
 
     .newContainer {
       background-image: url(../img/doodle.jpg);
+      .BottomBottom,
       .top,
       .bottom {
         box-shadow: var(--NDegradado3) 0px 3px 8px;
@@ -79,6 +89,19 @@
               .vals {
                 color: rgb(203, 7, 7);
               }
+              .inputNUImage{
+                &:before{
+                    border: 3px solid var(--NBase-1);
+                    color: var(--NText-1);
+                }
+                &:hover{
+                    &:before{
+                        color: var(--NText-2);
+                        background-color: var(--NBase-1);
+                    }
+                    
+                }
+            }
             }
 
             input {
@@ -93,13 +116,10 @@
             .buttonNM {
               color: var(--NText-1);
 
-              .MuiSvgIcon-root {
-                color: var(--NText-1);
-
-                &:hover {
-                  color: var(--NText-2);
-                }
+              &:hover {
+                color: var(--NText-2);
               }
+
             }
           }
         }
@@ -118,46 +138,48 @@
     background-image: url(../img/doodle.jpg);
     flex: 6;
 
-    .bottom{
+    .bottom {
       height: 500px;
     }
+    .BottomBottom,
     .top,
     .bottom {
       padding: 10px;
       margin: 20px;
       display: flex;
-      
-
-
+      position: relative;
       h1 {
         font-size: 21px;
       }
 
       .left {
-          position: relative;
-          flex: 1;
-          .imageNM {
-            position: absolute;
-            width: 405px;
-            height: 450px;
-            margin-right: 30px;
-            top: 0;
-            left: 0;
-            animation: float 3s ease-in-out infinite;
+        position: relative;
+        flex: 1;
+
+        .imageNM {
+          position: absolute;
+          width: 405px;
+          height: 450px;
+          margin-right: 30px;
+          top: 0;
+          left: 0;
+          animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0% {
+            transform: translate(0, 0);
           }
 
-          @keyframes float { 
-            0% {
-              transform: translate(0, 0);
-            }
-            50% {
-              transform: translate(10px, 10px);
-            }
-            100% {
-              transform: translate(0, 0);
-            }
+          50% {
+            transform: translate(10px, 10px);
+          }
+
+          100% {
+            transform: translate(0, 0);
           }
         }
+      }
 
       .right {
         flex: 2;
@@ -187,7 +209,42 @@
               font-size: 13px;
               font-style: oblique;
             }
-
+            .inputNUImage{
+              width: 100%;
+              height: 30px;
+              position: relative;
+              margin: 0px;
+              left: 0px;
+              top: 0px;
+              padding: 2px;
+              border-radius: 10px;
+              &::before{
+                  width: 100%;
+                  height: 31px;
+                  max-height: 30px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  text-align: center;
+                  content: "Search Image";
+                  font-size: 20px;
+                  position: absolute;
+                  left: 0px;
+                  margin: 0px;
+                  left: 0px;
+                  top: 0px;
+                  border-radius: 10px;
+              }
+              &:hover{
+                  cursor: pointer;
+              }
+          }
+          .image-charge {
+              padding: 0px;
+              font-size: 10px;
+              height: 30px;
+              opacity: 0;
+          }
             .selectorGenre {
               background-color: rgb(238, 210, 139);
             }
@@ -209,7 +266,7 @@
             cursor: pointer;
             margin-top: 10px;
             font-size: 30px;
-            align-items:baseline;
+            align-items: baseline;
             justify-content: space-between;
 
             .MuiSvgIcon-root {
@@ -218,6 +275,14 @@
             }
           }
         }
+      }
+      .imageNMB{
+        width: 100%;
+        height: 350px;
+          
+          margin-right: 10px;
+          margin-bottom: 10px;
+          animation: float 2s ease-in-out infinite;
       }
     }
   }

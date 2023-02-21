@@ -23,5 +23,8 @@ module.exports = (sequelize) => {
         movie_: {
             type: DataTypes.INTEGER,
         }
-    })
+    },
+    {
+    timestamps: true
+  });
 }

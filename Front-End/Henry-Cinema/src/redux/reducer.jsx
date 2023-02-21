@@ -24,11 +24,16 @@ const initialState = {
   screenings: [],
   // Para el componente Users.
   users: [],
+  usersCopy: [],
   // Para el componente Reviews.
   reviews: [],
   // Para el componente Sales.
   sales: [],
+  // Para el carrito
+  ShoppingCartItems: [],
   screeningID: [],
+  //Shopping Bag
+  shoppingBag: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -221,6 +226,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         users: action.payload,
+        usersCopy: action.payload,
       };
     }
     case "CREATE_ADMIN_USER": {
@@ -241,6 +247,12 @@ const rootReducer = (state = initialState, action) => {
         reviews: action.payload,
       };
 
+    case "GET_SALES":
+      return {
+        ...state,
+        sales: action.payload,
+      };
+
     case "MODO":
       let M = state.modo;
       M == "dia" ? (M = "noche") : (M = "dia");
@@ -256,6 +268,15 @@ const rootReducer = (state = initialState, action) => {
       };
 
     //SearchDashboard=====================================================================================0//
+    case "DASH_USERS":
+      const use = state.users;
+      const FoundUse = use.filter((u) => {
+        return u.userName.toLowerCase().includes(action.payload.toLowerCase());
+      });
+      return {
+        ...state,
+        usersCopy: FoundUse,
+      };
     case "DASH_MOVIES":
       const movi = state.allMovies;
       const FoundMovi = movi.filter((M) => {
@@ -295,9 +316,57 @@ const rootReducer = (state = initialState, action) => {
       case "PUT_USER":
         return {
           ...state,
-        }
-      case "ACCOUNT_DELETE" :
+        };
+      case "ADD_TO_CART":
+        console.log(action.payload)
+        return{
+          ...state,
+          ShoppingCartItems: action.payload
+        };
+      case "ACCOUNT_DELETE":
         return {
+        ...state,
+        };
+    case "PUT_NAME_ACCOUNT":
+      return {
+        ...state,
+      };
+    case "PUT_PASSWORD":
+      return {
+        ...state,
+      };
+    case "ADD_ITEM":
+      const newItem = action.payload;
+      const itemIndex = state.shoppingBag.findIndex(
+        (item) => item.id === newItem.id
+      );
+      if (itemIndex !== -1) {
+        const updatedShoppingBag = [...state.shoppingBag];
+        updatedShoppingBag[itemIndex].quantity += newItem.quantity;
+        return { ...state, shoppingBag: updatedShoppingBag };
+      } else {
+        return { ...state, shoppingBag: [...state.shoppingBag, newItem] };
+      }
+
+    case "LESS_ITEM":
+      const itemId = action.payload;
+      const itemIndexLess = state.shoppingBag.findIndex(
+        (item) => item.id === itemId
+      );
+      if (itemIndexLess !== -1) {
+        const updatedShoppingBag = [...state.shoppingBag];
+        if (updatedShoppingBag[itemIndexLess].quantity > 1) {
+          updatedShoppingBag[itemIndexLess].quantity -= 1;
+        } else {
+          updatedShoppingBag.splice(itemIndexLess, 1);
+        }
+        return { ...state, shoppingBag: updatedShoppingBag };
+      } else {
+        return state;
+      }
+
+      case "POST_MERCADO_PAGO":
+        return{
           ...state
         }
     default:

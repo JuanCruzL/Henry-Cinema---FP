@@ -11,13 +11,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewUser = () => {
-  // const loggedUser = useSelector((state) => state.currentUser);
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
-  //     navigate("/");
-  //   }
-  // });
+  const loggedUser = useSelector((state) => state.currentUser);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+      navigate("/");
+    }
+  });
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
@@ -25,6 +25,7 @@ export const NewUser = () => {
     password: "",
     email: "",
     isAdministrator: "",
+    image: "",
   });
 
   const [validations, setValidations] = useState({
@@ -32,16 +33,18 @@ export const NewUser = () => {
     password: "",
     email: "",
     isAdministrator: "",
+    image: "",
   });
 
   const validateAll = () => {
-    const { userName, password, email, isAdministrator } = values;
+    const { userName, password, email, isAdministrator, image } = values;
 
     const validations = {
       userName: "",
       password: "",
       email: "",
       isAdministrator: "",
+      image: "",
     };
 
     let isValid = true;
@@ -69,6 +72,11 @@ export const NewUser = () => {
 
     if (!isAdministrator) {
       validations.price = "This field is required";
+      isValid = false;
+    }
+
+    if (!image) {
+      validations.image = "Please put an image for the user";
       isValid = false;
     }
 
@@ -104,6 +112,20 @@ export const NewUser = () => {
     setValues({ ...values, [name]: value });
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setFileToBase(file);
+    console.log(file);
+  };
+
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setValues({ ...values, image: reader.result });
+    };
+  };
+
   const handleSubmit = (e) => {
     console.log(values);
     e.preventDefault();
@@ -121,13 +143,14 @@ export const NewUser = () => {
     console.log(values);
   };
 
-  const { userName, password, email, isAdministrator } = values;
+  const { userName, password, email, isAdministrator, image } = values;
 
   const {
     userName: userNameVal,
     password: passwordVal,
     email: emailVal,
     isAdministrator: isAdminVal,
+    image: imageVal,
   } = validations;
 
   return (
@@ -143,7 +166,9 @@ export const NewUser = () => {
             <img
               className="imageNU"
               id="imageNU"
-              src="https://img.freepik.com/vector-premium/usuario-gafas-realidad-virtual-icono-doodle-contorno-dibujado-mano-casco-realidad-virtual-concepto-gadget-vr-ilustracion-dibujo-vectorial-impresion-web-movil-e-infografia-sobre-fondo-blanco_107173-18905.jpg"
+
+              src={values.image?values.image:"https://img.freepik.com/vector-premium/usuario-gafas-realidad-virtual-icono-doodle-contorno-dibujado-mano-casco-realidad-virtual-concepto-gadget-vr-ilustracion-dibujo-vectorial-impresion-web-movil-e-infografia-sobre-fondo-blanco_107173-18905.jpg"}
+
               alt=""
             />
           </div>
@@ -200,6 +225,21 @@ export const NewUser = () => {
                   onBlur={validateOne}
                 />
                 <div className="vals">{isAdminVal}</div>
+              </div>
+              <div className="formNU">
+                <label>IMAGE</label>
+                <div className="inputNUImage">
+                  <input
+                    className="image-charge"
+                    type="file"
+                    placeholder="enter user image"
+                    name="image"
+                    onChange={handleImageChange}
+                    onBlur={validateOne}
+                  />
+                </div>
+                {/* <div className="vals">{imageVal}</div> */}
+
               </div>
               <button className="buttonNU" type="submit" value="SUBMIT USER">
                 SUBMIT

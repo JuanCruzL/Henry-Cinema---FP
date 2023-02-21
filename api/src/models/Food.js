@@ -21,6 +21,9 @@ module.exports=(sequelize) =>{
         image: {
             type:DataTypes.TEXT,
             allowNull:false
-        }
-    },{timestamps:false})
+        },
+        image_id: {
+            type:DataTypes.TEXT,
+        },
+    },{timestamps:true})
 }

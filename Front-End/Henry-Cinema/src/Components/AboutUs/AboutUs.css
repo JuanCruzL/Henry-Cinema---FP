@@ -24,7 +24,7 @@
 }
 
 .About-container{
-    padding-top: 70px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
+    padding-top: 40px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
 
     /*DIVIDIMOS EL CONTENEDOR EN 3 COLUMNAS*/
     display: grid;
@@ -38,11 +38,15 @@
     width: 80%;
     margin: auto;
     padding: 30px;
+    line-height: 2;
 }
 .container-text-app .About-text{
-    text-align: justify;
+    text-align: center;
+    margin-bottom: 50px;
+
 }
 .container-text-app .logo-henry{
+    margin-bottom: 40px;
     width:25%;
     height: 120px;
     padding: 10px;
@@ -50,13 +54,15 @@
 
 /*Segundo contenedor*/
 .title-team{
+    margin-bottom: 40px;
     text-align: center;
     margin: auto;
-    font-size: 40px;
+    font-size: 50px;
 }
 
 /*Tercer Contenedor*/
 .container-about-us{
+    margin-top: 50px;
     width: 90%;
     height:100%;
     margin: auto;
@@ -65,6 +71,8 @@
     grid-template-columns: auto auto auto auto;
     justify-content: center;
     align-items: center;
-    text-align: center;
 }
 
+.About-text {
+    text-align: center;
+}

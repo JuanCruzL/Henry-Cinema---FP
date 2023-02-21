@@ -7,17 +7,30 @@ import { toggleDarkLight } from "../Utils/Switch";
 import { Link, useNavigate } from "react-router-dom";
 import "./Nav.css";
 import "./darkmode.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../redux/actions";
 import swal from "sweetalert";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import jwt_decode from "jwt-decode";
+import ShoppingBag from "./ShoppingBag";
 
 const Nav = ({ setCurrentPage }) => {
+  const imageDefault = 'https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg'
   const dispatch = useDispatch();
   const user = window.localStorage.getItem("loggedUser");
+  let decrypted = "";
+  if (user === null) {
+    decrypted = "null";
+  } else {
+    decrypted = jwt_decode(user);
+  }
+  console.log(decrypted)
+  const loggedUser = useSelector((state) => state.currentUser);
   const navigate = useNavigate();
+
+
 
   const handleLogOut = () => {
     window.localStorage.removeItem("loggedUser");
@@ -26,9 +39,11 @@ const Nav = ({ setCurrentPage }) => {
       title: `Logged Out Succesfully`,
       icon: "success",
       button: true,
-    });
-    window.location.reload(true);
-  };
+    })
+    setTimeout(() => {
+      window.location.reload(true)
+    }, 1000);  
+  }
 
   return (
     <nav className="menu">
@@ -71,11 +86,15 @@ const Nav = ({ setCurrentPage }) => {
                 <div className="menu-link menu-link--inside">About Us</div>
               </Link>
             </li>
-            <li className="menu-inside">
-              <Link to="/dashboard">
-                <div className="menu-link menu-link--inside">Dashboard</div>
-              </Link>
-            </li>
+            {!(!loggedUser.isAdministrator || loggedUser.isAdministrator === false) ? (
+
+              <li className="menu-inside">
+                <Link to="/dashboard">
+                  <div className="menu-link menu-link--inside">Dashboard</div>
+                </Link>
+              </li>
+            ) : (<></>
+            )}
             {user ? (
               <li className="menu-inside">
                 <div className="logout" onClick={(e) => handleLogOut()}>
@@ -116,16 +135,35 @@ const Nav = ({ setCurrentPage }) => {
         </li>
         <div className="right-menu">
           <div className="shopBag">
+            
+            <div className="menu-link-logo">
             <label className="bag">
               <ShoppingBagIcon className="bagLogo" />
             </label>
           </div>
+          <ul className="menu-Bag">
+            <li className="menu-BagInside">
+            <ShoppingBag/>
+            </li>
+          </ul>
+          </div>
+
           <li className="menu-item">
-            <div className="menu-link-user">
-              <Link to="/login" className="perfil">
-                <AccountCircleIcon className="userLogo" />
-              </Link>
-            </div>
+            {decrypted !== "null" ? (
+              <div className="menu-link-user">
+                <Link to="/user" className="perfil">
+                  <img src={decrypted.image ? decrypted.image : imageDefault} className="userLogo-registed" />
+                </Link>
+              </div>
+            ) : (
+              <>
+                <div className="menu-link-user">
+                  <Link to="/login" className="perfil">
+                    <AccountCircleIcon className="userLogo" />
+                  </Link>
+                </div>
+              </>
+            )}
           </li>
         </div>
         {/*  </ul> */}

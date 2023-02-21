@@ -8,13 +8,13 @@ import "./newscreenings.scss";
 import { useNavigate } from "react-router-dom";
 
 const RoomInputs = () => {
-  // const loggedUser = useSelector((state) => state.currentUser);
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
-  //     navigate("/");
-  //   }
-  // });
+  const loggedUser = useSelector((state) => state.currentUser);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
+      navigate("/");
+    }
+  });
   const dispatch = useDispatch();
   const asientos = useSelector((state) => state.seats);
   const movies = useSelector((state) => state.movies);

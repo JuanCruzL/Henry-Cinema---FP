@@ -9,7 +9,7 @@ import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutline
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import { toggleDarkLight } from "../../Utils/Switch";
 import { useDispatch } from "react-redux";
-import { DashCombos, DashDrinks, DashFoods, DashMovie } from "../../../redux/actions";
+import { DashCombos, DashDrinks, DashFoods, DashMovie, DashUsers } from "../../../redux/actions";
 
 export const NavBarDash = ({ location = "desapareceMijo" }) => {
   console.log(location)
@@ -21,6 +21,9 @@ export const NavBarDash = ({ location = "desapareceMijo" }) => {
   }
   
   function BuscadorMultifuncional(e){
+    if(location="User"){
+      dispatch(DashUsers(e.target.value))
+    }
     if(location="Movies"){
       dispatch(DashMovie(e.target.value))
     }
