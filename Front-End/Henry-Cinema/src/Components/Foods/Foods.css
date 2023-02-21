@@ -72,7 +72,7 @@
 
 .container-all{
     display: grid;
-    grid-template-rows: 50px auto;
+    grid-template-rows:  auto;
     margin-top: 70px;
 }
 
