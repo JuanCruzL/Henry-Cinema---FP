@@ -126,11 +126,16 @@
   list-style: none;
   align-items: center;
 }
+
 .left-menu {
   display: flex;
   width: 100%;
   height: 80%;
+  flex-wrap: nowrap;
+
+  align-items: stretch;
 }
+
 .right-menu {
   display: flex;
 }
@@ -163,26 +168,16 @@
 .link-movies,
 .link-about {
   color: black;
-  width: 18%;
-  padding: 20px;
+  width: 26%;
+  padding: 12px;
   justify-content: space-around;
   text-decoration: none;
   list-style: none;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
-.link-about:hover {
-  background-color: black;
-  color: #ffff00;
-}
-.link-movies:hover {
-  background-color: black;
-  color: #ffff00;
-}
-.link-foods:hover {
-  background-color: black;
-  color: #ffff00;
-}
+
 .items {
   display: flex;
   text-decoration: none;
@@ -197,7 +192,7 @@
   margin: 10px;
   padding: 5px;
   display: grid;
-  width: 60px;
+  width: 50px;
   color: black;
   transition: 0.5s;
 }
