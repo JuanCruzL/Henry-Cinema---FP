@@ -255,18 +255,52 @@
   font-size: 2rem;
 }
 .shopBag {
-  margin: 35px;
-  margin-left: 45px;
-  align-items: center;
+  display: inline;
+  position: relative;
+  margin: 0 35px;
   justify-content: space-between;
-  margin-top: 40px;
   width: 100%;
   cursor: pointer;
+  height: 55px;
+}
+.bag{
+  text-align: center;
+  margin-top: 18px;
 }
 .bag .fQQvfO {
   font-size: 2rem;
   cursor: pointer;
 }
+
+.menu-Bag{
+  clip-path: var(--clip);
+  list-style: none;
+  transition: clip-path 0.3s;
+  position: absolute;
+  z-index: 1000;
+  left: -270px;
+}
+
+.menu-BagInside {
+  width: 500px;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+}
+.menu-linkBag {
+  text-decoration: none;
+  padding: 20px 30px 15px 20px;
+  background-color: black;
+  color: #ffff00;
+  display: grid;
+  grid-template-columns: 40% 40% 15% 5%;
+}
+.menu-linkBag:hover {
+  
+  background-color: #ffff00;
+  color: black;
+}
+
 
 .userLogo {
   width: 35px;
@@ -275,3 +309,4 @@
   border-radius: 50px;
   width: 27px;
 }
+

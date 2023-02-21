@@ -132,9 +132,22 @@ const Nav = ({ setCurrentPage }) => {
         </li>
         <div className="right-menu">
           <div className="shopBag">
+            
+            <div className="menu-link-logo">
             <label className="bag">
               <ShoppingBagIcon className="bagLogo" />
             </label>
+          </div>
+          <ul className="menu-Bag">
+            <li className="menu-BagInside">
+            <div className="menu-linkBag" id="244">
+                  <div> <p>Name</p> <p>hamburguesa</p> </div>
+                  <div> <p>Price</p> <p>334</p></div>
+                  <div> <p>Cant</p> <p>2</p></div>
+                  <div> <button>X</button></div>
+                </div>
+            </li>
+          </ul>
           </div>
 
           <li className="menu-item">
