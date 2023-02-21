@@ -15,7 +15,7 @@ function Ticket({ asientosSeleccionados, screening }) {
   }, [asientosSeleccionados]);
 
   const exampleTicket = {
-    id: id,
+    id: screening.id,
     name: screening.title,
     price: 10,
     quantity: asientosSeleccionados.length,
