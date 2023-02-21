@@ -8,75 +8,77 @@ function ShoppingBag() {
     const allItems = useSelector(state => state.shoppingBag)
     const total = allItems.reduce((accumulator, item) => {
         return accumulator + (item.price * item.quantity);
-      }, 0);
+    }, 0);
     const handleSend = (e) => {
         dispatch(sendShopping(e));
         console.log("enviado")
     }
-  
+
     const exampleTicket = {
-        id:"ajsigojasioda",
-        name:"Jurasick Park",
-        price:7,
-        quantity:10
+        id: "ajsigojasioda",
+        name: "Jurasick Park",
+        price: 7,
+        quantity: 10
     }
     const handleLess = (e) => {
         dispatch(lessItem(e));
     }
     return (
-    <div>
-        <button onClick={()=>console.log(allItems)}>click me</button> 
-
-        
-
-        {/* CONTENIEDO DE PRODUCTOS */}
         <div>
+            {/* <button onClick={()=>console.log(allItems)}>click me</button>  */}
 
-        <div className="menu-linkBag" id="244">
-                   <p>Name</p> 
-                  <p>Price</p> 
-                  <p>Cant</p> 
-                  <p>SubTotal</p>
-                  
-        </div>
-        {/* Movie */}
-        <div className="menu-linkBag" id="244">
-            
-             <p>Movie:{exampleTicket.name}</p>
-                  <p>{exampleTicket.price}</p>
-                  <p>({exampleTicket.quantity})</p>
-                  <p>${exampleTicket.price*exampleTicket.quantity}</p>
-        </div>
-        {
-            
-            allItems.map(i => (
-                (<div className="menu-linkBag" id="244">
-                {/* Map de la compra */}
-                <p>{i.name}</p> 
-                       <p>{i.price}</p> 
-                      <p>({i.quantity})</p> 
-                      <p>${(i.price * i.quantity).toFixed(1)}</p>
-                      <button onClick={()=>handleLess(i.id)}>-</button>
-            </div>)
-            ))
-        }
-        
-        </div>
 
-        {/* DIV PAGAR Y TOTAL */}
-        <div>
 
-        <div className="menu-linkBag" id="244">
-            {/* Map de la compra */}
-            
-                   <p>Total: $ {(total+exampleTicket.price).toFixed(2)}</p> 
-                   <button onClick={() =>handleSend(allItems)}>Pagar</button> 
-                    
+            {/* CONTENIEDO DE PRODUCTOS */}
+            <div>
+
+                <div className="menu-linkBagTable" id="244">
+                    <p className='NavTableBagLink'>Name</p>
+                    <p className='NavTableBagLink'>Price</p>
+                    <p className='NavTableBagLink'>Cant</p>
+                    <p className='NavTableBagLink'>SubTotal</p>
+                    <p className='NavTableBagLink'>X</p>
+
+                </div>
+                {/* Movie */}
+                <div className="menu-linkBag" id="244">
+
+                    <p className='menu-linkBag-Movie'>Movie:{exampleTicket.name}</p>
+                    <p className='menu-linkBag-Movie'>{exampleTicket.price}</p>
+                    <p className='menu-linkBag-Movie'>({exampleTicket.quantity})</p>
+                    <p className='menu-linkBag-Movie'>${exampleTicket.price * exampleTicket.quantity}</p>
+                    <p className='menu-linkBag-Movie'></p>
+                </div>
+                {
+
+                    allItems.map(i => (
+                        (<div className="menu-linkBag" id="244">
+                            {/* Map de la compra */}
+                            <p className='menu-linkBag-Data'>{i.name}</p>
+                            <p className='menu-linkBag-Data'>{i.price}</p>
+                            <p className='menu-linkBag-Data'>({i.quantity})</p>
+                            <p className='menu-linkBag-Data'>${(i.price * i.quantity).toFixed(1)}</p>
+                            <button className='menu-linkBag-Delete' onClick={() => handleLess(i.id)}>-</button>
+                        </div>)
+                    ))
+                }
+
+            </div>
+
+            {/* DIV PAGAR Y TOTAL */}
+            <div>
+
+                <div className="menu-linkBagTotal" id="244">
+                    {/* Map de la compra */}
+
+                    <button className='menu-linkBagPay' onClick={() => handleSend(allItems)}>Pagar</button>
+                    <p className='menu-linkBag-Data'>Total: $ {(total + exampleTicket.price).toFixed(2)}</p>
+
+                </div>
+            </div>
+
         </div>
-        </div>
-        
-    </div>
-  )
+    )
 }
 
 export default ShoppingBag
