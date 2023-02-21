@@ -33,8 +33,6 @@ import {
 } from "./actionTypes";
 
 axios.defaults.baseURL = "http://localhost:3001";
-//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
-axios.defaults.baseURL = "http://localhost:3001";
 // axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 //MOVIES
 
@@ -677,7 +675,7 @@ export const sendShopping = (data) => {
     const postShopp = await axios.post(`/payment`, data);
     return dispatch({
       type: "POST_MERCADO_PAGO",
-      payload: postShopp.data
+      payload: postShopp.data,
     });
   };
 };
