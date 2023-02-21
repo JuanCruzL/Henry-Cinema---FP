@@ -14,8 +14,8 @@ function ShoppingBag() {
         dispatch(sendShopping(e));
         console.log("enviado")
         setTimeout(() =>{
-          window.open(url, "_blank");
-        },1000) 
+          window.open(url);
+        },2000) 
     }
 
     const exampleTicket = {
