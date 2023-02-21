@@ -402,13 +402,13 @@
   /* transition: clip-path 0.3s; */
   position: absolute;
   z-index: 1000;
-  left: -400px;
+  left: -410px;
 }
 .menu-BagInside-invi{
   list-style: none;
   position: absolute;
   visibility: hidden;
-  left: -400px;
+  left: -410px;
 }
 
 
