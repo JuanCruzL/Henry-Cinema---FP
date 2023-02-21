@@ -33,8 +33,8 @@ router.post("/",async(req,res) =>{
     mercadopago.preferences
     .create(preference)
     .then(function (response) {
-        console.log(response)
-        res.send('success')
+        console.log(response.body.init_point)
+        res.status(200).send(response.body.init_point)
       })
       .catch(function (error) {
         console.log(error);

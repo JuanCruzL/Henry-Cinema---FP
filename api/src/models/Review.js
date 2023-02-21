@@ -22,6 +22,14 @@ module.exports= (sequelize) =>{
             type: DataTypes.DATE,
             allowNull: false,
         },
+        userName:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        userProfilePhoto: {
+            type:DataTypes.TEXT,
+            allowNull:true
+        },
     },
     {
     timestamps: true

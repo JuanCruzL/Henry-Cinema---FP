@@ -14,6 +14,13 @@ function Ticket({ asientosSeleccionados, screening }) {
     setIds(newIds);
   }, [asientosSeleccionados]);
 
+  const exampleTicket = {
+    id: screening.id,
+    name: screening.title,
+    price: 10,
+    quantity: asientosSeleccionados.length,
+  };
+
   const reserveSeats = () => {
     const id = screening.id;
     axios
@@ -21,9 +28,7 @@ function Ticket({ asientosSeleccionados, screening }) {
       .then((response) => {
         console.log(response.data);
         alert("Seats reserved successfully");
-        dispatch(
-          addItem(screening.title, id, asientosSeleccionados.length, 10)
-        );
+        dispatch(addItem(exampleTicket));
       })
       .catch((error) => {
         console.error(error);

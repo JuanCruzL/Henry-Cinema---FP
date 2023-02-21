@@ -4,7 +4,7 @@ const axios = require("axios");
 const { Movie, Screening } = require("../db");
 const { getGenresDb } = require("./genres");
 
-const getMovies12 = async () => {
+const getMovies1 = async () => {
   const ourMovies = Movie.findAll();
   return ourMovies;
 };
