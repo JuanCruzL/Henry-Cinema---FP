@@ -68,14 +68,14 @@ router.put("/:id/image", async (req, res) => {
       const newImage = await cloudinary.uploader.upload(file, {
         upload_preset: "preset_hcinema",
       });
-      console.log(newImage);
+     
       await userFound.update({
         image: newImage.secure_url,
         image_id: newImage.public_id,
       });
       return res.status(200).send("success");
     }
-    console.log(file);
+
     const image = await cloudinary.uploader.upload(file, {
       upload_preset: "preset_hcinema",
     });
