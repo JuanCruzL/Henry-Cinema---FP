@@ -74,13 +74,6 @@ const modifySeatsById = async (req, res) => {
     const screening = await Screening.findByPk(screeningId);
 
     // Actualizamos los asientos que se deben modificar
-<<<<<<< HEAD
-    seatsToModify.forEach((seatId) => {
-      const seat = screening.seats.find((s) => s.id === seatId);
-
-      seat.reserved = true;
-      console.log(seat);
-=======
     screening.seats = screening.seats.map((seat) => {
       if (seatsToModify.includes(seat.id)) {
         return {
@@ -89,7 +82,6 @@ const modifySeatsById = async (req, res) => {
         };
       }
       return seat;
->>>>>>> 765c08c10c67b803eeae1197f961cb21c454512b
     });
 
     // Guardamos los cambios en la base de datos
