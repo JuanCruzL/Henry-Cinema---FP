@@ -24,13 +24,12 @@ function ShowScreenings() {
   }, [dispatch, id]);
 
   const movie = useSelector((state) => state.movieId);
-  console.log(movie);
 
   const handleCardClick = (screeningId) => {
     setSelectedId(screeningId);
     setShowInput((prevState) => ({ ...prevState, [screeningId]: true }));
   };
-
+  console.log("id", movie.id);
   return (
     <div>
       {loading ? (
