@@ -27,7 +27,7 @@ const Nav = ({ setCurrentPage }) => {
   } else {
     decrypted = jwt_decode(user);
   }
-
+  console.log(decrypted);
   const loggedUser = useSelector((state) => state.currentUser);
   const navigate = useNavigate();
 
@@ -38,21 +38,9 @@ const Nav = ({ setCurrentPage }) => {
       title: `Logged Out Succesfully`,
       icon: "success",
       button: true,
-    })
-    setTimeout(() => {
-      window.location.reload(true)
-    }, 1000);  
-  }
-
-  const mostrarShop =()=>{
-    let visible=document.getElementById('menu-BagInside')
-    
-    if(visible.className=="menu-BagInside"){
-      visible.className="menu-BagInside-invi"
-    }else{
-      visible.className="menu-BagInside";
-    }
-  }
+    });
+    window.location.reload(true);
+  };
 
   return (
     <nav className="menu">
@@ -149,7 +137,15 @@ const Nav = ({ setCurrentPage }) => {
         <div className="right-menu">
           <div className="shopBag">
             <div className="menu-link-logo">
-
+              <label className="bag">
+                <ShoppingBagIcon className="bagLogo" />
+              </label>
+            </div>
+            <ul className="menu-Bag">
+              <li className="menu-BagInside">
+                <ShoppingBag />
+              </li>
+            </ul>
           </div>
 
           <li className="menu-item">
