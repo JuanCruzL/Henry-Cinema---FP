@@ -383,25 +383,36 @@
   width: 27px;
 }
 
+.menu-Bag{
+  list-style: none;
+}
+.bag:hover{
+  cursor: pointer;
+}
 .shopBag {
   list-style: none;
   position: relative;
   height: 100%;
   /*  --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
-  --clep: polygon(0 0, 100% 0, 100% 0, 100% 0, 0 0);
+  /* --clep: polygon(0 0, 100% 0, 100% 0, 100% 0, 0 0); */
 }
-
+/*
 .shopBag:hover {
-  --clep: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+   --clep: polygon(0 0, 100% 0, 100% 100%, 0% 100%); 
 }
-
+*/
 .menu-BagInside{
-  clip-path: var(--clep);
-  list-style: none;
-  transition: clip-path 0.3s;
+  /* clip-path: var(--clep); */
+  
+  /* transition: clip-path 0.3s; */
   position: absolute;
   z-index: 1000;
   left: -400px;
+}
+.menu-BagInside-invi{
+  list-style: none;
+  position: absolute;
+  visibility: hidden;
 }
 
 
@@ -409,6 +420,7 @@
   text-decoration: none;
   display: grid;
   grid-template-columns: 50% 15% 10% 20% 5%;
+  cursor: default;
 }
 .menu-linkBag {
   text-decoration: none;
@@ -428,6 +440,7 @@
 .menu-linkBag .menu-linkBag-Data{
   padding: 10px 10px 10px 10px;
   height: 100%;
+  cursor: default;
 }
 .menu-linkBag .menu-linkBag-Delete:hover{
   cursor: pointer;
@@ -437,6 +450,7 @@
   text-decoration: none;
   display: grid;
   grid-template-columns: 50% 50%;
+  cursor: default;
 }
 .menu-linkBagPay:hover{
   cursor: pointer;
