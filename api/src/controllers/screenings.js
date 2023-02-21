@@ -65,105 +65,34 @@ async function getScreeningById(req, res, next) {
   }
 }
 
-// const modifySeatsById = async (screeningId, seatIds) => {
-//   const id = screeningId;
-//   try {
-//     const screening = await Screening.findByPk(id);
-//     console.log(id);
-//     if (!screening) {
-//       throw new Error(`Screening with id ${id} not found`);
-//     }
-
-//     const seats = screening.seats;
-//     seatIds.forEach((seatId) => {
-//       const seat = seats.find((s) => s.id === seatId);
-//       if (seat) {
-//         seats.reserved = true;
-//       }
-//     });
-
-//     await screening.save();
-
-//     return {
-//       success: true,
-//       message: "Seats modified successfully",
-//       error: null,
-//     }; // or any other value to indicate success
-//   } catch (error) {
-//     console.error(error);
-
-//     return {
-//       success: false,
-//       message: "Error modifying seats",
-//       error: error.message,
-//     }; // or any other value to indicate failure
-//   }
-// };
-
-// const modifySeatsById = async (screeningId, seatsToModify) => {
-//   try {
-//     console.log(screeningId);
-//     const screening = await Screening.findByPk(screeningId);
-
-//     if (!screening) {
-//       throw new Error(`Screening with id ${screeningId} not found`);
-//     }
-
-//     const seatIds = seatsToModify.map((seat) => seat.id);
-//     const seats = await screening.getSeats({ where: { id: seatIds } });
-
-//     for (const seat of seats) {
-//       const { reserved } = seatsToModify.find((s) => s.id === seat.id);
-//       await seat.update({ reserved });
-//     }
-
-//     return {
-//       success: true,
-//       message: "Seats modified successfully",
-//       error: null,
-//     };
-//   } catch (error) {
-//     console.error(error);
-
-//     return {
-//       success: false,
-//       message: "Error modifying seats",
-//       error: error.message,
-//     };
-//   }
-// };
-
 const modifySeatsById = async (req, res) => {
-  const { screeningId, seatsToModify } = req.body;
+  const screeningId = req.params.id;
+  const seatsToModify = req.body.ids;
+
   try {
-    console.log(screeningId);
+    // Buscamos la proyección por su ID
     const screening = await Screening.findByPk(screeningId);
 
-    if (!screening) {
-      throw new Error(`Screening with id ${screeningId} not found`);
-    }
-
-    const seatIds = seatsToModify.map((seat) => seat.id);
-    const seats = await screening.getSeats({ where: { id: seatIds } });
-
-    for (const seat of seats) {
-      const { reserved } = seatsToModify.find((s) => s.id === seat.id);
-      await seat.update({ reserved });
-    }
-
-    res.json({
-      success: true,
-      message: "Seats modified successfully",
-      error: null,
+    // Actualizamos los asientos que se deben modificar
+    screening.seats = screening.seats.map((seat) => {
+      if (seatsToModify.includes(seat.id)) {
+        return {
+          ...seat,
+          reserved: true,
+        };
+      }
+      return seat;
     });
+
+    // Guardamos los cambios en la base de datos
+    await screening.save();
+
+    res.status(200).json({ message: "Asientos actualizados correctamente" });
   } catch (error) {
     console.error(error);
-
-    res.status(500).json({
-      success: false,
-      message: "Error modifying seats",
-      error: error.message,
-    });
+    res
+      .status(500)
+      .json({ message: "Ocurrió un error al actualizar los asientos" });
   }
 };
 

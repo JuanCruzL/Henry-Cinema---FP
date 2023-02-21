@@ -15,7 +15,7 @@ import {
 
 // const salesInMonth = (salesArray, month) => {
 //   const filteredSales = salesArray.filter((sale) => {
-//     const saleDate = new Date(sale.date);
+//     const saleDate = new Date(sale.createdAt);
 //     return saleDate.getMonth() === month;
 //   });
 //   const totalAmount = filteredSales.reduce((acc, sale) => {
@@ -33,12 +33,12 @@ import {
 // const salesForJune = salesInMonth(allSales, 5);
 
 const data = [
-  { name: "January", Total: 1800 },
-  { name: "February", Total: 2000 },
-  { name: "March", Total: 1000 },
-  { name: "April", Total: 500 },
-  { name: "May", Total: 600 },
-  { name: "June", Total: 3000 },
+  { name: "January", Total: salesForJanuary },
+  { name: "February", Total: salesForFebruary },
+  { name: "March", Total: salesForMarch },
+  { name: "April", Total: salesForApril },
+  { name: "May", Total: salesForMay },
+  { name: "June", Total: salesForJune },
 ];
 
 export const Chart = () => {

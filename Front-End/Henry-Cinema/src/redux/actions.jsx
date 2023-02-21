@@ -509,7 +509,6 @@ export const logInUserWithGoogle = (response) => {
         userName: given_name,
         image: picture,
       });
-      console.log(picture);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
@@ -646,17 +645,18 @@ export const putName = (id, data) => {
     });
   };
 };
-export const putPassword = (id,data) => {
-  return async(dispatch) => {
-    const putPass= axios.put(
-      `http://localhost:3001/profile/${id}/password`,data
+export const putPassword = (id, data) => {
+  return async (dispatch) => {
+    const putPass = axios.put(
+      `http://localhost:3001/profile/${id}/password`,
+      data
     );
     return dispatch({
-      type:"PUT_PASSWORD",
-      payload: putPass.data
-    })
-  }
-}
+      type: "PUT_PASSWORD",
+      payload: putPass.data,
+    });
+  };
+};
 
 export const putImageUserP = (id, file) => {
   return async () => {
@@ -664,3 +664,26 @@ export const putImageUserP = (id, file) => {
     return alert("Please, log-in again!");
   };
 };
+
+export const addItem = (payload) => {
+  return {
+    type: "ADD_ITEM",
+    payload,
+  };
+};
+export const lessItem = (payload) => {
+  return {
+    type: "LESS_ITEM",
+    payload,
+  };
+};
+
+export const sendShopping = (data) => {
+  return async(dispatch) => {
+    const postShopp = axios.post(`http://localhost:3001/payment`,data)
+    return dispatch({
+      type:"POST_MERCADO_PAGO",
+      payload:postShopp.data
+    })
+  }
+}

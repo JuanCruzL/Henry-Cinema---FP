@@ -14,6 +14,7 @@ import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import jwt_decode from "jwt-decode";
+import ShoppingBag from "./ShoppingBag";
 
 const Nav = ({ setCurrentPage }) => {
   const imageDefault = 'https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg'
@@ -134,9 +135,17 @@ const Nav = ({ setCurrentPage }) => {
         </li>
         <div className="right-menu">
           <div className="shopBag">
+            
+            <div className="menu-link-logo">
             <label className="bag">
               <ShoppingBagIcon className="bagLogo" />
             </label>
+          </div>
+          <ul className="menu-Bag">
+            <li className="menu-BagInside">
+            <ShoppingBag/>
+            </li>
+          </ul>
           </div>
 
           <li className="menu-item">
