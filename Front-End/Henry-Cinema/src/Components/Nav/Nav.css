@@ -413,6 +413,7 @@
   list-style: none;
   position: absolute;
   visibility: hidden;
+  left: -400px;
 }
 
 
