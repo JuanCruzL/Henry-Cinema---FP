@@ -89,7 +89,7 @@ export const getNextReleases = (id) => {
 
 export function createMovie(newMovie) {
   console.log("MOVIE: ", newMovie);
-  return async function () {
+  return async function (dispatch) {
     try {
       const response = await axios.post("/movies", newMovie);
       if (response.data === newMovie) {
@@ -151,7 +151,7 @@ export const getScreenings = () => {
 
 export function createScreening(newScreening) {
   console.log("SCREENING: ", newScreening);
-  return async function () {
+  return async function (dispatch) {
     try {
       const response = await axios.post("/screenings", newScreening);
       if (response.data === newScreening) {
@@ -169,7 +169,7 @@ export const deleteScreening = (id) => {
     try {
       const response = await axios.delete(`/screenings/${id}`);
       if (response.data === "The screening has been removed") {
-        const allScreenings = await axios.get(`/screening`);
+        const allScreenings = await axios.get(`/screenings`);
         return dispatch({
           type: DELETE_SCREENING,
           payload: allScreenings.data,
@@ -586,41 +586,56 @@ export const DashDrinks = (payload) => {
 
 //Put
 export const putUser = (payload, token) => {
-  return async (dispatch) => {
-    const user = axios.put(
-      "http://localhost:5173/profile",
-      {
-        payload,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
+  try{
+    return async (dispatch) => {
+      const user = axios.put("/profile",
+        {
+          payload,
         },
-      }
-    );
-    return dispatch({
-      type: "PUT_USER",
-      payload: user.data,
-    });
-  };
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return dispatch({
+        type: "PUT_USER",
+        payload: user.data,
+      });
+    };
+
+  } catch(err) {
+    console.log(err)
+  }
 };
 
-export const putAccount = (id) => {
-  return async (dispatch) => {
-    const putActualizate = axios.put(
-      `http://localhost:3001/profile/${id}/account`
-    );
 
-    return dispatch({
-      type: "ACCOUNT_DELETE",
-      payload: putActualizate.data,
-    });
-  };
+export const addToCart = (payload) => {
+  return {
+    type: "ADD_TO_CART",
+    payload,
+  }
 };
+export const putAccount= (id) => {
+  try{
+    return async(dispatch) => {
+      const putActualizate = axios.put(`/profile/${id}/account`)
+  
+      return dispatch({
+        type: "ACCOUNT_DELETE",
+        payload: putActualizate.data
+      })
+    }
+
+  }catch(err) {
+    console.log(err)
+  }
+}
+
 export const putName = (id, data) => {
   return async (dispatch) => {
     const putNameRequest = axios.put(
-      `http://localhost:3001/profile/${id}/name`,
+      `/profile/${id}/name`,
       data
     );
 
@@ -633,7 +648,7 @@ export const putName = (id, data) => {
 export const putPassword = (id, data) => {
   return async (dispatch) => {
     const putPass = axios.put(
-      `http://localhost:3001/profile/${id}/password`,
+      `/profile/${id}/password`,
       data
     );
     return dispatch({
@@ -665,7 +680,7 @@ export const lessItem = (payload) => {
 
 export const sendShopping = (data) => {
   return async(dispatch) => {
-    const postShopp = axios.post(`http://localhost:3001/payment`,data)
+    const postShopp = axios.post(`/payment`,data)
     return dispatch({
       type:"POST_MERCADO_PAGO",
       payload:postShopp.data

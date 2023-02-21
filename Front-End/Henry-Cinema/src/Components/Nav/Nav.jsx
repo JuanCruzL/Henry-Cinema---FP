@@ -39,9 +39,11 @@ const Nav = ({ setCurrentPage }) => {
       title: `Logged Out Succesfully`,
       icon: "success",
       button: true,
-    });
-    window.location.reload(true);
-  };
+    })
+    setTimeout(() => {
+      window.location.reload(true)
+    }, 1000);  
+  }
 
   return (
     <nav className="menu">

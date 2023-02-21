@@ -29,6 +29,8 @@ const initialState = {
   reviews: [],
   // Para el componente Sales.
   sales: [],
+  // Para el carrito
+  ShoppingCartItems: [],
   screeningID: [],
   //Shopping Bag
   shoppingBag: [],
@@ -311,14 +313,20 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         drinks: FoundDri,
       };
-    case "PUT_USER":
-      return {
+      case "PUT_USER":
+        return {
+          ...state,
+        };
+      case "ADD_TO_CART":
+        console.log(action.payload)
+        return{
+          ...state,
+          ShoppingCartItems: action.payload
+        };
+      case "ACCOUNT_DELETE":
+        return {
         ...state,
-      };
-    case "ACCOUNT_DELETE":
-      return {
-        ...state,
-      };
+        };
     case "PUT_NAME_ACCOUNT":
       return {
         ...state,
