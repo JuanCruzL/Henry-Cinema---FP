@@ -10,6 +10,59 @@
 .light-mode .menu-inside {
   background-color: var(--BaseL);
 }
+.light-mode .menu-linkBagTable{
+  background-color: var(--LBase-2);
+  color: var(--LText-1);
+}
+.light-mode .menu-linkBag {
+  background-color: var(--LFondo-1);
+  color: var(--LText-1);
+}
+.light-mode .menu-linkBag:hover .menu-linkBag-Delete,
+.light-mode .menu-linkBag:hover .menu-linkBag-Data{
+  background-color: var(--BaseL);
+}
+.light-mode .menu-linkBagTable .NavTableBagLink{
+  border: 2px solid var(--BaseL);
+  background-color: var(--Dashboard-Base);
+}
+.light-mode .menu-linkBag .menu-linkBag-Movie{
+  background-color: var(--BaseLD);
+  color: var(--LText-1);
+}
+.light-mode .menu-linkBagTotal .menu-linkBag-Data,
+.light-mode .menu-linkBag .menu-linkBag-Data{
+  background-color: var(--LFondo-1);
+}
+.light-mode .menu-linkBag .menu-linkBag-Delete{
+  background-color: var(--LFondo-1);
+}
+.light-mode .menu-linkBag .menu-linkBag-Delete:hover{
+  color: var(--LText-1);
+  background-color: red;
+}
+.light-mode .menu-linkBagTotal{
+  background-color: var(--Dashboard-Base);
+  color: var(--LText-1);
+}
+.light-mode .menu-linkBagPay:hover{
+  background-color: var(--LBase-1);
+  color: var(--NText-1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .dark-mode .menu-inside {
   background-color: var(--BaseL);
 }
@@ -21,6 +74,47 @@
 .dark-mode .menu-nesting {
   background-color: var(--BaseND);
 }
+
+.dark-mode .menu-linkBagTable{
+  background-color: var(--NBase-2);
+  color: var(--BaseN);
+}
+.dark-mode .menu-linkBag {
+  background-color: var(--NFondo-1);
+  color: var(--NText-1);
+}
+.dark-mode .menu-linkBag:hover {
+  color: var(--BaseN);
+}
+.dark-mode .menu-linkBagTable .NavTableBagLink{
+  border: 2px solid var(--BaseN);
+  background-color: var(--NFondo-2);
+}
+.dark-mode .menu-linkBag .menu-linkBag-Movie{
+  background-color: var(--BaseND);
+  color: var(--NText-2);
+}
+.dark-mode .menu-linkBagTotal .menu-linkBag-Data,
+.dark-mode .menu-linkBag .menu-linkBag-Data{
+  background-color: var(--NFondo-3);
+}
+.dark-mode .menu-linkBag .menu-linkBag-Delete{
+  background-color: var(--NFondo-3);
+}
+.dark-mode .menu-linkBag .menu-linkBag-Delete:hover{
+  color: var(--NText-1);
+}
+.dark-mode .menu-linkBagTotal{
+  background-color: var(--NFondo-2);
+  color: var(--BaseN);
+}
+.dark-mode .menu-linkBagPay:hover{
+  background-color: var(--BaseN);
+  color: var(--NText-2);
+}
+
+
+
 
 /*======================================================================*/
 
@@ -255,17 +349,30 @@
   font-size: 2rem;
 }
 .shopBag {
-  margin: 35px;
-  margin-left: 45px;
-  align-items: center;
+  display: inline;
+  position: relative;
+  margin: 0 35px;
   justify-content: space-between;
-  margin-top: 40px;
   width: 100%;
-  cursor: pointer;
+  height: 100%;
+}
+.bag{
+  text-align: center;
+  margin-top: 18px;
 }
 .bag .fQQvfO {
   font-size: 2rem;
   cursor: pointer;
+}
+
+
+
+.menu-BagInside {
+  border:  2px solid #ffff00;
+  width: 630px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 .userLogo {
@@ -274,4 +381,77 @@
 .userLogo-registed{
   border-radius: 50px;
   width: 27px;
+}
+
+.menu-Bag{
+  list-style: none;
+}
+.bag:hover{
+  cursor: pointer;
+}
+.shopBag {
+  list-style: none;
+  position: relative;
+  height: 100%;
+  /*  --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
+  /* --clep: polygon(0 0, 100% 0, 100% 0, 100% 0, 0 0); */
+}
+/*
+.shopBag:hover {
+   --clep: polygon(0 0, 100% 0, 100% 100%, 0% 100%); 
+}
+*/
+.menu-BagInside{
+  /* clip-path: var(--clep); */
+  
+  /* transition: clip-path 0.3s; */
+  position: absolute;
+  z-index: 1000;
+  left: -400px;
+}
+.menu-BagInside-invi{
+  list-style: none;
+  position: absolute;
+  visibility: hidden;
+}
+
+
+.menu-linkBagTable{
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 50% 15% 10% 20% 5%;
+  cursor: default;
+}
+.menu-linkBag {
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 50% 15% 10% 20% 5%;
+}
+.menu-linkBag:hover  .menu-linkBag-Delete{
+  color: red;
+}
+.menu-linkBagTable .NavTableBagLink{
+  padding: 10px 10px 10px 10px;
+}
+.menu-linkBag .menu-linkBag-Movie{
+  padding: 10px;
+}
+.menu-linkBagTotal .menu-linkBag-Data,
+.menu-linkBag .menu-linkBag-Data{
+  padding: 10px 10px 10px 10px;
+  height: 100%;
+  cursor: default;
+}
+.menu-linkBag .menu-linkBag-Delete:hover{
+  cursor: pointer;
+  background-color: red;
+}
+.menu-linkBagTotal{
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  cursor: default;
+}
+.menu-linkBagPay:hover{
+  cursor: pointer;
 }

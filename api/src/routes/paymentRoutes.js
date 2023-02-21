@@ -11,18 +11,19 @@ mercadopago.configure({
 
 router.post("/",async(req,res) =>{
  
-    const prod = req.body;
+    const products = req.body;
+    console.log(products)
+    const items = products.map((product) => ({
+        title: product.name,
+        unit_price: product.price,
+        quantity: product.quantity,
+      }));
+
     let preference = {
-        items: [{
-            id: prod.id,
-            title: prod.title,
-            description: prod.description,
-            quantity:prod.quantity,
-            unit_price : prod.price
-        }],
+        items:items,
 
         back_urls: {
-            success: 'http://localhost:3001/success',
+            success: 'http://localhost:5173/',
             failure:'',
             pending:''
         },

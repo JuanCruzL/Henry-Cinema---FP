@@ -6,9 +6,10 @@ import { getMovieById } from "../../redux/actions";
 import Nav from "../Nav/Nav";
 import "./Details.css";
 import Loader from "../Loader/Loader";
-import Footer from "../footer/footer"
+import Footer from "../footer/footer";
 
 export default function Details() {
+  const [leftchars, setLeftchars] = useState(800);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
@@ -20,24 +21,40 @@ export default function Details() {
     }, 1500);
   }, [dispatch]);
 
-  const movie = useSelector((state) => state.movieId);
-  console.log(movie);
+  // const image = user.image ? user.image : "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg"
+  const defaultimage =
+    "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg";
 
-  let genres ;
-  let genres2 ;
+  const movie = useSelector((state) => state.movieId);
+
+  let genres;
+  let genres2;
   let productionCompanies;
 
   if (movie) {
     genres = movie?.genres?.map((e) => e).join(" ");
     genres2 = movie?.genres?.map((e) => e).join(", ");
-    if(movie.apiId) {
-      productionCompanies = movie?.productionCompanies?.map((e) => e).join(", ");
-    }
-    else{
-      productionCompanies = movie.productionCompanies
+    if (movie.apiId) {
+      productionCompanies = movie?.productionCompanies
+        ?.map((e) => e)
+        .join(", ");
+    } else {
+      productionCompanies = movie.productionCompanies;
     }
   }
-
+  const calculateChars = (chars) => {
+    let maxchars = 800;
+    let charsleft = maxchars - chars.length;
+    setLeftchars(charsleft);
+  };
+  const handleResize = (e) => {
+    if (e) {
+      const target = e.target ? e.target : e;
+      target.style.height = "auto";
+      target.style.height = `${target.scrollHeight}px`;
+      calculateChars(e.target.value);
+    }
+  };
 
   if (loading) {
     return <Loader />;
@@ -107,13 +124,40 @@ export default function Details() {
                 <b>Status: </b>
                 {movie.status}
               </p>
-              {movie.origin ? <p className="allDetailsP">
-                <b>Origin: </b>
-                {movie.origin}</p> : <></>} 
+              {movie.origin ? (
+                <p className="allDetailsP">
+                  <b>Origin: </b>
+                  {movie.origin}
+                </p>
+              ) : (
+                <></>
+              )}
+            </div>
+          </div>
+          <div className="reviews-container">
+            <div className="review-container">
+              <div className="user-info">
+                <img className="user-image" src={defaultimage}></img>
+                <div className="review-user-name">Juan Cruz Laumann</div>
+              </div>
+              <div className="decoration"></div>
+              <form onSubmit={() => handleSubmit()}>
+                <div className="text-container">
+                  <textarea
+                    type="textarea"
+                    maxLength="800"
+                    placeholder="¿Qué te pareció la película?"
+                    className="review-input"
+                    onChange={(e) => handleResize(e)}
+                  ></textarea>
+                </div>
+                <div className="char-counter">characters left: {leftchars}</div>
+                <button type="submit" className="post-review-button">Post Review</button>
+              </form>
             </div>
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }
