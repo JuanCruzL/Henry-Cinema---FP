@@ -4,19 +4,19 @@ import { lessItem } from "../../redux/actions";
 import { sendShopping } from "../../redux/actions";
 
 function ShoppingBag() {
-  const dispatch = useDispatch();
-  const url = useSelector((state) => state.url);
-  const allItems = useSelector((state) => state.shoppingBag);
-  const total = allItems.reduce((accumulator, item) => {
-    return accumulator + item.price * item.quantity;
-  }, 0);
-  const handleSend = (e) => {
-    dispatch(sendShopping(e));
-    console.log("enviado");
-    setTimeout(() => {
-      window.open(url, "_blank");
-    }, 2000);
-  };
+    const dispatch = useDispatch();
+    const url = useSelector((state) => state.url);
+    const allItems = useSelector(state => state.shoppingBag)
+    const total = allItems.reduce((accumulator, item) => {
+        return accumulator + (item.price * item.quantity);
+    }, 0);
+    const handleSend = (e) => {
+        dispatch(sendShopping(e));
+        console.log("enviado")
+        setTimeout(() =>{
+          window.open(url);
+        },2000) 
+    }
 
   const exampleTicket = {
     id: "ajsigojasioda",
