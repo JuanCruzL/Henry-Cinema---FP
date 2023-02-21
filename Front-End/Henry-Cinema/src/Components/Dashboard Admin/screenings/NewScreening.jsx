@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getasientos, getMovies } from "../../../redux/actions";
+import {
+  getasientos,
+  getMovies,
+  createScreening,
+} from "../../../redux/actions";
 import NavBarDash from "../NavbarDash/NavBarDash";
 import SideBarDash from "../SideBarDash/SideBarDash";
 import axios from "axios";
@@ -68,24 +72,36 @@ const RoomInputs = () => {
 
   const next30Days = getNext30Days();
 
-  function enviarDatos() {
-    console.log(reservation);
-    axios
-      .post("http://localhost:3001/screenings", reservation)
+  // function enviarDatos() {
+  //   console.log(reservation);
+  //   axios
+  //     .post("http://localhost:3001/screenings", reservation)
 
-      .then((response) => {
-        swal({
-          title: `The screening of ${reservation.title} has been created`,
-          icon: "success",
-          button: true,
-        });
-        console.log(response.data);
+  //     .then((response) => {
+  //       swal({
+  //         title: `The screening of ${reservation.title} has been created`,
+  //         icon: "success",
+  //         button: true,
+  //       });
+  //       console.log(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createScreening(reservation)).then(() =>
+      swal({
+        title: `The screening ${reservation.title} has been created`,
+        icon: "success",
+        button: true,
       })
-      .catch((error) => {
-        console.log(error);
-      });
-    navigate("/dashboard/screenings/new");
-  }
+    );
+    navigate("/dashboard/movies/new");
+    console.log(reservation);
+  };
 
   return (
     <div className="NewScreen">
@@ -111,7 +127,7 @@ const RoomInputs = () => {
                   Seats: {reservation.seats ? reservation.seats.length : 0}
                 </h1>
                 <div className="buttonConfirmL">
-                  <button onClick={enviarDatos}>CONFIRM</button>
+                  <button onClick={handleSubmit}>CONFIRM</button>
                 </div>
               </div>
             </div>
