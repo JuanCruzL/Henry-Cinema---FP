@@ -62,8 +62,8 @@ export const Widget = ({ type }) => {
     const lastReview = allReviews[allReviews.length - 1];
     const { today, yesterday } = getLastItemCount(
       allReviews,
-      "date",
-      lastReview.date
+      "createdAt",
+      lastReview.createdAt
     );
     return incrementPercentage(today, yesterday);
   };
@@ -82,8 +82,8 @@ export const Widget = ({ type }) => {
     const lastSale = allSales[allSales.length - 1];
     const { today, yesterday } = getLastItemCount(
       allSales,
-      "date",
-      lastSale.date
+      "createdAt",
+      lastSale.createdAt
     );
     return incrementPercentage(today, yesterday);
   };

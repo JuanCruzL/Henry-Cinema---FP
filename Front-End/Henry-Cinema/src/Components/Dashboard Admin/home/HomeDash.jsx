@@ -3,9 +3,9 @@ import "./homedash.scss";
 import { useEffect } from "react";
 import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
-import { Widget } from "../widgets/Widget";
-import { Featured } from "../featured/Featured";
-import { Chart } from "../chart/Chart";
+// import { Widget } from "../widgets/Widget";
+// import { Featured } from "../featured/Featured";
+// import { Chart } from "../chart/Chart";
 import { List } from "../table/Table";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -32,7 +32,7 @@ export const HomeDash = () => {
         </div>
         <div className="charts">
           {/* <Featured className="featured" /> */}
-          <Chart className="chart" />
+          {/* <Chart className="chart" /> */}
         </div>
         <div className="listContainer">
           <div className="listTitle">LATEST TRANSACTIONS</div>
