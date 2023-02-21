@@ -6,9 +6,10 @@ import { getMovieById } from "../../redux/actions";
 import Nav from "../Nav/Nav";
 import "./Details.css";
 import Loader from "../Loader/Loader";
-import Footer from "../footer/footer"
+import Footer from "../footer/footer";
 
 export default function Details() {
+  const[leftchars, setLeftchars] = useState(800)
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
@@ -21,20 +22,33 @@ export default function Details() {
   }, [dispatch]);
 
   const movie = useSelector((state) => state.movieId);
-  console.log(movie);
 
-  let genres ;
-  let genres2 ;
+  let genres;
+  let genres2;
   let productionCompanies;
 
   if (movie) {
     genres = movie?.genres?.map((e) => e).join(" ");
     genres2 = movie?.genres?.map((e) => e).join(", ");
-    if(movie.apiId) {
-      productionCompanies = movie?.productionCompanies?.map((e) => e).join(", ");
+    if (movie.apiId) {
+      productionCompanies = movie?.productionCompanies
+        ?.map((e) => e)
+        .join(", ");
+    } else {
+      productionCompanies = movie.productionCompanies;
     }
-    else{
-      productionCompanies = movie.productionCompanies
+  }
+  const calculateChars = (chars) => {
+    let maxchars = 800;
+    let charsleft = maxchars - chars.length
+    setLeftchars(charsleft)
+  }
+  const handleResize=(e) => {
+    if(e){
+      const target = e.target ? e.target : e;
+      target.style.height = "auto"
+      target.style.height = `${target.scrollHeight}px`
+      calculateChars(e.target.value)
     }
   }
 
@@ -107,17 +121,37 @@ export default function Details() {
                 <b>Status: </b>
                 {movie.status}
               </p>
-              {movie.origin ? <p className="allDetailsP">
-                <b>Origin: </b>
-                {movie.origin}</p> : <></>} 
+              {movie.origin ? (
+                <p className="allDetailsP">
+                  <b>Origin: </b>
+                  {movie.origin}
+                </p>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
           <div className="reviews-container">
-            reviews
-            <input type="text" maxLength="300" placeholder="¿Qué te pareció la película?"></input>
+            <div className="review-container">
+              <div className="user-info">
+              <div className="user-image"></div>
+              <div className="review-user-name">Juan Cruz Laumann</div>
+              </div>
+              <div className="decoration"></div>
+              <div className="text-container">
+              <textarea
+                type="textarea"
+                maxLength="800"
+                placeholder="¿Qué te pareció la película?"
+                className="review-input"
+                onChange={e=> handleResize(e)}
+              ></textarea>
+              </div>
+              <div className="char-counter">characters left: {leftchars}</div>
+            </div>
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }
