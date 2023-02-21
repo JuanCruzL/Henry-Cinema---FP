@@ -674,10 +674,10 @@ export const lessItem = (payload) => {
 
 export const sendShopping = (data) => {
   return async (dispatch) => {
-    const postShopp = axios.post(`/payment`, data);
+    const postShopp = await axios.post(`/payment`, data);
     return dispatch({
       type: "POST_MERCADO_PAGO",
-      payload: postShopp.data,
+      payload: postShopp.data
     });
   };
 };
