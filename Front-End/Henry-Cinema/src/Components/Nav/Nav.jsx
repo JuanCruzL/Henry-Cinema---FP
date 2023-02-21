@@ -45,6 +45,16 @@ const Nav = ({ setCurrentPage }) => {
     }, 1000);  
   }
 
+  const mostrarShop =()=>{
+    let visible=document.getElementById('menu-BagInside')
+    
+    if(visible.className=="menu-BagInside"){
+      visible.className="menu-BagInside-invi"
+    }else{
+      visible.className="menu-BagInside";
+    }
+  }
+
   return (
     <nav className="menu">
       <section className="menu-container">
@@ -137,12 +147,12 @@ const Nav = ({ setCurrentPage }) => {
           <div className="shopBag">
             
             <div className="menu-link-logo">
-            <label className="bag">
+            <label className="bag" onClick={mostrarShop}>
               <ShoppingBagIcon className="bagLogo" />
             </label>
           </div>
           <ul className="menu-Bag">
-            <li className="menu-BagInside">
+            <li className="menu-BagInside-invi" id="menu-BagInside">
             <ShoppingBag/>
             </li>
           </ul>

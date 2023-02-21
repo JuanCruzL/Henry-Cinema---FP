@@ -33,6 +33,8 @@ import {
 } from "./actionTypes";
 
 axios.defaults.baseURL = "http://localhost:3001";
+//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
+axios.defaults.baseURL = "http://localhost:3001";
 // axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 //MOVIES
 
@@ -149,13 +151,13 @@ export const getScreenings = () => {
   };
 };
 
-export function createScreening(newScreening) {
-  console.log("SCREENING: ", newScreening);
+export function createScreening(reservation) {
+  console.log("SCREENING: ", reservation);
   return async function (dispatch) {
     try {
-      const response = await axios.post("/screenings", newScreening);
-      if (response.data === newScreening) {
-        console.log(newScreening);
+      const response = await axios.post("/screenings", reservation);
+      if (response.data === reservation) {
+        console.log(reservation);
         return dispatch({ type: CREATE_SCREENING });
       }
     } catch (error) {
