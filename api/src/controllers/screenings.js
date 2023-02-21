@@ -48,6 +48,23 @@ async function addScreeningToMovie(req, res, next) {
   }
 }
 
+// async function getScreeningById(req, res, next) {
+//   const { id } = req.params;
+
+//   try {
+//     // Buscar la proyección por ID
+//     const screening = await Screening.findByPk(id);
+
+//     if (!screening) {
+//       return res.status(404).json({ message: "La proyección no existe" });
+//     }
+
+//     return res.status(200).json(screening); // Devolver la proyección encontrada
+//   } catch (error) {
+//     next(error);
+//   }
+// }
+
 async function getScreeningById(req, res, next) {
   const { id } = req.params;
 
@@ -59,6 +76,24 @@ async function getScreeningById(req, res, next) {
       return res.status(404).json({ message: "La proyección no existe" });
     }
 
+    // Verificar si algún asiento tiene una reserva vencida y actualizarlo
+    const now = new Date();
+    const tenMinutesAgo = new Date(now.getTime() - 2 * 60 * 1000); // 10 minutos en milisegundos
+    const updatedSeats = screening.seats.map((seat) => {
+      if (
+        seat.reservationDate &&
+        new Date(seat.reservationDate) < tenMinutesAgo
+      ) {
+        return { ...seat, reservationDate: null, reserved: false };
+      } else {
+        return seat;
+      }
+    });
+
+    // Guardar los cambios en la base de datos
+    screening.seats = updatedSeats;
+    await screening.save();
+
     return res.status(200).json(screening); // Devolver la proyección encontrada
   } catch (error) {
     next(error);
@@ -68,6 +103,7 @@ async function getScreeningById(req, res, next) {
 const modifySeatsById = async (req, res) => {
   const screeningId = req.params.id;
   const seatsToModify = req.body.ids;
+  const reservationDate = new Date(); // obtenemos la fecha y hora actual
 
   try {
     // Buscamos la proyección por su ID
@@ -79,6 +115,7 @@ const modifySeatsById = async (req, res) => {
         return {
           ...seat,
           reserved: true,
+          reservationDate: reservationDate, // agregamos la fecha y hora de la reserva
         };
       }
       return seat;
