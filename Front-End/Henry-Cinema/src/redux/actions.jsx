@@ -32,8 +32,8 @@ import {
   GET_SCREENING,
 } from "./actionTypes";
 
-//axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
+axios.defaults.baseURL = "http://localhost:3001";
+//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 //MOVIES
 
 export const getMovies = () => {
@@ -149,13 +149,13 @@ export const getScreenings = () => {
   };
 };
 
-export function createScreening(newScreening) {
-  console.log("SCREENING: ", newScreening);
+export function createScreening(reservation) {
+  console.log("SCREENING: ", reservation);
   return async function (dispatch) {
     try {
-      const response = await axios.post("/screenings", newScreening);
-      if (response.data === newScreening) {
-        console.log(newScreening);
+      const response = await axios.post("/screenings", reservation);
+      if (response.data === reservation) {
+        console.log(reservation);
         return dispatch({ type: CREATE_SCREENING });
       }
     } catch (error) {
@@ -586,9 +586,10 @@ export const DashDrinks = (payload) => {
 
 //Put
 export const putUser = (payload, token) => {
-  try{
+  try {
     return async (dispatch) => {
-      const user = axios.put("/profile",
+      const user = axios.put(
+        "/profile",
         {
           payload,
         },
@@ -603,41 +604,35 @@ export const putUser = (payload, token) => {
         payload: user.data,
       });
     };
-
-  } catch(err) {
-    console.log(err)
+  } catch (err) {
+    console.log(err);
   }
 };
-
 
 export const addToCart = (payload) => {
   return {
     type: "ADD_TO_CART",
     payload,
-  }
+  };
 };
-export const putAccount= (id) => {
-  try{
-    return async(dispatch) => {
-      const putActualizate = axios.put(`/profile/${id}/account`)
-  
+export const putAccount = (id) => {
+  try {
+    return async (dispatch) => {
+      const putActualizate = axios.put(`/profile/${id}/account`);
+
       return dispatch({
         type: "ACCOUNT_DELETE",
-        payload: putActualizate.data
-      })
-    }
-
-  }catch(err) {
-    console.log(err)
+        payload: putActualizate.data,
+      });
+    };
+  } catch (err) {
+    console.log(err);
   }
-}
+};
 
 export const putName = (id, data) => {
   return async (dispatch) => {
-    const putNameRequest = axios.put(
-      `/profile/${id}/name`,
-      data
-    );
+    const putNameRequest = axios.put(`/profile/${id}/name`, data);
 
     return dispatch({
       type: "PUT_NAME_ACCOUNT",
@@ -647,10 +642,7 @@ export const putName = (id, data) => {
 };
 export const putPassword = (id, data) => {
   return async (dispatch) => {
-    const putPass = axios.put(
-      `/profile/${id}/password`,
-      data
-    );
+    const putPass = axios.put(`/profile/${id}/password`, data);
     return dispatch({
       type: "PUT_PASSWORD",
       payload: putPass.data,
@@ -679,11 +671,11 @@ export const lessItem = (payload) => {
 };
 
 export const sendShopping = (data) => {
-  return async(dispatch) => {
-    const postShopp = axios.post(`/payment`,data)
+  return async (dispatch) => {
+    const postShopp = axios.post(`/payment`, data);
     return dispatch({
-      type:"POST_MERCADO_PAGO",
-      payload:postShopp.data
-    })
-  }
-}
+      type: "POST_MERCADO_PAGO",
+      payload: postShopp.data,
+    });
+  };
+};
