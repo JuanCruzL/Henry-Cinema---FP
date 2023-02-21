@@ -6,7 +6,7 @@ const router = Router();
 
 /* Controllers */
 
-const { getReviewsDb } = require("../controllers/reviews");
+const { getReviewsDb, postReview } = require("../controllers/reviews");
 
 /* routes */
 
@@ -20,17 +20,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
-  try {
-    let { score, commentary } = req.body;
-    const date = new Date();
-    await Review.create({ score, commentary, date });
-    res.status(200).send("CREATED");
-  } catch (error) {
-    console.log(error);
-    res.status(400).send(error);
-  }
-});
+router.post("/", postReview);
 
 router.delete("/:id", async (req, res) => {
   try {
