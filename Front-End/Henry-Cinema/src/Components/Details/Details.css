@@ -343,3 +343,16 @@
   right: -420px;
   font-size: 0.8rem;
 }
+
+.post-review-button{
+  background-color: #ffff00;
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 10px;
+  position: relative;
+  right: -435px;
+}
+.post-review-button:hover{
+  cursor: pointer;
+}
