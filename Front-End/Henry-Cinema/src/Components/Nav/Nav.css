@@ -184,8 +184,8 @@
 .link-movies,
 .link-about {
   color: black;
-  width: 26%;
-  padding: 12px;
+  width: 25%;
+  padding: 15px;
   justify-content: space-around;
   text-decoration: none;
   list-style: none;
