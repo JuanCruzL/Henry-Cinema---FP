@@ -1,8 +1,18 @@
 const nodemailer = require("nodemailer");
 const { configGmail, configMailTrap } = require("../configs/mailerconfig"); //$ Config to send emails with gmail
 const { notificationsTemplate } = require("./templates/notificationsTemplate");
+const { registrationTemplate } = require("./templates/registrationTemplate");
 
 const template = (userData) => {
+  if (userData.type === "registration") {
+    return {
+      from: '"Henry Cinema" <info@henrycinema.com>', // sender address
+      to: `${userData.email}`,
+      subject: `Welcome to Henry Cinema!`, // Subject line
+      html: registrationTemplate(userData), //*
+    };
+  }
+
   if (userData.type === "notifications") {
     return {
       from: '"Henry Cinema" <info@henrycinema.com>', // sender address
@@ -16,7 +26,7 @@ const template = (userData) => {
 };
 const createTrans = () => {
   // Can config another email sender
-  const transport = nodemailer.createTransport(configMailTrap); //$
+  const transport = nodemailer.createTransport(configGmail); //$
   return transport;
 };
 
