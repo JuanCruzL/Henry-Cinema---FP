@@ -509,7 +509,6 @@ export const logInUserWithGoogle = (response) => {
         userName: given_name,
         image: picture,
       });
-      console.log(picture);
       return dispatch({
         type: "POST_USER_WITH_GOOGLE",
         payload: userCreated.data,
@@ -649,3 +648,10 @@ export const putImageUserP = (id, file) => {
     return alert("Please, log-in again!");
   };
 };
+
+export const addItem = (payload) => {
+  return   {
+    type:"ADD_ITEM",
+    payload
+  }
+}
