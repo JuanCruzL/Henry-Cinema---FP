@@ -7,23 +7,27 @@ import Nav from "../Nav/Nav";
 import "./Details.css";
 import Loader from "../Loader/Loader";
 import Footer from "../footer/footer";
+import jwt_decode from "jwt-decode";
 
 export default function Details() {
   const [leftchars, setLeftchars] = useState(800);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
+  const accestoken = localStorage.getItem("loggedUser")
+  const userinfo = jwt_decode(accestoken)
 
   useEffect(() => {
     dispatch(getMovieById(id));
     setTimeout(() => {
       setLoading(false);
     }, 1500);
+    // dispatch()
+    console.log(userinfo)
   }, [dispatch]);
 
-  // const image = user.image ? user.image : "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg"
-  const defaultimage =
-    "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg";
+  const image = userinfo.image ? userinfo.image : "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg"
+ 
 
   const movie = useSelector((state) => state.movieId);
 
@@ -137,7 +141,7 @@ export default function Details() {
           <div className="reviews-container">
             <div className="review-container">
               <div className="user-info">
-                <img className="user-image" src={defaultimage}></img>
+                <img className="user-image" src={image}></img>
                 <div className="review-user-name">Juan Cruz Laumann</div>
               </div>
               <div className="decoration"></div>
