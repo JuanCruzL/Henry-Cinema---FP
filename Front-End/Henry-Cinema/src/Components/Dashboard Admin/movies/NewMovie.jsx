@@ -195,7 +195,6 @@ export const NewMovie = () => {
     setPosterFileToBase(file);
   };
 
-
   const setPosterFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -209,7 +208,6 @@ export const NewMovie = () => {
     setBannerFileToBase(file);
   };
 
-
   const setBannerFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -217,7 +215,6 @@ export const NewMovie = () => {
       setValues({ ...values, imageHorizontal: reader.result });
     };
   };
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -246,6 +243,7 @@ export const NewMovie = () => {
         button: true,
       })
     );
+    navigate("/dashboard/movies/new");
     console.log(newMovie);
   };
 
@@ -278,8 +276,6 @@ export const NewMovie = () => {
     classification: classificationVal,
   } = validations;
 
-
-
   return (
     <div className="newMovie">
       <SideBarDash />
@@ -293,7 +289,11 @@ export const NewMovie = () => {
             <img
               className="imageNM"
               id="imageNM"
-              src={imageVertical ? imageVertical : "https://st4.depositphotos.com/3788621/24041/i/450/depositphotos_240418652-stock-photo-movie-time-concept-creative-template.jpg"}
+              src={
+                imageVertical
+                  ? imageVertical
+                  : "https://st4.depositphotos.com/3788621/24041/i/450/depositphotos_240418652-stock-photo-movie-time-concept-creative-template.jpg"
+              }
               alt=""
             />
           </div>
@@ -486,14 +486,18 @@ export const NewMovie = () => {
             </form>
           </div>
         </div>
-          <div className="BottomBottom">
+        <div className="BottomBottom">
           <img
-              className="imageNMB"
-              id="imageNMB"
-              src={imageHorizontal ? imageHorizontal : "https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-film-and-television-film-festival-retro-wind-camera-film-poster-image_215411.jpg"}
-              alt=""
-            />
-          </div>
+            className="imageNMB"
+            id="imageNMB"
+            src={
+              imageHorizontal
+                ? imageHorizontal
+                : "https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-film-and-television-film-festival-retro-wind-camera-film-poster-image_215411.jpg"
+            }
+            alt=""
+          />
+        </div>
       </div>
     </div>
   );

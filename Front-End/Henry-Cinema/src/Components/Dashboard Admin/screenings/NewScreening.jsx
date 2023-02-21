@@ -6,6 +6,7 @@ import SideBarDash from "../SideBarDash/SideBarDash";
 import axios from "axios";
 import "./newscreenings.scss";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 const RoomInputs = () => {
   const loggedUser = useSelector((state) => state.currentUser);
@@ -73,11 +74,17 @@ const RoomInputs = () => {
       .post("http://localhost:3001/screenings", reservation)
 
       .then((response) => {
+        swal({
+          title: `The screening of ${reservation.title} has been created`,
+          icon: "success",
+          button: true,
+        });
         console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
+    navigate("/dashboard/screenings/new");
   }
 
   return (
