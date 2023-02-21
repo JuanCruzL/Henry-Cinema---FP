@@ -152,7 +152,7 @@ export default function Details() {
                   ></textarea>
                 </div>
                 <div className="char-counter">characters left: {leftchars}</div>
-                <button type="submit">Post Review</button>
+                <button type="submit" className="post-review-button">Post Review</button>
               </form>
             </div>
           </div>
