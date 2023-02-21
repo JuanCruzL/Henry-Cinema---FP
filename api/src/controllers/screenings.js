@@ -134,38 +134,34 @@ async function getScreeningById(req, res, next) {
 // };
 
 const modifySeatsById = async (req, res) => {
-  const { screeningId, seatsToModify } = req.body;
+  const screeningId = req.params.id;
+  const seatsToModify = req.body.ids;
+
   try {
-    console.log(screeningId);
+    // Buscamos la proyección por su ID
     const screening = await Screening.findByPk(screeningId);
 
-    if (!screening) {
-      throw new Error(`Screening with id ${screeningId} not found`);
-    }
+    // Actualizamos los asientos que se deben modificar
+    seatsToModify.forEach((seatId) => {
+      const seat = screening.seats.find((s) => s.id === seatId);
 
-    const seatIds = seatsToModify.map((seat) => seat.id);
-    const seats = await screening.getSeats({ where: { id: seatIds } });
-
-    for (const seat of seats) {
-      const { reserved } = seatsToModify.find((s) => s.id === seat.id);
-      await seat.update({ reserved });
-    }
-
-    res.json({
-      success: true,
-      message: "Seats modified successfully",
-      error: null,
+      seat.reserved = true;
+      console.log(seat);
     });
+
+    // Guardamos los cambios en la base de datos
+    await screening.save();
+
+    res.status(200).json({ message: "Asientos actualizados correctamente" });
   } catch (error) {
     console.error(error);
-
-    res.status(500).json({
-      success: false,
-      message: "Error modifying seats",
-      error: error.message,
-    });
+    res
+      .status(500)
+      .json({ message: "Ocurrió un error al actualizar los asientos" });
   }
 };
+
+
 
 module.exports = {
   getScreeningsDb,
