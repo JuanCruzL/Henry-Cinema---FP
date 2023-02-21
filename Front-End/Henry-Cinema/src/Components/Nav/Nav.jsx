@@ -27,7 +27,6 @@ const Nav = ({ setCurrentPage }) => {
   } else {
     decrypted = jwt_decode(user);
   }
-  console.log(decrypted);
   const loggedUser = useSelector((state) => state.currentUser);
   const navigate = useNavigate();
 
@@ -41,6 +40,16 @@ const Nav = ({ setCurrentPage }) => {
     });
     window.location.reload(true);
   };
+
+  const mostrarShop = () => {
+    let visible = document.getElementById('menu-BagInside')
+
+    if (visible.className == "menu-BagInside") {
+      visible.className = "menu-BagInside-invi"
+    } else {
+      visible.className = "menu-BagInside";
+    }
+  }
 
   return (
     <nav className="menu">
@@ -136,13 +145,14 @@ const Nav = ({ setCurrentPage }) => {
         </li>
         <div className="right-menu">
           <div className="shopBag">
+
             <div className="menu-link-logo">
-              <label className="bag">
+              <label className="bag" onClick={mostrarShop}>
                 <ShoppingBagIcon className="bagLogo" />
               </label>
             </div>
             <ul className="menu-Bag">
-              <li className="menu-BagInside">
+              <li className="menu-BagInside-invi" id="menu-BagInside">
                 <ShoppingBag />
               </li>
             </ul>
