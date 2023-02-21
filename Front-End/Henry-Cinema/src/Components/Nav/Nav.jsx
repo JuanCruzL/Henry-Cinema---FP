@@ -26,7 +26,7 @@ const Nav = ({ setCurrentPage }) => {
   } else {
     decrypted = jwt_decode(user);
   }
-  console.log(decrypted)
+ /*  console.log(decrypted) */
   const loggedUser = useSelector((state) => state.currentUser);
   const navigate = useNavigate();
 

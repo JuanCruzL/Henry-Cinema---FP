@@ -7,13 +7,12 @@ import { useState } from "react";
 
 function CardsFoods({ name,id, description, price, image, kind }) {
   const dispatch = useDispatch();
+
   const shopping = useSelector((state) => state.shoppingBag);
   const handleAdd = (e) => {
     /* e.preventDefault(); */
      dispatch(addItem(e)); 
-    /* console.log(e)
-  
-    console.log("agregado") */
+    
   }
   return (
     <div className={`card${kind}`}>

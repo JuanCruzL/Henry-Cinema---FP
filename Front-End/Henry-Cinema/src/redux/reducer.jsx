@@ -34,6 +34,7 @@ const initialState = {
   screeningID: [],
   //Shopping Bag
   shoppingBag: [],
+  url:[]
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -367,7 +368,8 @@ const rootReducer = (state = initialState, action) => {
 
       case "POST_MERCADO_PAGO":
         return{
-          ...state
+          ...state,
+          url:action.payload
         }
     default:
       return state;
