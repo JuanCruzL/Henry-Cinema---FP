@@ -84,7 +84,7 @@ module.exports = (sequelize) => {
     classification:{
         type: DataTypes.STRING,
         allowNull: false,
-    }
+    },
   },
     {
     timestamps: true

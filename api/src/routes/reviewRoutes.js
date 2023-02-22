@@ -6,7 +6,7 @@ const router = Router();
 
 /* Controllers */
 
-const { getReviewsDb, postReview } = require("../controllers/reviews");
+const { getReviewsDb, postReview, postLike, getLikes, getDislikes } = require("../controllers/reviews");
 
 /* routes */
 
@@ -21,6 +21,12 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", postReview);
+
+router.get("/likes", getLikes)
+
+router.get("/dislikes", getDislikes)
+
+router.post("/postlike", postLike)
 
 router.delete("/:id", async (req, res) => {
   try {
