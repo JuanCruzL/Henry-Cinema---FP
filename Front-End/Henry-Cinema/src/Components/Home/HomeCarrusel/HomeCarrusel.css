@@ -2,17 +2,21 @@
     background-color: var(--BaseL);
     color: var(--LText-1);
 }
+
 .light-mode .contenedorCarrusel .Carrusel {
     background-color: var(--LBase-1);
 }
+
 .light-mode .contenedorCarrusel .Carrusel {
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
+
 .light-mode .punto {
     background-color: var(--BaseL);
 }
-.light-mode .punto:hover ,
-.light-mode .activo{
+
+.light-mode .punto:hover,
+.light-mode .activo {
     background-color: var(--LBase-1);
     border: 2px solid var(--BaseL);
 }
@@ -23,17 +27,21 @@
     color: var(--NText-2);
     background-color: var(--BaseN);
 }
+
 .dark-mode .contenedorCarrusel .Carrusel {
     background-color: var(--NBase-2);
 }
+
 .dark-mode .contenedorCarrusel .Carrusel {
     box-shadow: 5px 5px 10px var(--LDegradado);
 }
+
 .dark-mode .punto {
     background-color: var(--BaseN);
 }
-.dark-mode .punto:hover ,
-.dark-mode .activo{
+
+.dark-mode .punto:hover,
+.dark-mode .activo {
     background-color: var(--NBase-2);
     border: 2px solid var(--BaseN);
 }
@@ -60,12 +68,13 @@
     opacity: 0.3;
     left: 0;
 }
+
 .HomeCarrusel .Next {
     opacity: 0.3;
     right: 0;
 }
 
-.contenedorCarrusel{
+.contenedorCarrusel {
     align-items: center;
     margin: 0 auto;
 
@@ -75,6 +84,7 @@
     max-width: 1290px;
     max-height: 400px;
 }
+
 .contenedorCarrusel .Carrusel {
     position: relative;
     width: 100%;
@@ -110,7 +120,8 @@
     height: 5%;
     width: height;
 }
-#btnPauseHome{
+
+#btnPauseHome {
     height: 100%;
     width: 100%;
 }
@@ -121,6 +132,7 @@
     width: 100%;
     text-align: center;
 }
+
 .punto {
     display: inline-block;
     width: 16px;
@@ -128,9 +140,11 @@
     border-radius: 50%;
     margin-right: 5px;
 }
+
 .punto:hover {
     cursor: pointer;
 }
+
 .actual {
     height: 100%;
     width: 100%;
@@ -139,7 +153,8 @@
     transition: visibility .5s, opacity 1s;
     align-items: center;
 }
-.actual img{
+
+.actual img {
     margin: auto;
     height: 100%;
     width: 100%;
@@ -166,13 +181,14 @@
 
 
 .HomeCarrusel .BuyT {
+    position: absolute;
     padding: 0;
     font-weight: 900;
     font-size: 10px;
     top: auto;
-    bottom: 10%;
-    margin-left: 20px;
-    
+    bottom: 40px;
+    left: 20px;
+
     width: 120px;
     height: 10%;
     /* LIMITADORES */
@@ -181,14 +197,75 @@
 }
 
 .HomeCarrusel .Trail {
+    position: absolute;
     padding: 0;
     font-weight: 900;
     font-size: 10px;
     width: 120px;
     height: 9%;
     top: auto;
-    bottom: 10%;
-    margin-left: 200px;
+    bottom: 40px;
+    left: 200px;
 }
 
 
+@media (max-width: 1100px) {
+
+    .HomeCarrusel {
+        min-height: 300px;
+        max-height: 300px;
+    }
+
+    .HomeCarrusel .BuyT {
+        bottom: 20px;
+    }
+
+    .HomeCarrusel .Trail {
+        left: auto;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .puntos {
+        visibility: hidden;
+    }
+}
+
+
+@media (max-width:800px) {
+    .HomeCarrusel {
+        min-height: 250px;
+    }
+    .HomeCarrusel .BuyT {
+        left: 0px;
+        bottom: 0px;
+        width: 50%;
+        min-height: 25px;
+        max-height: 25px;
+        border-radius: 0;
+    }
+
+    .HomeCarrusel .Trail {
+        left: auto;
+        right: 0px;
+        bottom: 0px;
+        width: 50%;
+        min-height: 25px;
+        max-height: 25px;
+        border-radius: 0;
+    }
+
+    .HomeCarrusel .Prev,
+    .HomeCarrusel .Next {
+        padding: 0.6em 0.6em;
+        font-weight: 500;
+    }
+
+    .Carrusel .botonPause {
+        top: 5%;
+        left: 90%;
+        height: 10%;
+        width: height;
+    }
+
+}
