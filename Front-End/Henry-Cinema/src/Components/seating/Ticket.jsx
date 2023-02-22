@@ -18,26 +18,11 @@ function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
 
   const exampleTicket = {
     id: screening.id,
+    ids: ids,
     name: screening.title,
     price: 10,
     quantity: asientosSeleccionados.length,
   };
-
-  // const reserveSeats = () => {
-  //   const id = screening.id;
-  //   setIsReserved(true); // Cambia el estado de isReserved
-  //   axios
-  //     .put(`http://localhost:3001/screenings/${id}/seatIds`, { ids })
-  //     .then((response) => {
-  //       // console.log(response.data);
-  //       alert("Seats reserved successfully");
-  //       dispatch(addItem(exampleTicket));
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       alert("Error reserving seats");
-  //     });
-  // };
 
   const reserveSeats = () => {
     const id = screening.id;
