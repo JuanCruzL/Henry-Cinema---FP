@@ -27,11 +27,6 @@ const Nav = ({ setCurrentPage }) => {
   } else {
     decrypted = jwt_decode(user);
   }
-<<<<<<< HEAD
-
-  const loggedUser = useSelector((state) => state.currentUser);
-=======
->>>>>>> 60fa9b0a266ae5e78d68fcab04c091590ae6d702
   const navigate = useNavigate();
 
   const handleLogOut = () => {
@@ -121,11 +116,11 @@ const Nav = ({ setCurrentPage }) => {
         {/* Menú Nav */}
 
         <div className="left-menu">
-        <li className="menu-item-logo">
-          <Link to="/">
-            <img src={logoCinema} className="logoh"></img>
-          </Link>
-        </li>
+          <li className="menu-item-logo">
+            <Link to="/">
+              <img src={logoCinema} className="logoh"></img>
+            </Link>
+          </li>
           <Link to="/movies" className="link-movies">
             <li className="itemsNav">
               <div className="menu-link">Movies</div>
