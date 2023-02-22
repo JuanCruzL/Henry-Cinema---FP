@@ -16,9 +16,9 @@ const postReview = async (req, res) => {
     const userbyid = await User.findByPk(userId);
     const moviebyid = await Movie.findByPk(movieId);
     console.log(moviebyid)
+
     await moviebyid.addReview(movieReview);
     await userbyid.addReview(movieReview);
-
     return res.status(200).send(movieReview);
   } catch (error) {
     res.status(400).send(error);

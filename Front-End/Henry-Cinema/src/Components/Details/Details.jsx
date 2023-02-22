@@ -176,6 +176,16 @@ export default function Details() {
                 <button type="submit" className="post-review-button">Post Review</button>
               </form>
             </div>
+            {movie?.reviews?.map(e => <div className="review-container">
+              <div className="user-info">
+                {/* <img className="user-image" src={}></img> */}
+                <div className="review-user-name">{}</div>
+              </div>
+              <div className="decoration"></div>
+                <div className="text-container">
+                  <div>{e.review}</div>
+                </div>
+            </div>)}
           </div>
         </div>
         <Footer />
