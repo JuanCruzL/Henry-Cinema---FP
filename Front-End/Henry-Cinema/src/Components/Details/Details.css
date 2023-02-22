@@ -271,6 +271,53 @@
   width: 0;
 }
 
+.likes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.thumbUPicon {
+  position: relative;
+  margin-right: 10px;
+}
+
+.thumbUPicon:hover {
+  cursor: pointer;
+}
+
+.dislikes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thumbDOWNicon {
+  position: relative;
+  margin-right: 10px;
+  height: 10px;
+}
+
+.thumbDOWNicon:hover {
+  cursor:pointer
+}
+
+
+.likes-and-dislikes {
+  display: flex;
+  flex-direction: column;
+  height: 900px;
+  position: relative;
+  align-items: flex-end;
+}
+.likes-and-dislikes-container {
+  height: 50px;
+  width: 380px;
+  display: flex;
+  justify-content: center;
+}
+
 
 .reviews-container {
   position: relative;

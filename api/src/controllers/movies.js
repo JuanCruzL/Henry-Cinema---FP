@@ -9,7 +9,7 @@ const getMovies = async () => {
   return ourMovies;
 };
 
-const getMovies1 = async () => {
+const getMoviesApi = async () => {
   const config = { headers: { "Accept-Encoding": null } };
   const finalMovies = [];
   const resultP1 = await axios.get(
