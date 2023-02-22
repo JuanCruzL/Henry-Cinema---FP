@@ -22,6 +22,7 @@ const initialState = {
   newGenres: [],
   // Para el componente Screenings
   screenings: [],
+  screeningsCopy: [],
   // Para el componente Users.
   users: [],
   usersCopy: [],
@@ -106,6 +107,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         screenings: action.payload,
+        screeningsCopy:action.payload,
       };
     }
     case "CREATE_SCREENING":
@@ -288,6 +290,15 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         movies: FoundMovi,
       };
+    case "DASH_SCREEN":
+      const scre= state.screeningsCopy;
+      const FoundScre= scre.filter((S)=>{
+        return S.title.toLowerCase().includes(action.payload.toLowerCase())
+      });
+      return{
+        ...state,
+        screenings:FoundScre,
+      }
     case "DASH_COMBOS":
       const com = state.copyCombos;
       const FoundCom = com.filter((C) => {
