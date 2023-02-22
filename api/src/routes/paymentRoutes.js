@@ -4,7 +4,7 @@ const { ACCESS_TOKEN } = process.env;
 
 const mercadopago = require('mercadopago');
 // axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
+axios.defaults.baseURL = "https://henry-cinemafront-production.up.railway.app";
 require("dotenv").config();
 mercadopago.configure({
     access_token: ACCESS_TOKEN
