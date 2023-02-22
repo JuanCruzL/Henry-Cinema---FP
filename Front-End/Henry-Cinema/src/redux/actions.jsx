@@ -682,7 +682,6 @@ export const sendShopping = (data) => {
   };
 };
 
-<<<<<<< HEAD
 export const postReview = (payload) => {
   console.log(payload)
   return async (dispatch) => {
@@ -696,12 +695,3 @@ export const postReview = (payload) => {
     }
   };
 };
-=======
-export const postReview = async (payload) => {
-  try {
-    await axios.post("/reviews/", payload);
-  } catch (error) {
-    console.log(error);
-  }
-};
->>>>>>> f0ec69b64af6c74b3656b98be19ca7356122e68a
