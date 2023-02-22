@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { lessItem } from "../../redux/actions";
 import { sendShopping } from "../../redux/actions";
 
 function ShoppingBag() {
-    const dispatch = useDispatch();
-    const url = useSelector((state) => state.url);
-    const allItems = useSelector(state => state.shoppingBag)
-    const total = allItems.reduce((accumulator, item) => {
-        return accumulator + (item.price * item.quantity);
-    }, 0);
-    const handleSend = (e) => {
-        dispatch(sendShopping(e));
-        console.log("enviado")
-        setTimeout(() =>{
-          window.open(url);
-        },2000) 
+  const dispatch = useDispatch();
+  const url = useSelector((state) => state.url);
+  const allItems = useSelector((state) => state.shoppingBag);
+  const [pay, setPay] = useState(false);
+
+  const total = allItems.reduce((accumulator, item) => {
+    return accumulator + item.price * item.quantity;
+  }, 0);
+
+  const handleSend = (e) => {
+    if (pay) {
+      window.open(url);
+    } else {
+      dispatch(sendShopping(e));
+      setTimeout(() => {
+        setPay(true);
+      }, 500);
     }
+  };
 
   const exampleTicket = {
     id: "ajsigojasioda",
@@ -26,6 +32,7 @@ function ShoppingBag() {
   };
   const handleLess = (e) => {
     dispatch(lessItem(e));
+    setPay(false);
   };
   return (
     <div>
@@ -73,11 +80,12 @@ function ShoppingBag() {
         {total + exampleTicket.price != 0 ? (
           <div className="menu-linkBagTotal" id="244">
             {/* Map de la compra */}
+
             <button
               className="menu-linkBagPay"
               onClick={() => handleSend(allItems)}
             >
-              Pagar
+              {pay ? "Pagar" : "Finalizar"}
             </button>
             <p className="menu-linkBag-Data">
               Total: $ {(total + exampleTicket.price).toFixed(2)}

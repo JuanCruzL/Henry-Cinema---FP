@@ -275,10 +275,12 @@
 .reviews-container {
   position: relative;
   margin-top: 80px;
-  left: -302px
+  left: -302px;
+  max-height: fit-content;
 }
 
 .review-container {
+  position:relative;
   background-color: #232323;
   width: 600px;
   min-height: 200px;
@@ -287,7 +289,7 @@
   flex-direction: column;
   padding: 10px 30px;
   box-sizing: border-box;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .user-info {
@@ -323,7 +325,11 @@
 
 .text-container {
   padding-top: 20px;
-  word-spacing: 0.5;
+}
+
+.text-container-review {
+  margin-bottom: 40px;
+  padding-top: 20px;
 }
 
 
@@ -335,6 +341,7 @@
   color:white;
   overflow: visible;
   font-size: 1.1rem;
+  /* margin-bottom:20px; */
 }
 
 .char-counter {
@@ -355,4 +362,11 @@
 }
 .post-review-button:hover{
   cursor: pointer;
+}
+
+.review-date {
+  position: absolute;
+  bottom: 10px;
+  font-size: 0.8rem;
+  right: 10px;
 }

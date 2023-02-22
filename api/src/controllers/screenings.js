@@ -133,6 +133,8 @@ const modifySeatsById = async (req, res) => {
   }
 };
 
+
+
 module.exports = {
   getScreeningsDb,
   addScreeningToMovie,

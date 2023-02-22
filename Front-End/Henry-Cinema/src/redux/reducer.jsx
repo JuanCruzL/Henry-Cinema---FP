@@ -35,7 +35,8 @@ const initialState = {
   screeningID: [],
   //Shopping Bag
   shoppingBag: [],
-  url:[]
+  userById: {},
+  url: null,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -381,6 +382,11 @@ const rootReducer = (state = initialState, action) => {
         return{
           ...state,
           url:action.payload
+        }
+      case "GET_USER_BY_ID":
+        return {
+          ...state,
+          userById: action.payload
         }
     default:
       return state;

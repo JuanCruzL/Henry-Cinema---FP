@@ -20,7 +20,6 @@ export const SearchBar = ({ setCurrentPage }) => {
         type="text"
         className="search__input"
         placeholder="Search Movies..."
-        maxLength={20}
       />
       <button className="search__button">
         <svg className="search__icon" aria-hidden="true" viewBox="0 0 24 24">

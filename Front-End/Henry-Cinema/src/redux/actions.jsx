@@ -678,20 +678,41 @@ export const lessItem = (payload) => {
   };
 };
 
-export const sendShopping = (data) => {
+export const sendShopping = (e) => {
+
+    return async (dispatch) => {
+      const postShopp = await axios.post(`/payment`, e);
+      return dispatch({
+        type: "POST_MERCADO_PAGO",
+        payload: postShopp.data,
+      });
+    };
+  
+};
+
+export const postReview = (payload) => {
+  console.log(payload)
   return async (dispatch) => {
-    const postShopp = await axios.post(`/payment`, data);
-    return dispatch({
-      type: "POST_MERCADO_PAGO",
-      payload: postShopp.data,
-    });
+    try {
+      await axios.post("/reviews", payload);
+      dispatch({
+        type: "POST_REVIEW_SUCCESS",
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
-export const postReview = async (payload) => {
-  try {
-    await axios.post("/reviews/", payload);
-  } catch (error) {
-    console.log(error);
+
+
+export const getUserById = (id) => {
+  return async (dispatch) => {
+    try{
+      let data = await axios.get(`/users/${id}`);
+      dispatch({type: "GET_USER_BY_ID", payload: data})
+    }catch(error){
+      console.log(error)
+    }
   }
-};
+}
