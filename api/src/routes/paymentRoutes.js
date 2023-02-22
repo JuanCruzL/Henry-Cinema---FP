@@ -34,7 +34,7 @@ router.post("/",async(req,res) =>{
     .create(preference)
     .then(function (response) {
         console.log(response.body.init_point)
-        res.status(200).send(response.body.init_point)
+        res.send(response.body.init_point)
       })
       .catch(function (error) {
         console.log(error);

@@ -26,7 +26,7 @@ function Ticket({ asientosSeleccionados, screening }) {
     axios
       .put(`http://localhost:3001/screenings/${id}/seatIds`, { ids })
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         alert("Seats reserved successfully");
         dispatch(addItem(exampleTicket));
       })
