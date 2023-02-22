@@ -9,31 +9,33 @@ import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutline
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import { toggleDarkLight } from "../../Utils/Switch";
 import { useDispatch } from "react-redux";
-import { DashCombos, DashDrinks, DashFoods, DashMovie, DashUsers } from "../../../redux/actions";
+import { DashCombos, DashDrinks, DashFoods, DashMovie, DashScreen, DashUsers } from "../../../redux/actions";
 
 export const NavBarDash = ({ location = "desapareceMijo" }) => {
-  console.log(location)
   const dispatch = useDispatch();
 
   var validate = true;
   if (location == "desapareceMijo") {
     validate = false;
   }
-  
-  function BuscadorMultifuncional(e){
-    if(location="User"){
+
+  function BuscadorMultifuncional(e) {
+    if (location = "User") {
       dispatch(DashUsers(e.target.value))
     }
-    if(location="Movies"){
+    if (location = "Movies") {
       dispatch(DashMovie(e.target.value))
     }
-    if(location="Combos"){
+    if(location= "Screenings"){
+      dispatch(DashScreen(e.target.value))
+    }
+    if (location = "Combos") {
       dispatch(DashCombos(e.target.value))
     }
-    if(location="Foods"){
+    if (location = "Foods") {
       dispatch(DashFoods(e.target.value))
     }
-    if(location="Drinks"){
+    if (location = "Drinks") {
       dispatch(DashDrinks(e.target.value))
     }
   }
@@ -45,7 +47,7 @@ export const NavBarDash = ({ location = "desapareceMijo" }) => {
         <div className="wrapper">
           {validate == true && (
             <div className="searchbar" >
-              <input type="text" placeholder="Search..." onChange={(e)=>BuscadorMultifuncional(e)}/>
+              <input type="text" placeholder="Search..." onChange={(e) => BuscadorMultifuncional(e)} />
               <SearchRoundedIcon className="icon" />
             </div>
           )
@@ -58,7 +60,7 @@ export const NavBarDash = ({ location = "desapareceMijo" }) => {
             <div className="item" onClick={(e) => toggleDarkLight(e)}>
               <DarkModeOutlinedIcon className="icon" />
             </div>
-            <div className="item">
+            {/* <div className="item">
               <FullscreenExitOutlinedIcon className="icon" />
             </div>
             <div className="item">
@@ -78,7 +80,7 @@ export const NavBarDash = ({ location = "desapareceMijo" }) => {
                 alt=""
                 className="logo"
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

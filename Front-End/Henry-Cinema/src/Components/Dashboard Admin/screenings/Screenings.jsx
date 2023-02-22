@@ -18,7 +18,7 @@ export const ScreeningsDash = () => {
     <div className="list">
       <SideBarDash />
       <div className="listContainer">
-        <NavBarDash />
+        <NavBarDash location="Screenings" />
         <ScreeningsTable />
       </div>
     </div>

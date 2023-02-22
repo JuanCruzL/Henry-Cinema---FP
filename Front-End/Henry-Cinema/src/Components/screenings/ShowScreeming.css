@@ -52,6 +52,10 @@
   background-color: black;
   color: #ffff00;
 }
+.light-mode .title-room {
+  background-color: black;
+  color: #ffff00;
+}
 
 .screening-container {
   background-color: rgb(30, 30, 30);
