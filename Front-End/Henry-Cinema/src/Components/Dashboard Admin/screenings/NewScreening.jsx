@@ -7,7 +7,6 @@ import {
 } from "../../../redux/actions";
 import NavBarDash from "../NavbarDash/NavBarDash";
 import SideBarDash from "../SideBarDash/SideBarDash";
-import axios from "axios";
 import "./newscreenings.scss";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
@@ -55,7 +54,21 @@ const RoomInputs = () => {
     });
   };
 
-  console.log(reservation);
+  const handleReset = () => {
+    setId("");
+    setTitle("");
+    setRoomLetter(roomLetters[0]);
+    setDate("");
+    setStartTime("");
+    setEndTime("");
+    setDefinition("IMAX");
+    setLanguage("Sub");
+  };
+
+  const handleSaveAndReset = () => {
+    handleSave();
+    handleReset();
+  };
 
   const getNext30Days = () => {
     const today = new Date();
@@ -72,16 +85,20 @@ const RoomInputs = () => {
 
   const next30Days = getNext30Days();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(createScreening(reservation)).then(() =>
-      swal({
-        title: `The movie ${reservation.title} has been created`,
-        icon: "success",
-        button: true,
-      })
-    );
-    console.log(reservation);
+    try {
+      await dispatch(createScreening(reservation)).then(() =>
+        swal({
+          title: `The movie ${reservation.title} has been created`,
+          icon: "success",
+          button: true,
+        })
+      );
+      handleSave();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -95,22 +112,24 @@ const RoomInputs = () => {
           </div>
           <div className="bottom">
             <div className="left">
-              <div className="DataScreen">
-                <h1>Title: {reservation.title}</h1>
-                <h1>ID: {reservation.id}</h1>
-                <h1>Room: {reservation.roomLetter}</h1>
-                <h1>Date: {reservation.date}</h1>
-                <h1>Start: {reservation.startTime}</h1>
-                <h1>End: {reservation.endTime}</h1>
-                <h1>Definition: {reservation.definition}</h1>
-                <h1>Language: {reservation.language}</h1>
-                <h1>
-                  Seats: {reservation.seats ? reservation.seats.length : 0}
-                </h1>
-                <div className="buttonConfirmL">
-                  <button onClick={handleSubmit}>CONFIRM</button>
+              <form id="myForm" onSubmit={handleSubmit}>
+                <div className="DataScreen">
+                  <h1>Title: {reservation.title}</h1>
+                  <h1>ID: {reservation.id}</h1>
+                  <h1>Room: {reservation.roomLetter}</h1>
+                  <h1>Date: {reservation.date}</h1>
+                  <h1>Start: {reservation.startTime}</h1>
+                  <h1>End: {reservation.endTime}</h1>
+                  <h1>Definition: {reservation.definition}</h1>
+                  <h1>Language: {reservation.language}</h1>
+                  <h1>
+                    Seats: {reservation.seats ? reservation.seats.length : 0}
+                  </h1>
+                  <div className="buttonConfirmL">
+                    <button type="submit">CONFIRM</button>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
             <div className="right">
               <label>Movie</label>
@@ -227,7 +246,7 @@ const RoomInputs = () => {
                   <option value="Origin">Origin</option>
                 </select>
               </label>
-              <button onClick={handleSave}>SAVE</button>
+              <button onClick={handleSaveAndReset}>SAVE</button>
             </div>
           </div>
         </div>

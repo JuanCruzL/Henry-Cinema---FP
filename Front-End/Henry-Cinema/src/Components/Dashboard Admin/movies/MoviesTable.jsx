@@ -13,39 +13,41 @@ import Paper from "@mui/material/Paper";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-import { all } from "axios";
 
 export const MoviesTable = () => {
   const dispatch = useDispatch();
   var allMovies = useSelector((state) => state.movies);
-  const [count, setCount] = useState(0);
-  
-  useEffect(() => {
-    dispatch(getMovies());
-  }, [dispatch]);
+  const [movies, setAllMovies] = useState(allMovies);
 
-  const deleteAlert = (id, title) => {
-    swal({
-      title: "Are you sure?",
-      text: `this will remove ${title} from the database.`,
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((r) => {
-      if (r) {
+  useEffect(() => {
+    setAllMovies(allMovies);
+  }, [allMovies]);
+
+  const deleteAlert = async (id, title) => {
+    try {
+      const result = await swal({
+        title: "Are you sure?",
+        text: `this will remove ${title} from the database.`,
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      });
+
+      if (result) {
         dispatch(deleteMovie(id));
-        setTimeout(() => {
-          setCount(count + 1);
-          console.log("HOLAA");
-        }, 1500);
         swal({
           text: "The movie has been successfully removed.",
           icon: "success",
         });
+        const updatedMovies = await dispatch(getMovies());
+        setAllMovies(updatedMovies.data);
       } else {
         swal("Remove cancelled");
       }
-    });
+    } catch (error) {
+      console.log(error);
+      swal("error removing movie");
+    }
   };
 
   return (
