@@ -76,12 +76,7 @@
 .Available {
   width: 80%;
   text-align: center;
-<<<<<<< HEAD
-  margin: 0 auto 0 auto;
-  margin-bottom: 30px;
-=======
   margin: 0px auto 30px auto;
->>>>>>> f0ec69b64af6c74b3656b98be19ca7356122e68a
 }
 
 .Available h3 {
@@ -143,11 +138,7 @@
   padding: 10px;
   margin: auto;
   width: 80%;
-<<<<<<< HEAD
-  height: 800px; 
-=======
   height: 100%;
->>>>>>> f0ec69b64af6c74b3656b98be19ca7356122e68a
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
