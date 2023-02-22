@@ -3,7 +3,8 @@ const router = Router();
 const { ACCESS_TOKEN } = process.env;
 
 const mercadopago = require('mercadopago');
-
+// axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 require("dotenv").config();
 mercadopago.configure({
     access_token: ACCESS_TOKEN
@@ -23,7 +24,7 @@ router.post("/",async(req,res) =>{
         items:items,
 
         back_urls: {
-            success: 'http://localhost:5173/succes/payment',
+            success: '/succes/payment',
             failure:'',
             pending:''
         },
