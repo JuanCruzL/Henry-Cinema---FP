@@ -18,6 +18,10 @@ function ShoppingBag() {
       window.open(url);
     } else {
       dispatch(sendShopping(e));
+      window.localStorage.setItem(
+        "shoppingBag",
+        JSON.stringify(e)
+      );
       setTimeout(() => {
         setPay(true);
       }, 500);
