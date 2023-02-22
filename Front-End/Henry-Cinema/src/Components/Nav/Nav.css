@@ -440,10 +440,12 @@
 }
 
 .shake {
-  height: 10px;
-  width: 10px;
+  font-size: 11px;
+  color: #ffff00;
+  height: 13px;
+  width: 13px;
   border-radius: 50%;
-  background-color: red;
+  background-color: black;
   position: absolute;
   top: 50%;
   left: 50%;
