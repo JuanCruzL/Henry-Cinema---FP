@@ -12,12 +12,20 @@ import Footer from "../footer/footer";
 
 function Seating() {
   const { id, numberOfEntries } = useParams();
-  console.log(id);
+
   const dispatch = useDispatch();
   const screening = useSelector((state) => state.screeningID);
   const [asientosArray, setAsientosArray] = useState(["A1 - 1"]);
   const [asientosSeleccionados, setAsientosSeleccionados] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [initialNumberOfEntries, setInitialNumberOfEntries] = useState(
+    parseInt(numberOfEntries)
+  );
+
+  // Este useEffect se ejecutará solo cuando numberOfEntries cambie
+  useEffect(() => {
+    console.log("numberOfEntries cambió:", numberOfEntries);
+  }, [numberOfEntries]);
 
   const filas = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 
@@ -78,7 +86,7 @@ function Seating() {
               <Ticket
                 asientosSeleccionados={asientosSeleccionados}
                 screening={screening}
-                numberOfEntries={numberOfEntries}
+                initialNumberOfEntries={initialNumberOfEntries}
               />
             </div>
           </div>

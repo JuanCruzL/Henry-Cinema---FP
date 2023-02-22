@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 import { addItem } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 
-function Ticket({ asientosSeleccionados, screening }) {
+function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
+  console.log(initialNumberOfEntries);
   const [ids, setIds] = useState([]);
   const dispatch = useDispatch();
   const [isReserved, setIsReserved] = useState(false); // Nuevo estado
@@ -56,6 +57,7 @@ function Ticket({ asientosSeleccionados, screening }) {
         alert("Error reserving seats"); // Muestra un mensaje de error
       });
   };
+  console.log(initialNumberOfEntries);
 
   return (
     <div className="TiketDetail">
@@ -73,7 +75,12 @@ function Ticket({ asientosSeleccionados, screening }) {
       </p>
       <p>Tickets : {asientosSeleccionados.length}</p>
       <p>Total: {asientosSeleccionados.length * 10} USD </p>
-      <button onClick={reserveSeats}>Reserve</button>
+      <button
+        onClick={reserveSeats}
+        disabled={!(initialNumberOfEntries === asientosSeleccionados.length)}
+      >
+        Reserve
+      </button>
     </div>
   );
 }
