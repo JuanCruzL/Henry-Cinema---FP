@@ -2,32 +2,27 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { lessItem } from "../../redux/actions";
 import { sendShopping } from "../../redux/actions";
-import { useEffect } from "react";
-
 
 function ShoppingBag() {
   const dispatch = useDispatch();
   const url = useSelector((state) => state.url);
-  const isOpen = useSelector((state) => state.isOpen);
-  const allItems = useSelector(state => state.shoppingBag)
+  const allItems = useSelector((state) => state.shoppingBag);
+  const [pay, setPay] = useState(false);
 
   const total = allItems.reduce((accumulator, item) => {
-    return accumulator + (item.price * item.quantity);
+    return accumulator + item.price * item.quantity;
   }, 0);
-    
+
   const handleSend = (e) => {
-    dispatch(sendShopping(e));
-  }
-
-  const handleOpenWindow = () => {
-    if (isOpen && url) {
+    if (pay) {
       window.open(url);
+    } else {
+      dispatch(sendShopping(e));
+      setTimeout(() => {
+        setPay(true);
+      }, 500);
     }
-  }
-
-  useEffect(() => {
-    handleOpenWindow();
-  }, [isOpen]);
+  };
 
   const exampleTicket = {
     id: "ajsigojasioda",
@@ -35,13 +30,14 @@ function ShoppingBag() {
     price: 0,
     quantity: 10,
   };
-
   const handleLess = (e) => {
     dispatch(lessItem(e));
+    setPay(false);
   };
-
   return (
     <div>
+      {/* <button onClick={()=>console.log(allItems)}>click me</button>  */}
+
       {/* CONTENIEDO DE PRODUCTOS */}
       <div>
         <div className="menu-linkBagTable" id="244">
@@ -51,8 +47,18 @@ function ShoppingBag() {
           <p className="NavTableBagLink">SubTotal</p>
           <p className="NavTableBagLink">X</p>
         </div>
+        {/* Movie */}
+        {/* <div className="menu-linkBag" id="244">
+
+                    <p className='menu-linkBag-Movie'>Movie:{exampleTicket.name}</p>
+                    <p className='menu-linkBag-Movie'>{exampleTicket.price}</p>
+                    <p className='menu-linkBag-Movie'>({exampleTicket.quantity})</p>
+                    <p className='menu-linkBag-Movie'>${exampleTicket.price * exampleTicket.quantity}</p>
+                    <p className='menu-linkBag-Movie'></p>
+                </div> */}
         {allItems.map((i) => (
-          <div className="menu-linkBag" id="244" key={i.id}>
+          <div className="menu-linkBag" id="244">
+            {/* Map de la compra */}
             <p className="menu-linkBag-Data">{i.name}</p>
             <p className="menu-linkBag-Data">{i.price}</p>
             <p className="menu-linkBag-Data">({i.quantity})</p>
@@ -71,13 +77,15 @@ function ShoppingBag() {
 
       {/* DIV PAGAR Y TOTAL */}
       <div>
-        {total + exampleTicket.price !== 0 ? (
+        {total + exampleTicket.price != 0 ? (
           <div className="menu-linkBagTotal" id="244">
+            {/* Map de la compra */}
+
             <button
               className="menu-linkBagPay"
               onClick={() => handleSend(allItems)}
             >
-              Pagar
+              {pay ? "Pagar" : "Finalizar"}
             </button>
             <p className="menu-linkBag-Data">
               Total: $ {(total + exampleTicket.price).toFixed(2)}

@@ -35,7 +35,6 @@ const initialState = {
   //Shopping Bag
   shoppingBag: [],
   url: null,
-  isOpen: false
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -371,7 +370,7 @@ const rootReducer = (state = initialState, action) => {
   return{
     ...state,
     url: action.payload,
-    isOpen: true
+
   }
     default:
       return state;

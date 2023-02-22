@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../img/menus.png";
 import perfil from "../../img/editar.png";
@@ -21,6 +21,7 @@ const Nav = ({ setCurrentPage }) => {
     "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg";
   const dispatch = useDispatch();
   const user = window.localStorage.getItem("loggedUser");
+
   let decrypted = "";
   if (user === null) {
     decrypted = "null";
@@ -37,18 +38,20 @@ const Nav = ({ setCurrentPage }) => {
       icon: "success",
       button: true,
     });
-    window.location.reload(true);
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 1000);
   };
 
   const mostrarShop = () => {
-    let visible = document.getElementById('menu-BagInside')
+    let visible = document.getElementById("menu-BagInside");
 
     if (visible.className == "menu-BagInside") {
-      visible.className = "menu-BagInside-invi"
+      visible.className = "menu-BagInside-invi";
     } else {
       visible.className = "menu-BagInside";
     }
-  }
+  };
 
   return (
     <nav className="menu">
@@ -114,11 +117,11 @@ const Nav = ({ setCurrentPage }) => {
         {/* Menú Nav */}
 
         <div className="left-menu">
-        <li className="menu-item-logo">
-          <Link to="/">
-            <img src={logoCinema} className="logoh"></img>
-          </Link>
-        </li>
+          <li className="menu-item-logo">
+            <Link to="/">
+              <img src={logoCinema} className="logoh"></img>
+            </Link>
+          </li>
           <Link to="/movies" className="link-movies">
             <li className="itemsNav">
               <div className="menu-link">Movies</div>
@@ -141,7 +144,6 @@ const Nav = ({ setCurrentPage }) => {
         </li>
         <div className="right-menu">
           <div className="shopBag">
-
             <div className="menu-link-logo">
               <label className="bag" onClick={mostrarShop}>
                 <ShoppingBagIcon className="bagLogo" />
@@ -149,7 +151,7 @@ const Nav = ({ setCurrentPage }) => {
             </div>
             <ul className="menu-Bag">
               <li className="menu-BagInside-invi" id="menu-BagInside">
-                <ShoppingBag />
+                <ShoppingBag/>
               </li>
             </ul>
           </div>
