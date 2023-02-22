@@ -65,7 +65,7 @@ export const ScreeningsTable = () => {
             <TableRow key={s.id}>
               <TableCell className="tableCellScreenings">{s.title}</TableCell>
               <TableCell className="tableCellScreenings">
-                ${s.roomLetter}
+                {s.roomLetter}
               </TableCell>
               <TableCell className="tableCellScreenings">{s.date}</TableCell>
               <TableCell className="tableCellScreenings">

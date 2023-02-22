@@ -567,6 +567,12 @@ export const DashMovie = (payload) => {
     payload,
   };
 };
+export const DashScreen = (payload)=>{
+  return{
+    type: "DASH_SCREEN",
+    payload,
+  }
+}
 export const DashCombos = (payload) => {
   return {
     type: "DASH_COMBOS",
