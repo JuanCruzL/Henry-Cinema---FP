@@ -137,7 +137,7 @@ async function getScreeningById(req, res, next) {
 
     // Verificar si algún asiento tiene una reserva vencida y actualizarlo
     const now = new Date();
-    const tenMinutesAgo = new Date(now.getTime() - 2 * 60 * 1000); // 10 minutos en milisegundos
+    const tenMinutesAgo = new Date(now.getTime() - 5 * 60 * 1000); // 10 minutos en milisegundos
     const updatedSeats = screening.seats.map((seat) => {
       if (
         seat.reservationDate &&
