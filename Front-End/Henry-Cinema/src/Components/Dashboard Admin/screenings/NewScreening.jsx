@@ -174,7 +174,7 @@ const RoomInputs = () => {
                   onChange={(e) => setDate(e.target.value)}
                 >
                   <option>Select a Date</option>
-                  {[...Array(30)].map((_, i) => {
+                  {next30Days.map((_, i) => {
                     const nextDay = new Date();
                     nextDay.setDate(nextDay.getDate() + i);
                     const dateString = nextDay.toISOString().split("T")[0];
