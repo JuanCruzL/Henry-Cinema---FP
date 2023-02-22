@@ -27,8 +27,11 @@ const Nav = ({ setCurrentPage }) => {
   } else {
     decrypted = jwt_decode(user);
   }
+<<<<<<< HEAD
 
   const loggedUser = useSelector((state) => state.currentUser);
+=======
+>>>>>>> 60fa9b0a266ae5e78d68fcab04c091590ae6d702
   const navigate = useNavigate();
 
   const handleLogOut = () => {
@@ -95,10 +98,7 @@ const Nav = ({ setCurrentPage }) => {
                 <div className="menu-link menu-link--inside">About Us</div>
               </Link>
             </li>
-            {!(
-              !loggedUser.isAdministrator ||
-              loggedUser.isAdministrator === false
-            ) ? (
+            {decrypted.isAdministrator ? (
               <li className="menu-inside">
                 <Link to="/dashboard">
                   <div className="menu-link menu-link--inside">Dashboard</div>

@@ -55,29 +55,30 @@ function ShowScreenings() {
                         className="cardinfo"
                         onClick={() => handleCardClick(screening.id)}
                       >
-                        <div className="cardinfo-1">
+                        <div className="title-room">
                           <h1>Title: {screening.title}</h1>
+                        </div>
+                        <div className="cardinfo-1">
+                          <div className="room">
+                            <h1>Definition: {screening.definition}</h1>
+                          </div>
+                          <div className="room">
+                            <h1>Room: {screening.roomLetter}</h1>
+                          </div>
+                        </div>
 
-                           <div className="room">
-                             <h1>Definition: {screening.definition}</h1>
-                           </div>
-                           <div className="room">
-                             <h1>Room: {screening.roomLetter}</h1>
-                           </div>
-                         </div>
-
-                         <div className="cardinfo-2">
-                           <h1>Date: {screening.date}</h1>
-                           <div className="room">
-                             <h1>Start Time: {screening.startTime}</h1>
-                           </div>
+                        <div className="cardinfo-2">
+                          <h1>Date: {screening.date}</h1>
+                          <div className="room">
+                            <h1>Start Time: {screening.startTime}</h1>
+                          </div>
 
                           <h1>Language: {screening.language}</h1>
                         </div>
                       </div>
                     </div>
 
-                     {selectedId === screening.id && (
+                    {selectedId === screening.id && (
                       <div className="ticketsseats">
                         <label
                           className="tickets"
@@ -112,7 +113,9 @@ function ShowScreenings() {
                           className="seat-selector"
                           to={`/seating/${screening.id}/${numberOfEntries}`}
                         >
-                          <button>select seats</button>
+                          <button>
+                            <span>Select seats</span>
+                          </button>
                         </Link>
                       </div>
                     )}
