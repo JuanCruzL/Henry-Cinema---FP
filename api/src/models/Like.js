@@ -10,10 +10,18 @@ module.exports = (sequelize) => {
     userId: {
       type: DataTypes.UUID,
       allowNull: false,
+      references: {
+        model: 'User',
+        key: 'id'
+      }
     },
     movieId: {
         type: DataTypes.UUID,
         allowNull: false,
+        references: {
+          model: 'Movie',
+          key: 'id'
+        }
     }
   },
   {

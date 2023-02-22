@@ -32,7 +32,6 @@ const postLike = async(req,res) => {
 
   try {
   const like = await Like.create({userId: userId , movieId: movieId})
-  console.log(like)
   const userbyid = await User.findByPk(userId);
   const moviebyid = await Movie.findByPk(movieId);
     if(type === "like"){
