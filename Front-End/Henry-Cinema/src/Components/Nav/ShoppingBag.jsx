@@ -4,30 +4,29 @@ import { lessItem } from "../../redux/actions";
 import { sendShopping } from "../../redux/actions";
 import { useEffect } from "react";
 
-
 function ShoppingBag() {
   const dispatch = useDispatch();
   const url = useSelector((state) => state.url);
   const isOpen = useSelector((state) => state.isOpen);
-  const allItems = useSelector(state => state.shoppingBag)
+  const allItems = useSelector((state) => state.shoppingBag);
 
   const total = allItems.reduce((accumulator, item) => {
-    return accumulator + (item.price * item.quantity);
+    return accumulator + item.price * item.quantity;
   }, 0);
-    
+
   const handleSend = (e) => {
     dispatch(sendShopping(e));
-  }
+  };
 
   const handleOpenWindow = () => {
     if (isOpen && url) {
       window.open(url);
     }
-  }
+  };
 
-  useEffect(() => {
-    handleOpenWindow();
-  }, [isOpen]);
+  // useEffect(() => {
+  //   handleOpenWindow();
+  // }, [0]);
 
   const exampleTicket = {
     id: "ajsigojasioda",

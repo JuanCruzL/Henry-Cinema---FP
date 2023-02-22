@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { addItem } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 
-function Ticket({ asientosSeleccionados, screening, numberOfEntries }) {
+function Ticket({ asientosSeleccionados, screening }) {
   const [ids, setIds] = useState([]);
   const dispatch = useDispatch();
   const [isReserved, setIsReserved] = useState(false); // Nuevo estado
@@ -73,12 +73,7 @@ function Ticket({ asientosSeleccionados, screening, numberOfEntries }) {
       </p>
       <p>Tickets : {asientosSeleccionados.length}</p>
       <p>Total: {asientosSeleccionados.length * 10} USD </p>
-      <button
-        onClick={reserveSeats}
-        // Deshabilita el botón si isReserved es true
-      >
-        Reserve
-      </button>
+      <button onClick={reserveSeats}>Reserve</button>
     </div>
   );
 }
