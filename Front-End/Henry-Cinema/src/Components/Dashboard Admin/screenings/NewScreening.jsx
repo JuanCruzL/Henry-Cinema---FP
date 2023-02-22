@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getasientos, getMovies } from "../../../redux/actions";
+import {
+  getasientos,
+  getMovies,
+  createScreening,
+} from "../../../redux/actions";
 import NavBarDash from "../NavbarDash/NavBarDash";
 import SideBarDash from "../SideBarDash/SideBarDash";
-import axios from "axios";
 import "./newscreenings.scss";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 const RoomInputs = () => {
-  const loggedUser = useSelector((state) => state.currentUser);
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
   const navigate = useNavigate();
   useEffect(() => {
     if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
@@ -50,7 +54,21 @@ const RoomInputs = () => {
     });
   };
 
-  console.log(reservation);
+  const handleReset = () => {
+    setId("");
+    setTitle("");
+    setRoomLetter(roomLetters[0]);
+    setDate("");
+    setStartTime("");
+    setEndTime("");
+    setDefinition("IMAX");
+    setLanguage("Sub");
+  };
+
+  const handleSaveAndReset = () => {
+    handleSave();
+    handleReset();
+  };
 
   const getNext30Days = () => {
     const today = new Date();
@@ -67,18 +85,21 @@ const RoomInputs = () => {
 
   const next30Days = getNext30Days();
 
-  function enviarDatos() {
-    console.log(reservation);
-    axios
-      .post("http://localhost:3001/screenings", reservation)
-
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await dispatch(createScreening(reservation)).then(() =>
+        swal({
+          title: `The movie ${reservation.title} has been created`,
+          icon: "success",
+          button: true,
+        })
+      );
+      handleSave();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="NewScreen">
@@ -91,22 +112,24 @@ const RoomInputs = () => {
           </div>
           <div className="bottom">
             <div className="left">
-              <div className="DataScreen">
-                <h1>Title: {reservation.title}</h1>
-                <h1>ID: {reservation.id}</h1>
-                <h1>Room: {reservation.roomLetter}</h1>
-                <h1>Date: {reservation.date}</h1>
-                <h1>Start: {reservation.startTime}</h1>
-                <h1>End: {reservation.endTime}</h1>
-                <h1>Definition: {reservation.definition}</h1>
-                <h1>Language: {reservation.language}</h1>
-                <h1>
-                  Seats: {reservation.seats ? reservation.seats.length : 0}
-                </h1>
-                <div className="buttonConfirmL">
-                  <button onClick={enviarDatos}>CONFIRM</button>
+              <form id="myForm" onSubmit={handleSubmit}>
+                <div className="DataScreen">
+                  <h1>Title: {reservation.title}</h1>
+                  <h1>ID: {reservation.id}</h1>
+                  <h1>Room: {reservation.roomLetter}</h1>
+                  <h1>Date: {reservation.date}</h1>
+                  <h1>Start: {reservation.startTime}</h1>
+                  <h1>End: {reservation.endTime}</h1>
+                  <h1>Definition: {reservation.definition}</h1>
+                  <h1>Language: {reservation.language}</h1>
+                  <h1>
+                    Seats: {reservation.seats ? reservation.seats.length : 0}
+                  </h1>
+                  <div className="buttonConfirmL">
+                    <button type="submit">CONFIRM</button>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
             <div className="right">
               <label>Movie</label>
@@ -151,7 +174,7 @@ const RoomInputs = () => {
                   onChange={(e) => setDate(e.target.value)}
                 >
                   <option>Select a Date</option>
-                  {[...Array(30)].map((_, i) => {
+                  {next30Days.map((_, i) => {
                     const nextDay = new Date();
                     nextDay.setDate(nextDay.getDate() + i);
                     const dateString = nextDay.toISOString().split("T")[0];
@@ -223,7 +246,7 @@ const RoomInputs = () => {
                   <option value="Origin">Origin</option>
                 </select>
               </label>
-              <button onClick={handleSave}>SAVE</button>
+              <button onClick={handleSaveAndReset}>SAVE</button>
             </div>
           </div>
         </div>

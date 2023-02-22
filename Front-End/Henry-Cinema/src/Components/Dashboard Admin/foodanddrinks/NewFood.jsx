@@ -4,14 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import "./newfoods.scss";
 import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
-import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
-import OutboxRoundedIcon from "@mui/icons-material/OutboxRounded";
 import swal from "sweetalert";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewFood = () => {
-  const loggedUser = useSelector((state) => state.currentUser);
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
   const navigate = useNavigate();
   useEffect(() => {
     if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
@@ -100,18 +98,17 @@ export const NewFood = () => {
     const file = e.target.files[0];
     setFileToBase(file);
     console.log(file);
-  }
+  };
 
   const setFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setValues({ ...values, image: reader.result });
-    }
-  }
+    };
+  };
 
   const handleSubmit = (e) => {
-    console.log(values);
     e.preventDefault();
     const isValid = validateAll();
     if (!isValid) {
@@ -124,7 +121,11 @@ export const NewFood = () => {
         button: true,
       })
     );
-    console.log(values);
+    setValues({
+      name: "",
+      price: "",
+      image: "",
+    });
   };
 
   const { name, image, price } = values;
@@ -144,9 +145,11 @@ export const NewFood = () => {
             <img
               className="imageNF"
               id="imageNF"
-
-              src={image ? image : "https://thumbs.dreamstime.com/b/objeto-vectorial-de-la-vista-superior-pizza-blanco-y-negro-con-diferentes-ingredientes-o-elemento-dise%C3%B1o-en-estilo-monocromo-185052567.jpg"}
-
+              src={
+                image
+                  ? image
+                  : "https://thumbs.dreamstime.com/b/objeto-vectorial-de-la-vista-superior-pizza-blanco-y-negro-con-diferentes-ingredientes-o-elemento-dise%C3%B1o-en-estilo-monocromo-185052567.jpg"
+              }
               alt=""
             />
           </div>

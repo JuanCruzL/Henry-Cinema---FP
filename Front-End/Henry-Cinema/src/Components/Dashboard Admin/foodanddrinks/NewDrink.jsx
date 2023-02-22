@@ -4,14 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import "./newdrink.scss";
 import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
-import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
-import OutboxRoundedIcon from "@mui/icons-material/OutboxRounded";
 import swal from "sweetalert";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewDrink = () => {
-  const loggedUser = useSelector((state) => state.currentUser);
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
   const navigate = useNavigate();
   useEffect(() => {
     if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
@@ -100,9 +98,7 @@ export const NewDrink = () => {
     const file = e.target.files[0];
     setFileToBase(file);
     console.log(file);
-
   };
-
 
   const setFileToBase = (file) => {
     const reader = new FileReader();
@@ -112,9 +108,7 @@ export const NewDrink = () => {
     };
   };
 
-
   const handleSubmit = (e) => {
-    console.log(values);
     e.preventDefault();
     const isValid = validateAll();
     if (!isValid) {
@@ -127,7 +121,11 @@ export const NewDrink = () => {
         button: true,
       })
     );
-    console.log(values);
+    setValues({
+      name: "",
+      price: "",
+      image: "",
+    });
   };
 
   const { name, image, price } = values;
@@ -147,9 +145,11 @@ export const NewDrink = () => {
             <img
               className="imageND"
               id="imageND"
-
-              src={image ? image : "https://thumbs.dreamstime.com/b/takeaway-cold-brew-coffee-vector-minimalistic-line-art-illustration-isolated-white-background-216624208.jpg"}
-
+              src={
+                image
+                  ? image
+                  : "https://thumbs.dreamstime.com/b/takeaway-cold-brew-coffee-vector-minimalistic-line-art-illustration-isolated-white-background-216624208.jpg"
+              }
               alt=""
             />
           </div>

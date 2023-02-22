@@ -4,16 +4,19 @@ import { addToCart } from "../../../redux/actions";
 import "./CardsFoods.css";
 import { addItem } from "../../../redux/actions";
 import { useState } from "react";
+import { sendShopping } from "../../../redux/actions";
 
 function CardsFoods({ name,id, description, price, image, kind }) {
   const dispatch = useDispatch();
-  const shopping = useSelector((state) => state.shoppingBag);
+  const allItems = useSelector(state => state.shoppingBag)
+ 
   const handleAdd = (e) => {
     /* e.preventDefault(); */
-     dispatch(addItem(e)); 
-    /* console.log(e)
-  
-    console.log("agregado") */
+   
+      dispatch(addItem(e)); 
+    
+     
+    
   }
   return (
     <div className={`card${kind}`}>

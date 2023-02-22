@@ -22,6 +22,7 @@ const initialState = {
   newGenres: [],
   // Para el componente Screenings
   screenings: [],
+  screeningsCopy: [],
   // Para el componente Users.
   users: [],
   usersCopy: [],
@@ -34,6 +35,8 @@ const initialState = {
   screeningID: [],
   //Shopping Bag
   shoppingBag: [],
+  userById: {},
+  url: null,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -104,6 +107,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         screenings: action.payload,
+        screeningsCopy:action.payload,
       };
     }
     case "CREATE_SCREENING":
@@ -286,6 +290,15 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         movies: FoundMovi,
       };
+    case "DASH_SCREEN":
+      const scre= state.screeningsCopy;
+      const FoundScre= scre.filter((S)=>{
+        return S.title.toLowerCase().includes(action.payload.toLowerCase())
+      });
+      return{
+        ...state,
+        screenings:FoundScre,
+      }
     case "DASH_COMBOS":
       const com = state.copyCombos;
       const FoundCom = com.filter((C) => {
@@ -367,7 +380,13 @@ const rootReducer = (state = initialState, action) => {
 
       case "POST_MERCADO_PAGO":
         return{
-          ...state
+          ...state,
+          url:action.payload
+        }
+      case "GET_USER_BY_ID":
+        return {
+          ...state,
+          userById: action.payload
         }
     default:
       return state;

@@ -107,7 +107,7 @@ export default function Login() {
     if (loggedUser.accessToken) {
       window.localStorage.setItem(
         "loggedUser",
-        JSON.stringify({ accessToken: loggedUser.accessToken })
+        JSON.stringify({ accessToken: loggedUser.accessToken, isAdministrator: loggedUser.isAdministrator })
       );
       setFormIn({
         email: "",
@@ -154,7 +154,7 @@ export default function Login() {
       if (loggedUser.accessToken) {
         window.localStorage.setItem(
           "loggedUser",
-          JSON.stringify({ accessToken: loggedUser.accessToken })
+          JSON.stringify({ accessToken: loggedUser.accessToken, isAdministrator: loggedUser.isAdministrator })
         );
         // console.log(currentUser);
         navigate("/");

@@ -23,7 +23,7 @@ router.post("/",async(req,res) =>{
         items:items,
 
         back_urls: {
-            success: 'http://localhost:5173/',
+            success: 'http://localhost:5173/succes/payment',
             failure:'',
             pending:''
         },
@@ -33,8 +33,9 @@ router.post("/",async(req,res) =>{
     mercadopago.preferences
     .create(preference)
     .then(function (response) {
-        console.log(response)
-        res.send('success')
+        console.log(response.body.init_point)
+        res.send(response.body.init_point)
+        console.log("succes")
       })
       .catch(function (error) {
         console.log(error);

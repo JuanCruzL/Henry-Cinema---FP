@@ -19,6 +19,7 @@ function Foods() {
   const [seeFood, setSeeFoods] = useState("");
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState("combos");
+  const url = useSelector((state) => state.url);
 
   useEffect(() => {
     dispatch(getFoods());
@@ -42,7 +43,7 @@ function Foods() {
   return (
     <div className="containerComponent">
       <Nav></Nav>
-
+    {/* <button onClick={()=> console.log(url)}>click me</button> */}
       <div className="container-foods">
         <div className="buttons-foods">
           <div

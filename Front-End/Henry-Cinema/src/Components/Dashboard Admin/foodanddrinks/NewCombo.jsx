@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewCombo = () => {
-  const loggedUser = useSelector((state) => state.currentUser);
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
   const navigate = useNavigate();
   useEffect(() => {
     if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
@@ -108,18 +108,17 @@ export const NewCombo = () => {
     const file = e.target.files[0];
     setFileToBase(file);
     console.log(file);
-  }
+  };
 
   const setFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setValues({ ...values, image: reader.result });
-    }
-  }
+    };
+  };
 
   const handleSubmit = (e) => {
-    console.log(values);
     e.preventDefault();
     const isValid = validateAll();
     if (!isValid) {
@@ -132,13 +131,22 @@ export const NewCombo = () => {
         button: true,
       })
     );
-    console.log(values);
+    setValues({
+      name: "",
+      description: "",
+      price: "",
+      image: "",
+    });
   };
 
   const { name, description, image, price } = values;
 
-  const { name: nameVal, description: descriptionVal, image: imageVal, price: priceVal } = validations;
-
+  const {
+    name: nameVal,
+    description: descriptionVal,
+    image: imageVal,
+    price: priceVal,
+  } = validations;
 
   return (
     <div className="newCombo">
@@ -154,9 +162,11 @@ export const NewCombo = () => {
               <img
                 className="imageNC"
                 id="imageNC"
-
-                src={image ? image : "https://st3.depositphotos.com/1755257/13176/v/450/depositphotos_131760572-stock-illustration-popcorn-boxes-set.jpg"}
-
+                src={
+                  image
+                    ? image
+                    : "https://st3.depositphotos.com/1755257/13176/v/450/depositphotos_131760572-stock-illustration-popcorn-boxes-set.jpg"
+                }
                 alt=""
               />
             </div>
