@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
 const RoomInputs = () => {
-  const loggedUser = useSelector((state) => state.currentUser);
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
   const navigate = useNavigate();
   useEffect(() => {
     if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
