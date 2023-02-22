@@ -21,6 +21,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req,res) => {
+  try {
+    let { id } = req.params
+   let user = await User.findByPk(id)
+   res.status(200).send(user)
+  }catch(error) {
+    res.send(404).send(error)
+    console.log(error)
+  }
+})
+
 router.post("/", async (req, res) => {
   const formPostUsers = req.body;
 
