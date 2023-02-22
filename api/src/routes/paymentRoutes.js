@@ -24,7 +24,7 @@ router.post("/",async(req,res) =>{
         items:items,
 
         back_urls: {
-            success: '/succes/payment',
+            success: 'succes/payment',
             failure:'',
             pending:''
         },
