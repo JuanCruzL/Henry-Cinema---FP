@@ -1,7 +1,12 @@
 .container-paginated{
     text-align: left;
-    width: 85%;
     margin: auto;
+    
+    width: 85%;
+    /* LIMITADORES */
+    max-width: 1290px;
+    max-height: 32px;
+
 }
 .container-paginated .paginated{
     width: 100%;
@@ -11,7 +16,6 @@
 .container-paginated .number{
     display: inline;
 }
-
 
 .container-paginated .buttonPage{
     border-radius: 0;
