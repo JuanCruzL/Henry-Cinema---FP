@@ -13,16 +13,15 @@ import Paper from "@mui/material/Paper";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-import { all } from "axios";
 
 export const MoviesTable = () => {
   const dispatch = useDispatch();
-  var allMovies = useSelector((state) => state.movies);
+  const allMovies = useSelector((state) => state.movies);
   const [count, setCount] = useState(0);
-  
+
   useEffect(() => {
     dispatch(getMovies());
-  }, [dispatch]);
+  }, [dispatch, count]);
 
   const deleteAlert = (id, title) => {
     swal({
@@ -31,19 +30,29 @@ export const MoviesTable = () => {
       icon: "warning",
       buttons: true,
       dangerMode: true,
+      customClass: {
+        confirmButton: "btn btn-danger",
+        cancelButton: "btn btn-secondary",
+      },
     }).then((r) => {
       if (r) {
         dispatch(deleteMovie(id));
         setTimeout(() => {
           setCount(count + 1);
-          console.log("HOLAA");
         }, 1500);
         swal({
           text: "The movie has been successfully removed.",
           icon: "success",
+          customClass: {
+            confirmButton: "btn-secondary",
+          },
         });
       } else {
-        swal("Remove cancelled");
+        swal("Remove cancelled", {
+          customClass: {
+            confirmButton: "btn-secondary",
+          },
+        });
       }
     });
   };

@@ -38,18 +38,20 @@ const Nav = ({ setCurrentPage }) => {
       icon: "success",
       button: true,
     });
-    window.location.reload(true);
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 1000);
   };
 
   const mostrarShop = () => {
-    let visible = document.getElementById('menu-BagInside')
+    let visible = document.getElementById("menu-BagInside");
 
     if (visible.className == "menu-BagInside") {
-      visible.className = "menu-BagInside-invi"
+      visible.className = "menu-BagInside-invi";
     } else {
       visible.className = "menu-BagInside";
     }
-  }
+  };
 
   return (
     <nav className="menu">
@@ -115,11 +117,11 @@ const Nav = ({ setCurrentPage }) => {
         {/* Menú Nav */}
 
         <div className="left-menu">
-        <li className="menu-item-logo">
-          <Link to="/">
-            <img src={logoCinema} className="logoh"></img>
-          </Link>
-        </li>
+          <li className="menu-item-logo">
+            <Link to="/">
+              <img src={logoCinema} className="logoh"></img>
+            </Link>
+          </li>
           <Link to="/movies" className="link-movies">
             <li className="itemsNav">
               <div className="menu-link">Movies</div>
@@ -142,7 +144,6 @@ const Nav = ({ setCurrentPage }) => {
         </li>
         <div className="right-menu">
           <div className="shopBag">
-
             <div className="menu-link-logo">
               <label className="bag" onClick={mostrarShop}>
                 <ShoppingBagIcon className="bagLogo" />
