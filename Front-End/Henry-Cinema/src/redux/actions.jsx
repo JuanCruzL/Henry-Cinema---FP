@@ -34,8 +34,7 @@ import {
 
 axios.defaults.baseURL = "http://localhost:3001";
 //axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
-axios.defaults.baseURL = "http://localhost:3001";
-// axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
+
 //MOVIES
 
 export const getMovies = () => {
@@ -567,12 +566,12 @@ export const DashMovie = (payload) => {
     payload,
   };
 };
-export const DashScreen = (payload)=>{
-  return{
+export const DashScreen = (payload) => {
+  return {
     type: "DASH_SCREEN",
     payload,
-  }
-}
+  };
+};
 export const DashCombos = (payload) => {
   return {
     type: "DASH_COMBOS",
@@ -679,19 +678,17 @@ export const lessItem = (payload) => {
 };
 
 export const sendShopping = (e) => {
-
-    return async (dispatch) => {
-      const postShopp = await axios.post(`/payment`, e);
-      return dispatch({
-        type: "POST_MERCADO_PAGO",
-        payload: postShopp.data,
-      });
-    };
-  
+  return async (dispatch) => {
+    const postShopp = await axios.post(`/payment`, e);
+    return dispatch({
+      type: "POST_MERCADO_PAGO",
+      payload: postShopp.data,
+    });
+  };
 };
 
 export const postReview = (payload) => {
-  console.log(payload)
+  console.log(payload);
   return async (dispatch) => {
     try {
       await axios.post("/reviews", payload);
@@ -704,15 +701,13 @@ export const postReview = (payload) => {
   };
 };
 
-
-
 export const getUserById = (id) => {
   return async (dispatch) => {
-    try{
+    try {
       let data = await axios.get(`/users/${id}`);
-      dispatch({type: "GET_USER_BY_ID", payload: data})
-    }catch(error){
-      console.log(error)
+      dispatch({ type: "GET_USER_BY_ID", payload: data });
+    } catch (error) {
+      console.log(error);
     }
-  }
-}
+  };
+};

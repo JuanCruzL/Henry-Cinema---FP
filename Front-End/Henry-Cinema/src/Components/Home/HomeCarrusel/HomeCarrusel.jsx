@@ -6,7 +6,7 @@ export default function HomeCarrusel({ cartelera }) {
   let tiempo;
   let actual = 0;
   var cantidad = 0;
-  const velocidad = 2000;
+  const velocidad = 5000;
   mostrar(actual);
   tiempo = setInterval(() => {
     Next();
