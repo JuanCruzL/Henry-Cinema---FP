@@ -11,13 +11,15 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export const HomeDash = () => {
-  const loggedUser = useSelector((state) => state.currentUser);
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
   const navigate = useNavigate();
+  console.log(loggedUser);
   useEffect(() => {
     if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
       navigate("/");
     }
   });
+
 
   return (
     <div className="home">

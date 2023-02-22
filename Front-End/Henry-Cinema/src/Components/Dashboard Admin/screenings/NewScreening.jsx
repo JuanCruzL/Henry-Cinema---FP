@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
 const RoomInputs = () => {
-  const loggedUser = useSelector((state) => state.currentUser);
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
   const navigate = useNavigate();
   useEffect(() => {
     if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
@@ -174,7 +174,7 @@ const RoomInputs = () => {
                   onChange={(e) => setDate(e.target.value)}
                 >
                   <option>Select a Date</option>
-                  {[...Array(30)].map((_, i) => {
+                  {next30Days.map((_, i) => {
                     const nextDay = new Date();
                     nextDay.setDate(nextDay.getDate() + i);
                     const dateString = nextDay.toISOString().split("T")[0];

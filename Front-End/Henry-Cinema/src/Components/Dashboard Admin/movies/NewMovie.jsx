@@ -8,7 +8,7 @@ import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 
 export const NewMovie = () => {
-  const loggedUser = useSelector((state) => state.currentUser);
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
   const navigate = useNavigate();
   useEffect(() => {
     if (!loggedUser.isAdministrator || loggedUser.isAdministrator === false) {
