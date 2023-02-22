@@ -70,7 +70,7 @@
 .poster-container {
   width: 300px;
   border-radius: 10px;
-  margin: 65px 25px;
+  margin: 95px 25px;
   display: flex;
   background-color: rgb(17 17 17 / 40%);
   box-shadow: 0 8px 16px 0 rgba(80, 79, 40, 0.227), 0 6px 20px 0 #83824b41;
@@ -78,7 +78,7 @@
 }
 .poster {
   border-radius: 10px;
-  margin: 65px 80px;
+  margin: 95px 80px;
   width: auto;
   height: 380px;
   box-shadow: 0 8px 16px 0 rgba(141, 139, 72, 0.227), 0 6px 20px 0 #9b9a5941;
