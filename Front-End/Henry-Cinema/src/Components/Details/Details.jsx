@@ -26,7 +26,7 @@ export default function Details() {
   const [dislikes, setDislikes] = useState(0)
   const [likeAction, setLikeAction]= useState(null)
   const [dislikeAction, setDislikeAction]= useState(null)
-  axios.defaults.baseURL = "http://localhost:3001"
+//   axios.defaults.baseURL = "http://localhost:3001"
   useEffect(() => {
     dispatch(getMovieById(id));
     dispatch(getUsers());
