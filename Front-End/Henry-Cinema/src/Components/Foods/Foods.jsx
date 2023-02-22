@@ -43,7 +43,7 @@ function Foods() {
   return (
     <div className="containerComponent">
       <Nav></Nav>
-    {/* <button onClick={()=> console.log(url)}>click me</button> */}
+    <button onClick={()=> console.log(url)}>click me</button>
       <div className="container-foods">
         <div className="buttons-foods">
           <div
