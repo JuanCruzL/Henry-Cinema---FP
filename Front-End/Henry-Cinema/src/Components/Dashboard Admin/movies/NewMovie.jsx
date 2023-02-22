@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createMovie, getGenres } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import "./newmovie.scss";
 import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
-import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
-import OutboxRoundedIcon from "@mui/icons-material/OutboxRounded";
 import swal from "sweetalert";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewMovie = () => {
@@ -236,15 +233,28 @@ export const NewMovie = () => {
       ...values,
     };
 
-    dispatch(createMovie(newMovie)).then(() =>
+    dispatch(createMovie(newMovie)).then(() => {
       swal({
         title: `The movie ${newMovie.title} has been created`,
         icon: "success",
         button: true,
-      })
-    );
-    navigate("/dashboard/movies/new");
-    console.log(newMovie);
+      });
+      setValues({
+        title: "",
+        imageVertical: "",
+        voteAverage: "",
+        imageHorizontal: "",
+        overview: "",
+        status: "",
+        productionCompanies: "",
+        runtime: "",
+        originalLanguage: "",
+        genres: [],
+        directors: "",
+        video: "",
+        classification: "",
+      });
+    });
   };
 
   const {

@@ -30,6 +30,10 @@ export const MoviesTable = () => {
       icon: "warning",
       buttons: true,
       dangerMode: true,
+      customClass: {
+        confirmButton: "btn btn-danger",
+        cancelButton: "btn btn-secondary",
+      },
     }).then((r) => {
       if (r) {
         dispatch(deleteMovie(id));
@@ -39,9 +43,16 @@ export const MoviesTable = () => {
         swal({
           text: "The movie has been successfully removed.",
           icon: "success",
+          customClass: {
+            confirmButton: "btn-secondary",
+          },
         });
       } else {
-        swal("Remove cancelled");
+        swal("Remove cancelled", {
+          customClass: {
+            confirmButton: "btn-secondary",
+          },
+        });
       }
     });
   };
