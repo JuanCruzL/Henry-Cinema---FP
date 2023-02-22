@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovieById, postReview } from "../../redux/actions";
+import { getMovieById, postReview, getUsers } from "../../redux/actions";
 import Nav from "../Nav/Nav";
 import "./Details.css";
 import Loader from "../Loader/Loader";
 import Footer from "../footer/footer";
 import jwt_decode from "jwt-decode";
+import Review from "./Review";
 
 export default function Details() {
   const { id } = useParams();
@@ -19,6 +20,7 @@ export default function Details() {
   
   useEffect(() => {
     dispatch(getMovieById(id));
+    dispatch(getUsers())
     setTimeout(() => {
       setLoading(false);
     }, 1500);
@@ -28,7 +30,7 @@ export default function Details() {
   
   
   const movie = useSelector((state) => state.movieId);
-  console.log(movie)
+  const users = useSelector(state => state.users)
   const [form, setForm] = useState({
     review: "",
     userId: userinfo.id,
@@ -68,14 +70,13 @@ export default function Details() {
       ...form,
     review: e.target.value
     })
-    // console.log(form)
+
   }
 
   const handlePostReview = async(e) => {
     e.preventDefault()
     await dispatch(postReview(form))
   }
-
   if (loading) {
     return <Loader />;
   } else {
@@ -176,16 +177,9 @@ export default function Details() {
                 <button type="submit" className="post-review-button">Post Review</button>
               </form>
             </div>
-            {movie?.reviews?.map(e => <div className="review-container">
-              <div className="user-info">
-                {/* <img className="user-image" src={}></img> */}
-                <div className="review-user-name">{}</div>
-              </div>
-              <div className="decoration"></div>
-                <div className="text-container">
-                  <div>{e.review}</div>
-                </div>
-            </div>)}
+            <div className="users-reviews">
+              {movie?.Reviews?.map((e) => {var user = users?.find((usuario) => e?.User_Review===usuario?.id); return <Review review={e?.review} key={e?.id} username={user?.userName} image={user?.image} date={e.createdAt}/>})}
+            </div>
           </div>
         </div>
         <Footer />
@@ -193,3 +187,5 @@ export default function Details() {
     );
   }
 }
+
+//<Review review={element?.review} key={element?.id} username={user?.userName} image={user?.image}/>

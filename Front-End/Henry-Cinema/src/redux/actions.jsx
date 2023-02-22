@@ -695,3 +695,15 @@ export const postReview = (payload) => {
     }
   };
 };
+
+
+export const getUserById = (id) => {
+  return async (dispatch) => {
+    try{
+      let data = await axios.get(`/users/${id}`);
+      dispatch({type: "GET_USER_BY_ID", payload: data})
+    }catch(error){
+      console.log(error)
+    }
+  }
+}
