@@ -22,7 +22,7 @@ router.post("/",async(req,res) =>{
         items:items,
 
         back_urls: {
-            success: 'https://henry-cinemafront-production.up.railway.app/',
+            success: 'https://henry-cinemafront-production.up.railway.app/succes/payment',
             failure:'',
             pending:''
         },
