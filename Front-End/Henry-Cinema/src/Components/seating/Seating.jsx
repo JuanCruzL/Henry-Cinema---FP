@@ -63,36 +63,38 @@ function Seating() {
   console.log(asientosSeleccionados);
   return (
     <>
-      <Nav />
-      <div className="seating">
-        {loading ? (
-          <Loader />
-        ) : (
-          <div className="screen">
-            <div className="pantalla">
-              <h1> Screen</h1>
-            </div>
-            <div className="Container-Seating">
-              {filas.map((letra) => (
-                <Seats
-                  seatsData={asientosArray}
-                  handleClick={handleClick}
-                  letra={letra}
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Nav />
+          <div className="seating">
+            <div className="screen">
+              <div className="pantalla">
+                <h1> Screen</h1>
+              </div>
+              <div className="Container-Seating">
+                {filas.map((letra) => (
+                  <Seats
+                    seatsData={asientosArray}
+                    handleClick={handleClick}
+                    letra={letra}
+                    asientosSeleccionados={asientosSeleccionados}
+                  />
+                ))}
+              </div>
+              <div className="selected">
+                <Ticket
                   asientosSeleccionados={asientosSeleccionados}
+                  screening={screening}
+                  initialNumberOfEntries={initialNumberOfEntries}
                 />
-              ))}
+              </div>
             </div>
-            <div className="selected">
-              <Ticket
-                asientosSeleccionados={asientosSeleccionados}
-                screening={screening}
-                initialNumberOfEntries={initialNumberOfEntries}
-              />
-            </div>
+            <Footer />
           </div>
-        )}
-        <Footer />
-      </div>
+        </>
+      )}
     </>
   );
 }
