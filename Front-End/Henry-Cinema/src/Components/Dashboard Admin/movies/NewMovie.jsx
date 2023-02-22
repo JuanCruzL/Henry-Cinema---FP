@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createMovie, getGenres } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import "./newmovie.scss";
 import { SideBarDash } from "../SideBarDash/SideBarDash";
 import { NavBarDash } from "../NavbarDash/NavBarDash";
-import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
-import OutboxRoundedIcon from "@mui/icons-material/OutboxRounded";
 import swal from "sweetalert";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const NewMovie = () => {
@@ -195,7 +192,6 @@ export const NewMovie = () => {
     setPosterFileToBase(file);
   };
 
-
   const setPosterFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -209,7 +205,6 @@ export const NewMovie = () => {
     setBannerFileToBase(file);
   };
 
-
   const setBannerFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -217,7 +212,6 @@ export const NewMovie = () => {
       setValues({ ...values, imageHorizontal: reader.result });
     };
   };
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -239,14 +233,28 @@ export const NewMovie = () => {
       ...values,
     };
 
-    dispatch(createMovie(newMovie)).then(() =>
+    dispatch(createMovie(newMovie)).then(() => {
       swal({
         title: `The movie ${newMovie.title} has been created`,
         icon: "success",
         button: true,
-      })
-    );
-    console.log(newMovie);
+      });
+      setValues({
+        title: "",
+        imageVertical: "",
+        voteAverage: "",
+        imageHorizontal: "",
+        overview: "",
+        status: "",
+        productionCompanies: "",
+        runtime: "",
+        originalLanguage: "",
+        genres: [],
+        directors: "",
+        video: "",
+        classification: "",
+      });
+    });
   };
 
   const {
@@ -278,8 +286,6 @@ export const NewMovie = () => {
     classification: classificationVal,
   } = validations;
 
-
-
   return (
     <div className="newMovie">
       <SideBarDash />
@@ -293,7 +299,11 @@ export const NewMovie = () => {
             <img
               className="imageNM"
               id="imageNM"
-              src={imageVertical ? imageVertical : "https://st4.depositphotos.com/3788621/24041/i/450/depositphotos_240418652-stock-photo-movie-time-concept-creative-template.jpg"}
+              src={
+                imageVertical
+                  ? imageVertical
+                  : "https://st4.depositphotos.com/3788621/24041/i/450/depositphotos_240418652-stock-photo-movie-time-concept-creative-template.jpg"
+              }
               alt=""
             />
           </div>
@@ -486,14 +496,18 @@ export const NewMovie = () => {
             </form>
           </div>
         </div>
-          <div className="BottomBottom">
+        <div className="BottomBottom">
           <img
-              className="imageNMB"
-              id="imageNMB"
-              src={imageHorizontal ? imageHorizontal : "https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-film-and-television-film-festival-retro-wind-camera-film-poster-image_215411.jpg"}
-              alt=""
-            />
-          </div>
+            className="imageNMB"
+            id="imageNMB"
+            src={
+              imageHorizontal
+                ? imageHorizontal
+                : "https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-film-and-television-film-festival-retro-wind-camera-film-poster-image_215411.jpg"
+            }
+            alt=""
+          />
+        </div>
       </div>
     </div>
   );

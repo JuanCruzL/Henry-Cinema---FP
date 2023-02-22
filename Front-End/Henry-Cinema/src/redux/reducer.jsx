@@ -34,8 +34,8 @@ const initialState = {
   screeningID: [],
   //Shopping Bag
   shoppingBag: [],
-  url:[],
   userById: {},
+  url: null,
 };
 
 const rootReducer = (state = initialState, action) => {

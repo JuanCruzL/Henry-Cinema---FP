@@ -672,14 +672,16 @@ export const lessItem = (payload) => {
   };
 };
 
-export const sendShopping = (data) => {
-  return async (dispatch) => {
-    const postShopp = await axios.post(`/payment`, data);
-    return dispatch({
-      type: "POST_MERCADO_PAGO",
-      payload: postShopp.data,
-    });
-  };
+export const sendShopping = (e) => {
+
+    return async (dispatch) => {
+      const postShopp = await axios.post(`/payment`, e);
+      return dispatch({
+        type: "POST_MERCADO_PAGO",
+        payload: postShopp.data,
+      });
+    };
+  
 };
 
 export const postReview = (payload) => {
@@ -695,6 +697,7 @@ export const postReview = (payload) => {
     }
   };
 };
+
 
 
 export const getUserById = (id) => {
