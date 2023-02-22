@@ -5,6 +5,49 @@ const getScreeningsDb = async () => {
   return allScreeningsDb;
 };
 
+// async function addScreeningToMovie(req, res, next) {
+//   const {
+//     id,
+//     roomLetter,
+//     date,
+//     startTime,
+//     endTime,
+//     definition,
+//     language,
+//     seats,
+//     title,
+//   } = req.body; // Los datos de la proyección se pasan en el cuerpo de la solicitud
+
+//   try {
+//     // Buscar la película por ID
+//     const movie = await Movie.findByPk(id);
+//     console.log(id);
+//     console.log(movie);
+
+//     if (!movie) {
+//       return res.status(404).json({ message: "La película no existe" });
+//     }
+//     // Crear la proyección
+//     const screening = await Screening.create({
+//       roomLetter,
+//       date,
+//       startTime,
+//       endTime,
+//       definition,
+//       language,
+//       seats,
+//       title,
+//     });
+
+//     // Agregar la proyección a la película
+//     await movie.addScreening(screening);
+
+//     return res.status(201).json(screening); // Devolver la proyección creada
+//   } catch (error) {
+//     next(error);
+//   }
+// }
+
 async function addScreeningToMovie(req, res, next) {
   const {
     id,
@@ -27,6 +70,22 @@ async function addScreeningToMovie(req, res, next) {
     if (!movie) {
       return res.status(404).json({ message: "La película no existe" });
     }
+
+    // Verificar si ya existe una función en la misma sala, día y hora de inicio
+    const existingScreening = await Screening.findOne({
+      where: {
+        roomLetter,
+        date,
+        startTime,
+      },
+    });
+
+    if (existingScreening) {
+      return res.status(400).json({
+        message: "Ya existe una función en la misma sala, día y hora de inicio",
+      });
+    }
+
     // Crear la proyección
     const screening = await Screening.create({
       roomLetter,
@@ -132,8 +191,6 @@ const modifySeatsById = async (req, res) => {
       .json({ message: "Ocurrió un error al actualizar los asientos" });
   }
 };
-
-
 
 module.exports = {
   getScreeningsDb,
