@@ -29,6 +29,7 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import Seating from "./Components/seating/Seating";
 import PerfilUser from "./Components/perfilUser/perfilUser";
 import ShowScreenings from "./Components/screenings/ShowScreenings";
+import Succes from "./Components/Succes/Succes";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -133,6 +134,10 @@ const router = createBrowserRouter([
     path: "user",
     element: <PerfilUser />,
   },
+  {
+    path: "/succes/payment",
+    element : <Succes/>
+  }
 ]);
 
 root.render(
