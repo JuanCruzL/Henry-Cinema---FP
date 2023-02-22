@@ -9,6 +9,10 @@
   background-color: var(--BaseL);
   box-shadow: 0 8px 16px 0 #08080872, 0 6px 20px 0 hsla(0, 0%, 2%, 0.662);
 }
+.light-mode .poster {
+  background-color: var(--BaseL);
+  box-shadow: 0 8px 16px 0 #08080872, 0 6px 20px 0 hsla(0, 0%, 2%, 0.662);
+}
 .light-mode .tickets {
   color: var(--LText-1);
 }
@@ -23,9 +27,12 @@
 .light-mode .cardinfo {
   color: var(--LText-1);
 }
-.light-mode .cardinfo-1 {
-  border-bottom: 2px solid var(--LBase-1);
+.light-mode .cardinfo:hover {
+  border-radius: 10px;
+  transform: translate(-2px, -4px);
+  box-shadow: 0 8px 16px 0 #08080872, 0 6px 20px 0 hsla(0, 0%, 2%, 0.662);
 }
+
 .light-mode #bottone1 {
   background-color: var(--LBase-1);
   color: var(--LText-3);
@@ -51,6 +58,8 @@
   display: flex;
   height: 100%;
   width: 100%;
+  justify-content: center;
+  flex-wrap: nowrap;
 }
 
 .posters-container {
@@ -59,16 +68,20 @@
   flex-wrap: nowrap;
 }
 .poster-container {
-  margin: 65px 25px;
+  width: 300px;
+  border-radius: 10px;
+  margin: 95px 25px;
   display: flex;
-  background-color: black;
+  background-color: rgb(17 17 17 / 40%);
   box-shadow: 0 8px 16px 0 rgba(80, 79, 40, 0.227), 0 6px 20px 0 #83824b41;
   height: 380px;
 }
 .poster {
-  margin: 65px 25px;
+  border-radius: 10px;
+  margin: 95px 80px;
   width: auto;
   height: 380px;
+  box-shadow: 0 8px 16px 0 rgba(141, 139, 72, 0.227), 0 6px 20px 0 #9b9a5941;
 }
 
 .cardinfo {
@@ -79,12 +92,33 @@
   font-size: 1.25rem;
   cursor: pointer;
 }
+.cardinfo:hover {
+  border-radius: 10px;
+  transform: translate(-2px, -4px);
+  box-shadow: 0 8px 16px 0 rgba(80, 79, 40, 0.227), 0 6px 20px 0 #83824b41;
+}
 .room {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  align-content: flex-end;
+  align-items: center;
 }
+.title-room {
+  padding: 5px;
+  color: black;
+  padding: auto;
+  border-radius: 10px 10px 0 0;
+  background-color: #ffff00;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-content: space-around;
+  align-items: center;
+}
+
 .cardinfo-2 {
   display: flex;
   flex-direction: row;
@@ -99,14 +133,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  border-bottom: 2px solid #ffff00;
 }
 .ticketsseats {
+  border-radius: 10px;
   margin: 30px 25px 50px;
   padding: 10px;
   display: flex;
   align-items: center;
-  background-color: black;
+  background-color: rgb(17 17 17 / 40%);
   box-shadow: 0 8px 16px 0 rgba(80, 79, 40, 0.227), 0 6px 20px 0 #83824b41;
 }
 .tickets {
