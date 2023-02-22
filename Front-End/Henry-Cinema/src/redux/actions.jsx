@@ -684,11 +684,29 @@ export const sendShopping = (e) => {
   
 };
 
-export const postReview = async (payload) => {
-  try {
-    await axios.post("/reviews/", payload);
-  } catch (error) {
-    console.log(error);
-  }
+export const postReview = (payload) => {
+  console.log(payload)
+  return async (dispatch) => {
+    try {
+      await axios.post("/reviews", payload);
+      dispatch({
+        type: "POST_REVIEW_SUCCESS",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 };
 
+
+
+export const getUserById = (id) => {
+  return async (dispatch) => {
+    try{
+      let data = await axios.get(`/users/${id}`);
+      dispatch({type: "GET_USER_BY_ID", payload: data})
+    }catch(error){
+      console.log(error)
+    }
+  }
+}

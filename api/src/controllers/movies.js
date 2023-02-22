@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { API_KEY } = process.env;
 const axios = require("axios");
-const { Movie, Screening } = require("../db");
+const { Movie, Screening, Review } = require("../db");
 const { getGenresDb } = require("./genres");
 
 const getMovies = async () => {
@@ -97,7 +97,7 @@ const getMovieById = async (id) => {
       where: {
         id: id,
       },
-      include: { model: Screening },
+      include: [{ model: Screening }, {model: Review}],
     });
 
     return recipeDbById;
