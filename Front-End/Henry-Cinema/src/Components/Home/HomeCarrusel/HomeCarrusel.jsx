@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../HomeCarrusel/HomeCarrusel.css";
 
 export default function HomeCarrusel({ cartelera }) {
-  var tiempo;
+  let tiempo;
   let actual = 0;
   var cantidad = 0;
   const velocidad = 5000;
