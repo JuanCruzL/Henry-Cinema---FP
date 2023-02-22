@@ -16,38 +16,34 @@ import swal from "sweetalert";
 
 export const MoviesTable = () => {
   const dispatch = useDispatch();
-  var allMovies = useSelector((state) => state.movies);
-  const [movies, setAllMovies] = useState(allMovies);
+  const allMovies = useSelector((state) => state.movies);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    setAllMovies(allMovies);
-  }, [allMovies]);
+    dispatch(getMovies());
+  }, [dispatch, count]);
 
-  const deleteAlert = async (id, title) => {
-    try {
-      const result = await swal({
-        title: "Are you sure?",
-        text: `this will remove ${title} from the database.`,
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      });
-
-      if (result) {
+  const deleteAlert = (id, title) => {
+    swal({
+      title: "Are you sure?",
+      text: `this will remove ${title} from the database.`,
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((r) => {
+      if (r) {
         dispatch(deleteMovie(id));
+        setTimeout(() => {
+          setCount(count + 1);
+        }, 1500);
         swal({
           text: "The movie has been successfully removed.",
           icon: "success",
         });
-        const updatedMovies = await dispatch(getMovies());
-        setAllMovies(updatedMovies.data);
       } else {
         swal("Remove cancelled");
       }
-    } catch (error) {
-      console.log(error);
-      swal("error removing movie");
-    }
+    });
   };
 
   return (
