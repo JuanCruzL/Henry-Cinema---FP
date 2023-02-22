@@ -306,6 +306,16 @@ export const NewMovie = () => {
               }
               alt=""
             />
+            <img
+            className="imageNMB"
+            id="imageNMB"
+            src={
+              imageHorizontal
+                ? imageHorizontal
+                : "https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-film-and-television-film-festival-retro-wind-camera-film-poster-image_215411.jpg"
+            }
+            alt=""
+          />
           </div>
           <div className="right">
             <form name="newMovie" onSubmit={handleSubmit}>
@@ -495,18 +505,6 @@ export const NewMovie = () => {
               </button>
             </form>
           </div>
-        </div>
-        <div className="BottomBottom">
-          <img
-            className="imageNMB"
-            id="imageNMB"
-            src={
-              imageHorizontal
-                ? imageHorizontal
-                : "https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-film-and-television-film-festival-retro-wind-camera-film-poster-image_215411.jpg"
-            }
-            alt=""
-          />
         </div>
       </div>
     </div>
