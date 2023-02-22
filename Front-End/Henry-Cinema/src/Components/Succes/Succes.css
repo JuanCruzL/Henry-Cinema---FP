@@ -1,0 +1,23 @@
+.container-succes{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+}
+.image-succes{
+    border:2px solid red;
+    width: 20%;
+    margin-top: 40px;    
+}
+.title-succes,
+.button-succes,
+.text-succes{
+    margin:25px;
+    border:2px solid red;
+}
+.title-succes{
+    font-size: 30px;
+}
+.text-succes{
+    font-size: 25px;
+}
