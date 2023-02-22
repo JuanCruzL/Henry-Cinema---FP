@@ -56,8 +56,8 @@
 .ContainerMovies {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1.1fr 0.2fr 1.9fr 1fr;
-  gap: 10px 10px;
+  grid-template-rows: auto 0.2fr auto 1fr;
+  gap: 20px 0px;
   grid-auto-flow: row;
   grid-template-areas:
     "films"
@@ -76,8 +76,12 @@
 .Available {
   width: 80%;
   text-align: center;
+<<<<<<< HEAD
   margin: 0 auto 0 auto;
   margin-bottom: 30px;
+=======
+  margin: 0px auto 30px auto;
+>>>>>>> f0ec69b64af6c74b3656b98be19ca7356122e68a
 }
 
 .Available h3 {
@@ -110,16 +114,16 @@
 
 .movies-Result {
   grid-area: movies-Result;
-  height: 100%;
-  width: 80%;
+  height: 750px;
+  width: 100%;
   align-items: center;
   margin: auto;
-  padding: 10px;
+  position: relative;
 }
 
 .carousel-movies-b {
   grid-area: carousel-movies-b;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .carousel-movies-b h3 {
@@ -131,15 +135,19 @@
 .carousel-container {
   position: relative;
   display: flex;
-  width: 85%;
+  width: 90%;
   min-height: 350px;
   margin-bottom: 10px;
 }
 .Filter-results {
   padding: 10px;
-  position: absolute;
+  margin: auto;
   width: 80%;
+<<<<<<< HEAD
   height: 800px; 
+=======
+  height: 100%;
+>>>>>>> f0ec69b64af6c74b3656b98be19ca7356122e68a
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

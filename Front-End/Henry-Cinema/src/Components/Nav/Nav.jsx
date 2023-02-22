@@ -120,12 +120,12 @@ const Nav = ({ setCurrentPage }) => {
         </li>
         {/* Menú Nav */}
 
+        <div className="left-menu">
         <li className="menu-item-logo">
           <Link to="/">
             <img src={logoCinema} className="logoh"></img>
           </Link>
         </li>
-        <div className="left-menu">
           <Link to="/movies" className="link-movies">
             <li className="itemsNav">
               <div className="menu-link">Movies</div>
