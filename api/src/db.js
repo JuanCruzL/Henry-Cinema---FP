@@ -60,11 +60,16 @@ const {
   Drink,
   Food,
   Movie,
+  Like,
+  Dislike,
 } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
-
+User.hasMany(Like, {foreignKey: "User_Likes"})
+Like.belongsTo(User, {foreignKey: "User_Likes"})
+Movie.hasMany(Like, {foreignKey: "Movie_Likes"})
+Like.belongsTo(Movie, {foreignKey: "Movie_Likes"})
 User.hasMany(Review, { foreignKey: "User_Review" });
 Review.belongsTo(User, { foreignKey: "User_Review" });
 User.belongsToMany(Combo, { through: "User_Combo" });
