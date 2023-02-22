@@ -78,6 +78,7 @@ function Seating() {
               <Ticket
                 asientosSeleccionados={asientosSeleccionados}
                 screening={screening}
+                numberOfEntries={numberOfEntries}
               />
             </div>
           </div>

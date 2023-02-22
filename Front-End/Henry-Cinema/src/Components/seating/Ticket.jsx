@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 import { addItem } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 
-function Ticket({ asientosSeleccionados, screening }) {
+function Ticket({ asientosSeleccionados, screening, numberOfEntries }) {
   const [ids, setIds] = useState([]);
   const dispatch = useDispatch();
+  const [isReserved, setIsReserved] = useState(false); // Nuevo estado
 
   useEffect(() => {
     const newIds = asientosSeleccionados.map((asiento) =>
@@ -21,18 +22,38 @@ function Ticket({ asientosSeleccionados, screening }) {
     quantity: asientosSeleccionados.length,
   };
 
+  // const reserveSeats = () => {
+  //   const id = screening.id;
+  //   setIsReserved(true); // Cambia el estado de isReserved
+  //   axios
+  //     .put(`http://localhost:3001/screenings/${id}/seatIds`, { ids })
+  //     .then((response) => {
+  //       // console.log(response.data);
+  //       alert("Seats reserved successfully");
+  //       dispatch(addItem(exampleTicket));
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       alert("Error reserving seats");
+  //     });
+  // };
+
   const reserveSeats = () => {
     const id = screening.id;
+    if (isReserved) {
+      alert("Seats already reserved"); // Muestra un mensaje si los asientos ya han sido reservados
+      return;
+    }
+    setIsReserved(true); // Cambia el estado de isReserved
     axios
       .put(`http://localhost:3001/screenings/${id}/seatIds`, { ids })
       .then((response) => {
-        // console.log(response.data);
-        alert("Seats reserved successfully");
         dispatch(addItem(exampleTicket));
+        alert("Seats reserved successfully"); // Muestra un mensaje de éxito
       })
       .catch((error) => {
         console.error(error);
-        alert("Error reserving seats");
+        alert("Error reserving seats"); // Muestra un mensaje de error
       });
   };
 
@@ -52,7 +73,12 @@ function Ticket({ asientosSeleccionados, screening }) {
       </p>
       <p>Tickets : {asientosSeleccionados.length}</p>
       <p>Total: {asientosSeleccionados.length * 10} USD </p>
-      <button onClick={reserveSeats}>Reserve</button>
+      <button
+        onClick={reserveSeats}
+        // Deshabilita el botón si isReserved es true
+      >
+        Reserve
+      </button>
     </div>
   );
 }
