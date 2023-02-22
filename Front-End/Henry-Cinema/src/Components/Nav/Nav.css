@@ -343,6 +343,7 @@
 .bag {
   text-align: center;
   margin-top: 18px;
+  position: relative;
 }
 .bag .fQQvfO {
   font-size: 2rem;
@@ -436,4 +437,31 @@
 }
 .menu-linkBagPay:hover {
   cursor: pointer;
+}
+
+.shake {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: shake 3s infinite;
+  animation-delay: 2s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-2px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

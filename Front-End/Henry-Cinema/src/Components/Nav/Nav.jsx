@@ -17,6 +17,8 @@ import jwt_decode from "jwt-decode";
 import ShoppingBag from "./ShoppingBag";
 
 const Nav = ({ setCurrentPage }) => {
+  const size = useSelector((state) => state.shoppingBag.length);
+
   const imageDefault =
     "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg";
   const dispatch = useDispatch();
@@ -147,6 +149,9 @@ const Nav = ({ setCurrentPage }) => {
             <div className="menu-link-logo">
               <label className="bag" onClick={mostrarShop}>
                 <ShoppingBagIcon className="bagLogo" />
+                {size>0 &&(
+                  <div className="shake"></div>
+                )}
               </label>
             </div>
             <ul className="menu-Bag">
