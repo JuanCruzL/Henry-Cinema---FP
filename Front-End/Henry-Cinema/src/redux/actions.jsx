@@ -672,9 +672,9 @@ export const lessItem = (payload) => {
   };
 };
 
-export const sendShopping = (data) => {
+export const sendShopping = (e) => {
   return async (dispatch) => {
-    const postShopp = await axios.post(`/payment`, data);
+    const postShopp = await axios.post(`/payment`, e);
     return dispatch({
       type: "POST_MERCADO_PAGO",
       payload: postShopp.data,
@@ -689,3 +689,4 @@ export const postReview = async (payload) => {
     console.log(error);
   }
 };
+
