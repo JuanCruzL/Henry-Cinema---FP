@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../img/menus.png";
 import perfil from "../../img/editar.png";
@@ -149,14 +149,12 @@ const Nav = ({ setCurrentPage }) => {
             <div className="menu-link-logo">
               <label className="bag" onClick={mostrarShop}>
                 <ShoppingBagIcon className="bagLogo" />
-                {size>0 &&(
-                  <div className="shake"></div>
-                )}
+                {size > 0 && <div className="shake">$</div>}
               </label>
             </div>
             <ul className="menu-Bag">
               <li className="menu-BagInside-invi" id="menu-BagInside">
-                <ShoppingBag/>
+                <ShoppingBag />
               </li>
             </ul>
           </div>
