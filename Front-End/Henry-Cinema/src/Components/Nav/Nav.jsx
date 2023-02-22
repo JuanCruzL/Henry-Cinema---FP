@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../img/menus.png";
 import perfil from "../../img/editar.png";
@@ -21,6 +21,7 @@ const Nav = ({ setCurrentPage }) => {
     "https://previews.123rf.com/images/kritchanut/kritchanut1308/kritchanut130800063/21738698-hombre-foto-de-perfil-de-la-silueta-con-el-signo-de-interrogaci%C3%B3n-en-la-cabeza-vector.jpg";
   const dispatch = useDispatch();
   const user = window.localStorage.getItem("loggedUser");
+
   let decrypted = "";
   if (user === null) {
     decrypted = "null";
@@ -153,7 +154,7 @@ const Nav = ({ setCurrentPage }) => {
             </div>
             <ul className="menu-Bag">
               <li className="menu-BagInside-invi" id="menu-BagInside">
-                <ShoppingBag />
+                <ShoppingBag/>
               </li>
             </ul>
           </div>
