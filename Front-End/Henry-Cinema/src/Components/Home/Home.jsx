@@ -1,8 +1,7 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getMovies, getNextReleases, requestGenres } from "../../redux/actions";
+import { getMovies, getNextReleases, requestGenres, getSales } from "../../redux/actions";
 import Nav from "../Nav/Nav";
 import HomeCarrusel from "./HomeCarrusel/HomeCarrusel";
 import HomeMovie from "./HomeMovie/HomeMovie";
@@ -10,12 +9,14 @@ import HomePaginated from "./HomePaginated/HomePaginated";
 import Footer from "../footer/footer";
 import "../Home/Home.css";
 import Loader from "../Loader/Loader";
+import { getReviews, getScreenings, getUsers } from "../../redux/actions";
 
 export default function Home() {
   const dispatch = useDispatch();
   const loggedUser = useSelector((state) => state.currentUser);
   const allMovies = useSelector((state) => state.searchMovies);
   const cartelera = useSelector((state) => state.allMovies);
+  const users = useSelector(state => state.users)
 
   const [currentPage, setCurrentPage] = useState(1); //* Creamos una constante ponde guardar/setear la pagina actual(1)
   const [moviesPerPage, setMoviesPerPage] = useState(8); //* Creamos una constante para escoger el limite de peliculas por pagina(8)
@@ -28,6 +29,13 @@ export default function Home() {
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  useEffect(()=>{
+    dispatch(getSales())
+    dispatch(getScreenings())
+    dispatch(getUsers())
+    dispatch(getReviews())
+  }, [])
 
   useEffect(() => {
     dispatch(getMovies());
@@ -44,7 +52,7 @@ export default function Home() {
   }
   return (
     <div className="Homehome">
-      {/* <Nav setCurrentPage={setCurrentPage} /> */}
+      <Nav setCurrentPage={setCurrentPage} />
       <div className="BodyHome">
         <HomeCarrusel cartelera={cartelera} />
         <HomePaginated

@@ -1,16 +1,24 @@
-import React from "react";
-import "./widget.scss";
+import React, {useEffect, useState} from "react";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import GroupWorkRoundedIcon from "@mui/icons-material/GroupWorkRounded";
 import PointOfSaleRoundedIcon from "@mui/icons-material/PointOfSaleRounded";
 import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { avatarClasses } from "@mui/material";
 import TrendingDownOutlinedIcon from "@mui/icons-material/TrendingDownOutlined";
+import Loader from "../../Loader/Loader";
+import "./widget.scss";
 
-export const Widget = ({ type }) => {
+
+
+export const Widget = ({ type, load }) => {
+  if(load === false){
+    return <Loader/>
+  }else {
+  const users = useSelector(state => state.users)
+
   let data = {};
   const allUsers = useSelector((state) => state.users);
   const allReviews = useSelector((state) => state.reviews);
@@ -53,7 +61,7 @@ export const Widget = ({ type }) => {
     const { today, yesterday } = getLastItemCount(
       allUsers,
       "createdAt",
-      lastUser.createdAt
+      lastUser?.createdAt
     );
     return incrementPercentage(today, yesterday);
   };
@@ -73,17 +81,17 @@ export const Widget = ({ type }) => {
     const { today, yesterday } = getLastItemCount(
       allScreenings,
       "createdAt",
-      lastScreening.createdAt
+      lastScreening?.createdAt
     );
     return incrementPercentage(today, yesterday);
   };
 
   const lastSalesIncrement = () => {
-    const lastSale = allSales[allSales.length - 1];
+    const lastSale = allSales[allSales?.length - 1];
     const { today, yesterday } = getLastItemCount(
       allSales,
       "createdAt",
-      lastSale.createdAt
+      lastSale?.createdAt
     );
     return incrementPercentage(today, yesterday);
   };
@@ -157,20 +165,20 @@ export const Widget = ({ type }) => {
             <PointOfSaleRoundedIcon className="icon" />
           </Link>
         ),
-        amount: allSales.length,
+        amount: allSales?.length,
         percentage: lastSalesIncrement(),
       };
       break;
     default:
       break;
   }
-
+  
   return (
     <div className="widget">
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-          {data.isMoney && "$"}
+          {data.isMoney}
           {data.amount}
         </span>
         <span className="link">{data.link}</span>
@@ -193,5 +201,6 @@ export const Widget = ({ type }) => {
     </div>
   );
 };
+}
 
 export default Widget;

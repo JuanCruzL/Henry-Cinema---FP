@@ -22,13 +22,14 @@ export default function Details() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const accestoken = localStorage.getItem("loggedUser");
-  const userinfo = accestoken ? jwt_decode(accestoken) : "not logged in";
+  const userinfo = accestoken ? jwt_decode(accestoken) : false;
   const [likes, setLikes] = useState(0)
   const [dislikes, setDislikes] = useState(0)
   const [likeAction, setLikeAction]= useState(null)
   const [dislikeAction, setDislikeAction]= useState(null)
   useEffect(() => {
     dispatch(getMovieById(id));
+    
     dispatch(getUsers());
     // dispatch()
     axios.post("/reviews/likes", {movieId:id}).then(response => {
@@ -60,6 +61,7 @@ export default function Details() {
 
   const movie = useSelector((state) => state.movieId);
   const users = useSelector((state) => state.users);
+
   const [form, setForm] = useState({
     review: "",
     userId: userinfo.id,
@@ -104,7 +106,16 @@ export default function Details() {
 
   const handlePostReview = async (e) => {
     e.preventDefault();
-    await dispatch(postReview(form));
+    let verify = movie?.Reviews?.find(e => e.User_Review === userinfo.id )
+    let logged = userinfo ? true : false
+    if(verify) {
+      return alert("you cant create another Review")
+    }else if(!logged) {
+      alert("You must be logged in to comment")
+    } else if(logged && !verify){
+      await dispatch(postReview(form));
+      window.location.reload(true)
+    }
   };
 
   const handleLikeToDislike = async () => {
@@ -113,7 +124,11 @@ export default function Details() {
   }
 
   const handleLike = async () => {
-     if(likeAction === null) {
+    let logged = userinfo ? true : false
+    if(!logged){
+      alert("You must be logged in to leave a like")
+    }
+     else if(likeAction === null) {
      await axios.post("/reviews/postlike",{type: "uplike", userId: userinfo.id, movieId: id})
       axios.post("/reviews/likes", {movieId:id}).then(response => {
         setLikes(response.data.length)}).then(setLikeAction("liked"))
@@ -124,8 +139,9 @@ export default function Details() {
   }
 
   const handleDislike = async () => {
-    if(likeAction !== null && dislikeAction === !null) {
-      console.log("entré")
+    let logged = userinfo ? true : false
+    if(!logged){
+      alert("You must be logged in to leave a dislike")
     }
     else if(dislikeAction === null) {
       await axios.post("/reviews/postdislike",{userId: userinfo.id, movieId: id})
@@ -137,17 +153,6 @@ export default function Details() {
       .then(response=>{setDislikes(response.data.length)}).then(setDislikeAction(null))
     }
   }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

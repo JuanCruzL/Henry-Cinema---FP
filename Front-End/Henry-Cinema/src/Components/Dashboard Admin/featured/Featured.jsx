@@ -1,34 +1,41 @@
-import React from "react";
-import "./featured.scss";
+import React, { useEffect, useState} from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 import TrendingDownOutlinedIcon from "@mui/icons-material/TrendingDownOutlined";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../Loader/Loader";
+import "./featured.scss";
 
-export const Featured = () => {
+export const Featured = ({load}) => {
+  if(load === false) {
+    return <Loader/>
+  } else {
+
+  
+  const users = useSelector(state => state.users)
   const allSales = useSelector((state) => state.sales);
-
+  console.log(allSales)
   const lastSalesIncrement = () => {
     const lastSale = allSales[allSales.length - 1];
-    const lastSaleDate = new Date(lastSale.createdAt);
+    const lastSaleDate = new Date(lastSale?.createdAt);
     const yesterday = new Date(lastSaleDate);
     yesterday.setDate(lastSaleDate.getDate() - 1);
 
     const contToday = allSales.reduce((total, sale) => {
-      const saleDate = new Date(sale.createdAt);
+      const saleDate = new Date(sale?.createdAt);
       if (saleDate.getTime() === lastSaleDate.getTime()) {
-        return total + sale.amount;
+        return total + sale?.amount;
       } else {
         return total;
       }
     }, 0);
 
     const contYesterday = allSales.reduce((total, sale) => {
-      const saleDate = new Date(sale.createdAt);
+      const saleDate = new Date(sale?.createdAt);
       if (saleDate.getTime() === yesterday.getTime()) {
-        return total + sale.amount;
+        return total + sale?.amount;
       } else {
         return total;
       }
@@ -46,12 +53,12 @@ export const Featured = () => {
 
   const totalSalesOfTheDay = () => {
     const lastSale = allSales[allSales.length - 1];
-    const lastSaleDate = lastSale.createdAt;
+    const lastSaleDate = lastSale?.createdAt;
     let totalAmount = 0;
 
     for (let i = 0; i < allSales.length; i++) {
-      if (allSales[i].createdAt.getTime() === lastSaleDate.getTime()) {
-        totalAmount = totalAmount + allSales[i].amount;
+      if (allSales[i]?.createdAt === lastSaleDate) {
+        totalAmount = totalAmount + allSales[i]?.amount;
       }
     }
 
@@ -60,7 +67,7 @@ export const Featured = () => {
 
   const salesLastWeek = () => {
     const lastSale = allSales[allSales.length - 1];
-    const lastSaleDate = new Date(lastSale.createdAt);
+    const lastSaleDate = new Date(lastSale?.createdAt);
     const lastWeekEnd = new Date(lastSaleDate);
     const lastWeekStart = new Date(lastSaleDate);
     lastWeekStart.setDate(lastSaleDate.getDate() - 6);
@@ -72,29 +79,25 @@ export const Featured = () => {
     const thisWeekSales = allSales
       .filter(
         (sale) =>
-          sale.createdAt >= lastWeekStart && sale.createdAt <= lastWeekEnd
+          sale?.createdAt >= lastWeekStart && sale?.createdAt <= lastWeekEnd
       )
-      .reduce((total, sale) => total + sale.amount, 0);
+      .reduce((total, sale) => total + sale?.amount, 0);
 
     const lastWeekSales = allSales
       .filter(
         (sale) =>
-          sale.createdAt >= previousWeekStart &&
-          sale.createdAt <= previousWeekEnd
+          sale?.createdAt >= previousWeekStart &&
+          sale?.createdAt <= previousWeekEnd
       )
-      .reduce((total, sale) => total + sale.amount, 0);
+      .reduce((total, sale) => total + sale?.amount, 0);
 
     const diff = thisWeekSales - lastWeekSales;
-    return {
-      sales: thisWeekSales,
-      diff: diff,
-      color: diff >= 0 ? "green" : "red",
-    };
+    return diff
   };
 
   const salesLastMonth = () => {
     const lastSale = allSales[allSales.length - 1];
-    const lastSaleDate = new Date(lastSale.createdAt);
+    const lastSaleDate = new Date(lastSale?.createdAt);
     const lastMonthEnd = new Date(lastSaleDate);
     const lastMonthStart = new Date(
       lastMonthEnd.getFullYear(),
@@ -102,25 +105,25 @@ export const Featured = () => {
       1
     );
     const previousMonthEnd = new Date(lastMonthStart);
-    previousMonthEnd.setDate(previousMonthStart.getDate() - 1);
     const previousMonthStart = new Date(
       previousMonthEnd.getFullYear(),
       previousMonthEnd.getMonth() - 1,
       1
-    );
+      );
+      previousMonthEnd.setDate(previousMonthStart.getDate() - 1);
 
     let contThisMonth = 0;
     let contLastMonth = 0;
 
     for (let i = 0; i < allSales.length; i++) {
       if (
-        allSales[i].createdAt <= lastMonthEnd &&
-        allSales[i].createdAt >= lastMonthStart
+        allSales[i]?.createdAt <= lastMonthEnd &&
+        allSales[i]?.createdAt >= lastMonthStart
       ) {
-        contThisMonth = contThisMonth + allSales[i].amount;
+        contThisMonth = contThisMonth + allSales[i]?.amount;
       } else if (
-        allSales[i].createdAt <= previousMonthEnd &&
-        allSales[i].createdAt >= previousMonthStart
+        allSales[i]?.createdAt <= previousMonthEnd &&
+        allSales[i]?.createdAt >= previousMonthStart
       ) {
         contLastMonth = contLastMonth + allSales[i].amount;
       }
@@ -129,11 +132,12 @@ export const Featured = () => {
     const diff = contThisMonth - contLastMonth;
     const color = diff < 0 ? "red" : "green";
 
-    return {
-      quantity: contThisMonth,
-      diff: diff,
-      color: color,
-    };
+    // return {
+    //   quantity: contThisMonth,
+    //   diff: diff,
+    //   color: color,
+    // };
+    return contLastMonth
   };
 
   return (
@@ -204,5 +208,7 @@ export const Featured = () => {
     </div>
   );
 };
+}
+
 
 export default Featured;
