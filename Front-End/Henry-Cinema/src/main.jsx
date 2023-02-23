@@ -127,7 +127,7 @@ const router = createBrowserRouter([
     element: <Seating />,
   },
   {
-    path:"/user",
+    path: "/user",
     element: <PerfilUser />,
   },
   {
@@ -136,8 +136,8 @@ const router = createBrowserRouter([
   },
   {
     path: "/succes/payment",
-    element : <Succes/>
-  }
+    element: <Succes />,
+  },
 ]);
 
 root.render(
