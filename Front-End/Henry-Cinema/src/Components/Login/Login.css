@@ -1,60 +1,74 @@
-.light-mode .loginContainer{
+.light-mode .loginContainer {
     background-color: var(--LFondo-1);
 }
-.light-mode .form-imageContainer{
+
+.light-mode .form-imageContainer {
     background-color: var(--LFondo-1);
     box-shadow: rgb(0, 0, 0) 0px 0px 2px;
     color: var(--LText-1);
 }
-.light-mode .image-container{
+
+.light-mode .image-container {
     background-color: var(--BaseL)
 }
-.light-mode .form-container form input::placeholder{
+
+.light-mode .form-container form input::placeholder {
     color: #858585;
 }
-.light-mode .check{
+
+.light-mode .check {
     background-color: var(--LBase-1);
 }
+
 .light-mode .sign-inPselect,
-.light-mode .sign-upPselect{
+.light-mode .sign-upPselect {
     border-bottom: 1px solid var(--LBase-1);
 }
+
 .light-mode .sign-inP:hover,
-.light-mode .sign-upP:hover{
+.light-mode .sign-upP:hover {
     border-bottom: 1px solid var(--LBase-1);
 }
-.light-mode .checkmark{
+
+.light-mode .checkmark {
     background-color: #ccc;
 }
-.light-mode .buttonSubmit{
+
+.light-mode .buttonSubmit {
     color: #212121;
     background: #e8e8e8;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
 }
+
 .light-mode .buttonSubmit::before {
     background-color: var(--BaseL);
     -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
 }
+
 .light-mode .buttonSubmit:hover {
     color: var(--LText-1);
 }
+
 .light-mode .buttonSubmitup {
     color: #212121;
     background: #e8e8e8;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
 }
+
 .light-mode .buttonSubmitup::before {
     background-color: var(--BaseL);
     -webkit-box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(255, 255, 255, 0.27);
 }
+
 .light-mode .buttonSubmitup:hover {
     color: var(--LText-1);
 }
-.light-mode .S9gUrf-YoZ4jf div{
+
+.light-mode .S9gUrf-YoZ4jf div {
     border-color: var(--LBase-1);
     background-color: var(--LFondo-1);
     color: var(--LText-1);
@@ -63,63 +77,77 @@
 
 
 
-.dark-mode .loginContainer{
+.dark-mode .loginContainer {
     background-color: #111111;
 }
-.dark-mode .form-imageContainer{
+
+.dark-mode .form-imageContainer {
     background-color: #232323;
     box-shadow: rgba(0, 0, 0, 0.50) 0px 20px 40px;
     color: var(--NText-1);
 }
-.dark-mode .image-container{
+
+.dark-mode .image-container {
     background-color: var(--BaseN)
 }
-.dark-mode .form-container form input::placeholder{
+
+.dark-mode .form-container form input::placeholder {
     color: var(--BaseND);
 }
-.dark-mode .check{
+
+.dark-mode .check {
     background-color: var(--NBase-1);
 }
+
 .dark-mode .sign-inPselect,
-.dark-mode .sign-upPselect{
+.dark-mode .sign-upPselect {
     border-bottom: 1px solid var(--NBase-1);
 }
-.dark-mode .sign-inP:hover, 
-.dark-mode .sign-upP:hover{
+
+.dark-mode .sign-inP:hover,
+.dark-mode .sign-upP:hover {
     border-bottom: 1px solid var(--NBase-1);
 }
-.dark-mode .checkmark{
+
+.dark-mode .checkmark {
     background-color: #ccc;
 }
-.dark-mode .buttonSubmit{
+
+.dark-mode .buttonSubmit {
     color: #ffffff;
     background: #111111;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
 }
+
 .dark-mode .buttonSubmit::before {
     background-color: var(--BaseL);
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
 }
+
 .dark-mode .buttonSubmit:hover {
     color: var(--NText-2);
 }
+
 .dark-mode .buttonSubmitup {
     color: #212121;
     background: #e8e8e8;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
 }
+
 .dark-mode .buttonSubmitup::before {
     background-color: var(--BaseL);
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
 }
+
 .dark-mode .buttonSubmitup:hover {
     color: var(--NText-2);
 }
-.dark-mode .S9gUrf-YoZ4jf div{
+
+.dark-mode .S9gUrf-YoZ4jf div {
     border-color: var(--NBase-1);
     background-color: var(--NFondo-3);
     color: var(--NText-1);
@@ -130,7 +158,7 @@
     position: absolute;
     width: 100%;
     height: 100vh;
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -148,7 +176,8 @@
     height: 600px;
     width: 900px;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
+    transition: 0.5s;
 }
 
 .image-container {
@@ -158,12 +187,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.5s;
 }
 
 .logo-image {
     height: 450px;
     width: 450px;
     margin-bottom: 50px;
+    transition: 0.5s;
 }
 
 .form-container {
@@ -184,7 +215,7 @@
     align-items: center;
 }
 
-.sign{
+.sign {
     display: flex;
     flex-direction: row;
     margin-bottom: 40px;
@@ -215,7 +246,7 @@
     font-weight: bold;
     cursor: pointer;
     box-sizing: border-box;
-    
+
 }
 
 .sign-upP {
@@ -225,6 +256,7 @@
     cursor: pointer;
     box-sizing: border-box;
 }
+
 .sign-upPselect {
     margin-right: 10px;
     font-size: 20px;
@@ -240,18 +272,18 @@
 }
 
 
-.formsignin{
+.formsignin {
     position: relative;
 }
 
-.formInput{
+.formInput {
     border-bottom: 2px solid rgb(0, 255, 0);
     margin-bottom: 30px;
     height: 30px;
     width: 300px;
 }
 
-.badinput{
+.badinput {
     border-bottom: 2px solid rgb(255, 0, 0);
     margin-bottom: 30px;
     height: 30px;
@@ -260,14 +292,14 @@
 
 
 .desc-p {
-    color:#03d217;
+    color: #03d217;
     font-size: 11px;
     font-weight: bold;
     margin-bottom: 4px;
 }
 
 .baddesc-p {
-    color:rgb(255, 0, 0);
+    color: rgb(255, 0, 0);
     font-size: 11px;
     font-weight: bold;
     margin-bottom: 4px;
@@ -285,63 +317,64 @@
     justify-content: center;
     align-items: center;
     height: 20px;
-   }
-   
-   /* Hide the browser's default checkbox */
-   .container .checkinput {
-     position: absolute;
-     opacity: 0;
-     cursor: pointer;
-     height: 0;
-     width: 0;
-   }
-   
-   /* Create a custom checkbox */
-   .checkmark {
-     position: absolute;
-     top: 0;
-     left: 0;
-     height: 20px;
-     width: 20px;
-   }
-   .textdiv {
-    font-size: 15px;
-   }
+}
 
- .googlecontainer {
+/* Hide the browser's default checkbox */
+.container .checkinput {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+}
+
+.textdiv {
+    font-size: 15px;
+}
+
+.googlecontainer {
     position: absolute;
     bottom: 120px;
-   }
+}
 
-   /* When the checkbox is checked, add a blue background */
-   .container .checkinput:checked ~ .checkmark {
-     background-color: #2196F3;
-   }
-   
-   /* Create the checkmark/indicator (hidden when not checked) */
-   .checkmark:after {
-     content: "";
-     position: absolute;
-     display: none;
-   }
-   
-   /* Show the checkmark when checked */
-   .container .checkinput:checked ~ .checkmark:after {
-     display: block;
-   }
-   
-   /* Style the checkmark/indicator */
-   .container .checkmark:after {
-     left: 7px;
-     top: 2px;
-     width: 5px;
-     height: 10px;
-     border: solid white;
-     border-width: 0 3px 3px 0;
-     transform: rotate(45deg);
-   }
+/* When the checkbox is checked, add a blue background */
+.container .checkinput:checked~.checkmark {
+    background-color: #2196F3;
+}
 
-   .buttonSubmit {
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container .checkinput:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 7px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.buttonSubmit {
     padding: 5px 10px;
     border: unset;
     z-index: 1;
@@ -352,9 +385,9 @@
     font-size: 17px;
     transition: all 250ms;
     overflow: hidden;
-   }
-   
-   .buttonSubmit::before {
+}
+
+.buttonSubmit::before {
     content: "";
     position: absolute;
     top: 0;
@@ -363,17 +396,17 @@
     width: 0;
     z-index: -1;
     transition: all 250ms
-   }
-   
-   .buttonSubmit:hover {
-    cursor: pointer;
-   }
-   
-   .buttonSubmit:hover::before {
-    width: 100%;
-   }
+}
 
-   .buttonSubmitup {
+.buttonSubmit:hover {
+    cursor: pointer;
+}
+
+.buttonSubmit:hover::before {
+    width: 100%;
+}
+
+.buttonSubmitup {
     padding: 5px 10px;
     border: unset;
     z-index: 1;
@@ -384,9 +417,9 @@
     font-size: 17px;
     transition: all 250ms;
     overflow: hidden;
-   }
-   
-   .buttonSubmitup::before {
+}
+
+.buttonSubmitup::before {
     content: "";
     position: absolute;
     top: 0;
@@ -395,12 +428,44 @@
     width: 0;
     z-index: -1;
     transition: all 250ms
-   }
-   
-   .buttonSubmitup:hover {
+}
+
+.buttonSubmitup:hover {
     cursor: pointer;
-   }
-   
-   .buttonSubmitup:hover::before {
+}
+
+.buttonSubmitup:hover::before {
     width: 100%;
-   }
+}
+
+
+@media (max-width: 1100px) {
+    .form-imageContainer{
+        height: 600px;
+        width: 600px;
+    }
+    .image-container {
+        position: relative;
+        height: 100%;
+        width: 200px;
+    }
+    .logo-image{
+        width: 200px;
+    }
+}
+
+@media (max-width:800px) {
+    .form-imageContainer{
+        height: 600px;
+        width: 500px;
+    }
+    .image-container {
+        position: relative;
+        height: 100%;
+        width: 20px;
+    }
+    .logo-image{
+        visibility: hidden;
+        width: 0px;
+    }
+}
