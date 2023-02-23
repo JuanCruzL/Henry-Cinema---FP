@@ -34,13 +34,13 @@ function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
     }
     setIsReserved(true);
     axios
-      
-      .put(`https://henry-cinema-fp-production.up.railway.app/screenings/${id}/seatIds`, { ids })
+      .put(`http://localhost:3001/screenings/${id}/seatIds`, { ids })
+      // .put(`https://henry-cinema-fp-production.up.railway.app/screenings/${id}/seatIds`, { ids })
       .then((response) => {
         dispatch(addItem(exampleTicket));
         swal({
           title: "Seats reserved successfully. ",
-          text: "Seats will be reserved for 5 minutes until payment is made.\n    Do you want to purchase food?",
+          text: "Seats will be reserved for 5 minutes until payment is made.\n Do you want to purchase food?",
           icon: "success",
           buttons: {
             cancel: "No",
