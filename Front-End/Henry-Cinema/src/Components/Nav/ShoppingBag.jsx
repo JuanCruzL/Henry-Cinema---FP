@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { lessItem } from "../../redux/actions";
-import { sendShopping } from "../../redux/actions";
+import { lessItem , sendShopping , postTicket } from "../../redux/actions";
+
 
 function ShoppingBag() {
   const dispatch = useDispatch();
@@ -13,9 +13,13 @@ function ShoppingBag() {
     return accumulator + item.price * item.quantity;
   }, 0);
 
+
   const handleSend = (e) => {
     if (pay) {
-      window.open(url);
+     
+      window.location.href =url;
+      
+      
     } else {
       dispatch(sendShopping(e));
       window.localStorage.setItem(
@@ -25,6 +29,7 @@ function ShoppingBag() {
       setTimeout(() => {
         setPay(true);
       }, 500);
+      
     }
   };
 
@@ -38,6 +43,8 @@ function ShoppingBag() {
     dispatch(lessItem(e));
     setPay(false);
   };
+
+ 
   return (
     <div>
       {/* <button onClick={()=>console.log(allItems)}>click me</button>  */}
