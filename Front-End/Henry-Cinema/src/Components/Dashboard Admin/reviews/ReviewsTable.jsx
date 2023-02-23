@@ -1,7 +1,7 @@
 import React from "react";
 import "./reviewstable.scss";
 import { useState, useEffect } from "react";
-import { getReviews, deleteReview } from "../../../redux/actions";
+import { getReviews, deleteReview, getUserById } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -12,15 +12,31 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import swal from "sweetalert";
+import axios from "axios";
 
 export const ReviewsTable = () => {
   const dispatch = useDispatch();
   const allReviews = useSelector((state) => state.reviews);
   const [count, setCount] = useState(0);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     dispatch(getReviews());
   }, [dispatch, count]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const promises = allReviews.map((r) => axios.get(`/users/${r.User_Review}`));
+        const results = await Promise.all(promises);
+        const users = results.map((r) => r.data);
+        setUsers(users);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchUsers();
+  }, [allReviews]);
 
   const deleteAlert = (id, userName) => {
     swal({
@@ -45,6 +61,13 @@ export const ReviewsTable = () => {
       }
     });
   };
+  const requestUserById = async(id) => {
+    let response = await axios.get(`/users/${id}`)
+    return response.data
+  }
+  const promises = allReviews.map(r => requestUserById(r.User_Review));
+
+  
 
   return (
     <TableContainer component={Paper} className="reviewsTable">
@@ -52,21 +75,18 @@ export const ReviewsTable = () => {
         <TableHead>
           <TableRow className="tableRow">
             <TableCell className="title">USERNAME</TableCell>
-            <TableCell className="title">SCORE</TableCell>
-            <TableCell className="title">COMMENTARY</TableCell>
-            {/* <TableCell className="title">DATE</TableCell> */}
+            <TableCell className="title">REVIEW</TableCell>
+            <TableCell className="title">DATE</TableCell>
             <TableCell className="title">DELETE</TableCell>
           </TableRow>
         </TableHead>
         <TableBody className="list">
-          {allReviews.map((r) => (
-            <TableRow key={r.id}>
-              <TableCell className="tableCellReviews">{r.userName}</TableCell>
-              <TableCell className="tableCellReviews">${r.score}</TableCell>
+          {allReviews?.map((r, i) => { let user = requestUserById(r.User_Review); return(<TableRow key={r.id}>
+              <TableCell className="tableCellReviews">{users[i]?.userName}</TableCell>
               <TableCell className="tableCellReviews">
-                {r.commentary.slice(0, 30)}
+                {r.review.slice(0, 30)}
               </TableCell>
-              {/* <TableCell className="tableCellReviews">{r.date}</TableCell> */}
+              <TableCell className="tableCellReviews">{r.createdAt.slice(0,10)}</TableCell>
               <TableCell className="tableCellReviews">
                 <button onClick={() => deleteAlert(r.id, r.name)}>
                   <div>
@@ -75,7 +95,7 @@ export const ReviewsTable = () => {
                 </button>
               </TableCell>
             </TableRow>
-          ))}
+          )})}
         </TableBody>
       </Table>
     </TableContainer>

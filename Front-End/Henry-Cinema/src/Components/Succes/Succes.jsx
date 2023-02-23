@@ -3,7 +3,8 @@ import "./Succes.css"
 import imageLogo from "../../img/henryCinema.png"
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { postTicket } from "../../redux/actions";
+import { postTicket} from "../../redux/actions";
+import axios from "axios";
 function Succes() {
     const dispatch = useDispatch();
     const items = window.localStorage.getItem("shoppingBag")
@@ -20,8 +21,16 @@ function Succes() {
         },1000)
 
     }
+    const postticket = async() => {
+      let response = await axios.post("/tickets", itemConvert)
+      console.log(response)
+    }
+
     useEffect(() => {
-      if(filterSeat) dispatch(postTicket(filterSeat))
+      if(filterSeat) {
+        dispatch(postTicket(filterSeat))
+        postticket()
+      }
     })
   return (
     <div className="container-succes">
