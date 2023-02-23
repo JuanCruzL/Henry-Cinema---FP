@@ -29,35 +29,19 @@ function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
   const reserveSeats = () => {
     const id = screening.id;
     if (isReserved) {
-      swal("Seats already reserved");
+      alert("Seats already reserved"); // Muestra un mensaje si los asientos ya han sido reservados
       return;
     }
-    setIsReserved(true);
+    setIsReserved(true); // Cambia el estado de isReserved
     axios
-      .put(`http://localhost:3001/screenings/${id}/seatIds`, { ids })
+      .put(`https://henry-cinema-fp-production.up.railway.app/screenings/${id}/seatIds`, { ids })
       .then((response) => {
         dispatch(addItem(exampleTicket));
-        swal({
-          title: "Seats reserved successfully",
-          text: "Do you want to purchase food?",
-          icon: "success",
-          buttons: {
-            cancel: "No",
-            confirm: "Yes",
-          },
-        }).then((value) => {
-          if (value) {
-            navigate("/foods");
-          }
-        });
+        alert("Seats reserved successfully"); // Muestra un mensaje de Ã©xito
       })
       .catch((error) => {
         console.error(error);
-        swal({
-          title: "Error!",
-          text: "An error has occurred reserving seats",
-          icon: "error",
-        });
+        alert("Error reserving seats"); // Muestra un mensaje de error
       });
   };
 
