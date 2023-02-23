@@ -193,6 +193,7 @@ export default function Details() {
                   alt={movie.title}
                   className="coverImage"
                 />
+                <div className="conteiner-allDetails">
                 <p className="allDetailsP">
                   <b>Original Title: </b>
                   {movie.title}
@@ -225,6 +226,7 @@ export default function Details() {
                 ) : (
                   <></>
                 )}
+                </div>
               </div>
             </div>
             <div className="likes-and-dislikes-container">
