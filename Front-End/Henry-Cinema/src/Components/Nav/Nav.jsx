@@ -145,6 +145,7 @@ const Nav = ({ setCurrentPage }) => {
             <SearchBar setCurrentPage={setCurrentPage} />
           </li>
           <div className="right-menu">
+            { user ? (
             <div className="shopBag">
               <div className="menu-link-logo">
                 <label className="bag" onClick={mostrarShop}>
@@ -157,7 +158,8 @@ const Nav = ({ setCurrentPage }) => {
                   <ShoppingBag />
                 </li>
               </ul>
-            </div>
+            </div>) : <></>
+            }
 
             <li className="menu-item">
               {decrypted !== "null" ? (
