@@ -28,29 +28,13 @@ export const SalesTable = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow className="tableRow">
-            <TableCell className="title">NAME</TableCell>
-            <TableCell className="title">PRICE</TableCell>
-            <TableCell className="title">IMAGE</TableCell>
-            <TableCell className="title">DELETE</TableCell>
+            <TableCell className="title">AMOUNT</TableCell>
           </TableRow>
         </TableHead>
         <TableBody className="list">
           {allSales.map((s) => (
             <TableRow key={s.id}>
-              <TableCell className="tableCellSales">{s.name}</TableCell>
-              <TableCell className="tableCellSales">${s.price}</TableCell>
-              <TableCell className="tableCellSales">
-                <div className="cellWrapper">
-                  <img alt={f.name} className="saleImage" src={s.image} />
-                </div>
-              </TableCell>
-              <TableCell className="tableCellSales">
-                <button onClick={() => deleteAlert(s.id, s.name)}>
-                  <div>
-                    <DeleteForeverRoundedIcon className="bin" />
-                  </div>
-                </button>
-              </TableCell>
+              <TableCell className="tableCellSales">${s.amount}</TableCell>
             </TableRow>
           ))}
         </TableBody>
