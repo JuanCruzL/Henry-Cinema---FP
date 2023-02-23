@@ -35,6 +35,7 @@ function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
     setIsReserved(true);
     axios
       .put(`http://localhost:3001/screenings/${id}/seatIds`, { ids })
+      // .put(`https://henry-cinema-fp-production.up.railway.app/screenings/${id}/seatIds`, { ids })
       .then((response) => {
         dispatch(addItem(exampleTicket));
         swal({
@@ -48,6 +49,8 @@ function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
         }).then((value) => {
           if (value) {
             navigate("/foods");
+          } else {
+            navigate("/");
           }
         });
       })
