@@ -22,9 +22,9 @@ router.get("/", async (req, res) => {
 
 router.post("/", postReview);
 
-router.get("/likes", getLikes)
+router.post("/likes", getLikes)
 
-router.get("/dislikes", getDislikes)
+router.post("/dislikes", getDislikes)
 
 router.post("/postlike", postLike)
 
