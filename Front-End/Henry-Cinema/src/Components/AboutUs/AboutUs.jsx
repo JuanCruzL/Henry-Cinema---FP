@@ -21,7 +21,7 @@ function AboutUs() {
   }
   return (
     <div className="container-all-about">
-      {/* <Nav></Nav> */}
+      <Nav></Nav>
       <div className="About-container">
         <div className="container-text-app">
           <img src={logoHenry} alt={"Logo Henry"} className="logo-henry" />
