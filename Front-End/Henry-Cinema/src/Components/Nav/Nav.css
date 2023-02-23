@@ -102,6 +102,7 @@
 
 /*======================================================================*/
 
+/* ------------------------------------------------------------------------------------------------------------------------------ */
 * {
   margin: 0;
   padding: 0;
@@ -110,12 +111,23 @@
 
 .menu {
   width: 100%;
-  min-width: 60rem;
+  min-width: auto;
   height: 55px;
   font-weight: bold;
 }
 
 .menu-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  transition: transform 0.5s;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+.menu-todo {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -151,8 +163,8 @@
 
 .menu-item-logo {
   list-style: none;
+  max-height: 110%;
   height: 110%;
-  width: 14%;
   padding: 10px;
   transition: 0.5s;
   text-align: center;
@@ -197,7 +209,7 @@
   margin: 10px;
   padding: 5px;
   display: grid;
-  width: 50px;
+  width: 30px;
   color: black;
   transition: 0.5s;
 }
@@ -294,11 +306,7 @@
 }
 
 .logoh {
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 2px;
-  width: 90%;
-  height: 70%;
+  height: 80%;
 }
 .logoh:hover {
   cursor: pointer;
@@ -342,8 +350,13 @@
 }
 .bag {
   text-align: center;
-  margin-top: 18px;
+  margin-top: 7px;
   position: relative;
+  padding: 0.6rem 0.4rem;
+  border-radius: 10px;
+
+  transition: all ease-in-out 0.5s;
+  margin-right: -2rem;
 }
 .bag .fQQvfO {
   font-size: 2rem;
@@ -390,7 +403,7 @@
   /* transition: clip-path 0.3s; */
   position: absolute;
   z-index: 1000;
-  left: -410px;
+  left: -435px;
 }
 .menu-BagInside-invi {
   list-style: none;
@@ -457,13 +470,100 @@
   0% {
     transform: translateX(0);
   }
-  10%, 30%, 50%, 70%, 90% {
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
     transform: translateX(-2px);
   }
-  20%, 40%, 60%, 80% {
+  20%,
+  40%,
+  60%,
+  80% {
     transform: translateX(2px);
   }
   100% {
     transform: translateX(0);
+  }
+}
+/* ====================================================================0000 */
+@media screen and (max-width: 1100px) {
+  .menu-todo {
+    display: flex;
+  }
+  .menu-inside {
+    max-width: 300px;
+  }
+
+  .left-menu {
+    justify-content: space-between;
+    display: flex;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .menu-BagInside {
+    left: -455px;
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .menu-todo {
+    display: flex;
+  }
+  .menu-inside {
+    max-width: 200px;
+  }
+
+  .menu-inside {
+    max-width: 200px;
+  }
+  .logo {
+    max-width: 90%;
+    max-height: 90%;
+  }
+  .logoh {
+    height: 80%;
+  }
+
+  .menu-links-mfa {
+    display: none;
+    pointer-events: none;
+  }
+  .itemsNav {
+    display: none;
+    cursor: none;
+  }
+  .link-about,
+  .link-movies,
+  .link-foods {
+    display: none;
+    pointer-events: none;
+  }
+  .link-about:hover,
+  .link-movies:hover,
+  .link-foods:hover {
+    display: none;
+    cursor: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  .menu-itemSearchBar {
+    left: 250px;
+    position: absolute;
+    right: 200px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .menu-itemSearchBar {
+    left: 180px;
+    position: absolute;
+    right: 200px;
+  }
+  .menu-BagInside {
+    width: 600px;
+    left: -405px;
+    position: absolute;
   }
 }

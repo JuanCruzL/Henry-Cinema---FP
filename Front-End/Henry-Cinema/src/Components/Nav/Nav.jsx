@@ -117,68 +117,71 @@ const Nav = ({ setCurrentPage }) => {
           </ul>
         </li>
         {/* Menú Nav */}
-
-        <div className="left-menu">
-          <li className="menu-item-logo">
-            <Link to="/">
-              <img src={logoCinema} className="logoh"></img>
-            </Link>
-          </li>
-          <Link to="/movies" className="link-movies">
-            <li className="itemsNav">
-              <div className="menu-link">Movies</div>
+        <div className="menu-todo">
+          <div className="left-menu">
+            <li className="menu-item-logo">
+              <Link to="/">
+                <img src={logoCinema} className="logoh"></img>
+              </Link>
             </li>
-          </Link>
-          <Link to="/foods" className="link-foods">
-            <li className="itemsNav">
-              <div className="menu-link">Food & Drinks</div>
-            </li>
-          </Link>
-          <Link to="/about" className="link-about">
-            <li className="itemsNav">
-              <div className="menu-link">About Us</div>
-            </li>
-          </Link>
-        </div>
-
-        <li className="menu-itemSearchBar">
-          <SearchBar setCurrentPage={setCurrentPage} />
-        </li>
-        <div className="right-menu">
-          <div className="shopBag">
-            <div className="menu-link-logo">
-              <label className="bag" onClick={mostrarShop}>
-                <ShoppingBagIcon className="bagLogo" />
-                {size > 0 && <div className="shake">$</div>}
-              </label>
-            </div>
-            <ul className="menu-Bag">
-              <li className="menu-BagInside-invi" id="menu-BagInside">
-                <ShoppingBag />
+            <Link to="/movies" className="link-movies">
+              <li className="itemsNav">
+                <div className="menu-links-mfa">Movies</div>
               </li>
-            </ul>
+            </Link>
+            <Link to="/foods" className="link-foods">
+              <li className="itemsNav">
+                <div className="menu-links-mfa">Food & Drinks</div>
+              </li>
+            </Link>
+            <Link to="/about" className="link-about">
+              <li className="itemsNav">
+                <div className="menu-links-mfa">About Us</div>
+              </li>
+            </Link>
           </div>
 
-          <li className="menu-item">
-            {decrypted !== "null" ? (
-              <div className="menu-link-user">
-                <Link to="/user" className="perfil">
-                  <img
-                    src={decrypted.image ? decrypted.image : imageDefault}
-                    className="userLogo-registed"
-                  />
-                </Link>
+          <li className="menu-itemSearchBar">
+            <SearchBar setCurrentPage={setCurrentPage} />
+          </li>
+          <div className="right-menu">
+            { user ? (
+            <div className="shopBag">
+              <div className="menu-link-logo">
+                <label className="bag" onClick={mostrarShop}>
+                  <ShoppingBagIcon className="bagLogo" />
+                  {size > 0 && <div className="shake">$</div>}
+                </label>
               </div>
-            ) : (
-              <>
+              <ul className="menu-Bag">
+                <li className="menu-BagInside-invi" id="menu-BagInside">
+                  <ShoppingBag />
+                </li>
+              </ul>
+            </div>) : <></>
+            }
+
+            <li className="menu-item">
+              {decrypted !== "null" ? (
                 <div className="menu-link-user">
-                  <Link to="/login" className="perfil">
-                    <AccountCircleIcon className="userLogo" />
+                  <Link to="/user" className="perfil">
+                    <img
+                      src={decrypted.image ? decrypted.image : imageDefault}
+                      className="userLogo-registed"
+                    />
                   </Link>
                 </div>
-              </>
-            )}
-          </li>
+              ) : (
+                <>
+                  <div className="menu-link-user">
+                    <Link to="/login" className="perfil">
+                      <AccountCircleIcon className="userLogo" />
+                    </Link>
+                  </div>
+                </>
+              )}
+            </li>
+          </div>
         </div>
         {/*  </ul> */}
       </section>

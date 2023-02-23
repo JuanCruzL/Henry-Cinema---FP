@@ -33,7 +33,7 @@ import {
 } from "./actionTypes";
 
 axios.defaults.baseURL = "http://localhost:3001";
-//axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
+// axios.defaults.baseURL = "https://henry-cinema-fp-production.up.railway.app/";
 
 //MOVIES
 
@@ -711,3 +711,12 @@ export const getUserById = (id) => {
     }
   };
 };
+
+export const postTicket = (data) => {
+    return async ( dispatch ) => {
+      await axios.put("/payment/succes",data);
+      dispatch({
+        type:"SUCCESS_PAYMENT"
+      })
+    }
+}
