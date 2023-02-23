@@ -30,10 +30,10 @@ export const HomeDash = () => {
           {/* <Widget type="users" className="widget" />
           <Widget type="reviews" className="widget" />
           <Widget type="screenings" className="widget" />
-          <Widget type="sales" className="widget" /> */}
+          <Widget type="sales" className="widget" />  */}
         </div>
         <div className="charts">
-          {/* <Featured className="featured" /> */}
+          {/* <Featured className="featured" />  */}
           {/* <Chart className="chart" /> */}
         </div>
         <div className="listContainer">

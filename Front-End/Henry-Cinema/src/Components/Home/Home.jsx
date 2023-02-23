@@ -44,7 +44,7 @@ export default function Home() {
   }
   return (
     <div className="Homehome">
-      <Nav setCurrentPage={setCurrentPage} />
+      {/* <Nav setCurrentPage={setCurrentPage} /> */}
       <div className="BodyHome">
         <HomeCarrusel cartelera={cartelera} />
         <HomePaginated
