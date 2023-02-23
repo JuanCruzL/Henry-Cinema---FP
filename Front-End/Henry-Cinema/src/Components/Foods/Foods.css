@@ -1,65 +1,82 @@
-.light-mode .container-foods{
+.light-mode .margin-foods,
+.light-mode .container-foods {
     background-color: var(--LFondo-1);
 }
-.light-mode .buttons-foods{
-    border-right:2px solid var(--LBase-1);
+
+.light-mode .buttons-foods {
+    border-right: 2px solid var(--LBase-1);
     color: var(--LText-1);
 }
+
 .light-mode .selected {
     background-color: var(--LBase-1);
     color: var(--LText-3);
 }
+
 .light-mode .button-combos,
 .light-mode .button-foods,
-.light-mode .button-drinks{
-    border-right:2px solid var(--LBase-1);
+.light-mode .button-drinks {
+    border-right: 2px solid var(--LBase-1);
 }
 
 /*=========================================================*/
-
-.dark-mode .container-foods{
+.dark-mode .margin-foods,
+.dark-mode .container-foods {
     background-color: var(--NFondo-1);
 }
-.dark-mode .buttons-foods{
-    border-right:2px solid var(--BaseN);
+
+.dark-mode .buttons-foods {
+    border-right: 2px solid var(--BaseN);
     color: var(--NText-1);
 }
+
 .dark-mode .selected {
     background-color: var(--BaseN);
     color: var(--NText-2);
 }
+
 .dark-mode .button-combos,
 .dark-mode .button-foods,
-.dark-mode .button-drinks{
-    border-right:2px solid var(--BaseN);
+.dark-mode .button-drinks {
+    border-right: 2px solid var(--BaseN);
 }
 
 
 /*=========================================================*/
+.margin-foods {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
 
-.container-foods{
+.container-foods {
+    margin: auto;
     height: 100%;
     width: 100%;
     /*DIVIDIMOS EL CONTENEDOR EN 2 COLUMNAS*/
-    display:grid;
+    display: grid;
     grid-template-columns: 25% 75%;
     /*padding-top: 70px;  ESTO PARA EL ESPACIO ENTRE EL NAV */
+
+    max-width: 1520px;
 }
 
-.buttons-foods{
+.buttons-foods {
     margin-top: 95px;
     margin-bottom: 50px;
     padding-top: 15%;
     padding-bottom: 25%;
     padding-left: 1.5%;
     padding-right: 1.5%;
+    /*LIMITADOR*/
+    max-width: 380px;
 }
 
 
 
 .button-combos,
 .button-foods,
-.button-drinks{
+.button-drinks {
     display: flex;
     margin-bottom: 20px;
     height: 1.5cm;
@@ -70,15 +87,44 @@
     cursor: pointer;
 }
 
-.container-all{
+.container-all {
     display: grid;
-    grid-template-rows:  auto;
+    grid-template-rows: auto;
     margin-top: 70px;
+
+    /*LIMITADOR*/
+    max-width: 1140px;
 }
 
-.containerForCards{
-    display:grid;
+.containerForCards {
+    display: grid;
     grid-template-columns: auto;
     max-width: 100%;
     min-width: 100%;
+}
+
+@media (max-width:800px) {
+    .container-foods {
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        /*DIVIDIMOS EL CONTENEDOR EN 2 COLUMNAS*/
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+        /*padding-top: 70px;  ESTO PARA EL ESPACIO ENTRE EL NAV */
+
+    }
+    .buttons-foods{
+        margin-top: 50px;
+        margin-bottom: 0px;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        padding-left: 1.5%;
+        padding-right: 1.5%;
+    
+        /*LIMITADOR*/
+        height: auto;
+        max-width: 100%;
+    }
 }
