@@ -66,10 +66,6 @@ const {
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
-User.hasMany(Like, {foreignKey: "User_Likes"})
-Like.belongsTo(User, {foreignKey: "User_Likes"})
-Movie.hasMany(Like, {foreignKey: "Movie_Likes"})
-Like.belongsTo(Movie, {foreignKey: "Movie_Likes"})
 User.hasMany(Review, { foreignKey: "User_Review" });
 Review.belongsTo(User, { foreignKey: "User_Review" });
 User.belongsToMany(Combo, { through: "User_Combo" });
@@ -96,6 +92,17 @@ Movie.hasMany(Screening, { foreignKey: "Movie_Screening" });
 Screening.belongsTo(Movie, { foreignKey: "Movie_Screening" });
 Movie.hasMany(Review, { foreignKey: "Movie_Review" });
 Review.belongsTo(Movie, { foreignKey: "Movie_Review" });
+//------------------- relaciones de like----------------------
+User.hasMany(Like, { foreignKey: "User_Likes" });
+Like.belongsTo(User, { foreignKey: "User_Likes" });
+Movie.hasMany(Like, { foreignKey: "Movie_Likes" });
+Like.belongsTo(Movie, { foreignKey: "Movie_Likes" });
+//---------------------relaciones de dislike ------------------
+User.hasMany(Dislike, { foreignKey: "User_Dislikes" });
+Dislike.belongsTo(User, { foreignKey: "User_Dislikes" });
+Movie.hasMany(Dislike, { foreignKey: "Movie_Dislikes" });
+Dislike.belongsTo(Movie, { foreignKey: "Movie_Dislikes" });
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

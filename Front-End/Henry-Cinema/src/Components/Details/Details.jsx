@@ -15,6 +15,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import axios from "axios";
 
+
 export default function Details() {
   const { id } = useParams();
   const [leftchars, setLeftchars] = useState(800);
@@ -26,32 +27,32 @@ export default function Details() {
   const [dislikes, setDislikes] = useState(0)
   const [likeAction, setLikeAction]= useState(null)
   const [dislikeAction, setDislikeAction]= useState(null)
-//   axios.defaults.baseURL = "http://localhost:3001"
+  // axios.defaults.baseURL = "http://localhost:3001"
+
   useEffect(() => {
     dispatch(getMovieById(id));
     dispatch(getUsers());
-    axios.get("/reviews/likes",).then(response => {
-      if(response.data.succes) {
+    // dispatch()
+    axios.post("/reviews/likes", {movieId:id}).then(response => {
         //obtengo la cantidad de likes
-        setLikes(response.data.likes.length)
+        setLikes(response.data.length)
         //me fijo si el usuario actual ya likeo la película
-        response.data.likes.map(like=>{if(like.userId === userinfo.id) {
+        response.data.map(like=>{if(like.userId === userinfo.id) {
           setLikeAction("liked")
         }
-      })
-      }
+      })  
     })
-    axios.get("/reviews/dislikes",).then(response => {
-      if(response.data.succes) {
-        //obtengo la cantidad de dislikes
-        setDislikes(response.data.dislikes.length)
-        //me fijo si el usuario actual ya deslikeo la película
-        response.data.dislikes.map(dislike=>{if(dislike.userId === userinfo.id){
-          setDislikeAction("disliked")
-        }
-      })
-      }
-    })
+    // axios.get("http://localhost:3001/reviews/dislikes",).then(response => {
+    //   if(response.data.succes) {
+    //     //obtengo la cantidad de dislikes
+    //     setDislikes(response.data.dislikes.length)
+    //     //me fijo si el usuario actual ya deslikeo la película
+    //     response.data.dislikes.map(dislike=>{if(dislike.userId === userinfo.id){
+    //       setDislikeAction("disliked")
+    //     }
+    //   })
+    //   }
+    // })
     setTimeout(() => {
       setLoading(false);
     }, 1500);
@@ -112,15 +113,26 @@ export default function Details() {
 
   const handleLike = async () => {
     if(likeAction === null) {
-      let response = await axios.post("/reviews/postlike",{type: "like", userId: userinfo.id, movieId: id})
+     await axios.post("/reviews/postlike",{type: "uplike", userId: userinfo.id, movieId: id})
+      axios.post("/reviews/likes", {movieId:id}).then(response => {
+        setLikes(response.data.length)}).then(setLikeAction("liked"))
     }else {
-      alert("you cant click like again")
+      axios.post("/reviews/postlike",{type: "downlike", userId: userinfo.id, movieId: id})
+      .then(response=>{setLikes(response.data.length)}).then(setLikeAction(null))
     }
 
   }
 
-  const handleDislike = () => {
-
+  const handleDislike = async () => {
+    if(dislikeAction === null) {
+      let response = await axios.post("/reviews/postlike",{type: "dislike", userId: userinfo.id, movieId: id})
+      axios.post("/reviews/dislikes", {movieId:id}).then(response => {
+        //obtengo la cantidad de likes
+        setDislikes(response.data.length)})
+      setDislikeAction("disliked")
+    }else {
+      setDislikeAction(null)
+    }
   }
 
 

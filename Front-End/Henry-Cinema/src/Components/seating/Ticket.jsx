@@ -1,15 +1,15 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { addItem } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 
 function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
-  console.log(initialNumberOfEntries);
   const [ids, setIds] = useState([]);
   const dispatch = useDispatch();
-  const [isReserved, setIsReserved] = useState(false); // Nuevo estado
+  const [isReserved, setIsReserved] = useState(false);
+  const navigate = useNavigate(); // declarar useNavigate aquí
 
   useEffect(() => {
     const newIds = asientosSeleccionados.map((asiento) =>
@@ -44,8 +44,6 @@ function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
         alert("Error reserving seats"); // Muestra un mensaje de error
       });
   };
-
-  console.log(initialNumberOfEntries);
 
   return (
     <div className="TiketDetail">

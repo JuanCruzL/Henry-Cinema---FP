@@ -82,7 +82,7 @@
 .BodyHome {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 2% 1fr;
+    grid-template-rows: 0.4fr 2% auto;
     grid-auto-flow: row;
     grid-template-areas:
         "HomeCarrusel"
