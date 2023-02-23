@@ -54,7 +54,7 @@ export const ReviewsTable = () => {
             <TableCell className="title">USERNAME</TableCell>
             <TableCell className="title">SCORE</TableCell>
             <TableCell className="title">COMMENTARY</TableCell>
-            {/* <TableCell className="title">DATE</TableCell> */}
+            <TableCell className="title">DATE</TableCell>
             <TableCell className="title">DELETE</TableCell>
           </TableRow>
         </TableHead>
@@ -66,7 +66,7 @@ export const ReviewsTable = () => {
               <TableCell className="tableCellReviews">
                 {r.commentary.slice(0, 30)}
               </TableCell>
-              {/* <TableCell className="tableCellReviews">{r.date}</TableCell> */}
+              <TableCell className="tableCellReviews">{r.createdAt}</TableCell>
               <TableCell className="tableCellReviews">
                 <button onClick={() => deleteAlert(r.id, r.name)}>
                   <div>
