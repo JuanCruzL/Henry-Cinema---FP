@@ -34,7 +34,8 @@ const initialState = {
   ShoppingCartItems: [],
   screeningID: [],
   //Shopping Bag
-  shoppingBag: [],
+  shoppingBag: localStorage.getItem("shoppingBag") ? 
+  JSON.parse(localStorage.getItem("shoppingBag")) : [],
   userById: {},
   url: null,
 };

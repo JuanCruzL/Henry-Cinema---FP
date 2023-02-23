@@ -3,7 +3,6 @@ const router = Router();
 const { ACCESS_TOKEN } = process.env;
 
 const mercadopago = require('mercadopago');
-
 require("dotenv").config();
 mercadopago.configure({
     access_token: ACCESS_TOKEN
@@ -23,7 +22,7 @@ router.post("/",async(req,res) =>{
         items:items,
 
         back_urls: {
-            success: 'http://localhost:5173/succes/payment',
+            success: 'https://henry-cinemafront-production.up.railway.app/succes/payment',
             failure:'',
             pending:''
         },
