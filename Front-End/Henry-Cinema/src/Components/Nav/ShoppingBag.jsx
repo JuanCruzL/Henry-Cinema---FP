@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { lessItem , sendShopping , postTicket } from "../../redux/actions";
-
+import { lessItem, sendShopping, postTicket } from "../../redux/actions";
+import { useNavigate } from "react-router-dom";
 
 function ShoppingBag() {
   const dispatch = useDispatch();
@@ -13,23 +13,51 @@ function ShoppingBag() {
     return accumulator + item.price * item.quantity;
   }, 0);
 
+  // const handleSend = (e) => {
+  //   if (pay) {
 
+  //     window.location.href =url;
+
+  //   } else {
+  //     dispatch(sendShopping(e));
+  //     window.localStorage.setItem(
+  //       "shoppingBag",
+  //       JSON.stringify(e)
+  //     );
+  //     setTimeout(() => {
+  //       setPay(true);
+  //     }, 500);
+
+  //   }
+  // };
+
+  const navigate = useNavigate();
   const handleSend = (e) => {
+    const now = new Date();
+    const filteredItems = e.filter((item) => {
+      const itemDate = new Date(item.date);
+      const diff = now - itemDate;
+      const diffMinutes = diff / (1000 * 60);
+      if (diffMinutes > 5) {
+        swal(
+          `The ${item.name} item has been removed from the shopping bag because it has been more than 5 minutes.`
+        ).then(() => {
+          window.location.reload();
+          navigate("/movies");
+        });
+        return false;
+      }
+      return true;
+    });
+
     if (pay) {
-     
-      window.location.href =url;
-      
-      
+      window.location.href = url;
     } else {
-      dispatch(sendShopping(e));
-      window.localStorage.setItem(
-        "shoppingBag",
-        JSON.stringify(e)
-      );
+      dispatch(sendShopping(filteredItems));
+      window.localStorage.setItem("shoppingBag", JSON.stringify(filteredItems));
       setTimeout(() => {
         setPay(true);
       }, 500);
-      
     }
   };
 
@@ -44,7 +72,6 @@ function ShoppingBag() {
     setPay(false);
   };
 
- 
   return (
     <div>
       {/* <button onClick={()=>console.log(allItems)}>click me</button>  */}

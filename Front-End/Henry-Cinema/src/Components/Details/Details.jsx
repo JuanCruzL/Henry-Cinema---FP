@@ -22,15 +22,14 @@ export default function Details() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const accestoken = localStorage.getItem("loggedUser");
-  const userinfo = jwt_decode(accestoken);
+  const userinfo = accestoken ? jwt_decode(accestoken) : false;
   const [likes, setLikes] = useState(0)
   const [dislikes, setDislikes] = useState(0)
   const [likeAction, setLikeAction]= useState(null)
   const [dislikeAction, setDislikeAction]= useState(null)
-  // axios.defaults.baseURL = "http://localhost:3001"
-
   useEffect(() => {
     dispatch(getMovieById(id));
+    
     dispatch(getUsers());
     // dispatch()
     axios.post("/reviews/likes", {movieId:id}).then(response => {
@@ -42,17 +41,15 @@ export default function Details() {
         }
       })  
     })
-    // axios.get("http://localhost:3001/reviews/dislikes",).then(response => {
-    //   if(response.data.succes) {
-    //     //obtengo la cantidad de dislikes
-    //     setDislikes(response.data.dislikes.length)
-    //     //me fijo si el usuario actual ya deslikeo la película
-    //     response.data.dislikes.map(dislike=>{if(dislike.userId === userinfo.id){
-    //       setDislikeAction("disliked")
-    //     }
-    //   })
-    //   }
-    // })
+    axios.post("/reviews/dislikes", {movieId: id}).then(response => {
+        //obtengo la cantidad de dislikes
+        setDislikes(response.data.length)
+        //me fijo si el usuario actual ya deslikeo la película
+        response.data.map(dislike=>{if(dislike.userId === userinfo.id){
+          setDislikeAction("disliked")
+        }
+      })
+    })
     setTimeout(() => {
       setLoading(false);
     }, 1500);
@@ -64,6 +61,7 @@ export default function Details() {
 
   const movie = useSelector((state) => state.movieId);
   const users = useSelector((state) => state.users);
+
   const [form, setForm] = useState({
     review: "",
     userId: userinfo.id,
@@ -108,43 +106,53 @@ export default function Details() {
 
   const handlePostReview = async (e) => {
     e.preventDefault();
-    await dispatch(postReview(form));
+    let verify = movie?.Reviews?.find(e => e.User_Review === userinfo.id )
+    let logged = userinfo ? true : false
+    if(verify) {
+      return alert("you cant create another Review")
+    }else if(!logged) {
+      alert("You must be logged in to comment")
+    } else if(logged && !verify){
+      await dispatch(postReview(form));
+      window.location.reload(true)
+    }
   };
 
+  const handleLikeToDislike = async () => {
+    axios.post("/reviews/unlike",{ userId: userinfo.id, movieId: id })
+      .then(response=>{setLikes(response.data.length)}).then(setLikeAction(null))
+  }
+
   const handleLike = async () => {
-    if(likeAction === null) {
+    let logged = userinfo ? true : false
+    if(!logged){
+      alert("You must be logged in to leave a like")
+    }
+     else if(likeAction === null) {
      await axios.post("/reviews/postlike",{type: "uplike", userId: userinfo.id, movieId: id})
       axios.post("/reviews/likes", {movieId:id}).then(response => {
         setLikes(response.data.length)}).then(setLikeAction("liked"))
     }else {
-      axios.post("/reviews/postlike",{type: "downlike", userId: userinfo.id, movieId: id})
+      axios.post("/reviews/unlike",{ userId: userinfo.id, movieId: id })
       .then(response=>{setLikes(response.data.length)}).then(setLikeAction(null))
     }
-
   }
 
   const handleDislike = async () => {
-    if(dislikeAction === null) {
-      let response = await axios.post("/reviews/postlike",{type: "dislike", userId: userinfo.id, movieId: id})
+    let logged = userinfo ? true : false
+    if(!logged){
+      alert("You must be logged in to leave a dislike")
+    }
+    else if(dislikeAction === null) {
+      await axios.post("/reviews/postdislike",{userId: userinfo.id, movieId: id})
       axios.post("/reviews/dislikes", {movieId:id}).then(response => {
         //obtengo la cantidad de likes
-        setDislikes(response.data.length)})
-      setDislikeAction("disliked")
+        setDislikes(response.data.length)}).then(setDislikeAction("disliked")) 
     }else {
-      setDislikeAction(null)
+      axios.post("/reviews/deletedislike",{ userId: userinfo.id, movieId: id })
+      .then(response=>{setDislikes(response.data.length)}).then(setDislikeAction(null))
     }
   }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -193,6 +201,7 @@ export default function Details() {
                   alt={movie.title}
                   className="coverImage"
                 />
+                <div className="conteiner-allDetails">
                 <p className="allDetailsP">
                   <b>Original Title: </b>
                   {movie.title}
@@ -225,6 +234,7 @@ export default function Details() {
                 ) : (
                   <></>
                 )}
+                </div>
               </div>
             </div>
             <div className="likes-and-dislikes-container">

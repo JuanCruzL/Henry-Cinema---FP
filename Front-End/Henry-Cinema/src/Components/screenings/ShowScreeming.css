@@ -74,7 +74,7 @@
 .poster-container {
   width: 300px;
   border-radius: 10px;
-  margin: 95px 25px;
+  margin: 150px 80px;
   display: flex;
   background-color: rgb(17 17 17 / 40%);
   box-shadow: 0 8px 16px 0 rgba(80, 79, 40, 0.227), 0 6px 20px 0 #83824b41;
@@ -82,7 +82,7 @@
 }
 .poster {
   border-radius: 10px;
-  margin: 95px 80px;
+  margin: 150px 80px;
   width: auto;
   height: 380px;
   box-shadow: 0 8px 16px 0 rgba(141, 139, 72, 0.227), 0 6px 20px 0 #9b9a5941;
@@ -208,4 +208,57 @@
 .seat-selector:hover {
   background-color: #c3d900;
   color: black;
+}
+@media screen and (max-width: 1100px) {
+  .screening-container {
+    display: block;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .screening-container {
+    display: block;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .screening-container {
+    display: block;
+  }
+  .poster {
+    margin: 60px 80px;
+  }
+  .poster-container {
+    margin: 30px 80px;
+  }
+
+  .posters-container {
+    display: flex;
+    margin: 0px 80px;
+    justify-content: space-around;
+  }
+  .poster-ss {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .screening-container {
+    display: block;
+  }
+  .poster {
+    margin: 60px 80px;
+  }
+  .poster-container {
+    margin: 30px 80px;
+  }
+
+  .posters-container {
+    display: flex;
+    margin: 0px 80px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .poster-ss {
+    display: flex;
+    justify-content: space-around;
+  }
 }

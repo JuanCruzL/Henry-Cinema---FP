@@ -30,8 +30,8 @@
 .movie-data {
   display: flex;
   flex-direction: column;
-  margin-left: 2%;
-  margin-top: 2%;
+  margin-left: 5%;
+  margin-top: 5%;
 }
 
 .movie-data p {
@@ -44,6 +44,18 @@
   display: flex;
   font-size: 25px;
   margin: 10px;
-  padding: 100px 0px 10px 0px;
+
   font-weight: 600;
+}
+h2.title {
+  margin: 6px 10px 6px 4px;
+}
+@media screen and (max-width: 1100px) {
+  .movie-data h2 {
+    margin: none;
+  }
+
+  .movie {
+    min-width: 88%;
+  }
 }

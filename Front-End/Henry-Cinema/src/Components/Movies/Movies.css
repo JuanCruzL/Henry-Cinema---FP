@@ -131,7 +131,7 @@
   position: relative;
   display: flex;
   width: 90%;
-  min-height: 350px;
+  margin: auto;
   margin-bottom: 10px;
 }
 .Filter-results {
@@ -145,4 +145,19 @@
   align-items: center;
   justify-content: center;
   overflow-y: scroll;
+}
+@media screen and (max-width: 700px) {
+  .carousel-container {
+    min-height: 224px;
+  }
+  .Available h3 {
+    padding: px;
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .Available h3 {
+    padding: 8px;
+    font-size: 15px;
+  }
 }

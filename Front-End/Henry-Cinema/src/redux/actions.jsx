@@ -437,7 +437,6 @@ export const signUp = (payload) => {
         await axios.post("/register", payload);
         return alert("User register successfully!, You can now Log In!");
       }
-      console.log(payload.notifications);
       await axios.post("/register", payload);
       return alert("User register successfully!, You can now Log In!");
     } catch (e) {
@@ -457,7 +456,6 @@ export const getReviews = () => {
           type: GET_REVIEWS,
           payload: response.data,
         });
-        console.log(response.data);
       })
       .catch((error) => {
         console.log("error");
@@ -495,7 +493,7 @@ export const getSales = () => {
         });
       })
       .catch((error) => {
-        console.log("error");
+        console.log(error);
       });
   };
 };
@@ -713,10 +711,10 @@ export const getUserById = (id) => {
 };
 
 export const postTicket = (data) => {
-    return async ( dispatch ) => {
-      await axios.put("/payment/succes",data);
-      dispatch({
-        type:"SUCCESS_PAYMENT"
-      })
-    }
-}
+  return async (dispatch) => {
+    await axios.put("/payment/succes", data);
+    dispatch({
+      type: "SUCCESS_PAYMENT",
+    });
+  };
+};

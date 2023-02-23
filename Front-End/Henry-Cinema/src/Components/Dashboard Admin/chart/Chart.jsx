@@ -10,13 +10,18 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import Loader from "../../Loader/Loader";
 
-const allSales = useSelector((state) => state.sales);
+export const Chart = ({load}) => {
+  if(load === false){
+    return <Loader/>
+  }else {
+  const allSales = useSelector((state) => state.sales);
 
 const salesInMonth = (salesArray, month) => {
-  const filteredSales = salesArray.filter((sale) => {
-    const saleDate = new Date(sale.createdAt);
-    return saleDate.getMonth() === month;
+  const filteredSales = salesArray?.filter((sale) => {
+    const saleDate = new Date(sale?.createdAt ? sale?.createdAt : "18-11-2002");
+    return saleDate?.getMonth() === month;
   });
   const totalAmount = filteredSales.reduce((acc, sale) => {
     return acc + sale.amount;
@@ -24,7 +29,6 @@ const salesInMonth = (salesArray, month) => {
 
   return totalAmount;
 };
-
 const salesForJanuary = salesInMonth(allSales, 0);
 const salesForFebruary = salesInMonth(allSales, 1);
 const salesForMarch = salesInMonth(allSales, 2);
@@ -40,8 +44,7 @@ const data = [
   { name: "May", Total: salesForMay },
   { name: "June", Total: salesForJune },
 ];
-
-export const Chart = () => {
+  
   return (
     <div className="chart">
       <div className="title">{"LAST 6 MONTHS (REVENUE)"}</div>
@@ -73,5 +76,5 @@ export const Chart = () => {
     </div>
   );
 };
-
+}
 export default Chart;
