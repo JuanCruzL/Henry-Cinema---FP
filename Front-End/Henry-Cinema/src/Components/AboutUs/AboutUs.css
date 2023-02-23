@@ -35,10 +35,13 @@
 .container-text-app{
     text-align: center;
     font-size: 19px;
-    width: 80%;
     margin: auto;
     padding: 30px;
     line-height: 2;
+
+    width: 80%;
+    /* LIMITADOR */
+    max-width: 1215px;
 }
 .container-text-app .About-text{
     text-align: center;
@@ -63,16 +66,42 @@
 /*Tercer Contenedor*/
 .container-about-us{
     margin-top: 50px;
-    width: 90%;
-    height:100%;
     margin: auto;
     /*DIVIDIMOS EL CONTENEDOR EN 3 FILAS*/
     display: grid;
     grid-template-columns: auto auto auto auto;
     justify-content: center;
     align-items: center;
+
+    width: 90%;
+    height:100%;
+    /*LIMITADOR*/
+    max-width: 1368px;
 }
 
 .About-text {
     text-align: center;
+}
+
+
+@media (max-width: 1100px) {
+    .container-text-app .logo-henry{
+        width:40%;
+        height: 180px;
+        margin-bottom: 20px;
+    }
+    .container-about-us{
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media (max-width:800px) {
+    .container-text-app .logo-henry{
+        width:60%;
+        height: 150px;
+        margin-bottom: 20px;
+    }
+    .container-about-us{
+        grid-template-columns: auto auto;
+    }
 }
