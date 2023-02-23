@@ -1,15 +1,15 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { addItem } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 
 function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
-  console.log(initialNumberOfEntries);
   const [ids, setIds] = useState([]);
   const dispatch = useDispatch();
-  const [isReserved, setIsReserved] = useState(false); // Nuevo estado
+  const [isReserved, setIsReserved] = useState(false);
+  const navigate = useNavigate(); // declarar useNavigate aquí
 
   useEffect(() => {
     const newIds = asientosSeleccionados.map((asiento) =>
@@ -27,7 +27,6 @@ function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
   };
 
   const reserveSeats = () => {
-    const navigate = useNavigate();
     const id = screening.id;
     if (isReserved) {
       swal("Seats already reserved");
@@ -35,10 +34,7 @@ function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
     }
     setIsReserved(true);
     axios
-      .put(
-        `https://henry-cinema-fp-production.up.railway.app/screenings/${id}/seatIds`,
-        { ids }
-      )
+      .put(`http://localhost:3001/screenings/${id}/seatIds`, { ids })
       .then((response) => {
         dispatch(addItem(exampleTicket));
         swal({
@@ -64,8 +60,6 @@ function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
         });
       });
   };
-
-  console.log(initialNumberOfEntries);
 
   return (
     <div className="TiketDetail">
