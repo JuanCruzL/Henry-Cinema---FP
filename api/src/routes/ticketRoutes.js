@@ -13,6 +13,7 @@ const { getTicketsDb } = require("../controllers/ticket");
 router.get("/", async (req, res) => {
   let allTicketsDb = await getTicketsDb();
   try {
+    console.log(allTicketsDb)
     res.status(200).send(allTicketsDb);
   } catch (error) {
     console.log(error);
@@ -22,9 +23,11 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
+    let amount = 0
+    let ticketinfo = req.body;
+    ticketinfo.forEach(e => amount = amount + Number(e.price * e.quantity))
     const date = new Date();
-    let { reserved, ticket_contact, movie_title } = req.body;
-    await Ticket.create({ reserved, ticket_contact, movie_title, date });
+    await Ticket.create({ reserved: true, ticket_contact:"contacto", movie_title: 3, date, amount: Math.floor(amount) });
     res.status(200).send("CREATED");
   } catch (error) {
     console.log(error);

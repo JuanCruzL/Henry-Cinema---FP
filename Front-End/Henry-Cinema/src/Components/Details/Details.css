@@ -315,6 +315,7 @@
 .thumbUPicon {
   position: relative;
   margin-right: 10px;
+  color:greenyellow
 }
 
 .thumbUPicon:hover {
@@ -331,6 +332,7 @@
   position: relative;
   margin-right: 10px;
   height: 10px;
+  color:red;
 }
 
 .thumbDOWNicon:hover {
@@ -455,6 +457,7 @@
   right: 10px;
 }
 
+
 @media (max-width: 1300px) {
   .detailsContainer {
     flex-direction: row;
@@ -540,3 +543,4 @@
     right: 10px;
   }
 }
+

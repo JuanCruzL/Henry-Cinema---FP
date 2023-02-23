@@ -38,7 +38,7 @@ function ShowScreenings() {
         <div>
           <Nav />
           <div className="screening-container">
-            <div>
+            <div className="poster-ss">
               <img
                 className="poster"
                 key={movie.Screenings.id}
