@@ -1,19 +1,21 @@
 .light-mode .cardcombos,
 .light-mode .cardfoods,
-.light-mode .carddrinks{
-    border-right : 2px solid var(--LBase-1);
+.light-mode .carddrinks {
+    border-right: 2px solid var(--LBase-1);
     border-bottom: 2px solid var(--LBase-1);
     box-shadow: 12px 10px 15px var(--LDegradado3);
     color: var(--LText-1);
 }
+
 .light-mode .cardcombos:hover,
 .light-mode .cardfoods:hover,
 .light-mode .carddrinks:hover {
     background-color: var(--DegradadoG);
 }
+
 .light-mode .cardcombos:hover .button-cardFood,
 .light-mode .cardfoods:hover .button-cardFood,
-.light-mode .carddrinks:hover .button-cardFood{
+.light-mode .carddrinks:hover .button-cardFood {
     background-color: var(--LBase-1);
     color: var(--BaseL);
 }
@@ -22,20 +24,22 @@
 
 .dark-mode .cardcombos,
 .dark-mode .cardfoods,
-.dark-mode .carddrinks{
-    border-right : 2px solid var(--BaseN);
+.dark-mode .carddrinks {
+    border-right: 2px solid var(--BaseN);
     border-bottom: 2px solid var(--BaseN);
     box-shadow: 12px 10px 15px var(--NDegradado4);
     color: var(--NText-1);
 }
+
 .dark-mode .cardcombos:hover,
 .dark-mode .cardfoods:hover,
 .dark-mode .carddrinks:hover {
     background-color: var(--DegradadoG);
 }
+
 .dark-mode .cardcombos:hover .button-cardFood,
 .dark-mode .cardfoods:hover .button-cardFood,
-.dark-mode .carddrinks:hover .button-cardFood{
+.dark-mode .carddrinks:hover .button-cardFood {
     background-color: var(--BaseL);
     color: var(--LBase-1);
 }
@@ -44,9 +48,9 @@
 
 .cardcombos,
 .cardfoods,
-.carddrinks{
-    display :flex;
-    width:90%;
+.carddrinks {
+    display: flex;
+    width: 90%;
     height: 4cm;
     margin: auto;
     margin-bottom: 30px;
@@ -62,7 +66,7 @@
 
 .cardcombos:hover .button-cardFood,
 .cardfoods:hover .button-cardFood,
-.carddrinks:hover .button-cardFood{
+.carddrinks:hover .button-cardFood {
     background-color: black;
     color: rgb(242, 255, 0);
 }
@@ -70,14 +74,14 @@
 
 .cardcombos:hover .image-cardFood,
 .cardfoods:hover .image-cardFood,
-.carddrinks:hover .image-cardFood{
+.carddrinks:hover .image-cardFood {
     transform: scale(1.15);
     transition: 1s;
 }
 
 
 
-.image-cardFood{
+.image-cardFood {
     max-width: 40%;
     max-height: 2.5cm;
     margin: auto 0px;
@@ -85,25 +89,25 @@
 }
 
 
-.information-food{
-    width:100%;
-    height:100%;
+.information-food {
+    width: 100%;
+    height: 100%;
     padding-left: 20px;
     padding-top: 20px;
     display: grid;
     grid-template-rows: auto auto auto auto;
 }
 
-.name-cardFood{
+.name-cardFood {
     width: 100%;
     height: 100%;
 }
 
-.description-cardFood{
+.description-cardFood {
     min-height: 20px;
 }
 
-.button-cardFood{
+.button-cardFood {
     display: flex;
     width: 100%;
     max-width: 130px;
@@ -114,7 +118,25 @@
     transition: 0.5s;
     margin: 10px 30px 10px auto;
 }
-.button-cardFood:hover{
+
+.button-cardFood:hover {
     transform: scale(1.15);
     transition: 0.5s;
+}
+
+@media (max-width: 1100px) {
+
+    .cardcombos,
+    .cardfoods,
+    .carddrinks {
+        height: 5cm;
+    }
+}
+
+@media (max-width:800px) {
+    .cardcombos,
+    .cardfoods,
+    .carddrinks {
+        height: 5cm;
+    }
 }
