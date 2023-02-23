@@ -63,7 +63,7 @@ router.post("/", async (req, res) => {
     items: items,
 
     back_urls: {
-      success: "http://localhost:5173/succes/payment",
+      success: "https://henry-cinemafront-production.up.railway.app/succes/payment",
       failure: "",
       pending: "",
     },

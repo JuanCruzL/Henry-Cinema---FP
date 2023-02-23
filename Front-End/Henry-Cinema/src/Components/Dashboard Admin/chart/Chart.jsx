@@ -12,8 +12,6 @@ import {
 } from "recharts";
 import Loader from "../../Loader/Loader";
 
-
-
 export const Chart = ({load}) => {
   if(load === false){
     return <Loader/>
@@ -31,7 +29,6 @@ const salesInMonth = (salesArray, month) => {
 
   return totalAmount;
 };
-
 const salesForJanuary = salesInMonth(allSales, 0);
 const salesForFebruary = salesInMonth(allSales, 1);
 const salesForMarch = salesInMonth(allSales, 2);
