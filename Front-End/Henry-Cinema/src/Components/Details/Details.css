@@ -1,43 +1,55 @@
-
-.light-mode .Big-container{
+.light-mode .Big-container {
   background-color: var(--LFondo-1);
   color: var(--LText-1);
 }
+
 .light-mode .infoBar {
   background-color: var(--BaseL);
   color: var(--LText-1);
 }
+
 .light-mode .fancy {
   background-color: var(--BaseL);
   border: 2px solid var(--LBase-1);
 }
-.light-mode .fancy .top-key ,
+
+.light-mode .fancy .top-key,
 .light-mode .fancy .bottom-key-1,
-.light-mode .fancy .bottom-key-2{
- background-color: var(--BaseL);
+.light-mode .fancy .bottom-key-2 {
+  background-color: var(--BaseL);
 }
+
 .light-mode .fancy::before {
   background-color: var(--LText-1);
 }
+
 .light-mode .fancy .text {
-  color: var(--LText-1);;
+  color: var(--LText-1);
+  ;
 }
+
 .light-mode .fancy:hover {
   background: var(--LBase-1);
 }
+
 .light-mode .fancy:hover::before {
   background: var(--BaseL);
 }
-.light-mode .fancy:hover .text{
-  color: var(--BaseL);;
+
+.light-mode .fancy:hover .text {
+  color: var(--BaseL);
+  ;
 }
-.light-mode .ytFrame{
+
+.light-mode .ytFrame {
   box-shadow: var(--LDegradado) 0px 10px 20px, var(--LDegradado) 0px 6px 6px;
 }
+
 .light-mode .coverImage {
   box-shadow: var(--LDegradado) 0px 5px 15px;
 }
-.light-mode .detailsContainerRight{
+
+.light-mode .detailsContainerRight {
   border: 1px solid var(--LDegradado);
   background: var(--Degradado);
 }
@@ -45,45 +57,58 @@
 
 
 
-.dark-mode .Big-container{
+.dark-mode .Big-container {
   background-color: var(--NFondo-1);
   color: var(--NText-1);
 }
+
 .dark-mode .infoBar {
   background-color: var(--BaseN);
   color: var(--NText-2);
 }
+
 .dark-mode .fancy {
   background-color: var(--NBase-2);
   border: 2px solid var(--NBase-1);
 }
-.dark-mode .fancy .top-key ,
+
+.dark-mode .fancy .top-key,
 .dark-mode .fancy .bottom-key-1,
-.dark-mode .fancy .bottom-key-2{
- background-color: var(--LBase-1);
+.dark-mode .fancy .bottom-key-2 {
+  background-color: var(--LBase-1);
 }
+
 .dark-mode .fancy::before {
   background-color: var(--NText-1);
 }
+
 .dark-mode .fancy .text {
-  color: var(--NText-1);;
+  color: var(--NText-1);
+  ;
 }
+
 .dark-mode .fancy:hover {
   background: var(--NBase-1);
 }
+
 .dark-mode .fancy:hover::before {
   background: var(--NBase-2);
 }
-.dark-mode .fancy:hover .text{
-  color: var(--NBase-2);;
+
+.dark-mode .fancy:hover .text {
+  color: var(--NBase-2);
+  ;
 }
-.dark-mode .ytFrame{
+
+.dark-mode .ytFrame {
   box-shadow: var(--LDegradado) 0px 10px 20px, var(--LDegradado) 0px 6px 6px;
 }
+
 .dark-mode .coverImage {
   box-shadow: var(--LDegradado) 0px 5px 15px;
 }
-.dark-mode .detailsContainerRight{
+
+.dark-mode .detailsContainerRight {
   border: 1px solid var(--NDegradado);
   background: var(--Degradado);
 }
@@ -94,7 +119,8 @@
   align-items: center;
   padding: 80px 0px;
   width: 100%;
-  padding-top: 80px; /* ESTO PARA EL ESPACIO ENTRE EL NAV */
+  padding-top: 80px;
+  /* ESTO PARA EL ESPACIO ENTRE EL NAV */
   flex-direction: column;
 }
 
@@ -105,13 +131,18 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 20px;
+  align-items: center;
+  margin: auto;
+  transition: 0.5s;
 }
 
 .detailsContainerRight {
   padding: 30px 50px 0px 50px;
   box-sizing: border-box;
   height: 787px;
-  width: 382px;
+  width: 100%;
+  max-width: 382px;
 }
 
 .MovieInfo {
@@ -119,6 +150,7 @@
   display: flex;
   flex-direction: column;
   margin-right: 25px;
+  transition: 0.5s;
 }
 
 .coverImage {
@@ -155,12 +187,14 @@
 .Genre {
   font-size: 35px;
   margin-bottom: 15px;
+  transition: 0.5s;
 }
 
 .movieTitle {
   font-size: 60px;
   font-weight: bold;
   margin-bottom: 15px;
+  transition: 0.5s;
 }
 
 .ytFrame {
@@ -271,7 +305,7 @@
   width: 0;
 }
 
-.likes{
+.likes {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -302,7 +336,7 @@
 }
 
 .thumbDOWNicon:hover {
-  cursor:pointer
+  cursor: pointer
 }
 
 
@@ -312,7 +346,9 @@
   height: 900px;
   position: relative;
   align-items: flex-end;
+  margin: auto;
 }
+
 .likes-and-dislikes-container {
   height: 50px;
   width: 380px;
@@ -329,12 +365,12 @@
 }
 
 .review-container {
-  position:relative;
+  position: relative;
   background-color: #232323;
   width: 600px;
   min-height: 200px;
-  max-height: fit-content;
-  display:flex;
+  max-height: auto;
+  display: flex;
   flex-direction: column;
   padding: 10px 30px;
   box-sizing: border-box;
@@ -356,7 +392,7 @@
   border-radius: 50%;
 }
 
-.review-user-name{
+.review-user-name {
   padding-left: 20px;
   font-weight: bold;
   font-size: 20px;
@@ -369,7 +405,7 @@
   padding-top: 20px;
   border-bottom: 2px solid #ffff00;
   justify-self: center;
-  left:  55px;
+  left: 55px;
 }
 
 .text-container {
@@ -383,11 +419,11 @@
 
 
 .review-input {
-  all:unset;
+  all: unset;
   background-color: transparent;
   width: 100%;
   min-height: auto;
-  color:white;
+  color: white;
   overflow: visible;
   font-size: 1.1rem;
   /* margin-bottom:20px; */
@@ -400,7 +436,7 @@
   font-size: 0.8rem;
 }
 
-.post-review-button{
+.post-review-button {
   background-color: #ffff00;
   color: black;
   font-weight: bold;
@@ -409,7 +445,8 @@
   position: relative;
   right: -435px;
 }
-.post-review-button:hover{
+
+.post-review-button:hover {
   cursor: pointer;
 }
 
@@ -418,5 +455,92 @@
   bottom: 10px;
   font-size: 0.8rem;
   right: 10px;
+}
+
+
+@media (max-width: 1300px) {
+  .detailsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    transition: 0.5s;
+    height: 1295px;
+  }
+
+  .MovieInfo {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 25px;
+    transition: 0.5s;
+    margin: auto;
+  }
+
+  .infoBar {
+    margin: auto;
+  }
+
+  .ytFrame {
+    width: 100%;
+  }
+
+  .detailsContainerRight {
+    padding: 10px;
+    position: relative;
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+    height: 300px;
+    max-width: 90%;
+    text-align: left;
+  }
+
+  .coverImage {
+    height: 100%;
+    width: 30%;
+  }
+
+  .conteiner-allDetails {
+    position: absolute;
+    top: 20px;
+    width: auto;
+    margin-left: calc(30% + 20px);
+  }
+
+  .reviews-container {
+    position: relative;
+    margin-top: 380px;
+    left: 0px;
+    max-height: fit-content;
+  }
+
+  .char-counter {
+    position: absolute;
+    right: 20px;
+    bottom: 40px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .review-container {
+    position: relative;
+    min-width: 400px;
+    width: auto;
+    min-height: 210px;
+    max-height: auto;
+    margin-top: calc(15% + 10px) ;
+  }
+  .likes-and-dislikes-container{
+    position: relative;
+    margin: auto;
+    margin-top: 5%;
+  }
+  .post-review-button {
+    position: absolute;
+    right: 10px;
+  }
 }
 
