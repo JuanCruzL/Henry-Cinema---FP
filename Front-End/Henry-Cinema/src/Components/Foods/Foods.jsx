@@ -44,6 +44,7 @@ function Foods() {
     <div className="containerComponent">
       <Nav></Nav>
     {/* <button onClick={()=> console.log(url)}>click me</button> */}
+    <div className="margin-foods">
       <div className="container-foods">
         <div className="buttons-foods">
           <div
@@ -119,6 +120,7 @@ function Foods() {
           )}
         </div>
       </div>
+    </div>
       <Footer />
     </div>
   );
