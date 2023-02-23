@@ -186,7 +186,7 @@ export const Featured = ({load}) => {
             <div className="itemTitle">Target</div>
             <div className="itemResult positive">
               <TrendingUpOutlinedIcon fontSize="small" />
-              <div className="resultAmount"> $12.4k</div>
+              <div className="resultAmount">$12.4k</div>
             </div>
           </div>
           <div className="item">
@@ -212,3 +212,4 @@ export const Featured = ({load}) => {
 
 
 export default Featured;
+
