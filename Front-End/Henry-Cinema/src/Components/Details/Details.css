@@ -281,6 +281,7 @@
 .thumbUPicon {
   position: relative;
   margin-right: 10px;
+  color:greenyellow
 }
 
 .thumbUPicon:hover {
@@ -297,6 +298,7 @@
   position: relative;
   margin-right: 10px;
   height: 10px;
+  color:red;
 }
 
 .thumbDOWNicon:hover {
@@ -417,3 +419,4 @@
   font-size: 0.8rem;
   right: 10px;
 }
+
