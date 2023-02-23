@@ -1,22 +1,27 @@
 .light-mode .footer {
   background-color: var(--BaseL);
 }
+
 .light-mode .footer-profile {
   background-color: var(--BaseL);
   /* box-shadow: 6px 6px 10px 1px var(--LBase-1); */
 }
+
 .light-mode .footer-options a,
 .light-mode .a-href .userFooter {
   color: var(--LText-1);
 }
+
 .light-mode .a-href .tag {
   color: var(--LText-1);
   /* color: var(--main-color-font-light); */
 }
+
 .light-mode .footer-options {
   background-color: var(--BaseL);
   color: var(--LText-1);
 }
+
 .light-mode .made-by {
   color: var(--LText-1);
 }
@@ -24,34 +29,43 @@
 .dark-mode .footer {
   background-color: var(--BaseL);
 }
+
 .dark-mode .footer-profile {
   background-color: var(--BaseL);
   /* box-shadow: 6px 6px 10px 1px var(--LBase-1); */
 }
+
 .dark-mode .footer-options a,
 .dark-mode .a-href .userFooter {
   color: var(--NText-2);
 }
+
 .dark-mode .a-href .tag {
   color: var(--NText-2);
   /* color: var(--main-color-font-light); */
 }
+
 .dark-mode .footer-options {
   background-color: var(--BaseL);
   color: var(--NText-2);
 }
+
 .dark-mode .made-by {
   color: var(--NText-2);
 }
 
+
+/*=================================================================*/
 .footer {
-  height: 150px;
   position: absolute;
-  width: 100%;
   display: flex;
   flex-direction: column;
   font-size: 14px;
   padding-bottom: 20px;
+  align-items: center;
+
+  width: 100%;
+  height: auto;
 }
 
 .footer-brand {
@@ -61,23 +75,28 @@
   margin-top: 10px;
   justify-self: start;
 }
+
 .footer-info {
-  width: 100%;
-  height: 100%;
   display: grid;
   grid-template-columns: 40% auto 40%;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  /*LIMITADOR*/
+  max-width: 1520px;
 }
 
-.footer-info > div .options {
+.footer-info>div .options {
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
 .footer-info .options .option {
   font-weight: 500;
 }
+
 .footer-contact {
   /* justify-self: end; */
   display: flex;
@@ -87,7 +106,10 @@
 
   height: 33%;
   width: 100%;
+  /*LIMITADOR*/
+  max-width: 1520px;
 }
+
 .footer-profile {
   display: flex;
   flex-direction: column;
@@ -95,20 +117,24 @@
   padding: 0.5em;
   transition: all ease-in-out 0.3s;
 }
+
 .footer-profile:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
+
 .footer-profile .userFooter {
   display: flex;
   align-items: center;
   font-weight: bold;
-  gap: 0.25em;
+  gap: 10%;
 }
+
 .footer-profile .tag {
   font-size: 12px;
   /* color: var(--main-color-font-light); */
 }
+
 .brand-logo {
   width: 100%;
   height: 100%;
@@ -127,16 +153,88 @@
 .span-links {
   cursor: pointer;
 }
+
 .footer-options {
   display: flex;
   flex-direction: column;
   padding: 0.5em;
   transition: all ease-in-out 0.3s;
 }
+
 .footer-options a {
   text-decoration: none;
 }
 
 .made-by {
   font-weight: bold;
+}
+
+
+
+@media (max-width: 1100px) {
+  .footer-info {
+    grid-template-columns: 30% auto 30%;
+  }
+
+  .footer-info .account,
+  .footer-info .explore {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+
+  .footer-contact {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 20px 5px;
+    position: relative;
+  }
+
+  .footer-contact .made-by {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}
+
+@media (max-width:800px) {
+  .footer-contact {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto auto auto;
+    grid-gap: 20px 5px;
+    position: relative;
+    font-size: 20px;
+  }
+  .footer-contact .made-by {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .footer-contact .user-name{
+    font-size: 20px;
+  }
+}
+
+@media (max-width:650px) {
+  .footer-contact {
+    display: grid;
+    grid-template-rows: auto  ;
+    grid-template-columns: auto  ;
+    grid-gap: 10px 5px;
+    position: relative;
+    font-size: 20px;
+  }
+  .footer-contact .made-by {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
 }

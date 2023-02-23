@@ -28,23 +28,37 @@ const postReview = async (req, res) => {
 
 const postLike = async(req,res) => {
   const { userId, movieId, type } = req.body;
-  // console.log("userId: ",userId, "movieID: ", movieId )
+  console.log("type: ",type )
 
   try {
-  const like = await Like.create({userId: userId , movieId: movieId})
-  console.log(like)
-  const userbyid = await User.findByPk(userId);
-  const moviebyid = await Movie.findByPk(movieId);
-    if(type === "like"){
+    const userbyid = await User.findByPk(userId);
+    const moviebyid = await Movie.findByPk(movieId);
+    if(type === "uplike"){
+
+      const like = await Like.create({userId: userId , movieId: movieId})
       await moviebyid.addLike(like)
       await userbyid.addLike(like)
-      // let foundlike = await Like.findByPk(like.id)
-      return res.status(200).send(like)
+      let foundlike = await Like.findByPk(like.id)
+      return res.status(200).send(foundlike)
+
+    }else if(type === "downlike"){
+      const like = await Like.findAll()
+      const likefound = like.find(e => e.movieId === movieId)
+      await Like.destroy({where:{
+        id: likefound.id,
+        userId: userId
+      }})
+      res.status(200).send(likefound)
     }else if (type === "dislike"){
 
+      const dislike = await Dislike.create({userId: userId , movieId: movieId})
+      await moviebyid.addDislike(dislike)
+      await userbyid.addDislike(dislike)
+      let foundislike = await Dislike.findByPk(Dislike.id)
+      return res.status(200).send(foundislike)
     }else if(type === "dislikeToLike" ) {
 
-    }else if(type === "likeToDislike"){
+    }else if(type === "likeToDislike") {
 
     }
 
@@ -55,11 +69,12 @@ const postLike = async(req,res) => {
 }
 
 const getLikes = async(req,res) => {
-  const {userId, movieId} =req.body
+  const {movieId} =req.body
   try{
     if(movieId) {
-      let likes = await Like.find(movieId)
-      console.log(likes)
+      let likes = await Like.findAll()
+      let filteredlikes = likes.filter(e => e.movieId === movieId)
+      res.status(200).send(filteredlikes)
     }
   }catch(error){
     res.status(404).send(error)
@@ -68,11 +83,12 @@ const getLikes = async(req,res) => {
 }
 
 const getDislikes = async(req,res) => {
-  const {userId, movieId} =req.body
+  const {movieId} =req.body
   try{
     if(movieId) {
-      let dislikes = await Dislike.find(movieId)
-      console.log(dislikes)
+      let dislikes = await Dislike.findAll()
+      let filteredDislikes = dislikes.filter(e => e.movieId === movieId)
+      res.status(200).send()
     }
   }catch(error){
     res.status(404).send(error)
