@@ -34,8 +34,7 @@ function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
     }
     setIsReserved(true);
     axios
-      .put(`/${id}/seatIds`, { ids })
-      // .put(`https://henry-cinema-fp-production.up.railway.app/screenings/${id}/seatIds`, { ids })
+      .put(`https://henry-cinema-fp-production.up.railway.app/screenings/${id}/seatIds`, { ids })
       .then((response) => {
         dispatch(addItem(exampleTicket));
         swal({
