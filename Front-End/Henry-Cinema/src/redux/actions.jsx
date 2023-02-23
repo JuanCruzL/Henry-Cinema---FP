@@ -711,20 +711,10 @@ export const getUserById = (id) => {
 };
 
 export const postTicket = (data) => {
-    return async ( dispatch ) => {
-      await axios.put("/payment/succes", data);
-      dispatch({
-        type:"SUCCESS_PAYMENT"
-      })
-    }
-}
-
-// export const postearTicket = (data) => {
-//   return async ( dispatch ) => {
-//     let response = await axios.post("/tickets", ticketinfo)
-//     console.log(response)
-//     dispatch({
-//       type:"SUCCESS_PAYMENT"
-//     })
-//   }
-// }
+  return async (dispatch) => {
+    await axios.put("/payment/succes", data);
+    dispatch({
+      type: "SUCCESS_PAYMENT",
+    });
+  };
+};
