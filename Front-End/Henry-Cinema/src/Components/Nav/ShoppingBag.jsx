@@ -40,7 +40,7 @@ function ShoppingBag() {
       const diffMinutes = diff / (1000 * 60);
       if (diffMinutes > 5) {
         swal(
-          `El elemento ${item.name} ha sido eliminado de la bolsa de compras porque ha pasado más de 5 minutos.`
+          `The ${item.name} item has been removed from the shopping bag because it has been more than 5 minutes.`
         ).then(() => {
           window.location.reload();
           navigate("/movies");
