@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { addItem } from "../../redux/actions";
 import { useDispatch } from "react-redux";
+import swal from "sweetalert";
 
 function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
   console.log(initialNumberOfEntries);
@@ -18,45 +20,51 @@ function Ticket({ asientosSeleccionados, screening, initialNumberOfEntries }) {
 
   const exampleTicket = {
     id: screening.id,
+    ids: ids,
     name: screening.title,
     price: 10,
     quantity: asientosSeleccionados.length,
   };
 
-  // const reserveSeats = () => {
-  //   const id = screening.id;
-  //   setIsReserved(true); // Cambia el estado de isReserved
-  //   axios
-  //     .put(`http://localhost:3001/screenings/${id}/seatIds`, { ids })
-  //     .then((response) => {
-  //       // console.log(response.data);
-  //       alert("Seats reserved successfully");
-  //       dispatch(addItem(exampleTicket));
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       alert("Error reserving seats");
-  //     });
-  // };
-
   const reserveSeats = () => {
+    const navigate = useNavigate();
     const id = screening.id;
     if (isReserved) {
-      alert("Seats already reserved"); // Muestra un mensaje si los asientos ya han sido reservados
+      swal("Seats already reserved");
       return;
     }
-    setIsReserved(true); // Cambia el estado de isReserved
+    setIsReserved(true);
     axios
-      .put(`http://localhost:3001/screenings/${id}/seatIds`, { ids })
+      .put(
+        `https://henry-cinema-fp-production.up.railway.app/screenings/${id}/seatIds`,
+        { ids }
+      )
       .then((response) => {
         dispatch(addItem(exampleTicket));
-        alert("Seats reserved successfully"); // Muestra un mensaje de éxito
+        swal({
+          title: "Seats reserved successfully",
+          text: "Do you want to purchase food?",
+          icon: "success",
+          buttons: {
+            cancel: "No",
+            confirm: "Yes",
+          },
+        }).then((value) => {
+          if (value) {
+            navigate("/foods");
+          }
+        });
       })
       .catch((error) => {
         console.error(error);
-        alert("Error reserving seats"); // Muestra un mensaje de error
+        swal({
+          title: "Error!",
+          text: "An error has occurred reserving seats",
+          icon: "error",
+        });
       });
   };
+
   console.log(initialNumberOfEntries);
 
   return (
