@@ -711,3 +711,12 @@ export const getUserById = (id) => {
     }
   };
 };
+
+export const postTicket = (data) => {
+    return async ( dispatch ) => {
+      await axios.put("/payment/succes",data);
+      dispatch({
+        type:"SUCCESS_PAYMENT"
+      })
+    }
+}

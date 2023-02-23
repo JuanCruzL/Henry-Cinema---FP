@@ -8,6 +8,14 @@ require("dotenv").config();
 mercadopago.configure({
     access_token: ACCESS_TOKEN
 });
+router.put("/success",async(req,res) => {
+ const {id,ids} = req.body;
+console.log(req.body)
+console.log(ids)
+res.send("success");
+
+})
+
 
 router.post("/",async(req,res) =>{
  
